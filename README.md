@@ -32,5 +32,5 @@ Temps de travail :
 
 
 Lien GANTT : 
-	
+	https://docs.google.com/spreadsheets/d/1KsalcYDiSb0bwymxdl439NgqBB-l6BHZ-qmTuf0vVaM/edit?hl=fr&pli=1#gid=0
 
