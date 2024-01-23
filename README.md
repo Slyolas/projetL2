@@ -5,10 +5,10 @@ NOM :
 
 Nature du projet : 
 
-
+	Projet de fin d'études L2 Informatique 2023 - 2024
 
 Titre du projet :
-
+	
 
 
 Descriptif du projet en qq lignes :
@@ -28,7 +28,7 @@ Date de fin du projet :
  
 Temps de travail :
 
-
+	
 
 
 Lien GANTT : 
