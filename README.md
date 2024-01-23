@@ -1,5 +1,5 @@
 NOM : 
-	-(Guillian) Guilian BOSSARD
+	-Guilian BOSSARD
 	-Nathan PERRON
 	-Bilal MEZRHAB
 
