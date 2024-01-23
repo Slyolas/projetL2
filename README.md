@@ -1,5 +1,5 @@
 NOM : 
-	-Guilian BOSSARD
+	-(Guillian) Guilian BOSSARD
 	-Nathan PERRON
 	-Bilal MEZRHAB
 
@@ -8,7 +8,7 @@ Nature du projet :
 
 
 Titre du projet :
-	
+
 
 
 Descriptif du projet en qq lignes :
@@ -31,5 +31,6 @@ Temps de travail :
 
 
 
-Lien github :
+Lien GANTT : 
 	
+
