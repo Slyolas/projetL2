@@ -13,3 +13,21 @@ Un monde -> 6 niveaux -> 1 boss
 
 Nouvelle version : 
 En 2168, Un individu du nom de Hervé se baladant dans le métaverse, s'amusa à toucher à tous ce qu'il trouvait sans prêter attention à son environnement. Par mégarde, il finira par toucher à un vieu terminal qui le transportera dans un autre métaverse, servant de prototype au métaverse ou se trouvait, "l'ancien internet". Son avatar se trouvera être modifié et buggé dès son entrer dans ce métaverse obsolète, lui empêchant d'utiliser de nombreuse faculté qu'il disposait, notamment la possibilité de sortir du métaverse. Afin de sortir de ce monde, il doit traverser l'ancien internet afin d'y trouver certains outils lui permettant de bricoler quelque chose lui permettant de sortir.
+
+Fonctionnalités du Jeu : 
+	- Sauter avec la barre espace
+	- Se déplacer à droite et à gauche avec les flèches directionelles droite et gauche
+
+Plan, Architecture du Jeu :
+
+	- Menu après ouverture du jeu : 
+		- Choix entre "Continuer", "Nouvelle Partie" et "Paramètres" si un fichier de sauvegarde et déjà existant
+		- Choix entre "Nouvelle Partie" et "Paramètres" si aucun fichier est existant
+		
+	- Menu après avoir cliqué sur "Nouvelle Partie" :
+		- Choix du personnage (masculin ou féminin), du nom que le personnage va porter pendant le jeu et du mode de jeu (Normal ou Hardcore)
+		
+	- Menu après avoir cliqué sur "Paramètres" :
+		- Paramètres pour le son du jeu, touches pour contrôler le personnage
+		
+	- Carte des différents niveaux du jeu avec notre personnage qui avance sur la carte à travers différents composants d'époques différentes 		
