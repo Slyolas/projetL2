@@ -13,6 +13,7 @@ Un monde -> 6 niveaux -> 1 boss
 
 Nouvelle version : 
 En 2168, Un individu du nom de Hervé (ou Suzette si le perso est une fille) se baladant dans le métaverse, s'amusa à toucher à tous ce qu'il trouvait sans prêter attention à son environnement. Par mégarde, il finira par toucher à un vieu terminal qui le transportera dans un autre métaverse, servant de prototype au métaverse ou se trouvait, "l'ancien internet". Son avatar se trouvera être modifié et buggé dès son entrer dans ce métaverse obsolète, lui empêchant d'utiliser de nombreuse faculté qu'il disposait, notamment la possibilité de sortir du métaverse. Afin de sortir de ce monde, il doit traverser l'ancien internet afin d'y trouver certains outils lui permettant de bricoler quelque chose lui permettant de sortir.
+<<<<<<< HEAD
 
 Fonctionnalités du Jeu :
 
@@ -23,6 +24,8 @@ Fonctionnalités du Jeu :
 	- Son quand un ennemi est tué et quand il attaque
 
 Maniabilité du perosnnage :
+=======
+>>>>>>> 844fe77190533ef7af9fe59bbbc37dbdaeb9da8f
 
 	- Sauter avec la barre espace
 	- Se déplacer à droite et à gauche avec les flèches directionelles droite et gauche ou avec d'autres touches en fonction de ce que choisi le joueur
