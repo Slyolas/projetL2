@@ -45,3 +45,14 @@ Plan, Architecture du Jeu :
 Graphismes :
 
 	- Graphisme pixelart dont la qualité s'améliore au fur et à mesure des niveaux 		
+
+
+Proposition de Mob :
+
+Mob terrestre :
+	- Un mob de base Puce electronique rouge (comme les goomba)
+	- Un mob Cable ?
+
+Mob Aérien/Projectile :
+	- Un piege aérien qui serai une hélice de pc (fixe dans les airs)
+	- 
