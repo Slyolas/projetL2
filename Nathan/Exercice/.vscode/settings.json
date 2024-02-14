@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "objet.h": "c",
+        "commun.h": "c",
+        "stdio.h": "c",
+        "stdarg.h": "c",
+        "mystring.h": "c",
+        "individu.h": "c",
+        "liste.h": "c"
+    }
+}
