@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "sdl.h": "c",
+        "sdl_ttf.h": "c",
+        "sdl_image.h": "c"
+    }
+}

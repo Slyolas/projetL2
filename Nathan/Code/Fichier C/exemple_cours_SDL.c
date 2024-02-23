@@ -1,105 +1,61 @@
 #include <stdio.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
+#include <stdlib.h>
+#include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
 
-/*Initialisation simple d'une fenêtre SDL*/
+int main(int argc, char** argv)
+{
+    //Le pointeur vers la fenetre
+	SDL_Window* pWindow = NULL;
+	//Le pointeur vers la surface incluse dans la fenetre
+    SDL_Surface *texte=NULL, *image=NULL;
+	SDL_Renderer *renderer=NULL;
+	SDL_Rect txtDestRect,imgDestRect;
 
-int initialisationSDL(SDL_Window ** pWindow) {
+	// Le pointeur vers notre police
+	TTF_Font *police = NULL;
+	// Une variable de couleur noire
+	SDL_Color couleurNoire = {0, 0, 0};
+
+    /* Initialisation simple */
     if (SDL_Init(SDL_INIT_VIDEO) != 0 ) {
-        fprintf(stdout, "Échec de l'initialisation de la SDL (%s)\n", SDL_GetError());
+        fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
         return -1;
-    }
+    } 
 
-    /*Création de la fenêtre*/
-
-    (*pWindow) = SDL_CreateWindow("MetaTravers (Le meilleur jeu de tous les temps !)",SDL_WINDOWPOS_UNDEFINED,
-												  SDL_WINDOWPOS_UNDEFINED,
-												  400,
-												  500,
-												  SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
-
-    if(!(*pWindow)){
-		fprintf(stderr, "Erreur à la création de la fenetre : %s\n", SDL_GetError());
-		exit(EXIT_FAILURE);
-	}
-
-    return 0;
-}
-
-/*Initialisation de la TTF*/
-
-void initialisationTexte(TTF_Font ** police) {
+	/* Initialisation TTF */
 	if(TTF_Init() == -1) {
 		fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
 		exit(EXIT_FAILURE);
 	}
 
-    /*Chargement de la police*/
 
-    if( ((*police) = TTF_OpenFont("ChowFun.ttf", 20)) == NULL){
-		fprintf(stderr, "erreur chargement font\n");
+	/* Création de la fenêtre */
+	pWindow = SDL_CreateWindow("Hello World SDL2",SDL_WINDOWPOS_UNDEFINED,
+												  SDL_WINDOWPOS_UNDEFINED,
+												  640,
+												  480,
+												  SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
+
+	if(!pWindow){
+		fprintf(stderr, "Erreur à la création de la fenetre : %s\n", SDL_GetError());
 		exit(EXIT_FAILURE);
 	}
-}
 
-/*Donne le rendu de la fenêtre*/
 
-void renduSDL(SDL_Renderer ** renderer, SDL_Window ** pWindow) {
-    (*renderer) = SDL_CreateRenderer((*pWindow), -1, SDL_RENDERER_ACCELERATED);
+	renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
 	if(renderer == NULL){
 		fprintf(stderr, "Erreur à la création du renderer\n");
 		exit(EXIT_FAILURE);
 	}
-}
-
-/*Destruction de la fenetre SDL*/
-
-void destructionTTF(TTF_Font * police) {
-
-    /*Doit être avant TTF_Quit()*/
-
-    TTF_CloseFont(police); 
-	TTF_Quit();
-}
-
-/*Destruction de la fenetre SDL*/
-
-void destructionFenetreSDL(SDL_Window ** pWindow) {
-	SDL_DestroyWindow((*pWindow));
-    SDL_Quit();
-}
 
 
-int main(int argc, char** argv) {
-    /*Initialisation pointeur vers la fenetre*/
-
-	SDL_Window * pWindow = NULL;
-
-    /*Le pointeur vers la surface incluse dans la fenetre*/
-
-    SDL_Surface * texte=NULL, * image=NULL;
-	SDL_Renderer * renderer=NULL;
-	SDL_Rect txtDestRect,imgDestRect;
-
-	/*Le pointeur vers notre police*/
-
-	TTF_Font *police = NULL;
-
-	/*Une variable de couleur noire*/
-
-	SDL_Color couleurNoire = {0, 0, 0};
-
-
-    initialisationSDL(&pWindow);
-
-    initialisationTexte(&police);
-
-    renduSDL(&renderer, &pWindow);
-
-
-
-	texte = TTF_RenderUTF8_Blended(police, "Coucou Nathan :)", couleurNoire);
+	if( (police = TTF_OpenFont("ChowFun.ttf", 20)) == NULL){
+		fprintf(stderr, "erreur chargement font\n");
+		exit(EXIT_FAILURE);
+	}
+	texte = TTF_RenderUTF8_Blended(police, "Vive la programmation !", couleurNoire);
 	if(!texte){
 		fprintf(stderr, "Erreur à la création du texte : %s\n", SDL_GetError());
 		exit(EXIT_FAILURE);
@@ -148,7 +104,7 @@ int main(int argc, char** argv) {
 							case SDL_WINDOWEVENT_RESIZED:
 							case SDL_WINDOWEVENT_SHOWN:
 								/* Le fond de la fenêtre sera blanc */
-                                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                                SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 								SDL_RenderClear(renderer);
                                 
                                 /* Ajout du texte en noir */
@@ -167,7 +123,6 @@ int main(int argc, char** argv) {
 								
                                 /* On fait le rendu ! */
                                 SDL_RenderPresent(renderer);
-
 								
 							break;
 						}
@@ -179,12 +134,14 @@ int main(int argc, char** argv) {
 		fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
 	}
 
-    SDL_DestroyTexture(image_tex);
-    SDL_DestroyTexture(texte_tex);
-    SDL_DestroyRenderer(renderer);
+	//Destruction de la fenetre
+	SDL_DestroyWindow(pWindow);
 
-	destructionTTF(police);
+	TTF_CloseFont(police); /* Doit être avant TTF_Quit() */
+	TTF_Quit();
+    SDL_Quit();
 
-    destructionFenetreSDL(&pWindow);
     return 0;
 }
+
+

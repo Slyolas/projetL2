@@ -281,12 +281,28 @@ int main(int argc, char *argv[]) {
                             float percentage = (float)(mouseX - rectVolumeMusique.x) / rectVolumeMusique.w;
                             parametres.volumeMusique = (int)(percentage * 100);
                             tempMusique = parametres.volumeMusique;
+                            if(sonActif == SDL_FALSE && (parametres.volumeEffets != 0 || parametres.volumeMusique != 0)){
+                                if(parametres.volumeMusique){
+                                    tempEffets = 0;
+                                    parametres.volumeMusique = tempMusique;
+                                }
+                                sonActif = !sonActif;
+                            }
                         } else if (SDL_PointInRect(&(SDL_Point){mouseX, mouseY}, &rectVolumeEffets)) {
                             float percentage = (float)(mouseX - rectVolumeEffets.x) / rectVolumeEffets.w;
-                            parametres.volumeEffetssonActif = !sonActif; = (int)(percentage * 100);
+                            parametres.volumeEffets = (int)(percentage * 100);
                             tempEffets = parametres.volumeEffets;
-
+                            if(sonActif == SDL_FALSE && (parametres.volumeEffets != 0 || parametres.volumeMusique != 0)){
+                                if(parametres.volumeEffets){
+                                    parametres.volumeEffets = tempEffets;
+                                    tempMusique = 0;
+                                }
+                                sonActif = !sonActif;
+                            }
                         } 
+                        if(sonActif == SDL_TRUE && parametres.volumeEffets == 0 && parametres.volumeMusique == 0){
+                            sonActif = !sonActif;
+                        }
                         if (SDL_PointInRect(&(SDL_Point){mouseX, mouseY}, &rectBoutonSon)) {
                             // Inverser l'état du son lors du clic sur le bouton de son
                             sonActif = !sonActif;
@@ -299,13 +315,6 @@ int main(int argc, char *argv[]) {
                                 parametres.volumeEffets = tempEffets;
                                 parametres.volumeMusique = tempMusique;
                             }
-                        }
-                        else if(sonActif == SDL_FALSE && parametres.volumeEffets != 0 || parametres.volumeMusique != 0){
-                            if(parametres.volumeEffets)
-                                parametres.volumeEffets = tempEffets;
-                            else if(parametres.volumeMusique)
-                                parametres.volumeMusique = tempMusique;
-                            sonActif = !sonActif;
                         }
                     }
                 }
