@@ -3,20 +3,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-
-/* Structure pour représenter une case de menu */
-typedef struct {
-    SDL_Rect rectangle;
-    char texte[20];
-} itemMenu;
-
-/* Fonction qui affiche un message d'erreur quand une chose n'a pas pû être exécuté */
-void erreur(const char *message) {
-
-    SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
-    SDL_Quit();
-    exit(EXIT_FAILURE);
-}
+#include "../FichierH/fonctionDifficulte.h"
 
 /* Fonction qui permet de créer une fenêtre et le rendu */
 void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur) {
@@ -43,7 +30,7 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **image_normal_m
                            TTF_Font **police, itemMenu *titre, itemMenu *itemsMenu, int tailleMenu) {
 
     /* Initialisation de l'image de fond du menu */
-    (*image_normal_mode) = IMG_Load("../Images/normal.png");
+    (*image_normal_mode) = IMG_Load("../../Images/normal.png");
     if((*image_normal_mode) == NULL)
         erreur("Chargement de l'image");
     
@@ -53,7 +40,7 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **image_normal_m
     SDL_FreeSurface((*image_normal_mode));
 
     /* Initialisation de l'image de fond du menu */
-    (*image_hard_mode) = IMG_Load("../Images/hard.png");
+    (*image_hard_mode) = IMG_Load("../../Images/hard.png");
     if((*image_hard_mode) == NULL)
         erreur("Chargement de l'image");
     
@@ -65,7 +52,7 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **image_normal_m
     
 
     /* Initialisation de la police */
-    if(((*police) = TTF_OpenFont("../Police/02587_ARIALMT.ttf", 20)) == NULL)
+    if(((*police) = TTF_OpenFont("../../Police/02587_ARIALMT.ttf", 20)) == NULL)
         erreur("Chargement de la police");
 
     /* Initialisation du titre du menu */
@@ -80,22 +67,12 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **image_normal_m
         }
 }
 
-/* Fonction qui permet de redimensionner la fenêtre et les différents objets */
-void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur) {
-
-    if(event.window.event == SDL_WINDOWEVENT_RESIZED) {
-
-        (*largeur) = event.window.data1;
-        (*hauteur) = event.window.data2;
-    }
-}
-
 /* Fonction qui met à jour le rendu après redimension de la fenêtre */
 void mise_a_jour_rendu(SDL_Renderer **renderer, SDL_Texture **texture_image_normal_mode, SDL_Rect *rectangle_normal_mode,
                        SDL_Texture **texture_image_hard_mode, SDL_Rect *rectangle_hard_mode,
                        itemMenu *titre, SDL_Surface **texte_difficultee, SDL_Texture **texture_texte_difficultee, 
                        TTF_Font **police, SDL_Color couleurNoire,
-                       itemMenu *itemsMenu, int tailleMenu, int largeur, int hauteur) {
+                       itemMenu *itemsMenu, int largeur, int hauteur) {
     
     /* Efface le rendu */
     if(SDL_RenderClear((*renderer)) != 0)
@@ -189,44 +166,26 @@ void clic_case(SDL_Event event, itemMenu *itemsMenu, int numero_case, int taille
            (event.button.x <= itemsMenu[numero_case].rectangle.x + itemsMenu[numero_case].rectangle.w) &&
            (event.button.y >= itemsMenu[numero_case].rectangle.y) &&
            (event.button.y <= itemsMenu[numero_case].rectangle.y + itemsMenu[numero_case].rectangle.h) &&
-           (event.button.button == SDL_BUTTON_LEFT))
+           (event.button.button == SDL_BUTTON_LEFT)){
 
-        if(!numero_case)
-            printf("Vous avez fait clic gauche sur 'Normal' !\n");
-        else
-            printf("Vous avez fait clic gauche sur 'Hard' !\n");
+            if(!numero_case)
+                printf("Vous avez fait clic gauche sur 'Normal' !\n");
+            else
+                printf("Vous avez fait clic gauche sur 'Hard' !\n");
+        } 
     }
     if ((event.button.x >= rectangle_mode->x) &&
         (event.button.x <= rectangle_mode->x + rectangle_mode->w) &&
         (event.button.y >= rectangle_mode->y) &&
         (event.button.y <= rectangle_mode->y + rectangle_mode->h) &&
-        (event.button.button == SDL_BUTTON_LEFT))
+        (event.button.button == SDL_BUTTON_LEFT)){
 
         if(!mode)
             printf("Vous avez fait clic gauche sur 'Normal' !\n");
         else
             printf("Vous avez fait clic gauche sur 'Hard' !\n");
-}
-
-/* Fonction qui permet de mettre la fenêtre en plein écran quand on clique sur le bouton plein écran */
-int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window) {
-
-    if ((event.button.x >= rectangle_plein_ecran->x) &&
-        (event.button.x <= rectangle_plein_ecran->x + rectangle_plein_ecran->w) &&
-        (event.button.y >= rectangle_plein_ecran->y) &&
-        (event.button.y <= rectangle_plein_ecran->y + rectangle_plein_ecran->h) &&
-        (event.button.button == SDL_BUTTON_LEFT)) {
-            
-        if ((*plein_ecran)) {   
-            SDL_SetWindowFullscreen((*window), 0);
-            (*plein_ecran) = SDL_FALSE;
-        } else {
-            SDL_SetWindowFullscreen((*window), SDL_WINDOW_FULLSCREEN_DESKTOP);
-            (*plein_ecran) = SDL_TRUE;
-        }
-        return 1;
     }
-    return 0;
+
 }
 
 /* Fonction qui permet de détruire les objets initialisés */
@@ -240,103 +199,4 @@ void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window) {
 
     SDL_DestroyRenderer((*renderer));
     SDL_DestroyWindow((*window));
-}
-
-int main(int argc, char **argv) {
-
-    /* Initailisation de la largeur de la fenêtre */
-    int largeur = 960;
-    /* Initialisation de la hauteur de la fenêtre */
-    int hauteur = 540;
-
-    /* Création des pointeurs sur la fenêtre et sur le rendu */
-    SDL_Window *window = NULL;
-    SDL_Renderer *renderer = NULL;
-
-    /* Création des pointeurs sur la surface de l'image du menu et sur sa texture */
-    SDL_Surface *image_normal_mode = NULL;
-    SDL_Texture *texture_image_normal_mode = NULL;
-    SDL_Rect rectangle_normal_mode;
-
-    /* Création des pointeurs sur la surface de l'image du plein écran, sur sa texture et du rectangle où se trouvera l'image */
-    SDL_Surface *image_hard_mode = NULL;
-    SDL_Texture *texture_image_hard_mode = NULL;
-    SDL_Rect rectangle_hard_mode;
-
-    /* Création des pointeurs sur la surface du texte du menu et sur sa texture */
-    SDL_Surface *texte_difficultee = NULL;
-    SDL_Texture *texture_texte_difficultee = NULL;
-
-    /* Pointeur sur la police */
-    TTF_Font *police = NULL;
-
-    /* Variable de couleur noire */
-    SDL_Color couleurNoire = {0, 0, 0};
-
-    /* Lancement de SDL */
-    if(SDL_Init(SDL_INIT_VIDEO) != 0)
-        erreur("Initialisation SDL");
-
-    /* Lancement de TTF */
-	if(TTF_Init() == -1)
-        erreur("Initialisation TTF");
-
-    creer_fenetre_rendu(&window, &renderer, largeur, hauteur);
-
-    /*-------------------------------------------------------------*/
-    itemMenu titre;
-
-    int tailleMenu = 2;
-    itemMenu itemsMenu[tailleMenu];
-
-    initialisation_objets(&renderer, &image_normal_mode, &texture_image_normal_mode,
-                          &image_hard_mode, &texture_image_hard_mode,
-                          &police, &titre, itemsMenu, tailleMenu);
-
-    SDL_bool programme_lance = SDL_TRUE;
-
-    SDL_bool plein_ecran = SDL_FALSE;
-
-    while(programme_lance) {
-
-        SDL_Event event;
-
-        while(SDL_PollEvent(&event)) {
-
-            switch(event.type) {
-                case SDL_WINDOWEVENT:
-                    redimensionnement_fenetre(event, &largeur, &hauteur);
-                    mise_a_jour_rendu(&renderer, &texture_image_normal_mode,
-                                      &rectangle_normal_mode, &texture_image_hard_mode, &rectangle_hard_mode,
-                                      &titre, &texte_difficultee, &texture_texte_difficultee, 
-                                      &police, couleurNoire,
-                                      itemsMenu, tailleMenu, largeur, hauteur);
-                    break;
-
-                case SDL_MOUSEBUTTONUP:
-                    clic_case(event, itemsMenu, 0, tailleMenu, &rectangle_normal_mode, 0);
-                    clic_case(event, itemsMenu, 1, tailleMenu, &rectangle_hard_mode, 1);
-                    break;     
-
-                case SDL_QUIT:
-                    programme_lance = SDL_FALSE;
-                    break;
-
-                default:
-                    break;
-            }
-        }
-    }
-
-    /*-------------------------------------------------------------*/
-
-    detruire_objets(&police);
-
-    detruire_fenetre_rendu(&renderer, &window);
-
-    /* Quitter TTF et SDL */
-	TTF_Quit(); 
-    SDL_Quit();
-
-    return EXIT_SUCCESS; /* return 0; */
 }

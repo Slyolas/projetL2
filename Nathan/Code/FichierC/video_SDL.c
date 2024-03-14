@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
 
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720

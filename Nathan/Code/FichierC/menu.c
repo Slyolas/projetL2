@@ -1,59 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_image.h>
-#include "menu_principal.c"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
+#include "../FichierH/fonctionMenu.h"
 
-/* Définir le nombre d'FPS (100 / nombre_FPS) */
-#define FPS_LIMIT 16
-
-/* Fonction qui permet de créer une fenêtre et le rendu */
-void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur) {
-
-    /* Création de la fenêtre */
-    (*window) = SDL_CreateWindow("MetaTravers", SDL_WINDOWPOS_CENTERED,
-                                 SDL_WINDOWPOS_CENTERED, 
-                                 largeur, hauteur,
-                                 SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN);
-
-    if((*window) == NULL)
-        erreur("Création fenêtre échouée");
-
-    /* Création du rendu */
-    (*renderer) = SDL_CreateRenderer((*window), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-    if((*renderer) == NULL)
-        erreur("Création rendu échoué");
-}
-
-/* Fonction qui permet de gérer le nombre d'FPS à différents moments du jeu */
-void SDL_LimitFPS(unsigned int limit) {
-
-    unsigned int ticks = SDL_GetTicks();
-
-    if(limit < ticks)
-        return;
-    else if(limit > ticks + FPS_LIMIT)
-        SDL_Delay(FPS_LIMIT);
-    else
-        SDL_Delay(limit - ticks);
-}
-
-/* Fonction qui permet de détruire les objets initialisés */
-void detruire_objets(TTF_Font **police) {
-
-    TTF_CloseFont((*police));
-}
-
-/* Fonction qui permet de détruire le rendu et la fenêtre */
-void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window) {
-
-    SDL_DestroyRenderer((*renderer));
-    SDL_DestroyWindow((*window));
-}
-
-int main(int argc, char **argv) {
+int main() {
 
     /* Initailisation de la largeur de la fenêtre */
     int largeur = 960;
@@ -81,10 +33,10 @@ int main(int argc, char **argv) {
     TTF_Font *police = NULL;
 
     /* Variable de couleur noire */
-    SDL_Color couleurNoire = {0, 0, 0};
+    SDL_Color couleurNoire = {0, 0, 0, 255};
 
     /* Variable de la couleur du titre */
-    SDL_Color couleurTitre = {200, 200, 200};
+    SDL_Color couleurTitre = {200, 200, 200, 255};
 
     /* Lancement de SDL */
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
@@ -99,13 +51,23 @@ int main(int argc, char **argv) {
     /*-------------------------------------------------------------*/
     itemMenu titre;
 
-    int tailleMenu = 3;
-    itemMenu itemsMenu[tailleMenu];
+    int tailleMenu;
 
     if(!verification_sauvegarde()) {
-        tailleMenu--;
-        itemsMenu[tailleMenu];
+        tailleMenu = 2;
     }
+    else{
+        tailleMenu = 3;
+    }
+
+    // Allocation dynamique de mémoire pour le tableau itemsMenu en fonction de tailleMenu
+    itemMenu *itemsMenu = malloc(tailleMenu * sizeof(itemMenu));
+    if (itemsMenu == NULL) {
+        fprintf(stderr, "Erreur lors de l'allocation mémoire\n");
+        exit(EXIT_FAILURE);
+    }
+
+
 
     initialisation_objets(&renderer, &image_menu, &texture_image_menu,
                           &image_plein_ecran, &texture_image_plein_ecran,
@@ -127,10 +89,19 @@ int main(int argc, char **argv) {
                     mise_a_jour_rendu(&renderer, &texture_image_menu,
                                       &rectangle_plein_ecran, &texture_image_plein_ecran,
                                       &titre, &texte_menu, &texture_texte_menu, &police,
-                                      couleurTitre, couleurNoire,
-                                      itemsMenu, tailleMenu, largeur, hauteur);
+                                      couleurTitre, couleurNoire, itemsMenu, tailleMenu, 
+                                      largeur, hauteur);
                     break;
                 
+                case SDL_MOUSEMOTION:
+                    mise_a_jour_rendu(&renderer, &texture_image_menu,
+                                      &rectangle_plein_ecran, &texture_image_plein_ecran,
+                                      &titre, &texte_menu, &texture_texte_menu, &police,
+                                      couleurTitre, couleurNoire, itemsMenu, tailleMenu, 
+                                      largeur, hauteur);
+                    
+                    break;
+                    
                 case SDL_MOUSEBUTTONUP:
                     if(tailleMenu == 2) {
                         clic_case(event, itemsMenu, 0, tailleMenu);
@@ -149,8 +120,8 @@ int main(int argc, char **argv) {
                     mise_a_jour_rendu(&renderer, &texture_image_menu,
                                       &rectangle_plein_ecran, &texture_image_plein_ecran,
                                       &titre, &texte_menu, &texture_texte_menu, &police,
-                                      couleurTitre, couleurNoire,
-                                      itemsMenu, tailleMenu, largeur, hauteur);
+                                      couleurTitre, couleurNoire, itemsMenu, tailleMenu, 
+                                      largeur, hauteur);
                     }
                     break;
 
@@ -165,6 +136,9 @@ int main(int argc, char **argv) {
     }
 
     /*-------------------------------------------------------------*/
+
+    // Libération de la mémoire allouée dynamiquement
+    free(itemsMenu); 
 
     detruire_objets(&police);
 
