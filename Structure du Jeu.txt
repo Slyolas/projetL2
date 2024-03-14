@@ -14,6 +14,11 @@ Un monde -> 6 niveaux -> 1 boss
 Nouvelle version : 
 En 2168, Un individu du nom de Hervé (ou Suzette si le perso est une fille) se baladant dans le métaverse, s'amusa à toucher à tous ce qu'il trouvait sans prêter attention à son environnement. Par mégarde, il finira par toucher à un vieu terminal qui le transportera dans un autre métaverse, servant de prototype au métaverse ou se trouvait, "l'ancien internet". Son avatar se trouvera être modifié et buggé dès son entrer dans ce métaverse obsolète, lui empêchant d'utiliser de nombreuse faculté qu'il disposait, notamment la possibilité de sortir du métaverse. Afin de sortir de ce monde, il doit traverser l'ancien internet afin d'y trouver certains outils lui permettant de bricoler quelque chose lui permettant de sortir.
 
+Deuxième version de l'histoire (à voter): 
+
+On découvre l'histoire d'internet à travers d'un invidivu du futur se baladant dans le métaverse. Alimenté par sa curiosité, il se baladera à travers les grands moments d'internet, sans se soucier un seul instant des risques qu'il encourt en s'engoufrant dans un passé rempli de bug et de mystère.
+
+
 Fonctionnalités du Jeu :
 
 	- Succès visibles à la fin du jeu après avoir terminé tous les niveaux, il sera possible de refaire les niveaux pour les compléter
@@ -45,3 +50,18 @@ Plan, Architecture du Jeu :
 Graphismes :
 
 	- Graphisme pixelart dont la qualité s'améliore au fur et à mesure des niveaux 		
+
+
+Proposition de Mob :
+
+Mob terrestre :
+	- Un mob de base Puce electronique rouge (comme les goomba)
+	- Un mob Cable ?
+
+Mob Aérien/Projectile :
+	- Un piege aérien qui serai une hélice de pc (fixe dans les airs)
+	- 
+
+
+
+Lien LiveShare : https://prod.liveshare.vsengsaas.visualstudio.com/join?E5FD2DDDF155BEF7AED41F54E5DC66265D07
