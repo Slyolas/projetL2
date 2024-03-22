@@ -1,0 +1,1 @@
+typedef enum bool {FAUX,VRAI}bool_t;
