@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <SDL/SDL.h>
-
+#include "commun.h"
 
 void Demarrage_Timer(){
     started = VRAI;     /*Démarrage du timer*/

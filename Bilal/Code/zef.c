@@ -1,3 +1,0 @@
-/*déclaration*/
-
-sdl_su
