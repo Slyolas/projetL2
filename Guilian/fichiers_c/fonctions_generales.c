@@ -1,28 +1,4 @@
-/* Définir le nombre d'FPS (100 / nombre_FPS) */
-#define FPS_LIMIT 16
-
-/* Constantes pour l'onglet actif des options */
-#define ONGLET_SON 0
-#define ONGLET_TOUCHES 1
-
-/* Constantes pour le mode séléctionné */
-#define MODE_NORMAL 0
-#define MODE_HARD 1
-
-/* Constantes pour le personnage séléctionné */
-#define PERSONNAGE_1 0
-#define PERSONNAGE_2 1
-
-/* Constantes pour la page */
-#define MENU_PRINCIPAL 0
-#define OPTIONS 1
-#define NOUVELLE_PARTIE 2
-
-/* Structure pour représenter une case avec un rectangle et du texte */
-typedef struct {
-    SDL_Rect rectangle;
-    char texte[40];
-} itemMenu;
+#include <../fichiers_h/fonctions_generales.h>
 
 /* Fonction qui affiche un message d'erreur quand une chose n'a pas pû être exécuté */
 void erreur(const char *message) {

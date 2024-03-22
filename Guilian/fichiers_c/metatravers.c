@@ -3,12 +3,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-#include "fonctions_generales.c"
-#include "fonctions_menu_principal.c"
-#include "fonctions_options.c"
-#include "fonctions_nouvelle_partie.c"
+#include "../fichiers_h/fonctions_generales.h"
+#include "../fichiers_h/fonctions_menu_principal.h"
+#include "../fichiers_h/fonctions_options.h"
+#include "../fichiers_h/fonctions_nouvelle_partie.h"
+#include "../fichiers_h/fonctions_introduction.h"
 
-int main(int argc, char **argv) {
+int main() {
 
     /* Initialisation de la largeur de la fenêtre */
     int largeur = 960;
@@ -62,7 +63,12 @@ int main(int argc, char **argv) {
     /* Touches pour les déplacements du personnage */
     SDL_Keycode touche_aller_a_droite;
     SDL_Keycode touche_aller_a_gauche;
-    SDL_Keycode touche_sauter;
+    SDL_Keycode touche_sauter_monter;
+    SDL_Keycode touche_descendre;
+    SDL_Keycode touche_interagir;
+
+    /* Création d'un rectangle pour le pseudo */
+    SDL_Rect rectangle_pseudo;
 
     /* Création des pointeurs sur la surface de l'image du premier personnage et sur sa texture */
     SDL_Surface *image_perso_1 = NULL;
@@ -73,6 +79,12 @@ int main(int argc, char **argv) {
     SDL_Surface *image_perso_2 = NULL;
     SDL_Texture *texture_image_perso_2 = NULL;
     SDL_Rect rectangle_perso_2;
+
+    /* Variable de couleur blanche */
+    SDL_Color couleurBlanche = {255, 255, 255, 255};
+
+    /* Création du rectangle pour le texte de l'introduction */
+    SDL_Rect rectangle_texte_introduction;
 
     /* Lancement de SDL */
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
@@ -93,6 +105,7 @@ int main(int argc, char **argv) {
     /*-------------------------------------------------------------*/
 
     /* Objets du menu principal */
+
     itemMenu titre_menu_principal;
 
     int tailleMenuPrincipal;
@@ -114,6 +127,7 @@ int main(int argc, char **argv) {
                                          &titre_menu_principal, itemsMenuPrincipal, tailleMenuPrincipal);  
 
     /* Objets des options */
+
     itemMenu titre_options;
 
     int tailleBarres = 2;
@@ -124,7 +138,7 @@ int main(int argc, char **argv) {
 
     itemMenu itemsMenuOptions[tailleMenuOptions];
     
-    int tailleTouches = 6;
+    int tailleTouches = 10;
 
     itemMenu itemsTouches[tailleTouches];
 
@@ -136,7 +150,7 @@ int main(int argc, char **argv) {
                                   &titre_options, itemsMenuOptions, itemsTouches, itemsBarres);
 
     /* Variable pour suivre l'onglet actif */
-    int ongletActif = ONGLET_SON;                          
+    option_t ongletActif = ONGLET_SON;                          
 
     /* Variable pour suivre l'état du son (activé/désactivé) */
     SDL_bool sonsActifs[tailleBarres];
@@ -148,6 +162,7 @@ int main(int argc, char **argv) {
     int selection_touche = 0;
 
     /* Objets du menu nouvelle partie */
+
     itemMenu pseudo;
     pseudo.texte[0] = '\0';
 
@@ -170,10 +185,10 @@ int main(int argc, char **argv) {
     int modeSaisie = 0;
 
     /* Variable pour suivre le mode actif */
-    int modeActif = MODE_NORMAL; 
+    modes_t modeActif = MODE_NORMAL; 
 
     /* Variable pour suivre le personnage actif */
-    int personnageActif = PERSONNAGE_1;
+    personnage_t personnageActif = PERSONNAGE_1;
 
     /* Chargement de la sauvegarde s'il y en a une */
     if(verification_sauvegarde()) {
@@ -184,15 +199,21 @@ int main(int argc, char **argv) {
 
         fscanf(fichier_sauvegarde, "%f\n", &(barre_de_son[0].volume));
         fscanf(fichier_sauvegarde, "%f\n", &(barre_de_son[1].volume));
-        fscanf(fichier_sauvegarde, "%s\n", &(itemsTouches[1].texte));
-        fscanf(fichier_sauvegarde, "%s\n", &(itemsTouches[3].texte));
-        fscanf(fichier_sauvegarde, "%s\n", &(itemsTouches[5].texte));
+        fscanf(fichier_sauvegarde, "%s\n", itemsTouches[1].texte);
+        fscanf(fichier_sauvegarde, "%s\n", itemsTouches[3].texte);
+        fscanf(fichier_sauvegarde, "%s\n", itemsTouches[5].texte);
+        fscanf(fichier_sauvegarde, "%s\n", itemsTouches[7].texte);
+        fscanf(fichier_sauvegarde, "%s\n", itemsTouches[9].texte);
         touche_aller_a_droite = SDL_GetKeyFromName(itemsTouches[1].texte);
         touche_aller_a_gauche = SDL_GetKeyFromName(itemsTouches[3].texte);
-        touche_sauter = SDL_GetKeyFromName(itemsTouches[5].texte);
+        touche_sauter_monter = SDL_GetKeyFromName(itemsTouches[5].texte);
+        touche_descendre = SDL_GetKeyFromName(itemsTouches[7].texte);
+        touche_interagir = SDL_GetKeyFromName(itemsTouches[9].texte);
         sprintf(itemsTouches[1].texte, "                 %s                 ", SDL_GetKeyName(touche_aller_a_droite));
         sprintf(itemsTouches[3].texte, "                 %s                 ", SDL_GetKeyName(touche_aller_a_gauche));
-        sprintf(itemsTouches[5].texte, "                 %s                 ", SDL_GetKeyName(touche_sauter));
+        sprintf(itemsTouches[5].texte, "                 %s                 ", SDL_GetKeyName(touche_sauter_monter));
+        sprintf(itemsTouches[7].texte, "                 %s                 ", SDL_GetKeyName(touche_descendre));
+        sprintf(itemsTouches[9].texte, "                 %s                 ", SDL_GetKeyName(touche_interagir));
 
         /* Fermeture du fichier */
         if (fclose(fichier_sauvegarde) != 0)
@@ -201,9 +222,6 @@ int main(int argc, char **argv) {
     else {
         barre_de_son[0].volume = 0.5;
         barre_de_son[1].volume = 0.5;
-        touche_aller_a_droite = SDLK_RIGHT;
-        touche_aller_a_gauche = SDLK_LEFT;
-        touche_sauter = SDLK_UP;
     } 
 
     if(barre_de_son[0].volume)
@@ -220,24 +238,24 @@ int main(int argc, char **argv) {
 
     SDL_bool plein_ecran = SDL_FALSE;
 
-    int page = MENU_PRINCIPAL;
+    page_t page_active = MENU_PRINCIPAL;
 
-    int page_precedente = MENU_PRINCIPAL;
+    page_t page_precedente = MENU_PRINCIPAL;
 
     while(programme_lance) {
 
         SDL_Event event;
 
-        if(page == MENU_PRINCIPAL) {
+        if(page_active == MENU_PRINCIPAL) {
             page_precedente = MENU_PRINCIPAL;
             menu_principal(&event, &window, &renderer, &programme_lance, &texture_image_menu,
                            &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
                            &titre_menu_principal, &texte_menu, &texture_texte_menu, &police,
                            couleurTitre, couleurNoire,
-                           itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page);
+                           itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
         }
 
-        if(page == OPTIONS)
+        if(page_active == OPTIONS)
             options(&event, &window, &renderer, &programme_lance,
                     &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
                     &rectangle_retour_en_arriere, &texture_image_retour_en_arriere,
@@ -245,13 +263,13 @@ int main(int argc, char **argv) {
                     &texture_image_hautParleurDesactive, sonsActifs,
                     rectangles_boutons_sons, &ongletActif,
                     &titre_options, &texte_menu, &texture_texte_menu, &police,
-                    &selection_touche, &touche_aller_a_droite, &touche_aller_a_gauche, &touche_sauter,
-                    couleurNoire,
+                    &selection_touche, &touche_aller_a_droite, &touche_aller_a_gauche, &touche_sauter_monter,
+                    &touche_descendre, &touche_interagir, couleurNoire,
                     itemsMenuOptions, tailleMenuOptions, itemsTouches, tailleTouches,
                     barre_de_son, tailleBarres, itemsBarres,
-                    &largeur, &hauteur, &page, &page_precedente);
+                    &largeur, &hauteur, &page_active, &page_precedente);
 
-        if(page == NOUVELLE_PARTIE) {
+        if(page_active == NOUVELLE_PARTIE) {
             page_precedente = NOUVELLE_PARTIE;
             nouvelle_partie(&event, &window, &renderer, &programme_lance,
                             &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran, 
@@ -259,11 +277,30 @@ int main(int argc, char **argv) {
                             &rectangle_options, &texture_image_options, &modeSaisie,
                             &modeActif, &texture_image_perso_1, &rectangle_perso_1,
                             &texture_image_perso_2, &rectangle_perso_2, &personnageActif,
-                            &pseudo, barre_de_son,
-                            &touche_aller_a_droite, &touche_aller_a_gauche, &touche_sauter,
-                            titres, tailleTitres, &texte_menu, &texture_texte_menu, 
+                            &pseudo, &rectangle_pseudo, barre_de_son,
+                            &touche_aller_a_droite, &touche_aller_a_gauche, &touche_sauter_monter,
+                            &touche_descendre, &touche_interagir, titres, tailleTitres, &texte_menu, &texture_texte_menu, 
                             &police, couleurNoire,
-                            itemsMenuNouvellePartie, &valider, &largeur, &hauteur, &page);
+                            itemsMenuNouvellePartie, &valider, &largeur, &hauteur, &page_active);
+        }
+
+        if(page_active == INTRODUCTION) {
+            introduction(&event, &renderer, &programme_lance,
+                         &rectangle_texte_introduction, &texte_menu, &texture_texte_menu, 
+                         &personnageActif, couleurBlanche,
+                         &largeur, &hauteur, &page_active);
+            
+            page_active = NIVEAU_1;
+        }
+
+        if(page_active == NIVEAU_1) {
+            page_active = MENU_PRINCIPAL;
+            page_precedente = MENU_PRINCIPAL;
+            menu_principal(&event, &window, &renderer, &programme_lance, &texture_image_menu,
+                           &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
+                           &titre_menu_principal, &texte_menu, &texture_texte_menu, &police,
+                           couleurTitre, couleurNoire,
+                           itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
         }
 
     }
@@ -271,7 +308,7 @@ int main(int argc, char **argv) {
     /*-------------------------------------------------------------*/
 
     /* Libération de la mémoire allouée dynamiquement */
-    free(itemsMenuPrincipal); 
+    free(itemsMenuPrincipal);
 
     detruire_objets(&police);
 

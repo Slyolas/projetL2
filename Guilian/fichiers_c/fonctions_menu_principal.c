@@ -1,3 +1,6 @@
+#include <../fichiers_h/fonctions_generales.h>
+#include <../fichiers_h/fonctions_menu_principal.h>
+
 /* Fonction qui permet d'initialiser les différents objets du menu principal */
 void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface **image_menu, SDL_Texture **texture_image_menu,
                                           itemMenu *titre, itemMenu *itemsMenu, int tailleMenu) {
@@ -134,7 +137,7 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                     SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                     itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
                     SDL_Color couleurTitre, SDL_Color couleurNoire,
-                    itemMenu *itemsMenu, int tailleMenu, int *largeur, int *hauteur, int *page) {
+                    itemMenu *itemsMenu, int tailleMenu, int *largeur, int *hauteur, page_t *page_active) {
 
     while(SDL_PollEvent(event)) {
 
@@ -147,17 +150,18 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                 case SDL_MOUSEBUTTONDOWN:
                     if(tailleMenu == 2) {
                         if(clic_case((*event), itemsMenu[0].rectangle))
-                            (*page) = NOUVELLE_PARTIE;
+                            (*page_active) = NOUVELLE_PARTIE;
                         else if(clic_case((*event), itemsMenu[1].rectangle))
-                            (*page) = OPTIONS;
+                            (*page_active) = OPTIONS;
                     }
-                    else if(tailleMenu == 3)
+                    else {
                         if(clic_case((*event), itemsMenu[0].rectangle))
                             printf("Vous avez fait clic gauche sur 'Continuer' !\n");
                         else if(clic_case((*event), itemsMenu[1].rectangle))
-                            (*page) = NOUVELLE_PARTIE;
+                            (*page_active) = NOUVELLE_PARTIE;
                         else if(clic_case((*event), itemsMenu[2].rectangle))
-                            (*page) = OPTIONS;
+                            (*page_active) = OPTIONS;
+                    }
                     
                     if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window))
                         redimensionnement_fenetre((*event), largeur, hauteur);

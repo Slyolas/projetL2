@@ -1,10 +1,5 @@
-/* Structure pour représenter une barre de son */
-typedef struct {
-    SDL_Rect barre;
-    SDL_Rect curseur;
-    float volume;
-    float volume_precedent;
-} barreDeSon;
+#include <../fichiers_h/fonctions_generales.h>
+#include <../fichiers_h/fonctions_options.h>
 
 /* Fonction qui permet d'initialiser les différents objets des options */
 void initialisation_objets_options(SDL_Renderer **renderer,
@@ -44,8 +39,12 @@ void initialisation_objets_options(SDL_Renderer **renderer,
     sprintf(itemsTouches[1].texte, "                 %s                 ", SDL_GetKeyName(SDLK_RIGHT));
     sprintf(itemsTouches[2].texte, " Touche pour aller vers la gauche : ");
     sprintf(itemsTouches[3].texte, "                 %s                 ", SDL_GetKeyName(SDLK_LEFT));
-    sprintf(itemsTouches[4].texte, "        Touche pour sauter :        ");
+    sprintf(itemsTouches[4].texte, "    Touche pour sauter / monter :   ");
     sprintf(itemsTouches[5].texte, "                 %s                 ", SDL_GetKeyName(SDLK_UP));
+    sprintf(itemsTouches[6].texte, "       Touche pour descendre :      ");
+    sprintf(itemsTouches[7].texte, "                 %s                 ", SDL_GetKeyName(SDLK_DOWN));
+    sprintf(itemsTouches[8].texte, "       Touche pour interagir :      ");
+    sprintf(itemsTouches[9].texte, "                 %s                 ", SDL_GetKeyName(SDLK_SPACE));
     sprintf(itemsBarres[0].texte, "              Musique :             ");
     sprintf(itemsBarres[1].texte, "           Effets sonores :         ");
 }
@@ -55,7 +54,7 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
                                SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
                                SDL_Texture **texture_image_hautParleurActif, 
                                SDL_Texture **texture_image_hautParleurDesactive, SDL_bool *sonsActifs,
-                               SDL_Rect *rectangles_boutons_sons, int ongletActif,
+                               SDL_Rect *rectangles_boutons_sons, option_t ongletActif,
                                itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
                                SDL_Color couleurNoire,
                                itemMenu *itemsMenu, int tailleMenu, itemMenu *itemsTouches, int tailleTouches, 
@@ -122,7 +121,7 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
             SDL_SetRenderDrawColor((*renderer), 180, 180, 180, 255);
 
         itemsMenu[i].rectangle.x = i * largeur / 2;
-        itemsMenu[i].rectangle.y = hauteur / 10 * 2 + hauteur / 15;
+        itemsMenu[i].rectangle.y = hauteur / 15 * 3;
         itemsMenu[i].rectangle.w = largeur / 2;
         itemsMenu[i].rectangle.h = hauteur / 10;
 
@@ -145,7 +144,7 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
         for (i = 0; i < tailleBarres; i++) {
 
             itemsBarres[i].rectangle.x = largeur / 8;
-            itemsBarres[i].rectangle.y = hauteur / 2 + hauteur / 25 + i * hauteur / 5 - hauteur / 100;
+            itemsBarres[i].rectangle.y = hauteur / 2 + hauteur / 50 + i * hauteur / 5 - hauteur / 100;
             itemsBarres[i].rectangle.w = largeur / 2 - largeur / 7;
             itemsBarres[i].rectangle.h = hauteur / 15;
 
@@ -164,7 +163,7 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
         for (i = 0; i < tailleBarres; i++) {
 
             rectangles_boutons_sons[i].x = largeur - largeur / 9;
-            rectangles_boutons_sons[i].y = hauteur / 2 + hauteur / 25 + i * hauteur / 5;
+            rectangles_boutons_sons[i].y = hauteur / 2 + hauteur / 50 + i * hauteur / 5;
             rectangles_boutons_sons[i].w = largeur / 35;
             rectangles_boutons_sons[i].h = hauteur / 20;
 
@@ -181,12 +180,12 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
         for (i = 0; i < tailleBarres; i++) {
 
             barre_de_son[i].barre.x = largeur - largeur / 8 - (largeur / 2 - largeur / 7);
-            barre_de_son[i].barre.y = hauteur / 2 + hauteur / 25 + i * hauteur / 5;
+            barre_de_son[i].barre.y = hauteur / 2 + hauteur / 50 + i * hauteur / 5;
             barre_de_son[i].barre.w = largeur / 2 - largeur / 7;
             barre_de_son[i].barre.h = hauteur / 20;
 
             barre_de_son[i].curseur.x = barre_de_son[i].barre.x + (largeur / 2 - largeur / 7) * barre_de_son[i].volume - largeur / 45 / 2;
-            barre_de_son[i].curseur.y = hauteur / 2 + hauteur / 25 + i * hauteur / 5 - hauteur / 50;
+            barre_de_son[i].curseur.y = hauteur / 2 + i * hauteur / 5;
             barre_de_son[i].curseur.w = largeur / 45;
             barre_de_son[i].curseur.h = hauteur / 12;
 
@@ -236,7 +235,7 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
         for (i = 0; i < tailleTouches; i+=2) {
 
             itemsTouches[i].rectangle.x = largeur / 7;
-            itemsTouches[i].rectangle.y = hauteur / 2 + i * hauteur / 15;
+            itemsTouches[i].rectangle.y = hauteur / 2 - hauteur / 7 + i * hauteur / 15;
             itemsTouches[i].rectangle.w = largeur / 2 - largeur / 7;
             itemsTouches[i].rectangle.h = hauteur / 15;
 
@@ -257,7 +256,7 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
         for (i = 1; i < tailleTouches; i+=2) {
 
             itemsTouches[i].rectangle.x = largeur / 2;
-            itemsTouches[i].rectangle.y = hauteur / 2 + (i-1) * hauteur / 15;
+            itemsTouches[i].rectangle.y = hauteur / 2 - hauteur / 7 + (i-1) * hauteur / 15;
             itemsTouches[i].rectangle.w = largeur / 2 - largeur / 7;
             itemsTouches[i].rectangle.h = hauteur / 15;
 
@@ -285,13 +284,13 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
              SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
              SDL_Texture **texture_image_hautParleurActif, 
              SDL_Texture **texture_image_hautParleurDesactive, SDL_bool *sonsActifs,
-             SDL_Rect *rectangles_boutons_sons, int *ongletActif,
+             SDL_Rect *rectangles_boutons_sons, option_t *ongletActif,
              itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
-             int *selection_touche, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter,
-             SDL_Color couleurNoire,
+             int *selection_touche, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
+             SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, SDL_Color couleurNoire,
              itemMenu *itemsMenu, int tailleMenu, itemMenu *itemsTouches, int tailleTouches, 
              barreDeSon *barre_de_son, int tailleBarres, itemMenu *itemsBarres,
-             int *largeur, int *hauteur, int *page, int *page_precedente) {
+             int *largeur, int *hauteur, page_t *page_active, page_t *page_precedente) {
 
     while(SDL_PollEvent(event)) {
 
@@ -333,6 +332,10 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
                             (*selection_touche) = 3;
                         else if(clic_case((*event), itemsTouches[5].rectangle))
                             (*selection_touche) = 5;
+                        else if(clic_case((*event), itemsTouches[7].rectangle))
+                            (*selection_touche) = 7;
+                        else if(clic_case((*event), itemsTouches[9].rectangle))
+                            (*selection_touche) = 9;
                         else    
                             (*selection_touche) = 0;
 
@@ -340,7 +343,7 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
                         redimensionnement_fenetre((*event), largeur, hauteur);
 
                         if(clic_case((*event), (*rectangle_retour_en_arriere)))
-                            (*page) = (*page_precedente);
+                            (*page_active) = (*page_precedente);
 
                         break;
 
@@ -368,31 +371,59 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
                     if((event->key.keysym.sym == SDLK_ESCAPE) && (*selection_touche)) {
                         (*touche_aller_a_droite) = SDLK_RIGHT;
                         (*touche_aller_a_gauche) = SDLK_LEFT;
-                        (*touche_sauter) = SDLK_UP;
+                        (*touche_sauter_monter) = SDLK_UP;
+                        (*touche_descendre) = SDLK_DOWN;
+                        (*touche_interagir) = SDLK_SPACE;
                         sprintf(itemsTouches[1].texte, "                 %s                 ", SDL_GetKeyName((*touche_aller_a_droite)));
                         sprintf(itemsTouches[3].texte, "                 %s                 ", SDL_GetKeyName((*touche_aller_a_gauche)));
-                        sprintf(itemsTouches[5].texte, "                 %s                 ", SDL_GetKeyName((*touche_sauter)));
+                        sprintf(itemsTouches[5].texte, "                 %s                 ", SDL_GetKeyName((*touche_sauter_monter)));
+                        sprintf(itemsTouches[7].texte, "                 %s                 ", SDL_GetKeyName((*touche_descendre)));
+                        sprintf(itemsTouches[9].texte, "                 %s                 ", SDL_GetKeyName((*touche_interagir)));
                         (*selection_touche) = 0;
                     }
                     else if(((*selection_touche) == 1) && 
                             (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
-                            (event->key.keysym.sym != (*touche_sauter))) {
+                            (event->key.keysym.sym != (*touche_sauter_monter)) &&
+                            (event->key.keysym.sym != (*touche_descendre)) &&
+                            (event->key.keysym.sym != (*touche_interagir))) {
                                (*touche_aller_a_droite) = event->key.keysym.sym; 
                         sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_aller_a_droite)));
                         (*selection_touche) = 0;
                     }
                     else if(((*selection_touche) == 3) && 
                             (event->key.keysym.sym != (*touche_aller_a_droite)) &&
-                            (event->key.keysym.sym != (*touche_sauter))) {
+                            (event->key.keysym.sym != (*touche_sauter_monter)) &&
+                            (event->key.keysym.sym != (*touche_descendre)) &&
+                            (event->key.keysym.sym != (*touche_interagir))) {
                                (*touche_aller_a_gauche) = event->key.keysym.sym; 
                         sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_aller_a_gauche)));
                         (*selection_touche) = 0;
                     }
                     else if(((*selection_touche) == 5) && 
                             (event->key.keysym.sym != (*touche_aller_a_droite)) &&
-                            (event->key.keysym.sym != (*touche_aller_a_gauche))) {
-                               (*touche_sauter) = event->key.keysym.sym; 
-                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_sauter)));
+                            (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
+                            (event->key.keysym.sym != (*touche_descendre)) &&
+                            (event->key.keysym.sym != (*touche_interagir))) {
+                               (*touche_sauter_monter) = event->key.keysym.sym; 
+                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_sauter_monter)));
+                        (*selection_touche) = 0;
+                    }
+                    else if(((*selection_touche) == 7) && 
+                            (event->key.keysym.sym != (*touche_aller_a_droite)) &&
+                            (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
+                            (event->key.keysym.sym != (*touche_sauter_monter)) &&
+                            (event->key.keysym.sym != (*touche_interagir))) {
+                               (*touche_descendre) = event->key.keysym.sym; 
+                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_descendre)));
+                        (*selection_touche) = 0;
+                    }
+                    else if(((*selection_touche) == 9) && 
+                            (event->key.keysym.sym != (*touche_aller_a_droite)) &&
+                            (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
+                            (event->key.keysym.sym != (*touche_sauter_monter)) &&
+                            (event->key.keysym.sym != (*touche_descendre))) {
+                               (*touche_interagir) = event->key.keysym.sym; 
+                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_interagir)));
                         (*selection_touche) = 0;
                     }
                     break;

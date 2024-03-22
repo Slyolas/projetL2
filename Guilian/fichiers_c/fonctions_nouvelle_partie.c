@@ -1,3 +1,6 @@
+#include <../fichiers_h/fonctions_generales.h>
+#include <../fichiers_h/fonctions_nouvelle_partie.h>
+
 /* Fonction qui permet d'initialiser les différents objets de la nouvelle partie*/
 void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer,
                            SDL_Surface **image_perso_1, SDL_Texture **texture_image_perso_1,
@@ -5,7 +8,7 @@ void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer,
                            itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider) {
 
     /* Initialisation de l'image du premier personnage */
-    (*image_perso_1) = IMG_Load("./images/normal.png");
+    (*image_perso_1) = IMG_Load("./images/personnage_masculin.png");
     if((*image_perso_1) == NULL)
         erreur("Chargement de l'image");
     
@@ -16,7 +19,7 @@ void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer,
     SDL_FreeSurface((*image_perso_1));
 
     /* Initialisation de l'image du deuxième personnage */
-    (*image_perso_2) = IMG_Load("./images/hard.png");
+    (*image_perso_2) = IMG_Load("./images/personnage_feminin.png");
     if((*image_perso_2) == NULL)
         erreur("Chargement de l'image");
     
@@ -43,9 +46,9 @@ void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer,
 void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                        SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
                                        SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
-                                       int modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1,
-                                       SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, int personnageActif,
-                                       itemMenu *pseudo,
+                                       modes_t modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1,
+                                       SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, personnage_t personnageActif,
+                                       itemMenu *pseudo, SDL_Rect *rectangle_pseudo,
                                        itemMenu *titres, int tailleTitres, SDL_Surface **texte, SDL_Texture **texture_texte, 
                                        TTF_Font **police, SDL_Color couleurNoire,
                                        itemMenu *itemsMenu, itemMenu *valider, int largeur, int hauteur) {
@@ -107,39 +110,54 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
         SDL_DestroyTexture((*texture_texte));
     }
 
-    /* Dessine l'item pour la saisie du pseudo */
-    pseudo->rectangle.x = largeur / 3;
-    pseudo->rectangle.y = hauteur / 8;
-    pseudo->rectangle.w = largeur / 3;
-    pseudo->rectangle.h = hauteur / 8;
+    /* Dessine le rectangle pour le pseudo */
+    rectangle_pseudo->x = largeur / 3;
+    rectangle_pseudo->y = hauteur / 8;
+    rectangle_pseudo->w = largeur / 3;
+    rectangle_pseudo->h = hauteur / 8;
 
     SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
-    SDL_RenderFillRect((*renderer), &(pseudo->rectangle));
+    SDL_RenderFillRect((*renderer), rectangle_pseudo);
 
     SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
-    SDL_RenderDrawRect((*renderer), &(pseudo->rectangle));
+    SDL_RenderDrawRect((*renderer), rectangle_pseudo);
 
-    (*texte) = TTF_RenderText_Solid((*police), pseudo->texte, couleurNoire);
+    /* Dessine l'item pour la saisie du pseudo */
+
+    /* Rendu du texte actuel sur la surface texte */
+    (*texte) = TTF_RenderUTF8_Blended((*police), pseudo->texte, couleurNoire);
+    /* Création de la texture texture_texte depuis la surface texte */
     (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*texte));
 
+    /* Récupération des dimensions du texte */
+    int largeur_texte, hauteur_texte;
+    SDL_QueryTexture((*texture_texte), NULL, NULL, &largeur_texte, &hauteur_texte);
+
+    /* Positionnement du texte au centre */
+    pseudo->rectangle.x = largeur / 3 + largeur / 100;
+    pseudo->rectangle.y = hauteur / 8;
+    pseudo->rectangle.w = largeur_texte * 2 - largeur_texte / 3;
+    pseudo->rectangle.h = hauteur / 8;
+
+    /* Affichage de la texture texture_texte */
     SDL_RenderCopy((*renderer), (*texture_texte), NULL, &(pseudo->rectangle));
 
     SDL_FreeSurface((*texte));
     SDL_DestroyTexture((*texture_texte));
 
     /* Copie la texture de l'image du premier personnage */
-    rectangle_perso_1->x = largeur / 6;
+    rectangle_perso_1->x = largeur / 4 + largeur / 100;
     rectangle_perso_1->y = hauteur / 3 + hauteur / 20;
-    rectangle_perso_1->w = largeur / 4;
+    rectangle_perso_1->w = largeur / 16;
     rectangle_perso_1->h = hauteur / 7;
 
     if(SDL_RenderCopy((*renderer), (*texture_image_perso_1), NULL, rectangle_perso_1) != 0)
         erreur("Copie de la texture");
 
     /* Copie la texture de l'image du deuxième personnage */
-    rectangle_perso_2->x = largeur - largeur / 6 - largeur / 4;
+    rectangle_perso_2->x = largeur - largeur / 4 - largeur / 16 - largeur / 100;
     rectangle_perso_2->y = hauteur / 3 + hauteur / 20;
-    rectangle_perso_2->w = largeur / 4;
+    rectangle_perso_2->w = largeur / 16;
     rectangle_perso_2->h = hauteur / 7;
 
     if(SDL_RenderCopy((*renderer), (*texture_image_perso_2), NULL, rectangle_perso_2) != 0)
@@ -231,13 +249,13 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, 
                      SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere, 
                      SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, int *modeSaisie,
-                     int *modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1,
-                     SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, int *personnageActif,
-                     itemMenu *pseudo, barreDeSon *barre_de_son,
-                     SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter,
-                     itemMenu *titres, int tailleTitres, SDL_Surface **texte, SDL_Texture **texture_texte, 
+                     modes_t *modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1,
+                     SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, personnage_t *personnageActif,
+                     itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son,
+                     SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
+                     SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **texte, SDL_Texture **texture_texte, 
                      TTF_Font **police, SDL_Color couleurNoire,
-                     itemMenu *itemsMenu, itemMenu *valider, int *largeur, int *hauteur, int *page) {
+                     itemMenu *itemsMenu, itemMenu *valider, int *largeur, int *hauteur, page_t *page_active) {
 
     while(SDL_PollEvent(event)) {
 
@@ -257,7 +275,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                     break;
 
                 case SDL_MOUSEBUTTONDOWN:
-                    if(clic_case((*event), pseudo->rectangle))
+                    if(clic_case((*event), (*rectangle_pseudo)))
                         (*modeSaisie) = 1;
                     else
                         (*modeSaisie) = 0;
@@ -276,10 +294,10 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                         redimensionnement_fenetre((*event), largeur, hauteur);
 
                     if(clic_case((*event), (*rectangle_retour_en_arriere)))
-                        (*page) = MENU_PRINCIPAL;
+                        (*page_active) = MENU_PRINCIPAL;
 
                     if(clic_case((*event), (*rectangle_options)))
-                        (*page) = OPTIONS;
+                        (*page_active) = OPTIONS;
 
                     if(clic_case((*event), valider->rectangle)) {
                         FILE *fichier_sauvegarde;
@@ -291,7 +309,9 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                         fprintf(fichier_sauvegarde, "%f\n", barre_de_son[1].volume);
                         fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_aller_a_droite)));
                         fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_aller_a_gauche)));
-                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_sauter)));
+                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_sauter_monter)));
+                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_descendre)));
+                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_interagir)));
                         fprintf(fichier_sauvegarde, "%s\n", pseudo->texte);
 
                         if((*personnageActif) == PERSONNAGE_1)
@@ -308,7 +328,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                         if (fclose(fichier_sauvegarde) != 0)
                             erreur("Fermeture du fichier");
 
-                        printf("Vous avez fait clic gauche sur 'Commencer la partie !' !\n");
+                        (*page_active) = INTRODUCTION;
                     }
 
                     break;
@@ -333,8 +353,9 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                                           rectangle_options, texture_image_options,
                                           (*modeActif), texture_image_perso_1, rectangle_perso_1,
                                           texture_image_perso_2, rectangle_perso_2, (*personnageActif),
-                                          pseudo,
+                                          pseudo, rectangle_pseudo,
                                           titres, tailleTitres, texte, texture_texte, 
                                           police, couleurNoire,
                                           itemsMenu, valider, (*largeur), (*hauteur));
 }
+
