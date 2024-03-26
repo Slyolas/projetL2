@@ -1,0 +1,11 @@
+0.507289
+0.533528
+Right
+Left
+Up
+Down
+Space
+Guilian
+0
+0
+1

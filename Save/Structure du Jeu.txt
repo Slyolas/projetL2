@@ -1,0 +1,67 @@
+https://lucid.app/lucidspark/bc149cbf-5605-4479-841b-034d32575f02/edit?beaconFlowId=EF57EAB6F52D9475&page=0_0&invitationId=inv_db0bfe1d-714e-459f-82a3-146100b3fd41#
+
+Trame :
+
+Un gars en 2168 qui est dans le metaverse qui s'amuse un peu trop, touche à des paramètres/commandes/codes qu'il ne devrait pas et il se retrouve dans une copie d'Internet dans ces débuts. 
+Sachant qu'il est de retour dans le début d'Internet, les fonctionnalités de son époque ne sont plus valable comme la déconnexion, et par conséquent il doit traverser l'ancien Internet pour trouver un moyen de rentrer chez lui. 
+
+Gameplay :
+
+Un monde -> 6 niveaux -> 1 boss
+
+
+
+Nouvelle version : 
+En 2168, Un individu du nom de Hervé (ou Suzette si le perso est une fille) se baladant dans le métaverse, s'amusa à toucher à tous ce qu'il trouvait sans prêter attention à son environnement. Par mégarde, il finira par toucher à un vieu terminal qui le transportera dans un autre métaverse, servant de prototype au métaverse ou se trouvait, "l'ancien internet". Son avatar se trouvera être modifié et buggé dès son entrer dans ce métaverse obsolète, lui empêchant d'utiliser de nombreuse faculté qu'il disposait, notamment la possibilité de sortir du métaverse. Afin de sortir de ce monde, il doit traverser l'ancien internet afin d'y trouver certains outils lui permettant de bricoler quelque chose lui permettant de sortir.
+
+Deuxième version de l'histoire (à voter): 
+
+On découvre l'histoire d'internet à travers d'un invidivu du futur se baladant dans le métaverse. Alimenté par sa curiosité, il se baladera à travers les grands moments d'internet, sans se soucier un seul instant des risques qu'il encourt en s'engoufrant dans un passé rempli de bug et de mystère.
+
+
+Fonctionnalités du Jeu :
+
+	- Succès visibles à la fin du jeu après avoir terminé tous les niveaux, il sera possible de refaire les niveaux pour les compléter
+	- Sauter sur les ennemis pour les tuer
+	- Son quand le personnage saute et quand il meurt
+	- Musique de fond
+	- Son quand un ennemi est tué et quand il attaque
+
+Maniabilité du personnage :
+
+	- Sauter avec la barre espace
+	- Se déplacer à droite et à gauche avec les flèches directionelles droite et gauche ou avec d'autres touches en fonction de ce que choisi le joueur
+
+Plan, Architecture du Jeu :
+
+	- Menu après ouverture du jeu : 
+		- Choix entre "Continuer", "Nouvelle Partie" et "Paramètres" si un fichier de sauvegarde et déjà existant
+		- Choix entre "Nouvelle Partie" et "Paramètres" si aucun fichier est existant
+		
+	- Menu après avoir cliqué sur "Nouvelle Partie" :
+		- Choix du personnage (masculin ou féminin), du nom que le personnage va porter pendant le jeu et du mode de jeu (Normal ou Hardcore)
+		
+	- Menu après avoir cliqué sur "Paramètres" :
+		- Paramètres pour le son du jeu, touches pour contrôler le personnage
+		
+	- Carte des différents niveaux du jeu avec notre personnage qui avance sur la carte à travers différents composants d'époques différentes
+	
+
+Graphismes :
+
+	- Graphisme pixelart dont la qualité s'améliore au fur et à mesure des niveaux 		
+
+
+Proposition de Mob :
+
+Mob terrestre :
+	- Un mob de base Puce electronique rouge (comme les goomba)
+	- Un mob Cable ?
+
+Mob Aérien/Projectile :
+	- Un piege aérien qui serai une hélice de pc (fixe dans les airs)
+	- 
+
+
+
+Lien LiveShare : https://prod.liveshare.vsengsaas.visualstudio.com/join?E5FD2DDDF155BEF7AED41F54E5DC66265D07
