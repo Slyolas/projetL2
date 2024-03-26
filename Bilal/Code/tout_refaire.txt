@@ -1,0 +1,3 @@
+https://alexandre-laurent.developpez.com/tutoriels/sdl-2/afficher-sprites-sdl-2/
+
+Refaire tout le code car vient de réaliser comme un génie que c'est du SDL1 et non SDL2
