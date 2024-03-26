@@ -1,2 +1,3 @@
 Création des sprites : https://eduscol.education.fr/sti/sites/eduscol.education.fr.sti/files/ressources/pedagogiques/9734/9734-3-la-gestion-des-sprites.pdf
 
+Possible vidéo animation sprite (me parait très compliqué) : https://www.youtube.com/watch?v=DFfsYWuupcI
