@@ -1,143 +1,196 @@
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <stdio.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
 #include "constante.h"
+ 
+void Mouvement(int Carte[][26], SDL_Rect *pos, int Direction, SDL_Renderer *render);
+ 
+int lvl1(SDL_Renderer *render)
+{  
+ 
+    SDL_Rect position, positionJoueur;
+    SDL_Surface *SPerso[5] = {NULL};
+    SDL_Texture *TPerso[5] = {NULL};
+    SDL_Texture *PersoActuelle = NULL;
+    
+    // Compteur_Variable
+    int i;
+    int j;
+ 
+    // Definit les images sur les Surfaces Perso[Orientation]
 
-
-
-
-void handle_events(){
-    /*Si la touche du bas est pressé*/
-    if(event.type == SDL_KEYDOWN){
-        /*Mise à jour de la vitesse*/
-        switch(event.key.keysym.sym){
-            case SDLK_RIGHT:
-                vitesse += (PERSO_VITESSE / FRAMES_PER_SECOND);
-                break;
-            case SDLK_LEFT:
-                vitesse += (PERSO_VITESSE / FRAMES_PER_SECOND);
-                break;
-            default:
-                break;
+    SPerso[HAUT]=IMG_Load("../../Programme/images/personnage_masculin_haut_1.png");
+    SPerso[DROITE]=IMG_Load("../../Programme/images/personnage_masculin_bas_gauche_1.png");
+    SPerso[GAUCHE]=IMG_Load("../../Programme/images/personnage_masculin_bas_gauche_2.png");
+    SPerso[BAS]=IMG_Load("../../Programme/images/personnage_masculin.png");
+ 
+    // Définition de la Carte
+    int Carte[11][26];
+ 
+    for(j = 1; j < 5; j++)
+    {  
+        if(SPerso[j] == NULL)
+        {
+            printf("%d : Erreur SDL chargement de l'image Personnage \n",j );
+            exit(EXIT_FAILURE);
         }
     }
-    else if(event.type == SDL_KEYUP){
-        switch(event.key.keysym.sym){
-            case SDLK_RIGHT:
-                vitesse -= (PERSO_VITESSE / FRAMES_PER_SECOND);
-                break;
-            case SDLK_LEFT:
-                vitesse += (PERSO_VITESSE / FRAMES_PER_SECOND);
-                break;
-            default:
-                break;
+ 
+    for(i = 1; i < 5; i++)
+    {
+        TPerso[i] = SDL_CreateTextureFromSurface(render, SPerso[i]);
+        SDL_FreeSurface(SPerso[i]);
+        SDL_Log("Free de la sufrace du perso %d", i);
+    }
+     
+ 
+ 
+    // On remet le render vierge
+    SDL_RenderClear(render);
+ 
+    // On Définit la position du Joueur
+    PersoActuelle = TPerso[BAS];
+    if(PersoActuelle == NULL)
+        SDL_Log("Erreur lors du chargement du personnage actuelle");
+    positionJoueur.x = 10;
+    positionJoueur.y = 10;
+    position.w = 100;
+    position.h = 100;
+ 
+/*-------------------------------------*/
+/*------------ Boucle infini ----------*/
+/*-------------------------------------*/
+    SDL_bool run = SDL_TRUE;
+    while(run)
+    {  
+        SDL_RenderClear(render);
+        SDL_Event event;
+        while(SDL_PollEvent(&event))
+        {
+            switch(event.type)
+            {  
+                case SDL_QUIT:
+                    run = SDL_FALSE;
+                    break;
+ 
+                case SDL_KEYDOWN:
+                    switch(event.key.keysym.sym)
+                    {
+                        case SDLK_ESCAPE:
+                            run = SDL_FALSE;
+                                break;
+                        case SDLK_DOWN:
+                            Mouvement(Carte, &positionJoueur, BAS, render);
+                            PersoActuelle = TPerso[BAS];
+                            break;
+                        case SDLK_UP:
+                            Mouvement(Carte, &positionJoueur, HAUT, render);
+                            PersoActuelle = TPerso[HAUT];
+                            
+                            break;
+                        case SDLK_RIGHT:
+                            Mouvement(Carte, &positionJoueur, DROITE, render);
+                            PersoActuelle = TPerso[DROITE];
+                            
+                            break;
+                        case SDLK_LEFT:
+                            Mouvement(Carte, &positionJoueur, GAUCHE, render);
+                            PersoActuelle = TPerso[GAUCHE];
+                            
+                            break;
+ 
+                        default:
+                            break;
+                    }
+ 
+                default:
+                    break;
+ 
+            }
         }
-    }
-}
-
-void perso_afficher(){
-    /*Mouvement du personnage*/
-    offSet += vitesse;
-    /*Si le personnage fini sur une bordure de l'écran, annule la vitesse*/
-    if((offSet < 0) || ((offSet + PERSO_WIDTH) > PERSO_WIDTH)){
-        offSet -= vitesse;
-    }
-    if(vitesse < 0){
-        /*Le profil du perso sera mis sur la gauche*/
-        status = GAUCHE;
-    }else if(vitesse > 0){
-        /*Le profil du perso sera mis sur la droite*/
-        status = DROITE;
-        /*On bouge à la prochaine frame (image) du personnage*/
-        frame++;
-    }else{
-        /*Remet le sprite à l'état initial*/
-        frame = 1;
-    }
-
-    if(frame >= FRAME){
-        frame = 0;
-    }
-
-    if(status == DROITE){
-        apply_surface( offset, SCREEN_HEIGH - PERSO_HEIGHT, perso,screen,&clipsRight[frame]);
-    }else if(status == GAUCHE){
-        apply_surface(offSet,SCREEN_HEIGH - PERSO_HEIGHT, perso,screen,&clipsLeft[frame])
-    }
-
-}
-
-
-void set_clips()
-{
-    //On coupe la feuille de sprite
-    clipsRight[ i ].x = PERSO_WIDTH * i;
-    clipsRight[ i ].y = 0;
-    clipsRight[ i ].w = PERSO_WIDTH;
-    clipsRight[ i ].h = PERSO_HEIGHT;
-
-
-    clipsLeft[ i ].x = PERSO_WIDTH * i;
-    clipsLeft[ i ].y = PERSO_HEIGHT;
-    clipsLeft[ i ].w = PERSO_WIDTH;
-    clipsLeft[ i ].h = PERSO_HEIGHT;
-}
-
-SDL_Rect position, positionJoueur;
-
-void joueur(SDL_Surface* ecran){
-
-    SDL_Surface *perso[FRAME] = {NULL};
-    SDL_Surface *persoActuel = NULL;
-
-
-    SDL_Event event;
-
-    int continuer = 1;
-    int i = 0, j = 0;
-
-
-    perso[BAS] = IMG_Load("../Image_Perso/1gars_img");
-
-    persoActuel = perso[BAS];
-
-
-    positionJoueur = (SDL_Rect){
-        .x = 3,
-        .y = 3
-    };
-
-    while(continuer){
-        SDL_WaitEvent(&event);
-        switch(event.type){
-            case SDL_QUIT:
-                continuer = 0;
-                break;
-            
-        }
-
-        SDL_FillRect(ecran,NULL,SDL_MapRGB(ecran->format,255,255,255));
-        
+ 
         position.x = positionJoueur.x * TAILLE_BLOC;
         position.y = positionJoueur.y * TAILLE_BLOC;
-        
-        SDL_Flip(ecran);
-        
+ 
+        if(SDL_RenderCopy(render, PersoActuelle, NULL, &position) != 0)
+            SDL_Log("Erreur lors de l'affichage à l'écran");
+ 
+        SDL_RenderPresent(render);
+ 
     }
-    for(i = 0; i < FRAME; ++i){
-        SDL_FreeSurface(perso[i]);
-    }
-
-
-
-
-
-
+    SDL_DestroyRenderer(render);
+    SDL_Quit();
+    exit(EXIT_FAILURE);
 }
-
+    
+void Mouvement(int Carte[][26], SDL_Rect *pos, int Direction, SDL_Renderer *render)
+{
+    SDL_Log("Entrée fonction Mouvement");
+    switch(Direction)
+    {  
+        case BAS:
+            pos->y++;
+             
+            break;
+ 
+        case HAUT:
+            pos->y--;
+             
+            break;
+ 
+        case DROITE:
+            pos->x++;
+             
+            break;
+ 
+        case GAUCHE:
+            pos->x--;
+             
+            break;
+ 
+        default:
+            break;
+    }
+ 
+ 
+}
 
 
 
 int main(){
+    SDL_Window* fenetre;
+SDL_Renderer* renderer;//Déclaration du renderer
+
+if(SDL_VideoInit(NULL) < 0) // Initialisation de la SDL
+{
+    printf("Erreur d'initialisation de la SDL : %s",SDL_GetError());
+    return EXIT_FAILURE;
+}
+
+// Création de la fenêtre :
+fenetre = SDL_CreateWindow("Une fenetre SDL" , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED , 1920 , 1080 , SDL_WINDOW_RESIZABLE);
+if(fenetre == NULL) // Gestion des erreurs
+{
+    printf("Erreur lors de la creation d'une fenetre : %s",SDL_GetError());
+    return EXIT_FAILURE;
+}
+
+renderer = SDL_CreateRenderer(fenetre, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC); // Création du renderer
+
+if(renderer == NULL)//gestion des erreurs
+{
+    printf("Erreur lors de la creation d'un renderer : %s",SDL_GetError());
+    return EXIT_FAILURE;
+}
+while(1)
+    lvl1(renderer);
+
+
+// Destruction du renderer et de la fenêtre :
+SDL_DestroyRenderer(renderer); 
+SDL_DestroyWindow(fenetre);
+SDL_Quit(); // On quitte la SDL
+
+
 
 }
