@@ -4,7 +4,7 @@
 /* Fonction qui met à jour le rendu de l'introduction */
 void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *ligne,
                                     SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
-                                    SDL_Rect *rectangle_texte_introduction, SDL_Surface **texte, SDL_Texture **texture_texte, 
+                                    SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, 
                                     TTF_Font **police, SDL_Color couleurBlanche,
                                     int largeur, int hauteur) {
 
@@ -19,9 +19,9 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
     /* Actualisation de la taille de la police */
     (*police) = TTF_OpenFont("./polices/02587_ARIALMT.ttf", largeur / 50);
     /* Rendu du texte actuel sur la surface texte */
-    (*texte) = TTF_RenderUTF8_Blended((*police), buffer, couleurBlanche);
+    (*surface) = TTF_RenderUTF8_Blended((*police), buffer, couleurBlanche);
     /* Création de la texture texture_texte depuis la surface texte */
-    (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*texte));
+    (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*surface));
 
     /* Récupération des dimensions du texte */
     int largeur_texte, hauteur_texte;
@@ -36,7 +36,7 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
     /* Affichage de la texture texture_texte */
     SDL_RenderCopy((*renderer), (*texture_texte), NULL, rectangle_texte_introduction);
 
-    SDL_FreeSurface((*texte));
+    SDL_FreeSurface((*surface));
     SDL_DestroyTexture((*texture_texte));
 
     /* Copie la texture de l'image du passer */
@@ -56,7 +56,7 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
 /* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction */
 void introduction(SDL_Event *event, SDL_Renderer **renderer, SDL_bool *programme_lance,
                   SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
-                  SDL_Rect *rectangle_texte_introduction, SDL_Surface **texte, SDL_Texture **texture_texte, 
+                  SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, 
                   personnage_t *personnageActif, SDL_Color couleurBlanche,
                   int *largeur, int *hauteur, page_t *page_active) {
 
@@ -130,7 +130,7 @@ void introduction(SDL_Event *event, SDL_Renderer **renderer, SDL_bool *programme
                 /* Mise à jour du rendu */
                 mise_a_jour_rendu_introduction(renderer, indice, ligne,
                                                rectangle_passer, texture_image_passer, 
-                                               rectangle_texte_introduction, texte, texture_texte, 
+                                               rectangle_texte_introduction, surface, texture_texte, 
                                                &police, couleurBlanche,
                                                (*largeur), (*hauteur));
 
@@ -147,5 +147,6 @@ void introduction(SDL_Event *event, SDL_Renderer **renderer, SDL_bool *programme
     free(ligne);
     fclose(fichier);
 
-    detruire_objets(&police);
+    /* Destruction de la police */
+    TTF_CloseFont(police);
 }

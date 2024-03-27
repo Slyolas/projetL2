@@ -8,6 +8,33 @@ void erreur(const char *message) {
     exit(EXIT_FAILURE);
 }
 
+/* Fonction qui permet de charger une image */
+void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, char *chemin) {
+    (*surface) = IMG_Load(chemin);
+    if((*surface) == NULL)
+        erreur("Chargement de l'image");
+    
+    (*texture) = SDL_CreateTextureFromSurface((*renderer), (*surface));
+    if((*texture) == NULL)
+        erreur("Création de la texture");
+    SDL_FreeSurface((*surface));
+}
+
+/* Fonciton qui permet d'afficher le texte */
+void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, itemMenu *item, 
+                     TTF_Font **police, SDL_Color couleur) {
+
+    SDL_RenderFillRect((*renderer), &(item->rectangle));
+
+    (*surface) = TTF_RenderText_Solid((*police), item->texte, couleur);
+    (*texture) = SDL_CreateTextureFromSurface((*renderer), (*surface));
+
+    SDL_RenderCopy((*renderer), (*texture), NULL, &(item->rectangle));
+
+    SDL_FreeSurface((*surface));
+    SDL_DestroyTexture((*texture));
+}
+
 /* Fonction qui permet de créer une fenêtre et le rendu */
 void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur) {
 
@@ -27,52 +54,22 @@ void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeu
         erreur("Création rendu échoué");
 }
 
-void initialisation_objets(SDL_Renderer **renderer,
-                          SDL_Surface **image_plein_ecran, SDL_Texture **texture_image_plein_ecran,
-                          SDL_Surface **image_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
-                          SDL_Surface **image_options, SDL_Texture **texture_image_options,
-                          SDL_Surface **image_passer, SDL_Texture **texture_image_passer,
-                          TTF_Font **police) {
+/* Fonctions qui permet d'initialiser les objets globaux */
+void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,
+                           SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,
+                           SDL_Texture **texture_image_passer, TTF_Font **police) {
 
     /* Initialisation de l'image du plein écran du menu */
-    (*image_plein_ecran) = IMG_Load("./images/plein_ecran.png");
-    if((*image_plein_ecran) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_plein_ecran) = SDL_CreateTextureFromSurface((*renderer), (*image_plein_ecran));
-    if((*texture_image_plein_ecran) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_plein_ecran));
+    chargement_image(renderer, surface, texture_image_plein_ecran, "./images/plein_ecran.png");
 
     /* Initialisation de l'image du retour en arrière */
-    (*image_retour_en_arriere) = IMG_Load("./images/retour_en_arriere.png");
-    if((*image_retour_en_arriere) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_retour_en_arriere) = SDL_CreateTextureFromSurface((*renderer), (*image_retour_en_arriere));
-    if((*texture_image_retour_en_arriere) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_retour_en_arriere));
+    chargement_image(renderer, surface, texture_image_retour_en_arriere, "./images/retour_en_arriere.png");
 
     /* Initialisation de l'image des options du menu */
-    (*image_options) = IMG_Load("./images/options.png");
-    if((*image_options) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_options) = SDL_CreateTextureFromSurface((*renderer), (*image_options));
-    if((*texture_image_options) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_options));
+    chargement_image(renderer, surface, texture_image_options, "./images/options.png");
 
     /* Initialisation de l'image du passer du menu */
-    (*image_passer) = IMG_Load("./images/passer.png");
-    if((*image_passer) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_passer) = SDL_CreateTextureFromSurface((*renderer), (*image_passer));
-    if((*texture_image_passer) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_passer));
+    chargement_image(renderer, surface, texture_image_passer, "./images/passer.png");
 
     /* Initialisation de la police */
     if(((*police) = TTF_OpenFont("./polices/04B_11__.TTF", 20)) == NULL)
@@ -106,6 +103,36 @@ int verification_sauvegarde() {
         erreur("Fermeture du fichier");
 
     return 1;
+}
+
+/* Fonction qui permet de sauvegarder la partie */
+void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
+                        SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo,
+                        modes_t modeActif, personnage_t personnageActif, position_t positionActive) {
+
+    FILE *fichier_sauvegarde;
+
+    /* Ouverture du fichier en mode écriture */
+    fichier_sauvegarde = fopen("./sauvegardes/sauvegarde.txt", "w");
+
+    fprintf(fichier_sauvegarde, "%f\n", barre_de_son[0].volume);
+    fprintf(fichier_sauvegarde, "%f\n", barre_de_son[1].volume);
+    fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_aller_a_droite)));
+    fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_aller_a_gauche)));
+    fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_sauter_monter)));
+    fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_descendre)));
+    fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_interagir)));
+    fprintf(fichier_sauvegarde, "%s\n", pseudo->texte);
+
+    fprintf(fichier_sauvegarde, "%d\n", personnageActif);
+
+    fprintf(fichier_sauvegarde, "%d\n", modeActif);
+
+    fprintf(fichier_sauvegarde, "%d\n", positionActive);
+
+    /* Fermeture du fichier */
+    if (fclose(fichier_sauvegarde) != 0)
+        erreur("Fermeture du fichier");
 }
 
 /* Fonction qui permet de renvoyer vrai quand on clique sur un rectangle, faux sinon */
@@ -156,8 +183,30 @@ void SDL_LimitFPS(unsigned int limit) {
 }
 
 /* Fonction qui permet de détruire les objets initialisés */
-void detruire_objets(TTF_Font **police) {
+void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **texture2,
+                    SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,
+                    SDL_Texture **texture7, SDL_Texture **texture8,
+                    SDL_Texture **texture9, SDL_Texture **texture10, SDL_Texture **texture11,
+                    SDL_Texture **texture12, SDL_Texture **texture13, SDL_Texture **texture14,
+                    SDL_Texture **texture15, SDL_Texture **texture16,
+                    SDL_Texture **texture17, SDL_Texture **texture18, 
+                    SDL_Texture **texture19, SDL_Texture **texture20,
+                    SDL_Texture **texture21, SDL_Texture **texture22) {
 
+    /* Destructions des textures */
+    SDL_DestroyTexture((*texture1)); SDL_DestroyTexture((*texture2)); 
+    SDL_DestroyTexture((*texture3)); SDL_DestroyTexture((*texture4)); 
+    SDL_DestroyTexture((*texture5)); SDL_DestroyTexture((*texture6)); 
+    SDL_DestroyTexture((*texture7)); SDL_DestroyTexture((*texture8)); 
+    SDL_DestroyTexture((*texture9)); SDL_DestroyTexture((*texture10)); 
+    SDL_DestroyTexture((*texture11)); SDL_DestroyTexture((*texture12)); 
+    SDL_DestroyTexture((*texture13)); SDL_DestroyTexture((*texture14)); 
+    SDL_DestroyTexture((*texture15)); SDL_DestroyTexture((*texture16)); 
+    SDL_DestroyTexture((*texture17)); SDL_DestroyTexture((*texture18)); 
+    SDL_DestroyTexture((*texture19)); SDL_DestroyTexture((*texture20)); 
+    SDL_DestroyTexture((*texture21)); SDL_DestroyTexture((*texture22)); 
+    
+    /* Destructions de la police */
     TTF_CloseFont((*police));
 }
 

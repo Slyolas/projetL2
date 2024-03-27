@@ -2,18 +2,44 @@
 #include <../fichiers_h/fonctions_carte.h>
 
 /* Fonction qui permet d'initialiser les différents objets de la carte */
-void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **image_carte, SDL_Texture **texture_image_carte,
+void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_carte,
+                                 SDL_Texture **texture_image_perso_1_bas_1, SDL_Texture **texture_image_perso_1_bas_2,
+                                 SDL_Texture **texture_image_perso_1_haut_1, SDL_Texture **texture_image_perso_1_haut_2,
+                                 SDL_Texture **texture_image_perso_1_bas_gauche_1, SDL_Texture **texture_image_perso_1_bas_gauche_2,
+                                 SDL_Texture **texture_image_perso_1_haut, SDL_Texture **texture_image_perso_1_droite,
+                                 SDL_Texture **texture_image_perso_1_gauche, SDL_Texture **texture_image_perso_1_pose,
+                                 SDL_Texture **texture_image_perso_2_bas_1, SDL_Texture **texture_image_perso_2_bas_2,
+                                 SDL_Texture **texture_image_perso_2_haut_1, SDL_Texture **texture_image_perso_2_haut_2,
+                                 SDL_Texture **texture_image_perso_2_bas_gauche_1, SDL_Texture **texture_image_perso_2_bas_gauche_2,
+                                 SDL_Texture **texture_image_perso_2_haut, SDL_Texture **texture_image_perso_2_droite,
+                                 SDL_Texture **texture_image_perso_2_gauche, SDL_Texture **texture_image_perso_2_pose,
                                  itemMenu *itemsNiveaux) {
 
     /* Initialisation de l'image de fond de la carte */
-    (*image_carte) = IMG_Load("./images/carte.jpg");
-    if((*image_carte) == NULL)
-        erreur("Chargement de l'image");
+    chargement_image(renderer, surface, texture_image_carte, "./images/carte.jpg");
+
+    /* Initialisation des différentes images des personnages */
     
-    (*texture_image_carte) = SDL_CreateTextureFromSurface((*renderer), (*image_carte));
-    if((*texture_image_carte) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_carte));
+    chargement_image(renderer, surface, texture_image_perso_1_bas_1, "./images/personnage_masculin_bas_1.png");
+    chargement_image(renderer, surface, texture_image_perso_1_bas_2, "./images/personnage_masculin_bas_2.png");
+    chargement_image(renderer, surface, texture_image_perso_1_haut_1, "./images/personnage_masculin_haut_1.png");
+    chargement_image(renderer, surface, texture_image_perso_1_haut_2, "./images/personnage_masculin_haut_2.png");
+    chargement_image(renderer, surface, texture_image_perso_1_bas_gauche_1, "./images/personnage_masculin_bas_gauche_1.png");
+    chargement_image(renderer, surface, texture_image_perso_1_bas_gauche_2, "./images/personnage_masculin_bas_gauche_2.png");
+    chargement_image(renderer, surface, texture_image_perso_1_haut, "./images/personnage_masculin_haut.png");
+    chargement_image(renderer, surface, texture_image_perso_1_droite, "./images/personnage_masculin_droite.png");
+    chargement_image(renderer, surface, texture_image_perso_1_gauche, "./images/personnage_masculin_gauche.png");
+    chargement_image(renderer, surface, texture_image_perso_1_pose, "./images/personnage_masculin_pose.png");
+    chargement_image(renderer, surface, texture_image_perso_2_bas_1, "./images/personnage_feminin_bas_1.png");
+    chargement_image(renderer, surface, texture_image_perso_2_bas_2, "./images/personnage_feminin_bas_2.png");
+    chargement_image(renderer, surface, texture_image_perso_2_haut_1, "./images/personnage_feminin_haut_1.png");
+    chargement_image(renderer, surface, texture_image_perso_2_haut_2, "./images/personnage_feminin_haut_2.png");
+    chargement_image(renderer, surface, texture_image_perso_2_bas_gauche_1, "./images/personnage_feminin_bas_gauche_1.png");
+    chargement_image(renderer, surface, texture_image_perso_2_bas_gauche_2, "./images/personnage_feminin_bas_gauche_2.png");
+    chargement_image(renderer, surface, texture_image_perso_2_haut, "./images/personnage_feminin_haut.png");
+    chargement_image(renderer, surface, texture_image_perso_2_droite, "./images/personnage_feminin_droite.png");
+    chargement_image(renderer, surface, texture_image_perso_2_gauche, "./images/personnage_feminin_gauche.png");
+    chargement_image(renderer, surface, texture_image_perso_2_pose, "./images/personnage_feminin_pose.png");
 
 	/* Initialisation du texte dans les items de la carte */
     sprintf(itemsNiveaux[0].texte, " Niveau 1 ");
@@ -27,7 +53,7 @@ void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_imag
                              SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                              SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
                              SDL_Rect *rectangle_perso, SDL_Texture **texture_image_perso,
-                             SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
+                             SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                              position_t positionActive, SDL_Color couleurNoire,
                              itemMenu *itemsNiveaux, int tailleNiveaux, int largeur, int hauteur) {
     
@@ -110,18 +136,9 @@ void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_imag
         rectangle_perso->y = hauteur / 4 + hauteur / 13;
     }
 
-    if(positionActive != NIVEAU0) {
-
-        SDL_RenderFillRect((*renderer), &(itemsNiveaux[positionActive - 1].rectangle));
-
-        (*texte_menu) = TTF_RenderText_Solid((*police), itemsNiveaux[positionActive - 1].texte, couleurNoire);
-        (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-        SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(itemsNiveaux[positionActive - 1].rectangle));
-
-        SDL_FreeSurface((*texte_menu));
-        SDL_DestroyTexture((*texture_texte_menu));
-    }
+    if(positionActive != NIVEAU0)
+        affichage_texte(renderer, surface, texture_texte, &(itemsNiveaux[positionActive - 1]), 
+                            police, couleurNoire);
 
     if(SDL_RenderCopy((*renderer), (*texture_image_perso), NULL, rectangle_perso) != 0)
         erreur("Copie de la texture");
@@ -130,35 +147,107 @@ void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_imag
     SDL_RenderPresent((*renderer));
 }
 
+/* Fonction qui permet de deplacer le personnage sur la carte */
+void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Texture **texture_image_carte,
+                                    SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
+                                    SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
+                                    SDL_Rect *rectangle_perso, SDL_Texture **texture_image_perso_1, SDL_Texture **texture_image_perso_2, 
+                                    SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
+                                    position_t *positionActive, SDL_Color couleurNoire,
+                                    itemMenu *itemsNiveaux, int tailleNiveaux, int largeur, int hauteur,
+                                    int valeur_maximale, direction_t direction) {
+
+    int i;
+    (*positionActive) = NIVEAU0;
+
+    if((direction == HAUT) || (direction == HAUT_DROITE))
+        for(i = 0; rectangle_perso->y > valeur_maximale; i++) {
+
+            if((direction == HAUT) || (direction == HAUT_DROITE))
+                rectangle_perso->y -= hauteur / 100;
+            else if((direction == BAS) || (direction == BAS_GAUCHE))
+                rectangle_perso->y += hauteur / 100;
+
+            if(direction == HAUT_DROITE)
+                rectangle_perso->x += largeur / 100;
+            else if(direction == BAS_GAUCHE)
+                rectangle_perso->x -= largeur / 100;
+            
+
+            if(i % 2)
+                mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                        rectangle_plein_ecran, texture_image_plein_ecran,
+                                        rectangle_options, texture_image_options,
+                                        rectangle_perso, texture_image_perso_1,
+                                        surface, texture_texte, police,
+                                        (*positionActive), couleurNoire,
+                                        itemsNiveaux, tailleNiveaux, largeur, hauteur);
+                                    
+            else
+                mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                        rectangle_plein_ecran, texture_image_plein_ecran,
+                                        rectangle_options, texture_image_options,
+                                        rectangle_perso, texture_image_perso_2,
+                                        surface, texture_texte, police,
+                                        (*positionActive), couleurNoire,
+                                        itemsNiveaux, tailleNiveaux, largeur, hauteur);
+
+            SDL_Delay(75);
+        }
+
+    else if((direction == BAS) || (direction == BAS_GAUCHE))
+        for(i = 0; rectangle_perso->y < valeur_maximale; i++) {
+
+            if((direction == HAUT) || (direction == HAUT_DROITE))
+                rectangle_perso->y -= hauteur / 100;
+            else if((direction == BAS) || (direction == BAS_GAUCHE))
+                rectangle_perso->y += hauteur / 100;
+
+            if(direction == HAUT_DROITE)
+                rectangle_perso->x += largeur / 100;
+            else if(direction == BAS_GAUCHE)
+                rectangle_perso->x -= largeur / 100;
+            
+
+            if(i % 2)
+                mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                        rectangle_plein_ecran, texture_image_plein_ecran,
+                                        rectangle_options, texture_image_options,
+                                        rectangle_perso, texture_image_perso_1,
+                                        surface, texture_texte, police,
+                                        (*positionActive), couleurNoire,
+                                        itemsNiveaux, tailleNiveaux, largeur, hauteur);
+                                    
+            else
+                mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                        rectangle_plein_ecran, texture_image_plein_ecran,
+                                        rectangle_options, texture_image_options,
+                                        rectangle_perso, texture_image_perso_2,
+                                        surface, texture_texte, police,
+                                        (*positionActive), couleurNoire,
+                                        itemsNiveaux, tailleNiveaux, largeur, hauteur);
+
+            SDL_Delay(75);
+        }
+}
+
 /* Fonction qui permet de gérer toutes les possibilités qui sont possiblent sur la carte */
 void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_carte,
            SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
            SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
-           SDL_Texture **texture_image_perso, SDL_Rect *rectangle_perso, personnage_t *personnageActif,
-           SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
+           SDL_Texture **texture_image_perso_bas_1, SDL_Texture **texture_image_perso_bas_2,
+           SDL_Texture **texture_image_perso_haut_1, SDL_Texture **texture_image_perso_haut_2,
+           SDL_Texture **texture_image_perso_bas_gauche_1, SDL_Texture **texture_image_perso_bas_gauche_2,
+           SDL_Texture **texture_image_perso_haut, SDL_Texture **texture_image_perso_droite,
+           SDL_Texture **texture_image_perso_gauche, SDL_Texture **texture_image_perso_pose,
+           SDL_Texture **texture_image_perso, SDL_Rect *rectangle_perso,
+           SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
            position_t *positionActive, SDL_Color couleurNoire, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche,
            SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir,
            itemMenu *itemsNiveaux, int tailleNiveaux, int *largeur, int *hauteur, page_t *page_active) {
 
-    int i;
-
-    /* Création d'un pointeur sur la surface de l'image du personnage */
-    SDL_Surface *image_perso = NULL;
-
-    /* Initialisation de l'image du personnage */
-    if((*personnageActif) == PERSONNAGE_1)
-        image_perso = IMG_Load("./images/personnage_masculin.png");
-    else
-        image_perso = IMG_Load("./images/personnage_feminin.png");
-
-    if(image_perso == NULL)
-        erreur("Chargement de l'image");
-                            
-    (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-    if((*texture_image_perso) == NULL)
-        erreur("Création de la texture");
-
-    SDL_FreeSurface(image_perso);
+    /* Initialisation de la direction du personnage */
+    direction_t direction = BAS;
 
     while(SDL_PollEvent(event)) {
 
@@ -174,281 +263,200 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                     /* Aller du niveau 1 au niveau 2 */
                     if((*positionActive == NIVEAU1) && 
                        ((event->key.keysym.sym == (*touche_aller_a_droite)) || (event->key.keysym.sym == (*touche_sauter_monter)))) {
-                        (*positionActive) = NIVEAU0;
 
-                        for(i = 0; rectangle_perso->y > (((*hauteur) / 2 + (*hauteur) / 50) + (*hauteur) / 75); i++) {
-                            if(i % 2)
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_haut_1.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_haut_1.png");
-                            else
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_haut_2.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_haut_2.png");
-
-                            if(image_perso == NULL)
-                                erreur("Chargement de l'image");
-                            
-                            (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-                            if((*texture_image_perso) == NULL)
-                                erreur("Création de la texture");
-
-                            SDL_FreeSurface(image_perso);
-
-                            rectangle_perso->x += (*largeur) / 100;
-                            rectangle_perso->y -= (*hauteur) / 100;
-                            mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                                    rectangle_plein_ecran, texture_image_plein_ecran,
-                                                    rectangle_options, texture_image_options,
-                                                    rectangle_perso, texture_image_perso,
-                                                    texte_menu, texture_texte_menu, police,
-                                                    (*positionActive), couleurNoire,
-                                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                            SDL_Delay(75);
-                        }
+                        deplacement_personnage_carte(renderer, texture_image_carte,
+                                                     rectangle_plein_ecran, texture_image_plein_ecran,
+                                                     rectangle_options, texture_image_options,
+                                                     rectangle_perso, texture_image_perso_haut_1, texture_image_perso_haut_2,
+                                                     surface, texture_texte, police,
+                                                     positionActive, couleurNoire,
+                                                     itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur),
+                                                     (((*hauteur) / 2 + (*hauteur) / 50) + (*hauteur) / 75), HAUT_DROITE);
 
                         (*positionActive) = NIVEAU2;
+                        direction = BAS;
                     }
+
+                    else if((*positionActive == NIVEAU1) && 
+                            (event->key.keysym.sym == (*touche_descendre)))
+                        direction = BAS;
+
+                    else if((*positionActive == NIVEAU1) && 
+                            (event->key.keysym.sym == (*touche_aller_a_gauche)))
+                        direction = GAUCHE;
 
                     /* Entrer dans le niveau 1 */
                     else if((*positionActive == NIVEAU1) && 
-                            (event->key.keysym.sym == (*touche_interagir)))
+                            (event->key.keysym.sym == (*touche_interagir))) {
+                        
+                        mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                                rectangle_plein_ecran, texture_image_plein_ecran,
+                                                rectangle_options, texture_image_options,
+                                                rectangle_perso, texture_image_perso_pose,
+                                                surface, texture_texte, police,
+                                                (*positionActive), couleurNoire,
+                                                itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+
+                        SDL_Delay(1000);
+                        
                         printf("Vous entrez dans le niveau 1 !\n");
+                        direction = BAS;
+                    }
 
                     /* Aller du niveau 2 au niveau 3 */
                     else if((*positionActive == NIVEAU2) && 
                             (event->key.keysym.sym == (*touche_sauter_monter))) {
-                        (*positionActive) = NIVEAU0;
-
-                        for(i = 0; rectangle_perso->y > (((*hauteur) / 2 - (*hauteur) / 14) + (*hauteur) / 75); i++) {
-                            if(i % 2)
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_haut_1.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_haut_1.png");
-                            else
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_haut_2.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_haut_2.png");
-
-                            if(image_perso == NULL)
-                                erreur("Chargement de l'image");
-                            
-                            (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-                            if((*texture_image_perso) == NULL)
-                                erreur("Création de la texture");
-
-                            SDL_FreeSurface(image_perso);
-
-                            rectangle_perso->y -= (*hauteur) / 100;
-                            mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                                    rectangle_plein_ecran, texture_image_plein_ecran,
-                                                    rectangle_options, texture_image_options,
-                                                    rectangle_perso, texture_image_perso,
-                                                    texte_menu, texture_texte_menu, police,
-                                                    (*positionActive), couleurNoire,
-                                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                            SDL_Delay(75);
-                        }
+                        
+                        deplacement_personnage_carte(renderer, texture_image_carte,
+                                                     rectangle_plein_ecran, texture_image_plein_ecran,
+                                                     rectangle_options, texture_image_options,
+                                                     rectangle_perso, texture_image_perso_haut_1, texture_image_perso_haut_2,
+                                                     surface, texture_texte, police,
+                                                     positionActive, couleurNoire,
+                                                     itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur),
+                                                     (((*hauteur) / 2 - (*hauteur) / 14) + (*hauteur) / 75), HAUT);
                         
                         (*positionActive) = NIVEAU3;
+                        direction = BAS;
                     }
 
                     /* Aller du niveau 2 au niveau 1 */
                     else if((*positionActive == NIVEAU2) && 
                             ((event->key.keysym.sym == (*touche_aller_a_gauche)) || (event->key.keysym.sym == (*touche_descendre)))) {
-                        (*positionActive) = NIVEAU0;
 
-                        for(i = 0; rectangle_perso->y < (((*hauteur) / 3 * 2 + (*hauteur) / 50) - (*largeur) / 75); i++) {
-                            if(i % 2)
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_bas_gauche_1.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_bas_gauche_1.png");
-                            else
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_bas_gauche_2.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_bas_gauche_2.png");
-
-                            if(image_perso == NULL)
-                                erreur("Chargement de l'image");
-                            
-                            (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-                            if((*texture_image_perso) == NULL)
-                                erreur("Création de la texture");
-
-                            SDL_FreeSurface(image_perso);
-
-                            rectangle_perso->x -= (*largeur) / 100;
-                            rectangle_perso->y += (*hauteur) / 100;
-                            mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                                    rectangle_plein_ecran, texture_image_plein_ecran,
-                                                    rectangle_options, texture_image_options,
-                                                    rectangle_perso, texture_image_perso,
-                                                    texte_menu, texture_texte_menu, police,
-                                                    (*positionActive), couleurNoire,
-                                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                            SDL_Delay(75);
-                        }   
+                        deplacement_personnage_carte(renderer, texture_image_carte,
+                                                     rectangle_plein_ecran, texture_image_plein_ecran,
+                                                     rectangle_options, texture_image_options,
+                                                     rectangle_perso, texture_image_perso_bas_gauche_1, texture_image_perso_bas_gauche_2,
+                                                     surface, texture_texte, police,
+                                                     positionActive, couleurNoire,
+                                                     itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur),
+                                                     (((*hauteur) / 3 * 2 + (*hauteur) / 50) - (*largeur) / 75), BAS_GAUCHE);
                         
                         (*positionActive) = NIVEAU1;
+                        direction = BAS;
                     }
+
+                    else if((*positionActive == NIVEAU2) && 
+                            (event->key.keysym.sym == (*touche_aller_a_droite)))
+                        direction = DROITE;
 
                     /* Entrer dans le niveau 2 */
                     else if((*positionActive == NIVEAU2) && 
-                            (event->key.keysym.sym == (*touche_interagir)))
+                            (event->key.keysym.sym == (*touche_interagir))) {
+
+                        mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                                rectangle_plein_ecran, texture_image_plein_ecran,
+                                                rectangle_options, texture_image_options,
+                                                rectangle_perso, texture_image_perso_pose,
+                                                surface, texture_texte, police,
+                                                (*positionActive), couleurNoire,
+                                                itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+
+                        SDL_Delay(1000);
+
                         printf("Vous entrez dans le niveau 2 !\n");
+                        direction = BAS;
+                    }
 
                     /* Aller du niveau 3 au niveau 4 */
                     else if((*positionActive == NIVEAU3) && 
                             ((event->key.keysym.sym == (*touche_aller_a_droite)) || (event->key.keysym.sym == (*touche_sauter_monter)))) {
-                        (*positionActive) = NIVEAU0;
 
-                        for(i = 0; rectangle_perso->y > (((*hauteur) / 4 + (*hauteur) / 13) + (*hauteur) / 75); i++) {
-                            if(i % 2)
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_haut_1.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_haut_1.png");
-                            else
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_haut_2.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_haut_2.png");
-
-                            if(image_perso == NULL)
-                                erreur("Chargement de l'image");
-                            
-                            (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-                            if((*texture_image_perso) == NULL)
-                                erreur("Création de la texture");
-
-                            SDL_FreeSurface(image_perso);
-
-                            rectangle_perso->x += (*largeur) / 100;
-                            rectangle_perso->y -= (*hauteur) / 100;
-                            mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                                    rectangle_plein_ecran, texture_image_plein_ecran,
-                                                    rectangle_options, texture_image_options,
-                                                    rectangle_perso, texture_image_perso,
-                                                    texte_menu, texture_texte_menu, police,
-                                                    (*positionActive), couleurNoire,
-                                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                            SDL_Delay(75);
-                        }
+                        deplacement_personnage_carte(renderer, texture_image_carte,
+                                                     rectangle_plein_ecran, texture_image_plein_ecran,
+                                                     rectangle_options, texture_image_options,
+                                                     rectangle_perso, texture_image_perso_haut_1, texture_image_perso_haut_2,
+                                                     surface, texture_texte, police,
+                                                     positionActive, couleurNoire,
+                                                     itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur),
+                                                     (((*hauteur) / 4 + (*hauteur) / 13) + (*hauteur) / 75), HAUT_DROITE);
 
                         (*positionActive) = NIVEAU4;
+                        direction = BAS;
                     }
 
                     /* Aller du niveau 3 au niveau 2 */
                     else if((*positionActive == NIVEAU3) && 
                             (event->key.keysym.sym == (*touche_descendre))) {
-                        (*positionActive) = NIVEAU0;
 
-                        for(i = 0; rectangle_perso->y < (((*hauteur) / 2 + (*hauteur) / 50) - (*hauteur) / 75); i++) {
-                            if(i % 2)
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_bas_1.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_bas_1.png");
-                            else
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_bas_2.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_bas_2.png");
-
-                            if(image_perso == NULL)
-                                erreur("Chargement de l'image");
-                            
-                            (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-                            if((*texture_image_perso) == NULL)
-                                erreur("Création de la texture");
-
-                            SDL_FreeSurface(image_perso);
-
-                            rectangle_perso->y += (*hauteur) / 100;
-                            mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                                    rectangle_plein_ecran, texture_image_plein_ecran,
-                                                    rectangle_options, texture_image_options,
-                                                    rectangle_perso, texture_image_perso,
-                                                    texte_menu, texture_texte_menu, police,
-                                                    (*positionActive), couleurNoire,
-                                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                            SDL_Delay(75);
-                        }
+                        deplacement_personnage_carte(renderer, texture_image_carte,
+                                                     rectangle_plein_ecran, texture_image_plein_ecran,
+                                                     rectangle_options, texture_image_options,
+                                                     rectangle_perso, texture_image_perso_bas_1, texture_image_perso_bas_2,
+                                                     surface, texture_texte, police,
+                                                     positionActive, couleurNoire,
+                                                     itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur),
+                                                     (((*hauteur) / 2 + (*hauteur) / 50) - (*hauteur) / 75), BAS);
 
                         (*positionActive) = NIVEAU2;
+                        direction = BAS;
                     }
+
+                    else if((*positionActive == NIVEAU3) && 
+                            (event->key.keysym.sym == (*touche_aller_a_gauche)))
+                        direction = GAUCHE;
 
                     /* Entrer dans le niveau 3 */
                     else if((*positionActive == NIVEAU3) && 
-                            (event->key.keysym.sym == (*touche_interagir)))
+                            (event->key.keysym.sym == (*touche_interagir))) {
+
+                        mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                                rectangle_plein_ecran, texture_image_plein_ecran,
+                                                rectangle_options, texture_image_options,
+                                                rectangle_perso, texture_image_perso_pose,
+                                                surface, texture_texte, police,
+                                                (*positionActive), couleurNoire,
+                                                itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+
+                        SDL_Delay(1000);
+
                         printf("Vous entrez dans le niveau 3 !\n");
+                        direction = BAS;
+                    }
 
                     /* Aller du niveau 4 au niveau 3 */
-                    if((*positionActive == NIVEAU4) && 
+                    else if((*positionActive == NIVEAU4) && 
                        ((event->key.keysym.sym == (*touche_aller_a_gauche)) || (event->key.keysym.sym == (*touche_descendre)))) {
-                        (*positionActive) = NIVEAU0;
 
-                        for(i = 0; rectangle_perso->y < (((*hauteur) / 2 - (*hauteur) / 14) - (*largeur) / 75); i++) {
-                            if(i % 2)
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_bas_gauche_1.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_bas_gauche_1.png");
-                            else
-                                if((*personnageActif) == PERSONNAGE_1)
-                                    image_perso = IMG_Load("./images/personnage_masculin_bas_gauche_2.png");
-                                else
-                                    image_perso = IMG_Load("./images/personnage_feminin_bas_gauche_2.png");
-
-                            if(image_perso == NULL)
-                                erreur("Chargement de l'image");
-                            
-                            (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-                            if((*texture_image_perso) == NULL)
-                                erreur("Création de la texture");
-
-                            SDL_FreeSurface(image_perso);
-
-                            rectangle_perso->x -= (*largeur) / 100;
-                            rectangle_perso->y += (*hauteur) / 100;
-                            mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                                    rectangle_plein_ecran, texture_image_plein_ecran,
-                                                    rectangle_options, texture_image_options,
-                                                    rectangle_perso, texture_image_perso,
-                                                    texte_menu, texture_texte_menu, police,
-                                                    (*positionActive), couleurNoire,
-                                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                            SDL_Delay(75);
-                        }
+                        deplacement_personnage_carte(renderer, texture_image_carte,
+                                                     rectangle_plein_ecran, texture_image_plein_ecran,
+                                                     rectangle_options, texture_image_options,
+                                                     rectangle_perso, texture_image_perso_bas_gauche_1, texture_image_perso_bas_gauche_2,
+                                                     surface, texture_texte, police,
+                                                     positionActive, couleurNoire,
+                                                     itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur),
+                                                     (((*hauteur) / 2 - (*hauteur) / 14) - (*largeur) / 75), BAS_GAUCHE);
 
                         (*positionActive) = NIVEAU3;
+                        direction = BAS;
                     }
+
+                    else if((*positionActive == NIVEAU4) && 
+                            (event->key.keysym.sym == (*touche_sauter_monter)))
+                        direction = HAUT;
+
+                    else if((*positionActive == NIVEAU4) && 
+                            (event->key.keysym.sym == (*touche_aller_a_droite)))
+                        direction = DROITE;
 
                     /* Entrer dans le niveau 4 */
                     else if((*positionActive == NIVEAU4) && 
-                            (event->key.keysym.sym == (*touche_interagir)))
+                            (event->key.keysym.sym == (*touche_interagir))) {
+
+                        mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                                rectangle_plein_ecran, texture_image_plein_ecran,
+                                                rectangle_options, texture_image_options,
+                                                rectangle_perso, texture_image_perso_pose,
+                                                surface, texture_texte, police,
+                                                (*positionActive), couleurNoire,
+                                                itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+
+                        SDL_Delay(1000);
+
                         printf("Vous entrez dans le niveau 4 !\n");
-
-                    /* Initialisation de l'image du personnage */
-                    if((*personnageActif) == PERSONNAGE_1)
-                        image_perso = IMG_Load("./images/personnage_masculin.png");
-                    else
-                        image_perso = IMG_Load("./images/personnage_feminin.png");
-
-                    if(image_perso == NULL)
-                        erreur("Chargement de l'image");
-                            
-                    (*texture_image_perso) = SDL_CreateTextureFromSurface((*renderer), image_perso);
-                    if((*texture_image_perso) == NULL)
-                        erreur("Création de la texture");
-
-                    SDL_FreeSurface(image_perso);
+                        direction = BAS;
+                    }
 
                     break;
 
@@ -473,11 +481,45 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
             }
         }
         /* Mise à jour du rendu */
-        mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                rectangle_plein_ecran, texture_image_plein_ecran,
-                                rectangle_options, texture_image_options,
-                                rectangle_perso, texture_image_perso,
-                                texte_menu, texture_texte_menu, police,
-                                (*positionActive), couleurNoire,
-                                itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+        switch(direction) {
+            case HAUT: mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                                rectangle_plein_ecran, texture_image_plein_ecran,
+                                                rectangle_options, texture_image_options,
+                                                rectangle_perso, texture_image_perso_haut,
+                                                surface, texture_texte, police,
+                                                (*positionActive), couleurNoire,
+                                                itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+                                
+                       break;
+
+            case BAS:
+                mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                        rectangle_plein_ecran, texture_image_plein_ecran,
+                                        rectangle_options, texture_image_options,
+                                        rectangle_perso, texture_image_perso,
+                                        surface, texture_texte, police,
+                                        (*positionActive), couleurNoire,
+                                        itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+
+                break;
+
+            case DROITE:
+            mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                    rectangle_plein_ecran, texture_image_plein_ecran,
+                                    rectangle_options, texture_image_options,
+                                    rectangle_perso, texture_image_perso_droite,
+                                    surface, texture_texte, police,
+                                    (*positionActive), couleurNoire,
+                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+                break;
+        
+            default:
+                mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                        rectangle_plein_ecran, texture_image_plein_ecran,
+                                        rectangle_options, texture_image_options,
+                                        rectangle_perso, texture_image_perso_gauche,
+                                        surface, texture_texte, police,
+                                        (*positionActive), couleurNoire,
+                                        itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+        }
 }

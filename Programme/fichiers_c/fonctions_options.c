@@ -2,31 +2,16 @@
 #include <../fichiers_h/fonctions_options.h>
 
 /* Fonction qui permet d'initialiser les différents objets des options */
-void initialisation_objets_options(SDL_Renderer **renderer,
-                                   SDL_Surface **image_hautParleurActif, SDL_Texture **texture_image_hautParleurActif,
-                                   SDL_Surface **image_hautParleurDesactive, SDL_Texture **texture_image_hautParleurDesactive,
+void initialisation_objets_options(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_hautParleurActif,
+                                   SDL_Texture **texture_image_hautParleurDesactive,
                                    itemMenu *titre, itemMenu *itemsMenu, itemMenu *itemsTouches, itemMenu *itemsBarres) {
 
     /* Initialisation de l'image du haut parleur actif */
-    (*image_hautParleurActif) = IMG_Load("./images/haut_parleur_actif.png");
-    if((*image_hautParleurActif) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_hautParleurActif) = SDL_CreateTextureFromSurface((*renderer), (*image_hautParleurActif));
-    if((*texture_image_hautParleurActif) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_hautParleurActif));
+    chargement_image(renderer, surface, texture_image_hautParleurActif, "./images/haut_parleur_actif.png");
 
     /* Initialisation de l'image du haut parleur desactif */
-    (*image_hautParleurDesactive) = IMG_Load("./images/haut_parleur_desactive.png");
-    if((*image_hautParleurDesactive) == NULL)
-        erreur("Chargement de l'image");
+    chargement_image(renderer, surface, texture_image_hautParleurDesactive, "./images/haut_parleur_desactive.png");
     
-    (*texture_image_hautParleurDesactive) = SDL_CreateTextureFromSurface((*renderer), (*image_hautParleurDesactive));
-    if((*texture_image_hautParleurDesactive) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_hautParleurDesactive));
-
     /* Initialisation du titre des options */
     sprintf(titre->texte, " Options ");
 
@@ -55,7 +40,7 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
                                SDL_Texture **texture_image_hautParleurActif, 
                                SDL_Texture **texture_image_hautParleurDesactive, SDL_bool *sonsActifs,
                                SDL_Rect *rectangles_boutons_sons, option_t ongletActif,
-                               itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
+                               itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                                SDL_Color couleurNoire,
                                itemMenu *itemsMenu, int tailleMenu, itemMenu *itemsTouches, int tailleTouches, 
                                barreDeSon *barre_de_son, int tailleBarres, itemMenu *itemsBarres,
@@ -96,15 +81,8 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
     titre->rectangle.w = largeur / 3;
     titre->rectangle.h = hauteur / 10;
 
-    SDL_RenderFillRect((*renderer), &(titre->rectangle));
-
-    (*texte_menu) = TTF_RenderText_Solid((*police), titre->texte, couleurNoire);
-    (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-    SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(titre->rectangle));
-
-    SDL_FreeSurface((*texte_menu));
-    SDL_DestroyTexture((*texture_texte_menu));
+    affichage_texte(renderer, surface, texture_texte, titre, 
+                    police, couleurNoire);
 
     /* Décide de la couleur en fonction de l'onglet actif */
     if(ongletActif == ONGLET_SON)
@@ -125,15 +103,8 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
         itemsMenu[i].rectangle.w = largeur / 2;
         itemsMenu[i].rectangle.h = hauteur / 10;
 
-        SDL_RenderFillRect((*renderer), &(itemsMenu[i].rectangle));
-
-        (*texte_menu) = TTF_RenderText_Solid((*police), itemsMenu[i].texte, couleurNoire);
-        (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-        SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(itemsMenu[i].rectangle));
-
-        SDL_FreeSurface((*texte_menu));
-        SDL_DestroyTexture((*texture_texte_menu));
+        affichage_texte(renderer, surface, texture_texte, &(itemsMenu[i]), 
+                        police, couleurNoire);
     }
 
     if(ongletActif == ONGLET_SON) {
@@ -148,15 +119,8 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
             itemsBarres[i].rectangle.w = largeur / 2 - largeur / 7;
             itemsBarres[i].rectangle.h = hauteur / 15;
 
-            SDL_RenderFillRect((*renderer), &(itemsBarres[i].rectangle));
-
-            (*texte_menu) = TTF_RenderText_Solid((*police), itemsBarres[i].texte, couleurNoire);
-            (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-            SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(itemsBarres[i].rectangle));
-
-            SDL_FreeSurface((*texte_menu));
-            SDL_DestroyTexture((*texture_texte_menu));
+            affichage_texte(renderer, surface, texture_texte, &(itemsBarres[i]), 
+                            police, couleurNoire);
         }
 
         /* Dessine les boutons sons actifs ou desactifs des deux barres de sons */
@@ -239,15 +203,8 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
             itemsTouches[i].rectangle.w = largeur / 2 - largeur / 7;
             itemsTouches[i].rectangle.h = hauteur / 15;
 
-            SDL_RenderFillRect((*renderer), &(itemsTouches[i].rectangle));
-
-            (*texte_menu) = TTF_RenderText_Solid((*police), itemsTouches[i].texte, couleurNoire);
-            (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-            SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(itemsTouches[i].rectangle));
-
-            SDL_FreeSurface((*texte_menu));
-            SDL_DestroyTexture((*texture_texte_menu));
+            affichage_texte(renderer, surface, texture_texte, &(itemsTouches[i]), 
+                            police, couleurNoire);
         }
 
         /* Dessine les rectangles pour les trois touches différentes */
@@ -260,15 +217,8 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
             itemsTouches[i].rectangle.w = largeur / 2 - largeur / 7;
             itemsTouches[i].rectangle.h = hauteur / 15;
 
-            SDL_RenderFillRect((*renderer), &(itemsTouches[i].rectangle));
-
-            (*texte_menu) = TTF_RenderText_Solid((*police), itemsTouches[i].texte, couleurNoire);
-            (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-            SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(itemsTouches[i].rectangle));
-
-            SDL_FreeSurface((*texte_menu));
-            SDL_DestroyTexture((*texture_texte_menu));
+            affichage_texte(renderer, surface, texture_texte, &(itemsTouches[i]), 
+                            police, couleurNoire);
         }
     }     
 
@@ -278,6 +228,25 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
     SDL_RenderPresent((*renderer));
 }
 
+/* Fonction qui permet de mettre à jour les barres de sons */
+void mise_a_jour_barre_de_son(SDL_Event *event, barreDeSon *barre_de_son, SDL_bool *sonsActifs) {
+
+    barre_de_son->volume_precedent = barre_de_son->volume;
+    barre_de_son->volume = (event->motion.x - barre_de_son->barre.x) * 1.0 / barre_de_son->barre.w;
+    if(((*sonsActifs) == SDL_FALSE) && (barre_de_son->volume != 0))
+        (*sonsActifs) = SDL_TRUE;
+    if(barre_de_son->volume == 0)
+        (*sonsActifs) = SDL_FALSE;
+}
+
+/* Fonction qui permet de mettre à jour les touches */
+void mise_a_jour_touches(SDL_Event *event, SDL_Keycode *touche, int *selection_touche, itemMenu *itemsTouches) {
+
+    (*touche) = event->key.keysym.sym; 
+    sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche)));
+    (*selection_touche) = 0;
+}
+
 /* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les options */
 void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
              SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
@@ -285,7 +254,7 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
              SDL_Texture **texture_image_hautParleurActif, 
              SDL_Texture **texture_image_hautParleurDesactive, SDL_bool *sonsActifs,
              SDL_Rect *rectangles_boutons_sons, option_t *ongletActif,
-             itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
+             itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
              int *selection_touche, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
              SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, SDL_Color couleurNoire,
              itemMenu *itemsMenu, int tailleMenu, itemMenu *itemsTouches, int tailleTouches, 
@@ -352,22 +321,11 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
                         break;
 
                 case SDL_MOUSEBUTTONUP :
-                    if(clic_case((*event), barre_de_son[0].barre)) {
-                        barre_de_son[0].volume_precedent = barre_de_son[0].volume;
-                        barre_de_son[0].volume = (event->motion.x - barre_de_son[0].barre.x) * 1.0 / barre_de_son[0].barre.w;
-                        if((sonsActifs[0] == SDL_FALSE) && (barre_de_son[0].volume != 0))
-                            sonsActifs[0] = SDL_TRUE;
-                        if(barre_de_son[0].volume == 0)
-                            sonsActifs[0] = SDL_FALSE;
-                    }
-                    else if(clic_case((*event), barre_de_son[1].barre)) {
-                        barre_de_son[1].volume_precedent = barre_de_son[1].volume;
-                        barre_de_son[1].volume = (event->motion.x - barre_de_son[1].barre.x) * 1.0 / barre_de_son[1].barre.w;
-                        if((sonsActifs[1] == SDL_FALSE) && (barre_de_son[1].volume != 0))
-                            sonsActifs[1] = SDL_TRUE;
-                        if(barre_de_son[1].volume == 0)
-                            sonsActifs[1] = SDL_FALSE;
-                    }
+                    if(clic_case((*event), barre_de_son[0].barre))
+                        mise_a_jour_barre_de_son(event, &(barre_de_son[0]), &(sonsActifs[0]));
+
+                    else if(clic_case((*event), barre_de_son[1].barre))
+                        mise_a_jour_barre_de_son(event, &(barre_de_son[1]), &(sonsActifs[1]));
 
                     break;
 
@@ -390,47 +348,37 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
                             (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
                             (event->key.keysym.sym != (*touche_sauter_monter)) &&
                             (event->key.keysym.sym != (*touche_descendre)) &&
-                            (event->key.keysym.sym != (*touche_interagir))) {
-                               (*touche_aller_a_droite) = event->key.keysym.sym; 
-                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_aller_a_droite)));
-                        (*selection_touche) = 0;
-                    }
+                            (event->key.keysym.sym != (*touche_interagir)))
+                        mise_a_jour_touches(event, touche_aller_a_droite, selection_touche, itemsTouches);
+
                     else if(((*selection_touche) == 3) && 
                             (event->key.keysym.sym != (*touche_aller_a_droite)) &&
                             (event->key.keysym.sym != (*touche_sauter_monter)) &&
                             (event->key.keysym.sym != (*touche_descendre)) &&
-                            (event->key.keysym.sym != (*touche_interagir))) {
-                               (*touche_aller_a_gauche) = event->key.keysym.sym; 
-                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_aller_a_gauche)));
-                        (*selection_touche) = 0;
-                    }
+                            (event->key.keysym.sym != (*touche_interagir)))
+                        mise_a_jour_touches(event, touche_aller_a_gauche, selection_touche, itemsTouches);
+
                     else if(((*selection_touche) == 5) && 
                             (event->key.keysym.sym != (*touche_aller_a_droite)) &&
                             (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
                             (event->key.keysym.sym != (*touche_descendre)) &&
-                            (event->key.keysym.sym != (*touche_interagir))) {
-                               (*touche_sauter_monter) = event->key.keysym.sym; 
-                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_sauter_monter)));
-                        (*selection_touche) = 0;
-                    }
+                            (event->key.keysym.sym != (*touche_interagir)))
+                        mise_a_jour_touches(event, touche_sauter_monter, selection_touche, itemsTouches);
+
                     else if(((*selection_touche) == 7) && 
                             (event->key.keysym.sym != (*touche_aller_a_droite)) &&
                             (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
                             (event->key.keysym.sym != (*touche_sauter_monter)) &&
-                            (event->key.keysym.sym != (*touche_interagir))) {
-                               (*touche_descendre) = event->key.keysym.sym; 
-                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_descendre)));
-                        (*selection_touche) = 0;
-                    }
+                            (event->key.keysym.sym != (*touche_interagir)))
+                        mise_a_jour_touches(event, touche_descendre, selection_touche, itemsTouches);
+                        
                     else if(((*selection_touche) == 9) && 
                             (event->key.keysym.sym != (*touche_aller_a_droite)) &&
                             (event->key.keysym.sym != (*touche_aller_a_gauche)) &&
                             (event->key.keysym.sym != (*touche_sauter_monter)) &&
-                            (event->key.keysym.sym != (*touche_descendre))) {
-                               (*touche_interagir) = event->key.keysym.sym; 
-                        sprintf(itemsTouches[(*selection_touche)].texte, "                 %s                 ", SDL_GetKeyName((*touche_interagir)));
-                        (*selection_touche) = 0;
-                    }
+                            (event->key.keysym.sym != (*touche_descendre)))
+                        mise_a_jour_touches(event, touche_interagir, selection_touche, itemsTouches);
+
                     break;
 
                 /* Quitter le programme */
@@ -448,7 +396,7 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
                                   texture_image_hautParleurActif,
                                   texture_image_hautParleurDesactive, sonsActifs,
                                   rectangles_boutons_sons, (*ongletActif),
-                                  titre, texte_menu, texture_texte_menu, police,
+                                  titre, surface, texture_texte, police,
                                   couleurNoire,
                                   itemsMenu, tailleMenu, itemsTouches, tailleTouches,
                                   barre_de_son, tailleBarres, itemsBarres,

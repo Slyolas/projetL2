@@ -23,53 +23,41 @@ int main() {
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
 
-    /* Création des pointeurs sur la surface de l'image du plein écran, sur sa texture et du rectangle où se trouvera l'image */
-    SDL_Surface *image_plein_ecran = NULL;
+    /* Initialisation de la surface */
+    SDL_Surface *surface = NULL;
+
+    /* Création du pointeur sur la texture du texte */
+    SDL_Texture *texture_texte = NULL;
+
+    /* Création du pointeur sur la texture de l'image du plein écran et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_plein_ecran = NULL;
     SDL_Rect rectangle_plein_ecran;
 
-    /* Création des pointeurs sur la surface de l'image du retour en arrière, sur sa texture et du rectangle où se trouvera l'image */
-    SDL_Surface *image_retour_en_arriere = NULL;
+    /* Création du pointeur sur la texture de l'image du retour en arrière et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_retour_en_arriere = NULL;
     SDL_Rect rectangle_retour_en_arriere;
 
-    /* Création des pointeurs sur la surface de l'image des options, sur sa texture et du rectangle où se trouvera l'image */
-    SDL_Surface *image_options = NULL;
+    /* Création du pointeur sur la texture de l'image des options et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_options = NULL;
     SDL_Rect rectangle_options;
 
-    /* Création des pointeurs sur la surface de l'image du plein écran, sur sa texture et du rectangle où se trouvera l'image */
-    SDL_Surface *image_passer = NULL;
+    /* Création du pointeur sur la texture de l'image du plein écran et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_passer = NULL;
     SDL_Rect rectangle_passer;
-
-    /* Création des pointeurs sur la surface du texte du menu et sur sa texture */
-    SDL_Surface *texte_menu = NULL;
-    SDL_Texture *texture_texte_menu = NULL;
 
     /* Pointeur sur la police */
     TTF_Font *police = NULL;
 
-    /* Variable de couleur noire */
-    SDL_Color couleurNoire = {0, 0, 0, 255};
-
-    /* Variable de la couleur du titre */
-    SDL_Color couleurTitre = {200, 200, 200, 255};
-
-    /* Création des pointeurs sur la surface de l'image du menu et sur sa texture */
-    SDL_Surface *image_menu = NULL;
+    /* Création du pointeur sur la texture de l'image du menu */
     SDL_Texture *texture_image_menu = NULL;
 
-    /* Création des pointeurs sur la surface de l'image de la carte et sur sa texture */
-    SDL_Surface *image_carte = NULL;
+    /* Création du pointeur sur la texture de l'image de la carte */
     SDL_Texture *texture_image_carte = NULL;
 
-    /* Création des pointeurs sur la surface du de l'image haut parleur actif et sur sa texture */
-    SDL_Surface *image_hautParleurActif = NULL;
+    /* Création du pointeur sur la texture de l'image haut parleur actif */
     SDL_Texture *texture_image_hautParleurActif = NULL;
 
-    /* Création des pointeurs sur la surface du de l'image haut parleur désactivé et sur sa texture */
-    SDL_Surface *image_hautParleurDesactive = NULL;
+    /* Création du pointeur sur la texture de l'image haut parleur désactivé */
     SDL_Texture *texture_image_hautParleurDesactive = NULL;
 
     /* Touches pour les déplacements du personnage */
@@ -82,21 +70,49 @@ int main() {
     /* Création d'un rectangle pour le pseudo */
     SDL_Rect rectangle_pseudo;
 
-    /* Création des pointeurs sur la surface de l'image du premier personnage et sur sa texture */
-    SDL_Surface *image_perso_1 = NULL;
+    /* Création du pointeur sur la texture de l'image du premier personnage et de son rectangle */
     SDL_Texture *texture_image_perso_1 = NULL;
     SDL_Rect rectangle_perso_1;
 
-    /* Création des pointeurs sur la surface de l'image du deuxième personnage et sur sa texture */
-    SDL_Surface *image_perso_2 = NULL;
+    /* Création du pointeur sur la texture de l'image du deuxième personnage et de son rectangle */
     SDL_Texture *texture_image_perso_2 = NULL;
     SDL_Rect rectangle_perso_2;
 
-    /* Variable de couleur blanche */
-    SDL_Color couleurBlanche = {255, 255, 255, 255};
+    /* Création des pointeurs sur la texture des différentes images pour le premier personnage */
+    SDL_Texture *texture_image_perso_1_bas_1 = NULL;
+    SDL_Texture *texture_image_perso_1_bas_2 = NULL;
+    SDL_Texture *texture_image_perso_1_haut_1 = NULL;
+    SDL_Texture *texture_image_perso_1_haut_2 = NULL;
+    SDL_Texture *texture_image_perso_1_bas_gauche_1 = NULL;
+    SDL_Texture *texture_image_perso_1_bas_gauche_2 = NULL;
+    SDL_Texture *texture_image_perso_1_haut = NULL;
+    SDL_Texture *texture_image_perso_1_droite = NULL;
+    SDL_Texture *texture_image_perso_1_gauche = NULL;
+    SDL_Texture *texture_image_perso_1_pose = NULL;
+
+    /* Création des pointeurs sur la texture des différentes images pour le deuxième personnage */
+    SDL_Texture *texture_image_perso_2_bas_1 = NULL;
+    SDL_Texture *texture_image_perso_2_bas_2 = NULL;
+    SDL_Texture *texture_image_perso_2_haut_1 = NULL;
+    SDL_Texture *texture_image_perso_2_haut_2 = NULL;
+    SDL_Texture *texture_image_perso_2_bas_gauche_1 = NULL;
+    SDL_Texture *texture_image_perso_2_bas_gauche_2 = NULL;
+    SDL_Texture *texture_image_perso_2_haut = NULL;
+    SDL_Texture *texture_image_perso_2_droite = NULL;
+    SDL_Texture *texture_image_perso_2_gauche = NULL;
+    SDL_Texture *texture_image_perso_2_pose = NULL;
 
     /* Création du rectangle pour le texte de l'introduction */
     SDL_Rect rectangle_texte_introduction;
+
+    /* Variable de couleur noire */
+    SDL_Color couleurNoire = {0, 0, 0, 255};
+
+    /* Variable de la couleur du titre */
+    SDL_Color couleurTitre = {200, 200, 200, 255};
+
+    /* Variable de couleur blanche */
+    SDL_Color couleurBlanche = {255, 255, 255, 255};
 
     /* Lancement de SDL */
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
@@ -108,12 +124,9 @@ int main() {
 
     creer_fenetre_rendu(&window, &renderer, largeur, hauteur);
 
-    initialisation_objets(&renderer,
-                          &image_plein_ecran, &texture_image_plein_ecran,
-                          &image_retour_en_arriere, &texture_image_retour_en_arriere,
-                          &image_options, &texture_image_options,
-                          &image_passer, &texture_image_passer,
-                          &police);
+    initialisation_objets(&renderer, &surface, &texture_image_plein_ecran,
+                          &texture_image_retour_en_arriere, &texture_image_options,
+                          &texture_image_passer, &police);
 
     /*-------------------------------------------------------------*/
 
@@ -136,7 +149,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    initialisation_objets_menu_principal(&renderer, &image_menu, &texture_image_menu,
+    initialisation_objets_menu_principal(&renderer, &surface, &texture_image_menu,
                                          &titre_menu_principal, itemsMenuPrincipal, tailleMenuPrincipal);  
 
     /* Objets des options */
@@ -157,9 +170,8 @@ int main() {
 
     itemMenu itemsBarres[tailleBarres];
 
-    initialisation_objets_options(&renderer,
-                                  &image_hautParleurActif, &texture_image_hautParleurActif,
-                                  &image_hautParleurDesactive, &texture_image_hautParleurDesactive,
+    initialisation_objets_options(&renderer, &surface, &texture_image_hautParleurActif,
+                                  &texture_image_hautParleurDesactive,
                                   &titre_options, itemsMenuOptions, itemsTouches, itemsBarres);
 
     /* Variable pour suivre l'onglet actif */
@@ -189,9 +201,8 @@ int main() {
 
     itemMenu valider;
 
-    initialisation_objets_nouvelle_partie(&renderer,
-                                          &image_perso_1, &texture_image_perso_1,
-                                          &image_perso_2, &texture_image_perso_2,
+    initialisation_objets_nouvelle_partie(&renderer, &surface, &texture_image_perso_1,
+                                          &texture_image_perso_2,
                                           titres, itemsMenuNouvellePartie, &valider);
 
     /* Variable pour suivre la saisie */
@@ -211,7 +222,17 @@ int main() {
 
     position_t positionActive = NIVEAU1;
 
-    initialisation_objets_carte(&renderer, &image_carte, &texture_image_carte,
+    initialisation_objets_carte(&renderer, &surface, &texture_image_carte,
+                                &texture_image_perso_1_bas_1, &texture_image_perso_1_bas_2,
+                                &texture_image_perso_1_haut_1, &texture_image_perso_1_haut_2,
+                                &texture_image_perso_1_bas_gauche_1, &texture_image_perso_1_bas_gauche_2,
+                                &texture_image_perso_1_haut, &texture_image_perso_1_droite,
+                                &texture_image_perso_1_gauche, &texture_image_perso_1_pose,
+                                &texture_image_perso_2_bas_1, &texture_image_perso_2_bas_2,
+                                &texture_image_perso_2_haut_1, &texture_image_perso_2_haut_2,
+                                &texture_image_perso_2_bas_gauche_1, &texture_image_perso_2_bas_gauche_2,
+                                &texture_image_perso_2_haut, &texture_image_perso_2_droite,
+                                &texture_image_perso_2_gauche, &texture_image_perso_2_pose,
                                 itemsNiveaux); 
 
     /* Chargement de la sauvegarde s'il y en a une */
@@ -268,7 +289,7 @@ int main() {
 
     SDL_bool plein_ecran = SDL_FALSE;
 
-    page_t page_active = CARTE;
+    page_t page_active = MENU_PRINCIPAL;
 
     page_t page_precedente = MENU_PRINCIPAL;
 
@@ -281,7 +302,7 @@ int main() {
             page_precedente = MENU_PRINCIPAL;
             menu_principal(&event, &window, &renderer, &programme_lance, &texture_image_menu,
                            &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
-                           &titre_menu_principal, &texte_menu, &texture_texte_menu, &police,
+                           &titre_menu_principal, &surface, &texture_texte, &police,
                            couleurTitre, couleurNoire,
                            itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
         }
@@ -294,7 +315,7 @@ int main() {
                     &texture_image_hautParleurActif,
                     &texture_image_hautParleurDesactive, sonsActifs,
                     rectangles_boutons_sons, &ongletActif,
-                    &titre_options, &texte_menu, &texture_texte_menu, &police,
+                    &titre_options, &surface, &texture_texte, &police,
                     &selection_touche, &touche_aller_a_droite, &touche_aller_a_gauche, &touche_sauter_monter,
                     &touche_descendre, &touche_interagir, couleurNoire,
                     itemsMenuOptions, tailleMenuOptions, itemsTouches, tailleTouches,
@@ -312,7 +333,7 @@ int main() {
                             &texture_image_perso_2, &rectangle_perso_2, &personnageActif,
                             &pseudo, &rectangle_pseudo, barre_de_son,
                             &touche_aller_a_droite, &touche_aller_a_gauche, &touche_sauter_monter,
-                            &touche_descendre, &touche_interagir, titres, tailleTitres, &texte_menu, &texture_texte_menu, 
+                            &touche_descendre, &touche_interagir, titres, tailleTitres, &surface, &texture_texte, 
                             &police, couleurNoire,
                             itemsMenuNouvellePartie, &valider, &largeur, &hauteur, &page_active);
         }
@@ -321,7 +342,7 @@ int main() {
         else if(page_active == INTRODUCTION) {
             introduction(&event, &renderer, &programme_lance,
                          &rectangle_passer, &texture_image_passer,
-                         &rectangle_texte_introduction, &texte_menu, &texture_texte_menu, 
+                         &rectangle_texte_introduction, &surface, &texture_texte, 
                          &personnageActif, couleurBlanche,
                          &largeur, &hauteur, &page_active);
             
@@ -330,16 +351,37 @@ int main() {
 
         /* Page de la carte */
         else if(page_active == CARTE) {
-            page_active = CARTE;
             page_precedente = CARTE;
-            carte(&event, &window, &renderer, &programme_lance, &texture_image_carte,
-                  &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
-                  &rectangle_options, &texture_image_options,
-                  &texture_image_perso_1, &rectangle_perso_1, &personnageActif,
-                  &texte_menu, &texture_texte_menu, &police,
-                  &positionActive, couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
-                  &touche_sauter_monter, &touche_descendre, &touche_interagir,
-                  itemsNiveaux, tailleNiveaux, &largeur, &hauteur, &page_active);
+
+            if(personnageActif == PERSONNAGE_1)
+                carte(&event, &window, &renderer, &programme_lance, &texture_image_carte,
+                      &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
+                      &rectangle_options, &texture_image_options,
+                      &texture_image_perso_1_bas_1, &texture_image_perso_1_bas_2,
+                      &texture_image_perso_1_haut_1, &texture_image_perso_1_haut_2,
+                      &texture_image_perso_1_bas_gauche_1, &texture_image_perso_1_bas_gauche_2,
+                      &texture_image_perso_1_haut, &texture_image_perso_1_droite,
+                      &texture_image_perso_1_gauche, &texture_image_perso_1_pose,
+                      &texture_image_perso_1, &rectangle_perso_1,
+                      &surface, &texture_texte, &police,
+                      &positionActive, couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
+                      &touche_sauter_monter, &touche_descendre, &touche_interagir,
+                      itemsNiveaux, tailleNiveaux, &largeur, &hauteur, &page_active);
+
+            else
+                carte(&event, &window, &renderer, &programme_lance, &texture_image_carte,
+                      &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
+                      &rectangle_options, &texture_image_options,
+                      &texture_image_perso_2_bas_1, &texture_image_perso_2_bas_2,
+                      &texture_image_perso_2_haut_1, &texture_image_perso_2_haut_2,
+                      &texture_image_perso_2_bas_gauche_1, &texture_image_perso_2_bas_gauche_2,
+                      &texture_image_perso_2_haut, &texture_image_perso_2_droite,
+                      &texture_image_perso_2_gauche, &texture_image_perso_2_pose,
+                      &texture_image_perso_2, &rectangle_perso_1,
+                      &surface, &texture_texte, &police,
+                      &positionActive, couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
+                      &touche_sauter_monter, &touche_descendre, &touche_interagir,
+                      itemsNiveaux, tailleNiveaux, &largeur, &hauteur, &page_active);
         }
 
         /* Page du niveau 1 */
@@ -348,7 +390,7 @@ int main() {
             page_precedente = MENU_PRINCIPAL;
             menu_principal(&event, &window, &renderer, &programme_lance, &texture_image_menu,
                            &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
-                           &titre_menu_principal, &texte_menu, &texture_texte_menu, &police,
+                           &titre_menu_principal, &surface, &texture_texte, &police,
                            couleurTitre, couleurNoire,
                            itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
         }
@@ -360,7 +402,15 @@ int main() {
     /* Libération de la mémoire allouée dynamiquement */
     free(itemsMenuPrincipal);
 
-    detruire_objets(&police);
+    detruire_objets(&police, &texture_image_plein_ecran, &texture_image_retour_en_arriere,
+                    &texture_image_options, &texture_image_passer, &texture_image_menu, &texture_image_carte,
+                    &texture_image_hautParleurActif, &texture_image_hautParleurDesactive,
+                    &texture_image_perso_1, &texture_image_perso_2, &texture_image_perso_1_bas_1,
+                    &texture_image_perso_1_bas_2, &texture_image_perso_1_haut_1, &texture_image_perso_1_haut_2,
+                    &texture_image_perso_1_bas_gauche_1, &texture_image_perso_1_bas_gauche_2,
+                    &texture_image_perso_2_bas_1, &texture_image_perso_2_bas_2, 
+                    &texture_image_perso_2_haut_1, &texture_image_perso_2_haut_2,
+                    &texture_image_perso_2_bas_gauche_1, &texture_image_perso_2_bas_gauche_2);
 
     detruire_fenetre_rendu(&renderer, &window);
 
