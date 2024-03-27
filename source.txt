@@ -3,3 +3,5 @@ Création des sprites : https://eduscol.education.fr/sti/sites/eduscol.education
 Possible vidéo animation sprite (me parait très compliqué) : https://www.youtube.com/watch?v=DFfsYWuupcI
 
 Idée de texture pour la map : https://www.moddb.com/games/circuit-cube/downloads/alpha-0013
+
+Source tile mapping : http://sdz.tdct.org/sdz/ile-mapping.html
