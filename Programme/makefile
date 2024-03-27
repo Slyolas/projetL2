@@ -110,3 +110,22 @@ clean_obj:
 # Supprimer l'exécutable
 clean_exe:
 	rm -rf $(BIN_DIR)/$(EXECUTABLES)
+
+
+#
+#Gestion du github
+#
+
+#Pull le github
+pull:
+	git fetch
+	git pull
+
+
+#Push le github
+push:
+	git add \.
+
+	git commit -m "$m" 
+
+	git push
