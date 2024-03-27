@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
-#include "constante.h"
+#include "../fichiers_h/Deplacement_personnage.h"
  
 void Mouvement(int Carte[][26], SDL_Rect *pos, int Direction, SDL_Renderer *render);
  
