@@ -2,8 +2,60 @@
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
 #include "../fichiers_h/Deplacement_personnage.h"
- 
+
 void Mouvement(int Carte[][26], SDL_Rect *pos, int Direction, SDL_Renderer *render);
+
+
+void HandleEvent(SDL_Event event,SDL_Renderer *render, SDL_Rect* positionJoueur,SDL_Texture* TPerso[],SDL_Texture* PersoActuelle, SDL_bool *run, int Carte[11][26]){
+    switch(event.type)
+            {  
+                case SDL_QUIT:
+                    *run = SDL_FALSE;
+                    break;
+ 
+                case SDL_KEYDOWN:
+                    switch(event.key.keysym.sym)
+                    {
+                        case SDLK_ESCAPE:
+                            *run = SDL_FALSE;
+                                break;
+                        case SDLK_DOWN:
+                            Mouvement(Carte, positionJoueur, BAS, render);
+                            PersoActuelle = TPerso[BAS];
+                            break;
+                        case SDLK_UP:
+                            Mouvement(Carte, positionJoueur, HAUT, render);
+                            PersoActuelle = TPerso[HAUT];
+                            
+                            break;
+                        case SDLK_RIGHT:
+                            Mouvement(Carte, positionJoueur, DROITE, render);
+                            PersoActuelle = TPerso[DROITE];
+                            
+                            break;
+                        case SDLK_LEFT:
+                            Mouvement(Carte, positionJoueur, GAUCHE, render);
+                            PersoActuelle = TPerso[GAUCHE];
+                            
+                            break;
+ 
+                        default:
+                            break;
+                    }
+ 
+                default:
+                    break;
+ 
+            }
+}
+
+
+
+
+
+
+
+
  
 int gestionPersonnage(SDL_Renderer *render)
 {  
@@ -19,10 +71,10 @@ int gestionPersonnage(SDL_Renderer *render)
  
     // Definit les images sur les Surfaces Perso[Orientation]
 
-    SPerso[HAUT]=IMG_Load("../../Programme/images/personnage_masculin_haut_1.png");
-    SPerso[DROITE]=IMG_Load("../../Programme/images/personnage_masculin_bas_gauche_1.png");
-    SPerso[GAUCHE]=IMG_Load("../../Programme/images/personnage_masculin_bas_gauche_2.png");
-    SPerso[BAS]=IMG_Load("../../Programme/images/personnage_masculin.png");
+    SPerso[HAUT]=IMG_Load("images/personnage_masculin_haut_1.png");
+    SPerso[DROITE]=IMG_Load("images/personnage_masculin_bas_gauche_1.png");
+    SPerso[GAUCHE]=IMG_Load("images/personnage_masculin_bas_gauche_2.png");
+    SPerso[BAS]=IMG_Load("images/personnage_masculin.png");
  
     // Définition de la Carte
     int Carte[11][26];
@@ -50,10 +102,10 @@ int gestionPersonnage(SDL_Renderer *render)
     PersoActuelle = TPerso[BAS];
     if(PersoActuelle == NULL)
         SDL_Log("Erreur lors du chargement du personnage actuelle");
-    positionJoueur.x = 10;
-    positionJoueur.y = 10;
-    position.w = 100;
-    position.h = 100;
+    positionJoueur.x = 10 ;
+    positionJoueur.y = 10 ;
+    position.w = TAILLE_SPRITE*2;
+    position.h = TAILLE_SPRITE*2;   
  
 /*-------------------------------------*/
 /*------------ Boucle infini ----------*/
@@ -62,55 +114,16 @@ int gestionPersonnage(SDL_Renderer *render)
     while(run)
     {  
         // On remet le render vierge
-
         SDL_RenderClear(render);
+
         SDL_Event event;
         while(SDL_PollEvent(&event))
         {
-            switch(event.type)
-            {  
-                case SDL_QUIT:
-                    run = SDL_FALSE;
-                    break;
- 
-                case SDL_KEYDOWN:
-                    switch(event.key.keysym.sym)
-                    {
-                        case SDLK_ESCAPE:
-                            run = SDL_FALSE;
-                                break;
-                        case SDLK_DOWN:
-                            Mouvement(Carte, &positionJoueur, BAS, render);
-                            PersoActuelle = TPerso[BAS];
-                            break;
-                        case SDLK_UP:
-                            Mouvement(Carte, &positionJoueur, HAUT, render);
-                            PersoActuelle = TPerso[HAUT];
-                            
-                            break;
-                        case SDLK_RIGHT:
-                            Mouvement(Carte, &positionJoueur, DROITE, render);
-                            PersoActuelle = TPerso[DROITE];
-                            
-                            break;
-                        case SDLK_LEFT:
-                            Mouvement(Carte, &positionJoueur, GAUCHE, render);
-                            PersoActuelle = TPerso[GAUCHE];
-                            
-                            break;
- 
-                        default:
-                            break;
-                    }
- 
-                default:
-                    break;
- 
-            }
+            HandleEvent(event,render,&positionJoueur,TPerso,PersoActuelle,&run,Carte);
         }
  
-        position.x = positionJoueur.x * TAILLE_BLOC;
-        position.y = positionJoueur.y * TAILLE_BLOC;
+        position.x = positionJoueur.x * (TAILLE_SPRITE / 6);        
+        position.y = positionJoueur.y * (TAILLE_SPRITE / 6);        
  
         if(SDL_RenderCopy(render, PersoActuelle, NULL, &position) != 0)
             SDL_Log("Erreur lors de l'affichage à l'écran");
@@ -129,22 +142,22 @@ void Mouvement(int Carte[][26], SDL_Rect *pos, int Direction, SDL_Renderer *rend
     switch(Direction)
     {  
         case BAS:
-            pos->y++;
+            pos->y += DEPLACEMENT_PIXEL_PERSO;
              
             break;
  
         case HAUT:
-            pos->y--;
+            pos->y -= DEPLACEMENT_PIXEL_PERSO;
              
             break;
  
         case DROITE:
-            pos->x++;
+            pos->x += DEPLACEMENT_PIXEL_PERSO;
              
             break;
  
         case GAUCHE:
-            pos->x--;
+            pos->x -= DEPLACEMENT_PIXEL_PERSO;
              
             break;
  
@@ -159,7 +172,7 @@ void Mouvement(int Carte[][26], SDL_Rect *pos, int Direction, SDL_Renderer *rend
 
 int main(){
     SDL_Window* fenetre;
-SDL_Renderer* renderer;//Déclaration du renderer
+    SDL_Renderer* renderer;//Déclaration du renderer
 
 if(SDL_VideoInit(NULL) < 0) // Initialisation de la SDL
 {
