@@ -124,7 +124,7 @@ pull:
 
 #Push le github
 push:
-	git add \.
+	git add .
 
 	git commit -m "$m" 
 
