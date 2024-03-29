@@ -24,9 +24,14 @@ thème4 :
 Objectif :
 
 1er niveau -> (intro) découverte du jeu / saut,avancer,reculer | type d'interaction | mob | pas un niveau long et difficile
-2e niveau -> terminal dans lequel on controle un mini perso qu'on deplace qu'avec des lignes de commande (haut/bas/gauche/droite)(il y aura un help), déplacement de cube dans un laby ? trou ou l'on 		     peut perdre le cube -> recommencer, le cube avance de une case mais certaines zone le fond glisser jusqu'au mur de collision.
-3e niveau -> tuer des mobs/virus | réparer les bugs (tuyauterie, pour faire passer le courant)
-4e niveau -> 
+
+2e niveau -> 	- tuer des mobs/virus 
+		- réparer les bugs (tuyauterie, pour faire passer le courant)
+		
+3e niveau -> 	- terminal dans lequel on controle un mini perso qu'on deplace qu'avec des lignes de commande (haut/bas/gauche/droite)(il y aura un help), déplacement de cube dans un laby ? trou ou l'on 		     		peut perdre le cube -> recommencer, le cube avance de une case mais certaines zone le fond glisser jusqu'au mur de collision. 
+	     	- puzzle pour recreer un composant détruit
+	     	
+4e niveau -> 	-tour infernal de Guilian (monter plusieur étage sans tomber)
 
 
 Windows Xp -> clippy = assistant
