@@ -11,15 +11,16 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
     /* Création d'une sous-chaîne du texte jusqu'à la lettre actuelle */
     char buffer[indice + 2];
     strncpy(buffer, ligne, indice);
+
     /* Ajout de la lettre actuelle */
     buffer[indice] = ligne[indice];
+
     /* Ajout d'un caractère '\0' pour terminer la chaîne */
     buffer[indice + 1] = '\0';
 
-    /* Actualisation de la taille de la police */
-    (*police) = TTF_OpenFont("./polices/02587_ARIALMT.ttf", largeur / 50);
     /* Rendu du texte actuel sur la surface texte */
     (*surface) = TTF_RenderUTF8_Blended((*police), buffer, couleurBlanche);
+    
     /* Création de la texture texture_texte depuis la surface texte */
     (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*surface));
 
@@ -48,15 +49,18 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
     if(SDL_RenderCopy((*renderer), (*texture_image_passer), NULL, rectangle_passer) != 0)
         erreur("Copie de la texture");
 
+    /* Fond noir */
+    SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 0);
+
     /* Affiche le rendu */
     SDL_RenderPresent((*renderer));
 
 }
 
 /* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction */
-void introduction(SDL_Event *event, SDL_Renderer **renderer, SDL_bool *programme_lance,
+void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
                   SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
-                  SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, 
+                  SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                   personnage_t *personnageActif, SDL_Color couleurBlanche,
                   int *largeur, int *hauteur, page_t *page_active) {
 
@@ -73,19 +77,10 @@ void introduction(SDL_Event *event, SDL_Renderer **renderer, SDL_bool *programme
         if (!fichier)
             erreur("Ouverture du fichier introduction_feminin.txt");
     }
-
-    /* Création d'un pointeur sur la police */
-    TTF_Font *police = NULL;
-
-    if((police = TTF_OpenFont("./polices/02587_ARIALMT.ttf", (*largeur)/50)) == NULL)
-        erreur("Chargement de la police");
     
     /* Initialisation d'une chaîne de caractères */
     char * ligne = malloc(sizeof(char) * 125);
     int indice;
-
-    /* Fond noir */
-    SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 0);
 
     /* Lecture de chaque ligne du fichier */
     while((fgets(ligne, sizeof(char) * 125, fichier) != NULL) && ((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE)) {
@@ -102,6 +97,9 @@ void introduction(SDL_Event *event, SDL_Renderer **renderer, SDL_bool *programme
                     case SDL_WINDOWEVENT:
                         /* Gestion de l'événement de redimensionnement de la fenêtre */
                         redimensionnement_fenetre((*event), largeur, hauteur);
+
+                        /* Actualisation de la taille de la police */
+                        (*police) = TTF_OpenFont("./polices/02587_ARIALMT.ttf", (*largeur) / 50);
 
                         break;
                         
@@ -131,22 +129,25 @@ void introduction(SDL_Event *event, SDL_Renderer **renderer, SDL_bool *programme
                 mise_a_jour_rendu_introduction(renderer, indice, ligne,
                                                rectangle_passer, texture_image_passer, 
                                                rectangle_texte_introduction, surface, texture_texte, 
-                                               &police, couleurBlanche,
+                                               police, couleurBlanche,
                                                (*largeur), (*hauteur));
 
                 /* Délai entre chaque lettre */
                 SDL_Delay(50);
             }
         }
-        if(((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE))
+        if(((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE)) {
+
+            SDL_SetWindowResizable((*window), SDL_FALSE);
+
             /* Délai d'attente avant de passer à la ligne suivante */
             SDL_Delay(2000);
+
+            SDL_SetWindowResizable((*window), SDL_TRUE);
+        }
     }
 
     /* Libération de la mémoire allouée pour la ligne et fermeture du fichier */
     free(ligne);
     fclose(fichier);
-
-    /* Destruction de la police */
-    TTF_CloseFont(police);
 }

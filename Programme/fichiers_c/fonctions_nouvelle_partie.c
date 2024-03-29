@@ -98,13 +98,8 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
     SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
     SDL_RenderDrawRect((*renderer), rectangle_pseudo);
 
-    /* Dessine l'item pour la saisie du pseudo */
-
-    /* Actualisation de la taille de la police */
-    (*police) = TTF_OpenFont("./polices/04B_11__.TTF", largeur / 28);
     /* Rendu du texte actuel sur la surface texte */
     (*surface) = TTF_RenderUTF8_Blended((*police), pseudo->texte, couleurNoire);
-    /* Création de la texture texture_texte depuis la surface texte */
     (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*surface));
 
     /* Récupération des dimensions du texte */
@@ -223,6 +218,9 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                 /* Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
+
+                    /* Actualisation de la taille de la police */
+                    (*police) = TTF_OpenFont("./polices/04B_11__.TTF", (*largeur) / 28);
             
                     break;
 
@@ -263,13 +261,16 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                         (*page_active) = OPTIONS;
 
                     /* Options valider */
-                    if(clic_case((*event), valider->rectangle)) {
+                    if((clic_case((*event), valider->rectangle)) && (strcmp(pseudo->texte, "\0"))) {
 
-                        sauvegarder_partie(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,
-                                           touche_descendre, touche_interagir, barre_de_son, pseudo,
-                                           (*modeActif), (*personnageActif), (position_t)NIVEAU1);
 
-                        (*page_active) = INTRODUCTION;
+                            sauvegarder_partie(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,
+                                            touche_descendre, touche_interagir, barre_de_son, pseudo,
+                                            (*modeActif), (*personnageActif), (position_t)NIVEAU1);
+
+                            (*page_active) = INTRODUCTION;
+                        
+                        
                     }
 
                     break;
@@ -302,10 +303,3 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                                           police, couleurNoire,
                                           itemsMenu, valider, (*largeur), (*hauteur));
 }
-
-
-
-
-
-
-

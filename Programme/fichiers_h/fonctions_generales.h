@@ -28,7 +28,7 @@ typedef enum direction_s {HAUT, BAS, GAUCHE, DROITE, HAUT_DROITE, BAS_GAUCHE} di
 /* Structure pour représenter une case avec un rectangle et du texte */
 typedef struct {
     SDL_Rect rectangle;
-    char texte[40];
+    char texte[60];
 } itemMenu;
 
 /* Structure pour représenter une barre de son */
@@ -53,10 +53,14 @@ void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture
 void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur);
 
 /* Squelette de la fonction initialisation_objets */
-
 void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,
                            SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,
-                           SDL_Texture **texture_image_passer, TTF_Font **police);
+                           SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, TTF_Font **police);
+
+/* Squelette de la fonction demande_sauvegarde */
+void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde,
+                        SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
+                        itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur);
 
 /* Squelette de la fonction redimensionnement_fenetre */
 void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur);
@@ -80,14 +84,18 @@ void SDL_LimitFPS(unsigned int limit);
 
 /* Squelette de la fonction detruire_objets */
 void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **texture2,
-                     SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,
-                     SDL_Texture **texture7, SDL_Texture **texture8,
-                     SDL_Texture **texture9, SDL_Texture **texture10, SDL_Texture **texture11,
-                     SDL_Texture **texture12, SDL_Texture **texture13, SDL_Texture **texture14,
-                     SDL_Texture **texture15, SDL_Texture **texture16,
-                     SDL_Texture **texture17, SDL_Texture **texture18, 
-                     SDL_Texture **texture19, SDL_Texture **texture20,
-                     SDL_Texture **texture21, SDL_Texture **texture22);
+                    SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,
+                    SDL_Texture **texture7, SDL_Texture **texture8,
+                    SDL_Texture **texture9, SDL_Texture **texture10, SDL_Texture **texture11,
+                    SDL_Texture **texture12, SDL_Texture **texture13, SDL_Texture **texture14,
+                    SDL_Texture **texture15, SDL_Texture **texture16,
+                    SDL_Texture **texture17, SDL_Texture **texture18, 
+                    SDL_Texture **texture19, SDL_Texture **texture20,
+                    SDL_Texture **texture21, SDL_Texture **texture22,
+                    SDL_Texture **texture23, SDL_Texture **texture24,
+                    SDL_Texture **texture25, SDL_Texture **texture26,
+                    SDL_Texture **texture27, SDL_Texture **texture28,
+                    SDL_Texture **texture29, SDL_Texture **texture30);
 
 /* Squelette de la fonction detruire_fenetre_rendu */
 void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window);

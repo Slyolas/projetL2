@@ -57,7 +57,7 @@ void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeu
 /* Fonctions qui permet d'initialiser les objets globaux */
 void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,
                            SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,
-                           SDL_Texture **texture_image_passer, TTF_Font **police) {
+                           SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, TTF_Font **police) {
 
     /* Initialisation de l'image du plein écran du menu */
     chargement_image(renderer, surface, texture_image_plein_ecran, "./images/plein_ecran.png");
@@ -74,6 +74,61 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_T
     /* Initialisation de la police */
     if(((*police) = TTF_OpenFont("./polices/04B_11__.TTF", 20)) == NULL)
         erreur("Chargement de la police");
+
+    /* Initialisation du texte dans les items de la demande de sauvegarde */
+    sprintf(itemsDemandeSauvegarde[0].texte, " Voulez-vous sauvegarder la partie avant de quitter ? ");
+    sprintf(itemsDemandeSauvegarde[1].texte, " Oui ");
+    sprintf(itemsDemandeSauvegarde[2].texte, " Non ");
+}
+
+/* Fonction qui permet de demander à l'utilisateur de sauvegarder */
+void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde,
+                        SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
+                        itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur) {
+
+    int i;
+
+    /* Affichage du rectangle de la demande de sauvegarde */
+    rectangle_demande_sauvegarde->x = largeur / 6;
+    rectangle_demande_sauvegarde->y = hauteur / 6;
+    rectangle_demande_sauvegarde->w = largeur / 3 * 2;
+    rectangle_demande_sauvegarde->h = hauteur / 3 * 2;
+
+    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
+    SDL_RenderFillRect((*renderer), rectangle_demande_sauvegarde);
+
+    SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
+    SDL_RenderDrawRect((*renderer), rectangle_demande_sauvegarde);
+
+    /* Affichage du rectangle de la question de la demande de sauvegarde */
+    itemsDemandeSauvegarde[0].rectangle.x = largeur / 6;
+    itemsDemandeSauvegarde[0].rectangle.y = hauteur / 4 + hauteur / 20;
+    itemsDemandeSauvegarde[0].rectangle.w = largeur / 3 * 2;
+    itemsDemandeSauvegarde[0].rectangle.h = hauteur / 9;
+
+    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
+    
+    affichage_texte(renderer, surface, texture_texte, &(itemsDemandeSauvegarde[0]), 
+                    police, couleur);
+
+    /* Affichage des rectangles des réponses de la demande de sauvegarde */
+    for(i = 1; i < tailleDemandeSauvegarde; i++) {
+        itemsDemandeSauvegarde[i].rectangle.x = largeur / 3 + (i-1) * largeur / 3 - (i-1) * largeur / 10;
+        itemsDemandeSauvegarde[i].rectangle.y = hauteur - hauteur / 4 - hauteur / 20 - hauteur / 10;
+        itemsDemandeSauvegarde[i].rectangle.w = largeur / 10;
+        itemsDemandeSauvegarde[i].rectangle.h = hauteur / 10;
+
+        SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
+
+        affichage_texte(renderer, surface, texture_texte, &(itemsDemandeSauvegarde[i]), 
+                        police, couleur);
+
+        SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
+        SDL_RenderDrawRect((*renderer), &(itemsDemandeSauvegarde[i].rectangle));
+    }
+
+    /* Affiche le rendu */
+    SDL_RenderPresent((*renderer));
 }
 
 /* Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette dernière et les différents objets */
@@ -191,7 +246,11 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                     SDL_Texture **texture15, SDL_Texture **texture16,
                     SDL_Texture **texture17, SDL_Texture **texture18, 
                     SDL_Texture **texture19, SDL_Texture **texture20,
-                    SDL_Texture **texture21, SDL_Texture **texture22) {
+                    SDL_Texture **texture21, SDL_Texture **texture22,
+                    SDL_Texture **texture23, SDL_Texture **texture24,
+                    SDL_Texture **texture25, SDL_Texture **texture26,
+                    SDL_Texture **texture27, SDL_Texture **texture28,
+                    SDL_Texture **texture29, SDL_Texture **texture30) {
 
     /* Destructions des textures */
     SDL_DestroyTexture((*texture1)); SDL_DestroyTexture((*texture2)); 
@@ -204,7 +263,11 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
     SDL_DestroyTexture((*texture15)); SDL_DestroyTexture((*texture16)); 
     SDL_DestroyTexture((*texture17)); SDL_DestroyTexture((*texture18)); 
     SDL_DestroyTexture((*texture19)); SDL_DestroyTexture((*texture20)); 
-    SDL_DestroyTexture((*texture21)); SDL_DestroyTexture((*texture22)); 
+    SDL_DestroyTexture((*texture21)); SDL_DestroyTexture((*texture22));
+    SDL_DestroyTexture((*texture23)); SDL_DestroyTexture((*texture24)); 
+    SDL_DestroyTexture((*texture25)); SDL_DestroyTexture((*texture26)); 
+    SDL_DestroyTexture((*texture27)); SDL_DestroyTexture((*texture28)); 
+    SDL_DestroyTexture((*texture29)); SDL_DestroyTexture((*texture30));  
     
     /* Destructions de la police */
     TTF_CloseFont((*police));

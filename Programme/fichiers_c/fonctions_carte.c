@@ -148,7 +148,7 @@ void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_imag
 }
 
 /* Fonction qui permet de deplacer le personnage sur la carte */
-void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Texture **texture_image_carte,
+void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Window **window, SDL_Texture **texture_image_carte,
                                     SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                     SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
                                     SDL_Rect *rectangle_perso, SDL_Texture **texture_image_perso_1, SDL_Texture **texture_image_perso_2, 
@@ -158,9 +158,12 @@ void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Texture **texture
                                     int valeur_maximale, direction_t direction) {
 
     int i;
+
+    SDL_SetWindowResizable((*window), SDL_FALSE);
+
     (*positionActive) = NIVEAU0;
 
-    if((direction == HAUT) || (direction == HAUT_DROITE))
+    if((direction == HAUT) || (direction == HAUT_DROITE)) {
         for(i = 0; rectangle_perso->y > valeur_maximale; i++) {
 
             if((direction == HAUT) || (direction == HAUT_DROITE))
@@ -194,8 +197,9 @@ void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Texture **texture
 
             SDL_Delay(75);
         }
+    }
 
-    else if((direction == BAS) || (direction == BAS_GAUCHE))
+    else if((direction == BAS) || (direction == BAS_GAUCHE)) {
         for(i = 0; rectangle_perso->y < valeur_maximale; i++) {
 
             if((direction == HAUT) || (direction == HAUT_DROITE))
@@ -229,6 +233,9 @@ void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Texture **texture
 
             SDL_Delay(75);
         }
+    }
+
+    SDL_SetWindowResizable((*window), SDL_TRUE);
 }
 
 /* Fonction qui permet de gérer toutes les possibilités qui sont possiblent sur la carte */
@@ -241,13 +248,15 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
            SDL_Texture **texture_image_perso_haut, SDL_Texture **texture_image_perso_droite,
            SDL_Texture **texture_image_perso_gauche, SDL_Texture **texture_image_perso_pose,
            SDL_Texture **texture_image_perso, SDL_Rect *rectangle_perso,
-           SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
-           position_t *positionActive, SDL_Color couleurNoire, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche,
+           SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, direction_t *direction,
+           SDL_Rect *rectangle_demande_sauvegarde, itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde,
+           position_t *positionActive, barreDeSon *barre_de_son, itemMenu *pseudo, modes_t *modeActif, personnage_t *personnageActif,
+           SDL_Color couleurNoire, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche,
            SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir,
            itemMenu *itemsNiveaux, int tailleNiveaux, int *largeur, int *hauteur, page_t *page_active) {
 
-    /* Initialisation de la direction du personnage */
-    direction_t direction = BAS;
+    SDL_Event event_temporaire;
+    SDL_bool clic_effectue = SDL_FALSE;
 
     while(SDL_PollEvent(event)) {
 
@@ -260,11 +269,12 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
 
                 /* Lecture de la touche pressée et de la position du personnage pour savoir où aller */
                 case SDL_KEYDOWN :
+
                     /* Aller du niveau 1 au niveau 2 */
                     if((*positionActive == NIVEAU1) && 
                        ((event->key.keysym.sym == (*touche_aller_a_droite)) || (event->key.keysym.sym == (*touche_sauter_monter)))) {
 
-                        deplacement_personnage_carte(renderer, texture_image_carte,
+                        deplacement_personnage_carte(renderer, window, texture_image_carte,
                                                      rectangle_plein_ecran, texture_image_plein_ecran,
                                                      rectangle_options, texture_image_options,
                                                      rectangle_perso, texture_image_perso_haut_1, texture_image_perso_haut_2,
@@ -274,16 +284,8 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                                                      (((*hauteur) / 2 + (*hauteur) / 50) + (*hauteur) / 75), HAUT_DROITE);
 
                         (*positionActive) = NIVEAU2;
-                        direction = BAS;
+                        (*direction) = BAS;
                     }
-
-                    else if((*positionActive == NIVEAU1) && 
-                            (event->key.keysym.sym == (*touche_descendre)))
-                        direction = BAS;
-
-                    else if((*positionActive == NIVEAU1) && 
-                            (event->key.keysym.sym == (*touche_aller_a_gauche)))
-                        direction = GAUCHE;
 
                     /* Entrer dans le niveau 1 */
                     else if((*positionActive == NIVEAU1) && 
@@ -300,14 +302,15 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                         SDL_Delay(1000);
                         
                         printf("Vous entrez dans le niveau 1 !\n");
-                        direction = BAS;
+
+                        (*direction) = BAS;
                     }
 
                     /* Aller du niveau 2 au niveau 3 */
                     else if((*positionActive == NIVEAU2) && 
                             (event->key.keysym.sym == (*touche_sauter_monter))) {
                         
-                        deplacement_personnage_carte(renderer, texture_image_carte,
+                        deplacement_personnage_carte(renderer, window, texture_image_carte,
                                                      rectangle_plein_ecran, texture_image_plein_ecran,
                                                      rectangle_options, texture_image_options,
                                                      rectangle_perso, texture_image_perso_haut_1, texture_image_perso_haut_2,
@@ -315,16 +318,16 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                                                      positionActive, couleurNoire,
                                                      itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur),
                                                      (((*hauteur) / 2 - (*hauteur) / 14) + (*hauteur) / 75), HAUT);
-                        
+
                         (*positionActive) = NIVEAU3;
-                        direction = BAS;
+                        (*direction) = BAS;
                     }
 
                     /* Aller du niveau 2 au niveau 1 */
                     else if((*positionActive == NIVEAU2) && 
                             ((event->key.keysym.sym == (*touche_aller_a_gauche)) || (event->key.keysym.sym == (*touche_descendre)))) {
 
-                        deplacement_personnage_carte(renderer, texture_image_carte,
+                        deplacement_personnage_carte(renderer, window, texture_image_carte,
                                                      rectangle_plein_ecran, texture_image_plein_ecran,
                                                      rectangle_options, texture_image_options,
                                                      rectangle_perso, texture_image_perso_bas_gauche_1, texture_image_perso_bas_gauche_2,
@@ -334,12 +337,8 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                                                      (((*hauteur) / 3 * 2 + (*hauteur) / 50) - (*largeur) / 75), BAS_GAUCHE);
                         
                         (*positionActive) = NIVEAU1;
-                        direction = BAS;
+                        (*direction) = BAS;
                     }
-
-                    else if((*positionActive == NIVEAU2) && 
-                            (event->key.keysym.sym == (*touche_aller_a_droite)))
-                        direction = DROITE;
 
                     /* Entrer dans le niveau 2 */
                     else if((*positionActive == NIVEAU2) && 
@@ -356,14 +355,15 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                         SDL_Delay(1000);
 
                         printf("Vous entrez dans le niveau 2 !\n");
-                        direction = BAS;
+
+                        (*direction) = BAS;
                     }
 
                     /* Aller du niveau 3 au niveau 4 */
                     else if((*positionActive == NIVEAU3) && 
                             ((event->key.keysym.sym == (*touche_aller_a_droite)) || (event->key.keysym.sym == (*touche_sauter_monter)))) {
 
-                        deplacement_personnage_carte(renderer, texture_image_carte,
+                        deplacement_personnage_carte(renderer, window, texture_image_carte,
                                                      rectangle_plein_ecran, texture_image_plein_ecran,
                                                      rectangle_options, texture_image_options,
                                                      rectangle_perso, texture_image_perso_haut_1, texture_image_perso_haut_2,
@@ -373,14 +373,14 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                                                      (((*hauteur) / 4 + (*hauteur) / 13) + (*hauteur) / 75), HAUT_DROITE);
 
                         (*positionActive) = NIVEAU4;
-                        direction = BAS;
+                        (*direction) = BAS;
                     }
 
                     /* Aller du niveau 3 au niveau 2 */
                     else if((*positionActive == NIVEAU3) && 
                             (event->key.keysym.sym == (*touche_descendre))) {
 
-                        deplacement_personnage_carte(renderer, texture_image_carte,
+                        deplacement_personnage_carte(renderer, window, texture_image_carte,
                                                      rectangle_plein_ecran, texture_image_plein_ecran,
                                                      rectangle_options, texture_image_options,
                                                      rectangle_perso, texture_image_perso_bas_1, texture_image_perso_bas_2,
@@ -390,12 +390,8 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                                                      (((*hauteur) / 2 + (*hauteur) / 50) - (*hauteur) / 75), BAS);
 
                         (*positionActive) = NIVEAU2;
-                        direction = BAS;
+                        (*direction) = BAS;
                     }
-
-                    else if((*positionActive == NIVEAU3) && 
-                            (event->key.keysym.sym == (*touche_aller_a_gauche)))
-                        direction = GAUCHE;
 
                     /* Entrer dans le niveau 3 */
                     else if((*positionActive == NIVEAU3) && 
@@ -412,14 +408,15 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                         SDL_Delay(1000);
 
                         printf("Vous entrez dans le niveau 3 !\n");
-                        direction = BAS;
+
+                        (*direction) = BAS;
                     }
 
                     /* Aller du niveau 4 au niveau 3 */
                     else if((*positionActive == NIVEAU4) && 
                        ((event->key.keysym.sym == (*touche_aller_a_gauche)) || (event->key.keysym.sym == (*touche_descendre)))) {
 
-                        deplacement_personnage_carte(renderer, texture_image_carte,
+                        deplacement_personnage_carte(renderer, window, texture_image_carte,
                                                      rectangle_plein_ecran, texture_image_plein_ecran,
                                                      rectangle_options, texture_image_options,
                                                      rectangle_perso, texture_image_perso_bas_gauche_1, texture_image_perso_bas_gauche_2,
@@ -429,16 +426,8 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                                                      (((*hauteur) / 2 - (*hauteur) / 14) - (*largeur) / 75), BAS_GAUCHE);
 
                         (*positionActive) = NIVEAU3;
-                        direction = BAS;
+                        (*direction) = BAS;
                     }
-
-                    else if((*positionActive == NIVEAU4) && 
-                            (event->key.keysym.sym == (*touche_sauter_monter)))
-                        direction = HAUT;
-
-                    else if((*positionActive == NIVEAU4) && 
-                            (event->key.keysym.sym == (*touche_aller_a_droite)))
-                        direction = DROITE;
 
                     /* Entrer dans le niveau 4 */
                     else if((*positionActive == NIVEAU4) && 
@@ -455,8 +444,37 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                         SDL_Delay(1000);
 
                         printf("Vous entrez dans le niveau 4 !\n");
-                        direction = BAS;
+                        
+                        (*direction) = BAS;
                     }
+
+                    /* Pivoter vers le haut si on ne peut pas monter */
+                    else if((*positionActive == NIVEAU4) && 
+                            (event->key.keysym.sym == (*touche_sauter_monter)))
+
+                        (*direction) = HAUT;
+
+                    /* Pivoter vers le bas si on ne peut pas descendre */
+                    else if((*positionActive == NIVEAU1) && 
+                            (event->key.keysym.sym == (*touche_descendre)))
+
+                        (*direction) = BAS;
+
+                    /* Pivoter vers la droite si on ne peut pas aller vers la droite */
+                    else if(((*positionActive == NIVEAU2) && 
+                            (event->key.keysym.sym == (*touche_aller_a_droite))) ||
+                            ((*positionActive == NIVEAU4) && 
+                            (event->key.keysym.sym == (*touche_aller_a_droite))))
+
+                        (*direction) = DROITE;
+
+                    /* Pivoter vers la gauche si on ne peut pas aller vers la gauche */
+                    else if(((*positionActive == NIVEAU1) && 
+                            (event->key.keysym.sym == (*touche_aller_a_gauche))) ||
+                            ((*positionActive == NIVEAU3) && 
+                            (event->key.keysym.sym == (*touche_aller_a_gauche))))
+
+                        (*direction) = GAUCHE;
 
                     break;
 
@@ -471,55 +489,92 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
 
                     break;
 
-                /* Quitter le programme */
+                /* Quitter le programme en demandant s'il faut sauvarger la partie */
                 case SDL_QUIT:
-                    (*programme_lance) = SDL_FALSE;
+
+                    SDL_SetWindowResizable((*window), SDL_FALSE);
+
+                    demande_sauvegarde(renderer, rectangle_demande_sauvegarde,
+                                       surface, texture_texte, police, couleurNoire,
+                                       itemsDemandeSauvegarde, tailleDemandeSauvegarde, (*largeur), (*hauteur));
+
+                    while (!clic_effectue) {
+
+                        while (SDL_PollEvent(&event_temporaire)) {
+
+                            if(event_temporaire.type == SDL_MOUSEBUTTONDOWN) {
+
+                                if(clic_case(event_temporaire, itemsDemandeSauvegarde[1].rectangle)) {
+
+                                    sauvegarder_partie(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,
+                                                       touche_descendre, touche_interagir, barre_de_son, pseudo,
+                                                       (*modeActif), (*personnageActif), (*positionActive));
+
+                                    (*programme_lance) = SDL_FALSE;
+                                    clic_effectue = SDL_TRUE; 
+                                }
+
+                                else if(clic_case(event_temporaire, itemsDemandeSauvegarde[2].rectangle)) {
+                                    (*programme_lance) = SDL_FALSE;
+                                    clic_effectue = SDL_TRUE; 
+                                }
+
+                                else if(!clic_case(event_temporaire, (*rectangle_demande_sauvegarde)))
+                                    clic_effectue = SDL_TRUE;    
+                            }
+                        }
+                    }
+
+                    SDL_SetWindowResizable((*window), SDL_TRUE);
+
                     break;
 
                 default:
                     break;
             }
-        }
-        /* Mise à jour du rendu */
-        switch(direction) {
-            case HAUT: mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                                rectangle_plein_ecran, texture_image_plein_ecran,
-                                                rectangle_options, texture_image_options,
-                                                rectangle_perso, texture_image_perso_haut,
-                                                surface, texture_texte, police,
-                                                (*positionActive), couleurNoire,
-                                                itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                                
-                       break;
+            /* Mise à jour du rendu */
+            switch((*direction)) {
+                case HAUT: 
+                    mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                            rectangle_plein_ecran, texture_image_plein_ecran,
+                                            rectangle_options, texture_image_options,
+                                            rectangle_perso, texture_image_perso_haut,
+                                            surface, texture_texte, police,
+                                            (*positionActive), couleurNoire,
+                                            itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+                                    
+                    break;
 
-            case BAS:
-                mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                        rectangle_plein_ecran, texture_image_plein_ecran,
-                                        rectangle_options, texture_image_options,
-                                        rectangle_perso, texture_image_perso,
-                                        surface, texture_texte, police,
-                                        (*positionActive), couleurNoire,
-                                        itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+                case BAS:
+                    mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                            rectangle_plein_ecran, texture_image_plein_ecran,
+                                            rectangle_options, texture_image_options,
+                                            rectangle_perso, texture_image_perso,
+                                            surface, texture_texte, police,
+                                            (*positionActive), couleurNoire,
+                                            itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
 
-                break;
+                    break;
 
-            case DROITE:
-            mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                    rectangle_plein_ecran, texture_image_plein_ecran,
-                                    rectangle_options, texture_image_options,
-                                    rectangle_perso, texture_image_perso_droite,
-                                    surface, texture_texte, police,
-                                    (*positionActive), couleurNoire,
-                                    itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-                break;
-        
-            default:
-                mise_a_jour_rendu_carte(renderer, texture_image_carte,
-                                        rectangle_plein_ecran, texture_image_plein_ecran,
-                                        rectangle_options, texture_image_options,
-                                        rectangle_perso, texture_image_perso_gauche,
-                                        surface, texture_texte, police,
-                                        (*positionActive), couleurNoire,
-                                        itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
-        }
+                case DROITE:
+                    mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                            rectangle_plein_ecran, texture_image_plein_ecran,
+                                            rectangle_options, texture_image_options,
+                                            rectangle_perso, texture_image_perso_droite,
+                                            surface, texture_texte, police,
+                                            (*positionActive), couleurNoire,
+                                            itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+                                            
+                    break;
+            
+                default:
+                    mise_a_jour_rendu_carte(renderer, texture_image_carte,
+                                            rectangle_plein_ecran, texture_image_plein_ecran,
+                                            rectangle_options, texture_image_options,
+                                            rectangle_perso, texture_image_perso_gauche,
+                                            surface, texture_texte, police,
+                                            (*positionActive), couleurNoire,
+                                            itemsNiveaux, tailleNiveaux, (*largeur), (*hauteur));
+            }
+    }
 }

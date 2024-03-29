@@ -105,6 +105,9 @@ int main() {
     /* Création du rectangle pour le texte de l'introduction */
     SDL_Rect rectangle_texte_introduction;
 
+    /* Création du rectangle pour la demande de sauvegarde */
+    SDL_Rect rectangle_demande_sauvegarde;
+
     /* Variable de couleur noire */
     SDL_Color couleurNoire = {0, 0, 0, 255};
 
@@ -124,9 +127,13 @@ int main() {
 
     creer_fenetre_rendu(&window, &renderer, largeur, hauteur);
 
+    int tailleDemandeSauvegarde = 3;
+
+    itemMenu itemsDemandeSauvegarde[tailleDemandeSauvegarde];
+
     initialisation_objets(&renderer, &surface, &texture_image_plein_ecran,
                           &texture_image_retour_en_arriere, &texture_image_options,
-                          &texture_image_passer, &police);
+                          &texture_image_passer, itemsDemandeSauvegarde, &police);
 
     /*-------------------------------------------------------------*/
 
@@ -201,6 +208,13 @@ int main() {
 
     itemMenu valider;
 
+    char pseudo_temporaire[11];
+    pseudo_temporaire[0] = '\0';
+
+    personnage_t personnage_temporaire;
+
+    modes_t mode_temporaire;
+
     initialisation_objets_nouvelle_partie(&renderer, &surface, &texture_image_perso_1,
                                           &texture_image_perso_2,
                                           titres, itemsMenuNouvellePartie, &valider);
@@ -222,6 +236,8 @@ int main() {
 
     position_t positionActive = NIVEAU1;
 
+    direction_t direction = BAS;
+
     initialisation_objets_carte(&renderer, &surface, &texture_image_carte,
                                 &texture_image_perso_1_bas_1, &texture_image_perso_1_bas_2,
                                 &texture_image_perso_1_haut_1, &texture_image_perso_1_haut_2,
@@ -237,6 +253,7 @@ int main() {
 
     /* Chargement de la sauvegarde s'il y en a une */
     if(verification_sauvegarde()) {
+
         FILE *fichier_sauvegarde;
 
         /* Ouverture du fichier en mode lecture */
@@ -258,6 +275,8 @@ int main() {
         sprintf(itemsTouches[7].texte, "                 %s                 ", SDL_GetKeyName(touche_descendre));
         sprintf(itemsTouches[9].texte, "                 %s                 ", SDL_GetKeyName(touche_interagir));
 
+        fscanf(fichier_sauvegarde, "%s\n", pseudo.texte);
+
         fscanf(fichier_sauvegarde, "%d\n", (int*)(&personnageActif));
 
         fscanf(fichier_sauvegarde, "%d\n", (int*)(&modeActif));
@@ -271,7 +290,7 @@ int main() {
     else {
         barre_de_son[0].volume = 0.5;
         barre_de_son[1].volume = 0.5;
-    } 
+    }
 
     if(barre_de_son[0].volume)
         sonsActifs[0] = SDL_TRUE;
@@ -305,6 +324,23 @@ int main() {
                            &titre_menu_principal, &surface, &texture_texte, &police,
                            couleurTitre, couleurNoire,
                            itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
+
+            if(page_active == NOUVELLE_PARTIE) {
+
+                /* Sauvegarde des variables de la nouvelle partie dans des variables temporaires */
+                strcpy(pseudo_temporaire, pseudo.texte);
+                personnage_temporaire = personnageActif;
+                mode_temporaire = modeActif;
+
+                /* Initialisation des variables de la nouvelle partie à NULL */
+                pseudo.texte[0] = '\0';
+                personnageActif = PERSONNAGE_1;
+                modeActif = MODE_NORMAL;
+        
+                /* Initialisation de la police */
+                if((police= TTF_OpenFont("./polices/04B_11__.TTF", largeur / 28)) == NULL)
+                    erreur("Chargement de la police");
+            }
         }
 
         /* Page des options */
@@ -336,17 +372,35 @@ int main() {
                             &touche_descendre, &touche_interagir, titres, tailleTitres, &surface, &texture_texte, 
                             &police, couleurNoire,
                             itemsMenuNouvellePartie, &valider, &largeur, &hauteur, &page_active);
+
+            if(page_active == MENU_PRINCIPAL) {
+
+                /* Réinitialisation des variables de la nouvelle partie avec les anciennes valeurs sauvegardées */
+                strcpy(pseudo.texte, pseudo_temporaire);
+                personnageActif = personnage_temporaire;
+                modeActif = mode_temporaire;
+            }
+
+            else if(page_active == INTRODUCTION)
+
+                /* Actualisation de la taille de la police pour l'introduction */
+                if((police = TTF_OpenFont("./polices/02587_ARIALMT.ttf", largeur / 50)) == NULL)
+                    erreur("Chargement de la police");
         }
 
         /* Page de l'introduction */
         else if(page_active == INTRODUCTION) {
-            introduction(&event, &renderer, &programme_lance,
+            introduction(&event, &window, &renderer, &programme_lance,
                          &rectangle_passer, &texture_image_passer,
-                         &rectangle_texte_introduction, &surface, &texture_texte, 
+                         &rectangle_texte_introduction, &surface, &texture_texte, &police, 
                          &personnageActif, couleurBlanche,
                          &largeur, &hauteur, &page_active);
             
             page_active = NIVEAU_1;
+
+            /* Initialisation de la police d'origine */
+            if((police = TTF_OpenFont("./polices/04B_11__.TTF", 20)) == NULL)
+                erreur("Chargement de la police");
         }
 
         /* Page de la carte */
@@ -363,8 +417,10 @@ int main() {
                       &texture_image_perso_1_haut, &texture_image_perso_1_droite,
                       &texture_image_perso_1_gauche, &texture_image_perso_1_pose,
                       &texture_image_perso_1, &rectangle_perso_1,
-                      &surface, &texture_texte, &police,
-                      &positionActive, couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
+                      &surface, &texture_texte, &police, &direction,
+                      &rectangle_demande_sauvegarde, itemsDemandeSauvegarde, tailleDemandeSauvegarde,
+                      &positionActive, barre_de_son, &pseudo, &modeActif, &personnageActif,
+                      couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
                       &touche_sauter_monter, &touche_descendre, &touche_interagir,
                       itemsNiveaux, tailleNiveaux, &largeur, &hauteur, &page_active);
 
@@ -378,8 +434,10 @@ int main() {
                       &texture_image_perso_2_haut, &texture_image_perso_2_droite,
                       &texture_image_perso_2_gauche, &texture_image_perso_2_pose,
                       &texture_image_perso_2, &rectangle_perso_1,
-                      &surface, &texture_texte, &police,
-                      &positionActive, couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
+                      &surface, &texture_texte, &police, &direction,
+                      &rectangle_demande_sauvegarde, itemsDemandeSauvegarde, tailleDemandeSauvegarde,
+                      &positionActive, barre_de_son, &pseudo, &modeActif, &personnageActif,
+                      couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
                       &touche_sauter_monter, &touche_descendre, &touche_interagir,
                       itemsNiveaux, tailleNiveaux, &largeur, &hauteur, &page_active);
         }
@@ -410,7 +468,11 @@ int main() {
                     &texture_image_perso_1_bas_gauche_1, &texture_image_perso_1_bas_gauche_2,
                     &texture_image_perso_2_bas_1, &texture_image_perso_2_bas_2, 
                     &texture_image_perso_2_haut_1, &texture_image_perso_2_haut_2,
-                    &texture_image_perso_2_bas_gauche_1, &texture_image_perso_2_bas_gauche_2);
+                    &texture_image_perso_2_bas_gauche_1, &texture_image_perso_2_bas_gauche_2,
+                    &texture_image_perso_1_haut, &texture_image_perso_1_droite,
+                    &texture_image_perso_1_gauche, &texture_image_perso_1_pose,
+                    &texture_image_perso_2_haut, &texture_image_perso_2_droite,
+                    &texture_image_perso_2_gauche, &texture_image_perso_2_pose);
 
     detruire_fenetre_rendu(&renderer, &window);
 
