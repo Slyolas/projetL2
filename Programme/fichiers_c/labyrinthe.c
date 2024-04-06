@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
+#include <string.h>
 
 // Define window dimensions
 #define SCREEN_WIDTH 800
@@ -9,6 +10,11 @@
 // Define tile dimensions
 #define TILE_SIZE_X SCREEN_WIDTH / 32
 #define TILE_SIZE_Y SCREEN_HEIGHT / 24
+
+#define UP 0
+#define DOWN 1
+#define LEFT 2
+#define RIGHT 3
 
 // Function to load an image into a texture
 SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* filePath) {
@@ -22,6 +28,101 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* filePath) {
     return texture;
 }
 
+// Function to process user commands
+void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int tilemap[24][32], int direction) {
+
+    // Check if the player is next to the block
+    if ((*playerX == *blockX - 1 && *playerY == *blockY) ||   // Player is to the left of the block
+        (*playerX == *blockX + 1 && *playerY == *blockY) ||   // Player is to the right of the block
+        (*playerX == *blockX && *playerY == *blockY - 1) ||   // Player is above the block
+        (*playerX == *blockX && *playerY == *blockY + 1)) {   // Player is below the block
+
+        // Le personnage est au dessus du bloc
+        if (*playerX == *blockX && *playerY == *blockY - 1) { 
+            // On veut pousser le bloc
+            if(direction == 1){
+                // On regarde si on peut pousser le bloc sur la case suivante
+                if (tilemap[*blockY + 1][*blockX] == 0) {
+                    (*blockY)++;
+                    (*playerY)++;
+                    SDL_Delay(200);
+                }
+            }
+            // On veut tirer le bloc
+            if(direction == 0){
+                // On regarde si le personnage peut être sur la case de derrière
+                if (tilemap[*playerY - 1][*playerX] == 0) {
+                    (*playerY)--;
+                    (*blockY)--;
+                    SDL_Delay(200);
+                }
+            }
+        
+        // Le personnage est en dessous du bloc
+        } else if (*playerX == *blockX && *playerY == *blockY + 1) {
+            // On veut pousser le bloc
+            if(direction == 0){
+                // On regarde si on peut pousser le bloc sur la case suivante
+                if (tilemap[*blockY - 1][*blockX] == 0) {
+                    (*blockY)--;
+                    (*playerY)--;
+                    SDL_Delay(200);
+                }
+            }
+            // On veut tirer le bloc
+            if(direction == 1){
+                // On regarde si le personnage peut être sur la case de derrière
+                if (tilemap[*playerY + 1][*playerX] == 0) {
+                    (*playerY)++;
+                    (*blockY)++;
+                    SDL_Delay(200);
+                }
+            }
+
+        // Le personnage est à gauche du bloc
+        } else if (*playerX == *blockX - 1 && *playerY == *blockY) {  
+            // On veut pousser le bloc
+            if(direction == 3){
+                // On regarde si on peut pousser le bloc sur la case suivante
+                if (tilemap[*blockY][*blockX + 1] == 0) {
+                    (*blockX)++;
+                    (*playerX)++;
+                    SDL_Delay(200);
+                }
+            }
+            // On veut tirer le bloc
+            if(direction == 2){
+                // On regarde si le personnage peut être sur la case de derrière
+                if (tilemap[*playerY][*playerX - 1] == 0) {
+                    (*playerX)--;
+                    (*blockX)--;
+                    SDL_Delay(200);
+                }
+            }
+
+        // Le personnage est à droite du bloc
+        } else if (*playerX == *blockX + 1 && *playerY == *blockY) {
+            // On veut pousser le bloc
+            if(direction == 2){
+                // On regarde si on peut pousser le bloc sur la case suivante
+                if (tilemap[*blockY][*blockX - 1] == 0) {
+                    (*blockX)--;
+                    (*playerX)--;
+                    SDL_Delay(200);
+                }
+            }
+            // On veut tirer le bloc
+            if(direction == 3){
+                // On regarde si le personnage peut être sur la case de derrière
+                if (tilemap[*playerY][*playerX + 1] == 0) {
+                    (*playerX)++;
+                    (*blockX)++;
+                    SDL_Delay(200);
+                }
+            }
+        }
+    }
+}
 
 int main() {
     SDL_Window* window;
@@ -31,8 +132,9 @@ int main() {
     SDL_Texture* floorTexture;
     SDL_Texture* borderTexture;
     SDL_Texture* playerTexture;
+    SDL_Texture* blockTexture;
 
-    SDL_Event e;
+    SDL_Event event;
     int tilemap[24][32] = { /* 24*32 max avec ces dimensions */
         {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
         {2, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 2},
@@ -64,6 +166,11 @@ int main() {
     // Position initiale du joueur en coordonnées de tuile
     int playerX = 1;
     int playerY = 1;
+    // Position initiale du block en coordonnées de tuile
+    int blockX = 2;
+    int blockY = 1;
+
+    int up = 0, down = 0, left = 0, right = 0, e = 0;
 
     int quit = 0;
 
@@ -91,11 +198,12 @@ int main() {
     }
 
     // Load tile textures
-    wallTexture = loadTexture(renderer, "../images/stone.png");
-    floorTexture = loadTexture(renderer, "../images/diamand.png");
+    wallTexture = loadTexture(renderer, "../images/mur.png");
+    floorTexture = loadTexture(renderer, "../images/sol.png");
     borderTexture = loadTexture(renderer, "../images/obsi.png");
     playerTexture = loadTexture(renderer, "../images/steve.png");
-    if (!wallTexture || !floorTexture || !borderTexture || !playerTexture) {
+    blockTexture = loadTexture(renderer, "../images/diamand.png");
+    if (!wallTexture || !floorTexture || !borderTexture || !playerTexture || !blockTexture) {
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
         SDL_Quit();
@@ -105,36 +213,89 @@ int main() {
     // Main loop
     while (!quit) {
         // Event handling
-        while (SDL_PollEvent(&e) != 0) {
-            if (e.type == SDL_QUIT) {
-                quit = 1;
+        while (SDL_PollEvent(&event) != 0) {
+            switch(event.type){
+                case SDL_QUIT:
+                    quit = 1;
+                    break;
+                case SDL_KEYDOWN:
+                    if(event.key.keysym.sym == SDLK_UP){
+                        up = 1;
+                    }
+                    if(event.key.keysym.sym == SDLK_DOWN){
+                        down = 1;
+                    }
+                    if(event.key.keysym.sym == SDLK_LEFT){
+                        left = 1;
+                    }
+                    if(event.key.keysym.sym == SDLK_RIGHT){
+                        right = 1;
+                    }
+                    if(event.key.keysym.sym == SDLK_e){
+                        e = 1;
+                    }
+
+                    break;
+                case SDL_KEYUP:
+                    if(event.key.keysym.sym == SDLK_UP){
+                        up = 0;
+                    }
+                    if(event.key.keysym.sym == SDLK_DOWN){
+                        down = 0;
+                    }
+                    if(event.key.keysym.sym == SDLK_LEFT){
+                        left = 0;
+                    }
+                    if(event.key.keysym.sym == SDLK_RIGHT){
+                        right = 0;
+                    }
+                    if(event.key.keysym.sym == SDLK_e){
+                        e = 0;
+                    }
+                    
+                    break;
+                default:
+                    break;
             }
-            else if (e.type == SDL_KEYDOWN) {
-                // Déplacer le joueur selon la touche pressée
-                switch (e.key.keysym.sym) {
-                    case SDLK_UP:
-                        if (tilemap[playerY - 1][playerX] == 0) {
-                            playerY--;
-                        }
-                        break;
-                    case SDLK_DOWN:
-                        if (tilemap[playerY + 1][playerX] == 0) {
-                            playerY++;
-                        }
-                        break;
-                    case SDLK_LEFT:
-                        if (tilemap[playerY][playerX - 1] == 0) {
-                            playerX--;
-                        }
-                        break;
-                    case SDLK_RIGHT:
-                        if (tilemap[playerY][playerX + 1] == 0) {
-                            playerX++;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+        }
+        if(up){
+            if(e){
+                processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, UP);
+            }
+            // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
+            else if (tilemap[playerY - 1][playerX] == 0 && !(playerX == blockX && playerY == blockY + 1)) {
+                playerY--;
+                SDL_Delay(200);
+            }
+        }
+        if(down){
+            if(e){
+                processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, DOWN);
+            }
+            // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
+            else if (tilemap[playerY + 1][playerX] == 0 && !(playerX == blockX && playerY == blockY - 1)) {
+                playerY++;
+                SDL_Delay(200);
+            }
+        }
+        if(left){
+            if(e){
+                processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, LEFT);
+            }
+            // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
+            else if (tilemap[playerY][playerX - 1] == 0 && !(playerX == blockX + 1 && playerY == blockY)) {
+                playerX--;
+                SDL_Delay(200);
+            }
+        }
+        if(right){
+            if(e){
+                processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, RIGHT);
+            }
+            // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
+            else if (tilemap[playerY][playerX + 1] == 0 && !(playerX == blockX - 1 && playerY == blockY)) {
+                playerX++;
+                SDL_Delay(200);
             }
         }
 
@@ -163,12 +324,22 @@ int main() {
             }
         }
 
+        // Render block
+        SDL_Rect blockRect = {blockX * TILE_SIZE_X, blockY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+        SDL_RenderCopy(renderer, blockTexture, NULL, &blockRect);
+
         // Render player
         SDL_Rect playerRect = {playerX * TILE_SIZE_X, playerY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
         SDL_RenderCopy(renderer, playerTexture, NULL, &playerRect);
 
         // Render to screen
         SDL_RenderPresent(renderer);
+
+
+        if(blockX == 30 && blockY == 22){
+            printf("Oui\n");
+            quit = 1;
+        }
     }
 
     // Clean up
@@ -176,6 +347,7 @@ int main() {
     SDL_DestroyTexture(floorTexture);
     SDL_DestroyTexture(borderTexture);
     SDL_DestroyTexture(playerTexture);
+    SDL_DestroyTexture(blockTexture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
