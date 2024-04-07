@@ -42,7 +42,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut pousser le bloc
             if(direction == 1){
                 // On regarde si on peut pousser le bloc sur la case suivante
-                if (tilemap[*blockY + 1][*blockX] == 0) {
+                if (tilemap[*blockY + 1][*blockX] == 0 || tilemap[*blockY + 1][*blockX] == 3) {
                     (*blockY)++;
                     (*playerY)++;
                     SDL_Delay(200);
@@ -51,7 +51,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut tirer le bloc
             if(direction == 0){
                 // On regarde si le personnage peut être sur la case de derrière
-                if (tilemap[*playerY - 1][*playerX] == 0) {
+                if (tilemap[*playerY - 1][*playerX] == 0 || tilemap[*playerY - 1][*playerX] == 3) {
                     (*playerY)--;
                     (*blockY)--;
                     SDL_Delay(200);
@@ -63,7 +63,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut pousser le bloc
             if(direction == 0){
                 // On regarde si on peut pousser le bloc sur la case suivante
-                if (tilemap[*blockY - 1][*blockX] == 0) {
+                if (tilemap[*blockY - 1][*blockX] == 0 || tilemap[*blockY - 1][*blockX] == 3) {
                     (*blockY)--;
                     (*playerY)--;
                     SDL_Delay(200);
@@ -72,7 +72,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut tirer le bloc
             if(direction == 1){
                 // On regarde si le personnage peut être sur la case de derrière
-                if (tilemap[*playerY + 1][*playerX] == 0) {
+                if (tilemap[*playerY + 1][*playerX] == 0 || tilemap[*playerY + 1][*playerX] == 3) {
                     (*playerY)++;
                     (*blockY)++;
                     SDL_Delay(200);
@@ -84,7 +84,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut pousser le bloc
             if(direction == 3){
                 // On regarde si on peut pousser le bloc sur la case suivante
-                if (tilemap[*blockY][*blockX + 1] == 0) {
+                if (tilemap[*blockY][*blockX + 1] == 0 || tilemap[*blockY][*blockX + 1] == 3) {
                     (*blockX)++;
                     (*playerX)++;
                     SDL_Delay(200);
@@ -93,7 +93,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut tirer le bloc
             if(direction == 2){
                 // On regarde si le personnage peut être sur la case de derrière
-                if (tilemap[*playerY][*playerX - 1] == 0) {
+                if (tilemap[*playerY][*playerX - 1] == 0 || tilemap[*playerY][*playerX - 1] == 3) {
                     (*playerX)--;
                     (*blockX)--;
                     SDL_Delay(200);
@@ -105,7 +105,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut pousser le bloc
             if(direction == 2){
                 // On regarde si on peut pousser le bloc sur la case suivante
-                if (tilemap[*blockY][*blockX - 1] == 0) {
+                if (tilemap[*blockY][*blockX - 1] == 0 || tilemap[*blockY][*blockX - 1] == 3) {
                     (*blockX)--;
                     (*playerX)--;
                     SDL_Delay(200);
@@ -114,7 +114,7 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             // On veut tirer le bloc
             if(direction == 3){
                 // On regarde si le personnage peut être sur la case de derrière
-                if (tilemap[*playerY][*playerX + 1] == 0) {
+                if (tilemap[*playerY][*playerX + 1] == 0 || tilemap[*playerY][*playerX + 1] == 3) {
                     (*playerX)++;
                     (*blockX)++;
                     SDL_Delay(200);
@@ -122,6 +122,32 @@ void processCommand(int* playerX, int* playerY, int* blockX, int* blockY, int ti
             }
         }
     }
+}
+
+// Function to update border tiles when the block reaches the end of the labyrinth
+int updateBorderTiles(SDL_Renderer* renderer, SDL_Texture* finishTexture, int tilemap[24][32], int tileX, int tileY) {
+
+    tilemap[tileY][tileX] = 3;
+    SDL_Rect dstRect = {tileX * TILE_SIZE_X, tileY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+    SDL_RenderCopy(renderer, finishTexture, NULL, &dstRect);
+    SDL_RenderPresent(renderer);
+    SDL_Delay(20);
+
+	
+    if(tilemap[tileY][tileX + 1] == 2 && tileX < 31) {
+        return updateBorderTiles(renderer, finishTexture, tilemap, tileX + 1, tileY);
+    }
+    else if(tilemap[tileY][tileX - 1] == 2 && tileX > 0){
+        return updateBorderTiles(renderer, finishTexture, tilemap, tileX - 1, tileY);
+    }
+    else if(tilemap[tileY + 1][tileX] == 2 && tileY < 31){
+        return updateBorderTiles(renderer, finishTexture, tilemap, tileX, tileY + 1);
+    }
+    else if(tilemap[tileY - 1][tileX] == 2 && tileY > 0){
+        return updateBorderTiles(renderer, finishTexture, tilemap, tileX, tileY - 1);
+    }
+    
+	return 0;
 }
 
 int main() {
@@ -133,6 +159,7 @@ int main() {
     SDL_Texture* borderTexture;
     SDL_Texture* playerTexture;
     SDL_Texture* blockTexture;
+    SDL_Texture* finishTexture;
 
     SDL_Event event;
     int tilemap[24][32] = { /* 24*32 max avec ces dimensions */
@@ -158,7 +185,7 @@ int main() {
         {2, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2},
         {2, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 2},
         {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 2},
-        {2, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 2},
+        {2, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 3, 2},
         {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}        
         
     };
@@ -203,7 +230,8 @@ int main() {
     borderTexture = loadTexture(renderer, "../images/obsi.png");
     playerTexture = loadTexture(renderer, "../images/steve.png");
     blockTexture = loadTexture(renderer, "../images/diamand.png");
-    if (!wallTexture || !floorTexture || !borderTexture || !playerTexture || !blockTexture) {
+    finishTexture = loadTexture(renderer, "../images/emerald.png");
+    if (!wallTexture || !floorTexture || !borderTexture || !playerTexture || !blockTexture || !finishTexture) {
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
         SDL_Quit();
@@ -263,7 +291,7 @@ int main() {
                 processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, UP);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY - 1][playerX] == 0 && !(playerX == blockX && playerY == blockY + 1)) {
+            else if (tilemap[playerY - 1][playerX] == 0 || tilemap[playerY - 1][playerX] == 3 && !(playerX == blockX && playerY == blockY + 1)) {
                 playerY--;
                 SDL_Delay(200);
             }
@@ -273,7 +301,7 @@ int main() {
                 processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, DOWN);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY + 1][playerX] == 0 && !(playerX == blockX && playerY == blockY - 1)) {
+            else if (tilemap[playerY + 1][playerX] == 0 || tilemap[playerY + 1][playerX] == 3 && !(playerX == blockX && playerY == blockY - 1)) {
                 playerY++;
                 SDL_Delay(200);
             }
@@ -283,7 +311,7 @@ int main() {
                 processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, LEFT);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY][playerX - 1] == 0 && !(playerX == blockX + 1 && playerY == blockY)) {
+            else if (tilemap[playerY][playerX - 1] == 0 || tilemap[playerY][playerX - 1] == 3 && !(playerX == blockX + 1 && playerY == blockY)) {
                 playerX--;
                 SDL_Delay(200);
             }
@@ -293,7 +321,7 @@ int main() {
                 processCommand(&playerX, &playerY, &blockX, &blockY, tilemap, RIGHT);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY][playerX + 1] == 0 && !(playerX == blockX - 1 && playerY == blockY)) {
+            else if (tilemap[playerY][playerX + 1] == 0 || tilemap[playerY][playerX + 1] == 3 && !(playerX == blockX - 1 && playerY == blockY)) {
                 playerX++;
                 SDL_Delay(200);
             }
@@ -317,6 +345,9 @@ int main() {
                 else if(tileType == 2){
                     texture = borderTexture;
                 }
+                else if(tileType == 3){
+                    texture = finishTexture;
+                }
                 if(texture){
                     SDL_Rect dstRect = {x * TILE_SIZE_X, y * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
                     SDL_RenderCopy(renderer, texture, NULL, &dstRect);
@@ -332,14 +363,16 @@ int main() {
         SDL_Rect playerRect = {playerX * TILE_SIZE_X, playerY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
         SDL_RenderCopy(renderer, playerTexture, NULL, &playerRect);
 
-        // Render to screen
-        SDL_RenderPresent(renderer);
 
-
+        // Check if the block reaches the end of the labyrinth
         if(blockX == 30 && blockY == 22){
+            updateBorderTiles(renderer, finishTexture, tilemap, 31, 23);
             printf("Oui\n");
             quit = 1;
         }
+
+        // Render to screen
+        SDL_RenderPresent(renderer);
     }
 
     // Clean up
@@ -348,6 +381,7 @@ int main() {
     SDL_DestroyTexture(borderTexture);
     SDL_DestroyTexture(playerTexture);
     SDL_DestroyTexture(blockTexture);
+    SDL_DestroyTexture(finishTexture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
