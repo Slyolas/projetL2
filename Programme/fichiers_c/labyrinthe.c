@@ -185,8 +185,8 @@ int main() {
         {2, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 2},
         {2, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 2},
         {2, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2},
-        {2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 2},
-        {2, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2},
+        {2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 4, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 2},
+        {2, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 4, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2},
         {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 2},
         {2, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2},
         {2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 2},
@@ -309,7 +309,7 @@ int main() {
                 traitementTouches(&playerX, &playerY, &blockX, &blockY, tilemap, UP);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY - 1][playerX] == 0 || tilemap[playerY - 1][playerX] == 3 && !(playerX == blockX && playerY == blockY + 1)) {
+            else if ((tilemap[playerY - 1][playerX] == 0 || tilemap[playerY - 1][playerX] == 3 || tilemap[playerY - 1][playerX] == 4) && !(playerX == blockX && playerY == blockY + 1)) {
                 playerY--;
                 SDL_Delay(200);
             }
@@ -319,7 +319,7 @@ int main() {
                 traitementTouches(&playerX, &playerY, &blockX, &blockY, tilemap, DOWN);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY + 1][playerX] == 0 || tilemap[playerY + 1][playerX] == 3 && !(playerX == blockX && playerY == blockY - 1)) {
+            else if ((tilemap[playerY + 1][playerX] == 0 || tilemap[playerY + 1][playerX] == 3 || tilemap[playerY + 1][playerX] == 4) && !(playerX == blockX && playerY == blockY - 1)) {
                 playerY++;
                 SDL_Delay(200);
             }
@@ -329,7 +329,7 @@ int main() {
                 traitementTouches(&playerX, &playerY, &blockX, &blockY, tilemap, LEFT);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY][playerX - 1] == 0 || tilemap[playerY][playerX - 1] == 3 && !(playerX == blockX + 1 && playerY == blockY)) {
+            else if ((tilemap[playerY][playerX - 1] == 0 || tilemap[playerY][playerX - 1] == 3 || tilemap[playerY][playerX - 1] == 4) && !(playerX == blockX + 1 && playerY == blockY)) {
                 playerX--;
                 SDL_Delay(200);
             }
@@ -339,7 +339,7 @@ int main() {
                 traitementTouches(&playerX, &playerY, &blockX, &blockY, tilemap, RIGHT);
             }
             // On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc
-            else if (tilemap[playerY][playerX + 1] == 0 || tilemap[playerY][playerX + 1] == 3 && !(playerX == blockX - 1 && playerY == blockY)) {
+            else if ((tilemap[playerY][playerX + 1] == 0 || tilemap[playerY][playerX + 1] == 3 || tilemap[playerY][playerX + 1] == 4) && !(playerX == blockX - 1 && playerY == blockY)) {
                 playerX++;
                 SDL_Delay(200);
             }
@@ -355,11 +355,11 @@ int main() {
                 // Rendu de chaque tuile en fonction de son type
                 int tileType = tilemap[y][x];
                 SDL_Texture* texture = NULL;
-                if(tileType == 1){
-                    texture = wallTexture;
-                }
-                else if(tileType == 0){
+                if(tileType == 0){
                     texture = floorTexture;
+                }
+                else if(tileType == 1){
+                    texture = wallTexture;
                 }
                 else if(tileType == 2){
                     texture = borderTexture;
@@ -367,11 +367,51 @@ int main() {
                 else if(tileType == 3){
                     texture = finishTexture;
                 }
+                else if(tileType == 4){
+                    texture = wallTexture;
+                }
                 if(texture){
                     SDL_Rect dstRect = {x * TILE_SIZE_X, y * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
                     SDL_RenderCopy(renderer, texture, NULL, &dstRect);
                 }
             }
+        }
+
+        /* Passage secret vers un collectible */
+        if(playerX == 12 && playerY == 11 && tilemap[playerY][playerX] == 4){
+            SDL_Texture* texture = NULL;
+
+            tilemap[11][12] = 0;
+            texture = floorTexture;
+            SDL_Rect dstRect1 = {12 * TILE_SIZE_X, 11 * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+            SDL_RenderCopy(renderer, texture, NULL, &dstRect1);
+
+            tilemap[12][12] = 0;
+            SDL_Rect dstRect2 = {12 * TILE_SIZE_X, 12 * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+            SDL_RenderCopy(renderer, texture, NULL, &dstRect2);
+
+            tilemap[12][13] = 0;
+            SDL_Rect dstRect3 = {13 * TILE_SIZE_X, 12 * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+            SDL_RenderCopy(renderer, texture, NULL, &dstRect3);
+        }
+
+        /* Remise à l'état initial */
+        if(playerX == 12 && playerY == 10 && tilemap[11][12] == 0){
+            SDL_Texture* texture = NULL;
+
+            tilemap[11][12] = 4;
+            texture = floorTexture;
+            SDL_Rect dstRect1 = {12 * TILE_SIZE_X, 11 * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+            SDL_RenderCopy(renderer, texture, NULL, &dstRect1);
+
+            tilemap[12][12] = 4;
+            SDL_Rect dstRect2 = {12 * TILE_SIZE_X, 12 * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+            SDL_RenderCopy(renderer, texture, NULL, &dstRect2);
+
+            tilemap[12][13] = 4;
+            SDL_Rect dstRect3 = {13 * TILE_SIZE_X, 12 * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+            SDL_RenderCopy(renderer, texture, NULL, &dstRect3);.
+            
         }
 
         // Rendu du bloc
