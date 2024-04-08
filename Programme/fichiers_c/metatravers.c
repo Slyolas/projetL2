@@ -9,6 +9,7 @@
 #include "../fichiers_h/fonctions_nouvelle_partie.h"
 #include "../fichiers_h/fonctions_introduction.h"
 #include "../fichiers_h/fonctions_carte.h"
+#include "../fichiers_h/fonctions_niveau_4.h"
 
 int main() {
 
@@ -25,6 +26,9 @@ int main() {
 
     /* Initialisation de la surface */
     SDL_Surface *surface = NULL;
+
+    /* Initialisation de la texture */
+    SDL_Texture *texture;
 
     /* Création du pointeur sur la texture du texte */
     SDL_Texture *texture_texte = NULL;
@@ -101,6 +105,13 @@ int main() {
     SDL_Texture *texture_image_perso_2_droite = NULL;
     SDL_Texture *texture_image_perso_2_gauche = NULL;
     SDL_Texture *texture_image_perso_2_pose = NULL;
+
+    /* Création des pointeurs sur la texture des différentes images pour les étages */
+    SDL_Texture *texture_image_mur;
+    SDL_Texture *texture_image_fond;
+    SDL_Texture *texture_image_bordure;
+    SDL_Texture *texture_image_porte;
+    SDL_Texture *texture_image_pique;
 
     /* Création du rectangle pour le texte de l'introduction */
     SDL_Rect rectangle_texte_introduction;
@@ -251,7 +262,43 @@ int main() {
                                 &texture_image_perso_2_gauche, &texture_image_perso_2_pose,
                                 itemsNiveaux); 
 
+    /* Objets du niveau 4 */
+
+    /* Initialisation de la largeur de chaque case */
+    int largeur_tile = largeur / 32;
+    /* Initialisation de la hauteur de chaque case */
+    int hauteur_tile = hauteur / 18;
+
+    initialisation_objets_niveau_4(&renderer, &surface,
+                                   &texture_image_fond, &texture_image_bordure,
+                                   &texture_image_porte, &texture_image_pique);
+
+    /* Initialisation de l'étage avec la méthode du tile mapping */
+    int tile_map[18][32];
+
+    SDL_Rect rectangle_tile;
+
+    /* Positions du joueur */
+
+    int position_x_initiale;
+    int position_y_initiale;
+
+    int position_x;
+    int position_y;
+
+    int avancer = 0;
+    int reculer = 0;
+    int sauter = 0;
+    int position_avant_saut;
+    int saut = 0;
+    int tombe = 0;
+    int numero_etage = 1;
+
+    etage_1(&position_x, &position_y, &position_x_initiale, &position_y_initiale, tile_map,
+                    &renderer, &surface, &texture_image_mur);
+
     /* Chargement de la sauvegarde s'il y en a une */
+
     if(verification_sauvegarde()) {
 
         FILE *fichier_sauvegarde;
@@ -370,7 +417,7 @@ int main() {
                             &pseudo, &rectangle_pseudo, barre_de_son,
                             &touche_aller_a_droite, &touche_aller_a_gauche, &touche_sauter_monter,
                             &touche_descendre, &touche_interagir, titres, tailleTitres, &surface, &texture_texte, 
-                            &police, couleurNoire,
+                            &police, couleurNoire, &positionActive,
                             itemsMenuNouvellePartie, &valider, &largeur, &hauteur, &page_active);
 
             if(page_active == MENU_PRINCIPAL) {
@@ -440,6 +487,7 @@ int main() {
                       couleurNoire, &touche_aller_a_droite, &touche_aller_a_gauche, 
                       &touche_sauter_monter, &touche_descendre, &touche_interagir,
                       itemsNiveaux, tailleNiveaux, &largeur, &hauteur, &page_active);
+
         }
 
         /* Page du niveau 1 */
@@ -451,6 +499,39 @@ int main() {
                            &titre_menu_principal, &surface, &texture_texte, &police,
                            couleurTitre, couleurNoire,
                            itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
+        }
+
+        else if(page_active == NIVEAU_4) {
+
+            if(personnageActif == PERSONNAGE_1)
+                niveau_4(&event, &renderer, &programme_lance,
+                        &texture,
+                        &texture_image_perso_1, &rectangle_perso_1,
+                        &texture_image_mur, &texture_image_fond,
+                        &texture_image_bordure, &texture_image_porte,
+                        &texture_image_pique,
+                        &surface,
+                        &touche_aller_a_droite, &touche_aller_a_gauche,
+                        &touche_sauter_monter, &touche_interagir,
+                        tile_map, &rectangle_tile, &direction,
+                        &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe, &numero_etage,
+                        &position_x_initiale, &position_y_initiale, &position_x, &position_y,
+                        &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
+
+            else
+                niveau_4(&event, &renderer, &programme_lance,
+                        &texture,
+                        &texture_image_perso_2, &rectangle_perso_2,
+                        &texture_image_mur, &texture_image_fond,
+                        &texture_image_bordure, &texture_image_porte,
+                        &texture_image_pique,
+                        &surface,
+                        &touche_aller_a_droite, &touche_aller_a_gauche,
+                        &touche_sauter_monter, &touche_interagir,
+                        tile_map, &rectangle_tile, &direction,
+                        &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe, &numero_etage,
+                        &position_x_initiale, &position_y_initiale, &position_x, &position_y,
+                        &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
         }
 
     }

@@ -45,7 +45,7 @@ void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface,
     sprintf(itemsNiveaux[0].texte, " Niveau 1 ");
     sprintf(itemsNiveaux[1].texte, " Niveau 2 ");
     sprintf(itemsNiveaux[2].texte, " Niveau 3 ");
-    sprintf(itemsNiveaux[3].texte, " Niveau 4 ");
+    sprintf(itemsNiveaux[3].texte, " La Tour Infernale ");
 }
 
 /* Fonction qui met à jour le rendu de la carte après redimension de la fenêtre */
@@ -443,9 +443,7 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
 
                         SDL_Delay(1000);
 
-                        printf("Vous entrez dans le niveau 4 !\n");
-                        
-                        (*direction) = BAS;
+                        (*page_active) = NIVEAU_4;
                     }
 
                     /* Pivoter vers le haut si on ne peut pas monter */

@@ -17,7 +17,7 @@ typedef enum modes_s {MODE_NORMAL, MODE_HARD} modes_t;
 typedef enum personnage_s {PERSONNAGE_1, PERSONNAGE_2} personnage_t;
 
 /* Enumération de constantes pour la page */
-typedef enum page_s {MENU_PRINCIPAL, OPTIONS, NOUVELLE_PARTIE, INTRODUCTION, CARTE, NIVEAU_1} page_t;
+typedef enum page_s {MENU_PRINCIPAL, OPTIONS, NOUVELLE_PARTIE, INTRODUCTION, CARTE, NIVEAU_1, NIVEAU_2, NIVEAU_3, NIVEAU_4} page_t;
 
 /* Enumération de constantes pour la position sur la carte */
 typedef enum position_s {NIVEAU0, NIVEAU1, NIVEAU2, NIVEAU3, NIVEAU4} position_t; 

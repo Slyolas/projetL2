@@ -30,5 +30,5 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                      itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son,
                      SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
                      SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte, 
-                     TTF_Font **police, SDL_Color couleurNoire,
+                     TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive,
                      itemMenu *itemsMenu, itemMenu *valider, int *largeur, int *hauteur, page_t *page_active);
