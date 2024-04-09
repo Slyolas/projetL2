@@ -239,12 +239,12 @@ int main() {
     }
 
     // Chargement des textures des tuiles
-    wallTexture = loadTexture(renderer, "../images/mur.png");
-    floorTexture = loadTexture(renderer, "../images/sol.png");
-    borderTexture = loadTexture(renderer, "../images/obsi.png");
-    playerTexture = loadTexture(renderer, "../images/steve.png");
-    blockTexture = loadTexture(renderer, "../images/diamand.png");
-    finishTexture = loadTexture(renderer, "../images/emerald.png");
+    wallTexture = loadTexture(renderer, "../images/labyrinthe/mur.png");
+    floorTexture = loadTexture(renderer, "../images/labyrinthe/sol.png");
+    borderTexture = loadTexture(renderer, "../images/labyrinthe/obsi.png");
+    playerTexture = loadTexture(renderer, "../images/labyrinthe/steve.png");
+    blockTexture = loadTexture(renderer, "../images/labyrinthe/diamand.png");
+    finishTexture = loadTexture(renderer, "../images/labyrinthe/emerald.png");
     if (!wallTexture || !floorTexture || !borderTexture || !playerTexture || !blockTexture || !finishTexture) {
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
