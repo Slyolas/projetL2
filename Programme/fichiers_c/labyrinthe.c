@@ -204,9 +204,12 @@ int main() {
     // Position initiale du joueur en coordonnées de tuile
     int playerX = 1;
     int playerY = 1;
-    // Position initiale du block en coordonnées de tuile
+    // Position initiale du block à deplacer en coordonnées de tuile
     int blockX = 2;
     int blockY = 1;
+    // Position du block d'arriver en coordonnées de tuile
+    int finishX = 30;
+    int finishY = 22;
 
     int up = 0, down = 0, left = 0, right = 0, e = 0;
 
@@ -350,29 +353,67 @@ int main() {
         SDL_RenderClear(renderer);
 
         // Rendu tilemap
-        for (int y = 0; y < 24; ++y) {
-            for (int x = 0; x < 32; ++x) {
-                // Rendu de chaque tuile en fonction de son type
-                int tileType = tilemap[y][x];
-                SDL_Texture* texture = NULL;
-                if(tileType == 0){
-                    texture = floorTexture;
+        // Mode Normal
+        if(modeActif == MODE_NORMAL){
+            for (int y = 0; y < 24; ++y) {
+                for (int x = 0; x < 32; ++x) {
+                    // Vérifiez que les coordonnées sont à l'intérieur des limites du labyrinthe
+                    if (x >= 0 && x < 32 && y >= 0 && y < 24) { 
+                        // Rendu de chaque tuile en fonction de son type
+                        int tileType = tilemap[y][x];
+                        SDL_Texture* texture = NULL;
+                        if(tileType == 0){
+                            texture = floorTexture;
+                        }
+                        else if(tileType == 1){
+                            texture = wallTexture;
+                        }
+                        else if(tileType == 2){
+                            texture = borderTexture;
+                        }
+                        else if(tileType == 3){
+                            texture = finishTexture;
+                        }
+                        else if(tileType == 4){
+                            texture = wallTexture;
+                        }
+                        if(texture){
+                            SDL_Rect dstRect = {x * TILE_SIZE_X, y * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+                            SDL_RenderCopy(renderer, texture, NULL, &dstRect);
+                        }
+                    }
                 }
-                else if(tileType == 1){
-                    texture = wallTexture;
-                }
-                else if(tileType == 2){
-                    texture = borderTexture;
-                }
-                else if(tileType == 3){
-                    texture = finishTexture;
-                }
-                else if(tileType == 4){
-                    texture = wallTexture;
-                }
-                if(texture){
-                    SDL_Rect dstRect = {x * TILE_SIZE_X, y * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
-                    SDL_RenderCopy(renderer, texture, NULL, &dstRect);
+            }
+        }
+        // Mode Difficile
+        if(modeActif == MODE_HARD){
+            for (int y = playerY - 2; y <= playerY + 2; ++y) {
+                for (int x = playerX - 2; x <= playerX + 2; ++x) {
+                    // Vérifiez que les coordonnées sont à l'intérieur des limites du labyrinthe
+                    if (x >= 0 && x < 32 && y >= 0 && y < 24) { 
+                        // Rendu de chaque tuile en fonction de son type
+                        int tileType = tilemap[y][x];
+                        SDL_Texture* texture = NULL;
+                        if(tileType == 0){
+                            texture = floorTexture;
+                        }
+                        else if(tileType == 1){
+                            texture = wallTexture;
+                        }
+                        else if(tileType == 2){
+                            texture = borderTexture;
+                        }
+                        else if(tileType == 3){
+                            texture = finishTexture;
+                        }
+                        else if(tileType == 4){
+                            texture = wallTexture;
+                        }
+                        if(texture){
+                            SDL_Rect dstRect = {x * TILE_SIZE_X, y * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+                            SDL_RenderCopy(renderer, texture, NULL, &dstRect);
+                        }
+                    }
                 }
             }
         }
@@ -410,13 +451,17 @@ int main() {
 
             tilemap[12][13] = 4;
             SDL_Rect dstRect3 = {13 * TILE_SIZE_X, 12 * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
-            SDL_RenderCopy(renderer, texture, NULL, &dstRect3);.
+            SDL_RenderCopy(renderer, texture, NULL, &dstRect3);
             
         }
 
-        // Rendu du bloc
+        // Rendu du bloc à deplacer
         SDL_Rect blockRect = {blockX * TILE_SIZE_X, blockY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
         SDL_RenderCopy(renderer, blockTexture, NULL, &blockRect);
+
+        // Rendu du bloc d'arriver
+        SDL_Rect finishRect = {finishX * TILE_SIZE_X, finishY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+        SDL_RenderCopy(renderer, finishTexture, NULL, &finishRect);
 
         // Rendu du joueur
         SDL_Rect playerRect = {playerX * TILE_SIZE_X, playerY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
