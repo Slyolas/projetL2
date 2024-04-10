@@ -8,15 +8,25 @@
 #define SCREEN_HEIGHT 600
 
 // Dimensions des tiles
-#define TILE_SIZE_X SCREEN_WIDTH / 24
-#define TILE_SIZE_Y SCREEN_HEIGHT / 16
+#define TILE_SIZE_X SCREEN_WIDTH / 27
+#define TILE_SIZE_Y SCREEN_HEIGHT / 19
 
 
 // Coordonnées de début et de fin du chemin
-#define START_X 2
-#define START_Y 0
-#define END_X 22
-#define END_Y 15
+#define START_CARRE_1_X 2
+#define START_CARRE_1_Y 0
+
+#define START_CARRE_2_X 11
+#define START_CARRE_2_Y 9
+
+#define START_CARRE_3_X 13
+#define START_CARRE_3_Y 16
+
+#define START_CARRE_4_X 23
+#define START_CARRE_4_Y 9
+
+#define END_X 24
+#define END_Y 0
 
 // Fonction pour charger une image dans une texture
 SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* filePath) {
@@ -31,249 +41,189 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* filePath) {
 }
 
 // Fonction de vérification du chemin
-int checkPath(int x, int y, int prevX, int prevY, int tilemap[16][24]) {
-    // Vérifier si les coordonnées sont en dehors des limites du labyrinthe
-    if (x < 0 || x >= 24 || y < 0 || y >= 16) {
-        return 0;
-    }
+int checkPath(int x, int y, int prevX, int prevY, int tilemap[19][27], int arriveX, int arriveY) {
+
     // Vérifier si les coordonnées actuelles correspondent aux coordonnées de fin
-    if (x == END_X && y == END_Y) {
+    if (x == arriveX && y == arriveY) {
         return 1;
     }
+
     // Vérifier si le tuyau actuel est correctement aligné avec le précédent
-    if ((x != prevX || y != prevY) && tilemap[y][x] != 0) {
-        switch (tilemap[y][x]) {
-            case 1: // Tuyau vertical
-                /* On vient du dessus */
-                if (prevY == y - 1){
-                    /* On regarde que le tuyau suivant peut bien venir d'en haut*/
-                    if(tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9){
-                        return checkPath(x, y + 1, x, y, tilemap) ; /* On va en bas */
-                    }
-                } 
-                /* On vient d'en dessous */
-                else {
-                    /* On regarde que le tuyau suivant peut bien venir d'en bas*/
-                    if(tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7){
-                        return checkPath(x, y - 1, x, y, tilemap); /* On va en haut */
-                    }
-                }
-                break;
 
-            case 2: // Tuyau horizontal
-                /* On vient de la gauche */
-                if (prevX == x - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche */
-                    if(tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8){
-                        return checkPath(x + 1, y, x, y, tilemap); /* On va à droite */
-                    }
-                }
-                /* On vient de la droite */
-                else{
-                    /* On regarde que le tuyau suivant peut bien venir de la droite */
-                    if(tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10){
-                        return checkPath(x - 1, y, x, y, tilemap); /* On va à gauche */
-                    }
-                }
-                break;
+    switch (tilemap[y][x]) {
 
-            case 3: // Tuyau HD
-                /* On vient du dessus */
-                if (prevY == y - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche */
-                    if(tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8){
-                        return checkPath(x + 1, y, x, y, tilemap); /* On va à droite */
-                    }
+        case 1: // Tuyau vertical
+            /* On vient du dessus */
+            if (prevY == y - 1){
+                /* On regarde que le tuyau suivant peut bien venir d'en haut*/
+                if(tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5){
+                    return checkPath(x, y + 1, x, y, tilemap, arriveX, arriveY) ; /* On va en bas */
                 }
-                /* On vient de la droite */
-                else{
-                    /* On regarde que le tuyau suivant peut bien venir d'en bas*/
-                    if(tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7){
-                        return checkPath(x, y - 1, x, y, tilemap); /* On va en haut */
-                    }
+            } 
+            /* On vient d'en dessous */
+            else {
+                /* On regarde que le tuyau suivant peut bien venir d'en bas*/
+                if(tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6){
+                    return checkPath(x, y - 1, x, y, tilemap, arriveX, arriveY); /* On va en haut */
                 }
-                break;
+            }
+            break;
 
-            case 4: // Tuyau BD
-                /* On vient de la droite */
-                if (prevX == x + 1) {
-                    /* On regarde que le tuyau suivant peut bien venir d'en haut*/
-                    if(tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9){
-                        return checkPath(x, y + 1, x, y, tilemap); /* On va en bas */
-                    }
+        case 2: // Tuyau horizontal
+            /* On vient de la gauche */
+            if (prevX == x - 1) {
+                /* On regarde que le tuyau suivant peut bien venir de la gauche */
+                if(tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4){
+                    return checkPath(x + 1, y, x, y, tilemap, arriveX, arriveY); /* On va à droite */
                 }
-                /* On vient du bas */
-                else{
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche */
-                    if(tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8){
-                        return checkPath(x + 1, y, x, y, tilemap); /* On va à droite */
-                    }
+            }
+            /* On vient de la droite */
+            else{
+                /* On regarde que le tuyau suivant peut bien venir de la droite */
+                if(tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6){
+                    return checkPath(x - 1, y, x, y, tilemap, arriveX, arriveY); /* On va à gauche */
                 }
-                break;
+            }
+            break;
 
-            case 5: // Tuyau BG
-                /* On vient de la gauche */
-                if (prevX == x - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir d'en haut*/
-                    if(tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9){
-                        return checkPath(x, y + 1, x, y, tilemap); /* On va en bas */
-                    }
+        case 3: // Tuyau HD
+            /* On vient du dessus */
+            if (prevY == y - 1) {
+                /* On regarde que le tuyau suivant peut bien venir de la gauche */
+                if(tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4){
+                    return checkPath(x + 1, y, x, y, tilemap, arriveX, arriveY); /* On va à droite */
                 }
-                /* On vient du bas */
-                else{
-                    /* On regarde que le tuyau suivant peut bien venir de la droite */
-                    if(tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10){
-                        return checkPath(x - 1, y, x, y, tilemap); /* On va à gauche */
-                    }
+            }
+            /* On vient de la droite */
+            else{
+                /* On regarde que le tuyau suivant peut bien venir d'en bas*/
+                if(tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6){
+                    return checkPath(x, y - 1, x, y, tilemap, arriveX, arriveY); /* On va en haut */
                 }
-                break;
+            }
+            break;
 
-            case 6: // Tuyau HG
-                /* On vient du haut */
-                if (prevY == y - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la droite */
-                    if(tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10){
-                        return checkPath(x - 1, y, x, y, tilemap); /* On va à gauche */
-                    }
+        case 4: // Tuyau BD
+            /* On vient de la droite */
+            if (prevX == x + 1) {
+                /* On regarde que le tuyau suivant peut bien venir d'en haut*/
+                if(tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5){
+                    return checkPath(x, y + 1, x, y, tilemap, arriveX, arriveY); /* On va en bas */
                 }
-                /* On vient de la gauche */
-                else{
-                    /* On regarde que le tuyau suivant peut bien venir d'en bas*/
-                    if(tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7){
-                        return checkPath(x, y - 1, x, y, tilemap); /* On va au haut */
-                    }
+            }
+            /* On vient du bas */
+            else{
+                /* On regarde que le tuyau suivant peut bien venir de la gauche */
+                if(tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4){
+                    return checkPath(x + 1, y, x, y, tilemap, arriveX, arriveY); /* On va à droite */
                 }
-                break;
+            }
+            break;
 
-            case 7: // Tuyau 3 haut
-                /* On vient du haut */
-                if (prevY == y - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la droite ou de la gauche */
-                    if((tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10) || (tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8)){
-                        return checkPath(x - 1, y, x, y, tilemap) || checkPath(x + 1, y, x, y, tilemap); /* On va à gauche ou à droite */
-                    }
+        case 5: // Tuyau BG
+            /* On vient de la gauche */
+            if (prevX == x - 1) {
+                /* On regarde que le tuyau suivant peut bien venir d'en haut*/
+                if(tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5){
+                    return checkPath(x, y + 1, x, y, tilemap, arriveX, arriveY); /* On va en bas */
                 }
-                /* On vient de la gauche */
-                else if (prevX == x - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir d'en bas ou de la gauche */
-                    if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x + 1, y, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va à droite ou en haut */
-                    }
+            }
+            /* On vient du bas */
+            else{
+                /* On regarde que le tuyau suivant peut bien venir de la droite */
+                if(tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6){
+                    return checkPath(x - 1, y, x, y, tilemap, arriveX, arriveY); /* On va à gauche */
                 }
-                /* On vient de la droite */
-                else {
-                    /* On regarde que le tuyau suivant peut bien venir de la droite ou du bas */
-                    if((tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x - 1, y, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va à gauche ou en haut */
-                    }
-                }
-                break;
+            }
+            break;
 
-            case 8: // Tuyau 3 droite
-                /* On vient du haut */
-                if (prevY == y - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche  ou du haut */
-                    if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8) || (tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9)){
-                        return checkPath(x + 1, y, x, y, tilemap) || checkPath(x, y + 1, x, y, tilemap); /* On va à droite ou en bas */
-                    }
+        case 6: // Tuyau HG
+            /* On vient du haut */
+            if (prevY == y - 1) {
+                /* On regarde que le tuyau suivant peut bien venir de la droite */
+                if(tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6){
+                    return checkPath(x - 1, y, x, y, tilemap, arriveX, arriveY); /* On va à gauche */
                 }
-                /* On vient du bas */
-                else if (prevY == y + 1) {
-                    /* On regarde que le tuyau suivant peut bien venir d'en bas ou de la gauche */
-                    if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x + 1, y, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va à droite ou en haut */
-                    }
+            }
+            /* On vient de la gauche */
+            else{
+                /* On regarde que le tuyau suivant peut bien venir d'en bas*/
+                if(tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6){
+                    return checkPath(x, y - 1, x, y, tilemap, arriveX, arriveY); /* On va au haut */
                 }
-                /* On vient de la droite */
-                else {
-                    /* On regarde que le tuyau suivant peut bien venir d'en haut ou d'en bas */
-                    if((tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x, y + 1, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va en bas ou en haut */
-                    }
-                }
-                break;
+            }
+            break;
 
-            case 9: // Tuyau 3 bas
-                /* On vient de la gauche */
-                if (prevX == x - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche  ou du haut */
-                    if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8) || (tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9)){
-                        return checkPath(x + 1, y, x, y, tilemap) || checkPath(x, y + 1, x, y, tilemap); /* On va à droite ou en bas */
-                    }
+        case 7: // Tuyau croix
+            /* On vient de la gauche */
+            if (prevX == x - 1) {
+                /* On regarde que le tuyau suivant peut bien venir de la gauche */
+                if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4) || (tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6)){
+                    return checkPath(x + 1, y, x, y, tilemap, arriveX, arriveY) || checkPath(x, y + 1, x, y, tilemap, arriveX, arriveY) || checkPath(x, y - 1, x, y, tilemap, arriveX, arriveY); /* On va à droite ou en bas ou en haut */
                 }
-                /* On vient du bas */
-                else if (prevY == y + 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la droite ou de la gauche */
-                    if((tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10) || (tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8)){
-                        return checkPath(x + 1, y, x, y, tilemap) || checkPath(x - 1, y, x, y, tilemap); /* On va à droite ou à gauche */
-                    }
+            }
+            /* On vient du bas */
+            else if (prevY == y + 1) {
+                /* On regarde que le tuyau suivant peut bien venir de la gauche */
+                if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6)){
+                    return checkPath(x + 1, y, x, y, tilemap, arriveX, arriveY) || checkPath(x - 1, y, x, y, tilemap, arriveX, arriveY) || checkPath(x, y - 1, x, y, tilemap, arriveX, arriveY); /* On va à droite ou à gauche ou en haut */
                 }
-                /* On vient de la droite */
-                else {
-                    /* On regarde que le tuyau suivant peut bien venir d'en haut ou de la droite */
-                    if((tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10)){
-                        return checkPath(x, y + 1, x, y, tilemap) || checkPath(x - 1, y, x, y, tilemap); /* On va en bas ou à gauche */
-                    }
+            }
+            /* On vient de la droite */
+            else if(prevX == x + 1){
+                if((tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6)){
+                    return checkPath(x, y + 1, x, y, tilemap, arriveX, arriveY) || checkPath(x - 1, y, x, y, tilemap, arriveX, arriveY) || checkPath(x, y - 1, x, y, tilemap, arriveX, arriveY); /* On va en bas ou à gauche ou en haut */
                 }
-                break;
-
-            case 10: // Tuyau 3 gauche
-                /* On vient de la gauche */
-                if (prevX == x - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir d'en haut ou d'en bas */
-                    if((tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x, y - 1, x, y, tilemap) || checkPath(x, y + 1, x, y, tilemap); /* On va en haut ou en bas */
-                    }
+            }
+            /* On vient du haut  */
+            else{
+                /* On regarde que le tuyau suivant peut bien venir de la gauche */
+                if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4) || (tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6)){
+                    return checkPath(x, y + 1, x, y, tilemap, arriveX, arriveY) || checkPath(x - 1, y, x, y, tilemap, arriveX, arriveY) || checkPath(x + 1, y, x, y, tilemap, arriveX, arriveY); /* On va en bas ou à gauche ou à droite */
                 }
-                /* On vient du bas */
-                else if (prevY == y + 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la droite ou du bas */
-                    if((tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x - 1, y, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va à gauche ou en haut */
-                    }
-                }
-                /* On vient du haut */
-                else {
-                    /* On regarde que le tuyau suivant peut bien venir d'en haut ou de la droite */
-                    if((tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10)){
-                        return checkPath(x, y + 1, x, y, tilemap) || checkPath(x - 1, y, x, y, tilemap); /* On va en bas ou à gauche */
-                    }
-                }
-                break;
-
-            case 11: // Tuyau croix
-                /* On vient de la gauche */
-                if (prevX == x - 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche */
-                    if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8) || (tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x + 1, y, x, y, tilemap) || checkPath(x, y + 1, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va à droite ou en bas ou en haut */
-                    }
-                }
-                /* On vient du bas */
-                else if (prevY == y + 1) {
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche */
-                    if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x + 1, y, x, y, tilemap) || checkPath(x - 1, y, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va à droite ou à gauche ou en haut */
-                    }
-                }
-                /* On vient de la droite */
-                else if(prevX == x + 1){
-                    if((tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10) || (tilemap[y-1][x] != 2 && tilemap[y-1][x] != 3 && tilemap[y-1][x] != 6 && tilemap[y-1][x] != 7)){
-                        return checkPath(x, y + 1, x, y, tilemap) || checkPath(x - 1, y, x, y, tilemap) || checkPath(x, y - 1, x, y, tilemap); /* On va en bas ou à gauche ou en haut */
-                    }
-                }
-                /* On vient du haut  */
-                else{
-                    /* On regarde que le tuyau suivant peut bien venir de la gauche */
-                    if((tilemap[y][x+1] != 1 && tilemap[y][x+1] != 3 && tilemap[y][x+1] != 4 && tilemap[y][x+1] != 8) || (tilemap[y+1][x] != 2 && tilemap[y+1][x] != 4 && tilemap[y+1][x] != 5 && tilemap[y+1][x] != 9) || (tilemap[y][x-1] != 1 && tilemap[y][x-1] != 5 && tilemap[y][x-1] != 6 && tilemap[y][x-1] != 10)){
-                        return checkPath(x, y + 1, x, y, tilemap) || checkPath(x - 1, y, x, y, tilemap) || checkPath(x + 1, y, x, y, tilemap); /* On va en bas ou à gauche ou à droite */
-                    }
-                }
-                break;
-        }
-        return 0;
+            }
+            break;
+        
+        default:
+            return 0;
+            break;
     }
     return 0;
+}
+
+// Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la fin du labyrinthe
+int updateBorderTiles(SDL_Renderer* renderer, SDL_Texture* finish_Texture, int tilemap[19][27], int tileX, int tileY, int finX, int finY) {
+
+    /* Mise à jour du rendu de la tuile courante */
+    tilemap[tileY][tileX] = 9;
+    SDL_Rect dstRect = {tileX * TILE_SIZE_X, tileY * TILE_SIZE_Y, TILE_SIZE_X, TILE_SIZE_Y};
+    SDL_RenderCopy(renderer, finish_Texture, NULL, &dstRect);
+    SDL_RenderPresent(renderer);
+    SDL_Delay(20);
+
+	/* Vérification des tuiles adjacentes pour permettre un appel récursif et ainsi changé toute les tuiles de la bordure */
+    
+    /* Tuile à gauche de la courante */
+    if(tilemap[tileY][tileX - 1] == 0 && tileX > finX && tileY == 0) {
+        return updateBorderTiles(renderer, finish_Texture, tilemap, tileX - 1, tileY, finX, finY);
+    }
+    else if((tilemap[tileY][tileX - 1] == 8 || tilemap[tileY][tileX - 1] == 1) && tileX > finX && tileY == 0){
+        return updateBorderTiles(renderer, finish_Texture, tilemap, tileX - 2, tileY, finX, finY);
+    }
+    /* Tuile à droite de la courante */
+    else if(tilemap[tileY][tileX + 1] == 0 && tileX < finX && tileY == 18) {
+        return updateBorderTiles(renderer, finish_Texture, tilemap, tileX + 1, tileY, finX, finY);
+    }
+    /* Tuile en bas de la courante */
+    else if(tilemap[tileY + 1][tileX] == 0 && tileY < finY && tileX == 0) {
+        return updateBorderTiles(renderer, finish_Texture, tilemap, tileX, tileY + 1, finX, finY);
+    }
+    /* Tuile en haut de la courante */
+    else if(tilemap[tileY - 1][tileX] == 0 && tileY > finY && tileX == 26) {
+        return updateBorderTiles(renderer, finish_Texture, tilemap, tileX, tileY - 1, finX, finY);
+    }
+    
+	return 0;
 }
 
 int main() {
@@ -289,33 +239,39 @@ int main() {
     SDL_Texture* pipe_BD_Texture;
     SDL_Texture* pipe_BG_Texture;
     SDL_Texture* pipe_HG_Texture;
-    SDL_Texture* pipe_3_haut_Texture;
-    SDL_Texture* pipe_3_droit_Texture;
-    SDL_Texture* pipe_3_bas_Texture;
-    SDL_Texture* pipe_3_gauche_Texture;
     SDL_Texture* pipe_croix_Texture;
     SDL_Texture* pipe_courant_Texture;
+    SDL_Texture* finish_Texture;
+    SDL_Texture* copper_Texture;
 
     SDL_Event event;
 
     // Initialisation de la carte du labyrinthe
-    int tilemap[16][24] = { /* 16*24 max avec ces dimensions */
-        {0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 8, 4, 5, 8, 3, 9, 3, 0, 7, 0, 8, 6, 0, 3, 8, 7, 3, 9, 6, 8, 4, 5, 0},
-        {0, 7, 3, 3, 6, 7, 8, 5, 4, 2, 7, 9, 5, 0, 9, 10, 9, 2, 5, 11, 3, 0, 9, 0},
-        {0, 1, 2, 8, 0, 5, 3, 1, 9, 0, 8, 5, 2, 7, 4, 0, 6, 10, 4, 3, 5, 1, 5, 0},
-        {0, 11, 6, 8, 3, 2, 0, 6, 8, 0, 11, 0, 6, 5, 0, 4, 8, 7, 3, 7, 0, 0, 8, 0},
-        {0, 3, 7, 0, 2, 0, 0, 4, 0, 0, 0, 4, 0, 9, 3, 3, 5, 0, 3, 3, 2, 9, 6, 0},
-        {0, 8, 4, 5, 9, 4, 3, 5, 9, 2, 1, 2, 1, 0, 8, 6, 9, 6, 11, 3, 8, 4, 0, 0},
-        {0, 0, 3, 1, 2, 3, 10, 1, 8, 5, 8, 11, 9, 5, 6, 6, 0, 4, 0, 7, 0, 10, 5, 0},
-        {0, 9, 6, 0, 8, 1, 11, 2, 3, 6, 0, 5, 3, 8, 6, 2, 3, 6, 10, 0, 8, 6, 0, 0},
-        {0, 5, 11, 10, 0, 3, 3, 9, 4, 0, 3, 4, 0, 6, 5, 0, 0, 10, 0, 0, 4, 0, 9, 0},
-        {0, 7, 4, 8, 3, 5, 9, 6, 3, 0, 8, 7, 6, 0, 0, 7, 4, 6, 7, 7, 3, 2, 8, 0},
-        {0, 6, 0, 3, 4, 3, 3, 9, 8, 1, 3, 3, 6, 2, 0, 5, 3, 3, 6, 3, 10, 0, 5, 0},
-        {0, 9, 4, 8, 2, 10, 6, 8, 3, 6, 4, 3, 11, 3, 5, 9, 4, 4, 0, 1, 9, 7, 0, 0},
-        {0, 3, 9, 8, 0, 0, 8, 5, 2, 5, 10, 8, 6, 5, 4, 7, 3, 7, 6, 0, 8, 6, 8, 0},
-        {0, 5, 8, 7, 6, 10, 5, 0, 8, 6, 7, 6, 3, 10, 0, 3, 8, 9, 2, 0, 7, 5, 2, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}
+    int tilemap[19][27] = {
+
+        {0,     0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0,   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,      0},
+
+        {0,     4, 4, 6, 5, 2, 4, 3, 5, 4, 1, 2, 5,     0,  4, 6, 2, 6, 3, 4, 6, 4, 6, 2, 4, 0,      0},
+        {0,     2, 3, 4, 5, 4, 1, 4, 4, 2, 0, 5, 4,     0,  1, 5, 4, 1, 6, 4, 2, 6, 2, 1, 0, 0,      0},
+        {0,     1, 4, 2, 6, 1, 5, 4, 7, 3, 2, 3, 6,     0,  4, 5, 0, 6, 7, 5, 1, 3, 4, 6, 5, 0,      0},
+        {0,     7, 6, 3, 4, 5, 0, 0, 3, 1, 3, 6, 5,     0,  5, 6, 0, 6, 2, 3, 5, 2, 3, 0, 1, 4,      0},
+        {0,     3, 5, 1, 4, 4, 5, 0, 6, 2, 0, 0, 1,     0,  1, 4, 7, 3 ,6, 0, 5, 3, 4, 0, 4, 6,      0},
+        {0,     4, 2, 3, 1, 6, 1, 3, 4, 6, 6, 1, 6,     0,  6, 2, 1, 4, 4, 1, 3, 4, 1, 0, 0, 1,      0},
+        {0,     0, 6, 3, 5, 4, 4, 3, 2, 6, 6, 2, 2,     0,  5, 3, 6, 2, 3, 4, 6, 5, 7, 2, 5, 4,      0},
+        {0,     0, 0, 5, 2, 1, 3, 1, 1, 4, 0, 6, 6,     0,  4, 3, 0, 0, 4, 2 ,3, 6, 4, 5, 1, 3,      0},
+
+        {0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,     0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,      0},
+
+        {0,     4, 2, 1, 3, 4, 5, 4, 3, 3, 1, 7, 3,     0,  4, 6, 3, 2, 6, 4, 5, 3, 0, 4, 2, 4,      0},
+        {0,     6, 1, 0, 4, 1, 5, 3, 2, 4, 6, 2, 1,     0,  2, 5, 0, 3, 2, 6, 5, 4, 0, 5, 1, 3,      0},
+        {0,     4, 4, 0, 6, 7, 3, 5, 6, 2, 3, 6, 6,     0,  5, 1, 0, 6, 7, 3, 2, 4, 3, 6, 5, 4,      0},
+        {0,     6, 5, 3, 1, 2, 4, 3, 4, 5, 6, 0, 0,     0,  3, 4, 6, 0, 2, 3, 4, 3, 2, 4, 2, 6,      0},
+        {0,     4, 7, 2, 0, 0, 1, 6, 4, 3, 1, 5, 4,     0,  4, 6, 1, 6, 0, 0, 0, 1, 7, 6, 0, 2,      0},
+        {0,     5, 6, 0, 5, 4, 3, 1, 3, 3, 3, 0, 4,     0,  5, 4, 6, 7, 1, 0, 3, 4, 2, 1, 0, 1,      0},
+        {0,     5, 4, 1, 2, 6, 5, 6, 2, 4, 5, 2, 1,     2,  4, 3, 1, 4, 3, 6, 2, 1, 5, 4, 6, 4,      0},
+        {0,     5, 3, 5, 2, 1, 6, 1, 3, 5, 6, 3, 0,     0,  6, 5, 3, 5, 1, 3, 4, 3, 5, 4, 1, 3,      0},
+
+        {0,     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,      0}
         
     };
 
@@ -357,15 +313,12 @@ int main() {
     pipe_BD_Texture = loadTexture(renderer, "../images/pipe/pipe_BD.png");
     pipe_BG_Texture = loadTexture(renderer, "../images/pipe/pipe_BG.png");
     pipe_HG_Texture = loadTexture(renderer, "../images/pipe/pipe_HG.png");
-    pipe_3_haut_Texture = loadTexture(renderer, "../images/pipe/pipe_3_haut.png");
-    pipe_3_droit_Texture = loadTexture(renderer, "../images/pipe/pipe_3_droite.png");
-    pipe_3_bas_Texture = loadTexture(renderer, "../images/pipe/pipe_3_bas.png");
-    pipe_3_gauche_Texture = loadTexture(renderer, "../images/pipe/pipe_3_gauche.png");
     pipe_croix_Texture = loadTexture(renderer, "../images/pipe/pipe_croix.png");
     pipe_courant_Texture = loadTexture(renderer, "../images/pipe/pipe_courant.png");
+    finish_Texture = loadTexture(renderer, "../images/labyrinthe/emerald.png");
 
 
-    if (!wallTexture || !pipe_verti_Texture || !pipe_hori_Texture || !pipe_HD_Texture || !pipe_BD_Texture || !pipe_BG_Texture || !pipe_HG_Texture || !pipe_3_haut_Texture || !pipe_3_droit_Texture || !pipe_3_bas_Texture || !pipe_3_gauche_Texture || !pipe_croix_Texture || !pipe_courant_Texture) {
+    if (!wallTexture || !pipe_verti_Texture || !pipe_hori_Texture || !pipe_HD_Texture || !pipe_BD_Texture || !pipe_BG_Texture || !pipe_HG_Texture || !pipe_croix_Texture || !pipe_courant_Texture || !finish_Texture) {
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
         SDL_Quit();
@@ -385,17 +338,17 @@ int main() {
                             if(cursorY > 0) cursorY--;
                             break;
                         case SDLK_DOWN:
-                            if(cursorY < 15) cursorY++;
+                            if(cursorY < 18) cursorY++;
                             break;
                         case SDLK_LEFT:
                             if(cursorX > 0) cursorX--;
                             break;
                         case SDLK_RIGHT:
-                            if(cursorX < 23) cursorX++;
+                            if(cursorX < 26) cursorX++;
                             break;
                         case SDLK_e:
-                            if(tilemap[cursorY][cursorX] != 0 && tilemap[cursorY][cursorX] != 11 && tilemap[cursorY][cursorX] != 12){
-                                if(tilemap[cursorY][cursorX] == 1 && cursorY != START_Y && cursorY != END_Y){
+                            if(tilemap[cursorY][cursorX] != 0 && tilemap[cursorY][cursorX] != 7 && tilemap[cursorY][cursorX] != 8){
+                                if(tilemap[cursorY][cursorX] == 1 && cursorY != START_CARRE_1_Y && cursorY != END_Y){
                                     tilemap[cursorY][cursorX] = 2;
                                 }
                                 else if(tilemap[cursorY][cursorX] == 2){
@@ -413,21 +366,9 @@ int main() {
                                 else if(tilemap[cursorY][cursorX] == 6){
                                     tilemap[cursorY][cursorX] = 3;
                                 }
-                                else if(tilemap[cursorY][cursorX] == 7){
-                                    tilemap[cursorY][cursorX] = 8;
-                                }
-                                else if(tilemap[cursorY][cursorX] == 8){
-                                    tilemap[cursorY][cursorX] = 9;
-                                }
-                                else if(tilemap[cursorY][cursorX] == 9){
-                                    tilemap[cursorY][cursorX] = 10;
-                                }
-                                else if(tilemap[cursorY][cursorX] == 10){
-                                    tilemap[cursorY][cursorX] = 7;
-                                }
-                                if(tilemap[cursorY][cursorX] == 12 && cursorY == START_Y && cursorX == START_X){
-                                    active_courant = 1;
-                                }
+                            }
+                            if(tilemap[cursorY][cursorX] == 8 && cursorY == START_CARRE_1_Y && cursorX == START_CARRE_1_X){
+                                active_courant = 1;
                             }
                         default:
                             break;
@@ -444,10 +385,10 @@ int main() {
         SDL_RenderClear(renderer);
 
         // Rendu tilemap
-        for (int y = 0; y < 16; ++y) {
-            for (int x = 0; x < 24; ++x) {
+        for (int y = 0; y < 19; ++y) {
+            for (int x = 0; x < 27; ++x) {
                 // Vérifiez que les coordonnées sont à l'intérieur des limites du labyrinthe
-                if (x >= 0 && x < 24 && y >= 0 && y < 16) { 
+                if (x >= 0 && x < 27 && y >= 0 && y < 19) { 
                     // Rendu de chaque tuile en fonction de son type
                     int tileType = tilemap[y][x];
                     SDL_Texture* texture = NULL;
@@ -466,17 +407,11 @@ int main() {
                             break;
                         case 6: texture = pipe_HG_Texture;
                             break;
-                        case 7: texture = pipe_3_haut_Texture;
+                        case 7: texture = pipe_croix_Texture;
                             break;
-                        case 8: texture = pipe_3_droit_Texture;
+                        case 8: texture = pipe_courant_Texture;
                             break;
-                        case 9: texture = pipe_3_bas_Texture;
-                            break;
-                        case 10: texture = pipe_3_gauche_Texture;
-                            break;
-                        case 11: texture = pipe_croix_Texture;
-                            break;
-                        case 12: texture = pipe_courant_Texture;
+                        case 9: texture = finish_Texture;
                             break;
                         default:
                             break;
@@ -495,12 +430,32 @@ int main() {
 
         // Vérifier le chemin
         if(active_courant){
-            int pathCorrect = checkPath(START_X, START_Y + 1, START_X, START_Y, tilemap);
+            int pathCorrect_carre1 = checkPath(START_CARRE_1_X, START_CARRE_1_Y + 1, START_CARRE_1_X, START_CARRE_1_Y, tilemap, START_CARRE_2_X, START_CARRE_2_Y);
+            int pathCorrect_carre2 = checkPath(START_CARRE_2_X, START_CARRE_2_Y + 1, START_CARRE_2_X, START_CARRE_2_Y, tilemap, START_CARRE_3_X, START_CARRE_3_Y);
+            int pathCorrect_carre3 = checkPath(START_CARRE_3_X, START_CARRE_3_Y, START_CARRE_3_X - 1, START_CARRE_3_Y, tilemap, START_CARRE_4_X, START_CARRE_4_Y);
+            int pathCorrect_carre4 = checkPath(START_CARRE_4_X, START_CARRE_4_Y - 1, START_CARRE_4_X, START_CARRE_4_Y, tilemap, END_X, END_Y);
+
+            printf("1: %d\n2: %d\n3: %d\n4: %d\n", pathCorrect_carre1, pathCorrect_carre2, pathCorrect_carre3, pathCorrect_carre4);
+
             // Vérifier si le joueur a gagné
-            if (pathCorrect) {
-                printf("Félicitations, vous avez gagné !\n");
+            if (pathCorrect_carre1) {
+                printf("Carré 1 fini\n");
+                updateBorderTiles(renderer, finish_Texture, tilemap, 12, 0, 0, 9);
+            }
+            if (pathCorrect_carre1 && pathCorrect_carre2) {
+                printf("Carré 2 fini\n");
+                updateBorderTiles(renderer, finish_Texture, tilemap, 0, 10, 12, 18);
+            }
+            if (pathCorrect_carre1 && pathCorrect_carre2 && pathCorrect_carre3) {
+                printf("Carré 3 fini\n");
+                updateBorderTiles(renderer, finish_Texture, tilemap, 13, 18, 26, 9);
+            }
+            if(pathCorrect_carre1 && pathCorrect_carre2 && pathCorrect_carre3 && pathCorrect_carre4){
+                printf("Carré 4 fini\n");
+                updateBorderTiles(renderer, finish_Texture, tilemap, 26, 9, 13, 0);
                 quit = 0;
             }
+            active_courant = 0;
         }
 
         // Actualiser le renderer
@@ -515,12 +470,9 @@ int main() {
     SDL_DestroyTexture(pipe_BD_Texture);
     SDL_DestroyTexture(pipe_BG_Texture);
     SDL_DestroyTexture(pipe_HG_Texture);
-    SDL_DestroyTexture(pipe_3_haut_Texture);
-    SDL_DestroyTexture(pipe_3_droit_Texture);
-    SDL_DestroyTexture(pipe_3_bas_Texture);
-    SDL_DestroyTexture(pipe_3_gauche_Texture);
     SDL_DestroyTexture(pipe_croix_Texture);
     SDL_DestroyTexture(pipe_courant_Texture);
+    SDL_DestroyTexture(finish_Texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
