@@ -6,8 +6,8 @@
 
 /* Squelette de la fonction initialisation_objets_nouvelle_partie */
 void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_perso_1,
-                           SDL_Texture **texture_image_perso_2,
-                           itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider);
+                                           SDL_Texture **texture_image_perso_2,
+                                           itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider);
 
 /* Squelette de la fonction mise_a_jour_rendu_nouvelle_partie */
 void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
@@ -30,5 +30,5 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                      itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son,
                      SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
                      SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte, 
-                     TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive,
+                     TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive, niveaux *avancee_niveaux, int tailleNiveaux,
                      itemMenu *itemsMenu, itemMenu *valider, int *largeur, int *hauteur, page_t *page_active);

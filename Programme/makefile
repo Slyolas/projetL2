@@ -13,7 +13,7 @@ INC_DIR = fichiers_h
 OBJ_DIR = obj
 BIN_DIR = bin
 
-# Les fichiers sources que l'on veut compiler
+# Fichiers sources que l'on veut compiler
 SRCS_JEU = $(wildcard $(SRC_DIR)/metatravers.c)
 
 SRCS_MENU_FONC = $(wildcard $(SRC_DIR)/fonctions_menu_principal.c)
@@ -27,6 +27,14 @@ SRCS_COMMUN_FONC = $(wildcard $(SRC_DIR)/fonctions_generales.c)
 SRCS_INTRODUCTION_FONC = $(wildcard $(SRC_DIR)/fonctions_introduction.c)
 
 SRCS_CARTE_FONC = $(wildcard $(SRC_DIR)/fonctions_carte.c)
+
+SRCS_NIVEAU_1_FONC = $(wildcard $(SRC_DIR)/fonctions_niveau_1.c)
+
+SRCS_ARRIVEE_NIVEAUX_2_3_FONC = $(wildcard $(SRC_DIR)/fonctions_arrivee_niveaux_2_3.c)
+
+SRCS_NIVEAU_2_FONC = $(wildcard $(SRC_DIR)/fonctions_niveau_2.c)
+
+SRCS_NIVEAU_3_FONC = $(wildcard $(SRC_DIR)/fonctions_niveau_3.c)
 
 SRCS_NIVEAU_4_FONC = $(wildcard $(SRC_DIR)/fonctions_niveau_4.c)
 
@@ -45,6 +53,14 @@ OBJS_INTRODUCTION_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_INTRODU
 
 OBJS_CARTE_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_CARTE_FONC))
 
+OBJS_NIVEAU_1_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_NIVEAU_1_FONC))
+
+OBJS_ARRIVEE_NIVEAUX_2_3_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_ARRIVEE_NIVEAUX_2_3_FONC))
+
+OBJS_NIVEAU_2_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_NIVEAU_2_FONC))
+
+OBJS_NIVEAU_3_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_NIVEAU_3_FONC))
+
 OBJS_NIVEAU_4_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_NIVEAU_4_FONC))
 
 # Nom de l'exécutable
@@ -54,15 +70,15 @@ EXECUTABLE = metatravers
 # Compilations
 #
 
-# Compilation des exécutables
+# Compilation de l'exécutable
 all: $(BIN_DIR)/$(EXECUTABLE)
 
 # Créer le répertoire bin s'il n'existe pas
 $(shell mkdir -p $(BIN_DIR))
-# Créer le répertoire bin s'il n'existe pas
+# Créer le répertoire obj s'il n'existe pas
 $(shell mkdir -p $(OBJ_DIR))
 
-$(BIN_DIR)/metatravers: $(OBJS_JEU) $(OBJS_COMMUN_FONC) $(OBJS_MENU_FONC) $(OBJS_OPTIONS_FONC) $(OBJS_DIFFICULTE_FONC) $(OBJS_INTRODUCTION_FONC) $(OBJS_CARTE_FONC) $(OBJS_NIVEAU_4_FONC)
+$(BIN_DIR)/metatravers: $(OBJS_JEU) $(OBJS_COMMUN_FONC) $(OBJS_MENU_FONC) $(OBJS_OPTIONS_FONC) $(OBJS_DIFFICULTE_FONC) $(OBJS_INTRODUCTION_FONC) $(OBJS_CARTE_FONC) $(OBJS_NIVEAU_1_FONC) $(OBJS_ARRIVEE_NIVEAUX_2_3_FONC) $(OBJS_NIVEAU_2_FONC) $(OBJS_NIVEAU_3_FONC) $(OBJS_NIVEAU_4_FONC)
 	$(CC) $^ $(LDFLAGS) -o $@
 
 
@@ -96,6 +112,22 @@ $(OBJ_DIR)/fonctions_introduction.o: $(SRC_DIR)/fonctions_introduction.c $(INC_D
 
 # Règle pour le fichier objet fonctions_carte.c
 $(OBJ_DIR)/fonctions_carte.o: $(SRC_DIR)/fonctions_carte.c $(INC_DIR)/fonctions_carte.h $(INC_DIR)/fonctions_generales.h
+	$(CC) -I$(INC_DIR) $(CFLAGS) -c $< -o $@
+
+# Règle pour le fichier objet fonctions_niveau_1.c
+$(OBJ_DIR)/fonctions_niveau_1.o: $(SRC_DIR)/fonctions_niveau_1.c $(INC_DIR)/fonctions_niveau_1.h $(INC_DIR)/fonctions_generales.h
+	$(CC) -I$(INC_DIR) $(CFLAGS) -c $< -o $@
+
+# Règle pour le fichier objet fonctions_arrivee_niveaux_2_3.c
+$(OBJ_DIR)/fonctions_arrivee_niveaux_2_3.o: $(SRC_DIR)/fonctions_arrivee_niveaux_2_3.c $(INC_DIR)/fonctions_arrivee_niveaux_2_3.h $(INC_DIR)/fonctions_generales.h
+	$(CC) -I$(INC_DIR) $(CFLAGS) -c $< -o $@
+
+# Règle pour le fichier objet fonctions_niveau_2.c
+$(OBJ_DIR)/fonctions_niveau_2.o: $(SRC_DIR)/fonctions_niveau_2.c $(INC_DIR)/fonctions_niveau_2.h $(INC_DIR)/fonctions_generales.h
+	$(CC) -I$(INC_DIR) $(CFLAGS) -c $< -o $@
+
+# Règle pour le fichier objet fonctions_niveau_3.c
+$(OBJ_DIR)/fonctions_niveau_3.o: $(SRC_DIR)/fonctions_niveau_3.c $(INC_DIR)/fonctions_niveau_3.h $(INC_DIR)/fonctions_generales.h
 	$(CC) -I$(INC_DIR) $(CFLAGS) -c $< -o $@
 
 # Règle pour le fichier objet fonctions_niveau_4.c

@@ -7,10 +7,10 @@ void initialisation_objets_options(SDL_Renderer **renderer, SDL_Surface **surfac
                                    itemMenu *titre, itemMenu *itemsMenu, itemMenu *itemsTouches, itemMenu *itemsBarres) {
 
     /* Initialisation de l'image du haut parleur actif */
-    chargement_image(renderer, surface, texture_image_hautParleurActif, "./images/haut_parleur_actif.png");
+    chargement_image(renderer, surface, texture_image_hautParleurActif, "./images/options/haut_parleur_actif.png");
 
     /* Initialisation de l'image du haut parleur desactif */
-    chargement_image(renderer, surface, texture_image_hautParleurDesactive, "./images/haut_parleur_desactive.png");
+    chargement_image(renderer, surface, texture_image_hautParleurDesactive, "./images/options/haut_parleur_desactive.png");
     
     /* Initialisation du titre des options */
     sprintf(titre->texte, " Options ");
@@ -34,7 +34,7 @@ void initialisation_objets_options(SDL_Renderer **renderer, SDL_Surface **surfac
     sprintf(itemsBarres[1].texte, "           Effets sonores :         ");
 }
 
-/* Fonction qui met à jour le rendu des options après redimension de la fenêtre */
+/* Fonction qui met à jour le rendu des options */
 void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
                                SDL_Texture **texture_image_hautParleurActif, 
@@ -264,6 +264,7 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
     while(SDL_PollEvent(event)) {
 
             switch(event->type) {
+
                 /* Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
@@ -320,6 +321,7 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
 
                         break;
 
+                /* Changement du volume */
                 case SDL_MOUSEBUTTONUP :
                     if(clic_case((*event), barre_de_son[0].barre))
                         mise_a_jour_barre_de_son(event, &(barre_de_son[0]), &(sonsActifs[0]));

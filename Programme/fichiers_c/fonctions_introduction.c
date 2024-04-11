@@ -72,6 +72,7 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
         if (!fichier)
             erreur("Ouverture du fichier introduction_masculin.txt");
     }
+    
     else {
         fichier = fopen("./textes/introduction_feminin.txt", "r");
         if (!fichier)
@@ -94,7 +95,9 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
             while(SDL_PollEvent(event)) {
 
                 switch(event->type) {
+
                     case SDL_WINDOWEVENT:
+
                         /* Gestion de l'événement de redimensionnement de la fenêtre */
                         redimensionnement_fenetre((*event), largeur, hauteur);
 
@@ -104,6 +107,7 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
                         break;
                         
                     case SDL_MOUSEBUTTONDOWN:
+
                         /* Appuiyer sur le clic gauche de la souris */
                         if(event->button.button == SDL_BUTTON_LEFT)
                             /* Fin de la ligne */
@@ -124,7 +128,9 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
                         break;
                 }
             }
+
             if(((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE)) {
+
                 /* Mise à jour du rendu */
                 mise_a_jour_rendu_introduction(renderer, indice, ligne,
                                                rectangle_passer, texture_image_passer, 
@@ -136,6 +142,7 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
                 SDL_Delay(50);
             }
         }
+
         if(((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE)) {
 
             SDL_SetWindowResizable((*window), SDL_FALSE);

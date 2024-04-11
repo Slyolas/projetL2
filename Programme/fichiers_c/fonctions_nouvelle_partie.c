@@ -3,14 +3,14 @@
 
 /* Fonction qui permet d'initialiser les différents objets de la nouvelle partie*/
 void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_perso_1,
-                           SDL_Texture **texture_image_perso_2,
-                           itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider) {
+                                           SDL_Texture **texture_image_perso_2,
+                                           itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider) {
 
     /* Initialisation de l'image du premier personnage */
-    chargement_image(renderer, surface, texture_image_perso_1, "./images/personnage_masculin.png");
+    chargement_image(renderer, surface, texture_image_perso_1, "./images/personnages/personnage_masculin.png");
 
     /* Initialisation de l'image du deuxième personnage */
-    chargement_image(renderer, surface, texture_image_perso_2, "./images/personnage_feminin.png");
+    chargement_image(renderer, surface, texture_image_perso_2, "./images/personnages/personnage_feminin.png");
 
     /* Initialisation des titres du menu nouvelle partie */
     sprintf(titres[0].texte, " Entrez votre pseudo : ");
@@ -25,7 +25,7 @@ void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface 
     sprintf(valider->texte, " Commencer la partie ! ");
 }
 
-/* Fonction qui met à jour le rendu du menu nouvelle partie après redimension de la fenêtre */
+/* Fonction qui met à jour le rendu du menu nouvelle partie */
 void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                        SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
                                        SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
@@ -209,12 +209,15 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                      itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son,
                      SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
                      SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte, 
-                     TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive,
+                     TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive, niveaux *avancee_niveaux, int tailleNiveaux,
                      itemMenu *itemsMenu, itemMenu *valider, int *largeur, int *hauteur, page_t *page_active) {
+
+    int i;
 
     while(SDL_PollEvent(event)) {
 
             switch(event->type) {
+
                 /* Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
@@ -233,6 +236,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
 
                     break;
 
+                /* Si l'utilisateur clic quelque part */
                 case SDL_MOUSEBUTTONDOWN:
                     if(clic_case((*event), (*rectangle_pseudo)))
                         (*modeSaisie) = 1;
@@ -249,7 +253,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                     else if(clic_case((*event), (*rectangle_perso_2)))
                         (*personnageActif) = PERSONNAGE_2;
 
-                    /* Options plein écran, options, retour en arrière et valider */
+                    /* Options plein écran, options et retour en arrière */
 
                     if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window))
                         redimensionnement_fenetre((*event), largeur, hauteur);
@@ -262,11 +266,20 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
 
                     /* Options valider */
                     if((clic_case((*event), valider->rectangle)) && (strcmp(pseudo->texte, "\0"))) {
+
                             (*positionActive) = NIVEAU1;
 
+                            for(i = 0; i < tailleNiveaux; i++) {
+                                avancee_niveaux[i].niveau_fini = 0;
+                                avancee_niveaux[i].numero_collectible[0] = 0;
+                                avancee_niveaux[i].numero_collectible[1] = 0;
+                                avancee_niveaux[i].numero_collectible[2] = 0;
+                            }
+
                             sauvegarder_partie(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,
-                                            touche_descendre, touche_interagir, barre_de_son, pseudo,
-                                            (*modeActif), (*personnageActif), (*positionActive));
+                                               touche_descendre, touche_interagir, barre_de_son, pseudo,
+                                               (*modeActif), (*personnageActif), (*positionActive),
+                                               avancee_niveaux, tailleNiveaux);
 
                             (*page_active) = INTRODUCTION;
                         
@@ -277,7 +290,9 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
 
                 /* Mode saisie du pseudo */
                 case SDL_KEYDOWN:
+
                     if((*modeSaisie))
+
                         if(event->key.keysym.sym == SDLK_BACKSPACE && strlen(pseudo->texte) > 0)
                             pseudo->texte[strlen(pseudo->texte) - 1] = '\0'; /* Supprime le dernier caractère du pseudo */
 
@@ -292,6 +307,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                     break;
             }
         }
+        
         /* Mise à jour du rendu */
         mise_a_jour_rendu_nouvelle_partie(renderer, rectangle_plein_ecran, texture_image_plein_ecran,
                                           rectangle_retour_en_arriere, texture_image_retour_en_arriere,
