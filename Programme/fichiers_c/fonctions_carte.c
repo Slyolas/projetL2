@@ -1,7 +1,19 @@
+/**
+ * @file fonctions_carte.c
+ * @brief Génération de la carte des mondes
+ * @version 1.0
+ * 
+ *
+ */
+
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_carte.h>
 
-/* Fonction qui permet d'initialiser les différents objets de la carte */
+/**
+ *  @brief Fonction qui permet d'initialiser les différents objets de la carte 
+ *  @return void 
+ */
 void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_carte,
                                  SDL_Texture **texture_image_perso_1_bas_1, SDL_Texture **texture_image_perso_1_bas_2,
                                  SDL_Texture **texture_image_perso_1_haut_1, SDL_Texture **texture_image_perso_1_haut_2,
