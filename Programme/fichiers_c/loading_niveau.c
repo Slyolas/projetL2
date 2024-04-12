@@ -1,43 +1,38 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <time.h>
 
 const int LARGEUR = 800;
 const int HAUTEUR = 600;
-const int LARGEUR_BARRE = 400;
-const int HAUTEUR_BARRE = 30;
 
-void rendu_ecran_chargement(SDL_Renderer* renderer, int pourcentage, TTF_Font* font) {
-
+void rendu_ecran_chargement(SDL_Renderer* renderer, SDL_Texture* sprites[], int sprite_count, int current_sprite_index) {
     /* Nettoyer le rendu */
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-    /* Barre de chargement */
-    SDL_Rect rectangle_barre_chargement = { (LARGEUR - LARGEUR_BARRE) / 2, HAUTEUR / 2 - HAUTEUR_BARRE / 2, LARGEUR_BARRE, HAUTEUR_BARRE };
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(renderer, &rectangle_barre_chargement);
+    /* Afficher le sprite actuel */
+    SDL_Rect dest_rect = { (LARGEUR - 100) / 2, (HAUTEUR - 100) / 2, 100, 100 };
+    SDL_RenderCopy(renderer, sprites[current_sprite_index], NULL, &dest_rect);
 
-    int remplissage_largeur = LARGEUR_BARRE * pourcentage / 100;
-    SDL_Rect rectangle_remplissage = { (LARGEUR - LARGEUR_BARRE) / 2, HAUTEUR / 2 - HAUTEUR_BARRE / 2, remplissage_largeur, HAUTEUR_BARRE };
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    SDL_RenderFillRect(renderer, &rectangle_remplissage);
-
-    /* Texte du pourcentage */
-    SDL_Color couleur_police = { 255, 255, 255, 255 };
-    char text[20];
-    sprintf(text, "Loading... %d%%", pourcentage);
-    SDL_Surface* surface_texte = TTF_RenderText_Solid(font, text, couleur_police);
-    SDL_Texture* texture_texte = SDL_CreateTextureFromSurface(renderer, surface_texte);
-    SDL_Rect rectangle_texte = { (LARGEUR - surface_texte->w) / 2, HAUTEUR / 2 - surface_texte->h - 20, surface_texte->w, surface_texte->h };
-    SDL_RenderCopy(renderer, texture_texte, NULL, &rectangle_texte);
-    SDL_FreeSurface(surface_texte);
-    SDL_DestroyTexture(texture_texte);
-
+    /* Mise à jour de l'écran */
+    SDL_RenderPresent(renderer);
 }
 
-int main(int argc, char* argv[]) {
+/* Fonction qui permet de charger une image */
+SDL_Texture* charger_texture(const char* fichier_image, SDL_Renderer* renderer) {
+    SDL_Surface* surface = IMG_Load(fichier_image);
+    if (!surface) {
+        printf("Failed to load image: %s\n", fichier_image);
+        return NULL;
+    }
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    return texture;
+}
+
+int main() {
     SDL_Window* window;
     SDL_Renderer* renderer;
     TTF_Font* font;
@@ -75,8 +70,19 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    /* Charger les sprites */
+    SDL_Texture* sprites[3];
+    sprites[0] = charger_texture("../images/personnages/personnage_masculin_droit_NB.png", renderer);
+    sprites[1] = charger_texture("../images/personnages/personnage_masculin_bas_droit_1_NB.png", renderer);
+    sprites[2] = charger_texture("../images/personnages/personnage_masculin_bas_droit_2_NB.png", renderer);
+
+    if (!sprites[0] || !sprites[1] || !sprites[2]) {
+        printf("Erreur lors du chargement des sprites!\n");
+        return 1;
+    }
+
     int quit = 1;
-    int pourcentage = 0;
+    int current_sprite_index = 0;
 
     while (quit) {
         SDL_Event e;
@@ -86,25 +92,19 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        srand(time(NULL));
-
-        /* Simulation de la progression du chargement */
-        pourcentage += rand() % 3;
-        if (pourcentage > 100) {
-            pourcentage = 0;
-        }
-
         /* Rendu */
-        rendu_ecran_chargement(renderer, pourcentage, font);
+        rendu_ecran_chargement(renderer, sprites, 3, current_sprite_index);
 
         /* Mise à jour de l'écran */
         SDL_RenderPresent(renderer);
 
-        /* Ajout d'un delai pour simuler le chargement */
-        SDL_Delay(50);
+        /* Ajout d'un délai pour simuler le chargement */
+        SDL_Delay(500); // Temps d'affichage de chaque sprite en millisecondes
 
-        if(pourcentage == 100){
-            quit = 0;
+        /* Passer au sprite suivant */
+        current_sprite_index++;
+        if (current_sprite_index >= 3) {
+            current_sprite_index = 0; // Revenir au premier sprite si tous les sprites ont été affichés
         }
     }
 
@@ -114,6 +114,11 @@ int main(int argc, char* argv[]) {
     SDL_DestroyWindow(window);
     TTF_Quit();
     SDL_Quit();
+
+    /* Libérer les textures des sprites */
+    for (int i = 0; i < 3; i++) {
+        SDL_DestroyTexture(sprites[i]);
+    }
 
     return 0;
 }

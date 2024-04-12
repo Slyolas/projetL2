@@ -37,7 +37,8 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
                                       SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                       itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                                       SDL_Color couleurTitre, SDL_Color couleurNoire,
-                                      itemMenu *itemsMenu, int tailleMenu, int largeur, int hauteur) {
+                                      itemMenu *itemsMenu, int tailleMenu, int largeur, int hauteur,
+                                      int indice_menu_selectionne) {
     
     int i;
 
@@ -86,6 +87,21 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
             affichage_texte(renderer, surface, texture_texte, &(itemsMenu[i]), 
                             police, couleurNoire);
         }
+        // Dessine un contour violet autour de l'élément sélectionné
+        if (indice_menu_selectionne != -1) {
+            SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255); // Couleur violette
+            int epaisseur_contour = 4;
+            // Dessine plusieurs rectangles pour obtenir un contour épais
+            for (int i = 0; i < epaisseur_contour; i++) {
+                SDL_Rect contour = {
+                    itemsMenu[indice_menu_selectionne].rectangle.x - i, // Coordonnée X du coin supérieur gauche
+                    itemsMenu[indice_menu_selectionne].rectangle.y - i, // Coordonnée Y du coin supérieur gauche
+                    itemsMenu[indice_menu_selectionne].rectangle.w + 2 * i, // Largeur du rectangle
+                    itemsMenu[indice_menu_selectionne].rectangle.h + 2 * i // Hauteur du rectangle
+                };
+                SDL_RenderDrawRect((*renderer), &contour);
+            }
+        }
     }
     else {
         for (i = 0; i < tailleMenu; i++) {
@@ -98,6 +114,21 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
             affichage_texte(renderer, surface, texture_texte, &(itemsMenu[i]), 
                             police, couleurNoire);
         }
+        // Dessine un contour violet autour de l'élément sélectionné
+        if (indice_menu_selectionne != -1) {
+            SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
+            int epaisseur_contour = 4;
+            // Dessine plusieurs rectangles pour obtenir un contour épais
+            for (int i = 0; i < epaisseur_contour; i++) {
+                SDL_Rect contour = {
+                    itemsMenu[indice_menu_selectionne].rectangle.x - i, // Coordonnée X du coin supérieur gauche
+                    itemsMenu[indice_menu_selectionne].rectangle.y - i, // Coordonnée Y du coin supérieur gauche
+                    itemsMenu[indice_menu_selectionne].rectangle.w + 2 * i, // Largeur du rectangle
+                    itemsMenu[indice_menu_selectionne].rectangle.h + 2 * i // Hauteur du rectangle
+                };
+                SDL_RenderDrawRect((*renderer), &contour);
+            }
+        }
     }
 
     /* Affiche le rendu */
@@ -108,10 +139,10 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
 void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_menu,
                     SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                     itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
-                    SDL_Color couleurTitre, SDL_Color couleurNoire,
-                    itemMenu *itemsMenu, int tailleMenu, int *largeur, int *hauteur, page_t *page_active) {
+                    SDL_Color couleurTitre, SDL_Color couleurNoire, itemMenu *itemsMenu, int tailleMenu, 
+                    int *largeur, int *hauteur, page_t *page_active, int *indice_menu_selectionne) {
 
-    while(SDL_PollEvent(event)) {
+        while(SDL_PollEvent(event)) {
 
             switch(event->type) {
                 
@@ -144,6 +175,20 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
 
                     break;
 
+                case SDL_MOUSEMOTION:
+                    // Parcourez les éléments du menu pour détecter si la souris est sur l'un d'eux
+                    for(int i = 0; i < tailleMenu; i++) {
+                        if(SDL_PointInRect(&(SDL_Point){event->motion.x, event->motion.y}, &(itemsMenu[i].rectangle))) {
+                            // Mettez à jour l'indice de l'élément du menu sélectionné
+                            if((*indice_menu_selectionne) != i){
+                                (*indice_menu_selectionne) = i;
+                                printf("indice : %d\n", (*indice_menu_selectionne));
+                            }
+                            break; // Sortir de la boucle dès que l'élément est trouvé
+                        }
+                    }
+                    break;
+
                 /* Quitter le programme */
                 case SDL_QUIT:
                     (*programme_lance) = SDL_FALSE;
@@ -159,5 +204,6 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                                          rectangle_plein_ecran, texture_image_plein_ecran,
                                          titre, surface, texture_texte, police,
                                          couleurTitre, couleurNoire,
-                                         itemsMenu, tailleMenu, (*largeur), (*hauteur));
+                                         itemsMenu, tailleMenu, (*largeur), (*hauteur),
+                                         (*indice_menu_selectionne));
 }

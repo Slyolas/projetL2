@@ -319,6 +319,8 @@ int main() {
     int largeur_tile;
     /* Initialisation de la hauteur de chaque case */
     int hauteur_tile;
+    /* Initialisation de la selection */
+    int indice_menu_selectionne = 0;
 
     /* Initialisation de l'étage avec la méthode du tile mapping */
 
@@ -458,8 +460,8 @@ int main() {
             menu_principal(&event, &window, &renderer, &programme_lance, &texture_image_menu,
                            &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
                            &titre_menu_principal, &surface, &texture_texte, &police,
-                           couleurTitre, couleurNoire,
-                           itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
+                           couleurTitre, couleurNoire, itemsMenuPrincipal, tailleMenuPrincipal,
+                            &largeur, &hauteur, &page_active, &indice_menu_selectionne);
 
             /* Cas où on clique sur nouvelle partie */
             if(page_active == NOUVELLE_PARTIE) {
