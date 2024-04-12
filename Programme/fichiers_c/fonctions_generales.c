@@ -323,7 +323,11 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         (tile_map[(*position_y)][(*position_x) - 1] == 8) ||
         (tile_map[(*position_y)][(*position_x) - 1] == 9) ||
         (tile_map[(*position_y)][(*position_x) - 1] == 11) ||
-        (tile_map[(*position_y)][(*position_x) - 1] == 12)) && (reculer)) {
+        (tile_map[(*position_y)][(*position_x) - 1] == 12) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 13) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 14) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 15) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 16)) && (reculer)) {
                                     
         (*position_x)--;
 
@@ -343,7 +347,11 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         (tile_map[(*position_y)][(*position_x) + 1] == 8) ||
         (tile_map[(*position_y)][(*position_x) + 1] == 9) ||
         (tile_map[(*position_y)][(*position_x) + 1] == 11) ||
-        (tile_map[(*position_y)][(*position_x) + 1] == 12)) && (avancer)) {
+        (tile_map[(*position_y)][(*position_x) + 1] == 12) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 13) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 14) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 15) ||
+        (tile_map[(*position_y)][(*position_x) + 1] == 16)) && (avancer)) {
 
         (*position_x)++;
 
@@ -381,7 +389,9 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
     /* Cas où le personnage est entrain de tomber */
     if((*tombe)) {
 
-        if ((tile_map[(*position_y) + 1][(*position_x)] == 1) || (tile_map[(*position_y) + 1][(*position_x)] == 10))
+        if ((tile_map[(*position_y) + 1][(*position_x)] == 1) || (tile_map[(*position_y) + 1][(*position_x)] == 10) || (tile_map[(*position_y) + 1][(*position_x)] == 13) ||
+            (tile_map[(*position_y) + 1][(*position_x)] == 14) || (tile_map[(*position_y) + 1][(*position_x)] == 15) || (tile_map[(*position_y) + 1][(*position_x)] == 16))
+
             (*tombe) = 0;
 
         else {
@@ -427,7 +437,9 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                      SDL_Texture **texture43, SDL_Texture **texture44,
                      SDL_Texture **texture45, SDL_Texture **texture46,
                      SDL_Texture **texture47, SDL_Texture **texture48, 
-                     SDL_Texture **texture49) {
+                     SDL_Texture **texture49, SDL_Texture **texture50,
+                     SDL_Texture **texture51, SDL_Texture **texture52,
+                     SDL_Texture **texture53) {
 
     /* Destructions des textures */
     SDL_DestroyTexture((*texture1));  SDL_DestroyTexture((*texture2)); 
@@ -454,7 +466,9 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
     SDL_DestroyTexture((*texture43)); SDL_DestroyTexture((*texture44));
     SDL_DestroyTexture((*texture45)); SDL_DestroyTexture((*texture46));
     SDL_DestroyTexture((*texture47)); SDL_DestroyTexture((*texture48));
-    SDL_DestroyTexture((*texture49));
+    SDL_DestroyTexture((*texture49)); SDL_DestroyTexture((*texture50));
+    SDL_DestroyTexture((*texture51)); SDL_DestroyTexture((*texture52));
+    SDL_DestroyTexture((*texture53));
     
     /* Destructions de la police */
     TTF_CloseFont((*police));

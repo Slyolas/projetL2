@@ -131,6 +131,10 @@ int main() {
     SDL_Texture *texture_image_fond_niveau_3 = NULL;
     SDL_Texture *texture_image_dossier_niveau_3 = NULL;
     SDL_Texture *texture_image_sol_niveau_3 = NULL;
+    SDL_Texture *barre_windows_1 = NULL; 
+    SDL_Texture *barre_windows_2 = NULL; 
+    SDL_Texture *barre_windows_3 = NULL;
+    SDL_Texture *barre_windows_4 = NULL;
 
     /* Création des pointeurs sur la texture des différentes images pour les étages */
     SDL_Texture *texture_image_mur = NULL;
@@ -356,7 +360,8 @@ int main() {
     /* Objets du niveau 3 */
     initialisation_objets_niveau_3(&renderer, &surface,
                                    &texture_image_fond_niveau_3, &texture_image_dossier_niveau_3,
-                                   &texture_image_sol_niveau_3);
+                                   &texture_image_sol_niveau_3, &barre_windows_1, &barre_windows_2, &barre_windows_3,
+                                   &barre_windows_4);
 
     /* Objets du niveau 4 */
     initialisation_objets_niveau_4(&renderer, &surface,
@@ -727,6 +732,7 @@ int main() {
                                     &texture_image_fond_niveau_2, &texture_image_sol_niveau_2,
                                     &touche_aller_a_droite, &touche_aller_a_gauche,
                                     &touche_sauter_monter, &texture_image_dossier_niveau_2,
+                                    NULL, NULL, NULL, NULL,
                                     tile_map, &rectangle_tile,
                                     itemsDemandeQuitter, tailleDemande, couleurNoire,
                                     &texture_texte, &police, &rectangle_demande,
@@ -742,6 +748,7 @@ int main() {
                                     &texture_image_fond_niveau_2, &texture_image_sol_niveau_2,
                                     &touche_aller_a_droite, &touche_aller_a_gauche,
                                     &touche_sauter_monter, &texture_image_dossier_niveau_2,
+                                    NULL, NULL, NULL, NULL,
                                     tile_map, &rectangle_tile,
                                     itemsDemandeQuitter, tailleDemande, couleurNoire,
                                     &texture_texte, &police, &rectangle_demande,
@@ -767,7 +774,8 @@ int main() {
                                     &texture_image_fond_niveau_3, &texture_image_sol_niveau_3,
                                     &touche_aller_a_droite, &touche_aller_a_gauche,
                                     &touche_sauter_monter, &texture_image_dossier_niveau_3,
-                                    tile_map, &rectangle_tile,
+                                    &barre_windows_1, &barre_windows_2, &barre_windows_3,
+                                    &barre_windows_4, tile_map, &rectangle_tile,
                                     itemsDemandeQuitter, tailleDemande, couleurNoire,
                                     &texture_texte, &police, &rectangle_demande,
                                     &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
@@ -782,7 +790,8 @@ int main() {
                                     &texture_image_fond_niveau_3, &texture_image_sol_niveau_3,
                                     &touche_aller_a_droite, &touche_aller_a_gauche,
                                     &touche_sauter_monter, &texture_image_dossier_niveau_3,
-                                    tile_map, &rectangle_tile,
+                                    &barre_windows_1, &barre_windows_2, &barre_windows_3,
+                                    &barre_windows_4, tile_map, &rectangle_tile,
                                     itemsDemandeQuitter, tailleDemande, couleurNoire,
                                     &texture_texte, &police, &rectangle_demande,
                                     &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
@@ -873,7 +882,8 @@ int main() {
                     &texture_image_fin_premiers_niveaux, &texture_image_fin_dernier_niveau,
                     &texture_image_fond_niveau_1, &texture_image_sol_surface_niveau_1,
                     &texture_image_sol_profondeur_niveau_1, &texture_image_monstre_terrestre,
-                    &texture_image_monstre_volant);
+                    &texture_image_monstre_volant, &barre_windows_1, &barre_windows_2, 
+                    &barre_windows_3, &barre_windows_4);
 
     /* Destruction du rendu et de la fenêtre*/
     detruire_fenetre_rendu(&renderer, &window);

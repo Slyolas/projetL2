@@ -124,7 +124,9 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                      SDL_Texture **texture43, SDL_Texture **texture44,
                      SDL_Texture **texture45, SDL_Texture **texture46,
                      SDL_Texture **texture47, SDL_Texture **texture48, 
-                     SDL_Texture **texture49);
+                     SDL_Texture **texture49, SDL_Texture **texture50,
+                     SDL_Texture **texture51, SDL_Texture **texture52,
+                     SDL_Texture **texture53);
 
 /* Squelette de la fonction detruire_fenetre_rendu */
 void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window);
