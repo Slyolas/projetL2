@@ -18,12 +18,12 @@ void rendu_ecran_chargement(SDL_Renderer* renderer, int pourcentage, TTF_Font* f
     /* Barre de chargement */
     SDL_Rect rectangle_barre_chargement = { (LARGEUR - LARGEUR_BARRE) / 2, HAUTEUR / 2 - HAUTEUR_BARRE / 2, LARGEUR_BARRE, HAUTEUR_BARRE };
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_Renderrectangle_remplissage(renderer, &rectangle_barre_chargement);
+    SDL_RenderFillRect(renderer, &rectangle_barre_chargement);
 
     int remplissage_largeur = LARGEUR_BARRE * pourcentage / 100;
     SDL_Rect rectangle_remplissage = { (LARGEUR - LARGEUR_BARRE) / 2, HAUTEUR / 2 - HAUTEUR_BARRE / 2, remplissage_largeur, HAUTEUR_BARRE };
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    SDL_Renderrectangle_remplissage(renderer, &rectangle_remplissage);
+    SDL_RenderFillRect(renderer, &rectangle_remplissage);
 
     /* Texte du pourcentage */
     SDL_Color couleur_police = { 255, 255, 255, 255 };
