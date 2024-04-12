@@ -3,31 +3,33 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 260
+#define LARGEUR 800
+#define HAUTEUR 260
 #define NUM_PIECES_X 9
 #define NUM_PIECES_Y 5
-#define PIECE_WIDTH (SCREEN_WIDTH / NUM_PIECES_X)
-#define PIECE_HEIGHT (SCREEN_HEIGHT / NUM_PIECES_Y)
+#define LARGEUR_PIECE (LARGEUR / NUM_PIECES_X)
+#define HAUTEUR_PIECE (HAUTEUR / NUM_PIECES_Y)
 #define TOTAL_PIECES (NUM_PIECES_X * NUM_PIECES_Y)
 #define CORRECT_DISTANCE 10
 
-SDL_Rect getRandomPieceRect() {
-    SDL_Rect randomRect;
-    randomRect.w = PIECE_WIDTH;
-    randomRect.h = PIECE_HEIGHT;
-    randomRect.x = rand() % (SCREEN_WIDTH - PIECE_WIDTH);
-    randomRect.y = rand() % (SCREEN_HEIGHT - PIECE_HEIGHT);
-    return randomRect;
+/* Fonction pour obtenir un rectangle représentant une pièce de puzzle aléatoire */
+SDL_Rect rectangle_piece_aleatoire() {
+    SDL_Rect rectangle_aleatoire;
+    rectangle_aleatoire.w = LARGEUR_PIECE;
+    rectangle_aleatoire.h = HAUTEUR_PIECE;
+    rectangle_aleatoire.x = rand() % (LARGEUR - LARGEUR_PIECE);
+    rectangle_aleatoire.y = rand() % (HAUTEUR - HAUTEUR_PIECE);
+    return rectangle_aleatoire;
 }
 
-int initSDL(SDL_Window** window, SDL_Renderer** renderer) {
+/* Fonction d'initialisation de SDL */
+int initialisation_SDL(SDL_Window** window, SDL_Renderer** renderer) {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
         return 0;
     }
 
-    (*window) = SDL_CreateWindow("Puzzle Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    (*window) = SDL_CreateWindow("Puzzle Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, LARGEUR, HAUTEUR, SDL_WINDOW_SHOWN);
     if ((*window) == NULL) {
         printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
         return 0;
@@ -50,15 +52,16 @@ int initSDL(SDL_Window** window, SDL_Renderer** renderer) {
     return 1;
 }
 
-int loadMedia(SDL_Renderer** renderer, SDL_Texture** puzzleImage) {
+/* Fonction de chargement de l'image du puzzle */
+int chargement_image(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle) {
     SDL_Surface* surface = IMG_Load("../images/puzzle/puzzle_ventilo.png");
     if (surface == NULL) {
         printf("Unable to load image! SDL_image Error: %s\n", IMG_GetError());
         return 0;
     }
 
-    (*puzzleImage) = SDL_CreateTextureFromSurface((*renderer), surface);
-    if ((*puzzleImage) == NULL) {
+    (*texture_image_puzzle) = SDL_CreateTextureFromSurface((*renderer), surface);
+    if ((*texture_image_puzzle) == NULL) {
         printf("Unable to create texture from image! SDL Error: %s\n", SDL_GetError());
         return 0;
     }
@@ -68,9 +71,10 @@ int loadMedia(SDL_Renderer** renderer, SDL_Texture** puzzleImage) {
     return 1; 
 }
 
-void closeSDL(SDL_Window** window, SDL_Renderer** renderer, SDL_Texture** puzzleImage) {
-    SDL_DestroyTexture((*puzzleImage));
-    (*puzzleImage) = NULL;
+/* Fonction de fermeture de SDL */
+void fermeture_SDL(SDL_Window** window, SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle) {
+    SDL_DestroyTexture((*texture_image_puzzle));
+    (*texture_image_puzzle) = NULL;
 
     SDL_DestroyRenderer((*renderer));
     SDL_DestroyWindow((*window));
@@ -81,34 +85,38 @@ void closeSDL(SDL_Window** window, SDL_Renderer** renderer, SDL_Texture** puzzle
     SDL_Quit();
 }
 
-void shufflePieces(SDL_Rect pieceRects[TOTAL_PIECES]) {
+/* Fonction pour mélanger les pièces du puzzle */
+void melange_piece(SDL_Rect rectangle_piece[TOTAL_PIECES]) {
     for (int i = 0; i < TOTAL_PIECES; ++i) {
-        pieceRects[i] = getRandomPieceRect();
+        rectangle_piece[i] = rectangle_piece_aleatoire();
     }
 }
 
-void render(SDL_Renderer** renderer, SDL_Texture** puzzleImage, SDL_Rect pieceRects[TOTAL_PIECES]) {
+/* Fonction pour afficher le rendu du puzzle */
+void afficher_rendu(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[TOTAL_PIECES]) {
     
-    // Nettoyer le renderer
+    // Nettoyer le rendu
     SDL_RenderClear((*renderer));
 
     for (int i = 0; i < TOTAL_PIECES; ++i) {
-        SDL_Rect sourceRect = {i % NUM_PIECES_X * PIECE_WIDTH, i / NUM_PIECES_X * PIECE_HEIGHT, PIECE_WIDTH, PIECE_HEIGHT};
-        SDL_RenderCopy((*renderer), (*puzzleImage), &sourceRect, &pieceRects[i]);
+        SDL_Rect sourceRect = {i % NUM_PIECES_X * LARGEUR_PIECE, i / NUM_PIECES_X * HAUTEUR_PIECE, LARGEUR_PIECE, HAUTEUR_PIECE};
+        SDL_RenderCopy((*renderer), (*texture_image_puzzle), &sourceRect, &rectangle_piece[i]);
     }
 
     SDL_RenderPresent((*renderer));
 }
 
-int isPieceNearCorrectPosition(SDL_Rect pieceRect, SDL_Rect correctRect) {
+/* Fonction pour vérifier si une pièce est proche de sa position correcte */
+int estPieceProchePositionCorrecte(SDL_Rect pieceRect, SDL_Rect correctRect) {
     int distanceX = abs(pieceRect.x - correctRect.x);
     int distanceY = abs(pieceRect.y - correctRect.y);
     return (distanceX <= CORRECT_DISTANCE && distanceY <= CORRECT_DISTANCE);
 }
 
-int allPiecesLocked(const int pieceLocked[]) {
+/* Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte) */
+int verification_puzzle_fini(const int piece_bloquer[]) {
     for (int i = 0; i < TOTAL_PIECES; ++i) {
-        if (!pieceLocked[i]) {
+        if (!piece_bloquer[i]) {
             return 0; // Au moins une pièce n'est pas verrouillée
         }
     }
@@ -120,49 +128,57 @@ int main() {
     /* Initialisation */
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
-    SDL_Texture* puzzleImage = NULL;
-    SDL_Rect pieceRects[TOTAL_PIECES];
-    SDL_Rect correctPieceRects[TOTAL_PIECES];
+    SDL_Texture* texture_image_puzzle = NULL;
+    SDL_Rect rectangle_piece[TOTAL_PIECES];
+    SDL_Rect emplacement_rectangle_piece[TOTAL_PIECES];
     SDL_Event event;
 
-    int correctPieceOrder[TOTAL_PIECES];
     int quit = 1;
-    int mouseX, mouseY;
-    int selectedPieceIndex = -1;
-    int offsetX = 0;
-    int offsetY = 0;
-    int pieceLocked[TOTAL_PIECES] = {0}; // Initialise toutes les pièces comme non verrouillées
+    int position_x, position_y;
 
-    if (!initSDL(&window, &renderer)) {
-        printf("Failed to initialize!\n");
+    int piece_selectionnee = -1;
+    /* Décalage en X/Y entre le coin supérieur gauche de la pièce et la position du curseur de la souris */
+    int decalage_x = 0;
+    int decalage_y = 0;
+
+    /* Initialise toutes les pièces comme non verrouillées */
+    int piece_bloquer[TOTAL_PIECES] = {0};
+
+    /* Initialisation de SDL */
+    if (!initialisation_SDL(&window, &renderer)) {
+        printf("Erreur d'initialisation!\n");
         return -1;
     }
 
-    if (!loadMedia(&renderer, &puzzleImage)) {
-        printf("Failed to load media!\n");
+    /* Chargement de l'image du puzzle */
+    if (!chargement_image(&renderer, &texture_image_puzzle)) {
+        printf("Erreur chargement image!\n");
         return -1;
     }
 
+    /* Calcul des rectangles pour chaque pièce du puzzle et des emplacements corrects */
     for (int y = 0; y < NUM_PIECES_Y; ++y) {
         for (int x = 0; x < NUM_PIECES_X; ++x) {
-            int index = y * NUM_PIECES_X + x;
-            pieceRects[index].w = PIECE_WIDTH;
-            pieceRects[index].h = PIECE_HEIGHT;
-            pieceRects[index].x = x * PIECE_WIDTH;
-            pieceRects[index].y = y * PIECE_HEIGHT;
+            int indice = y * NUM_PIECES_X + x;
+            rectangle_piece[indice].w = LARGEUR_PIECE;
+            rectangle_piece[indice].h = HAUTEUR_PIECE;
+            rectangle_piece[indice].x = x * LARGEUR_PIECE;
+            rectangle_piece[indice].y = y * HAUTEUR_PIECE;
 
-            correctPieceRects[index].x = x * PIECE_WIDTH;
-            correctPieceRects[index].y = y * PIECE_HEIGHT;
-            correctPieceRects[index].w = PIECE_WIDTH;
-            correctPieceRects[index].h = PIECE_HEIGHT;
+            emplacement_rectangle_piece[indice].x = x * LARGEUR_PIECE;
+            emplacement_rectangle_piece[indice].y = y * HAUTEUR_PIECE;
+            emplacement_rectangle_piece[indice].w = LARGEUR_PIECE;
+            emplacement_rectangle_piece[indice].h = HAUTEUR_PIECE;
         }
     }
 
-    // Initialisation de srand
+    /* Initialisation de srand pour la génération de pièces aléatoires*/
     srand(time(NULL));
 
-    shufflePieces(pieceRects);
+    /* Mélange des pièces du puzzle */
+    melange_piece(rectangle_piece);
 
+    /* Boucle principale */
     while (quit) {
         while (SDL_PollEvent(&event) != 0) {
             switch(event.type){
@@ -171,49 +187,51 @@ int main() {
                     break;
 
                 case SDL_MOUSEBUTTONDOWN :
-                    SDL_GetMouseState(&mouseX, &mouseY);
+                    SDL_GetMouseState(&position_x, &position_y);
 
                     for (int i = 0; i < TOTAL_PIECES; ++i) {
-                        if (!pieceLocked[i] && mouseX >= pieceRects[i].x && mouseX < pieceRects[i].x + PIECE_WIDTH &&
-                            mouseY >= pieceRects[i].y && mouseY < pieceRects[i].y + PIECE_HEIGHT) {
-                            // Sélectionner la pièce et calculer le décalage de position
-                            selectedPieceIndex = i;
-                            offsetX = mouseX - pieceRects[i].x;
-                            offsetY = mouseY - pieceRects[i].y;
+
+                        /* Vérifier si l'utilisateur a cliqué sur une pièce non bloquée */
+                        if (!piece_bloquer[i] && position_x >= rectangle_piece[i].x && position_x < rectangle_piece[i].x + LARGEUR_PIECE &&
+                            position_y >= rectangle_piece[i].y && position_y < rectangle_piece[i].y + HAUTEUR_PIECE) {
+                            /* Sélectionner la pièce et calculer le décalage de position */
+                            piece_selectionnee = i;
+                            decalage_x = position_x - rectangle_piece[i].x;
+                            decalage_y = position_y - rectangle_piece[i].y;
                             break;
                         }
                     }
                     break;
                 case SDL_MOUSEMOTION:
-                    if (selectedPieceIndex != -1) {
-                        mouseX = event.motion.x;
-                        mouseY = event.motion.y;
-                        // Assurer que la pièce ne sort pas de l'écran
-                        pieceRects[selectedPieceIndex].x = mouseX - offsetX;
-                        pieceRects[selectedPieceIndex].y = mouseY - offsetY;
-                        // Correction pour empêcher la pièce de sortir de l'écran
-                        if (pieceRects[selectedPieceIndex].x < 0) {
-                            pieceRects[selectedPieceIndex].x = 0;
-                        } else if (pieceRects[selectedPieceIndex].x > SCREEN_WIDTH - PIECE_WIDTH) {
-                            pieceRects[selectedPieceIndex].x = SCREEN_WIDTH - PIECE_WIDTH;
+                    if (piece_selectionnee != -1) {
+                        position_x = event.motion.x;
+                        position_y = event.motion.y;
+                        /* Assurer que la pièce ne sort pas de l'écran */
+                        rectangle_piece[piece_selectionnee].x = position_x - decalage_x;
+                        rectangle_piece[piece_selectionnee].y = position_y - decalage_y;
+                        /* Correction pour empêcher la pièce de sortir de l'écran */
+                        if (rectangle_piece[piece_selectionnee].x < 0) {
+                            rectangle_piece[piece_selectionnee].x = 0;
+                        } else if (rectangle_piece[piece_selectionnee].x > LARGEUR - LARGEUR_PIECE) {
+                            rectangle_piece[piece_selectionnee].x = LARGEUR - LARGEUR_PIECE;
                         }
-                        if (pieceRects[selectedPieceIndex].y < 0) {
-                            pieceRects[selectedPieceIndex].y = 0;
-                        } else if (pieceRects[selectedPieceIndex].y > SCREEN_HEIGHT - PIECE_HEIGHT) {
-                            pieceRects[selectedPieceIndex].y = SCREEN_HEIGHT - PIECE_HEIGHT;
+                        if (rectangle_piece[piece_selectionnee].y < 0) {
+                            rectangle_piece[piece_selectionnee].y = 0;
+                        } else if (rectangle_piece[piece_selectionnee].y > HAUTEUR - HAUTEUR_PIECE) {
+                            rectangle_piece[piece_selectionnee].y = HAUTEUR - HAUTEUR_PIECE;
                         }
                     }
                     break;
 
                 case SDL_MOUSEBUTTONUP:
-                    if (selectedPieceIndex != -1) {
-                        // Vérifier si la pièce est à proximité de sa position correcte
-                        if (isPieceNearCorrectPosition(pieceRects[selectedPieceIndex], correctPieceRects[selectedPieceIndex])) {
-                            // Déplacer la pièce à sa position correcte et bloquer son mouvement
-                            pieceRects[selectedPieceIndex] = correctPieceRects[selectedPieceIndex];
-                            pieceLocked[selectedPieceIndex] = 1; // Verrouiller la pièce
+                    if (piece_selectionnee != -1) {
+                        /* Vérifier si la pièce est à proximité de sa position correcte */
+                        if (estPieceProchePositionCorrecte(rectangle_piece[piece_selectionnee], emplacement_rectangle_piece[piece_selectionnee])) {
+                            /* Déplacer la pièce à sa position correcte et bloquer son mouvement */
+                            rectangle_piece[piece_selectionnee] = emplacement_rectangle_piece[piece_selectionnee];
+                            piece_bloquer[piece_selectionnee] = 1; /* Verrouiller la pièce */
                         }
-                        selectedPieceIndex = -1; // Réinitialiser la pièce sélectionnée
+                        piece_selectionnee = -1; /* Réinitialiser la pièce sélectionnée */
                     }
                     break;
                 default:
@@ -221,19 +239,20 @@ int main() {
             }
         }
 
-        if (allPiecesLocked(pieceLocked)) {
+        /* Vérifier si toutes les pièces sont bloquées à leur position correcte */
+        if (verification_puzzle_fini(piece_bloquer)) {
             printf("Niveau terminé !\n");
             quit = 0;
         }
 
-        // Nettoyer le renderer
+        /* Nettoyer le rendu */
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
 
-        render(&renderer, &puzzleImage, pieceRects);
+        afficher_rendu(&renderer, &texture_image_puzzle, rectangle_piece);
     }
 
-    closeSDL(&window, &renderer, &puzzleImage);
+    fermeture_SDL(&window, &renderer, &texture_image_puzzle);
 
     return 0;
 }
