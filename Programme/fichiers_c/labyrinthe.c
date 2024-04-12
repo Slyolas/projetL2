@@ -31,7 +31,7 @@ SDL_Texture* chargement_texture(SDL_Renderer* renderer, const char* filePath) {
 /* Fonction pour traiter les commandes utilisateur */
 void traitementTouches(int* joueur_X, int* joueur_Y, int* bloc_X, int* bloc_Y, int tilemap[24][32], int direction) {
 
-    /* Vérification si le joueur est à côté du bloc
+    /* Vérification si le joueur est à côté du bloc */
     if ((*joueur_X == *bloc_X - 1 && *joueur_Y == *bloc_Y) ||   /* Le joueur est à gauche du bloc */
         (*joueur_X == *bloc_X + 1 && *joueur_Y == *bloc_Y) ||   /* Le joueur est à droite du bloc */
         (*joueur_X == *bloc_X && *joueur_Y == *bloc_Y - 1) ||   /* Le joueur est au dessus du bloc */
