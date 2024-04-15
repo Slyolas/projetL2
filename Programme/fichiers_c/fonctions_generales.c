@@ -220,7 +220,22 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction qui permet de demander à l'utilisateur de quitter le niveau */
+/**
+ * \fn void demande_quitter_niveau(void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur)
+ * \param renderer                              rendu de la fenêtre  
+ * \param rectangle_demande_quitter             Fenêtre pour quitter le niveau
+ * \param surface                               surface de la fenêtre
+ * \param texture_texte                         affichage du texte
+ * \param police                                police d'écriture
+ * \param couleur                               couleur de la police
+ * \param itemsDemandeQuitter                   case réponse
+ * \param largeur                               largeur de la fenêtre
+ * \param hauteur                               hauteur de la fenêtre
+ *  \brief Fonction qui permet de demander à l'utilisateur de quitter le niveau */
+
+
+
+
 void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter,
                             SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                             itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur) {
@@ -315,7 +330,7 @@ int verification_sauvegarde() {
  * \param touche_descendre
  * \param touche_interagir
  * \param barre_de_son
- * \param pseudo
+ * \param pseudo                        
  * \param modeActif
  * \param personnageActif
  * \param positionActive
