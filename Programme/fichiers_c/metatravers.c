@@ -1,3 +1,10 @@
+/**
+ * \file metatravers.c
+ * \brief Fichier principal
+ * 
+ * Programme principal réunisant les autres modules permettant le bon fonctionnement du projet
+ * 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -15,6 +22,11 @@
 #include "../fichiers_h/fonctions_niveau_3.h"
 #include "../fichiers_h/fonctions_arrivee_niveaux_2_3.h"
 #include "../fichiers_h/fonctions_niveau_4.h"
+/**
+ * \fn int main(void)
+ * \brief Entrée du programme.
+ * \return EXIT_SUCCESS - Arrêt normal du programme
+*/
 
 int main() {
 

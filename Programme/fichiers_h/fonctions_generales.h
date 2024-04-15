@@ -4,34 +4,63 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 
-/* Définir le nombre d'FPS (100 / nombre_FPS) */
+/**
+ * \def FPS_LIMIT
+ *  \brief Défini le nombre d'FPS (100 / nombre_FPS)
+ */
 #define FPS_LIMIT 16
 
-/* Enumération de constantes pour l'onglet actif des options */
+/**
+ * \enum option_t
+ *  \brief constantes pour l'onglet actif des options
+ */
+
+
 typedef enum option_s {ONGLET_SON, ONGLET_TOUCHES} option_t;
 
-/* Enumération de constantes pour le mode séléctionné */
+/**
+ * \enum modes_t
+ * \brief  constantes qui défini le mode séléctionné
+*/
 typedef enum modes_s {MODE_NORMAL, MODE_HARD} modes_t;
 
-/* Enumération de constantes pour le personnage séléctionné */
+/**
+ * \enum personnage_t 
+ *  \brief constante pour définir le personnage sélectionner
+*/
 typedef enum personnage_s {PERSONNAGE_1, PERSONNAGE_2} personnage_t;
 
-/* Enumération de constantes pour la page */
+/**
+ * \enum  page_t
+ * \brief constantes pour assigner une page à son rôle
+*/
 typedef enum page_s {MENU_PRINCIPAL, OPTIONS, NOUVELLE_PARTIE, INTRODUCTION, CARTE, NIVEAU_1, NIVEAU_2, NIVEAU_3, NIVEAU_4} page_t;
 
-/* Enumération de constantes pour la position sur la carte */
+/**
+ * \enum  position_t
+ * \briefconstantes qui représente la position sur la carte
+*/
 typedef enum position_s {NIVEAU0, NIVEAU1, NIVEAU2, NIVEAU3, NIVEAU4} position_t; 
 
-/* Enumération de constantes pour la direction du personnage sur la carte */
+/**
+ * \enum  direction_t
+ *  \brief constantes qui représente la direction du personnage sur la carte
+*/
 typedef enum direction_s {HAUT, BAS, GAUCHE, DROITE, HAUT_DROITE, BAS_GAUCHE} direction_t; 
 
-/* Structure pour représenter une case avec un rectangle et du texte */
+/**
+ * \struct itemMenu fonctions_generales.h   
+ * \brief représente une case avec un rectangle et du texte
+*/
 typedef struct {
     SDL_Rect rectangle;
     char texte[60];
 } itemMenu;
 
-/* Structure pour représenter une barre de son */
+/**
+ * \struct barreDeSon fonctions_generales.h
+ *  \brief représente une barre de son
+*/
 typedef struct {
     SDL_Rect barre;
     SDL_Rect curseur;
@@ -39,7 +68,10 @@ typedef struct {
     float volume_precedent;
 } barreDeSon;
 
-/* Structure pour représenter les collectibles de chaque niveaux */
+/**
+ * \struct niveaux fonctions_generales.h
+ * \brief  représente les collectibles de chaque niveaux
+ */
 typedef struct {
     int niveau_fini;
     SDL_Texture *texture_image_collectible;

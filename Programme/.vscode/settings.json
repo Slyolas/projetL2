@@ -2,7 +2,8 @@
     "files.associations": {
         "*.embeddedhtml": "html",
         "deplacement_personnage.h": "c",
-        "fonctions_generales.h": "c"
+        "fonctions_generales.h": "c",
+        "fonctions_niveau_4.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

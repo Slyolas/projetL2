@@ -1,0 +1,5 @@
+#Ignore les pages html 
+*.html
+#Ignore LaTeX
+*.tex
+
