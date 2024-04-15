@@ -2,32 +2,15 @@
 #include <../fichiers_h/fonctions_nouvelle_partie.h>
 
 /* Fonction qui permet d'initialiser les différents objets de la nouvelle partie*/
-void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer,
-                           SDL_Surface **image_perso_1, SDL_Texture **texture_image_perso_1,
-                           SDL_Surface **image_perso_2, SDL_Texture **texture_image_perso_2,
-                           itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider) {
+void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_perso_1,
+                                           SDL_Texture **texture_image_perso_2,
+                                           itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider) {
 
     /* Initialisation de l'image du premier personnage */
-    (*image_perso_1) = IMG_Load("./images/personnage_masculin.png");
-    if((*image_perso_1) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_perso_1) = SDL_CreateTextureFromSurface((*renderer), (*image_perso_1));
-    if((*texture_image_perso_1) == NULL)
-        erreur("Création de la texture");
-
-    SDL_FreeSurface((*image_perso_1));
+    chargement_image(renderer, surface, texture_image_perso_1, "./images/personnages/personnage_masculin.png");
 
     /* Initialisation de l'image du deuxième personnage */
-    (*image_perso_2) = IMG_Load("./images/personnage_feminin.png");
-    if((*image_perso_2) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_perso_2) = SDL_CreateTextureFromSurface((*renderer), (*image_perso_2));
-    if((*texture_image_perso_2) == NULL)
-        erreur("Création de la texture");
-
-    SDL_FreeSurface((*image_perso_2));
+    chargement_image(renderer, surface, texture_image_perso_2, "./images/personnages/personnage_feminin.png");
 
     /* Initialisation des titres du menu nouvelle partie */
     sprintf(titres[0].texte, " Entrez votre pseudo : ");
@@ -42,14 +25,14 @@ void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer,
     sprintf(valider->texte, " Commencer la partie ! ");
 }
 
-/* Fonction qui met à jour le rendu du menu nouvelle partie après redimension de la fenêtre */
+/* Fonction qui met à jour le rendu du menu nouvelle partie */
 void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                        SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
                                        SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
                                        modes_t modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1,
                                        SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, personnage_t personnageActif,
                                        itemMenu *pseudo, SDL_Rect *rectangle_pseudo,
-                                       itemMenu *titres, int tailleTitres, SDL_Surface **texte, SDL_Texture **texture_texte, 
+                                       itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte, 
                                        TTF_Font **police, SDL_Color couleurNoire,
                                        itemMenu *itemsMenu, itemMenu *valider, int largeur, int hauteur) {
 
@@ -99,15 +82,8 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
         titres[i].rectangle.w = largeur / 3;
         titres[i].rectangle.h = hauteur / 14;
 
-        SDL_RenderFillRect((*renderer), &(titres[i].rectangle));
-
-        (*texte) = TTF_RenderText_Solid((*police), titres[i].texte, couleurNoire);
-        (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*texte));
-
-        SDL_RenderCopy((*renderer), (*texture_texte), NULL, &(titres[i].rectangle));
-
-        SDL_FreeSurface((*texte));
-        SDL_DestroyTexture((*texture_texte));
+        affichage_texte(renderer, surface, texture_texte, &(titres[i]), 
+                        police, couleurNoire);
     }
 
     /* Dessine le rectangle pour le pseudo */
@@ -122,14 +98,9 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
     SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
     SDL_RenderDrawRect((*renderer), rectangle_pseudo);
 
-    /* Dessine l'item pour la saisie du pseudo */
-
-    /* Actualisation de la taille de la police */
-    (*police) = TTF_OpenFont("./polices/04B_11__.TTF", largeur / 28);
     /* Rendu du texte actuel sur la surface texte */
-    (*texte) = TTF_RenderUTF8_Blended((*police), pseudo->texte, couleurNoire);
-    /* Création de la texture texture_texte depuis la surface texte */
-    (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*texte));
+    (*surface) = TTF_RenderUTF8_Blended((*police), pseudo->texte, couleurNoire);
+    (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*surface));
 
     /* Récupération des dimensions du texte */
     int largeur_texte, hauteur_texte;
@@ -144,7 +115,7 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
     /* Affichage de la texture texture_texte */
     SDL_RenderCopy((*renderer), (*texture_texte), NULL, &(pseudo->rectangle));
 
-    SDL_FreeSurface((*texte));
+    SDL_FreeSurface((*surface));
     SDL_DestroyTexture((*texture_texte));
 
     /* Copie la texture de l'image du premier personnage */
@@ -207,15 +178,8 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
         itemsMenu[i].rectangle.w = largeur / 4;
         itemsMenu[i].rectangle.h = hauteur / 12;
 
-        SDL_RenderFillRect((*renderer), &(itemsMenu[i].rectangle));
-
-        (*texte) = TTF_RenderText_Solid((*police), itemsMenu[i].texte, couleurNoire);
-        (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*texte));
-
-        SDL_RenderCopy((*renderer), (*texture_texte), NULL, &(itemsMenu[i].rectangle));
-
-        SDL_FreeSurface((*texte));
-        SDL_DestroyTexture((*texture_texte));
+        affichage_texte(renderer, surface, texture_texte, &(itemsMenu[i]), 
+                        police, couleurNoire);
     }
 
     /* Dessine les éléments du menu pour le bouton "Commencer la partie !" */
@@ -226,19 +190,8 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
     valider->rectangle.w = largeur / 3;
     valider->rectangle.h = hauteur / 8;
 
-    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
-    SDL_RenderFillRect((*renderer), &(valider->rectangle));
-
-    SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
-    SDL_RenderDrawRect((*renderer), &(valider->rectangle));
-
-    (*texte) = TTF_RenderText_Solid((*police), valider->texte, couleurNoire);
-    (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*texte));
-
-    SDL_RenderCopy((*renderer), (*texture_texte), NULL, &(valider->rectangle));
-
-    SDL_FreeSurface((*texte));
-    SDL_DestroyTexture((*texture_texte));
+    affichage_texte(renderer, surface, texture_texte, valider, 
+                    police, couleurNoire);
 
     SDL_SetRenderDrawColor((*renderer), 240, 240, 240, 0);
 
@@ -255,16 +208,22 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                      SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, personnage_t *personnageActif,
                      itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son,
                      SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
-                     SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **texte, SDL_Texture **texture_texte, 
-                     TTF_Font **police, SDL_Color couleurNoire,
+                     SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte, 
+                     TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive, niveaux *avancee_niveaux, int tailleNiveaux,
                      itemMenu *itemsMenu, itemMenu *valider, int *largeur, int *hauteur, page_t *page_active) {
+
+    int i;
 
     while(SDL_PollEvent(event)) {
 
             switch(event->type) {
+
                 /* Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
+
+                    /* Actualisation de la taille de la police */
+                    (*police) = TTF_OpenFont("./polices/04B_11__.TTF", (*largeur) / 28);
             
                     break;
 
@@ -277,6 +236,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
 
                     break;
 
+                /* Si l'utilisateur clic quelque part */
                 case SDL_MOUSEBUTTONDOWN:
                     if(clic_case((*event), (*rectangle_pseudo)))
                         (*modeSaisie) = 1;
@@ -293,7 +253,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                     else if(clic_case((*event), (*rectangle_perso_2)))
                         (*personnageActif) = PERSONNAGE_2;
 
-                    /* Options plein écran, options, retour en arrière et valider */
+                    /* Options plein écran, options et retour en arrière */
 
                     if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window))
                         redimensionnement_fenetre((*event), largeur, hauteur);
@@ -305,39 +265,34 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                         (*page_active) = OPTIONS;
 
                     /* Options valider */
-                    if(clic_case((*event), valider->rectangle)) {
-                        FILE *fichier_sauvegarde;
+                    if((clic_case((*event), valider->rectangle)) && (strcmp(pseudo->texte, "\0"))) {
 
-                        /* Ouverture du fichier en mode écriture */
-                        fichier_sauvegarde = fopen("./sauvegardes/sauvegarde.txt", "w");
+                            (*positionActive) = NIVEAU1;
 
-                        fprintf(fichier_sauvegarde, "%f\n", barre_de_son[0].volume);
-                        fprintf(fichier_sauvegarde, "%f\n", barre_de_son[1].volume);
-                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_aller_a_droite)));
-                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_aller_a_gauche)));
-                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_sauter_monter)));
-                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_descendre)));
-                        fprintf(fichier_sauvegarde, "%s\n", SDL_GetKeyName((*touche_interagir)));
-                        fprintf(fichier_sauvegarde, "%s\n", pseudo->texte);
+                            for(i = 0; i < tailleNiveaux; i++) {
+                                avancee_niveaux[i].niveau_fini = 0;
+                                avancee_niveaux[i].numero_collectible[0] = 0;
+                                avancee_niveaux[i].numero_collectible[1] = 0;
+                                avancee_niveaux[i].numero_collectible[2] = 0;
+                            }
 
-                        fprintf(fichier_sauvegarde, "%d\n", (*personnageActif));
+                            sauvegarder_partie(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,
+                                               touche_descendre, touche_interagir, barre_de_son, pseudo,
+                                               (*modeActif), (*personnageActif), (*positionActive),
+                                               avancee_niveaux, tailleNiveaux);
 
-                        fprintf(fichier_sauvegarde, "%d\n", (*modeActif));
-
-                        fprintf(fichier_sauvegarde, "%d\n", NIVEAU1);
-
-                        /* Fermeture du fichier */
-                        if (fclose(fichier_sauvegarde) != 0)
-                            erreur("Fermeture du fichier");
-
-                        (*page_active) = INTRODUCTION;
+                            (*page_active) = INTRODUCTION;
+                        
+                        
                     }
 
                     break;
 
                 /* Mode saisie du pseudo */
                 case SDL_KEYDOWN:
+
                     if((*modeSaisie))
+
                         if(event->key.keysym.sym == SDLK_BACKSPACE && strlen(pseudo->texte) > 0)
                             pseudo->texte[strlen(pseudo->texte) - 1] = '\0'; /* Supprime le dernier caractère du pseudo */
 
@@ -352,6 +307,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                     break;
             }
         }
+        
         /* Mise à jour du rendu */
         mise_a_jour_rendu_nouvelle_partie(renderer, rectangle_plein_ecran, texture_image_plein_ecran,
                                           rectangle_retour_en_arriere, texture_image_retour_en_arriere,
@@ -359,10 +315,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                                           (*modeActif), texture_image_perso_1, rectangle_perso_1,
                                           texture_image_perso_2, rectangle_perso_2, (*personnageActif),
                                           pseudo, rectangle_pseudo,
-                                          titres, tailleTitres, texte, texture_texte, 
+                                          titres, tailleTitres, surface, texture_texte, 
                                           police, couleurNoire,
                                           itemsMenu, valider, (*largeur), (*hauteur));
 }
-
-
-

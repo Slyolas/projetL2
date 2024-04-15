@@ -64,7 +64,8 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_T
                            SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,
                            SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, itemMenu *itemsDemandeQuitter,
                            SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture_image_monstre_terrestre,
-                           SDL_Texture **texture_image_monstre_volant,
+                           SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_perso_1_gagnant,
+                           SDL_Texture **texture_image_perso_2_gagnant,
                            niveaux *avancee_niveaux, TTF_Font **police);
 
 /* Squelette de la fonction demande_sauvegarde */
@@ -126,7 +127,14 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                      SDL_Texture **texture47, SDL_Texture **texture48, 
                      SDL_Texture **texture49, SDL_Texture **texture50,
                      SDL_Texture **texture51, SDL_Texture **texture52,
-                     SDL_Texture **texture53);
+                     SDL_Texture **texture53, SDL_Texture **texture54,
+                     SDL_Texture **texture55, SDL_Texture **texture56, 
+                     SDL_Texture **texture57, SDL_Texture **texture58,
+                     SDL_Texture **texture59, SDL_Texture **texture60,
+                     SDL_Texture **texture61, SDL_Texture **texture62,
+                     SDL_Texture **texture63, SDL_Texture **texture64, 
+                     SDL_Texture **texture65);
+
 
 /* Squelette de la fonction detruire_fenetre_rendu */
 void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window);

@@ -71,8 +71,8 @@ void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_imag
         erreur("Copie de la texture");
 
     /* Copie la texture de l'image de plein écran */
-    rectangle_plein_ecran->x = largeur - largeur / 21;
-    rectangle_plein_ecran->y = 0;
+    rectangle_plein_ecran->x = largeur - largeur / 21- largeur / 53;
+    rectangle_plein_ecran->y = hauteur / 30;
     rectangle_plein_ecran->w = largeur / 21;
     rectangle_plein_ecran->h = hauteur / 12;
 
@@ -80,8 +80,8 @@ void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_imag
         erreur("Copie de la texture");
 
     /* Copie la texture de l'image des options */
-    rectangle_options->x = largeur - largeur / 21;
-    rectangle_options->y = hauteur - hauteur / 12;
+    rectangle_options->x = largeur - largeur / 21 - largeur / 53;
+    rectangle_options->y = hauteur - hauteur / 12 - hauteur / 30;
     rectangle_options->w = largeur / 21;
     rectangle_options->h = hauteur / 12;
 

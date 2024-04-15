@@ -13,16 +13,16 @@ void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface 
     chargement_image(renderer, surface, texture_image_perso_2, "./images/personnages/personnage_feminin.png");
 
     /* Initialisation des titres du menu nouvelle partie */
-    sprintf(titres[0].texte, " Entrez votre pseudo : ");
-    sprintf(titres[1].texte, " Choisissez votre personnage : ");
-    sprintf(titres[2].texte, " Choisir le mode : ");
+    sprintf(titres[0].texte, "    Pseudo :    ");
+    sprintf(titres[1].texte, "  Personnage :  ");
+    sprintf(titres[2].texte, " Mode de jeu : ");
 
 	/* Initialisation du texte dans les items de la difficulté */
-    sprintf(itemsMenu[0].texte, " Normal ");
+    sprintf(itemsMenu[0].texte, "  Normal  ");
     sprintf(itemsMenu[1].texte, " Difficile ");
 
     /* Initialisation du texte dans l'item pour commencer la partie */
-    sprintf(valider->texte, " Commencer la partie ! ");
+    sprintf(valider->texte, " Commencer la partie ");
 }
 
 /* Fonction qui met à jour le rendu du menu nouvelle partie */
@@ -46,8 +46,8 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
     SDL_SetRenderDrawBlendMode((*renderer), SDL_BLENDMODE_BLEND);
 
     /* Copie la texture de l'image de plein écran */
-    rectangle_plein_ecran->x = largeur - largeur / 21;
-    rectangle_plein_ecran->y = 0;
+    rectangle_plein_ecran->x = largeur - largeur / 21 - largeur / 53;
+    rectangle_plein_ecran->y = hauteur / 30;
     rectangle_plein_ecran->w = largeur / 21;
     rectangle_plein_ecran->h = hauteur / 12;
 
@@ -55,8 +55,8 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
         erreur("Copie de la texture");
 
     /* Copie la texture de l'image du retour en arrière */
-    rectangle_retour_en_arriere->x = 0;
-    rectangle_retour_en_arriere->y = 0;
+    rectangle_retour_en_arriere->x = largeur / 53;
+    rectangle_retour_en_arriere->y = hauteur / 30;
     rectangle_retour_en_arriere->w = largeur / 21;
     rectangle_retour_en_arriere->h = hauteur / 12;
 
@@ -64,8 +64,8 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
         erreur("Copie de la texture");
 
     /* Copie la texture de l'image des options */
-    rectangle_options->x = largeur - largeur / 21;
-    rectangle_options->y = hauteur - hauteur / 12;
+    rectangle_options->x = largeur - largeur / 21 - largeur / 53;
+    rectangle_options->y = hauteur - hauteur / 12 - hauteur / 30;
     rectangle_options->w = largeur / 21;
     rectangle_options->h = hauteur / 12;
 
@@ -118,6 +118,13 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
     SDL_FreeSurface((*surface));
     SDL_DestroyTexture((*texture_texte));
 
+    SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
+
+    if(personnageActif == PERSONNAGE_1)
+        SDL_RenderFillRect((*renderer), rectangle_perso_1);
+    else 
+        SDL_RenderFillRect((*renderer), rectangle_perso_2);
+
     /* Copie la texture de l'image du premier personnage */
     rectangle_perso_1->x = largeur / 4 + largeur / 100;
     rectangle_perso_1->y = hauteur / 3 + hauteur / 20;
@@ -135,13 +142,6 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
 
     if(SDL_RenderCopy((*renderer), (*texture_image_perso_2), NULL, rectangle_perso_2) != 0)
         erreur("Copie de la texture");
-
-    SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
-
-    if(personnageActif == PERSONNAGE_1)
-        SDL_RenderDrawRect((*renderer), rectangle_perso_1);
-    else 
-        SDL_RenderDrawRect((*renderer), rectangle_perso_2);
 
     /* Dessine les éléments du menu pour la difficulté */
 

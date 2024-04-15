@@ -2,18 +2,11 @@
 #include <../fichiers_h/fonctions_menu_principal.h>
 
 /* Fonction qui permet d'initialiser les différents objets du menu principal */
-void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface **image_menu, SDL_Texture **texture_image_menu,
+void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_menu,
                                           itemMenu *titre, itemMenu *itemsMenu, int tailleMenu) {
 
     /* Initialisation de l'image de fond du menu */
-    (*image_menu) = IMG_Load("./images/ecran_accueil.png");
-    if((*image_menu) == NULL)
-        erreur("Chargement de l'image");
-    
-    (*texture_image_menu) = SDL_CreateTextureFromSurface((*renderer), (*image_menu));
-    if((*texture_image_menu) == NULL)
-        erreur("Création de la texture");
-    SDL_FreeSurface((*image_menu));
+    chargement_image(renderer, surface, texture_image_menu, "./images/ecran_accueil.png");
 
     /* Initialisation du titre du menu */
     sprintf(titre->texte, " MetaTravers ");
@@ -39,10 +32,10 @@ void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface *
     }
 }
 
-/* Fonction qui met à jour le rendu du menu principal après redimension de la fenêtre */
+/* Fonction qui met à jour le rendu du menu principal */
 void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **texture_image_menu,
                                       SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
-                                      itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
+                                      itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                                       SDL_Color couleurTitre, SDL_Color couleurNoire,
                                       itemMenu *itemsMenu, int tailleMenu, int largeur, int hauteur) {
     
@@ -76,15 +69,8 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
     titre->rectangle.w = largeur / 2 + largeur / 5;
     titre->rectangle.h = hauteur / 5;
 
-    SDL_RenderFillRect((*renderer), &(titre->rectangle));
-
-    (*texte_menu) = TTF_RenderText_Solid((*police), titre->texte, couleurTitre);
-    (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-    SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(titre->rectangle));
-
-    SDL_FreeSurface((*texte_menu));
-    SDL_DestroyTexture((*texture_texte_menu));
+    affichage_texte(renderer, surface, texture_texte, titre, 
+                    police, couleurTitre);
 
     SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
 
@@ -97,15 +83,8 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
             itemsMenu[i].rectangle.w = largeur / 3;
             itemsMenu[i].rectangle.h = hauteur / 10;
 
-            SDL_RenderFillRect((*renderer), &(itemsMenu[i].rectangle));
-
-            (*texte_menu) = TTF_RenderText_Solid((*police), itemsMenu[i].texte, couleurNoire);
-            (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-            SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(itemsMenu[i].rectangle));
-
-            SDL_FreeSurface((*texte_menu));
-            SDL_DestroyTexture((*texture_texte_menu));
+            affichage_texte(renderer, surface, texture_texte, &(itemsMenu[i]), 
+                            police, couleurNoire);
         }
     }
     else {
@@ -116,15 +95,8 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
             itemsMenu[i].rectangle.w = largeur / 3;
             itemsMenu[i].rectangle.h = hauteur / 10;
 
-            SDL_RenderFillRect((*renderer), &(itemsMenu[i].rectangle));
-
-            (*texte_menu) = TTF_RenderText_Solid((*police), itemsMenu[i].texte, couleurNoire);
-            (*texture_texte_menu) = SDL_CreateTextureFromSurface((*renderer), (*texte_menu));
-
-            SDL_RenderCopy((*renderer), (*texture_texte_menu), NULL, &(itemsMenu[i].rectangle));
-
-            SDL_FreeSurface((*texte_menu));
-            SDL_DestroyTexture((*texture_texte_menu));
+            affichage_texte(renderer, surface, texture_texte, &(itemsMenu[i]), 
+                            police, couleurNoire);
         }
     }
 
@@ -135,13 +107,14 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
 /* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu principal */
 void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_menu,
                     SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
-                    itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,
+                    itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                     SDL_Color couleurTitre, SDL_Color couleurNoire,
                     itemMenu *itemsMenu, int tailleMenu, int *largeur, int *hauteur, page_t *page_active) {
 
     while(SDL_PollEvent(event)) {
 
             switch(event->type) {
+                
                 /* Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
@@ -157,12 +130,14 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                     }
                     else {
                         if(clic_case((*event), itemsMenu[0].rectangle))
-                            printf("Vous avez fait clic gauche sur 'Continuer' !\n");
+                            (*page_active) = CARTE;
                         else if(clic_case((*event), itemsMenu[1].rectangle))
                             (*page_active) = NOUVELLE_PARTIE;
                         else if(clic_case((*event), itemsMenu[2].rectangle))
                             (*page_active) = OPTIONS;
                     }
+
+                    /* Option plein écran */
                     
                     if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window))
                         redimensionnement_fenetre((*event), largeur, hauteur);
@@ -178,10 +153,11 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                     break;
             }
         }
+        
         /* Mise à jour du rendu */
         mise_a_jour_rendu_menu_principal(renderer, texture_image_menu,
                                          rectangle_plein_ecran, texture_image_plein_ecran,
-                                         titre, texte_menu, texture_texte_menu, police,
+                                         titre, surface, texture_texte, police,
                                          couleurTitre, couleurNoire,
                                          itemsMenu, tailleMenu, (*largeur), (*hauteur));
 }

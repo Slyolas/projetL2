@@ -20,15 +20,15 @@ void initialisation_objets_options(SDL_Renderer **renderer, SDL_Surface **surfac
     sprintf(itemsMenu[1].texte, "         Touches         ");
 
     /* Initialisation du texte dans les items */
-    sprintf(itemsTouches[0].texte, " Touche pour aller vers la droite : ");
+    sprintf(itemsTouches[0].texte, " Aller vers la droite : ");
     sprintf(itemsTouches[1].texte, "                 %s                 ", SDL_GetKeyName(SDLK_RIGHT));
-    sprintf(itemsTouches[2].texte, " Touche pour aller vers la gauche : ");
+    sprintf(itemsTouches[2].texte, " Aller vers la gauche : ");
     sprintf(itemsTouches[3].texte, "                 %s                 ", SDL_GetKeyName(SDLK_LEFT));
-    sprintf(itemsTouches[4].texte, "    Touche pour sauter / monter :   ");
+    sprintf(itemsTouches[4].texte, "   Sauter / monter :     ");
     sprintf(itemsTouches[5].texte, "                 %s                 ", SDL_GetKeyName(SDLK_UP));
-    sprintf(itemsTouches[6].texte, "       Touche pour descendre :      ");
+    sprintf(itemsTouches[6].texte, "       Descendre :      ");
     sprintf(itemsTouches[7].texte, "                 %s                 ", SDL_GetKeyName(SDLK_DOWN));
-    sprintf(itemsTouches[8].texte, "       Touche pour interagir :      ");
+    sprintf(itemsTouches[8].texte, "       Interagir :      ");
     sprintf(itemsTouches[9].texte, "                 %s                 ", SDL_GetKeyName(SDLK_SPACE));
     sprintf(itemsBarres[0].texte, "              Musique :             ");
     sprintf(itemsBarres[1].texte, "           Effets sonores :         ");
@@ -56,8 +56,8 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
     SDL_SetRenderDrawBlendMode((*renderer), SDL_BLENDMODE_BLEND);
 
     /* Copie la texture de l'image de plein écran */
-    rectangle_plein_ecran->x = largeur - largeur / 21;
-    rectangle_plein_ecran->y = 0;
+    rectangle_plein_ecran->x = largeur - largeur / 21 - largeur / 53;
+    rectangle_plein_ecran->y = hauteur / 30;
     rectangle_plein_ecran->w = largeur / 21;
     rectangle_plein_ecran->h = hauteur / 12;
 
@@ -65,8 +65,8 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
         erreur("Copie de la texture");
 
     /* Copie la texture de l'image du retour en arrière */
-    rectangle_retour_en_arriere->x = 0;
-    rectangle_retour_en_arriere->y = 0;
+    rectangle_retour_en_arriere->x = largeur / 53;
+    rectangle_retour_en_arriere->y = hauteur / 30;
     rectangle_retour_en_arriere->w = largeur / 21;
     rectangle_retour_en_arriere->h = hauteur / 12;
 

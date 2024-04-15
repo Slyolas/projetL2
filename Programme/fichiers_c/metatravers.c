@@ -11,15 +11,12 @@
 #include "../fichiers_h/fonctions_introduction.h"
 #include "../fichiers_h/fonctions_carte.h"
 #include "../fichiers_h/fonctions_niveau_1.h"
-#include "../fichiers_h/fonctions_arrivee_niveaux_2_3.h"
 #include "../fichiers_h/fonctions_niveau_2.h"
 #include "../fichiers_h/fonctions_niveau_3.h"
+#include "../fichiers_h/fonctions_arrivee_niveaux_2_3.h"
 #include "../fichiers_h/fonctions_niveau_4.h"
 
 int main() {
-
-    time_t timestamp = time( NULL );
-    int mouvement_monstre;
 
     /* Initialisation de la largeur de la fenêtre */
     int largeur = 960;
@@ -101,6 +98,7 @@ int main() {
     SDL_Texture *texture_image_perso_1_droite = NULL;
     SDL_Texture *texture_image_perso_1_gauche = NULL;
     SDL_Texture *texture_image_perso_1_pose = NULL;
+    SDL_Texture *texture_image_perso_1_gagnant = NULL;
 
     /* Création des pointeurs sur la texture des différentes images pour le deuxième personnage */
     SDL_Texture *texture_image_perso_2_bas_1 = NULL;
@@ -113,6 +111,7 @@ int main() {
     SDL_Texture *texture_image_perso_2_droite = NULL;
     SDL_Texture *texture_image_perso_2_gauche = NULL;
     SDL_Texture *texture_image_perso_2_pose = NULL;
+    SDL_Texture *texture_image_perso_2_gagnant = NULL;
 
     SDL_Texture *texture_image_monstre_terrestre = NULL;
     SDL_Texture *texture_image_monstre_volant = NULL;
@@ -127,6 +126,16 @@ int main() {
     SDL_Texture *texture_image_dossier_niveau_2 = NULL;
     SDL_Texture *texture_image_sol_niveau_2 = NULL;
 
+    SDL_Texture *texture_image_mur_mini_jeu = NULL;
+    SDL_Texture *texture_image_pipe_vertical = NULL;
+    SDL_Texture *texture_image_pipe_horizontal = NULL;
+    SDL_Texture *texture_image_pipe_haut_droit = NULL;
+    SDL_Texture *texture_image_pipe_bas_droit = NULL;
+    SDL_Texture *texture_image_pipe_bas_gauche = NULL;
+    SDL_Texture *texture_image_pipe_haut_gauche = NULL;
+    SDL_Texture *texture_image_pipe_courant = NULL;
+    SDL_Texture *texture_image_mur_termine = NULL;
+
     /* Création des pointeurs sur la texture des différentes images du salon en arrivant dans le niveau 3 */
     SDL_Texture *texture_image_fond_niveau_3 = NULL;
     SDL_Texture *texture_image_dossier_niveau_3 = NULL;
@@ -135,6 +144,8 @@ int main() {
     SDL_Texture *barre_windows_2 = NULL; 
     SDL_Texture *barre_windows_3 = NULL;
     SDL_Texture *barre_windows_4 = NULL;
+
+    SDL_Texture* texture_image_puzzle = NULL;
 
     /* Création des pointeurs sur la texture des différentes images pour les étages */
     SDL_Texture *texture_image_mur = NULL;
@@ -196,7 +207,8 @@ int main() {
                           &texture_image_retour_en_arriere, &texture_image_options,
                           &texture_image_passer, itemsDemandeSauvegarde, itemsDemandeQuitter,
                           &texture_image_fin_premiers_niveaux, &texture_image_monstre_terrestre,
-                          &texture_image_monstre_volant,
+                          &texture_image_monstre_volant, &texture_image_perso_1_gagnant,
+                          &texture_image_perso_2_gagnant,
                           avancee_niveaux, &police);
 
     /* Objets du menu principal */
@@ -319,12 +331,12 @@ int main() {
     int largeur_tile;
     /* Initialisation de la hauteur de chaque case */
     int hauteur_tile;
-    /* Initialisation de la selection */
-    int indice_menu_selectionne = 0;
 
     /* Initialisation de l'étage avec la méthode du tile mapping */
 
     int tile_map[18][32];
+
+    int tile_map_mini_jeu[19][27];
 
     SDL_Rect rectangle_tile;
 
@@ -343,6 +355,16 @@ int main() {
     int saut;
     int tombe;
 
+    int mini_jeu;
+
+    time_t timestamp = time(NULL);
+    int mouvement_monstre;
+
+    int mode_difficile;
+
+    int mini_jeu_1_termine;
+    int mini_jeu_2_termine;
+
     /* Objets du niveau 1 */
     initialisation_objets_niveau_1(&renderer, &surface,
                                    &texture_image_sol_surface_niveau_1, &texture_image_sol_profondeur_niveau_1,
@@ -357,13 +379,35 @@ int main() {
     /* Objets du niveau 2 */
     initialisation_objets_niveau_2(&renderer, &surface,
                                    &texture_image_fond_niveau_2, &texture_image_dossier_niveau_2,
-                                   &texture_image_sol_niveau_2);
+                                   &texture_image_sol_niveau_2, &texture_image_mur_mini_jeu,
+                                   &texture_image_pipe_vertical, &texture_image_pipe_horizontal,
+                                   &texture_image_pipe_haut_droit, &texture_image_pipe_bas_droit,
+                                   &texture_image_pipe_bas_gauche, &texture_image_pipe_haut_gauche,
+                                   &texture_image_pipe_courant,
+                                   &texture_image_mur_termine);
+
+    int mini_jeu_termine;
 
     /* Objets du niveau 3 */
+
+    SDL_Rect rectangle_piece[45];
+
+    /* Initialise toutes les pièces comme non verrouillées */
+    int piece_bloquee[45];
+
+    SDL_Rect rectangle_emplacement_piece[45];
+
+    int piece_selectionnee;
+
+    /* Décalage en X/Y entre le coin supérieur gauche de la pièce et la position du curseur de la souris */
+    int decalage_x;
+    int decalage_y;
+
     initialisation_objets_niveau_3(&renderer, &surface,
                                    &texture_image_fond_niveau_3, &texture_image_dossier_niveau_3,
                                    &texture_image_sol_niveau_3, &barre_windows_1, &barre_windows_2, &barre_windows_3,
-                                   &barre_windows_4);
+                                   &barre_windows_4,
+                                   &texture_image_puzzle);
 
     /* Objets du niveau 4 */
     initialisation_objets_niveau_4(&renderer, &surface,
@@ -460,8 +504,8 @@ int main() {
             menu_principal(&event, &window, &renderer, &programme_lance, &texture_image_menu,
                            &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
                            &titre_menu_principal, &surface, &texture_texte, &police,
-                           couleurTitre, couleurNoire, itemsMenuPrincipal, tailleMenuPrincipal,
-                            &largeur, &hauteur, &page_active, &indice_menu_selectionne);
+                           couleurTitre, couleurNoire,
+                           itemsMenuPrincipal, tailleMenuPrincipal, &largeur, &hauteur, &page_active);
 
             /* Cas où on clique sur nouvelle partie */
             if(page_active == NOUVELLE_PARTIE) {
@@ -554,8 +598,15 @@ int main() {
             secret_1 = 0;
             secret_2 = 0;
 
+            sauter = 0;
+            avancer = 0;
+            reculer = 0;
+            tombe = 0;
+
+            mouvement_monstre = 0;
+
             for(i = 0; i < 3; i++)
-                collectibles_intermediaires[i] = avancee_niveaux[0].numero_collectible[i];
+                collectibles_intermediaires[i] = 0;
 
             chargement_image(&renderer, &surface, &texture_image_plein_ecran, "./images/plein_ecran_niveaux.png");
 
@@ -621,6 +672,7 @@ int main() {
                 avancer = 0;
                 reculer = 0;
                 tombe = 0;
+                saut = 0;
 
                 mouvement_monstre = 0;
 
@@ -647,9 +699,28 @@ int main() {
                 avancer = 0;
                 reculer = 0;
                 tombe = 0;
+                saut = 0;
+
+                mouvement_monstre = 0;
+
+                mini_jeu = 0;
+
+                mode_difficile = 0;
+
+                mini_jeu_1_termine = 0;
+                mini_jeu_2_termine = 0;
+
+                mini_jeu_termine = 0;
+
+                if(page_active == NIVEAU_2)
+                    for(i = 0; i < 3; i++)
+                        collectibles_intermediaires[i] = avancee_niveaux[1].numero_collectible[i];
+                
+                else
+                    for(i = 0; i < 3; i++)
+                        collectibles_intermediaires[i] = avancee_niveaux[2].numero_collectible[i];
 		 
-		        /* On fait -4 car dans la fonction on vérifie pour 2 et 3 sauf que NIVEAU_2 vaut 6 dans l'énumération */
-                salon_arrivee_niveaux_2_3(&position_x, &position_y, tile_map, page_active - 4);
+                salon_arrivee_niveaux_2_3(&position_x, &position_y, tile_map, page_active);
 
                 chargement_image(&renderer, &surface, &texture_image_plein_ecran, "./images/plein_ecran_niveaux.png");
             }
@@ -664,6 +735,7 @@ int main() {
                 avancer = 0;
                 reculer = 0;
                 tombe = 0;
+                saut = 0;
 
                 for(i = 0; i < 3; i++)
                     collectibles_intermediaires[i] = avancee_niveaux[3].numero_collectible[i];
@@ -691,7 +763,7 @@ int main() {
                          &touche_aller_a_droite, &touche_aller_a_gauche,
                          &touche_sauter_monter, &decalage, &secret_1, &secret_2,
                          tile_map, tile_map_niveau_1, &rectangle_tile,
-                         itemsDemandeQuitter, tailleDemande, &texture_image_perso_1_pose,
+                         itemsDemandeQuitter, tailleDemande, &texture_image_perso_1_gagnant,
                          &texture_texte, &police, &rectangle_demande,
                          couleurNoire, &texture_image_fin_premiers_niveaux,
                          &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
@@ -709,7 +781,7 @@ int main() {
                          &touche_aller_a_droite, &touche_aller_a_gauche,
                          &touche_sauter_monter, &decalage, &secret_1, &secret_2,
                          tile_map, tile_map_niveau_1, &rectangle_tile,
-                         itemsDemandeQuitter, tailleDemande, &texture_image_perso_2_pose,
+                         itemsDemandeQuitter, tailleDemande, &texture_image_perso_2_gagnant,
                          &texture_texte, &police, &rectangle_demande,
                          couleurNoire, &texture_image_fin_premiers_niveaux,
                          &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
@@ -728,35 +800,51 @@ int main() {
 
             /* Cas où le personnage choisit est masculin */
             if(personnageActif == PERSONNAGE_1)
-                arrivee_niveaux_2_3(&event, &window, &renderer,
+                arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
-                                    &texture_image_perso_1, &rectangle_perso_1,
-                                    &texture_image_fond_niveau_2, &texture_image_sol_niveau_2,
-                                    &touche_aller_a_droite, &touche_aller_a_gauche,
-                                    &touche_sauter_monter, &texture_image_dossier_niveau_2,
+                                    &texture_image_perso_1, &rectangle_perso_1, &mini_jeu_termine, &mini_jeu_1_termine, &mini_jeu_2_termine,
+                                    &texture_image_fond_niveau_2, &texture_image_sol_niveau_2, &texture_image_monstre_terrestre, &texture_image_monstre_volant,
+                                    &touche_aller_a_droite, &touche_aller_a_gauche, &touche_interagir, &texture_image_porte, avancee_niveaux,
+                                    &touche_sauter_monter, &touche_descendre, &texture_image_dossier_niveau_2,
                                     NULL, NULL, NULL, NULL,
-                                    tile_map, &rectangle_tile,
-                                    itemsDemandeQuitter, tailleDemande, couleurNoire,
-                                    &texture_texte, &police, &rectangle_demande,
+                                    tile_map, &rectangle_tile, &mouvement_monstre, &modeActif, &mode_difficile,
+                                    itemsDemandeQuitter, tailleDemande, couleurNoire, tile_map_mini_jeu,
+                                    &texture_texte, &police, &rectangle_demande, &timestamp, &texture_image_perso_1_gagnant,
                                     &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
-                                    &position_x, &position_y,
-                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
+                                    &position_x_initiale, &position_y_initiale, &position_x, &position_y,
+                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active,
+                                    &texture_image_mur_mini_jeu, collectibles_intermediaires,
+                                    &texture_image_pipe_vertical,&texture_image_pipe_horizontal,
+                                    &texture_image_pipe_haut_droit, &texture_image_pipe_bas_droit,
+                                    &texture_image_pipe_bas_gauche,&texture_image_pipe_haut_gauche,
+                                    &texture_image_pipe_courant,
+                                    &texture_image_mur_termine,
+                                    rectangle_piece, piece_bloquee, rectangle_emplacement_piece, &piece_selectionnee,
+                                    &decalage_x, &decalage_y, &texture_image_puzzle);
 
             /* Cas où le personnage choisit est féminin */
             else
-                arrivee_niveaux_2_3(&event, &window, &renderer,
+                arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
-                                    &texture_image_perso_2, &rectangle_perso_2,
-                                    &texture_image_fond_niveau_2, &texture_image_sol_niveau_2,
-                                    &touche_aller_a_droite, &touche_aller_a_gauche,
-                                    &touche_sauter_monter, &texture_image_dossier_niveau_2,
+                                    &texture_image_perso_2, &rectangle_perso_2, &mini_jeu_termine, &mini_jeu_1_termine, &mini_jeu_2_termine,
+                                    &texture_image_fond_niveau_2, &texture_image_sol_niveau_2, &texture_image_monstre_terrestre, &texture_image_monstre_volant,
+                                    &touche_aller_a_droite, &touche_aller_a_gauche, &touche_interagir, &texture_image_porte, avancee_niveaux,
+                                    &touche_sauter_monter, &touche_descendre, &texture_image_dossier_niveau_2,
                                     NULL, NULL, NULL, NULL,
-                                    tile_map, &rectangle_tile,
-                                    itemsDemandeQuitter, tailleDemande, couleurNoire,
-                                    &texture_texte, &police, &rectangle_demande,
+                                    tile_map, &rectangle_tile, &mouvement_monstre, &modeActif, &mode_difficile,
+                                    itemsDemandeQuitter, tailleDemande, couleurNoire, tile_map_mini_jeu,
+                                    &texture_texte, &police, &rectangle_demande, &timestamp, &texture_image_perso_2_gagnant,
                                     &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
-                                    &position_x, &position_y,
-                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
+                                    &position_x_initiale, &position_y_initiale, &position_x, &position_y,
+                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active,
+                                    &texture_image_mur_mini_jeu, collectibles_intermediaires,
+                                    &texture_image_pipe_vertical,&texture_image_pipe_horizontal,
+                                    &texture_image_pipe_haut_droit, &texture_image_pipe_bas_droit,
+                                    &texture_image_pipe_bas_gauche,&texture_image_pipe_haut_gauche,
+                                    &texture_image_pipe_courant,
+                                    &texture_image_mur_termine,
+                                    rectangle_piece, piece_bloquee, rectangle_emplacement_piece, &piece_selectionnee,
+                                    &decalage_x, &decalage_y, &texture_image_puzzle);
 
             /* Retour sur la carte */
             if(page_active == CARTE) {
@@ -770,35 +858,50 @@ int main() {
 
             /* Cas où le personnage choisit est masculin */
             if(personnageActif == PERSONNAGE_1)
-                arrivee_niveaux_2_3(&event, &window, &renderer,
+                arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
-                                    &texture_image_perso_1, &rectangle_perso_1,
-                                    &texture_image_fond_niveau_3, &texture_image_sol_niveau_3,
-                                    &touche_aller_a_droite, &touche_aller_a_gauche,
-                                    &touche_sauter_monter, &texture_image_dossier_niveau_3,
+                                    &texture_image_perso_1, &rectangle_perso_1, &mini_jeu_termine, &mini_jeu_1_termine, &mini_jeu_2_termine,
+                                    &texture_image_fond_niveau_3, &texture_image_sol_niveau_3, NULL, NULL,
+                                    &touche_aller_a_droite, &touche_aller_a_gauche, &touche_interagir, &texture_image_porte, avancee_niveaux,
+                                    &touche_sauter_monter, &touche_descendre, &texture_image_dossier_niveau_3,
                                     &barre_windows_1, &barre_windows_2, &barre_windows_3,
-                                    &barre_windows_4, tile_map, &rectangle_tile,
-                                    itemsDemandeQuitter, tailleDemande, couleurNoire,
-                                    &texture_texte, &police, &rectangle_demande,
+                                    &barre_windows_4, tile_map, &rectangle_tile, &mouvement_monstre, &modeActif, &mode_difficile,
+                                    itemsDemandeQuitter, tailleDemande, couleurNoire, tile_map_mini_jeu,
+                                    &texture_texte, &police, &rectangle_demande, &timestamp, &texture_image_perso_1_gagnant,
                                     &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
-                                    &position_x, &position_y,
-                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
+                                    &position_x_initiale, &position_y_initiale, &position_x, &position_y,
+                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active,
+                                    &texture_image_mur_mini_jeu, collectibles_intermediaires,
+                                    &texture_image_pipe_vertical,&texture_image_pipe_horizontal,
+                                    &texture_image_pipe_haut_droit, &texture_image_pipe_bas_droit,
+                                    &texture_image_pipe_bas_gauche,&texture_image_pipe_haut_gauche,
+                                    &texture_image_pipe_courant,
+                                    &texture_image_mur_termine,
+                                    rectangle_piece, piece_bloquee, rectangle_emplacement_piece, &piece_selectionnee,
+                                    &decalage_x, &decalage_y, &texture_image_puzzle);
 
             /* Cas où le personnage choisit est féminin */
             else
-                arrivee_niveaux_2_3(&event, &window, &renderer,
+                arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
-                                    &texture_image_perso_2, &rectangle_perso_2,
-                                    &texture_image_fond_niveau_3, &texture_image_sol_niveau_3,
-                                    &touche_aller_a_droite, &touche_aller_a_gauche,
-                                    &touche_sauter_monter, &texture_image_dossier_niveau_3,
+                                    &texture_image_perso_2, &rectangle_perso_2, &mini_jeu_termine, &mini_jeu_1_termine, &mini_jeu_2_termine,
+                                    &texture_image_fond_niveau_3, &texture_image_sol_niveau_3, NULL, NULL,
+                                    &touche_aller_a_droite, &touche_aller_a_gauche, &touche_interagir, &texture_image_porte, avancee_niveaux,
+                                    &touche_sauter_monter, &touche_descendre, &texture_image_dossier_niveau_3,
                                     &barre_windows_1, &barre_windows_2, &barre_windows_3,
-                                    &barre_windows_4, tile_map, &rectangle_tile,
-                                    itemsDemandeQuitter, tailleDemande, couleurNoire,
-                                    &texture_texte, &police, &rectangle_demande,
+                                    &barre_windows_4, tile_map, &rectangle_tile, &mouvement_monstre, &modeActif, &mode_difficile,
+                                    itemsDemandeQuitter, tailleDemande, couleurNoire, tile_map_mini_jeu,
+                                    &texture_texte, &police, &rectangle_demande, &timestamp, &texture_image_perso_2_gagnant,
                                     &avancer, &reculer, &sauter, &position_avant_saut, &saut, &tombe,
-                                    &position_x, &position_y,
-                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
+                                    &position_x_initiale, &position_y_initiale, &position_x, &position_y,
+                                    &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active,
+                                    &texture_image_mur_mini_jeu, collectibles_intermediaires,
+                                    &texture_image_pipe_vertical,&texture_image_pipe_horizontal,
+                                    &texture_image_pipe_haut_droit, &texture_image_pipe_bas_droit,
+                                    &texture_image_pipe_bas_gauche,&texture_image_pipe_haut_gauche,
+                                    &texture_image_pipe_courant,
+                                    &texture_image_mur_termine, rectangle_piece, piece_bloquee, rectangle_emplacement_piece,
+                                    &piece_selectionnee, &decalage_x, &decalage_y, &texture_image_puzzle);
 
             /* Retour sur la carte */
             if(page_active == CARTE) {
@@ -821,7 +924,7 @@ int main() {
                          &surface, &modeActif, collectibles_intermediaires,
                          &touche_aller_a_droite, &touche_aller_a_gauche,
                          &touche_sauter_monter, &touche_interagir,
-                         tile_map, &rectangle_tile, &texture_image_perso_1_pose,
+                         tile_map, &rectangle_tile, &texture_image_perso_1_gagnant,
                          itemsDemandeQuitter, tailleDemande,
                          &texture_texte, &police, &rectangle_demande,
                          couleurNoire, &texture_image_fin_dernier_niveau,
@@ -840,7 +943,7 @@ int main() {
                          &surface, &modeActif, collectibles_intermediaires,
                          &touche_aller_a_droite, &touche_aller_a_gauche,
                          &touche_sauter_monter, &touche_interagir,
-                         tile_map, &rectangle_tile, &texture_image_perso_2_pose,
+                         tile_map, &rectangle_tile, &texture_image_perso_2_gagnant,
                          itemsDemandeQuitter, tailleDemande,
                          &texture_texte, &police, &rectangle_demande,
                          couleurNoire, &texture_image_fin_dernier_niveau,
@@ -885,7 +988,13 @@ int main() {
                     &texture_image_fond_niveau_1, &texture_image_sol_surface_niveau_1,
                     &texture_image_sol_profondeur_niveau_1, &texture_image_monstre_terrestre,
                     &texture_image_monstre_volant, &barre_windows_1, &barre_windows_2, 
-                    &barre_windows_3, &barre_windows_4);
+                    &barre_windows_3, &barre_windows_4, &texture_image_mur_mini_jeu,
+                    &texture_image_pipe_vertical, &texture_image_pipe_horizontal,
+                    &texture_image_pipe_haut_droit, &texture_image_pipe_bas_droit,
+                    &texture_image_pipe_bas_gauche, &texture_image_pipe_haut_gauche,
+                    &texture_image_pipe_courant, &texture_image_mur_termine,
+                    &texture_image_perso_1_gagnant, &texture_image_perso_2_gagnant,
+                    &texture_image_puzzle);
 
     /* Destruction du rendu et de la fenêtre*/
     detruire_fenetre_rendu(&renderer, &window);
