@@ -10,7 +10,7 @@ Nature du projet :
 
 Titre du projet :
 	
-	MetaTraverse
+	MetaTravers
 
 Descriptif du projet en qq lignes :
 	
