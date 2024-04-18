@@ -41,8 +41,8 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
     SDL_DestroyTexture((*texture_texte));
 
     /* Copie la texture de l'image du passer */
-    rectangle_passer->x = largeur - largeur / 21;
-    rectangle_passer->y = 0;
+    rectangle_passer->x = largeur - largeur / 21- largeur / 53;
+    rectangle_passer->y = hauteur / 30;
     rectangle_passer->w = largeur / 21;
     rectangle_passer->h = hauteur / 12;
 
@@ -147,8 +147,12 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
 
             SDL_SetWindowResizable((*window), SDL_FALSE);
 
+            Mix_PauseMusic();
+
             /* Délai d'attente avant de passer à la ligne suivante */
             SDL_Delay(2000);
+
+            Mix_ResumeMusic();
 
             SDL_SetWindowResizable((*window), SDL_TRUE);
         }

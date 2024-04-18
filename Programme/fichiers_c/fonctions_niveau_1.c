@@ -4,7 +4,7 @@
 /* Fonction qui permet d'initialiser les différents objets du niveau 4 */
 void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_sol_surface_niveau_1, SDL_Texture **texture_image_sol_profondeur_niveau_1,
-                                    SDL_Texture **texture_image_fond_niveau_1) {
+                                    SDL_Texture **texture_image_fond_niveau_1, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2) {
 
     /* Chargement des images pour le niveau 1 */
 
@@ -12,6 +12,8 @@ void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surfa
     chargement_image(renderer, surface, texture_image_sol_profondeur_niveau_1, "./images/niveau_1/sol_niveau_1_profondeur.jpg");
     chargement_image(renderer, surface, texture_image_fond_niveau_1, "./images/niveau_1/fond_niveau_1.png");
 
+    chargement_image(renderer, surface, texture_image_nuage_1, "./images/niveau_1/nuage_1.png");
+    chargement_image(renderer, surface, texture_image_nuage_2, "./images/niveau_1/nuage_2.png");
 }
 
 /* Fonction qui permet de créer l'étage 1 */
@@ -31,10 +33,10 @@ void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initi
     int initialisation_tile_map[18][110] = { 
         {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
         {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
-        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
-        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
-        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
-        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
+        {2, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
+        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
+        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 2},
+        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
         {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
         {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
         {2, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
@@ -61,7 +63,7 @@ void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_i
                                 SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                 SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant,
                                 SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, SDL_Texture **texture_image_fin_premiers_niveaux,
-                                int position_x, int position_y, int tile_map[18][32], int secret,
+                                int position_x, int position_y, int tile_map[18][32], int secret, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2,
                                 int largeur, int hauteur, int largeur_tile, int hauteur_tile) {
                                 
     int x, y;
@@ -123,6 +125,25 @@ void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_i
         }
     }
 
+    for (y = 0; y < hauteur / hauteur_tile; y++) {
+
+        for (x = 0; x < largeur / largeur_tile; x++) {
+
+            rectangle_tile->x = (x - 2) * largeur_tile;
+            rectangle_tile->y = y * hauteur_tile;
+            rectangle_tile->w = largeur_tile * 4;
+            rectangle_tile->h = hauteur_tile * 2;
+
+            if(tile_map[y][x] == 13) 
+                if(SDL_RenderCopy((*renderer), (*texture_image_nuage_1), NULL, rectangle_tile) != 0)
+                    erreur("Copie de la texture");
+        
+            if(tile_map[y][x] == 14)
+                if(SDL_RenderCopy((*renderer), (*texture_image_nuage_2), NULL, rectangle_tile) != 0)
+                    erreur("Copie de la texture");
+        }
+    }
+
     /* Copie la texture de l'image du personnage */
             
     rectangle_personnage->x = position_x * largeur_tile;
@@ -158,7 +179,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
               SDL_Keycode *touche_sauter_monter, int *decalage, int *secret_1, int *secret_2,
               int tile_map[18][32], int tile_map_niveau_1[18][110], SDL_Rect *rectangle_tile,
               itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Texture **texture_image_perso_gagnant,
-              SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter,
+              SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2,
               SDL_Color couleurNoire, SDL_Texture **texture_image_fin_premiers_niveaux,
               int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe,
               int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y,
@@ -166,6 +187,8 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
+
+    Mix_Chunk *effet_sonore;
     
     int i, x, y;
 
@@ -174,7 +197,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
                                texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,
                                texture_image_personnage, rectangle_personnage, texture_image_monstre_terrestre, texture_image_monstre_volant,
                                texture_image_pique, avancee_niveaux, texture_image_fin_premiers_niveaux,
-                               (*position_x), (*position_y), tile_map, (*secret_2),
+                               (*position_x), (*position_y), tile_map, (*secret_2), texture_image_nuage_1, texture_image_nuage_2,
                                (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile)); 
 
     while(SDL_PollEvent(event)) {
@@ -317,14 +340,35 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
     /* Cas où le joueur récupère un collectible */
 
-    if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 8))
+    if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 8) && (!avancee_niveaux[0].numero_collectible[0])) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
         avancee_niveaux[0].numero_collectible[0] = 1;
+    }
 
-    if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 15))
+    if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 15) && (!avancee_niveaux[0].numero_collectible[1])) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
         avancee_niveaux[0].numero_collectible[1] = 1;
+    } 
 
-    if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 3))
+    if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 3) && (!avancee_niveaux[0].numero_collectible[2])) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
         avancee_niveaux[0].numero_collectible[2] = 1;
+    }
 
     if(!(*secret_1))
         for(y = 0; y < 18; y++)
@@ -403,14 +447,19 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
     /* Cas où vous avez fini le niveau */
     if (tile_map[(*position_y)][(*position_x)] == 7) {
 
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/fin_niveaux.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+        
+        Mix_PlayChannel(1, effet_sonore, 0);
+
         mise_a_jour_rendu_niveau_1(renderer, texture_image_sol_surface, texture_image_sol_profondeur, texture_image_fond,
                                    texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,
                                    texture_image_perso_gagnant, rectangle_personnage, texture_image_monstre_terrestre, texture_image_monstre_volant,
                                    texture_image_pique, avancee_niveaux, texture_image_fin_premiers_niveaux,
-                                   (*position_x), (*position_y), tile_map, (*secret_2),
+                                   (*position_x), (*position_y), tile_map, (*secret_2), texture_image_nuage_1, texture_image_nuage_2,
                                    (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile));
 
-        SDL_Delay(1000); 
+        SDL_Delay(2000); 
 
         avancee_niveaux[0].niveau_fini = 1;
 

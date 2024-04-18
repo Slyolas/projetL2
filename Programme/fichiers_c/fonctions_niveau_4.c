@@ -353,6 +353,8 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
+
+    Mix_Chunk *effet_sonore;
     
     int i;
 
@@ -383,12 +385,24 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
                 if(event->key.keysym.sym == (*touche_interagir)) {
 
                     /* Cas où vous retournez sur la carte */
-                    if (((*numero_etage) == 1) && ((*position_x) == 2) && ((*position_y) == 15))
+                    if (((*numero_etage) == 1) && ((*position_x) == 2) && ((*position_y) == 15)) {
+
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
+
                         (*page_active) = CARTE;
+                    }
                         
 
                     /* Cas où vous montez à l'étage 2 */
                     else if (((*numero_etage) == 1) && ((*position_x) == 29) && ((*position_y) == 2)) {
+
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
 
                         etage_2(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
@@ -398,6 +412,11 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
                     /* Cas où vous descendez à l'étage 1 */
                     else if (((*numero_etage) == 2) && ((*position_x) == 29) && ((*position_y) == 15)) {
+
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
 
                         etage_1(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
@@ -410,6 +429,11 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
                     /* Cas où vous montez à l'étage 3 */
                     else if (((*numero_etage) == 2) && ((*position_x) == 29) && ((*position_y) == 2)) {
 
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
+
                         etage_3(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
 
@@ -418,6 +442,11 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
                     /* Cas où vous descendez à l'étage 2 */
                     else if (((*numero_etage) == 3) && ((*position_x) == 29) && ((*position_y) == 15)) {
+
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
 
                         etage_2(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
@@ -430,6 +459,11 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
                     /* Cas où vous montez à l'étage 4 */
                     else if (((*numero_etage) == 3) && ((*position_x) == 2) && ((*position_y) == 2)) {
 
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
+
                         etage_4(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
 
@@ -438,6 +472,11 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
                     /* Cas où vous descendez à l'étage 3 */
                     else if (((*numero_etage) == 4) && ((*position_x) == 2) && ((*position_y) == 15)) {
+
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
 
                         etage_3(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
@@ -450,6 +489,11 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
                     /* Cas où vous montez à l'étage 5 */
                     else if (((*numero_etage) == 4) && ((*position_x) == 29) && ((*position_y) == 2)) {
 
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
+
                         etage_5(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
 
@@ -458,6 +502,11 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
                     /* Cas où vous descendez à l'étage 4 */
                     else if (((*numero_etage) == 5) && ((*position_x) == 29) && ((*position_y) == 15)) {
+
+                        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                            erreur("Chargement de l'effet sonore");
+                            
+                        Mix_PlayChannel(1, effet_sonore, 0);
 
                         etage_4(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,
                                 renderer, surface, texture_image_mur);
@@ -560,17 +609,43 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
     /* Cas où le joueur récupère un collectible */
 
-    if(((*numero_etage) == 2) && (tile_map[(*position_y)][(*position_x)] == 5))
+    if(((*numero_etage) == 2) && (tile_map[(*position_y)][(*position_x)] == 5) && (!avancee_niveaux[3].numero_collectible[0])) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
         avancee_niveaux[3].numero_collectible[0] = 1;
+    } 
 
-    if(((*numero_etage) == 3) && (tile_map[(*position_y)][(*position_x)] == 5))
+    if(((*numero_etage) == 3) && (tile_map[(*position_y)][(*position_x)] == 5) && (!avancee_niveaux[3].numero_collectible[1])) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
         avancee_niveaux[3].numero_collectible[1] = 1;
+    }
 
-    if(((*numero_etage) == 5) && (tile_map[(*position_y)][(*position_x)] == 5))
+    if(((*numero_etage) == 5) && (tile_map[(*position_y)][(*position_x)] == 5) && (!avancee_niveaux[3].numero_collectible[2])) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
         avancee_niveaux[3].numero_collectible[2] = 1;
+    }
 
     /* Cas où vous avez fini le niveau */
     if (tile_map[(*position_y)][(*position_x)] == 7) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/fin_niveaux.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+        
+        Mix_PlayChannel(1, effet_sonore, 0);
 
         mise_a_jour_rendu_niveau_4(renderer, texture_image_mur, texture_image_fond, texture_image_bordure,
                                    texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,

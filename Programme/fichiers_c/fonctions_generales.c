@@ -1,20 +1,6 @@
-/**
- * \file fonctions_generales.c
- * \brief Fichier des fonctions générales du programme
- * 
- * Ensenble des fonctions réutilisé dans tous les programmes 
- * 
-*/
-
-
 #include <../fichiers_h/fonctions_generales.h>
 
-/**
- * \fn void erreur(const char *message)
- * \brief affiche un message d'erreur et arrête le programme de force quand une chose n'a pas pû être exécuté 
- * \param message Chaine de caractère représentant l'erreur
- * \return EXIT_FAILURE : arrêt du programme avec un code d'erreur  
-*/
+/* Fonction qui affiche un message d'erreur quand une chose n'a pas pû être exécuté */
 void erreur(const char *message) {
 
     SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
@@ -22,14 +8,7 @@ void erreur(const char *message) {
     exit(EXIT_FAILURE);
 }
 
-/**
- * \fn void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, char *chemin)
- * \brief Fonction qui permet de charger une image
- * \param renderer rendu de la fenêtre 
- * \param surface  surface de la fenêtre
- * \param texture Image à appliqué sur le rendu
- * \param chemin  Chaine du chemin ou se trouve l'image
- *   */
+/* Fonction qui permet de charger une image */
 void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, char *chemin) {
     (*surface) = IMG_Load(chemin);
     if((*surface) == NULL)
@@ -41,15 +20,7 @@ void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Textur
     SDL_FreeSurface((*surface));
 }
 
-/**
- * \fn affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, itemMenu *item TTF_Font **police, SDL_Color couleur)
- * \param renderer rendu de la fenêtre 
- * \param surface  surface de la fenêtre
- * \param texture Image à appliqué sur le rendu
- * \param item  Sous fenêtre avec le texte à afficher sur l'écran
- * \param police Police d'écriture 
- * \param couleur couleur d'écriture
- *  \brief Fonciton qui permet d'afficher le texte */
+/* Fonciton qui permet d'afficher le texte */
 void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, itemMenu *item, 
                      TTF_Font **police, SDL_Color couleur) {
 
@@ -64,18 +35,11 @@ void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture
     SDL_DestroyTexture((*texture));
 }
 
-/**
- * \fn void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur)
- * \brief Fonction qui permet de créer une fenêtre et le rendu
- * \param window Fenetre à créer
- * \param renderer rendu à créer
- * \param largeur Largeur de la fenêtre
- * \param hauteur Hauteur de la fenêtre
- */
+/* Fonction qui permet de créer une fenêtre et le rendu */
 void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur) {
 
     /* Création de la fenêtre */
-    (*window) = SDL_CreateWindow("MetaTravers", SDL_WINDOWPOS_CENTERED,
+    (*window) = SDL_CreateWindow("MétaTravers", SDL_WINDOWPOS_CENTERED,
                                  SDL_WINDOWPOS_CENTERED, 
                                  largeur, hauteur,
                                  SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN);
@@ -90,25 +54,7 @@ void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeu
         erreur("Création rendu échoué");
 }
 
-/**
- * \fn void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, itemMenu *itemsDemandeQuitter,SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture_image_monstre_terrestre,SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_perso_1_gagnant,SDL_Texture **texture_image_perso_2_gagnant,niveaux *avancee_niveaux, TTF_Font **police)
- * \param renderer                              rendu de la fenêtre  
- * \param surface                               surface de la fenêtre
- * \param texture_image_plein_ecran             Image d'arrière plan
- * \param texture_image_retour_en_arriere       Image de l'îcone du retour en arrière
- * \param texture_image_options                 Texture de l'îcone paramètre
- * \param texture_image_passer                  Texture de l'option passer
- * \param itemsDemandeSauvegarde                Sous fenêtre demande de sauvegarde
- * \param itemsDemandeQuitter                   Sous fenêtre demande de quitter le nveau
- * \param texture_image_fin_premiers_niveaux    Texture fin de niveau
- * \param texture_image_monstre_terrestre       Texture monstre terrestre
- * \param texture_image_monstre_volant          Texture monstre volant 
- * \param texture_image_perso_1_gagnant         Posture personnage 1 quand il gagne
- * \param texture_image_perso_2_gagnant         Posture personnage 2 quand il gagne
- * \param avancee_niveaux                       Niveau ou se trouve le personnage
- * \param police                                Police d'écriture 
- * \brief Fonctions qui permet d'initialiser les objets globaux 
- */
+/* Fonctions qui permet d'initialiser les objets globaux */
 void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,
                            SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,
                            SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, itemMenu *itemsDemandeQuitter,
@@ -118,13 +64,13 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_T
                            niveaux *avancee_niveaux, TTF_Font **police) {
 
     /* Initialisation de l'image du plein écran du menu */
-    chargement_image(renderer, surface, texture_image_plein_ecran, "./images/plein_ecran.png");
+    chargement_image(renderer, surface, texture_image_plein_ecran, "./images/plein_ecran_blanc.png");
 
     /* Initialisation de l'image du retour en arrière */
     chargement_image(renderer, surface, texture_image_retour_en_arriere, "./images/retour_en_arriere.png");
 
     /* Initialisation de l'image des options du menu */
-    chargement_image(renderer, surface, texture_image_options, "./images/options/options.png");
+    chargement_image(renderer, surface, texture_image_options, "./images/options_blanc.png");
 
     /* Initialisation de l'image du passer du menu */
     chargement_image(renderer, surface, texture_image_passer, "./images/passer.png");
@@ -158,19 +104,7 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_T
     sprintf(itemsDemandeQuitter[2].texte, " Non ");
 }
 
-/**
- * \fn void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur)
- * \param renderer                              rendu de la fenêtre  
- * \param rectangle_demande_sauvegarde          la sous fenêtre de sauvegarde 
- * \param surface                               surface de la fenêtre
- * \param texture_texte                         affichage du texte
- * \param police                                police d'écriture
- * \param couleur                               couleur de la police
- * \param itemsDemandeSauvegarde                case réponse
- * \param tailleDemandeSauvegarde               Taille des cases réponses
- * \param largeur                               largeur de la fenêtre
- * \param hauteur                               hauteur de la fenêtre
- * \brief Fonction qui permet de demander à l'utilisateur de sauvegarder */
+/* Fonction qui permet de demander à l'utilisateur de sauvegarder */
 void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde,
                         SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                         itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur) {
@@ -220,22 +154,7 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
     SDL_RenderPresent((*renderer));
 }
 
-/**
- * \fn void demande_quitter_niveau(void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur)
- * \param renderer                              rendu de la fenêtre  
- * \param rectangle_demande_quitter             Fenêtre pour quitter le niveau
- * \param surface                               surface de la fenêtre
- * \param texture_texte                         affichage du texte
- * \param police                                police d'écriture
- * \param couleur                               couleur de la police
- * \param itemsDemandeQuitter                   case réponse
- * \param largeur                               largeur de la fenêtre
- * \param hauteur                               hauteur de la fenêtre
- *  \brief Fonction qui permet de demander à l'utilisateur de quitter le niveau */
-
-
-
-
+/* Fonction qui permet de demander à l'utilisateur de quitter le niveau */
 void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter,
                             SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                             itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur) {
@@ -285,12 +204,7 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
     SDL_RenderPresent((*renderer));
 }
 
-/** 
- * \fn void redimensionnement_fenetre(SDL_Event event,int *largeur,int *hauteur)
- * \param event Evenement qui se passe dans le jeu 
- * \param largeur largeur de la fenêtre à changer en passant par son adresse 
- * \param hauteur hauteur de la fenêtre à changer en passant par son adresse 
- * \brief Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette dernière et les différents objets */
+/* Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette dernière et les différents objets */
 void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur) {
 
     if(event.window.event == SDL_WINDOWEVENT_RESIZED) {
@@ -300,10 +214,7 @@ void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur) {
     }
 }
 
-/**
- * \fn int verification_sauvegarde()
- * \brief Fonction vérifiant si une sauvegarde existe 
- * \return un booléen représentant l'existance de la sauvegarde*/
+/* Vérifie si une sauvegarde existe */
 int verification_sauvegarde() {
     
     FILE *fichier_sauvegarde;
@@ -322,22 +233,7 @@ int verification_sauvegarde() {
     return 1;
 }
 
-/**
- * \fn void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo, modes_t modeActif, personnage_t personnageActif, position_t positionActive, niveaux *avancee_niveaux, int tailleNiveaux)
- * \param touche_aller_a_droite 
- * \param touche_aller_a_gauche
- * \param touche_sauter_monter
- * \param touche_descendre
- * \param touche_interagir
- * \param barre_de_son
- * \param pseudo                        
- * \param modeActif
- * \param personnageActif
- * \param positionActive
- * \param avancee_niveaux
- * \param tailleNiveaux
- * 
- * \brief Fonction qui permet de sauvegarder la partie dans un fichier */
+/* Fonction qui permet de sauvegarder la partie dans un fichier */
 void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
                         SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo,
                         modes_t modeActif, personnage_t personnageActif, position_t positionActive,
@@ -410,7 +306,7 @@ int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool 
     }
     return 0;
 }
-;l
+
 /* Fonction qui permet de déplacer le personnage dans les différents niveaux */
 void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut,
                             int sauter, int avancer, int reculer, int tile_map[18][32]) {
@@ -484,8 +380,10 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
 
         if ((tile_map[(*position_y) + 1][(*position_x)] == 1) || (tile_map[(*position_y) + 1][(*position_x)] == 10) ||
             (tile_map[(*position_y) + 1][(*position_x)] == 13) || (tile_map[(*position_y) + 1][(*position_x)] == 14) ||
-            (tile_map[(*position_y) + 1][(*position_x)] == 15) || (tile_map[(*position_y) + 1][(*position_x)] == 16))
+            (tile_map[(*position_y) + 1][(*position_x)] == 15) || (tile_map[(*position_y) + 1][(*position_x)] == 16)) {
+
             (*tombe) = 0;
+        }
 
         else {
 
@@ -538,7 +436,9 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                      SDL_Texture **texture59, SDL_Texture **texture60,
                      SDL_Texture **texture61, SDL_Texture **texture62,
                      SDL_Texture **texture63, SDL_Texture **texture64, 
-                     SDL_Texture **texture65) {
+                     SDL_Texture **texture65, SDL_Texture **texture66,
+                     SDL_Texture **texture67, SDL_Texture **texture68, 
+                     SDL_Texture **texture69, SDL_Texture **texture70, SDL_Texture **texture71) {
 
     /* Destructions des textures */
     SDL_DestroyTexture((*texture1));  SDL_DestroyTexture((*texture2)); 
@@ -573,7 +473,9 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
     SDL_DestroyTexture((*texture59)); SDL_DestroyTexture((*texture60));
     SDL_DestroyTexture((*texture61)); SDL_DestroyTexture((*texture62));
     SDL_DestroyTexture((*texture63)); SDL_DestroyTexture((*texture64));
-    SDL_DestroyTexture((*texture65));
+    SDL_DestroyTexture((*texture65)); SDL_DestroyTexture((*texture66));
+    SDL_DestroyTexture((*texture67)); SDL_DestroyTexture((*texture68));
+    SDL_DestroyTexture((*texture69)); SDL_DestroyTexture((*texture70)); SDL_DestroyTexture((*texture71));
     
     /* Destructions de la police */
     TTF_CloseFont((*police));

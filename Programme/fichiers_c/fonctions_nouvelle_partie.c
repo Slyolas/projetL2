@@ -206,7 +206,7 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                      SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, int *modeSaisie,
                      modes_t *modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1,
                      SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, personnage_t *personnageActif,
-                     itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son,
+                     itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son, int *pseudo_valide,
                      SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
                      SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte, 
                      TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive, niveaux *avancee_niveaux, int tailleNiveaux,
@@ -267,6 +267,12 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                     /* Options valider */
                     if((clic_case((*event), valider->rectangle)) && (strcmp(pseudo->texte, "\0"))) {
 
+                        for(i = 0; pseudo->texte[i] != '\0'; i++)
+                            if(pseudo->texte[i] != ' ')
+                                (*pseudo_valide) = 1;
+
+                        if((*pseudo_valide)) {
+
                             (*positionActive) = NIVEAU1;
 
                             for(i = 0; i < tailleNiveaux; i++) {
@@ -277,13 +283,12 @@ void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **rende
                             }
 
                             sauvegarder_partie(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,
-                                               touche_descendre, touche_interagir, barre_de_son, pseudo,
-                                               (*modeActif), (*personnageActif), (*positionActive),
-                                               avancee_niveaux, tailleNiveaux);
+                                                touche_descendre, touche_interagir, barre_de_son, pseudo,
+                                                (*modeActif), (*personnageActif), (*positionActive),
+                                                avancee_niveaux, tailleNiveaux);
 
-                            (*page_active) = INTRODUCTION;
-                        
-                        
+                            (*page_active) = INTRODUCTION; 
+                        }
                     }
 
                     break;

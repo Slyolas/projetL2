@@ -1,20 +1,11 @@
 Année 2168. Dans un monde saturé de technologie,
-Où chaque composant électronique et système d'exploitation sont scrutés
-Et explorés maintes fois, votre rôle, en tant qu'antivirus,
-Veillez silencieusement sur la tranquillité de ce royaume numérique.
-Au cœur de cette mer de données,
-Vous percevez les souffrances des systèmes malades,
-Les maux qui affligent chaque composant électronique.
-Alors que la technologie atteint des sommets,
-Les menaces persistent, prenant des formes nouvelles et inattendues.
-Guidée par une quête infinie pour maintenir l'ordre dans le chaos binaire,
-Vous vous plongez dans les profondeurs de chaque circuit,
-Dans les tréfonds de chaque système d'exploitation.
+Où chaque composant électronique et système d'exploitation sont scrutés,
+Vous veillez silencieusement sur la tranquillité de ce royaume numérique,
+Percevez les souffrances des systèmes malades.
+Les menaces persistent, prenant des formes nouvelles et inattendues,
+Vous vous plongez dans les profondeurs de chaque circuit.
 Votre mission :
-Corriger les failles, éradiquer les virus,
 Restaurer l'harmonie dans cet écosystème numérique en perpétuel mouvement.
-Dans ce monde futuriste où la technologie règne en maître,
 Votre présence est le dernier rempart contre le désordre.
-Prêt à intervenir à chaque instant, vous vous lancez dans le Métaverse,
 Armée de votre savoir-faire et de votre détermination,
-Prêt à affronter les défis qui se dressent sur votre chemin !
+Vous vous lancez dans le Métaverse !

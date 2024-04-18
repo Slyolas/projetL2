@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 
 /* Squelette de la fonction initialisation_objets_niveau_4 */
 void initialisation_objets_niveau_4(SDL_Renderer **renderer, SDL_Surface **surface,

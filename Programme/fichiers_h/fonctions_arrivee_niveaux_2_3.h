@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 
 /* Squelette de la fonction salon_arrivee_niveaux_2_3 */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active);
@@ -26,7 +27,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                          SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Texture **texture_image_dossier,
                          SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, SDL_Texture **barre_windows_3,
                          SDL_Texture **barre_windows_4, int tile_map[18][32], SDL_Rect *rectangle_tile, int *mouvement_monstre, modes_t *modeActif, int *mode_difficile,
-                         itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Color couleurNoire, int tile_map_mini_jeu[19][27],
+                         itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Color couleurNoire, int tile_map_mini_jeu_niveau_2[19][27],
                          SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, time_t *timestamp, SDL_Texture **texture_image_perso_gagnant,
                          int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe,
                          int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y, 
@@ -35,7 +36,9 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                          SDL_Texture **texture_image_pipe_vertical, SDL_Texture **texture_image_pipe_horizontal,
                          SDL_Texture **texture_image_pipe_haut_droit, SDL_Texture **texture_image_pipe_bas_droit,
                          SDL_Texture **texture_image_pipe_bas_gauche, SDL_Texture **texture_image_pipe_haut_gauche,
-                         SDL_Texture **texture_image_pipe_courant,
-                         SDL_Texture **texture_image_mur_termine,
+                         SDL_Texture **texture_image_pipe_courant, SDL_Texture **texture_image_mur_termine, int *valide,
                          SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45],
-                         int *piece_selectionnee, int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle);
+                         int *piece_selectionnee, int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle, Mix_Music **musique,
+                         int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y,
+                         SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe,
+                         SDL_Texture **texture_image_fin_labyrinthe);

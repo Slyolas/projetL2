@@ -1,20 +1,7 @@
 #include <../fichiers_h/fonctions_generales.h>
-#include <../fichiers_h/fonctions_arrivee_niveaux_2_3.h>
 #include <../fichiers_h/fonctions_niveau_2.h>
-
-SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur);
-
-void mini_jeux_niveau_3(SDL_Renderer **renderer, SDL_Window **window,
-                        niveaux *avancee_niveaux, int tile_map[18][32],
-                        int *mini_jeu, int *mini_jeu_1_termine,
-                        int *position_x, int *position_y,
-                        int *largeur, int *hauteur, SDL_Rect *rectangle_demande_quitter,
-                        SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleurNoire,
-                        itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int collectibles_intermediaires[3],
-                        page_t *page_active,
-                        int *avancer, int *reculer, int *sauter, int *saut, int *tombe,
-                        SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45], int *piece_selectionnee,
-                        int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle);
+#include <../fichiers_h/fonctions_niveau_3.h>
+#include <../fichiers_h/fonctions_arrivee_niveaux_2_3.h>
 
 /* Fonction qui permet de créer le salon en arrivant dans le niveau 2 ou 3 */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active) {
@@ -26,9 +13,10 @@ void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18
     (*position_x) = 2;
     (*position_y) = 16;
     
+    /* Création du salon pour le niveau 2 */
     if(page_active == NIVEAU_2){
 
-	    /* Création du salon */
+	    /* Définition du salon pour le niveau 2 */
 	    int initialisation_tile_map_1[18][32] = { 
 		{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
@@ -57,9 +45,10 @@ void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18
                 tile_map[y][x] = initialisation_tile_map_1[y][x];
     }
     
+    /* Création du salon pour le niveau 3 */
     else if(page_active == NIVEAU_3) {
 
-	    /* Création du salon */
+        /* Définition du salon pour le niveau 3 */
 	    int initialisation_tile_map_2[18][32] = { 
 		{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
@@ -75,7 +64,7 @@ void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
-		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
+		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
 		{13, 1, 14, 1, 15, 1, 16, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} 
@@ -113,6 +102,7 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
 
         for (x = 0; x < largeur / largeur_tile; x++) {
 
+            /* Définition de la position de la tuile */
             rectangle_tile->x = x * largeur_tile;
             rectangle_tile->y = y * hauteur_tile;
             rectangle_tile->w = largeur_tile;
@@ -129,22 +119,22 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
 
             if(page_active == NIVEAU_2) {
 
-                if((tile_map[y][x] == 5) && (y == 6) && (avancee_niveaux[1].numero_collectible[0] == 0) )
+                if((tile_map[y][x] == 5) && (y == 6) && (avancee_niveaux[1].numero_collectible[0] == 0))
                     if(SDL_RenderCopy((*renderer), avancee_niveaux[1].texture_image_collectible, NULL, rectangle_tile) != 0)
                         erreur("Copie de la texture");
 
                 if((tile_map[y][x] == 5) && (y == 8) && (avancee_niveaux[1].numero_collectible[2] == 0))
                     if(SDL_RenderCopy((*renderer), avancee_niveaux[1].texture_image_collectible, NULL, rectangle_tile) != 0)
                         erreur("Copie de la texture");
-
-                if((tile_map[y][x] == 7) && ((position_x != 16) || (position_y != 16)))
-                    if(SDL_RenderCopy((*renderer), (*texture_image_fin_premiers_niveaux), NULL, rectangle_tile) != 0)
-                        erreur("Copie de la texture");
             }
 
             else if(page_active == NIVEAU_3) {
 
-                if((tile_map[y][x] == 5) && (x == 3) && (avancee_niveaux[2].numero_collectible[0] == 0) )
+                if((tile_map[y][x] == 5) && (y == 5) && (avancee_niveaux[2].numero_collectible[0] == 0))
+                    if(SDL_RenderCopy((*renderer), avancee_niveaux[2].texture_image_collectible, NULL, rectangle_tile) != 0)
+                        erreur("Copie de la texture");
+
+                if((tile_map[y][x] == 5) && (y == 13) && (avancee_niveaux[2].numero_collectible[2] == 0))
                     if(SDL_RenderCopy((*renderer), avancee_niveaux[2].texture_image_collectible, NULL, rectangle_tile) != 0)
                         erreur("Copie de la texture");
             }
@@ -156,32 +146,44 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
                 rectangle_tile->w = largeur_tile * 3;
                 rectangle_tile->h = hauteur_tile * 3;
 
-                SDL_RenderCopy((*renderer), (*texture_image_dossier), NULL, rectangle_tile);
+                if(SDL_RenderCopy((*renderer), (*texture_image_dossier), NULL, rectangle_tile) != 0)
+                    erreur("Copie de la texture");
             }
+
+            if((tile_map[y][x] == 7) && ((position_x != 16) || (position_y != 16)))
+                    if(SDL_RenderCopy((*renderer), (*texture_image_fin_premiers_niveaux), NULL, rectangle_tile) != 0)
+                        erreur("Copie de la texture");
         }
     }
 
-    /* Affiche tout le salon en fonction des valeurs */
-    for (y = 0; y < hauteur / hauteur_tile; y++) {
+    if(page_active == NIVEAU_3) {
+ 
+        /* Affiche tout le salon en fonction des valeurs */
+        for (y = 0; y < hauteur / hauteur_tile; y++) {
 
-        for (x = 0; x < largeur / largeur_tile; x++) {
+            for (x = 0; x < largeur / largeur_tile; x++) {
 
-            rectangle_tile->x = x * largeur_tile;
-            rectangle_tile->y = y * hauteur_tile;
-            rectangle_tile->w = largeur_tile * 2;
-            rectangle_tile->h = hauteur_tile;
+                rectangle_tile->x = x * largeur_tile;
+                rectangle_tile->y = y * hauteur_tile;
+                rectangle_tile->w = largeur_tile * 2;
+                rectangle_tile->h = hauteur_tile;
 
-            if(tile_map[y][x] == 13) 
-                SDL_RenderCopy((*renderer), (*barre_windows_1), NULL, rectangle_tile);
-        
-            if(tile_map[y][x] == 14)
-                SDL_RenderCopy((*renderer), (*barre_windows_2), NULL, rectangle_tile);
+                if(tile_map[y][x] == 13) 
+                    if(SDL_RenderCopy((*renderer), (*barre_windows_1), NULL, rectangle_tile) != 0)
+                        erreur("Copie de la texture");
             
-            if(tile_map[y][x] == 15)
-                SDL_RenderCopy((*renderer), (*barre_windows_3), NULL, rectangle_tile);
-            
-            if(tile_map[y][x] == 16)
-                SDL_RenderCopy((*renderer), (*barre_windows_4), NULL, rectangle_tile);
+                if(tile_map[y][x] == 14)
+                    if(SDL_RenderCopy((*renderer), (*barre_windows_2), NULL, rectangle_tile) != 0)
+                        erreur("Copie de la texture");
+                
+                if(tile_map[y][x] == 15)
+                    if(SDL_RenderCopy((*renderer), (*barre_windows_3), NULL, rectangle_tile) != 0)
+                        erreur("Copie de la texture");
+                
+                if(tile_map[y][x] == 16)
+                    if(SDL_RenderCopy((*renderer), (*barre_windows_4), NULL, rectangle_tile) != 0)
+                        erreur("Copie de la texture");
+            }
         }
     }
 
@@ -218,7 +220,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                          SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Texture **texture_image_dossier,
                          SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, SDL_Texture **barre_windows_3,
                          SDL_Texture **barre_windows_4, int tile_map[18][32], SDL_Rect *rectangle_tile, int *mouvement_monstre, modes_t *modeActif, int *mode_difficile,
-                         itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Color couleurNoire, int tile_map_mini_jeu[19][27],
+                         itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Color couleurNoire, int tile_map_mini_jeu_niveau_2[19][27],
                          SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, time_t *timestamp, SDL_Texture **texture_image_perso_gagnant,
                          int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe,
                          int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y, 
@@ -227,19 +229,25 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                          SDL_Texture **texture_image_pipe_vertical, SDL_Texture **texture_image_pipe_horizontal,
                          SDL_Texture **texture_image_pipe_haut_droit, SDL_Texture **texture_image_pipe_bas_droit,
                          SDL_Texture **texture_image_pipe_bas_gauche, SDL_Texture **texture_image_pipe_haut_gauche,
-                         SDL_Texture **texture_image_pipe_courant,
-                         SDL_Texture **texture_image_mur_termine,
+                         SDL_Texture **texture_image_pipe_courant, SDL_Texture **texture_image_mur_termine, int *valide,
                          SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45],
-                         int *piece_selectionnee, int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle) {
+                         int *piece_selectionnee, int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle, Mix_Music **musique,
+                         int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y,
+                         SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe,
+                         SDL_Texture **texture_image_fin_labyrinthe) {
 
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
 
+    Mix_Chunk *effet_sonore;
+
     int x, y, i;
 
+    /* Vérification si le joueur n'est pas dans un mini-jeu ou si le niveau est actif */
     if(((!((*mini_jeu) == 1)) && ((*page_active) == NIVEAU_2)) ||
        ((!(*mini_jeu)) && ((*page_active) == NIVEAU_3))) {
 
+        /* Boucle de gestion d'événement */
         while(SDL_PollEvent(event)) {
 
             switch(event->type) {
@@ -253,8 +261,11 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                     break;
 
+                /* Si une touche au clavier est pressée */
                 case SDL_KEYDOWN:
 
+                    /* On met les valeurs à 1 pour dire qu'on a appuyer sur la touche correspondante */
+                    /* Cela permet l'appuie de plusieurs touches en même temps */
                     if(event->key.keysym.sym == (*touche_sauter_monter))
                         (*sauter) = 1;
 
@@ -268,6 +279,16 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                         /* Cas où vous retournez sur la carte */
                         if (((*mini_jeu_termine)) && ((*position_x) == 20) && ((*position_y) == 16)) {
+
+                            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
+                                erreur("Chargement de l'effet sonore");
+                            
+                            Mix_PlayChannel(1, effet_sonore, 0);
+
+                            if(((*musique) = Mix_LoadMUS("./sons/musiques/salon.mp3")) == NULL)
+                                erreur("Chargement de la musique");
+                            
+                            Mix_PlayMusic((*musique), -1);
 
                             (*mini_jeu) = 0;
                             (*mini_jeu_2_termine) = 1;
@@ -286,8 +307,10 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                     break;
 
+                /* Si une touche au clavier est relâchée  */
                 case SDL_KEYUP:
 
+                    /* On met les valeurs à 0 pour dire qu'on a relâchée la touche correspondante */
                     if(event->key.keysym.sym == (*touche_sauter_monter))
                             (*sauter) = 0;
 
@@ -457,24 +480,36 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                         }
             }
         }
-
     }
 
+    /* Si le niveau actif est le niveau 2 */
     if((*page_active) == NIVEAU_2) {
 
         /* Cas où le joueur rentre dans le premier dossier */    
         if(((*position_x) >= 2) && ((*position_x <= 4)) && ((*position_y) >= 4) && ((*position_y <= 6)) && (!(*mini_jeu)) && (!(*mini_jeu_1_termine))) {
+
+            if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
+                    erreur("Chargement de la musique");
+                
+            Mix_PlayMusic((*musique), -1);
 
             (*largeur_tile) = (*largeur) / 27;
             (*hauteur_tile) = (*hauteur) / 19;
 
             (*mini_jeu) = 1;
 
-            mini_jeu_1_niveau_2(position_x, position_y, tile_map_mini_jeu);
+            (*valide) = 0;
+
+            mini_jeu_1_niveau_2(position_x, position_y, tile_map_mini_jeu_niveau_2);
         }
 
         /* Cas où le joueur rentre dans le second dossier */   
         else if(((*position_x) >= 27) && ((*position_x <= 29)) && ((*position_y) >= 2) && ((*position_y <= 4)) && (!(*mini_jeu)) && (!(*mini_jeu_2_termine))) {
+
+            if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
+                    erreur("Chargement de la musique");
+                
+            Mix_PlayMusic((*musique), -1);
             
             (*mini_jeu) = 2;
 
@@ -488,52 +523,54 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
         /* Cas où le joueur récupère un collectible */
 
-        if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 6))
+        if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 6) && (!avancee_niveaux[1].numero_collectible[0])) {
+
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+                
+            Mix_PlayChannel(1, effet_sonore, 0);
+
             avancee_niveaux[1].numero_collectible[0] = 1;
+        }
 
-        if(((*mini_jeu) == 2) && (tile_map[(*position_y)][(*position_x)] == 5))
+        if(((*mini_jeu) == 2) && (tile_map[(*position_y)][(*position_x)] == 5) && (!avancee_niveaux[1].numero_collectible[1])) {
+
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+                
+            Mix_PlayChannel(1, effet_sonore, 0);
+
             avancee_niveaux[1].numero_collectible[1] = 1;
+        }
 
-        if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 8))
+        if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 8) && (!avancee_niveaux[1].numero_collectible[2])) {
+
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+                
+            Mix_PlayChannel(1, effet_sonore, 0);
+
             avancee_niveaux[1].numero_collectible[2] = 1;
-
-        /* Cas où vous avez fini le niveau */
-        if (tile_map[(*position_y)][(*position_x)] == 7) {
-
-            /* Mise à jour du rendu du salon */
-            mise_a_jour_rendu_arrivee_niveaux_2_3(renderer, texture_image_fond, texture_image_sol,
-                                                  rectangle_plein_ecran, texture_image_plein_ecran, texture_image_fin_premiers_niveaux,
-                                                  texture, rectangle_tile, texture_image_dossier,
-                                                  barre_windows_1, barre_windows_2, barre_windows_3,
-                                                  barre_windows_4, texture_image_perso_gagnant, rectangle_personnage,
-                                                  (*position_x), (*position_y), tile_map, avancee_niveaux,
-                                                  (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile), (*page_active));
-
-            SDL_Delay(1000); 
-
-            avancee_niveaux[1].niveau_fini = 1;
-
-            (*page_active) = CARTE;
         }
 
         /* Cas où le joueur est dans un mini jeu */ 
         if((*mini_jeu))
             /* Mise à jour du rendu du mini jeu */
-            mini_jeux_niveau_2(renderer, window, texture_image_fond, texture_image_sol,
+            mini_jeux_niveau_2(event, renderer, window, texture_image_fond, texture_image_sol,
                                rectangle_plein_ecran,texture_image_plein_ecran, plein_ecran, texture_image_porte, avancee_niveaux,
                                texture, rectangle_tile, mini_jeu, mini_jeu_1_termine, mini_jeu_2_termine,
                                texture_image_personnage, rectangle_personnage, (*mini_jeu_termine),
-                               position_x, position_y, tile_map, tile_map_mini_jeu, texture_image_monstre_terrestre, texture_image_monstre_volant,
+                               position_x, position_y, tile_map, tile_map_mini_jeu_niveau_2, texture_image_monstre_terrestre, texture_image_monstre_volant,
                                largeur, hauteur, largeur_tile, hauteur_tile,
                                texture_image_mur_mini_jeu, touche_aller_a_droite, touche_aller_a_gauche, touche_interagir,
-                               touche_sauter_monter, touche_descendre,
+                               touche_sauter_monter, touche_descendre, valide,
                                texture_image_pipe_vertical,texture_image_pipe_horizontal,
                                texture_image_pipe_haut_droit, texture_image_pipe_bas_droit,
                                texture_image_pipe_bas_gauche,texture_image_pipe_haut_gauche,
                                texture_image_pipe_courant, rectangle_demande_quitter,
                                surface, texture_texte, police, couleurNoire,
                                itemsDemandeQuitter, tailleDemandeQuitter, collectibles_intermediaires,
-                               texture_image_mur_termine, page_active,
+                               texture_image_mur_termine, page_active, musique,
                                avancer, reculer, sauter, saut, tombe);
     }
 
@@ -541,6 +578,11 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
         /* Cas où le joueur rentre dans le premier dossier */    
         if(((*position_x) >= 5) && ((*position_x <= 7)) && ((*position_y) >= 3) && ((*position_y <= 5)) && (!(*mini_jeu)) && (!(*mini_jeu_1_termine))) {
+
+            if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
+                    erreur("Chargement de la musique");
+                
+            Mix_PlayMusic((*musique), -1);
 
             (*mini_jeu) = 1;
 
@@ -552,7 +594,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             for(i = 0; i < 45; i++)
                 piece_bloquee[i] = 0;
 
-            if ((*plein_ecran))
+            if((*plein_ecran))
                 SDL_SetWindowFullscreen((*window), 0);
 
             SDL_SetWindowSize((*window), 1600, 520);
@@ -586,25 +628,102 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             SDL_SetWindowResizable((*window), SDL_FALSE);
         }
 
+        /* Cas où le joueur rentre dans le second dossier */    
+        else if(((*position_x) >= 24) && ((*position_x <= 26)) && ((*position_y) >= 3) && ((*position_y <= 5)) && (!(*mini_jeu)) && (!(*mini_jeu_2_termine))) {
+
+            if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
+                    erreur("Chargement de la musique");
+                
+            Mix_PlayMusic((*musique), -1);
+
+            (*mini_jeu) = 2;
+
+            (*descendre) = 0;
+            (*interagir) = 0;
+
+            (*largeur_tile) = (*largeur) / 32;
+            (*hauteur_tile) = (*hauteur) / 24;
+
+            mini_jeu_2_niveau_3(position_x, position_y, bloc_x, bloc_y, tile_map_mini_jeu_niveau_3);
+        }
+
+        if((*mini_jeu_1_termine) && (*mini_jeu_2_termine)) {
+            tile_map[13][25] = 5;
+            tile_map[16][16] = 7;
+        }
+
         /* Cas où le joueur récupère un collectible */
 
-        if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_x) == 3))
+        if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 5) && (!avancee_niveaux[2].numero_collectible[0])) {
+
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+                
+            Mix_PlayChannel(1, effet_sonore, 0);
+
             avancee_niveaux[2].numero_collectible[0] = 1;
+        }
+
+        if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 13) && (!avancee_niveaux[2].numero_collectible[2])) {
+
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+                
+            Mix_PlayChannel(1, effet_sonore, 0);
+
+            avancee_niveaux[2].numero_collectible[2] = 1;
+        }
 
         /* Cas où le joueur est dans un mini jeu */ 
         if((*mini_jeu))
             /* Mise à jour du rendu du mini jeu */
-            mini_jeux_niveau_3(renderer, window, 
+            mini_jeux_niveau_3(event, renderer, window,
+                               rectangle_plein_ecran,texture_image_plein_ecran, plein_ecran,
                                avancee_niveaux, tile_map,
-                               mini_jeu, mini_jeu_1_termine,
-                               position_x, position_y,
+                               mini_jeu, mini_jeu_1_termine, mini_jeu_2_termine,
+                               position_x, position_y, texture,
                                largeur, hauteur, rectangle_demande_quitter,
                                surface, texture_texte, police, couleurNoire,
                                itemsDemandeQuitter, tailleDemandeQuitter, collectibles_intermediaires,
-                               page_active,
+                               page_active, rectangle_tile, largeur_tile, hauteur_tile,
                                avancer, reculer, sauter, saut, tombe,
                                rectangle_piece, piece_bloquee, rectangle_emplacement_piece, piece_selectionnee,
-                               decalage_x, decalage_y, texture_image_puzzle);
+                               decalage_x, decalage_y, texture_image_puzzle,
+                               tile_map_mini_jeu_niveau_3, descendre, interagir, bloc_x, bloc_y,
+                               texture_image_sol_labyrinthe, texture_image_bordure_labyrinthe,
+                               texture_image_fin_labyrinthe, musique,
+                               texture_image_personnage, rectangle_personnage,
+                               texture_image_mur_termine, texture_image_mur_mini_jeu,
+                               touche_aller_a_droite, touche_aller_a_gauche, touche_interagir,
+                               touche_sauter_monter, touche_descendre, modeActif);
+    }
+
+    /* Cas où vous avez fini le niveau */
+    if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 7)) {
+
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/fin_niveaux.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+        
+        Mix_PlayChannel(1, effet_sonore, 0);
+
+        /* Mise à jour du rendu du salon */
+        mise_a_jour_rendu_arrivee_niveaux_2_3(renderer, texture_image_fond, texture_image_sol,
+                                                rectangle_plein_ecran, texture_image_plein_ecran, texture_image_fin_premiers_niveaux,
+                                                texture, rectangle_tile, texture_image_dossier,
+                                                barre_windows_1, barre_windows_2, barre_windows_3,
+                                                barre_windows_4, texture_image_perso_gagnant, rectangle_personnage,
+                                                (*position_x), (*position_y), tile_map, avancee_niveaux,
+                                                (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile), (*page_active));
+
+        SDL_Delay(1000); 
+
+        if((*page_active) == NIVEAU_2)
+            avancee_niveaux[1].niveau_fini = 1;
+
+        else if((*page_active) == NIVEAU_3)
+            avancee_niveaux[2].niveau_fini = 1;
+
+        (*page_active) = CARTE;
     }
 
     /* Cas où le joueur n'est pas dans un mini jeu */ 

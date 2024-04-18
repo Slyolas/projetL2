@@ -5,7 +5,7 @@
 # Compilation avec SDL
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror `sdl2-config --cflags`
-LDFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf
+LDFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 # Spécification des répertoires
 SRC_DIR = fichiers_c

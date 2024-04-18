@@ -5,6 +5,8 @@
 void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_menu,
                                           itemMenu *titre, itemMenu *itemsMenu, int tailleMenu) {
 
+    int i;
+    
     /* Initialisation de l'image de fond du menu */
     chargement_image(renderer, surface, texture_image_menu, "./images/ecran_accueil.png");
 
@@ -13,21 +15,29 @@ void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface *
 
 	/* Initialisation du texte dans les items du menu */
     if(tailleMenu == 2) {
-        for(int i = 0; i < tailleMenu; i++) {
-        if(!i)
-            sprintf(itemsMenu[i].texte, " Nouvelle Partie ");
-        else
-            sprintf(itemsMenu[i].texte, " Options ");
+
+        for(i = 0; i < tailleMenu; i++) {
+
+            if(!i)
+                sprintf(itemsMenu[i].texte, " Nouvelle Partie ");
+
+            else
+                sprintf(itemsMenu[i].texte, " Options ");
+        }
     }
-    }
+
     else {
-        for(int i = 0; i < tailleMenu; i++) {
-        if(!i)
-            sprintf(itemsMenu[i].texte, "    Continuer    ");
-        else if(i == 1)
-            sprintf(itemsMenu[i].texte, " Nouvelle Partie ");
-        else
-            sprintf(itemsMenu[i].texte, "     Options     ");
+
+        for(i = 0; i < tailleMenu; i++) {
+
+            if(!i)
+                sprintf(itemsMenu[i].texte, "    Continuer    ");
+
+            else if(i == 1)
+                sprintf(itemsMenu[i].texte, " Nouvelle Partie ");
+
+            else
+                sprintf(itemsMenu[i].texte, "     Options     ");
         }
     }
 }
@@ -36,7 +46,7 @@ void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface *
 void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **texture_image_menu,
                                       SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                       itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
-                                      SDL_Color couleurTitre, SDL_Color couleurNoire,
+                                      SDL_Color couleurTitre, SDL_Color couleurNoire, int selection_menu,
                                       itemMenu *itemsMenu, int tailleMenu, int largeur, int hauteur) {
     
     int i;
@@ -72,11 +82,23 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
     affichage_texte(renderer, surface, texture_texte, titre, 
                     police, couleurTitre);
 
-    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
-
     /* Dessine les éléments du menu */
     if(tailleMenu == 2) {
+
         for (i = 0; i < tailleMenu; i++) {
+
+            if(selection_menu == (i + 1)) {
+
+                itemsMenu[i].rectangle.x = largeur / 2 - largeur / 6 - largeur / 200;
+                itemsMenu[i].rectangle.y = hauteur / 3 + (i+1) * hauteur / 13 + i * hauteur / 11 - hauteur / 12;
+                itemsMenu[i].rectangle.w = largeur / 3 + largeur / 100;
+                itemsMenu[i].rectangle.h = hauteur / 10 + hauteur / 60;
+
+                SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
+                SDL_RenderFillRect((*renderer), &(itemsMenu[i].rectangle));
+            }
+
+            SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
 
             itemsMenu[i].rectangle.x = largeur / 2 - largeur / 6;
             itemsMenu[i].rectangle.y = hauteur / 3 + (i+1) * hauteur / 13 + i * hauteur / 11;
@@ -87,8 +109,23 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
                             police, couleurNoire);
         }
     }
+
     else {
+
         for (i = 0; i < tailleMenu; i++) {
+
+            if(selection_menu == (i + 1)) {
+
+                itemsMenu[i].rectangle.x = largeur / 2 - largeur / 6 - largeur / 200;
+                itemsMenu[i].rectangle.y = hauteur / 3 + (i+1) * hauteur / 13 + i * hauteur / 11 - hauteur / 12;
+                itemsMenu[i].rectangle.w = largeur / 3 + largeur / 100;
+                itemsMenu[i].rectangle.h = hauteur / 10 + hauteur / 60;
+
+                SDL_SetRenderDrawColor((*renderer), 175, 95, 185, 255);
+                SDL_RenderFillRect((*renderer), &(itemsMenu[i].rectangle));
+            }
+
+            SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
 
             itemsMenu[i].rectangle.x = largeur / 2 - largeur / 6;
             itemsMenu[i].rectangle.y = hauteur / 3 + i * hauteur / 6;
@@ -108,7 +145,7 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
 void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_menu,
                     SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                     itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
-                    SDL_Color couleurTitre, SDL_Color couleurNoire,
+                    SDL_Color couleurTitre, SDL_Color couleurNoire, int code_de_triche[3], int *selection_menu,
                     itemMenu *itemsMenu, int tailleMenu, int *largeur, int *hauteur, page_t *page_active) {
 
     while(SDL_PollEvent(event)) {
@@ -118,6 +155,25 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                 /* Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
+
+                    break;
+
+                case SDL_MOUSEMOTION:
+                    
+                    if((event->motion.x >= itemsMenu[0].rectangle.x) && (event->motion.x <= (itemsMenu[0].rectangle.x + itemsMenu[0].rectangle.w)) &&
+                       (event->motion.y >= itemsMenu[0].rectangle.y) && (event->motion.y <= (itemsMenu[0].rectangle.y + itemsMenu[0].rectangle.h)))
+                       (*selection_menu) = 1;
+
+                    else if((event->motion.x >= itemsMenu[1].rectangle.x) && (event->motion.x <= (itemsMenu[1].rectangle.x + itemsMenu[1].rectangle.w)) &&
+                            (event->motion.y >= itemsMenu[1].rectangle.y) && (event->motion.y <= (itemsMenu[1].rectangle.y + itemsMenu[1].rectangle.h)))
+                       (*selection_menu) = 2;
+
+                    else if((event->motion.x >= itemsMenu[2].rectangle.x) && (event->motion.x <= (itemsMenu[2].rectangle.x + itemsMenu[2].rectangle.w)) &&
+                            (event->motion.y >= itemsMenu[2].rectangle.y) && (event->motion.y <= (itemsMenu[2].rectangle.y + itemsMenu[2].rectangle.h)))
+                       (*selection_menu) = 3;
+
+                    else
+                        (*selection_menu) = 0; 
 
                     break;
 
@@ -144,6 +200,19 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
 
                     break;
 
+                case SDL_KEYDOWN:
+
+                        if((event->key.keysym.sym == SDLK_g) && (code_de_triche[1]))
+                            code_de_triche[0] = 1;
+
+                        if(event->key.keysym.sym == SDLK_b)
+                            code_de_triche[1] = 1;
+
+                        if((event->key.keysym.sym == SDLK_n) && (code_de_triche[0]))
+                            code_de_triche[2] = 1;
+
+                        break;
+
                 /* Quitter le programme */
                 case SDL_QUIT:
                     (*programme_lance) = SDL_FALSE;
@@ -158,6 +227,6 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
         mise_a_jour_rendu_menu_principal(renderer, texture_image_menu,
                                          rectangle_plein_ecran, texture_image_plein_ecran,
                                          titre, surface, texture_texte, police,
-                                         couleurTitre, couleurNoire,
+                                         couleurTitre, couleurNoire, (*selection_menu),
                                          itemsMenu, tailleMenu, (*largeur), (*hauteur));
 }
