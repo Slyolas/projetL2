@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Metatravers:  Fichier source de fichiers_h/fonctions_generales.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Metatravers
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_dfc0e5624c86c53ce98c08a421439ef9.html">fichiers_h</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">fonctions_generales.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/* Définir le nombre d&#39;FPS (100 / nombre_FPS) */</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define FPS_LIMIT 16</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Enumération de constantes pour l&#39;onglet actif des options */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> option_s {ONGLET_SON, ONGLET_TOUCHES} option_t;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/* Enumération de constantes pour le mode séléctionné */</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> modes_s {MODE_NORMAL, MODE_HARD} modes_t;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/* Enumération de constantes pour le personnage séléctionné */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> personnage_s {PERSONNAGE_1, PERSONNAGE_2} personnage_t;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/* Enumération de constantes pour la page */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> page_s {MENU_PRINCIPAL, OPTIONS, NOUVELLE_PARTIE, INTRODUCTION, CARTE, NIVEAU_1, NIVEAU_2, NIVEAU_3, NIVEAU_4} page_t;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* Enumération de constantes pour la position sur la carte */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> position_s {NIVEAU0, NIVEAU1, NIVEAU2, NIVEAU3, NIVEAU4} position_t; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/* Enumération de constantes pour la direction du personnage sur la carte */</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> direction_s {HAUT, BAS, GAUCHE, DROITE, HAUT_DROITE, BAS_GAUCHE} direction_t; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/* Structure pour représenter une case avec un rectangle et du texte */</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structitemMenu.html">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    SDL_Rect rectangle;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">char</span> texte[60];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <a class="code" href="structitemMenu.html">itemMenu</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/* Structure pour représenter une barre de son */</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structbarreDeSon.html">   35</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    SDL_Rect barre;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    SDL_Rect curseur;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">float</span> volume;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">float</span> volume_precedent;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <a class="code" href="structbarreDeSon.html">barreDeSon</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/* Structure pour représenter les collectibles de chaque niveaux */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structniveaux.html">   43</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> niveau_fini;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    SDL_Texture *texture_image_collectible;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> numero_collectible[3];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;} <a class="code" href="structniveaux.html">niveaux</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/* Squelette de la fonction erreur */</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> erreur(<span class="keyword">const</span> <span class="keywordtype">char</span> *message);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/* Squelette de la fonction chargement_image */</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, <span class="keywordtype">char</span> *chemin);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/* Squelette de la fonction affichage_texte */</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, <a class="code" href="structitemMenu.html">itemMenu</a> *item, </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                     TTF_Font **police, SDL_Color couleur);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/* Squelette de la fonction creer_fenetre_rendu */</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, <span class="keywordtype">int</span> largeur, <span class="keywordtype">int</span> hauteur);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">/* Squelette de la fonction initialisation_objets */</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                           SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                           SDL_Texture **texture_image_passer, <a class="code" href="structitemMenu.html">itemMenu</a> *itemsDemandeSauvegarde, <a class="code" href="structitemMenu.html">itemMenu</a> *itemsDemandeQuitter,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                           SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture_image_monstre_terrestre,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                           SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_perso_1_gagnant,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                           SDL_Texture **texture_image_perso_2_gagnant,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                           <a class="code" href="structniveaux.html">niveaux</a> *avancee_niveaux, TTF_Font **police);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/* Squelette de la fonction demande_sauvegarde */</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        <a class="code" href="structitemMenu.html">itemMenu</a> *itemsDemandeSauvegarde, <span class="keywordtype">int</span> tailleDemandeSauvegarde, <span class="keywordtype">int</span> largeur, <span class="keywordtype">int</span> hauteur);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/* Squelette de la fonction demande_quitter_niveau */</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            <a class="code" href="structitemMenu.html">itemMenu</a> *itemsDemandeQuitter, <span class="keywordtype">int</span> tailleDemandeQuitter, <span class="keywordtype">int</span> largeur, <span class="keywordtype">int</span> hauteur);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/* Squelette de la fonction redimensionnement_fenetre */</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> redimensionnement_fenetre(SDL_Event event, <span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/* Squelette de la fonction verification_sauvegarde */</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">int</span> verification_sauvegarde();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/* Squelette de la fonction sauvegarder_partie */</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span> sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, <a class="code" href="structbarreDeSon.html">barreDeSon</a> *barre_de_son, <a class="code" href="structitemMenu.html">itemMenu</a> *pseudo,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        modes_t modeActif, personnage_t personnageActif, position_t positionActive,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        <a class="code" href="structniveaux.html">niveaux</a> *avancee_niveaux, <span class="keywordtype">int</span> tailleNiveaux);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/* Squelette de la fonction clic_case */</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">int</span> clic_case(SDL_Event event, SDL_Rect rectangle);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/* Squelette de la fonction deplacement_personnage */</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">void</span> deplacement_personnage(<span class="keywordtype">int</span> *saut, <span class="keywordtype">int</span> *tombe, <span class="keywordtype">int</span> *position_x, <span class="keywordtype">int</span> *position_y, <span class="keywordtype">int</span> *position_avant_saut,</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                            <span class="keywordtype">int</span> sauter, <span class="keywordtype">int</span> avancer, <span class="keywordtype">int</span> reculer, <span class="keywordtype">int</span> tile_map[18][32]);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">/* Squelette de la fonction clic_plein_ecran */</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">int</span> clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/* Squelette de la fonction SDL_LimitFPS */</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">void</span> SDL_LimitFPS(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> limit);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">/* Squelette de la fonction detruire_objets */</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">void</span> detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **texture2,</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                     SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                     SDL_Texture **texture7, SDL_Texture **texture8,</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                     SDL_Texture **texture9, SDL_Texture **texture10, SDL_Texture **texture11,</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                     SDL_Texture **texture12, SDL_Texture **texture13, SDL_Texture **texture14,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                     SDL_Texture **texture15, SDL_Texture **texture16,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                     SDL_Texture **texture17, SDL_Texture **texture18, </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                     SDL_Texture **texture19, SDL_Texture **texture20,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                     SDL_Texture **texture21, SDL_Texture **texture22,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                     SDL_Texture **texture23, SDL_Texture **texture24,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                     SDL_Texture **texture25, SDL_Texture **texture26,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                     SDL_Texture **texture27, SDL_Texture **texture28,</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                     SDL_Texture **texture29, SDL_Texture **texture30,</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                     SDL_Texture **texture31, SDL_Texture **texture32,</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                     SDL_Texture **texture33, SDL_Texture **texture34,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                     SDL_Texture **texture35, SDL_Texture **texture36, SDL_Texture **texture37,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                     SDL_Texture **texture38, SDL_Texture **texture39, SDL_Texture **texture40,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                     SDL_Texture **texture41, SDL_Texture **texture42,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                     SDL_Texture **texture43, SDL_Texture **texture44,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                     SDL_Texture **texture45, SDL_Texture **texture46,</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                     SDL_Texture **texture47, SDL_Texture **texture48, </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                     SDL_Texture **texture49, SDL_Texture **texture50,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                     SDL_Texture **texture51, SDL_Texture **texture52,</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                     SDL_Texture **texture53, SDL_Texture **texture54,</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                     SDL_Texture **texture55, SDL_Texture **texture56, </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                     SDL_Texture **texture57, SDL_Texture **texture58,</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                     SDL_Texture **texture59, SDL_Texture **texture60,</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                     SDL_Texture **texture61, SDL_Texture **texture62,</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                     SDL_Texture **texture63, SDL_Texture **texture64, </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                     SDL_Texture **texture65, SDL_Texture **texture66,</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                     SDL_Texture **texture67, SDL_Texture **texture68, </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                     SDL_Texture **texture69, SDL_Texture **texture70, SDL_Texture **texture71);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">/* Squelette de la fonction detruire_fenetre_rendu */</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window);</div>
+<div class="ttc" id="astructbarreDeSon_html"><div class="ttname"><a href="structbarreDeSon.html">barreDeSon</a></div><div class="ttdef"><b>Definition:</b> fonctions_generales.h:35</div></div>
+<div class="ttc" id="astructitemMenu_html"><div class="ttname"><a href="structitemMenu.html">itemMenu</a></div><div class="ttdef"><b>Definition:</b> fonctions_generales.h:29</div></div>
+<div class="ttc" id="astructniveaux_html"><div class="ttname"><a href="structniveaux.html">niveaux</a></div><div class="ttdef"><b>Definition:</b> fonctions_generales.h:43</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
