@@ -1,0 +1,7 @@
+#Ignore les pages html 
+\html
+#Ignore LaTeX
+\latex
+#Ignore répertoire des tests unitaires
+\test unitaire
+
