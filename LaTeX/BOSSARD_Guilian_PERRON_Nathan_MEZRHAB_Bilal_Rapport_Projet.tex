@@ -138,6 +138,8 @@
                 \includegraphics[width=13cm]{images/schéma_navigation.png}\\
             \end{figure}
 
+            Pour plus d'informations, voir le schéma détaillé dans l'annexe : \ref{subsec:schéma_navigation_detaille}\\
+
             \tabto{1cm} De plus, les quatre niveaux auxquels le joueur peut jouer demandent des mécaniques souvent différentes pour pas que l’utilisateur ne perde l’envie de jouer au bout d’un certain temps. Dans tous les niveaux et en particulier dans le premier et le dernier, le joueur doit utiliser les touches pour aller vers la droite, vers la gauche et pour sauter afin de pouvoir déplacer le personnage. Cependant, dans les mini-jeux des deuxième et troisième niveaux, ces touches ne correspondent pas exactement au déplacement du personnage comme on pouvait le voir jusqu’à présent. Dans le premier mini-jeu du second niveau, l’objectif et de relier des tuyaux entre eux pour faire un chemin. Le joueur utilisera les touches principales pour se déplacer de tuyau en tuyau et la touche d’interaction pour tourner ces derniers. Nous pouvons retrouver cette mécanique dans le second mini-jeu du troisième niveau, qui va juste demander en plus au joueur de rester appuyé sur la touche d’interaction, pour pouvoir bouger un bloc du départ à l’arrivée et tout ceci dans un labyrinthe. Pour finir, dans le premier mini-jeu du troisième niveau, le joueur reconstitura un composant qui est divisé en plusieurs parties. Il devra seulement utiliser la souris pour y parvenir.\\
  
     \newpage
@@ -177,7 +179,7 @@
                 \tabto{1cm} GitHub est le premier outil que nous avons appris à manipuler et à utiliser pour mettre notre code en commun. Cet outil fournit beaucoup de possibilités d’organisation, tel que la création de différentes branches et la faculté de fusion. Des complications dûes à notre manque de connaissance sur cet outil et différents problèmes rencontrés nous ont fait perdre du temps. Nous avons donc décidé de limiter l’usage de GitHub pour tirer et pousser nos travaux dans la branche principal, laissant une sauvegarde de côté en cas de soucis sur le code principal.
 
             \subsubsection{GCC}
-                    \tabto{1cm} GCC a été choisi comme compilateur dû à sa capacité à créer des versions «~.o~» de nos programmes, permettant une compilation plus rapide des modules.
+                \tabto{1cm} GCC a été choisi comme compilateur dû à sa capacité à créer des versions «~.o~» de nos programmes, permettant une compilation plus rapide des modules.
             
             \subsubsection{Valgrind}
                 \tabto{1cm} L’usage de Valgrind nous a permis la détection des différentes fuites de mémoire et du bon usage des pointeurs (hors usage de la bibliothèque SDL qui en produit naturellement). Cet outil nous a fourni une bonne détection des erreurs d’usage des pointeurs, notamment les erreurs de segmentation et des fuites de mémoire liées à l’oubli de la commande «~free~» après une allocation dynamique.
@@ -244,13 +246,24 @@
 
     \section{Annexe}
 
-        \subsection{Doxygen}
-        \label{subsec:doxygen}
+        \subsection{Schéma détaillé de la navigation}
+            \label{subsec:schéma_navigation_detaille}
+            \includegraphics[width=13cm]{images/schéma_navigation_détaillé.png}
 
         \newpage
+
+        \subsection{Doxygen}
+            \label{subsec:doxygen}
+            
+            \begin{center}
+                \includegraphics[width=13cm]{images/doxygen_html.png}\\
+                \includegraphics[width=13cm]{images/doxygen_niveau.png}\\
+                \includegraphics[width=13cm]{images/doxygen_itemMenu.png}\\
+                \includegraphics[width=13cm]{images/doxygen_barreDeSon.png}
+            \end{center}
             
         \subsection{Test unitaire du pseudo}
-        \label{subsec:test_unitaire_pseudo}
-        \includegraphics[width=13cm]{images/test_unitaire_pseudo.png}
+            \label{subsec:test_unitaire_pseudo}
+            \includegraphics[width=13cm]{images/test_unitaire_pseudo.png}
 
 \end{document}
