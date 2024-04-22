@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "deplacement_personnage.h": "c",
+        "fonctions_generales.h": "c",
+        "fonctions_niveau_4.h": "c",
+        "fonctions_niveau_3.h": "c",
+        "fonctions_arrivee_niveaux_2_3.h": "c",
+        "fonctions_introduction.h": "c",
+        "fonctions_options.h": "c",
+        "fonctions_carte.h": "c",
+        "fonctions_menu_principal.h": "c",
+        "commun.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
