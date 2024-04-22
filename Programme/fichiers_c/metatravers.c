@@ -1,21 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+/**
+ * \file metatravers.c
+ * \brief Fichier principal du programme 
+ * 
+ * Fichier qui réunit les différents modules pour le bon fonctionnement du programme
+*/
+
+#include "../fichiers_h/commun.h"
 #include "../fichiers_h/fonctions_generales.h"
-#include "../fichiers_h/fonctions_menu_principal.h"
 #include "../fichiers_h/fonctions_options.h"
 #include "../fichiers_h/fonctions_nouvelle_partie.h"
-#include "../fichiers_h/fonctions_introduction.h"
 #include "../fichiers_h/fonctions_carte.h"
 #include "../fichiers_h/fonctions_niveau_1.h"
 #include "../fichiers_h/fonctions_niveau_2.h"
 #include "../fichiers_h/fonctions_niveau_3.h"
-#include "../fichiers_h/fonctions_arrivee_niveaux_2_3.h"
 #include "../fichiers_h/fonctions_niveau_4.h"
+#include "../fichiers_h/fonctions_introduction.h"
+#include "../fichiers_h/fonctions_arrivee_niveaux_2_3.h"
 
 int main() {
 

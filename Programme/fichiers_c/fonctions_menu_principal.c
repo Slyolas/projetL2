@@ -1,7 +1,23 @@
+/**
+ * \file fonctions_niveau_4.c
+ * \brief Fichier contenant les fonctions pour le menu principal  
+*/
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_menu_principal.h>
 
-/* Fonction qui permet d'initialiser les différents objets du menu principal */
+/**
+ * \fn void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_menu, itemMenu *titre, itemMenu *itemsMenu, int tailleMenu) 
+ * \brief Fonction qui permet d'initialiser les différents objets du menu principal
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Surface SDL.
+ * \param texture_image_menu Texture de l'image du menu principal.
+ * \param titre Titre du menu.
+ * \param itemsMenu Tableau d'items pour le menu principal.
+ * \param tailleMenu Taille du tableau d'items pour le menu principal.
+ * \see chargement_image
+ * 
+ */
 void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_menu,
                                           itemMenu *titre, itemMenu *itemsMenu, int tailleMenu) {
 
@@ -42,7 +58,27 @@ void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface *
     }
 }
 
-/* Fonction qui met à jour le rendu du menu principal */
+/**
+ * \fn void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **texture_image_menu, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleurTitre, SDL_Color couleurNoire, int selection_menu, itemMenu *itemsMenu, int tailleMenu, int largeur, int hauteur)
+ * \brief Fonction qui met à jour le rendu du menu principal
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture_image_menu Texture de l'image du menu principal.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param titre Titre du menu principal.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param couleurTitre Couleur du titre.
+ * \param couleurNoire Couleur noire SDL.
+ * \param selection_menu Sélection actuelle du menu.
+ * \param itemsMenu Tableau d'items pour le menu principal.
+ * \param tailleMenu Taille du tableau d'items pour le menu principal.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \see erreur
+ * \see affichage_texte
+ */
 void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **texture_image_menu,
                                       SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                       itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
@@ -141,7 +177,35 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu principal */
+/**
+ * \fn void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_menu, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleurTitre, SDL_Color couleurNoire, int code_de_triche[3], int *selection_menu, itemMenu *itemsMenu, int tailleMenu, int *largeur, int *hauteur, page_t *page_active)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu principal
+ * \param event Événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param programme_lance Indicateur de lancement du programme.
+ * \param texture_image_menu Texture de l'image du menu principal.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param plein_ecran Indicateur de mode plein écran.
+ * \param titre Titre du menu principal.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param couleurTitre Couleur du titre.
+ * \param couleurNoire Couleur noire SDL.
+ * \param code_de_triche Tableau de codes de triche.
+ * \param selection_menu Sélection actuelle du menu.
+ * \param itemsMenu Tableau d'items pour le menu principal.
+ * \param tailleMenu Taille du tableau d'items pour le menu principal.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param page_active Page active du menu.
+ * \see redimensionnement_fenetre
+ * \see clic_case
+ * \see clic_plein_ecran
+ * \see mise_a_jour_rendu_menu_principal
+ */
 void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_menu,
                     SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                     itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,

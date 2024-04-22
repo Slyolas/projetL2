@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
+#ifndef H_OPTIONS
+#define H_OPTIONS
+#include "commun.h"
+
 
 /* Squelette de la fonction initialisation_objets_options */
 void initialisation_objets_options(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_hautParleurActif,
@@ -42,3 +41,4 @@ void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL
              itemMenu *itemsMenu, int tailleMenu, itemMenu *itemsTouches, int tailleTouches, 
              barreDeSon *barre_de_son, int tailleBarres, itemMenu *itemsBarres,
              int *largeur, int *hauteur, page_t *page_active, page_t *page_precedente, int *maintient_clic);
+#endif

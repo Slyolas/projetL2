@@ -1,7 +1,23 @@
+/**
+ * \file fonctions_niveau_4.c
+ * \brief Fichier contenant les fonctions servant à la gestion du niveau 1  
+*/
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_1.h>
 
-/* Fonction qui permet d'initialiser les différents objets du niveau 4 */
+/**
+ * \fn void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_sol_surface_niveau_1, SDL_Texture **texture_image_sol_profondeur_niveau_1, SDL_Texture **texture_image_fond_niveau_1, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2) 
+ * \brief Fonction qui permet d'initialiser les différents objets du niveau 4
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Surface SDL.
+ * \param texture_image_sol_surface_niveau_1 Texture de l'image du sol de surface du niveau 1.
+ * \param texture_image_sol_profondeur_niveau_1 Texture de l'image du sol de profondeur du niveau 1.
+ * \param texture_image_fond_niveau_1 Texture de l'image de fond du niveau 1.
+ * \param texture_image_nuage_1 Texture de l'image du nuage 1.
+ * \param texture_image_nuage_2 Texture de l'image du nuage 2.
+ * \see chargement_image
+ */
 void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_sol_surface_niveau_1, SDL_Texture **texture_image_sol_profondeur_niveau_1,
                                     SDL_Texture **texture_image_fond_niveau_1, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2) {

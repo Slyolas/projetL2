@@ -1,9 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#ifndef H_CARTE
+#define H_CARTE
+#include "commun.h"
+
 
 /* Squelette de la fonction initialisation_objets_carte */
 void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_carte,
@@ -55,3 +53,4 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
            SDL_Color couleurNoire, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche,
            SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir,
            itemMenu *itemsNiveaux, int tailleNiveaux, int *largeur, int *hauteur, page_t *page_active);
+#endif

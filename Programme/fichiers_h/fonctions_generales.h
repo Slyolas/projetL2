@@ -1,14 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-
+#ifndef H_GENERALE
+#define H_GENERALE
+#include "commun.h"
+#include "fonctions_menu_principal.h"
 /* Définir le nombre d'FPS (100 / nombre_FPS) */
 #define FPS_LIMIT 16
 
-/* Enumération de constantes pour l'onglet actif des options */
-typedef enum option_s {ONGLET_SON, ONGLET_TOUCHES} option_t;
 
 /* Enumération de constantes pour le mode séléctionné */
 typedef enum modes_s {MODE_NORMAL, MODE_HARD} modes_t;
@@ -16,8 +12,6 @@ typedef enum modes_s {MODE_NORMAL, MODE_HARD} modes_t;
 /* Enumération de constantes pour le personnage séléctionné */
 typedef enum personnage_s {PERSONNAGE_1, PERSONNAGE_2} personnage_t;
 
-/* Enumération de constantes pour la page */
-typedef enum page_s {MENU_PRINCIPAL, OPTIONS, NOUVELLE_PARTIE, INTRODUCTION, CARTE, NIVEAU_1, NIVEAU_2, NIVEAU_3, NIVEAU_4} page_t;
 
 /* Enumération de constantes pour la position sur la carte */
 typedef enum position_s {NIVEAU0, NIVEAU1, NIVEAU2, NIVEAU3, NIVEAU4} position_t; 
@@ -25,26 +19,10 @@ typedef enum position_s {NIVEAU0, NIVEAU1, NIVEAU2, NIVEAU3, NIVEAU4} position_t
 /* Enumération de constantes pour la direction du personnage sur la carte */
 typedef enum direction_s {HAUT, BAS, GAUCHE, DROITE, HAUT_DROITE, BAS_GAUCHE} direction_t; 
 
-/* Structure pour représenter une case avec un rectangle et du texte */
-typedef struct {
-    SDL_Rect rectangle;
-    char texte[60];
-} itemMenu;
 
-/* Structure pour représenter une barre de son */
-typedef struct {
-    SDL_Rect barre;
-    SDL_Rect curseur;
-    float volume;
-    float volume_precedent;
-} barreDeSon;
 
-/* Structure pour représenter les collectibles de chaque niveaux */
-typedef struct {
-    int niveau_fini;
-    SDL_Texture *texture_image_collectible;
-    int numero_collectible[3];
-} niveaux;
+
+
 
 /* Squelette de la fonction erreur */
 void erreur(const char *message);
@@ -140,3 +118,4 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
 
 /* Squelette de la fonction detruire_fenetre_rendu */
 void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window);
+#endif

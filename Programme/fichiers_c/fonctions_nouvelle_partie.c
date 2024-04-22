@@ -1,3 +1,8 @@
+/**
+ * \file fonctions_nouvelle_partie.c
+ * \brief Fichier contenant les fonctions servant à la fenêtre d'une nouvelle partie 
+*/
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_nouvelle_partie.h>
 

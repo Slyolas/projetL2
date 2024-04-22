@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#ifndef H_NIVEAU_1
+#define H_NIVEAU_1
+#include "commun.h"
 
 /* Fonction qui permet d'initialiser les différents objets du niveau 4 */
 void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface,
@@ -38,3 +34,4 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
               int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe,
               int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y,
               int *largeur, int *hauteur, int *largeur_tile, int *hauteur_tile, page_t *page_active);
+#endif

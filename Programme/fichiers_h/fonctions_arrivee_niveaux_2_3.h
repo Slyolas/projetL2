@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#ifndef H_ARRIVE_2_3
+#define H_ARRIVE_2_3
+#include "commun.h"
 
 /* Squelette de la fonction salon_arrivee_niveaux_2_3 */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active);
@@ -42,3 +38,4 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                          int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y,
                          SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe,
                          SDL_Texture **texture_image_fin_labyrinthe);
+#endif

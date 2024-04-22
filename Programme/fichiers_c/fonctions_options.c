@@ -1,3 +1,10 @@
+/**
+ * \file fonctions_options.c
+ * \brief Fichier contenant la partie Option 
+ * 
+ * Fichier qui réunit les fonctions s'occupant de la fenêtre des options du jeu
+*/
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_options.h>
 

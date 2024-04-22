@@ -1,3 +1,8 @@
+/**
+ * \file fonctions_niveau_4.c
+ * \brief Fichier contenant les fonctions servant à la gestion du niveau 2  
+*/
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_2.h>
 
