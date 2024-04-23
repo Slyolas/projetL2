@@ -6,8 +6,8 @@
 /**
  * \fn void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active)
  * \brief Fonction qui permet de créer le salon en arrivant dans le niveau 2 ou 3 
- * \param position_x pointeur sur la position du personnage sur la verticale du tilemap
- * \param position_y pointeur sur la position du perosnnage sur l'horizontal du tilemap 
+ * \param position_x pointeur sur la position du personnage sur l'horizontal du tilemap
+ * \param position_y pointeur sur la position du perosnnage sur la verticale du tilemap 
  * \param tile_map Matrice représentant la map ou se trouve le personnage 
  * \param page_active Enumération représentant sur quel page on se trouve
  */
@@ -15,15 +15,15 @@ void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18
 
     int x, y;
 
-    /* Positionnement du personnage au début du salon */
+    /** Positionnement du personnage au début du salon */
 
     (*position_x) = 2;
     (*position_y) = 16;
     
-    /* Création du salon pour le niveau 2 */
+    /** Création du salon pour le niveau 2 */
     if(page_active == NIVEAU_2){
 
-	    /* Définition du salon pour le niveau 2 */
+	    /** Définition du salon pour le niveau 2 */
 	    int initialisation_tile_map_1[18][32] = { 
 		{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
@@ -46,16 +46,16 @@ void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18
 		
 	    };
 
-        /* Copie de l'arrivee dans le niveau 2 ou 3 */
+        /** Copie de l'arrivee dans le niveau 2 ou 3 */
         for (y = 0; y < 18; y++)
             for (x = 0; x < 32; x++)
                 tile_map[y][x] = initialisation_tile_map_1[y][x];
     }
     
-    /* Création du salon pour le niveau 3 */
+    /** Création du salon pour le niveau 3 */
     else if(page_active == NIVEAU_3) {
 
-        /* Définition du salon pour le niveau 3 */
+        /** Définition du salon pour le niveau 3 */
 	    int initialisation_tile_map_2[18][32] = { 
 		{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
 		{2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
@@ -78,7 +78,7 @@ void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18
 		
 	    };
 
-        /* Copie de l'arrivee dans le niveau 2 ou 3 */
+        /** Copie de l'arrivee dans le niveau 2 ou 3 */
         for (y = 0; y < 18; y++)
             for (x = 0; x < 32; x++)
                 tile_map[y][x] = initialisation_tile_map_2[y][x];
@@ -125,20 +125,20 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
 
     int x, y;
                                 
-    /* Efface le rendu */
+    /** Efface le rendu */
     if(SDL_RenderClear((*renderer)) != 0)
         erreur("Effacement rendu échoué");
 
-    /* Copie la texture de l'image de fond du salon */
+    /** Copie la texture de l'image de fond du salon */
     if(SDL_RenderCopy((*renderer), (*texture_image_fond), NULL, NULL) != 0)
         erreur("Copie de la texture");
 
-    /* Affiche tout le salon en fonction des valeurs */
+    /** Affiche tout le salon en fonction des valeurs */
     for (y = 0; y < hauteur / hauteur_tile; y++) {
 
         for (x = 0; x < largeur / largeur_tile; x++) {
 
-            /* Définition de la position de la tuile */
+            /** Définition de la position de la tuile */
             rectangle_tile->x = x * largeur_tile;
             rectangle_tile->y = y * hauteur_tile;
             rectangle_tile->w = largeur_tile;
@@ -194,7 +194,7 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
 
     if(page_active == NIVEAU_3) {
  
-        /* Affiche tout le salon en fonction des valeurs */
+        /** Affiche tout le salon en fonction des valeurs */
         for (y = 0; y < hauteur / hauteur_tile; y++) {
 
             for (x = 0; x < largeur / largeur_tile; x++) {
@@ -223,7 +223,7 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
         }
     }
 
-    /* Copie la texture de l'image du personnage */
+    /** Copie la texture de l'image du personnage */
             
     rectangle_personnage->x = position_x * largeur_tile;
     rectangle_personnage->y = position_y * hauteur_tile;
@@ -233,7 +233,7 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
     if(SDL_RenderCopy((*renderer), (*texture_image_personnage), NULL, rectangle_personnage) != 0)
         erreur("Copie de la texture");
 
-    /* Copie la texture de l'image de plein écran */
+    /** Copie la texture de l'image de plein écran */
 
     rectangle_plein_ecran->x = largeur_tile * 31;
     rectangle_plein_ecran->y = 0;
@@ -243,7 +243,7 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
     if(SDL_RenderCopy((*renderer), (*texture_image_plein_ecran), NULL, rectangle_plein_ecran) != 0)
         erreur("Copie de la texture");
 
-    /* Affiche le rendu */
+    /** Affiche le rendu */
     SDL_RenderPresent((*renderer));
 }   
 
@@ -386,16 +386,16 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
     int x, y, i;
 
-    /* Vérification si le joueur n'est pas dans un mini-jeu ou si le niveau est actif */
+    /** Vérification si le joueur n'est pas dans un mini-jeu ou si le niveau est actif */
     if(((!((*mini_jeu) == 1)) && ((*page_active) == NIVEAU_2)) ||
        ((!(*mini_jeu)) && ((*page_active) == NIVEAU_3))) {
 
-        /* Boucle de gestion d'événement */
+        /** Boucle de gestion d'événement */
         while(SDL_PollEvent(event)) {
 
             switch(event->type) {
 
-                /* Gestion de l'événement de redimensionnement de la fenêtre */
+                /** Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
                     
@@ -404,11 +404,11 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                     break;
 
-                /* Si une touche au clavier est pressée */
+                /** Si une touche au clavier est pressée */
                 case SDL_KEYDOWN:
 
-                    /* On met les valeurs à 1 pour dire qu'on a appuyer sur la touche correspondante */
-                    /* Cela permet l'appuie de plusieurs touches en même temps */
+                    /** On met les valeurs à 1 pour dire qu'on a appuyer sur la touche correspondante */
+                    /** Cela permet l'appuie de plusieurs touches en même temps */
                     if(event->key.keysym.sym == (*touche_sauter_monter))
                         (*sauter) = 1;
 
@@ -420,7 +420,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                     if(event->key.keysym.sym == (*touche_interagir)) {
 
-                        /* Cas où vous retournez sur la carte */
+                        /** Cas où vous retournez sur la carte */
                         if (((*mini_jeu_termine)) && ((*position_x) == 20) && ((*position_y) == 16)) {
 
                             if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/porte.wav")) == NULL)
@@ -450,10 +450,10 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                     break;
 
-                /* Si une touche au clavier est relâchée  */
+                /** Si une touche au clavier est relâchée  */
                 case SDL_KEYUP:
 
-                    /* On met les valeurs à 0 pour dire qu'on a relâchée la touche correspondante */
+                    /** On met les valeurs à 0 pour dire qu'on a relâchée la touche correspondante */
                     if(event->key.keysym.sym == (*touche_sauter_monter))
                             (*sauter) = 0;
 
@@ -465,7 +465,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                     break;
 
-                /* Option plein écran */
+                /** Option plein écran */
                 case SDL_MOUSEBUTTONDOWN:
 
                     if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window)) {
@@ -478,7 +478,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
                     break;
 
-                /* Demande au joueur s'il veut quitter le niveau */
+                /** Demande au joueur s'il veut quitter le niveau */
                 case SDL_QUIT:
 
                     SDL_SetWindowResizable((*window), SDL_FALSE);
@@ -523,14 +523,14 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             }
         }
 
-        /* Déplacement du personnage */
+        /** Déplacement du personnage */
         deplacement_personnage(saut, tombe, position_x, position_y, position_avant_saut,
                               (*sauter), (*avancer), (*reculer), tile_map);
 
-        /* Cas où le joueur est dans le second mini jeu */
+        /** Cas où le joueur est dans le second mini jeu */
         if(((*mini_jeu) == 2) && ((*page_active) == NIVEAU_2)) {
 
-            /* Cas où le personnage tue un monstre */
+            /** Cas où le personnage tue un monstre */
             if((tile_map[(*position_y) + 1][(*position_x)] == 8) || (tile_map[(*position_y) + 1][(*position_x)] == 9)) {
 
                 tile_map[(*position_y) + 1][(*position_x)] = 0;
@@ -568,7 +568,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                 }
             }
 
-            /* Cas où le personnage meurt par des monstres */
+            /** Cas où le personnage meurt par des monstres */
             if((tile_map[(*position_y)][(*position_x)] == 8) || (tile_map[(*position_y)][(*position_x)] == 9)) {
 
                 (*saut) = 0;
@@ -625,10 +625,10 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
         }
     }
 
-    /* Si le niveau actif est le niveau 2 */
+    /** Si le niveau actif est le niveau 2 */
     if((*page_active) == NIVEAU_2) {
 
-        /* Cas où le joueur rentre dans le premier dossier */    
+        /** Cas où le joueur rentre dans le premier dossier */    
         if(((*position_x) >= 2) && ((*position_x <= 4)) && ((*position_y) >= 4) && ((*position_y <= 6)) && (!(*mini_jeu)) && (!(*mini_jeu_1_termine))) {
 
             if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
@@ -646,7 +646,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             mini_jeu_1_niveau_2(position_x, position_y, tile_map_mini_jeu_niveau_2);
         }
 
-        /* Cas où le joueur rentre dans le second dossier */   
+        /** Cas où le joueur rentre dans le second dossier */   
         else if(((*position_x) >= 27) && ((*position_x <= 29)) && ((*position_y) >= 2) && ((*position_y <= 4)) && (!(*mini_jeu)) && (!(*mini_jeu_2_termine))) {
 
             if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
@@ -664,7 +664,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             tile_map[16][16] = 7;
         }
 
-        /* Cas où le joueur récupère un collectible */
+        /** Cas où le joueur récupère un collectible */
 
         if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 6) && (!avancee_niveaux[1].numero_collectible[0])) {
 
@@ -696,9 +696,9 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             avancee_niveaux[1].numero_collectible[2] = 1;
         }
 
-        /* Cas où le joueur est dans un mini jeu */ 
+        /** Cas où le joueur est dans un mini jeu */ 
         if((*mini_jeu))
-            /* Mise à jour du rendu du mini jeu */
+            /** Mise à jour du rendu du mini jeu */
             mini_jeux_niveau_2(event, renderer, window, texture_image_fond, texture_image_sol,
                                rectangle_plein_ecran,texture_image_plein_ecran, plein_ecran, texture_image_porte, avancee_niveaux,
                                texture, rectangle_tile, mini_jeu, mini_jeu_1_termine, mini_jeu_2_termine,
@@ -719,7 +719,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
     else if((*page_active) == NIVEAU_3) {
 
-        /* Cas où le joueur rentre dans le premier dossier */    
+        /** Cas où le joueur rentre dans le premier dossier */    
         if(((*position_x) >= 5) && ((*position_x <= 7)) && ((*position_y) >= 3) && ((*position_y <= 5)) && (!(*mini_jeu)) && (!(*mini_jeu_1_termine))) {
 
             if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
@@ -743,10 +743,10 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             SDL_SetWindowSize((*window), 1600, 520);
             SDL_SetWindowPosition((*window), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 
-            /* Initialisation de srand pour la génération de pièces aléatoires*/
+            /** Initialisation de srand pour la génération de pièces aléatoires*/
             srand(time(NULL));
 
-            /* Calcul des rectangles pour chaque pièce du puzzle et des emplacements corrects */
+            /** Calcul des rectangles pour chaque pièce du puzzle et des emplacements corrects */
             for (y = 0; y < 5; y++)
 
                 for (x = 0; x < 9; x++) {
@@ -771,7 +771,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             SDL_SetWindowResizable((*window), SDL_FALSE);
         }
 
-        /* Cas où le joueur rentre dans le second dossier */    
+        /** Cas où le joueur rentre dans le second dossier */    
         else if(((*position_x) >= 24) && ((*position_x <= 26)) && ((*position_y) >= 3) && ((*position_y <= 5)) && (!(*mini_jeu)) && (!(*mini_jeu_2_termine))) {
 
             if(((*musique) = Mix_LoadMUS("./sons/musiques/mini_jeux.mp3")) == NULL)
@@ -795,7 +795,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             tile_map[16][16] = 7;
         }
 
-        /* Cas où le joueur récupère un collectible */
+        /** Cas où le joueur récupère un collectible */
 
         if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 5) && (!avancee_niveaux[2].numero_collectible[0])) {
 
@@ -817,9 +817,9 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
             avancee_niveaux[2].numero_collectible[2] = 1;
         }
 
-        /* Cas où le joueur est dans un mini jeu */ 
+        /** Cas où le joueur est dans un mini jeu */ 
         if((*mini_jeu))
-            /* Mise à jour du rendu du mini jeu */
+            /** Mise à jour du rendu du mini jeu */
             mini_jeux_niveau_3(event, renderer, window,
                                rectangle_plein_ecran,texture_image_plein_ecran, plein_ecran,
                                avancee_niveaux, tile_map,
@@ -841,7 +841,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                                touche_sauter_monter, touche_descendre, modeActif);
     }
 
-    /* Cas où vous avez fini le niveau */
+    /** Cas où vous avez fini le niveau */
     if((!(*mini_jeu)) && (tile_map[(*position_y)][(*position_x)] == 7)) {
 
         if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/fin_niveaux.wav")) == NULL)
@@ -849,7 +849,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
         
         Mix_PlayChannel(1, effet_sonore, 0);
 
-        /* Mise à jour du rendu du salon */
+        /** Mise à jour du rendu du salon */
         mise_a_jour_rendu_arrivee_niveaux_2_3(renderer, texture_image_fond, texture_image_sol,
                                                 rectangle_plein_ecran, texture_image_plein_ecran, texture_image_fin_premiers_niveaux,
                                                 texture, rectangle_tile, texture_image_dossier,
@@ -869,9 +869,9 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
         (*page_active) = CARTE;
     }
 
-    /* Cas où le joueur n'est pas dans un mini jeu */ 
+    /** Cas où le joueur n'est pas dans un mini jeu */ 
     if(!(*mini_jeu))
-        /* Mise à jour du rendu du salon */
+        /** Mise à jour du rendu du salon */
         mise_a_jour_rendu_arrivee_niveaux_2_3(renderer, texture_image_fond, texture_image_sol,
                                               rectangle_plein_ecran, texture_image_plein_ecran, texture_image_fin_premiers_niveaux,
                                               texture, rectangle_tile, texture_image_dossier,

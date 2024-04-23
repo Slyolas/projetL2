@@ -72,7 +72,7 @@ void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture
  */
 void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur) {
 
-    /* Création de la fenêtre */
+    /** Création de la fenêtre */
     (*window) = SDL_CreateWindow("MétaTravers", SDL_WINDOWPOS_CENTERED,
                                  SDL_WINDOWPOS_CENTERED, 
                                  largeur, hauteur,
@@ -81,7 +81,7 @@ void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeu
     if((*window) == NULL)
         erreur("Création fenêtre échouée");
 
-    /* Création du rendu */
+    /** Création du rendu */
     (*renderer) = SDL_CreateRenderer((*window), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     if((*renderer) == NULL)
@@ -117,23 +117,23 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_T
                            SDL_Texture **texture_image_perso_2_gagnant,
                            niveaux *avancee_niveaux, TTF_Font **police) {
 
-    /* Initialisation de l'image du plein écran du menu */
+    /** Initialisation de l'image du plein écran du menu */
     chargement_image(renderer, surface, texture_image_plein_ecran, "./images/plein_ecran_blanc.png");
 
-    /* Initialisation de l'image du retour en arrière */
+    /** Initialisation de l'image du retour en arrière */
     chargement_image(renderer, surface, texture_image_retour_en_arriere, "./images/retour_en_arriere.png");
 
-    /* Initialisation de l'image des options du menu */
+    /** Initialisation de l'image des options du menu */
     chargement_image(renderer, surface, texture_image_options, "./images/options_blanc.png");
 
-    /* Initialisation de l'image du passer du menu */
+    /** Initialisation de l'image du passer du menu */
     chargement_image(renderer, surface, texture_image_passer, "./images/passer.png");
 
-    /* Initialisation de la police */
+    /** Initialisation de la police */
     if(((*police) = TTF_OpenFont("./polices/04B_11__.TTF", 20)) == NULL)
         erreur("Chargement de la police");
 
-    /* Initialisation des images pour les collectibles */
+    /** Initialisation des images pour les collectibles */
     chargement_image(renderer, surface, &(avancee_niveaux[0].texture_image_collectible), "./images/niveau_1/collectible_niveau_1.png");
     chargement_image(renderer, surface, &(avancee_niveaux[1].texture_image_collectible), "./images/niveau_2/collectible_niveau_2.png");
     chargement_image(renderer, surface, &(avancee_niveaux[2].texture_image_collectible), "./images/niveau_3/collectible_niveau_3.png");
@@ -147,12 +147,12 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_T
     chargement_image(renderer, surface, texture_image_perso_1_gagnant, "./images/personnages/personnage_masculin_gagnant.png");
     chargement_image(renderer, surface, texture_image_perso_2_gagnant, "./images/personnages/personnage_feminin_gagnant.png");
 
-    /* Initialisation du texte dans les items de la demande de sauvegarde */
+    /** Initialisation du texte dans les items de la demande de sauvegarde */
     sprintf(itemsDemandeSauvegarde[0].texte, " Voulez-vous sauvegarder la partie avant de quitter ? ");
     sprintf(itemsDemandeSauvegarde[1].texte, " Oui ");
     sprintf(itemsDemandeSauvegarde[2].texte, " Non ");
 
-    /* Initialisation du texte dans les items de la demande de quitter le niveau */
+    /** Initialisation du texte dans les items de la demande de quitter le niveau */
     sprintf(itemsDemandeQuitter[0].texte, " Voulez-vous quittez le niveau ? ");
     sprintf(itemsDemandeQuitter[1].texte, " Oui ");
     sprintf(itemsDemandeQuitter[2].texte, " Non ");
@@ -179,7 +179,7 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
 
     int i;
 
-    /* Affichage du rectangle de la demande de sauvegarde */
+    /** Affichage du rectangle de la demande de sauvegarde */
     rectangle_demande_sauvegarde->x = largeur / 6;
     rectangle_demande_sauvegarde->y = hauteur / 6;
     rectangle_demande_sauvegarde->w = largeur / 3 * 2;
@@ -191,7 +191,7 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
     SDL_RenderDrawRect((*renderer), rectangle_demande_sauvegarde);
 
-    /* Affichage du rectangle de la question de la demande de sauvegarde */
+    /** Affichage du rectangle de la question de la demande de sauvegarde */
     itemsDemandeSauvegarde[0].rectangle.x = largeur / 6;
     itemsDemandeSauvegarde[0].rectangle.y = hauteur / 4 + hauteur / 20;
     itemsDemandeSauvegarde[0].rectangle.w = largeur / 3 * 2;
@@ -202,7 +202,7 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
     affichage_texte(renderer, surface, texture_texte, &(itemsDemandeSauvegarde[0]), 
                     police, couleur);
 
-    /* Affichage des rectangles des réponses de la demande de sauvegarde */
+    /** Affichage des rectangles des réponses de la demande de sauvegarde */
     for(i = 1; i < tailleDemandeSauvegarde; i++) {
         itemsDemandeSauvegarde[i].rectangle.x = largeur / 3 + (i-1) * largeur / 3 - (i-1) * largeur / 10;
         itemsDemandeSauvegarde[i].rectangle.y = hauteur - hauteur / 4 - hauteur / 20 - hauteur / 10;
@@ -218,7 +218,7 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
         SDL_RenderDrawRect((*renderer), &(itemsDemandeSauvegarde[i].rectangle));
     }
 
-    /* Affiche le rendu */
+    /** Affiche le rendu */
     SDL_RenderPresent((*renderer));
 }
 
@@ -243,7 +243,7 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
 
     int i;
 
-    /* Affichage du rectangle de la demande de quitter le niveau */
+    /** Affichage du rectangle de la demande de quitter le niveau */
     rectangle_demande_quitter->x = largeur / 6;
     rectangle_demande_quitter->y = hauteur / 6;
     rectangle_demande_quitter->w = largeur / 3 * 2;
@@ -255,7 +255,7 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
     SDL_RenderDrawRect((*renderer), rectangle_demande_quitter);
 
-    /* Affichage du rectangle de la question de la demande de quitter le niveau */
+    /** Affichage du rectangle de la question de la demande de quitter le niveau */
     itemsDemandeQuitter[0].rectangle.x = largeur / 6;
     itemsDemandeQuitter[0].rectangle.y = hauteur / 4 + hauteur / 20;
     itemsDemandeQuitter[0].rectangle.w = largeur / 3 * 2;
@@ -266,7 +266,7 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
     affichage_texte(renderer, surface, texture_texte, &(itemsDemandeQuitter[0]), 
                     police, couleur);
 
-    /* Affichage des rectangles des réponses de la demande de quitter le niveau */
+    /** Affichage des rectangles des réponses de la demande de quitter le niveau */
     for(i = 1; i < tailleDemandeQuitter; i++) {
         itemsDemandeQuitter[i].rectangle.x = largeur / 3 + (i-1) * largeur / 3 - (i-1) * largeur / 10;
         itemsDemandeQuitter[i].rectangle.y = hauteur - hauteur / 4 - hauteur / 20 - hauteur / 10;
@@ -282,7 +282,7 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
         SDL_RenderDrawRect((*renderer), &(itemsDemandeQuitter[i].rectangle));
     }
 
-    /* Affiche le rendu */
+    /** Affiche le rendu */
     SDL_RenderPresent((*renderer));
 }
 
@@ -312,14 +312,14 @@ int verification_sauvegarde() {
     
     FILE *fichier_sauvegarde;
 
-    /* Ouverture du fichier en mode lecture */
+    /** Ouverture du fichier en mode lecture */
     fichier_sauvegarde = fopen("./sauvegardes/sauvegarde.txt", "r");
 
-    /* Vérifie si le fichier existe */
+    /** Vérifie si le fichier existe */
     if (fichier_sauvegarde == NULL)
         return 0;
 
-    /* Fermeture du fichier */
+    /** Fermeture du fichier */
     if (fclose(fichier_sauvegarde) != 0)
         erreur("Fermeture du fichier");
 
@@ -352,7 +352,7 @@ void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_
 
     int i;
 
-    /* Ouverture du fichier en mode écriture */
+    /** Ouverture du fichier en mode écriture */
     fichier_sauvegarde = fopen("./sauvegardes/sauvegarde.txt", "w");
 
     fprintf(fichier_sauvegarde, "%f\n", barre_de_son[0].volume);
@@ -377,7 +377,7 @@ void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_
                                                      avancee_niveaux[i].numero_collectible[2]);
     }
 
-    /* Fermeture du fichier */
+    /** Fermeture du fichier */
     if (fclose(fichier_sauvegarde) != 0)
         erreur("Fermeture du fichier");
 }
@@ -447,14 +447,14 @@ int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool 
 void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut,
                             int sauter, int avancer, int reculer, int tile_map[18][32]) {
 
-    /* Cas où la touche pour sauter est pressée */
+    /** Cas où la touche pour sauter est pressée */
     if((!(*saut)) && (!(*tombe)) && (sauter)) {
 
         (*position_avant_saut) = (*position_y);
         (*saut) = 1;
     }
 
-    /* Cas où la touche pour aller à gauche est pressée */
+    /** Cas où la touche pour aller à gauche est pressée */
     if(((!(tile_map[(*position_y)][(*position_x) - 1])) || 
         ((tile_map[(*position_y)][(*position_x) - 1] >= 3) &&
         (tile_map[(*position_y)][(*position_x) - 1] <= 9)) ||
@@ -470,7 +470,7 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         }
     }
 
-    /* Cas où la touche pour aller à droite est pressée */
+    /** Cas où la touche pour aller à droite est pressée */
     if(((!(tile_map[(*position_y)][(*position_x) + 1])) || 
         ((tile_map[(*position_y)][(*position_x) + 1] >= 3) &&
         (tile_map[(*position_y)][(*position_x) + 1] <= 9)) ||
@@ -486,7 +486,7 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         }
     }
 
-    /* Cas où le personnage est entrain de sauter */
+    /** Cas où le personnage est entrain de sauter */
     if((*saut)) {
 
         if ((*position_y) < (*position_avant_saut)-2) {
@@ -511,7 +511,7 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         }
     }
 
-    /* Cas où le personnage est entrain de tomber */
+    /** Cas où le personnage est entrain de tomber */
     if((*tombe)) {
 
         if ((tile_map[(*position_y) + 1][(*position_x)] == 1) || (tile_map[(*position_y) + 1][(*position_x)] == 10) ||
@@ -585,7 +585,7 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                      SDL_Texture **texture67, SDL_Texture **texture68, 
                      SDL_Texture **texture69, SDL_Texture **texture70, SDL_Texture **texture71) {
 
-    /* Destructions des textures */
+    /** Destructions des textures */
     SDL_DestroyTexture((*texture1));  SDL_DestroyTexture((*texture2)); 
     SDL_DestroyTexture((*texture3));  SDL_DestroyTexture((*texture4)); 
     SDL_DestroyTexture((*texture5));  SDL_DestroyTexture((*texture6)); 
@@ -622,7 +622,7 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
     SDL_DestroyTexture((*texture67)); SDL_DestroyTexture((*texture68));
     SDL_DestroyTexture((*texture69)); SDL_DestroyTexture((*texture70)); SDL_DestroyTexture((*texture71));
     
-    /* Destructions de la police */
+    /** Destructions de la police */
     TTF_CloseFont((*police));
 }
 

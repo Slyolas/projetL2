@@ -1,10 +1,12 @@
 #ifndef H_NIVEAU_3
 #define H_NIVEAU_3
 #include "commun.h"
-/* Squelette de la fonction salon_arrivee_niveaux_2_3 */
+#include "fonctions_generales.h"
+
+/** Squelette de la fonction salon_arrivee_niveaux_2_3 */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active);
 
-/* Squelette de la fonction initialisation_objets_niveau_3 */
+/** Squelette de la fonction initialisation_objets_niveau_3 */
 void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_fond_niveau_3, SDL_Texture **texture_image_dossier_niveau_3,
                                     SDL_Texture **texture_image_sol_niveau_3, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, 
@@ -12,29 +14,29 @@ void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surfa
                                     SDL_Texture **texture_image_puzzle, SDL_Texture **texture_image_sol_labyrinthe,
                                     SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe);
 
-/* Squelette de la fonction rectangle_piece_aleatoire */
+/** Squelette de la fonction rectangle_piece_aleatoire */
 SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur);
 
-/* Squelette de la fonction mise_a_jour_mini_jeu_1_niveau_3 */
+/** Squelette de la fonction mise_a_jour_mini_jeu_1_niveau_3 */
 void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[45]);
 
-/* Squelette de la fonction piece_proche_position_correcte */
+/** Squelette de la fonction piece_proche_position_correcte */
 int piece_proche_position_correcte(SDL_Rect rectangle_piece, SDL_Rect rectangle_correct);
 
-/* Squelette de la fonction verification_puzzle_fini */
+/** Squelette de la fonction verification_puzzle_fini */
 int verification_puzzle_fini(const int piece_bloquee[]);
 
-/* Squelette de la fonction mini_jeu_2_niveau_3 */
+/** Squelette de la fonction mini_jeu_2_niveau_3 */
 void mini_jeu_2_niveau_3(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tile_map[24][32]);
 
-/* Squelette de la fonction traitement_touches */
+/** Squelette de la fonction traitement_touches */
 void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tilemap[24][32], int direction);
 
-/* Squelette de la fonction mise_a_jour_bordures_niveau_3 */
+/** Squelette de la fonction mise_a_jour_bordures_niveau_3 */
 int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_image_mur_termine, int tilemap[24][32], int x_tile, int y_tile,
                                 SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile);
 
-/* Squelette de la fonction mise_a_jour_mini_jeu_2_niveau_3 */
+/** Squelette de la fonction mise_a_jour_mini_jeu_2_niveau_3 */
 void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif, SDL_Texture **texture_image_sol_labyrinthe,
                                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                      SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_mur_termine,
@@ -44,7 +46,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
                                      int position_x, int position_y, int tile_map_mini_jeu_niveau_3[24][32], niveaux *avancee_niveaux,
                                      int largeur_tile, int hauteur_tile);
 
-/* Squelette de la fonction mini_jeux_niveau_3 */
+/** Squelette de la fonction mini_jeux_niveau_3 */
 void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window,
                         SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                         niveaux *avancee_niveaux, int tile_map[18][32],

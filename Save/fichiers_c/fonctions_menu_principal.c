@@ -1,5 +1,5 @@
 /**
- * \file fonctions_niveau_4.c
+ * \file fonctions_menu_principal.c
  * \brief Fichier contenant les fonctions pour le menu principal  
 */
 
@@ -23,13 +23,13 @@ void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface *
 
     int i;
     
-    /* Initialisation de l'image de fond du menu */
+    /** Initialisation de l'image de fond du menu */
     chargement_image(renderer, surface, texture_image_menu, "./images/ecran_accueil.png");
 
-    /* Initialisation du titre du menu */
+    /** Initialisation du titre du menu */
     sprintf(titre->texte, " MetaTravers ");
 
-	/* Initialisation du texte dans les items du menu */
+	/** Initialisation du texte dans les items du menu */
     if(tailleMenu == 2) {
 
         for(i = 0; i < tailleMenu; i++) {
@@ -87,18 +87,18 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
     
     int i;
 
-    /* Efface le rendu */
+    /** Efface le rendu */
     if(SDL_RenderClear((*renderer)) != 0)
         erreur("Effacement rendu échoué");
 
-    /* Utilisation de la fusion pour un rendu avec transparence */
+    /** Utilisation de la fusion pour un rendu avec transparence */
     SDL_SetRenderDrawBlendMode((*renderer), SDL_BLENDMODE_BLEND);
 
-    /* Copie la texture de l'image de fond du menu */
+    /** Copie la texture de l'image de fond du menu */
     if(SDL_RenderCopy((*renderer), (*texture_image_menu), NULL, NULL) != 0)
         erreur("Copie de la texture");
 
-    /* Copie la texture de l'image de plein écran */
+    /** Copie la texture de l'image de plein écran */
     rectangle_plein_ecran->x = largeur - largeur / 21 - largeur / 53;
     rectangle_plein_ecran->y = hauteur / 30;
     rectangle_plein_ecran->w = largeur / 21;
@@ -109,7 +109,7 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
 
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 175);
 
-    /* Dessine le titre du menu */
+    /** Dessine le titre du menu */
     titre->rectangle.x = largeur / 2 - largeur / 3;
     titre->rectangle.y = hauteur / 20;
     titre->rectangle.w = largeur / 2 + largeur / 5;
@@ -118,7 +118,7 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
     affichage_texte(renderer, surface, texture_texte, titre, 
                     police, couleurTitre);
 
-    /* Dessine les éléments du menu */
+    /** Dessine les éléments du menu */
     if(tailleMenu == 2) {
 
         for (i = 0; i < tailleMenu; i++) {
@@ -173,7 +173,7 @@ void mise_a_jour_rendu_menu_principal(SDL_Renderer **renderer, SDL_Texture **tex
         }
     }
 
-    /* Affiche le rendu */
+    /** Affiche le rendu */
     SDL_RenderPresent((*renderer));
 }
 
@@ -216,7 +216,7 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
 
             switch(event->type) {
                 
-                /* Gestion de l'événement de redimensionnement de la fenêtre */
+                /** Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
 
@@ -257,7 +257,7 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                             (*page_active) = OPTIONS;
                     }
 
-                    /* Option plein écran */
+                    /** Option plein écran */
                     
                     if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window))
                         redimensionnement_fenetre((*event), largeur, hauteur);
@@ -277,7 +277,7 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
 
                         break;
 
-                /* Quitter le programme */
+                /** Quitter le programme */
                 case SDL_QUIT:
                     (*programme_lance) = SDL_FALSE;
                     break;
@@ -287,7 +287,7 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
             }
         }
         
-        /* Mise à jour du rendu */
+        /** Mise à jour du rendu */
         mise_a_jour_rendu_menu_principal(renderer, texture_image_menu,
                                          rectangle_plein_ecran, texture_image_plein_ecran,
                                          titre, surface, texture_texte, police,

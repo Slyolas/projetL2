@@ -6,7 +6,6 @@
 */
 
 #include "../fichiers_h/commun.h"
-#include "../fichiers_h/fonctions_generales.h"
 #include "../fichiers_h/fonctions_options.h"
 #include "../fichiers_h/fonctions_nouvelle_partie.h"
 #include "../fichiers_h/fonctions_carte.h"
@@ -16,83 +15,87 @@
 #include "../fichiers_h/fonctions_niveau_4.h"
 #include "../fichiers_h/fonctions_introduction.h"
 #include "../fichiers_h/fonctions_arrivee_niveaux_2_3.h"
-
+/**
+ * \fn int main(void)
+ * \brief Fonction principal du programme
+ * \return déroulement du programme (0 si bien passé sinon code erreur)
+*/
 int main() {
 
-    /* Initialisation de la largeur de la fenêtre */
+    /** Initialisation de la largeur de la fenêtre */
     int largeur = 960;
-    /* Initialisation de la hauteur de la fenêtre */
+    /** Initialisation de la hauteur de la fenêtre */
     int hauteur = 540;
 
     int i, x, y;
 
-    /* Création des pointeurs sur la fenêtre et sur le rendu */
+    /** Création des pointeurs sur la fenêtre et sur le rendu */
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
 
-    /* Initialisation de la surface */
+    /** Initialisation de la surface */
     SDL_Surface *surface = NULL;
 
-    /* Initialisation de la texture */
+    /** Initialisation de la texture */
     SDL_Texture *texture;
 
-    /* Création du pointeur sur la texture du texte */
+    /** Création du pointeur sur la texture du texte */
     SDL_Texture *texture_texte = NULL;
 
-    /* Création du pointeur sur la texture de l'image du plein écran et du rectangle où se trouvera l'image */
+    /** Création du pointeur sur la texture de l'image du plein écran et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_plein_ecran = NULL;
     SDL_Rect rectangle_plein_ecran;
 
-    /* Création du pointeur sur la texture de l'image du retour en arrière et du rectangle où se trouvera l'image */
+    /** Création du pointeur sur la texture de l'image du retour en arrière et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_retour_en_arriere = NULL;
     SDL_Rect rectangle_retour_en_arriere;
 
-    /* Création du pointeur sur la texture de l'image des options et du rectangle où se trouvera l'image */
+    /** Création du pointeur sur la texture de l'image des options et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_options = NULL;
     SDL_Rect rectangle_options;
 
-    /* Création du pointeur sur la texture de l'image du retour au menu principal */
+    /** Création du pointeur sur la texture de l'image du retour au menu principal */
     SDL_Texture *texture_image_retour_menu = NULL;
     SDL_Rect rectangle_retour_menu;
 
-    /* Création du pointeur sur la texture de l'image du plein écran et du rectangle où se trouvera l'image */
+    /** Création du pointeur sur la texture de l'image du plein écran et du rectangle où se trouvera l'image */
     SDL_Texture *texture_image_passer = NULL;
     SDL_Rect rectangle_passer;
 
-    /* Pointeur sur la police */
+    /** Pointeur sur la police */
     TTF_Font *police = NULL;
 
-    /* Création du pointeur sur la texture de l'image du menu */
+    /** Création du pointeur sur la texture de l'image du menu */
     SDL_Texture *texture_image_menu = NULL;
 
-    /* Création du pointeur sur la texture de l'image de la carte */
+    /** Création du pointeur sur la texture de l'image de la carte */
     SDL_Texture *texture_image_carte = NULL;
 
-    /* Création du pointeur sur la texture de l'image haut parleur actif */
+    /** Création du pointeur sur la texture de l'image haut parleur actif */
     SDL_Texture *texture_image_hautParleurActif = NULL;
 
-    /* Création du pointeur sur la texture de l'image haut parleur désactivé */
+    /** Création du pointeur sur la texture de l'image haut parleur désactivé */
     SDL_Texture *texture_image_hautParleurDesactive = NULL;
 
-    /* Touches pour les déplacements du personnage */
+    /** Touches pour les déplacements du personnage */
     SDL_Keycode touche_aller_a_droite = SDLK_RIGHT;
     SDL_Keycode touche_aller_a_gauche = SDLK_LEFT;
     SDL_Keycode touche_sauter_monter = SDLK_UP;
     SDL_Keycode touche_descendre = SDLK_DOWN;
     SDL_Keycode touche_interagir = SDLK_SPACE;
 
-    /* Création d'un rectangle pour le pseudo */
+    /** Création d'un rectangle pour le pseudo */
     SDL_Rect rectangle_pseudo;
 
-    /* Création du pointeur sur la texture de l'image du premier personnage et de son rectangle */
+    /** Création du pointeur sur la texture de l'image du premier personnage et de son rectangle */
     SDL_Texture *texture_image_perso_1 = NULL;
     SDL_Rect rectangle_perso_1;
 
-    /* Création du pointeur sur la texture de l'image du deuxième personnage et de son rectangle */
+    /** Création du pointeur sur la texture de l'image du deuxième personnage et de son rectangle */
     SDL_Texture *texture_image_perso_2 = NULL;
     SDL_Rect rectangle_perso_2;
 
-    /* Création des pointeurs sur la texture des différentes images pour le premier personnage */
+    /** Création des pointeurs sur la texture des différentes images pour le premier personnage */
     SDL_Texture *texture_image_perso_1_bas_1 = NULL;
     SDL_Texture *texture_image_perso_1_bas_2 = NULL;
     SDL_Texture *texture_image_perso_1_haut_1 = NULL;
@@ -105,7 +108,7 @@ int main() {
     SDL_Texture *texture_image_perso_1_pose = NULL;
     SDL_Texture *texture_image_perso_1_gagnant = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images pour le deuxième personnage */
+    /** Création des pointeurs sur la texture des différentes images pour le deuxième personnage */
     SDL_Texture *texture_image_perso_2_bas_1 = NULL;
     SDL_Texture *texture_image_perso_2_bas_2 = NULL;
     SDL_Texture *texture_image_perso_2_haut_1 = NULL;
@@ -118,23 +121,23 @@ int main() {
     SDL_Texture *texture_image_perso_2_pose = NULL;
     SDL_Texture *texture_image_perso_2_gagnant = NULL;
 
-    /* Création des pointeur sur la texture des différentes images pour les monstres */
+    /** Création des pointeur sur la texture des différentes images pour les monstres */
     SDL_Texture *texture_image_monstre_terrestre = NULL;
     SDL_Texture *texture_image_monstre_volant = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images du niveau 1 */
+    /** Création des pointeurs sur la texture des différentes images du niveau 1 */
     SDL_Texture *texture_image_fond_niveau_1 = NULL;
     SDL_Texture *texture_image_sol_surface_niveau_1 = NULL;
     SDL_Texture *texture_image_sol_profondeur_niveau_1 = NULL;
     SDL_Texture *texture_image_nuage_1 = NULL;
     SDL_Texture *texture_image_nuage_2 = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images du salon en arrivant dans le niveau 2 */
+    /** Création des pointeurs sur la texture des différentes images du salon en arrivant dans le niveau 2 */
     SDL_Texture *texture_image_fond_niveau_2 = NULL;
     SDL_Texture *texture_image_dossier_niveau_2 = NULL;
     SDL_Texture *texture_image_sol_niveau_2 = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images des pipes pour le niveau 2 */
+    /** Création des pointeurs sur la texture des différentes images des pipes pour le niveau 2 */
     SDL_Texture *texture_image_mur_mini_jeu = NULL;
     SDL_Texture *texture_image_pipe_vertical = NULL;
     SDL_Texture *texture_image_pipe_horizontal = NULL;
@@ -145,7 +148,7 @@ int main() {
     SDL_Texture *texture_image_pipe_courant = NULL;
     SDL_Texture *texture_image_mur_termine = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images du salon en arrivant dans le niveau 3 */
+    /** Création des pointeurs sur la texture des différentes images du salon en arrivant dans le niveau 3 */
     SDL_Texture *texture_image_fond_niveau_3 = NULL;
     SDL_Texture *texture_image_dossier_niveau_3 = NULL;
     SDL_Texture *texture_image_sol_niveau_3 = NULL;
@@ -154,53 +157,53 @@ int main() {
     SDL_Texture *barre_windows_3 = NULL;
     SDL_Texture *barre_windows_4 = NULL;
 
-    /* Création des pointeurs sur la texture de l'image du puzzle */
+    /** Création des pointeurs sur la texture de l'image du puzzle */
     SDL_Texture* texture_image_puzzle = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images du labyrinthe */
+    /** Création des pointeurs sur la texture des différentes images du labyrinthe */
     SDL_Texture *texture_image_sol_labyrinthe = NULL;
     SDL_Texture *texture_image_bordure_labyrinthe = NULL;
     SDL_Texture *texture_image_fin_labyrinthe = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images pour les étages */
+    /** Création des pointeurs sur la texture des différentes images pour les étages */
     SDL_Texture *texture_image_mur = NULL;
     SDL_Texture *texture_image_fond_niveau_4 = NULL;
     SDL_Texture *texture_image_bordure_niveau_4 = NULL;
     SDL_Texture *texture_image_porte = NULL;
     SDL_Texture *texture_image_pique = NULL;
 
-    /* Création des pointeurs sur la texture des différentes images pour la fin des niveaux */
+    /** Création des pointeurs sur la texture des différentes images pour la fin des niveaux */
     SDL_Texture *texture_image_fin_premiers_niveaux = NULL;
     SDL_Texture *texture_image_fin_dernier_niveau = NULL;
 
-    /* Création du rectangle pour le texte de l'introduction */
+    /** Création du rectangle pour le texte de l'introduction */
     SDL_Rect rectangle_texte_introduction;
 
-    /* Création du rectangle pour la demande de sauvegarde */
+    /** Création du rectangle pour la demande de sauvegarde */
     SDL_Rect rectangle_demande;
 
-    /* Variable de couleur noire */
+    /** Variable de couleur noire */
     SDL_Color couleurNoire = {0, 0, 0, 255};
 
-    /* Variable de la couleur du titre principal */
+    /** Variable de la couleur du titre principal */
     SDL_Color couleurTitre = {200, 200, 200, 255};
 
-    /* Variable de couleur blanche */
+    /** Variable de couleur blanche */
     SDL_Color couleurBlanche = {255, 255, 255, 255};
 
-    /* Lancement de VIDEO SDL */
+    /** Lancement de VIDEO SDL */
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
         erreur("Initialisation VIDEO SDL");
 
-    /* Lancement de TTF */
+    /** Lancement de TTF */
 	if(TTF_Init() == -1)
         erreur("Initialisation TTF");
 
-    /* Lancement de AUDIO SDL */
+    /** Lancement de AUDIO SDL */
 	if(SDL_Init(SDL_INIT_AUDIO) == -1)
         erreur("Initialisation AUDIO SDL");
 
-    /* Lancement du mixer */
+    /** Lancement du mixer */
     if(Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
         erreur("Initialisation AUDIO SDL");
 
@@ -210,7 +213,7 @@ int main() {
 
     /*---------------------------------------------------------------- Initialisation des objets ----------------------------------------------------------------*/
 
-    /* Objets globaux */
+    /** Objets globaux */
 
     int tailleDemande = 3;
 
@@ -236,7 +239,7 @@ int main() {
                           &texture_image_perso_2_gagnant,
                           avancee_niveaux, &police);
 
-    /* Objets du menu principal */
+    /** Objets du menu principal */
 
     int selection_menu = 0;
 
@@ -256,7 +259,7 @@ int main() {
     else
         tailleMenuPrincipal = 3;
 
-    /* Allocation dynamique de mémoire pour le tableau itemsMenuPrincipal en fonction de tailleMenuPrincipal */
+    /** Allocation dynamique de mémoire pour le tableau itemsMenuPrincipal en fonction de tailleMenuPrincipal */
     itemMenu *itemsMenuPrincipal = malloc(tailleMenuPrincipal * sizeof(itemMenu));
     if (itemsMenuPrincipal == NULL) {
         erreur("Allocation de la mémoire");
@@ -266,7 +269,7 @@ int main() {
     initialisation_objets_menu_principal(&renderer, &surface, &texture_image_menu,
                                          &titre_menu_principal, itemsMenuPrincipal, tailleMenuPrincipal);  
 
-    /* Objets des options */
+    /** Objets des options */
 
     itemMenu titre_options;
 
@@ -290,19 +293,19 @@ int main() {
                                   &texture_image_hautParleurDesactive,
                                   &titre_options, itemsMenuOptions, itemsTouches, itemsBarres);
 
-    /* Variable pour suivre l'onglet actif */
+    /** Variable pour suivre l'onglet actif */
     option_t ongletActif = ONGLET_SON;                          
 
-    /* Variable pour suivre l'état du son (activé/désactivé) */
+    /** Variable pour suivre l'état du son (activé/désactivé) */
     SDL_bool sonsActifs[tailleBarres];
 
-    /* Rectangles des boutons de son */
+    /** Rectangles des boutons de son */
     SDL_Rect rectangles_boutons_sons[tailleBarres]; 
 
-    /* Variable pour suivre l'état de la sélection de touche (activé/désactivé) */
+    /** Variable pour suivre l'état de la sélection de touche (activé/désactivé) */
     int selection_touche = 0;
 
-    /* Objets du menu nouvelle partie */
+    /** Objets du menu nouvelle partie */
 
     int pseudo_valide;
 
@@ -330,16 +333,16 @@ int main() {
                                           &texture_image_perso_2,
                                           titres, itemsMenuNouvellePartie, &valider);
 
-    /* Variable pour suivre la saisie */
+    /** Variable pour suivre la saisie */
     int modeSaisie = 0;
 
-    /* Variable pour suivre le personnage actif */
+    /** Variable pour suivre le personnage actif */
     personnage_t personnageActif = PERSONNAGE_1;
 
-    /* Variable pour suivre le mode actif */
+    /** Variable pour suivre le mode actif */
     modes_t modeActif = MODE_NORMAL; 
 
-    /* Objets de la carte */
+    /** Objets de la carte */
 
     int touche_pressee = 0;
 
@@ -362,20 +365,20 @@ int main() {
                                 &texture_image_perso_2_gauche, &texture_image_perso_2_pose,
                                 itemsNiveaux, &texture_image_retour_menu); 
 
-    /* Objets des niveaux */
+    /** Objets des niveaux */
 
-    /* Initialisation de la largeur de chaque case */
+    /** Initialisation de la largeur de chaque case */
     int largeur_tile;
-    /* Initialisation de la hauteur de chaque case */
+    /** Initialisation de la hauteur de chaque case */
     int hauteur_tile;
 
-    /* Initialisation de l'étage avec la méthode du tile mapping */
+    /** Initialisation de l'étage avec la méthode du tile mapping */
 
     int tile_map[18][32];
 
     SDL_Rect rectangle_tile;
 
-    /* Positions et état du joueur */
+    /** Positions et état du joueur */
 
     int position_x;
     int position_y;
@@ -400,7 +403,7 @@ int main() {
     int mini_jeu_1_termine;
     int mini_jeu_2_termine;
 
-    /* Objets du niveau 1 */
+    /** Objets du niveau 1 */
     initialisation_objets_niveau_1(&renderer, &surface,
                                    &texture_image_sol_surface_niveau_1, &texture_image_sol_profondeur_niveau_1,
                                    &texture_image_fond_niveau_1, &texture_image_nuage_1, &texture_image_nuage_2);
@@ -411,7 +414,7 @@ int main() {
     int secret_1;
     int secret_2;
 
-    /* Objets du niveau 2 */
+    /** Objets du niveau 2 */
     initialisation_objets_niveau_2(&renderer, &surface,
                                    &texture_image_fond_niveau_2, &texture_image_dossier_niveau_2,
                                    &texture_image_sol_niveau_2, &texture_image_mur_mini_jeu,
@@ -425,18 +428,18 @@ int main() {
 
     int mini_jeu_termine;
 
-    /* Objets du niveau 3 */
+    /** Objets du niveau 3 */
 
     SDL_Rect rectangle_piece[45];
 
-    /* Initialise toutes les pièces comme non verrouillées */
+    /** Initialise toutes les pièces comme non verrouillées */
     int piece_bloquee[45];
 
     SDL_Rect rectangle_emplacement_piece[45];
 
     int piece_selectionnee;
 
-    /* Décalage en X/Y entre le coin supérieur gauche de la pièce et la position du curseur de la souris */
+    /** Décalage en X/Y entre le coin supérieur gauche de la pièce et la position du curseur de la souris */
     int decalage_x;
     int decalage_y;
 
@@ -457,7 +460,7 @@ int main() {
     int bloc_x;
     int bloc_y;
 
-    /* Objets du niveau 4 */
+    /** Objets du niveau 4 */
     initialisation_objets_niveau_4(&renderer, &surface,
                                    &texture_image_fond_niveau_4, &texture_image_bordure_niveau_4,
                                    &texture_image_porte, &texture_image_pique,
@@ -465,12 +468,12 @@ int main() {
 
     int numero_etage = 1;
 
-    /* Chargement de la sauvegarde s'il y en a une */
+    /** Chargement de la sauvegarde s'il y en a une */
     if(verification_sauvegarde()) {
 
         FILE *fichier_sauvegarde;
 
-        /* Ouverture du fichier en mode lecture */
+        /** Ouverture du fichier en mode lecture */
         fichier_sauvegarde = fopen("./sauvegardes/sauvegarde.txt", "r");
 
         fscanf(fichier_sauvegarde, "%f\n", &(barre_de_son[0].volume));
@@ -479,7 +482,7 @@ int main() {
         for(i = 1; i < tailleTouches; i+=2)
             fscanf(fichier_sauvegarde, "%s\n", itemsTouches[i].texte);
 
-        /* Assignation des touches sauvegardées au touches de contrôle */
+        /** Assignation des touches sauvegardées au touches de contrôle */
         touche_aller_a_droite = SDL_GetKeyFromName(itemsTouches[1].texte);
         touche_aller_a_gauche = SDL_GetKeyFromName(itemsTouches[3].texte);
         touche_sauter_monter = SDL_GetKeyFromName(itemsTouches[5].texte);
@@ -492,7 +495,7 @@ int main() {
         sprintf(itemsTouches[7].texte, "                 %s                 ", SDL_GetKeyName(touche_descendre));
         sprintf(itemsTouches[9].texte, "                 %s                 ", SDL_GetKeyName(touche_interagir));
 
-        /* Récupération des informations */
+        /** Récupération des informations */
         fscanf(fichier_sauvegarde, "%[^\n]\n", pseudo.texte);
 
         fscanf(fichier_sauvegarde, "%d\n", (int*)(&personnageActif));
@@ -507,12 +510,12 @@ int main() {
                                                         &(avancee_niveaux[i].numero_collectible[1]),
                                                         &(avancee_niveaux[i].numero_collectible[2]));
 
-        /* Fermeture du fichier */
+        /** Fermeture du fichier */
         if (fclose(fichier_sauvegarde) != 0)
             erreur("Fermeture du fichier");
     }
 
-    /* Initialisation par défaut du son et de l'avancer dans le jeu */
+    /** Initialisation par défaut du son et de l'avancer dans le jeu */
     else {
         barre_de_son[0].volume = 0.5;
         barre_de_son[1].volume = 0.5;
@@ -541,7 +544,7 @@ int main() {
 
     SDL_SetWindowResizable(window, SDL_FALSE);
 
-    /* Charger les sprites */
+    /** Charger les sprites */
     SDL_Texture *sprites[3];
 
     chargement_image(&renderer, &surface, &sprites[0], "./images/personnages/personnage_masculin_droite_NB.png");
@@ -556,7 +559,7 @@ int main() {
 
         srand(time(NULL));
 
-        /* Simulation du chargement du jeu */
+        /** Simulation du chargement du jeu */
         pourcentage += (rand() % 6) + 1;
 
         if (pourcentage >= 100)
@@ -565,13 +568,13 @@ int main() {
         if(pourcentage > 100)
             pourcentage = 100;
     
-        /* Rendu du chargement du jeu */
+        /** Rendu du chargement du jeu */
 
-        /* Nettoyage du rendu */
+        /** Nettoyage du rendu */
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
-        /* Afficher le sprite actuel */
+        /** Afficher le sprite actuel */
 
         rectangle_perso_1.x = ((largeur - largeur / 2) / 2 - 50) + (largeur / 2 * pourcentage / 100); 
         rectangle_perso_1.y = (hauteur - 100) / 3;
@@ -580,7 +583,7 @@ int main() {
 
         SDL_RenderCopy(renderer, sprites[indice_sprite], NULL, &rectangle_perso_1);
 
-        /* Barre de chargement */
+        /** Barre de chargement */
 
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
@@ -597,7 +600,7 @@ int main() {
 
         SDL_RenderFillRect(renderer, &rectangle_pseudo);
 
-        /* Texte du pourcentage */
+        /** Texte du pourcentage */
 
         char texte_chargement[20];
 
@@ -617,16 +620,16 @@ int main() {
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture_texte);
 
-        /* Mise à jour de l'écran */
+        /** Mise à jour de l'écran */
         SDL_RenderPresent(renderer);
 
-        /* Ajout d'un délai pour simuler le chargement */
+        /** Ajout d'un délai pour simuler le chargement */
         SDL_Delay(200);
 
-        /* Passer au sprite suivant */
+        /** Passer au sprite suivant */
         indice_sprite++;
 
-        /* Revenir au premier sprite si tous les sprites ont été affichés */
+        /** Revenir au premier sprite si tous les sprites ont été affichés */
         if (indice_sprite >= 3)
             indice_sprite = 0;
     }
@@ -652,7 +655,7 @@ int main() {
 
     while(programme_lance) {
 
-        /* Page du menu principal */
+        /** Page du menu principal */
         if(page_active == MENU_PRINCIPAL) {
 
             page_precedente = MENU_PRINCIPAL;
@@ -691,24 +694,24 @@ int main() {
                 code_de_triche[2] = 0;
             }
 
-            /* Cas où on clique sur nouvelle partie */
+            /** Cas où on clique sur nouvelle partie */
             if(page_active == NOUVELLE_PARTIE) {
 
                 selection_menu = 0;
 
                 pseudo_valide = 0;
 
-                /* Sauvegarde des variables de la nouvelle partie dans des variables temporaires */
+                /** Sauvegarde des variables de la nouvelle partie dans des variables temporaires */
                 strcpy(pseudo_temporaire, pseudo.texte);
                 personnage_temporaire = personnageActif;
                 mode_temporaire = modeActif;
 
-                /* Initialisation des variables de la nouvelle partie à NULL */
+                /** Initialisation des variables de la nouvelle partie à NULL */
                 pseudo.texte[0] = '\0';
                 personnageActif = PERSONNAGE_1;
                 modeActif = MODE_NORMAL;
         
-                /* Initialisation de la police */
+                /** Initialisation de la police */
                 if((police= TTF_OpenFont("./polices/04B_11__.TTF", largeur / 28)) == NULL)
                     erreur("Chargement de la police");
             }
@@ -766,7 +769,7 @@ int main() {
             }
         }
 
-        /* Page des options */
+        /** Page des options */
         else if(page_active == OPTIONS) {
 
             Mix_VolumeMusic(barre_de_son[0].volume * 100); 
@@ -794,7 +797,7 @@ int main() {
             }
         }
 
-        /* Page de la nouvelle partie */
+        /** Page de la nouvelle partie */
         else if(page_active == NOUVELLE_PARTIE) {
 
             page_precedente = NOUVELLE_PARTIE;
@@ -811,19 +814,19 @@ int main() {
                             &police, couleurNoire, &positionActive, avancee_niveaux, tailleNiveaux,
                             itemsMenuNouvellePartie, &valider, &largeur, &hauteur, &page_active);
 
-            /* Cas où on retourne en arrière */
+            /** Cas où on retourne en arrière */
             if(page_active == MENU_PRINCIPAL) {
 
                 chargement_image(&renderer, &surface, &texture_image_plein_ecran, "./images/plein_ecran_blanc.png");
                 chargement_image(&renderer, &surface, &texture_image_options, "./images/options_blanc.png");
 
-                /* Réinitialisation des variables de la nouvelle partie avec les anciennes valeurs sauvegardées */
+                /** Réinitialisation des variables de la nouvelle partie avec les anciennes valeurs sauvegardées */
                 strcpy(pseudo.texte, pseudo_temporaire);
                 personnageActif = personnage_temporaire;
                 modeActif = mode_temporaire;
             }
 
-            /* Cas où on on commence une nouvelle partie */
+            /** Cas où on on commence une nouvelle partie */
             else if(page_active == INTRODUCTION) {
 
                 if((musique = Mix_LoadMUS("./sons/musiques/introduction.mp3")) == NULL)
@@ -833,13 +836,13 @@ int main() {
 
                 chargement_image(&renderer, &surface, &texture_image_carte, "./images/carte_niveau_2_bloque.jpg");
 
-                /* Actualisation de la taille de la police pour l'introduction */
+                /** Actualisation de la taille de la police pour l'introduction */
                 if((police = TTF_OpenFont("./polices/02587_ARIALMT.ttf", largeur / 50)) == NULL)
                     erreur("Chargement de la police");
             }
         }
 
-        /* Page de l'introduction */
+        /** Page de l'introduction */
 
         else if(page_active == INTRODUCTION) {
             introduction(&event, &window, &renderer, &programme_lance,
@@ -848,10 +851,10 @@ int main() {
                          &personnageActif, couleurBlanche,
                          &largeur, &hauteur, &page_active);
             
-            /* On entre directement dans le niveau 1 après l'introduction */
+            /** On entre directement dans le niveau 1 après l'introduction */
             page_active = NIVEAU_1;
 
-            /* Initialisation de la police d'origine */
+            /** Initialisation de la police d'origine */
             if((police = TTF_OpenFont("./polices/04B_11__.TTF", 20)) == NULL)
                 erreur("Chargement de la police");
 
@@ -860,7 +863,7 @@ int main() {
 
             Mix_PlayMusic(musique, -1);
 
-            /* Initialisation par défaut du niveau */
+            /** Initialisation par défaut du niveau */
             largeur_tile = largeur / 32;
             hauteur_tile = hauteur / 18;
 
@@ -876,7 +879,7 @@ int main() {
 
             mouvement_monstre = 0;
 
-            /* Initialisation collectible récolté */
+            /** Initialisation collectible récolté */
             for(i = 0; i < 3; i++)
                 collectibles_intermediaires[i] = 0;
 
@@ -890,12 +893,12 @@ int main() {
                     tile_map[y][x] = tile_map_niveau_1[y][13 + x];
         }
 
-        /* Page de la carte */
+        /** Page de la carte */
         else if(page_active == CARTE) {
 
             page_precedente = CARTE;
 
-            /* Cas où le personnage choisit est masculin */
+            /** Cas où le personnage choisit est masculin */
             if(personnageActif == PERSONNAGE_1)
                 carte(&event, &window, &renderer, &programme_lance, &texture_image_carte,
                       &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -914,7 +917,7 @@ int main() {
                       &touche_sauter_monter, &touche_descendre, &touche_interagir,
                       itemsNiveaux, tailleNiveaux, &largeur, &hauteur, &page_active);
 
-            /* Cas où le personnage choisit est féminin */
+            /** Cas où le personnage choisit est féminin */
             else
                 carte(&event, &window, &renderer, &programme_lance, &texture_image_carte,
                       &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -946,7 +949,7 @@ int main() {
                 Mix_PlayMusic(musique, -1);
             }
 
-            /* Cas où on rentre dans le niveau 1 */
+            /** Cas où on rentre dans le niveau 1 */
             if(page_active == NIVEAU_1) {
 
                 if((musique = Mix_LoadMUS("./sons/musiques/niveau_1.mp3")) == NULL)
@@ -954,7 +957,7 @@ int main() {
 
                 Mix_PlayMusic(musique, -1);
 
-                /* Initialisation par défaut du niveau */
+                /** Initialisation par défaut du niveau */
                 largeur_tile = largeur / 32;
                 hauteur_tile = hauteur / 18;
 
@@ -970,7 +973,7 @@ int main() {
 
                 mouvement_monstre = 0;
 
-                /* Initialisation collectible récolté */
+                /** Initialisation collectible récolté */
                 for(i = 0; i < 3; i++)
                     collectibles_intermediaires[i] = avancee_niveaux[0].numero_collectible[i];
 
@@ -982,7 +985,7 @@ int main() {
 
             }
 
-            /* Cas où on rentre dans le niveau 2 ou 3 */
+            /** Cas où on rentre dans le niveau 2 ou 3 */
             else if((page_active == NIVEAU_2) || (page_active == NIVEAU_3)) {
 
                 if((musique = Mix_LoadMUS("./sons/musiques/salon.mp3")) == NULL)
@@ -990,7 +993,7 @@ int main() {
 
                 Mix_PlayMusic(musique, -1);
 
-                /* Initialisation par défaut du niveau */
+                /** Initialisation par défaut du niveau */
                 largeur_tile = largeur / 32;
                 hauteur_tile = hauteur / 18;
 
@@ -1011,12 +1014,12 @@ int main() {
 
                 mini_jeu_termine = 0;
 
-                /* Initialisation collectible récolté */
+                /** Initialisation collectible récolté */
                 if(page_active == NIVEAU_2)
                     for(i = 0; i < 3; i++)
                         collectibles_intermediaires[i] = avancee_niveaux[1].numero_collectible[i];
                 
-                /* Initialisation collectible récolté */
+                /** Initialisation collectible récolté */
                 else
                     for(i = 0; i < 3; i++)
                         collectibles_intermediaires[i] = avancee_niveaux[2].numero_collectible[i];
@@ -1024,7 +1027,7 @@ int main() {
                 salon_arrivee_niveaux_2_3(&position_x, &position_y, tile_map, page_active);
             }
 
-            /* Cas où on rentre dans le niveau 4 */
+            /** Cas où on rentre dans le niveau 4 */
             else if(page_active == NIVEAU_4) {
 
                 if((musique = Mix_LoadMUS("./sons/musiques/niveau_4.mp3")) == NULL)
@@ -1032,7 +1035,7 @@ int main() {
                 
                 Mix_PlayMusic(musique, -1);
 
-                /* Initialisation par défaut du niveau */
+                /** Initialisation par défaut du niveau */
                 largeur_tile = largeur / 32;
                 hauteur_tile = hauteur / 18;
 
@@ -1042,11 +1045,11 @@ int main() {
                 tombe = 0;
                 saut = 0;
 
-                /* Initialisation collectible récolté */
+                /** Initialisation collectible récolté */
                 for(i = 0; i < 3; i++)
                     collectibles_intermediaires[i] = avancee_niveaux[3].numero_collectible[i];
 
-                /* On entre dans l'étage 1 de la tour (total 5 étages) */
+                /** On entre dans l'étage 1 de la tour (total 5 étages) */
                 etage_1(&position_x, &position_y, &position_x_initiale, &position_y_initiale, tile_map,
                         &renderer, &surface, &texture_image_mur);
             }
@@ -1062,10 +1065,10 @@ int main() {
             touche_pressee = 0;
         }
 
-        /* Page du niveau 1 */
+        /** Page du niveau 1 */
         else if(page_active == NIVEAU_1) {
 
-            /* Cas où le personnage choisit est masculin */
+            /** Cas où le personnage choisit est masculin */
             if(personnageActif == PERSONNAGE_1)
                 niveau_1(&event, &window, &renderer,
                          &texture, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1083,7 +1086,7 @@ int main() {
                          &position_x_initiale, &position_y_initiale, &position_x, &position_y,
                          &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
 
-            /* Cas où le personnage choisit est féminin */
+            /** Cas où le personnage choisit est féminin */
             else
                 niveau_1(&event, &window, &renderer,
                          &texture, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1101,7 +1104,7 @@ int main() {
                          &position_x_initiale, &position_y_initiale, &position_x, &position_y,
                          &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
 
-            /* Retour sur la carte */
+            /** Retour sur la carte */
             if(page_active == CARTE) {
 
                 if(!avancee_niveaux[0].niveau_fini)
@@ -1125,10 +1128,10 @@ int main() {
             }
         }
 
-        /* Page du niveau 2 */
+        /** Page du niveau 2 */
         else if(page_active == NIVEAU_2) {
 
-            /* Cas où le personnage choisit est masculin */
+            /** Cas où le personnage choisit est masculin */
             if(personnageActif == PERSONNAGE_1)
                 arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1153,7 +1156,7 @@ int main() {
                                     tile_map_mini_jeu_niveau_3, &descendre, &interagir, &bloc_x, &bloc_y,
                                     &texture_image_sol_labyrinthe, &texture_image_bordure_labyrinthe, &texture_image_fin_labyrinthe);
 
-            /* Cas où le personnage choisit est féminin */
+            /** Cas où le personnage choisit est féminin */
             else
                 arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1178,7 +1181,7 @@ int main() {
                                     tile_map_mini_jeu_niveau_3, &descendre, &interagir, &bloc_x, &bloc_y,
                                     &texture_image_sol_labyrinthe, &texture_image_bordure_labyrinthe, &texture_image_fin_labyrinthe);
 
-            /* Retour sur la carte */
+            /** Retour sur la carte */
             if(page_active == CARTE) {
 
                 if(!avancee_niveaux[0].niveau_fini)
@@ -1202,10 +1205,10 @@ int main() {
             }    
         }
 
-        /* Page du niveau 3 */
+        /** Page du niveau 3 */
         else if(page_active == NIVEAU_3) {
 
-            /* Cas où le personnage choisit est masculin */
+            /** Cas où le personnage choisit est masculin */
             if(personnageActif == PERSONNAGE_1)
                 arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1230,7 +1233,7 @@ int main() {
                                     tile_map_mini_jeu_niveau_3, &descendre, &interagir, &bloc_x, &bloc_y,
                                     &texture_image_sol_labyrinthe, &texture_image_bordure_labyrinthe, &texture_image_fin_labyrinthe);
 
-            /* Cas où le personnage choisit est féminin */
+            /** Cas où le personnage choisit est féminin */
             else
                 arrivee_niveaux_2_3(&event, &window, &renderer, &mini_jeu, &texture_image_fin_premiers_niveaux,
                                     &texture, &surface, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1255,7 +1258,7 @@ int main() {
                                     tile_map_mini_jeu_niveau_3, &descendre, &interagir, &bloc_x, &bloc_y,
                                     &texture_image_sol_labyrinthe, &texture_image_bordure_labyrinthe, &texture_image_fin_labyrinthe);
 
-            /* Retour sur la carte */
+            /** Retour sur la carte */
             if(page_active == CARTE) {
 
                 if(!avancee_niveaux[0].niveau_fini)
@@ -1279,10 +1282,10 @@ int main() {
             }   
         }
 
-        /* Page du niveau 4 */
+        /** Page du niveau 4 */
         else if(page_active == NIVEAU_4) {
 
-            /* Cas où le personnage choisit est masculin */
+            /** Cas où le personnage choisit est masculin */
             if(personnageActif == PERSONNAGE_1)
                 niveau_4(&event, &window, &renderer,
                          &texture, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1301,7 +1304,7 @@ int main() {
                          &position_x_initiale, &position_y_initiale, &position_x, &position_y,
                          &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
 
-            /* Cas où le personnage choisit est féminin */
+            /** Cas où le personnage choisit est féminin */
             else
                 niveau_4(&event, &window, &renderer,
                          &texture, &rectangle_plein_ecran, &texture_image_plein_ecran, &plein_ecran,
@@ -1320,7 +1323,7 @@ int main() {
                          &position_x_initiale, &position_y_initiale, &position_x, &position_y,
                          &largeur, &hauteur, &largeur_tile, &hauteur_tile, &page_active);
 
-            /* Retour sur la carte */
+            /** Retour sur la carte */
             if(page_active == CARTE) {
                 
                 if(!avancee_niveaux[0].niveau_fini)
@@ -1348,11 +1351,11 @@ int main() {
 
     /*----------------------------------------------------------------------- Fin du jeu ------------------------------------------------------------------------*/
 
-    /* Libération de la mémoire allouée dynamiquement */
+    /** Libération de la mémoire allouée dynamiquement */
     free(itemsMenuPrincipal);
     Mix_FreeMusic(musique);
 
-    /* Destruction des différents objets */
+    /** Destruction des différents objets */
     detruire_objets(&police, &texture_image_plein_ecran, &texture_image_retour_en_arriere,
                     &texture_image_options, &texture_image_passer, &texture_image_menu, &texture_image_carte,
                     &texture_image_hautParleurActif, &texture_image_hautParleurDesactive,
@@ -1385,13 +1388,13 @@ int main() {
                     &texture_image_sol_labyrinthe, &texture_image_bordure_labyrinthe,
                     &texture_image_fin_labyrinthe, &texture_image_nuage_1, &texture_image_nuage_2);
 
-    /* Destruction du rendu et de la fenêtre*/
+    /** Destruction du rendu et de la fenêtre*/
     detruire_fenetre_rendu(&renderer, &window);
 
-    /* Quitter TTF, VIDEO SDL et AUDIO SDL */
+    /** Quitter TTF, VIDEO SDL et AUDIO SDL */
 	TTF_Quit(); 
     SDL_Quit();
     Mix_CloseAudio();
 
-    return EXIT_SUCCESS; /* return 0; */
+    return EXIT_SUCCESS; /** return 0; */
 }

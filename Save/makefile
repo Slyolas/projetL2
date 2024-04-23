@@ -140,7 +140,7 @@ $(OBJ_DIR)/fonctions_niveau_4.o: $(SRC_DIR)/fonctions_niveau_4.c $(INC_DIR)/fonc
 #
 
 # Nettoyage des fichiers temporaires
-clean: clean_exe clean_obj
+clean: clean_exe clean_obj clean_doxy
 
 # Supprimer les fichiers objets
 clean_obj:
@@ -149,3 +149,20 @@ clean_obj:
 # Supprimer l'exécutable
 clean_exe:
 	rm -rf $(BIN_DIR)/$(EXECUTABLES)
+
+################################
+# 			Doxygen			   #
+################################
+
+#Nom du projet 
+PROJECT_NAME = Metatravers
+#Commande à exécuter
+DOXYGEN = doxygen
+doc:
+	@echo "Génération de la documentation Doxygen"
+	@$(DOXYGEN) Doxyfile
+	@echo "Documentation générée dans $(DOC_DIR)/"
+
+clean_doxy:
+	@echo "Suppression de la documentation Doxygen"
+	@rm -rf $(DOC_DIR)/*

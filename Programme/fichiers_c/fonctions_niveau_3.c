@@ -6,7 +6,24 @@
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_3.h>
 
-/* Fonction qui permet d'initialiser les différents objets du niveau 2 */
+/** 
+ * \fn void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_fond_niveau_3, SDL_Texture **texture_image_dossier_niveau_3, SDL_Texture **texture_image_sol_niveau_3, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2,  SDL_Texture **barre_windows_3, SDL_Texture **barre_windows_4, SDL_Texture **texture_image_puzzle, SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe)
+ * \brief Fonction qui permet d'initialiser les différents objets du niveau 2 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_fond_niveau_3 Texture de l'image de fond du niveau 3.
+ * \param texture_image_dossier_niveau_3 Texture de l'image du dossier pour le niveau 3.
+ * \param texture_image_sol_niveau_3 Texture de l'image du sol du niveau 3.
+ * \param barre_windows_1 Texture de la barre Windows 1.
+ * \param barre_windows_2 Texture de la barre Windows 2.
+ * \param barre_windows_3 Texture de la barre Windows 3.
+ * \param barre_windows_4 Texture de la barre Windows 4.
+ * \param texture_image_puzzle Texture de l'image du puzzle.
+ * \param texture_image_sol_labyrinthe Texture de l'image du sol du labyrinthe.
+ * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure du labyrinthe.
+ * \param texture_image_fin_labyrinthe Texture de l'image de fin du labyrinthe.
+ * \see chargement_image
+ */
 void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_fond_niveau_3, SDL_Texture **texture_image_dossier_niveau_3,
                                     SDL_Texture **texture_image_sol_niveau_3, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, 
@@ -14,7 +31,7 @@ void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surfa
                                     SDL_Texture **texture_image_puzzle, SDL_Texture **texture_image_sol_labyrinthe,
                                     SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe) {
 
-    /* Chargement des images pour le niveau 3 */
+    /** Chargement des images pour le niveau 3 */
 
     chargement_image(renderer, surface, texture_image_fond_niveau_3, "./images/niveau_3/fond_niveau_3.jpg");
     chargement_image(renderer, surface, texture_image_dossier_niveau_3, "./images/niveau_3/dossier_windows_xp.png");
@@ -31,7 +48,13 @@ void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surfa
     chargement_image(renderer, surface, texture_image_fin_labyrinthe, "./images/labyrinthe/fin_labyrinthe.png");
 }
 
-/* Fonction pour obtenir un rectangle représentant une pièce de puzzle aléatoire */
+/** 
+ * \fn SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur)
+ * \brief Fonction pour obtenir un rectangle représentant une pièce de puzzle aléatoire
+ * \param largeur représente la largeur du rectangle de la fenêtre ou se trouve le mini-jeu
+ * \param hauteur représente la hauteur du rectangle de la fenêtre ou se trouve le mini-jeu
+ * 
+ */
 SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur) {
 
     SDL_Rect rectangle_aleatoire;
@@ -44,14 +67,21 @@ SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur) {
     return rectangle_aleatoire;
 }
 
-/* Fonction pour afficher le rendu du puzzle */
+/** 
+ * \fn void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[45])  
+ * \brief Fonction pour afficher le rendu du puzzle 
+ * \param renderer rendu de l'écran
+ * \param texture_image_puzzle  image final du puzzle 
+ * \param rectangle_piece les différentes pièces du puzzle 
+ * \see erreur
+ */
 void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[45]) {
 
     int i;
 
     SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
     
-    /* Nettoyer le rendu */
+    /** Nettoyer le rendu */
     if(SDL_RenderClear((*renderer)) != 0)
         erreur("Effacement rendu échoué");
 
@@ -64,13 +94,24 @@ void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** text
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction pour vérifier si une pièce est proche de sa position correcte */
+/** 
+ * \fn int piece_proche_position_correcte(SDL_Rect rectangle_piece, SDL_Rect rectangle_correct)
+ * \brief Fonction pour vérifier si une pièce est proche de sa position correcte 
+ * \param rectangle_piece rectangle représentant la pièce de puzzle à vérifier
+ * \param rectangle_correct rectangle représentant la bonne position de la pièce
+ * \return booléen de si c'est proche de la bonne position (1 si succès sinon 0)
+ */
 int piece_proche_position_correcte(SDL_Rect rectangle_piece, SDL_Rect rectangle_correct) {
 
     return ((abs(rectangle_piece.x - rectangle_correct.x) <= 20) && (abs(rectangle_piece.y - rectangle_correct.y) <= 20));
 }
 
-/* Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte) */
+/**
+ * \fn int verification_puzzle_fini(const int piece_bloquee[]) 
+ * \brief Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte)
+ * \param piece_bloquee tableau des pièces bloquées 
+ * \return renvoie un booléen (1 si le puzzle est valide sinon 0) 
+ */
 int verification_puzzle_fini(const int piece_bloquee[]) {
 
     int i;
@@ -78,28 +119,37 @@ int verification_puzzle_fini(const int piece_bloquee[]) {
     for (i = 0; i < 45; i++) 
 
         if (!piece_bloquee[i])
-            return 0; /* Au moins une pièce n'est pas verrouillée */
+            return 0; /** Au moins une pièce n'est pas verrouillée */
         
 
-    return 1; /* Toutes les pièces sont verrouillées */
+    return 1; /** Toutes les pièces sont verrouillées */
 }
 
-/* Fonction qui permet d'initialiser le second mini-jeu du niveau 3 */
+/** 
+ * \fn void mini_jeu_2_niveau_3(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tile_map[24][32])
+ * \brief Fonction qui permet d'initialiser le second mini-jeu du niveau 3 
+ * \param position_x position x du personnage
+ * \param position_y position y du personnage
+ * \param bloc_x position x du bloc à déplacer 
+ * \param bloc_y position y du bloc à déplacer
+ * \param tile_map map ou se trouve le personnage
+ * 
+ */
 void mini_jeu_2_niveau_3(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tile_map[24][32]) {
 
     int x, y;
 
-    /* Positionnement du personnage en haut à gauche */
+    /** Positionnement du personnage en haut à gauche */
 
     (*position_x) = 1;
     (*position_y) = 1;
 
-    /* Position initiale du bloc à deplacer en coordonnées de tuile */
+    /** Position initiale du bloc à deplacer en coordonnées de tuile */
 
     (*bloc_x) = 2;
     (*bloc_y) = 1;
 
-    /* Création du second mini-jeu */
+    /** Création du second mini-jeu */
     int initialisation_tile_map[24][32] = {
         {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
         {2, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 2},
@@ -128,27 +178,37 @@ void mini_jeu_2_niveau_3(int *position_x, int *position_y, int *bloc_x, int *blo
         
     };
 
-    /* Copie du tile-map */
+    /** Copie du tile-map */
     for (y = 0; y < 24; y++)
         for (x = 0; x < 32; x++)
             tile_map[y][x] = initialisation_tile_map[y][x];
 }
 
-/* Fonction pour traiter les commandes utilisateur */
+/** 
+ * \fn vvoid traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tilemap[24][32],int direction)
+ * \brief Fonction pour traiter les commandes utilisateur 
+ * \param position_x pointeur sur la position x du joueur 
+ * \param position_x pointeur sur la position y du joueur 
+ * \param position_x pointeur sur la position x du bloc à déplacer 
+ * \param position_x pointeur sur la position y du bloc à déplacer
+ * \param tilemap map ou se trouve le personnage te le bloc
+ * \param direction booléen représentant l'action pousser / tirer
+ * 
+ */
 void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tilemap[24][32], int direction) {
 
-    /* Vérification si le joueur est à côté du bloc */
-    if ((((*position_x) == (*bloc_x) - 1) && ((*position_y) == (*bloc_y))) ||   /* Le joueur est à gauche du bloc */
-        (((*position_x) == (*bloc_x) + 1) && ((*position_y) == (*bloc_y))) ||   /* Le joueur est à droite du bloc */
-        (((*position_x) == (*bloc_x)) && ((*position_y) == (*bloc_y) - 1)) ||   /* Le joueur est au dessus du bloc */
-        (((*position_x) == (*bloc_x)) && ((*position_y) == (*bloc_y) + 1))) {   /* Le joueur est en dessous du bloc */
+    /** Vérification si le joueur est à côté du bloc */
+    if ((((*position_x) == (*bloc_x) - 1) && ((*position_y) == (*bloc_y))) ||   /** Le joueur est à gauche du bloc */
+        (((*position_x) == (*bloc_x) + 1) && ((*position_y) == (*bloc_y))) ||   /** Le joueur est à droite du bloc */
+        (((*position_x) == (*bloc_x)) && ((*position_y) == (*bloc_y) - 1)) ||   /** Le joueur est au dessus du bloc */
+        (((*position_x) == (*bloc_x)) && ((*position_y) == (*bloc_y) + 1))) {   /** Le joueur est en dessous du bloc */
 
-        /* Le personnage est au dessus du bloc */
+        /** Le personnage est au dessus du bloc */
         if (((*position_x) == (*bloc_x)) && ((*position_y) == (*bloc_y) - 1)) { 
 
-            /* On veut pousser le bloc */
+            /** On veut pousser le bloc */
             if(direction == 1) {
-                /* On regarde si on peut pousser le bloc sur la case suivante */
+                /** On regarde si on peut pousser le bloc sur la case suivante */
                 if ((tilemap[*bloc_y + 1][*bloc_x] == 0) || (tilemap[*bloc_y + 1][*bloc_x] == 3)) {
 
                     (*bloc_y)++;
@@ -157,9 +217,9 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
                 }
             }
 
-            /* On veut tirer le bloc */
+            /** On veut tirer le bloc */
             if(direction == 0){
-                /* On regarde si le personnage peut être sur la case de derrière */
+                /** On regarde si le personnage peut être sur la case de derrière */
                 if ((tilemap[*position_y - 1][*position_x] == 0) || (tilemap[*position_y - 1][*position_x] == 3)) {
 
                     (*position_y)--;
@@ -169,12 +229,12 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
             }
         } 
         
-        /* Le personnage est en dessous du bloc */
+        /** Le personnage est en dessous du bloc */
         else if (((*position_x) == (*bloc_x)) && ((*position_y) == (*bloc_y + 1))) {
 
-            /* On veut pousser le bloc */
+            /** On veut pousser le bloc */
             if(direction == 0) {
-                /* On regarde si on peut pousser le bloc sur la case suivante */
+                /** On regarde si on peut pousser le bloc sur la case suivante */
                 if ((tilemap[*bloc_y - 1][*bloc_x] == 0) || (tilemap[*bloc_y - 1][*bloc_x] == 3)) {
 
                     (*bloc_y)--;
@@ -183,9 +243,9 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
                 }
             }
 
-            /* On veut tirer le bloc */
+            /** On veut tirer le bloc */
             if(direction == 1) {
-                /* On regarde si le personnage peut être sur la case de derrière */
+                /** On regarde si le personnage peut être sur la case de derrière */
                 if ((tilemap[*position_y + 1][*position_x] == 0) || (tilemap[*position_y + 1][*position_x] == 3)) {
 
                     (*position_y)++;
@@ -195,12 +255,12 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
             }
         } 
         
-        /* Le personnage est à gauche du bloc */
+        /** Le personnage est à gauche du bloc */
         else if (((*position_x) == (*bloc_x - 1)) && ((*position_y) == (*bloc_y))) {  
 
-            /* On veut pousser le bloc */
+            /** On veut pousser le bloc */
             if(direction == 3) {
-                /* On regarde si on peut pousser le bloc sur la case suivante */
+                /** On regarde si on peut pousser le bloc sur la case suivante */
                 if ((tilemap[*bloc_y][*bloc_x + 1] == 0) || (tilemap[*bloc_y][*bloc_x + 1] == 3)) {
 
                     (*bloc_x)++;
@@ -209,9 +269,9 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
                 }
             }
 
-            /* On veut tirer le bloc */
+            /** On veut tirer le bloc */
             if(direction == 2) {
-                /* On regarde si le personnage peut être sur la case de derrière */
+                /** On regarde si le personnage peut être sur la case de derrière */
                 if ((tilemap[*position_y][*position_x - 1] == 0) || (tilemap[*position_y][*position_x - 1] == 3)) {
 
                     (*position_x)--;
@@ -221,12 +281,12 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
             }
         } 
         
-        /* Le personnage est à droite du bloc */
+        /** Le personnage est à droite du bloc */
         else if (((*position_x) == (*bloc_x + 1)) && ((*position_y) == (*bloc_y))) {
 
-            /* On veut pousser le bloc */
+            /** On veut pousser le bloc */
             if(direction == 2) {
-                /* On regarde si on peut pousser le bloc sur la case suivante */
+                /** On regarde si on peut pousser le bloc sur la case suivante */
                 if ((tilemap[*bloc_y][*bloc_x - 1] == 0) || (tilemap[*bloc_y][*bloc_x - 1] == 3)) {
 
                     (*bloc_x)--;
@@ -235,9 +295,9 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
                 }
             }
 
-            /* On veut tirer le bloc */
+            /** On veut tirer le bloc */
             if(direction == 3) {
-                /* On regarde si le personnage peut être sur la case de derrière */
+                /** On regarde si le personnage peut être sur la case de derrière */
                 if ((tilemap[*position_y][*position_x + 1] == 0) || (tilemap[*position_y][*position_x + 1] == 3)) {
                     (*position_x)++;
                     (*bloc_x)++;
@@ -248,11 +308,23 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
     }
 }
 
-/* Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la fin du labyrinthe */
+/** 
+ * \fn int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_image_mur_termine, int tilemap[24][32], int x_tile, int y_tile, SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile)
+ * \brief Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la fin du labyrinthe 
+ * \param renderer rendu de la fenêtre
+ * \param texture_image_mur_termine Texture du mur quand une partie ou tout le niveau est terminé
+ * \param tilemap map ou se trouve le personnage
+ * \param x_tile position x de la tuile
+ * \param y_tile position y de la tuile
+ * \param rectangle_tile rectangle à déplacer
+ * \param largeur_tile largeur du rectangle
+ * \param hauteur_tile hauteur du rectangle
+ * \return appel récursif pour mettre à jour les différents bloc (termine l'appel récursif à 0)
+ */
 int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_image_mur_termine, int tilemap[24][32], int x_tile, int y_tile,
                                 SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile) {
 
-    /* Mise à jour du rendu de la tuile courante */
+    /** Mise à jour du rendu de la tuile courante */
     tilemap[y_tile][x_tile] = 3;
 
     rectangle_tile->x = x_tile * largeur_tile;
@@ -266,24 +338,24 @@ int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_i
 
     SDL_Delay(20); 
 
-	/* Vérification des tuiles adjacentes pour permettre un appel récursif et ainsi changé toute les tuiles de la bordure */
+	/** Vérification des tuiles adjacentes pour permettre un appel récursif et ainsi changé toute les tuiles de la bordure */
     
-    /* Tuile à droite de la courante */
+    /** Tuile à droite de la courante */
     if((tilemap[y_tile][x_tile + 1] == 2) && (x_tile < 31)) 
         return mise_a_jour_bordures_niveau_3(renderer, texture_image_mur_termine, tilemap, x_tile + 1, y_tile,
                                             rectangle_tile, largeur_tile, hauteur_tile);
     
-    /* Tuile à gauche de la courante */
+    /** Tuile à gauche de la courante */
     else if((tilemap[y_tile][x_tile - 1] == 2) && (x_tile > 0))
         return mise_a_jour_bordures_niveau_3(renderer, texture_image_mur_termine, tilemap, x_tile - 1, y_tile,
                                             rectangle_tile, largeur_tile, hauteur_tile);
     
-    /* Tuile en dessous de la courante */
+    /** Tuile en dessous de la courante */
     else if((tilemap[y_tile + 1][x_tile] == 2) && (y_tile < 31))
         return mise_a_jour_bordures_niveau_3(renderer, texture_image_mur_termine, tilemap, x_tile, y_tile + 1,
                                             rectangle_tile, largeur_tile, hauteur_tile);
     
-    /* Tuile au dessus de la courante */
+    /** Tuile au dessus de la courante */
     else if((tilemap[y_tile - 1][x_tile] == 2) && (y_tile > 0))
         return mise_a_jour_bordures_niveau_3(renderer, texture_image_mur_termine, tilemap, x_tile, y_tile - 1,
                                             rectangle_tile, largeur_tile, hauteur_tile);
@@ -291,7 +363,32 @@ int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_i
     return 0;
 }
 
-/* Fonction qui permet de mettre à jour le second mini-jeu du niveau 2 */
+/** 
+ * \fn void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif, SDL_Texture **texture_image_sol_labyrinthe, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_fin_labyrinthe, SDL_Texture **texture, SDL_Rect *rectangle_tile, int bloc_x, int bloc_y, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int position_x, int position_y, int tile_map_mini_jeu_niveau_3[24][32], niveaux *avancee_niveaux, int largeur_tile, int hauteur_tile)
+ * \brief Fonction qui permet de mettre à jour le second mini-jeu du niveau 2 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param modeActif Mode actif du jeu.
+ * \param texture_image_sol_labyrinthe Texture de l'image du sol du labyrinthe.
+ * \param rectangle_plein_ecran Rectangle représentant l'écran complet.
+ * \param texture_image_plein_ecran Texture de l'image de l'écran complet.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur du mini-jeu.
+ * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure du labyrinthe.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \param texture_image_fin_labyrinthe Texture de l'image de fin du labyrinthe.
+ * \param texture Texture utilisée pour le rendu.
+ * \param rectangle_tile Rectangle représentant une tuile.
+ * \param bloc_x Position X du bloc.
+ * \param bloc_y Position Y du bloc.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle représentant le personnage.
+ * \param position_x Position X actuelle.
+ * \param position_y Position Y actuelle.
+ * \param tile_map_mini_jeu_niveau_3 Tableau de tuiles pour le mini-jeu 2 du niveau 3.
+ * \param avancee_niveaux Structure de données représentant l'avancée dans les niveaux.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * 
+ */
 void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif, SDL_Texture **texture_image_sol_labyrinthe,
                                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                      SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_mur_termine,
@@ -305,20 +402,20 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
 
     Mix_Chunk *effet_sonore;
 
-    /* Nettoyer le renderer */
+    /** Nettoyer le renderer */
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
     
-    /* Efface le rendu */
+    /** Efface le rendu */
     if(SDL_RenderClear((*renderer)) != 0)
         erreur("Effacement rendu échoué");
 
-    /* Rendu tilemap */
-    /* Mode Normal */
+    /** Rendu tilemap */
+    /** Mode Normal */
     if((*modeActif) == MODE_NORMAL) 
         for(y = 0; y < 24; y++)
             for(x = 0; x < 32; x++) {
 
-                /* Rendu de chaque tuile en fonction de son type */
+                /** Rendu de chaque tuile en fonction de son type */
 
                 if((!tile_map_mini_jeu_niveau_3[y][x]) || (tile_map_mini_jeu_niveau_3[y][x] == 5))
                     (*texture) = (*texture_image_sol_labyrinthe);
@@ -348,12 +445,12 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
                         erreur("Copie de la texture");
             }
 
-    /* Mode Difficile */
+    /** Mode Difficile */
     else if((*modeActif) == MODE_HARD)
         for(y = position_y - 2; y <= position_y + 2; y++)
             for(x = position_x - 2; x <= position_x + 2; x++) {
 
-                /* Rendu de chaque tuile en fonction de son type */
+                /** Rendu de chaque tuile en fonction de son type */
 
                 if(!tile_map_mini_jeu_niveau_3[y][x] || (tile_map_mini_jeu_niveau_3[y][x] == 5))
                     (*texture) = (*texture_image_sol_labyrinthe);
@@ -383,7 +480,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
                         erreur("Copie de la texture");
             }
 
-    /* Passage secret vers un collectible */
+    /** Passage secret vers un collectible */
     if((position_x == 12) && (position_y == 11) && (tile_map_mini_jeu_niveau_3[position_y][position_x] == 4)){
 
         if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/tient_tient_tient.wav")) == NULL)
@@ -416,7 +513,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
             erreur("Copie de la texture");
     }
 
-    /* Remise à l'état initial */
+    /** Remise à l'état initial */
     if((position_x == 12) && (position_y == 10) && (!tile_map_mini_jeu_niveau_3[11][12])){
 
         tile_map_mini_jeu_niveau_3[11][12] = 4;
@@ -444,7 +541,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
             erreur("Copie de la texture");
     }
 
-    /* Rendu du bloc à deplacer */
+    /** Rendu du bloc à deplacer */
 
     rectangle_tile->x = bloc_x * largeur_tile;
     rectangle_tile->y = bloc_y * hauteur_tile;
@@ -454,7 +551,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
     if(SDL_RenderCopy((*renderer), (*texture_image_fin_labyrinthe), NULL, rectangle_tile))
         erreur("Copie de la texture");
 
-    /* Rendu du bloc d'arriver */
+    /** Rendu du bloc d'arriver */
 
     rectangle_tile->x = 30 * largeur_tile;
     rectangle_tile->y = 22 * hauteur_tile;
@@ -462,7 +559,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
     if(SDL_RenderCopy((*renderer), (*texture_image_mur_termine), NULL, rectangle_tile))
         erreur("Copie de la texture");
 
-    /* Rendu du joueur */
+    /** Rendu du joueur */
 
     rectangle_personnage->x = position_x * largeur_tile;
     rectangle_personnage->y = position_y * hauteur_tile;
@@ -472,7 +569,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
     if(SDL_RenderCopy((*renderer), (*texture_image_personnage), NULL, rectangle_personnage))
         erreur("Copie de la texture");
 
-    /* Copie la texture de l'image de plein écran */
+    /** Copie la texture de l'image de plein écran */
 
     rectangle_plein_ecran->x = largeur_tile * 31;
     rectangle_plein_ecran->y = 0;
@@ -482,11 +579,86 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
     if(SDL_RenderCopy((*renderer), (*texture_image_plein_ecran), NULL, rectangle_plein_ecran) != 0)
         erreur("Copie de la texture");
 
-    /* Affiche le rendu */
+    /** Affiche le rendu */
     SDL_RenderPresent((*renderer));
 } 
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les mini-jeux du niveau 3 */
+/** 
+ * \fn void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window,SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,niveaux *avancee_niveaux, int tile_map[18][32],int *mini_jeu, int *mini_jeu_1_termine, int *mini_jeu_2_termine,int *position_x, int *position_y, SDL_Texture **texture,int *largeur, int *hauteur, SDL_Rect *rectangle_demande_quitter,SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleurNoire,itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int collectibles_intermediaires[3],page_t *page_active, SDL_Rect *rectangle_tile, int *largeur_tile, int *hauteur_tile,int *avancer, int *reculer, int *sauter, int *saut, int *tombe,SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45], int *piece_selectionnee,int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle,int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y,SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe,SDL_Texture **texture_image_fin_labyrinthe, Mix_Music **musique,SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage,SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_mur_mini_jeu, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_interagir,SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, modes_t *modeActif)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les mini-jeux du niveau 3 
+ * \param event Pointeur vers l'événement SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param rectangle_plein_ecran Rectangle représentant l'écran complet.
+ * \param texture_image_plein_ecran Texture de l'image de l'écran complet.
+ * \param plein_ecran Booléen indiquant si le mode plein écran est activé.
+ * \param avancee_niveaux Structure de données représentant l'avancée dans les niveaux.
+ * \param tile_map Tableau de tuiles du niveau 3.
+ * \param mini_jeu Pointeur vers le numéro du mini-jeu en cours.
+ * \param mini_jeu_1_termine Booléen indiquant si le premier mini-jeu est terminé.
+ * \param mini_jeu_2_termine Booléen indiquant si le deuxième mini-jeu est terminé.
+ * \param position_x Position X du joueur.
+ * \param position_y Position Y du joueur.
+ * \param texture Texture utilisée pour le rendu.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param rectangle_demande_quitter Rectangle pour la demande de quitter.
+ * \param surface Surface SDL pour le texte.
+ * \param texture_texte Texture pour le texte.
+ * \param police Police utilisée pour le texte.
+ * \param couleurNoire Couleur noire.
+ * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter.
+ * \param tailleDemandeQuitter Taille du tableau d'items de demande de quitter.
+ * \param collectibles_intermediaires Tableau des collectibles intermédiaires.
+ * \param page_active Page active dans le jeu.
+ * \param rectangle_tile Rectangle représentant une tuile.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \param avancer Booléen indiquant si le personnage avance.
+ * \param reculer Booléen indiquant si le personnage recule.
+ * \param sauter Booléen indiquant si le personnage saute.
+ * \param saut Booléen indiquant si le personnage est en saut.
+ * \param tombe Booléen indiquant si le personnage tombe.
+ * \param rectangle_piece Rectangle représentant une pièce.
+ * \param piece_bloquee Tableau indiquant si une pièce est bloquée.
+ * \param rectangle_emplacement_piece Rectangle représentant un emplacement de pièce.
+ * \param piece_selectionnee Indice de la pièce sélectionnée.
+ * \param decalage_x Décalage en X.
+ * \param decalage_y Décalage en Y.
+ * \param texture_image_puzzle Texture de l'image du puzzle.
+ * \param tile_map_mini_jeu_niveau_3 Tableau de tuiles pour le mini-jeu 3 du niveau 3.
+ * \param descendre Booléen indiquant si le personnage descend.
+ * \param interagir Booléen indiquant si le personnage interagit.
+ * \param bloc_x Position X du bloc.
+ * \param bloc_y Position Y du bloc.
+ * \param texture_image_sol_labyrinthe Texture de l'image du sol du labyrinthe.
+ * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure du labyrinthe.
+ * \param texture_image_fin_labyrinthe Texture de l'image de fin du labyrinthe.
+ * \param musique Pointeur vers la musique.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle représentant le personnage.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur du mini-jeu.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_interagir Touche pour interagir.
+ * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param touche_descendre Touche pour descendre.
+ * \param modeActif Mode actif du jeu.
+ * \see clic_case
+ * \see clic_plein_ecran
+ * \see demande_quitter_niveau
+ * \see redimensionnement_fenetre
+ * \see erreur
+ * \see traitement_touches
+ * \see piece_proche_position_correcte
+ * \see verification_puzzle_fini
+ * \see salon_arrivee_niveaux_2_3
+ * \see mise_a_jour_bordures_niveau_3
+ * \see mise_a_jour_mini_jeu_1_niveau_3
+ * \see mise_a_jour_mini_jeu_2_niveau_3
+ */
+
 void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window,
                         SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                         niveaux *avancee_niveaux, int tile_map[18][32],
@@ -526,11 +698,11 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
 
                     for (i = 44; i >= 0; i--)
 
-                        /* Vérifier si l'utilisateur a cliqué sur une pièce non bloquée */
+                        /** Vérifier si l'utilisateur a cliqué sur une pièce non bloquée */
                         if ((!piece_bloquee[i]) && ((*position_x) >= rectangle_piece[i].x) && ((*position_x) < rectangle_piece[i].x + 1600 / 9) &&
                             ((*position_y) >= rectangle_piece[i].y) && ((*position_y) < rectangle_piece[i].y + 520 / 5)) {
 
-                            /* Sélectionner la pièce et calculer le décalage de position */
+                            /** Sélectionner la pièce et calculer le décalage de position */
                             (*piece_selectionnee) = i;
 
                             (*decalage_x) = (*position_x) - rectangle_piece[i].x;
@@ -548,11 +720,11 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
                         (*position_x) = event->motion.x;
                         (*position_y) = event->motion.y;
 
-                        /* Assurer que la pièce ne sort pas de l'écran */
+                        /** Assurer que la pièce ne sort pas de l'écran */
                         rectangle_piece[(*piece_selectionnee)].x = (*position_x) - (*decalage_x);
                         rectangle_piece[(*piece_selectionnee)].y = (*position_y) - (*decalage_y);
 
-                        /* Correction pour empêcher la pièce de sortir de l'écran */
+                        /** Correction pour empêcher la pièce de sortir de l'écran */
                         if(rectangle_piece[(*piece_selectionnee)].x < 0) 
                             rectangle_piece[(*piece_selectionnee)].x = 0;
 
@@ -573,20 +745,20 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
 
                     if ((*piece_selectionnee) != -1) {
 
-                        /* Vérifier si la pièce est à proximité de sa position correcte */
+                        /** Vérifier si la pièce est à proximité de sa position correcte */
                         if (piece_proche_position_correcte(rectangle_piece[(*piece_selectionnee)], rectangle_emplacement_piece[(*piece_selectionnee)])) {
                             
-                            /* Déplacer la pièce à sa position correcte et bloquer son mouvement */
+                            /** Déplacer la pièce à sa position correcte et bloquer son mouvement */
                             rectangle_piece[(*piece_selectionnee)] = rectangle_emplacement_piece[(*piece_selectionnee)];
-                            piece_bloquee[(*piece_selectionnee)] = 1; /* Verrouiller la pièce */
+                            piece_bloquee[(*piece_selectionnee)] = 1; /** Verrouiller la pièce */
                         }
 
-                        (*piece_selectionnee) = -1; /* Réinitialiser la pièce sélectionnée */
+                        (*piece_selectionnee) = -1; /** Réinitialiser la pièce sélectionnée */
                     }
                     
                     break;
 
-                /* Demande au joueur s'il veut quitter le niveau */
+                /** Demande au joueur s'il veut quitter le niveau */
                 case SDL_QUIT:
 
                     SDL_SetWindowResizable((*window), SDL_FALSE);
@@ -632,7 +804,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
             }
         }
 
-        /* Vérifier si toutes les pièces sont bloquées à leur position correcte */
+        /** Vérifier si toutes les pièces sont bloquées à leur position correcte */
         if (verification_puzzle_fini(piece_bloquee)) {
 
             if(((*musique) = Mix_LoadMUS("./sons/musiques/salon.mp3")) == NULL)
@@ -675,7 +847,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
 
             switch(event->type) {
 
-                /* Gestion de l'événement de redimensionnement de la fenêtre */
+                /** Gestion de l'événement de redimensionnement de la fenêtre */
                 case SDL_WINDOWEVENT:
                     redimensionnement_fenetre((*event), largeur, hauteur);
                     
@@ -684,7 +856,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
 
                     break;
     
-                /* 
+                /** 
                     On peut pas traiter l'appui de 2 touches en même temps donc 
                     On stocke une valeur pour permettre l'appuie de 2 touches en même 
                     Et ainsi pouvoir traiter cette information 
@@ -727,7 +899,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
                     
                     break;
 
-                /* Option plein écran */
+                /** Option plein écran */
                 case SDL_MOUSEBUTTONDOWN:
 
                     if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window)) {
@@ -740,7 +912,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
 
                     break;
 
-                /* Demande au joueur s'il veut quitter le niveau */
+                /** Demande au joueur s'il veut quitter le niveau */
                 case SDL_QUIT:
 
                     SDL_SetWindowResizable((*window), SDL_FALSE);
@@ -780,13 +952,13 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
             }
         }
 
-        /* Traitement de l'appuie des touches */
+        /** Traitement de l'appuie des touches */
         if((*sauter)) {
 
             if((*interagir))
                 traitement_touches(position_x, position_y, bloc_x, bloc_y, tile_map_mini_jeu_niveau_3, 0);
 
-            /* On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
+            /** On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
             else if (((tile_map_mini_jeu_niveau_3[(*position_y) - 1][(*position_x)] == 0) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y) - 1][(*position_x)] == 3) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y) - 1][(*position_x)] == 4) ||
@@ -803,7 +975,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
             if((*interagir))
                 traitement_touches(position_x, position_y, bloc_x, bloc_y, tile_map_mini_jeu_niveau_3, 1);
 
-            /* On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
+            /** On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
             else if (((tile_map_mini_jeu_niveau_3[(*position_y) + 1][(*position_x)] == 0) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y) + 1][(*position_x)] == 3) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y) + 1][(*position_x)] == 4) ||
@@ -820,7 +992,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
             if((*interagir))
                 traitement_touches(position_x, position_y, bloc_x, bloc_y, tile_map_mini_jeu_niveau_3, 2);
 
-            /* On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
+            /** On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
             else if (((tile_map_mini_jeu_niveau_3[(*position_y)][(*position_x) - 1] == 0) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y)][(*position_x) - 1] == 3) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y)][(*position_x) - 1] == 4) ||
@@ -837,7 +1009,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
             if((*interagir))
                 traitement_touches(position_x, position_y, bloc_x, bloc_y, tile_map_mini_jeu_niveau_3, 3);
 
-            /* On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
+            /** On vérifie que c'est bien un chemin et qu'il n'y a pas le bloc */
             else if (((tile_map_mini_jeu_niveau_3[(*position_y)][(*position_x) + 1] == 0) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y)][(*position_x) + 1] == 3) || 
                       (tile_map_mini_jeu_niveau_3[(*position_y)][(*position_x) + 1] == 4) ||
@@ -849,7 +1021,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
             }
         }
 
-        /* Cas où le joueur récupère le second collectible */
+        /** Cas où le joueur récupère le second collectible */
         if((tile_map_mini_jeu_niveau_3[(*position_y)][(*position_x)] == 5) && (!avancee_niveaux[2].numero_collectible[1])) {
 
             if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
@@ -860,7 +1032,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
             avancee_niveaux[2].numero_collectible[1] = 1;
         }
 
-        /* Vérifier si le bloc atteint la fin du labyrinthe et mettre à jour les tuiles de bordure si nécessaire */
+        /** Vérifier si le bloc atteint la fin du labyrinthe et mettre à jour les tuiles de bordure si nécessaire */
         if(((*bloc_x) == 30) && ((*bloc_y) == 22)) {
             mise_a_jour_bordures_niveau_3((*renderer), (*texture_image_mur_termine), tile_map_mini_jeu_niveau_3, 31, 23,
                                           rectangle_tile, (*largeur_tile), (*hauteur_tile));

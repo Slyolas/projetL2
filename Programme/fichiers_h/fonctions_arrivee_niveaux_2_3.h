@@ -1,11 +1,12 @@
 #ifndef H_ARRIVE_2_3
 #define H_ARRIVE_2_3
 #include "commun.h"
+#include "fonctions_generales.h"
 
-/* Squelette de la fonction salon_arrivee_niveaux_2_3 */
+/** Squelette de la fonction salon_arrivee_niveaux_2_3 */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active);
 
-/* Squelette de la fonction mise_a_jour_rendu_arrivee_niveaux_2_3 */
+/** Squelette de la fonction mise_a_jour_rendu_arrivee_niveaux_2_3 */
 void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol,
                                            SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_fin_premiers_niveaux,
                                            SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Texture **texture_image_dossier,
@@ -14,7 +15,7 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
                                            int position_x, int position_y, int tile_map[18][32], niveaux *avancee_niveaux,
                                            int largeur, int hauteur, int largeur_tile, int hauteur_tile, page_t page_active);
 
-/* Squelette de la fonction arrivee_niveaux_2_3 */
+/** Squelette de la fonction arrivee_niveaux_2_3 */
 void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, int *mini_jeu, SDL_Texture **texture_image_fin_premiers_niveaux,
                          SDL_Texture **texture, SDL_Surface **surface, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                          SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int *mini_jeu_termine, int *mini_jeu_1_termine, int *mini_jeu_2_termine,

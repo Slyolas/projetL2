@@ -1,5 +1,5 @@
 /**
- * \file fonctions_niveau_4.c
+ * \file fonctions_niveau_1.c
  * \brief Fichier contenant les fonctions servant à la gestion du niveau 1  
 */
 
@@ -35,10 +35,10 @@ void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surfa
 /**
  * \fn void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map_niveau_1[18][110])
  * \brief Fonction qui permet de créer l'étage 1
- * \param position_x Position du personnage à l'apparition sur l'horizontale
- * \param position_y Position du personnage à l'apparition sur la verticale
- * \param position_x_initiale Position initiale horizontale du niveau en cas de mort du personnage
+ * \param position_x Position du personnage à l'apparition sur la verticale
+ * \param position_y Position du personnage à l'apparition sur l'horizontale
  * \param position_x_initiale Position initiale verticale du niveau en cas de mort du personnage
+ * \param position_y_initiale Position initiale horizontal du niveau en cas de mort du personnage
  * \param tile_map_niveau_1 Map du niveau 1
  * 
  */

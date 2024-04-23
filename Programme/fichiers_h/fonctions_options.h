@@ -1,14 +1,15 @@
 #ifndef H_OPTIONS
 #define H_OPTIONS
 #include "commun.h"
+#include "fonctions_generales.h"
 
 
-/* Squelette de la fonction initialisation_objets_options */
+/** Squelette de la fonction initialisation_objets_options */
 void initialisation_objets_options(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_hautParleurActif,
                                    SDL_Texture **texture_image_hautParleurDesactive,
                                    itemMenu *titre, itemMenu *itemsMenu, itemMenu *itemsTouches, itemMenu *itemsBarres);
 
-/* Squelette de la fonction mise_a_jour_rendu_options */
+/** Squelette de la fonction mise_a_jour_rendu_options */
 void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
                                SDL_Texture **texture_image_hautParleurActif,
@@ -20,13 +21,13 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
                                barreDeSon *barre_de_son, int tailleBarres, itemMenu *itemsBarres,
                                int largeur, int hauteur);
 
-/* Squelette de la fonction mise_a_jour_barre_de_son */
+/** Squelette de la fonction mise_a_jour_barre_de_son */
 void mise_a_jour_barre_de_son(SDL_Event *event, barreDeSon *barre_de_son, SDL_bool *sonsActifs);
 
-/* Squelette de la fonction mise_a_jour_touches */
+/** Squelette de la fonction mise_a_jour_touches */
 void mise_a_jour_touches(SDL_Event *event, SDL_Keycode *touche, int *selection_touche, itemMenu *itemsTouches);
 
-/* Squelette de la fonction options */
+/** Squelette de la fonction options */
 void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
              SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
              SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
