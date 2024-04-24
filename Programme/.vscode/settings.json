@@ -13,7 +13,9 @@
         "commun.h": "c",
         "stdio.h": "c",
         "fonctions_nouvelle_partie.h": "c",
-        "fonctions_niveau_1.h": "c"
+        "fonctions_niveau_1.h": "c",
+        "assert.h": "c",
+        "stdbool.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

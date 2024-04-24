@@ -138,9 +138,21 @@ $(OBJ_DIR)/fonctions_niveau_4.o: $(SRC_DIR)/fonctions_niveau_4.c $(INC_DIR)/fonc
 	$(CC) -I$(INC_DIR) $(CFLAGS) -c $< -o $@
 
 
+
+
+
+#
+#Test unitaire
+#
+test:
+	gcc test\ unitaire/test_pseudo.c -Wall -o test\ unitaire/test_pseudo;
+	./test\ unitaire/test_pseudo
+
+
 #
 # Clean
 #
+
 
 # Nettoyage des fichiers temporaires
 clean: clean_exe clean_obj
@@ -153,7 +165,8 @@ clean_obj:
 clean_exe:
 	rm -rf $(BIN_DIR)/$(EXECUTABLES)
 
-
+clean_test:
+	rm test\ unitaire/test_pseudo
 
 #Nom du projet
 PROJECT_NAME = Metatravers
