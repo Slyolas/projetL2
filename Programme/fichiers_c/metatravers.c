@@ -24,9 +24,6 @@ int main() {
     /* Initialisation de la hauteur de la fenêtre */
     int hauteur = 540;
 
-    /* Initialisation de la limite de frame pour les FPS */
-    unsigned int frame_limit = 0;
-
     int i, x, y;
 
     /* Création des pointeurs sur la fenêtre et sur le rendu */
@@ -1475,11 +1472,6 @@ int main() {
                 Mix_PlayMusic(musique, -1);
             }
         }
-
-        /* Mise à niveau des frames à 60 FPS */
-        frame_limit = SDL_GetTicks() + FPS_LIMIT;
-        SDL_LimitFPS(frame_limit);
-        frame_limit = SDL_GetTicks() + FPS_LIMIT;
     }
 
     /*----------------------------------------------------------------------- Fin du jeu ------------------------------------------------------------------------*/

@@ -455,21 +455,6 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
     }
 }
 
-/* Fonction qui permet de gérer le nombre d'FPS à différents moments du jeu */
-void SDL_LimitFPS(unsigned int limit) {
-
-    unsigned int ticks = SDL_GetTicks();
-
-    if(limit < ticks)
-        return;
-
-    else if(limit > ticks + FPS_LIMIT)
-        SDL_Delay(FPS_LIMIT);
-
-    else
-        SDL_Delay(limit - ticks);
-}
-
 /* Fonction qui permet de détruire les objets initialisés */
 void detruire_objets(TTF_Font **police, Mix_Music **musique, SDL_Texture **texture1, SDL_Texture **texture2,
                      SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,

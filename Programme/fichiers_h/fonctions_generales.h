@@ -5,9 +5,6 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 
-/* Définir le nombre d'FPS (100 / nombre_FPS) */
-#define FPS_LIMIT 16
-
 /* Enumération de constantes pour l'onglet actif des options */
 typedef enum option_s {ONGLET_SON, ONGLET_TOUCHES} option_t;
 
@@ -100,9 +97,6 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
 
 /* Squelette de la fonction clic_plein_ecran */
 int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window);
-
-/* Squelette de la fonction SDL_LimitFPS */
-void SDL_LimitFPS(unsigned int limit);
 
 /* Squelette de la fonction detruire_objets */
 void detruire_objets(TTF_Font **police, Mix_Music **musique, SDL_Texture **texture1, SDL_Texture **texture2,
