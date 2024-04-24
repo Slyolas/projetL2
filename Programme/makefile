@@ -73,7 +73,7 @@ EXECUTABLE = metatravers
 #
 
 # Compilation de l'exécutable
-all: $(BIN_DIR)/$(EXECUTABLE); ./bin/metatravers
+all: $(BIN_DIR)/$(EXECUTABLE); gcc test\ unitaire/test_pseudo.c -Wall -o test\ unitaire/test_pseudo; ./bin/metatravers 
 
 # Créer le répertoire bin s'il n'existe pas
 $(shell mkdir -p $(BIN_DIR))
@@ -155,7 +155,7 @@ test:
 
 
 # Nettoyage des fichiers temporaires
-clean: clean_exe clean_obj
+clean: clean_exe clean_obj clean_test
 
 # Supprimer les fichiers objets
 clean_obj:
@@ -168,15 +168,14 @@ clean_exe:
 clean_test:
 	rm test\ unitaire/test_pseudo
 
-#Nom du projet
-PROJECT_NAME = Metatravers
-#Commande à exécuter
+
+#Commande à exécuter pour la documentation
 DOXYGEN = doxygen
 DOC_DIR = docu
 doc:
 	@echo "Génération de la documentation Doxygen"
 	@$(DOXYGEN) Doxyfile
-	 
+
 	@echo "Documentation générée dans $(DOC_DIR)/"
 
 clean_doxy:
