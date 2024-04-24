@@ -1,0 +1,700 @@
+\doxysection{fonctions\+\_\+generales.\+c}
+\hypertarget{fonctions__generales_8c_source}{}\label{fonctions__generales_8c_source}\index{fichiers\_c/fonctions\_generales.c@{fichiers\_c/fonctions\_generales.c}}
+\mbox{\hyperlink{fonctions__generales_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00001}00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00002}00002\ \textcolor{comment}{\ *\ \(\backslash\)file\ fonctions\_generales.c}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00003}00003\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fichier\ avec\ les\ fichiers\ utilisé\ régulièrement}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00004}00004\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <../fichiers\_h/fonctions\_generales.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00008}00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00009}00009\ \textcolor{comment}{\ *\ \(\backslash\)fn\ erreur(const\ char\ *message)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00010}00010\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Affiche\ l'erreur\ en\ cas\ de\ problème\ et\ ferme\ la\ SDL}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00011}00011\ \textcolor{comment}{\ *\ \(\backslash\)param\ message\ Un\ pointeur\ sur\ caractère\ en\ lecture\ représentant\ le\ message\ d'erreur}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00012}00012\ \textcolor{comment}{\ *\ \(\backslash\)return\ Arrêt\ du\ programme\ en\ Echec}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00013}00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00014}\mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00016}00016\ \ \ \ \ SDL\_Log(\textcolor{stringliteral}{"{}ERREUR\ :\ \%s\ >\ \%s\(\backslash\)n"{}},\ message,\ SDL\_GetError());}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00017}00017\ \ \ \ \ SDL\_Quit();}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00018}00018\ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00020}00020\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00021}00021\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00022}00022\ \textcolor{comment}{\ *\ \(\backslash\)fn\ chargement\_image(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,SDL\_Texture\ **texture,\ char\ *chemin)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00023}00023\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ charger\ une\ image}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00024}00024\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ rendu\ sur\ lequel\ posé\ l'image}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Surface\ à\ utiliser\ pour\ récupérer\ l'image}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00026}00026\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\ Texture\ à\ crée\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00027}00027\ \textcolor{comment}{\ *\ \(\backslash\)param\ chemin\ Pointeur\ sur\ caractère\ représentant\ le\ chemin\ d'accès\ du\ fichier}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00028}00028\ \textcolor{comment}{\ *\ \(\backslash\)see\ erreur}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00029}00029\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00030}\mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture,\ \textcolor{keywordtype}{char}\ *chemin)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00032}00032\ \ \ \ \ (*surface)\ =\ IMG\_Load(chemin);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}((*surface)\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Chargement\ de\ l'image"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00036}00036\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00037}00037\ \ \ \ \ (*texture)\ =\ SDL\_CreateTextureFromSurface((*renderer),\ (*surface));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{if}((*texture)\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Création\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00042}00042\ \ \ \ \ SDL\_FreeSurface((*surface));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00044}00044\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00045}00045\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00046}00046\ \textcolor{comment}{\ *\ \(\backslash\)fn\ affichage\_texte(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture,\ itemMenu\ *item,TTF\_Font\ **police,\ SDL\_SDL\_Color\ couleur)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00047}00047\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Affiche\ du\ texte\ sur\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00048}00048\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Rendu\ de\ la\ fenêtre\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00049}00049\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Surface\ ou\ appliquer\ la\ texture}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00050}00050\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\ Texture\ à\ afficher}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00051}00051\ \textcolor{comment}{\ *\ \(\backslash\)param\ item\ Texte\ à\ afficher}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00052}00052\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ police\ d'écriture}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00053}00053\ \textcolor{comment}{\ *\ \(\backslash\)param\ couleur\ couleur\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00054}00054\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00055}\mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{00055}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *item,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TTF\_Font\ **police,\ SDL\_Color\ couleur)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00058}00058\ \ \ \ \ SDL\_RenderFillRect((*renderer),\ \&(item-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00060}00060\ \ \ \ \ (*surface)\ =\ TTF\_RenderText\_Solid((*police),\ item-\/>\mbox{\hyperlink{structitemMenu_aed9d49dc53daa3cf450d38fe9f57e605}{texte}},\ couleur);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00061}00061\ \ \ \ \ (*texture)\ =\ SDL\_CreateTextureFromSurface((*renderer),\ (*surface));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00063}00063\ \ \ \ \ SDL\_RenderCopy((*renderer),\ (*texture),\ NULL,\ \&(item-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00065}00065\ \ \ \ \ SDL\_FreeSurface((*surface));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00066}00066\ \ \ \ \ SDL\_DestroyTexture((*texture));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00068}00068\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00069}00069\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00070}00070\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ creer\_fenetre\_rendu(SDL\_Window\ **window,SDL\_Renderer\ **renderer,\ int\ largeur,\ int\ hauteur)\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00071}00071\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ créer\ une\ fenêtre\ et\ le\ rendu}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00072}00072\ \textcolor{comment}{\ *\ \(\backslash\)param\ window\ fenêtre\ à\ créer}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00073}00073\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Rendu\ de\ la\ fenêtre\ à\ créer\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00074}00074\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ largeur\ de\ la\ fenêtre\ souhaité}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00075}00075\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ hauteur\ de\ la\ fenêtre\ souhaité}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00076}00076\ \textcolor{comment}{\ *\ \(\backslash\)see\ erreur}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00077}00077\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00078}\mbox{\hyperlink{fonctions__generales_8c_add13b30b9e22e1fefef7897d49222b47}{00078}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_add13b30b9e22e1fefef7897d49222b47}{creer\_fenetre\_rendu}}(SDL\_Window\ **window,SDL\_Renderer\ **renderer,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00080}00080\ \ \ \ \ \textcolor{comment}{/*\ Création\ de\ la\ fenêtre\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00081}00081\ \ \ \ \ (*window)\ =\ SDL\_CreateWindow(\textcolor{stringliteral}{"{}MétaTravers"{}},\ SDL\_WINDOWPOS\_CENTERED,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_WINDOWPOS\_CENTERED,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ largeur,\ hauteur,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_WINDOW\_RESIZABLE\ |\ SDL\_WINDOW\_SHOWN);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{if}((*window)\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Création\ fenêtre\ échouée"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00089}00089\ \ \ \ \ \textcolor{comment}{/*\ Création\ du\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00090}00090\ \ \ \ \ (*renderer)\ =\ SDL\_CreateRenderer((*window),\ -\/1,\ SDL\_RENDERER\_ACCELERATED\ |\ SDL\_RENDERER\_PRESENTVSYNC);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{if}((*renderer)\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Création\ rendu\ échoué"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00095}00095\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00096}00096\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00097}00097\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ initialisation\_objets(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_retour\_en\_arriere,\ SDL\_Texture\ **texture\_image\_options,\ SDL\_Texture\ **texture\_image\_passer,\ itemMenu\ *itemsDemandeSauvegarde,\ itemMenu\ *itemsDemandeQuitter,\ SDL\_Texture\ **texture\_image\_fin\_premiers\_niveaux,\ SDL\_Texture\ **texture\_image\_monstre\_terrestre,\ SDL\_Texture\ **texture\_image\_monstre\_volant,\ SDL\_Texture\ **texture\_image\_perso\_1\_gagnant,\ SDL\_Texture\ **texture\_image\_perso\_2\_gagnant,\ niveaux\ *avancee\_niveaux,\ TTF\_Font\ **police)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00098}00098\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonctions\ qui\ permet\ d'initialiser\ les\ objets\ globaux}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00099}00099\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00100}00100\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00101}00101\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_plein\_ecran\ Texture\ de\ l'image\ en\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00102}00102\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_retour\_en\_arriere\ Texture\ de\ l'image\ du\ bouton\ retour\ en\ arrière.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00103}00103\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_options\ Texture\ de\ l'image\ du\ bouton\ options.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00104}00104\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_passer\ Texture\ de\ l'image\ du\ bouton\ passer.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00105}00105\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsDemandeSauvegarde\ Tableau\ d'items\ pour\ la\ demande\ de\ sauvegarde.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00106}00106\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsDemandeQuitter\ Tableau\ d'items\ pour\ la\ demande\ de\ quitter.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00107}00107\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_fin\_premiers\_niveaux\ Texture\ de\ l'image\ de\ fin\ des\ premiers\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00108}00108\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_monstre\_terrestre\ Texture\ de\ l'image\ du\ monstre\ terrestre.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00109}00109\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_monstre\_volant\ Texture\ de\ l'image\ du\ monstre\ volant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00110}00110\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_1\_gagnant\ Texture\ de\ l'image\ du\ personnage\ 1\ gagnant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00111}00111\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_2\_gagnant\ Texture\ de\ l'image\ du\ personnage\ 2\ gagnant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00112}00112\ \textcolor{comment}{\ *\ \(\backslash\)param\ avancee\_niveaux\ Structure\ de\ progression\ des\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00113}00113\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ Police\ de\ caractères\ TTF.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00114}00114\ \textcolor{comment}{\ *\ \(\backslash\)see\ chargement\_image}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00115}00115\ \textcolor{comment}{\ *\ \(\backslash\)see\ erreur}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00116}00116\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00117}\mbox{\hyperlink{fonctions__generales_8c_a33b460c1c1e05276096fcf577956465c}{00117}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a33b460c1c1e05276096fcf577956465c}{initialisation\_objets}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_retour\_en\_arriere,\ SDL\_Texture\ **texture\_image\_options,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_passer,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsDemandeSauvegarde,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsDemandeQuitter,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_fin\_premiers\_niveaux,\ SDL\_Texture\ **texture\_image\_monstre\_terrestre,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_monstre\_volant,\ SDL\_Texture\ **texture\_image\_perso\_1\_gagnant,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_2\_gagnant,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux,\ TTF\_Font\ **police,\ SDL\_Texture\ **texture\_image\_croix)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00125}00125\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ l'image\ du\ plein\ écran\ du\ menu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00126}00126\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_plein\_ecran,\ \textcolor{stringliteral}{"{}./images/plein\_ecran\_blanc.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00128}00128\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ l'image\ du\ retour\ en\ arrière\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00129}00129\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_retour\_en\_arriere,\ \textcolor{stringliteral}{"{}./images/retour\_en\_arriere.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00131}00131\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ l'image\ des\ options\ du\ menu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00132}00132\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_options,\ \textcolor{stringliteral}{"{}./images/options\_blanc.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00134}00134\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ l'image\ du\ passer\ du\ menu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00135}00135\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_passer,\ \textcolor{stringliteral}{"{}./images/passer.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00137}00137\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ l'image\ de\ la\ croix\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00138}00138\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_croix,\ \textcolor{stringliteral}{"{}./images/croix.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00140}00140\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ la\ police\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}(((*police)\ =\ TTF\_OpenFont(\textcolor{stringliteral}{"{}./polices/04B\_11\_\_.TTF"{}},\ 20))\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Chargement\ de\ la\ police"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00144}00144\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ des\ images\ pour\ les\ collectibles\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00145}00145\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ \&(avancee\_niveaux[0].texture\_image\_collectible),\ \textcolor{stringliteral}{"{}./images/niveau\_1/collectible\_niveau\_1.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00146}00146\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ \&(avancee\_niveaux[1].texture\_image\_collectible),\ \textcolor{stringliteral}{"{}./images/niveau\_2/collectible\_niveau\_2.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00147}00147\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ \&(avancee\_niveaux[2].texture\_image\_collectible),\ \textcolor{stringliteral}{"{}./images/niveau\_3/collectible\_niveau\_3.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ \&(avancee\_niveaux[3].texture\_image\_collectible),\ \textcolor{stringliteral}{"{}./images/niveau\_4/collectible\_niveau\_4.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00150}00150\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ l'image\ de\ la\ fin\ des\ premiers\ niveaux\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_fin\_premiers\_niveaux,\ \textcolor{stringliteral}{"{}./images/fin\_premiers\_niveaux.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00153}00153\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ des\ images\ des\ monstres\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00154}00154\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_monstre\_terrestre,\ \textcolor{stringliteral}{"{}./images/monstre\_terrestre.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00155}00155\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_monstre\_volant,\ \textcolor{stringliteral}{"{}./images/monstre\_volant.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00157}00157\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ des\ images\ des\ poses\ gagnantes\ des\ personnages\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_perso\_1\_gagnant,\ \textcolor{stringliteral}{"{}./images/personnages/personnage\_masculin\_gagnant.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00159}00159\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_perso\_2\_gagnant,\ \textcolor{stringliteral}{"{}./images/personnages/personnage\_feminin\_gagnant.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00161}00161\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ du\ texte\ dans\ les\ items\ de\ la\ demande\ de\ sauvegarde\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00162}00162\ \ \ \ \ sprintf(itemsDemandeSauvegarde[0].texte,\ \textcolor{stringliteral}{"{}\ Voulez-\/vous\ sauvegarder\ la\ partie\ avant\ de\ quitter\ ?\ "{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00163}00163\ \ \ \ \ sprintf(itemsDemandeSauvegarde[1].texte,\ \textcolor{stringliteral}{"{}\ Oui\ "{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00164}00164\ \ \ \ \ sprintf(itemsDemandeSauvegarde[2].texte,\ \textcolor{stringliteral}{"{}\ Non\ "{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00166}00166\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ du\ texte\ dans\ les\ items\ de\ la\ demande\ de\ quitter\ le\ niveau\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00167}00167\ \ \ \ \ sprintf(itemsDemandeQuitter[0].texte,\ \textcolor{stringliteral}{"{}\ Voulez-\/vous\ quittez\ le\ niveau\ ?\ "{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00168}00168\ \ \ \ \ sprintf(itemsDemandeQuitter[1].texte,\ \textcolor{stringliteral}{"{}\ Oui\ "{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00169}00169\ \ \ \ \ sprintf(itemsDemandeQuitter[2].texte,\ \textcolor{stringliteral}{"{}\ Non\ "{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00170}00170\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00171}00171\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00172}00172\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00173}00173\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ demande\_sauvegarde(SDL\_Renderer\ **renderer,\ SDL\_Rect\ *rectangle\_demande\_sauvegarde,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ SDL\_Color\ couleur,\ itemMenu\ *itemsDemandeSauvegarde,\ int\ tailleDemandeSauvegarde,\ int\ largeur,\ int\ hauteur)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00174}00174\ \textcolor{comment}{\ *\ \(\backslash\)brief\ fenêtre\ se\ chargeant\ de\ demander\ à\ l'utilisateur\ si\ il\ souhaite\ sauvegarder}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00175}00175\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00176}00176\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_demande\_sauvegarde\ Rectangle\ de\ la\ demande\ de\ sauvegarde\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00177}00177\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00178}00178\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_texte\ Texture\ du\ texte\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00179}00179\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ Police\ de\ caractères\ TTF.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00180}00180\ \textcolor{comment}{\ *\ \(\backslash\)param\ couleur\ Couleur\ du\ texte.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00181}00181\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsDemandeSauvegarde\ Tableau\ d'items\ pour\ la\ demande\ de\ sauvegarde.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00182}00182\ \textcolor{comment}{\ *\ \(\backslash\)param\ tailleDemandeSauvegarde\ Taille\ du\ tableau\ d'items\ pour\ la\ demande\ de\ sauvegarde.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00183}00183\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ Largeur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00184}00184\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ Hauteur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00185}00185\ \textcolor{comment}{\ *\ \(\backslash\)see\ affichage\_texte}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00186}00186\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00187}\mbox{\hyperlink{fonctions__generales_8c_a066cdfc0bac6604dc0a3a7d8b4c8bffb}{00187}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a066cdfc0bac6604dc0a3a7d8b4c8bffb}{demande\_sauvegarde}}(SDL\_Renderer\ **renderer,\ SDL\_Rect\ *rectangle\_demande\_sauvegarde,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ SDL\_Color\ couleur,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsDemandeSauvegarde,\ \textcolor{keywordtype}{int}\ tailleDemandeSauvegarde,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00191}00191\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00193}00193\ \ \ \ \ \textcolor{comment}{/*\ Affichage\ du\ rectangle\ de\ la\ demande\ de\ sauvegarde\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00194}00194\ \ \ \ \ rectangle\_demande\_sauvegarde-\/>x\ =\ largeur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00195}00195\ \ \ \ \ rectangle\_demande\_sauvegarde-\/>y\ =\ hauteur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00196}00196\ \ \ \ \ rectangle\_demande\_sauvegarde-\/>w\ =\ largeur\ /\ 3\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00197}00197\ \ \ \ \ rectangle\_demande\_sauvegarde-\/>h\ =\ hauteur\ /\ 3\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00199}00199\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00200}00200\ \ \ \ \ SDL\_RenderFillRect((*renderer),\ rectangle\_demande\_sauvegarde);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00202}00202\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 0,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00203}00203\ \ \ \ \ SDL\_RenderDrawRect((*renderer),\ rectangle\_demande\_sauvegarde);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00205}00205\ \ \ \ \ \textcolor{comment}{/*\ Affichage\ du\ rectangle\ de\ la\ question\ de\ la\ demande\ de\ sauvegarde\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00206}00206\ \ \ \ \ itemsDemandeSauvegarde[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 6\ +\ largeur\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00207}00207\ \ \ \ \ itemsDemandeSauvegarde[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 4\ +\ hauteur\ /\ 20;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00208}00208\ \ \ \ \ itemsDemandeSauvegarde[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3\ *\ 2\ -\/\ largeur\ /\ 50;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00209}00209\ \ \ \ \ itemsDemandeSauvegarde[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00211}00211\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00212}00212\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00213}00213\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsDemandeSauvegarde[0]),\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleur);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00216}00216\ \ \ \ \ \textcolor{comment}{/*\ Affichage\ des\ rectangles\ des\ réponses\ de\ la\ demande\ de\ sauvegarde\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00217}00217\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 1;\ i\ <\ tailleDemandeSauvegarde;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ itemsDemandeSauvegarde[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 3\ +\ (i-\/1)\ *\ largeur\ /\ 3\ -\/\ (i-\/1)\ *\ largeur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ itemsDemandeSauvegarde[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ -\/\ hauteur\ /\ 4\ -\/\ hauteur\ /\ 20\ -\/\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ itemsDemandeSauvegarde[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ itemsDemandeSauvegarde[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsDemandeSauvegarde[i]),\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleur);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 0,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ SDL\_RenderDrawRect((*renderer),\ \&(itemsDemandeSauvegarde[i].rectangle));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00231}00231\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00233}00233\ \ \ \ \ \textcolor{comment}{/*\ Affiche\ le\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00234}00234\ \ \ \ \ SDL\_RenderPresent((*renderer));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00235}00235\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00236}00236\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00237}00237\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00238}00238\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ demande\_quitter\_niveau(SDL\_Renderer\ **renderer,\ SDL\_Rect\ *rectangle\_demande\_quitter,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ SDL\_Color\ couleur,\ itemMenu\ *itemsDemandeQuitter,\ int\ tailleDemandeQuitter,\ int\ largeur,\ int\ hauteur)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00239}00239\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ demander\ à\ l'utilisateur\ de\ quitter\ le\ niveau}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00240}00240\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00241}00241\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_demande\_quitter\ Rectangle\ de\ la\ demande\ de\ quitter\ le\ niveau\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00242}00242\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00243}00243\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_texte\ Texture\ du\ texte\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00244}00244\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ Police\ de\ caractères\ TTF.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00245}00245\ \textcolor{comment}{\ *\ \(\backslash\)param\ couleur\ Couleur\ du\ texte.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00246}00246\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsDemandeQuitter\ Tableau\ d'items\ pour\ la\ demande\ de\ quitter\ le\ niveau.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00247}00247\ \textcolor{comment}{\ *\ \(\backslash\)param\ tailleDemandeQuitter\ Taille\ du\ tableau\ d'items\ pour\ la\ demande\ de\ quitter\ le\ niveau.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00248}00248\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ Largeur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00249}00249\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ Hauteur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00250}00250\ \textcolor{comment}{\ *\ \(\backslash\)see\ affichage\_texte}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00251}00251\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00252}\mbox{\hyperlink{fonctions__generales_8c_a1a8406a3255d6fd605e5cfd014142bdd}{00252}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a1a8406a3255d6fd605e5cfd014142bdd}{demande\_quitter\_niveau}}(SDL\_Renderer\ **renderer,\ SDL\_Rect\ *rectangle\_demande\_quitter,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ SDL\_Color\ couleur,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsDemandeQuitter,\ \textcolor{keywordtype}{int}\ tailleDemandeQuitter,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00256}00256\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00258}00258\ \ \ \ \ \textcolor{comment}{/*\ Affichage\ du\ rectangle\ de\ la\ demande\ de\ quitter\ le\ niveau\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00259}00259\ \ \ \ \ rectangle\_demande\_quitter-\/>x\ =\ largeur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00260}00260\ \ \ \ \ rectangle\_demande\_quitter-\/>y\ =\ hauteur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00261}00261\ \ \ \ \ rectangle\_demande\_quitter-\/>w\ =\ largeur\ /\ 3\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00262}00262\ \ \ \ \ rectangle\_demande\_quitter-\/>h\ =\ hauteur\ /\ 3\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00264}00264\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00265}00265\ \ \ \ \ SDL\_RenderFillRect((*renderer),\ rectangle\_demande\_quitter);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00267}00267\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 0,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00268}00268\ \ \ \ \ SDL\_RenderDrawRect((*renderer),\ rectangle\_demande\_quitter);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00270}00270\ \ \ \ \ \textcolor{comment}{/*\ Affichage\ du\ rectangle\ de\ la\ question\ de\ la\ demande\ de\ quitter\ le\ niveau\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00271}00271\ \ \ \ \ itemsDemandeQuitter[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 6\ +\ largeur\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00272}00272\ \ \ \ \ itemsDemandeQuitter[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 4\ +\ hauteur\ /\ 20;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00273}00273\ \ \ \ \ itemsDemandeQuitter[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3\ *\ 2\ -\/\ largeur\ /\ 50;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00274}00274\ \ \ \ \ itemsDemandeQuitter[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00276}00276\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00277}00277\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00278}00278\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsDemandeQuitter[0]),\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleur);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00281}00281\ \ \ \ \ \textcolor{comment}{/*\ Affichage\ des\ rectangles\ des\ réponses\ de\ la\ demande\ de\ quitter\ le\ niveau\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00282}00282\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 1;\ i\ <\ tailleDemandeQuitter;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ itemsDemandeQuitter[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 3\ +\ (i-\/1)\ *\ largeur\ /\ 3\ -\/\ (i-\/1)\ *\ largeur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ itemsDemandeQuitter[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ -\/\ hauteur\ /\ 4\ -\/\ hauteur\ /\ 20\ -\/\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00286}00286\ \ \ \ \ \ \ \ \ itemsDemandeQuitter[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00287}00287\ \ \ \ \ \ \ \ \ itemsDemandeQuitter[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00289}00289\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00291}00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsDemandeQuitter[i]),\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleur);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 0,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ SDL\_RenderDrawRect((*renderer),\ \&(itemsDemandeQuitter[i].rectangle));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00296}00296\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00298}00298\ \ \ \ \ \textcolor{comment}{/*\ Affiche\ le\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00299}00299\ \ \ \ \ SDL\_RenderPresent((*renderer));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00300}00300\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00301}00301\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00302}00302\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00303}00303\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ redimensionnement\_fenetre(SDL\_Event\ event,\ int\ *largeur,\ int\ *hauteur)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00304}00304\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ récupérer\ les\ nouvelles\ dimensions\ de\ la\ fenêtre\ pour\ redimensionner\ cette\ dernière\ et\ les\ différents\ objets}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00305}00305\ \textcolor{comment}{\ *\ \(\backslash\)param\ event\ Evenement\ SDL}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00306}00306\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ largeur\ de\ la\ fenêtre\ a\ redimensionné}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00307}00307\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ hauteur\ de\ la\ fenêtre\ a\ redimensionné}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00308}00308\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00309}\mbox{\hyperlink{fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{00309}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\_fenetre}}(SDL\_Event\ event,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00311}00311\ \ \ \ \ \textcolor{keywordflow}{if}(event.window.event\ ==\ SDL\_WINDOWEVENT\_RESIZED)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00313}00313\ \ \ \ \ \ \ \ \ (*largeur)\ =\ \textcolor{keyword}{event}.window.data1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00314}00314\ \ \ \ \ \ \ \ \ (*hauteur)\ =\ \textcolor{keyword}{event}.window.data2;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00315}00315\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00316}00316\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00317}00317\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00318}00318\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00319}00319\ \textcolor{comment}{\ *\ \(\backslash\)fn\ int\ verification\_sauvegarde()}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00320}00320\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Vérifie\ si\ une\ sauvegarde\ existe\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00321}00321\ \textcolor{comment}{\ *\ \(\backslash\)return\ booléen\ représentant\ si\ il\ y\ a\ une\ sauvegarde\ ou\ non\ (1\ si\ existant,\ sinon\ 0)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00322}00322\ \textcolor{comment}{\ *\ \(\backslash\)see\ erreur}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00323}00323\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00324}\mbox{\hyperlink{fonctions__generales_8c_a5f3d9f5a1b24e53bd19ef9d7631917a4}{00324}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fonctions__generales_8c_a5f3d9f5a1b24e53bd19ef9d7631917a4}{verification\_sauvegarde}}()\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00325}00325\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00326}00326\ \ \ \ \ FILE\ *fichier\_sauvegarde;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00328}00328\ \ \ \ \ \textcolor{comment}{/*\ Ouverture\ du\ fichier\ en\ mode\ lecture\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00329}00329\ \ \ \ \ fichier\_sauvegarde\ =\ fopen(\textcolor{stringliteral}{"{}./sauvegardes/sauvegarde.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00331}00331\ \ \ \ \ \textcolor{comment}{/*\ Vérifie\ si\ le\ fichier\ existe\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00332}00332\ \ \ \ \ \textcolor{keywordflow}{if}\ (fichier\_sauvegarde\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00333}00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00335}00335\ \ \ \ \ \textcolor{comment}{/*\ Fermeture\ du\ fichier\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00336}00336\ \ \ \ \ \textcolor{keywordflow}{if}\ (fclose(fichier\_sauvegarde)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Fermeture\ du\ fichier"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00339}00339\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00340}00340\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00341}00341\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00342}00342\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00343}00343\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ sauvegarder\_partie(SDL\_Keycode\ *touche\_aller\_a\_droite,\ SDL\_Keycode\ *touche\_aller\_a\_gauche,\ SDL\_Keycode\ *touche\_sauter\_monter,\ SDL\_Keycode\ *touche\_descendre,\ SDL\_Keycode\ *touche\_interagir,\ barreDeSon\ *barre\_de\_son,\ itemMenu\ *pseudo,\ modes\_t\ modeActif,\ personnage\_t\ personnageActif,\ position\_t\ positionActive,\ niveaux\ *avancee\_niveaux,\ int\ tailleNiveaux)\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00344}00344\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ sauvegarder\ la\ partie\ dans\ un\ fichier}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00345}00345\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_aller\_a\_droite\ Touche\ pour\ aller\ à\ droite.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00346}00346\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_aller\_a\_gauche\ Touche\ pour\ aller\ à\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00347}00347\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_sauter\_monter\ Touche\ pour\ sauter/monter.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00348}00348\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_descendre\ Touche\ pour\ descendre.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00349}00349\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_interagir\ Touche\ pour\ interagir.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00350}00350\ \textcolor{comment}{\ *\ \(\backslash\)param\ barre\_de\_son\ Réglages\ de\ la\ barre\ de\ son.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00351}00351\ \textcolor{comment}{\ *\ \(\backslash\)param\ pseudo\ Pseudo\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00352}00352\ \textcolor{comment}{\ *\ \(\backslash\)param\ modeActif\ Mode\ actif\ du\ jeu.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00353}00353\ \textcolor{comment}{\ *\ \(\backslash\)param\ personnageActif\ Personnage\ actif.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00354}00354\ \textcolor{comment}{\ *\ \(\backslash\)param\ positionActive\ Position\ active.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00355}00355\ \textcolor{comment}{\ *\ \(\backslash\)param\ avancee\_niveaux\ Structure\ de\ progression\ des\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00356}00356\ \textcolor{comment}{\ *\ \(\backslash\)param\ tailleNiveaux\ Taille\ du\ tableau\ d'items\ pour\ les\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00357}00357\ \textcolor{comment}{\ *\ \(\backslash\)see\ erreur}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00358}00358\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00359}\mbox{\hyperlink{fonctions__generales_8c_a3845ad340a7ec5a5a341718c1b23fa7e}{00359}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a3845ad340a7ec5a5a341718c1b23fa7e}{sauvegarder\_partie}}(SDL\_Keycode\ *touche\_aller\_a\_droite,\ SDL\_Keycode\ *touche\_aller\_a\_gauche,\ SDL\_Keycode\ *touche\_sauter\_monter,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Keycode\ *touche\_descendre,\ SDL\_Keycode\ *touche\_interagir,\ \mbox{\hyperlink{structbarreDeSon}{barreDeSon}}\ *barre\_de\_son,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *pseudo,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}{modes\_t}}\ modeActif,\ \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\_t}}\ personnageActif,\ \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\_t}}\ positionActive,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,\ time\_t\ temps\_debut\_partie,\ \textcolor{keywordtype}{int}\ compteur\_mort,\ \textcolor{keywordtype}{int}\ avancee\_succes[10])\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00364}00364\ \ \ \ \ FILE\ *fichier\_sauvegarde;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00366}00366\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00368}00368\ \ \ \ \ \textcolor{comment}{/*\ Ouverture\ du\ fichier\ en\ mode\ écriture\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00369}00369\ \ \ \ \ fichier\_sauvegarde\ =\ fopen(\textcolor{stringliteral}{"{}./sauvegardes/sauvegarde.txt"{}},\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00371}00371\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%f\(\backslash\)n"{}},\ barre\_de\_son[0].volume);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00372}00372\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%f\(\backslash\)n"{}},\ barre\_de\_son[1].volume);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00373}00373\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ SDL\_GetKeyName((*touche\_aller\_a\_droite)));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00374}00374\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ SDL\_GetKeyName((*touche\_aller\_a\_gauche)));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00375}00375\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ SDL\_GetKeyName((*touche\_sauter\_monter)));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00376}00376\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ SDL\_GetKeyName((*touche\_descendre)));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00377}00377\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ SDL\_GetKeyName((*touche\_interagir)));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00378}00378\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ pseudo-\/>\mbox{\hyperlink{structitemMenu_aed9d49dc53daa3cf450d38fe9f57e605}{texte}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00380}00380\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%d\(\backslash\)n"{}},\ personnageActif);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00382}00382\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%d\(\backslash\)n"{}},\ modeActif);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00384}00384\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%d\(\backslash\)n"{}},\ positionActive);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00386}00386\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ tailleNiveaux;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%d\ \%d\ \%d\ \%d\(\backslash\)n"{}},\ avancee\_niveaux[i].niveau\_fini,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].numero\_collectible[0],}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].numero\_collectible[1],}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].numero\_collectible[2]);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00392}00392\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00394}00394\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%ld\(\backslash\)n"{}},\ temps\_debut\_partie);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00396}00396\ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%d\(\backslash\)n"{}},\ compteur\_mort);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00398}00398\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ fprintf(fichier\_sauvegarde,\ \textcolor{stringliteral}{"{}\%d\ "{}},\ avancee\_succes[i]);\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00401}00401\ \ \ \ \ \textcolor{comment}{/*\ Fermeture\ du\ fichier\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00402}00402\ \ \ \ \ \textcolor{keywordflow}{if}\ (fclose(fichier\_sauvegarde)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Fermeture\ du\ fichier"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00404}00404\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00405}00405\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00406}00406\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00407}00407\ \textcolor{comment}{\ *\ \(\backslash\)fn\ int\ clic\_case(SDL\_Event\ event,\ SDL\_Rect\ rectangle)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00408}00408\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ renvoyer\ vrai\ quand\ on\ clique\ sur\ un\ rectangle,\ faux\ sinon}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00409}00409\ \textcolor{comment}{\ *\ \(\backslash\)param\ event\ Evenement\ SDL}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00410}00410\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\ Rectangle\ qui\ a\ été\ cliqué\ ou\ non}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00411}00411\ \textcolor{comment}{\ *\ \(\backslash\)return\ booléen\ représentant\ si\ le\ clic\ s'est\ fait\ dans\ le\ rectangle\ (1\ si\ c'est\ le\ cas\ sinon\ 0)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00412}00412\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00413}00413\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00414}\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{00414}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}(SDL\_Event\ event,\ SDL\_Rect\ rectangle)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00415}00415\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00416}00416\ \ \ \ \ Mix\_Chunk\ *effet\_sonore\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00418}00418\ \ \ \ \ \textcolor{keywordflow}{if}((event.button.x\ >=\ rectangle.x)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00419}00419\ \ \ \ \ \ \ \ \ (event.button.x\ <=\ rectangle.x\ +\ rectangle.w)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00420}00420\ \ \ \ \ \ \ \ \ (event.button.y\ >=\ rectangle.y)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00421}00421\ \ \ \ \ \ \ \ \ (event.button.y\ <=\ rectangle.y\ +\ rectangle.h)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00422}00422\ \ \ \ \ \ \ \ \ (event.button.button\ ==\ SDL\_BUTTON\_LEFT))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00424}00424\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ clique\ sur\ un\ bouton\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00425}00425\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((effet\_sonore\ =\ Mix\_LoadWAV(\textcolor{stringliteral}{"{}./sons/effets\_sonores/clic\_bouton.wav"{}}))\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Chargement\ de\ l'effet\ sonore"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00428}00428\ \ \ \ \ \ \ \ \ Mix\_PlayChannel(1,\ effet\_sonore,\ 0);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00430}00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00431}00431\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00432}00432\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00433}00433\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00434}00434\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00435}00435\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00436}00436\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00437}00437\ \textcolor{comment}{\ *\ \(\backslash\)fn\ int\ clic\_plein\_ecran(SDL\_Event\ event,\ SDL\_Rect\ *rectangle\_plein\_ecran,SDL\_bool\ *plein\_ecran,\ SDL\_Window\ **window)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00438}00438\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ mettre\ la\ fenêtre\ en\ plein\ écran\ quand\ on\ clique\ sur\ le\ bouton\ plein\ écran}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00439}00439\ \textcolor{comment}{\ *\ \(\backslash\)param\ event\ Evenement\ SDL}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00440}00440\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_plein\_ecran\ Rectangle\ ou\ se\ situe\ le\ bouton\ pour\ afficher\ le\ plein\ écran\ ou\ le\ retirer}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00441}00441\ \textcolor{comment}{\ *\ \(\backslash\)param\ plein\_ecran\ booléen\ qui\ dit\ si\ il\ est\ en\ mode\ plein\ écran}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00442}00442\ \textcolor{comment}{\ *\ \(\backslash\)param\ window\ fenêtre\ à\ changer\ en\ pleine\ écran\ ou\ non}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00443}00443\ \textcolor{comment}{\ *\ \(\backslash\)return\ le\ changement\ d'état\ sous\ la\ forme\ d'un\ booléen\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00444}00444\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00445}\mbox{\hyperlink{fonctions__generales_8c_afe51c2fcb0206df7f65785b8b0137951}{00445}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fonctions__generales_8c_afe51c2fcb0206df7f65785b8b0137951}{clic\_plein\_ecran}}(SDL\_Event\ event,\ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_bool\ *plein\_ecran,\ SDL\_Window\ **window)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00447}00447\ \ \ \ \ Mix\_Chunk\ *effet\_sonore\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00449}00449\ \ \ \ \ \textcolor{keywordflow}{if}\ ((event.button.x\ >=\ rectangle\_plein\_ecran-\/>x)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00450}00450\ \ \ \ \ \ \ \ \ (event.button.x\ <=\ rectangle\_plein\_ecran-\/>x\ +\ rectangle\_plein\_ecran-\/>w)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00451}00451\ \ \ \ \ \ \ \ \ (event.button.y\ >=\ rectangle\_plein\_ecran-\/>y)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ (event.button.y\ <=\ rectangle\_plein\_ecran-\/>y\ +\ rectangle\_plein\_ecran-\/>h)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00453}00453\ \ \ \ \ \ \ \ \ (event.button.button\ ==\ SDL\_BUTTON\_LEFT))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00455}00455\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ clique\ sur\ un\ bouton\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00456}00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((effet\_sonore\ =\ Mix\_LoadWAV(\textcolor{stringliteral}{"{}./sons/effets\_sonores/clic\_bouton.wav"{}}))\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Chargement\ de\ l'effet\ sonore"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00459}00459\ \ \ \ \ \ \ \ \ Mix\_PlayChannel(1,\ effet\_sonore,\ 0);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00460}00460\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((*plein\_ecran))\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetWindowFullscreen((*window),\ 0);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00463}00463\ \ \ \ \ \ \ \ \ \ \ \ \ (*plein\_ecran)\ =\ SDL\_FALSE;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00464}00464\ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00465}00465\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00466}00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00467}00467\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetWindowFullscreen((*window),\ SDL\_WINDOW\_FULLSCREEN\_DESKTOP);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ (*plein\_ecran)\ =\ SDL\_TRUE;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00470}00470\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00472}00472\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00473}00473\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00475}00475\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00476}00476\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00477}00477\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00478}00478\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00479}00479\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ deplacement\_personnage(int\ *saut,\ int\ *tombe,\ int\ *position\_x,\ int\ *position\_y,\ int\ *position\_avant\_saut,int\ sauter,\ int\ avancer,\ int\ reculer,\ int\ tile\_map[18][32])\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00480}00480\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ déplacer\ le\ personnage\ dans\ les\ différents\ niveaux}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00481}00481\ \textcolor{comment}{\ *\ \(\backslash\)param\ saut\ Indicateur\ de\ saut.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00482}00482\ \textcolor{comment}{\ *\ \(\backslash\)param\ tombe\ Indicateur\ de\ chute.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00483}00483\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_x\ Position\ en\ x\ du\ personnage.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00484}00484\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_y\ Position\ en\ y\ du\ personnage.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00485}00485\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_avant\_saut\ Position\ avant\ le\ saut.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00486}00486\ \textcolor{comment}{\ *\ \(\backslash\)param\ sauter\ Indicateur\ de\ tentative\ de\ saut.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00487}00487\ \textcolor{comment}{\ *\ \(\backslash\)param\ avancer\ Indicateur\ d'avancement.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00488}00488\ \textcolor{comment}{\ *\ \(\backslash\)param\ reculer\ Indicateur\ de\ recul.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00489}00489\ \textcolor{comment}{\ *\ \(\backslash\)param\ tile\_map\ Carte\ du\ niveau.}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00490}00490\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00491}\mbox{\hyperlink{fonctions__generales_8c_adca5346b92d851a5c8c1beb85988477b}{00491}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_adca5346b92d851a5c8c1beb85988477b}{deplacement\_personnage}}(\textcolor{keywordtype}{int}\ *saut,\ \textcolor{keywordtype}{int}\ *tombe,\ \textcolor{keywordtype}{int}\ *position\_x,\ \textcolor{keywordtype}{int}\ *position\_y,\ \textcolor{keywordtype}{int}\ *position\_avant\_saut,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sauter,\ \textcolor{keywordtype}{int}\ avancer,\ \textcolor{keywordtype}{int}\ reculer,\ \textcolor{keywordtype}{int}\ tile\_map[18][32],\ \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\_t}}\ personnageActif)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00494}00494\ \ \ \ \ Mix\_Chunk\ *effet\_sonore\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00496}00496\ \ \ \ \ \textcolor{comment}{/*\ Cas\ où\ la\ touche\ pour\ sauter\ est\ pressée\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00497}00497\ \ \ \ \ \textcolor{keywordflow}{if}((!(*saut))\ \&\&\ (!(*tombe))\ \&\&\ (sauter))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(personnageActif\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaaf05a30be343ce697093befd506a7f417}{PERSONNAGE\_1}})\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00500}00500\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ le\ premier\ personnage\ saute\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((effet\_sonore\ =\ Mix\_LoadWAV(\textcolor{stringliteral}{"{}./sons/effets\_sonores/saut\_masculin.wav"{}}))\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00503}00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Chargement\ de\ l'effet\ sonore"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00504}00504\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00505}00505\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00506}00506\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(personnageActif\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaad485fac01b98f131c212cc5aa675b88e}{PERSONNAGE\_2}})\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00507}00507\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ le\ second\ personnage\ saute\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((effet\_sonore\ =\ Mix\_LoadWAV(\textcolor{stringliteral}{"{}./sons/effets\_sonores/saut\_feminin.wav"{}}))\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Chargement\ de\ l'effet\ sonore"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00511}00511\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00512}00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00513}00513\ \ \ \ \ \ \ \ \ Mix\_PlayChannel(1,\ effet\_sonore,\ 0);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00514}00514\ \ \ \ \ \ \ \ \ (*position\_avant\_saut)\ =\ (*position\_y);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00515}00515\ \ \ \ \ \ \ \ \ (*saut)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00516}00516\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00517}00517\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00518}00518\ \ \ \ \ \textcolor{comment}{/*\ Cas\ où\ la\ touche\ pour\ aller\ à\ gauche\ est\ pressée\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00519}00519\ \ \ \ \ \textcolor{keywordflow}{if}(((!(tile\_map[(*position\_y)][(*position\_x)\ -\/\ 1]))\ ||\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ ((tile\_map[(*position\_y)][(*position\_x)\ -\/\ 1]\ >=\ 3)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00521}00521\ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)][(*position\_x)\ -\/\ 1]\ <=\ 9))\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00522}00522\ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)][(*position\_x)\ -\/\ 1]\ ==\ 11)\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00523}00523\ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)][(*position\_x)\ -\/\ 1]\ ==\ 12))\ \&\&\ (reculer))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00524}00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00525}00525\ \ \ \ \ \ \ \ \ (*position\_x)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00527}00527\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((!(*saut))\ \&\&\ (!(*tombe)))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00528}00528\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00529}00529\ \ \ \ \ \ \ \ \ \ \ \ \ (*tombe)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00530}00530\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(75);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00531}00531\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00532}00532\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00533}00533\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00534}00534\ \ \ \ \ \textcolor{comment}{/*\ Cas\ où\ la\ touche\ pour\ aller\ à\ droite\ est\ pressée\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00535}00535\ \ \ \ \ \textcolor{keywordflow}{if}(((!(tile\_map[(*position\_y)][(*position\_x)\ +\ 1]))\ ||\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00536}00536\ \ \ \ \ \ \ \ \ ((tile\_map[(*position\_y)][(*position\_x)\ +\ 1]\ >=\ 3)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00537}00537\ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)][(*position\_x)\ +\ 1]\ <=\ 9))\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00538}00538\ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)][(*position\_x)\ +\ 1]\ ==\ 11)\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00539}00539\ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)][(*position\_x)\ +\ 1]\ ==\ 12))\ \&\&\ (avancer))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00541}00541\ \ \ \ \ \ \ \ \ (*position\_x)++;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00542}00542\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00543}00543\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((!(*saut))\ \&\&\ (!(*tombe)))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00544}00544\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ \ \ \ \ (*tombe)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(75);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00547}00547\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00548}00548\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00549}00549\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00550}00550\ \ \ \ \ \textcolor{comment}{/*\ Cas\ où\ le\ personnage\ est\ entrain\ de\ sauter\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00551}00551\ \ \ \ \ \textcolor{keywordflow}{if}((*saut))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00552}00552\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00553}00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((*position\_y)\ <\ (*position\_avant\_saut)-\/2)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00554}00554\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ (*tombe)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ (*saut)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00557}00557\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00559}00559\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((tile\_map[(*position\_y)\ -\/\ 1][(*position\_x)]\ ==\ 0)\ ||\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)\ -\/\ 1][(*position\_x)]\ ==\ 5)\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)\ -\/\ 1][(*position\_x)]\ ==\ 6)\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)\ -\/\ 1][(*position\_x)]\ ==\ 9))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00563}00563\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_y)\ -\/=\ 1;\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(75);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00566}00566\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00567}00567\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00568}00568\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ (*tombe)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ (*saut)\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00572}00572\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00573}00573\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00574}00574\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00575}00575\ \ \ \ \ \textcolor{comment}{/*\ Cas\ où\ le\ personnage\ est\ entrain\ de\ tomber\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00576}00576\ \ \ \ \ \textcolor{keywordflow}{if}((*tombe))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00577}00577\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00578}00578\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((tile\_map[(*position\_y)\ +\ 1][(*position\_x)]\ ==\ 1)\ ||\ (tile\_map[(*position\_y)\ +\ 1][(*position\_x)]\ ==\ 10)\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)\ +\ 1][(*position\_x)]\ ==\ 13)\ ||\ (tile\_map[(*position\_y)\ +\ 1][(*position\_x)]\ ==\ 14)\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ (tile\_map[(*position\_y)\ +\ 1][(*position\_x)]\ ==\ 15)\ ||\ (tile\_map[(*position\_y)\ +\ 1][(*position\_x)]\ ==\ 16))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00581}00581\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \ \ (*tombe)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00583}00583\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00585}00585\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00586}00586\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_y)\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(75);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00589}00589\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00590}00590\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00591}00591\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00592}00592\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00593}00593\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00594}00594\ \textcolor{comment}{\ *\ \(\backslash\)fn}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00595}00595\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ détruire\ les\ objets\ initialisés}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00596}00596\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ Police\ d'écriture\ qui\ sera\ désallouer}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00597}00597\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_1\_to\_71\ les\ 71\ textures\ à\ désallouer}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00598}00598\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00599}\mbox{\hyperlink{fonctions__generales_8c_a3be1a4e737ca57c4c927b3c4eabec209}{00599}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_a3be1a4e737ca57c4c927b3c4eabec209}{detruire\_objets}}(TTF\_Font\ **police,\ Mix\_Music\ **musique,\ SDL\_Texture\ **texture1,\ SDL\_Texture\ **texture2,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture3,\ SDL\_Texture\ **texture4,\ SDL\_Texture\ **texture5,\ SDL\_Texture\ **texture6,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture7,\ SDL\_Texture\ **texture8,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture9,\ SDL\_Texture\ **texture10,\ SDL\_Texture\ **texture11,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture12,\ SDL\_Texture\ **texture13,\ SDL\_Texture\ **texture14,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture15,\ SDL\_Texture\ **texture16,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture17,\ SDL\_Texture\ **texture18,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture19,\ SDL\_Texture\ **texture20,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00607}00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture21,\ SDL\_Texture\ **texture22,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00608}00608\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture23,\ SDL\_Texture\ **texture24,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture25,\ SDL\_Texture\ **texture26,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00610}00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture27,\ SDL\_Texture\ **texture28,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture29,\ SDL\_Texture\ **texture30,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture31,\ SDL\_Texture\ **texture32,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture33,\ SDL\_Texture\ **texture34,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture35,\ SDL\_Texture\ **texture36,\ SDL\_Texture\ **texture37,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture38,\ SDL\_Texture\ **texture39,\ SDL\_Texture\ **texture40,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture41,\ SDL\_Texture\ **texture42,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture43,\ SDL\_Texture\ **texture44,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture45,\ SDL\_Texture\ **texture46,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture47,\ SDL\_Texture\ **texture48,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture49,\ SDL\_Texture\ **texture50,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00621}00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture51,\ SDL\_Texture\ **texture52,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture53,\ SDL\_Texture\ **texture54,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00623}00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture55,\ SDL\_Texture\ **texture56,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00624}00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture57,\ SDL\_Texture\ **texture58,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture59,\ SDL\_Texture\ **texture60,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00626}00626\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture61,\ SDL\_Texture\ **texture62,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00627}00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture63,\ SDL\_Texture\ **texture64,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00628}00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture65,\ SDL\_Texture\ **texture66,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00629}00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture67,\ SDL\_Texture\ **texture68,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00630}00630\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture69,\ SDL\_Texture\ **texture70,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00631}00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture71,\ SDL\_Texture\ **texture72,}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00632}00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **textures\_images\_succes)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00633}00633\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00634}00634\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00635}00635\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00636}00636\ \ \ \ \ \textcolor{comment}{/*\ Destructions\ des\ textures\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00637}00637\ \ \ \ \ SDL\_DestroyTexture((*texture1));\ \ SDL\_DestroyTexture((*texture2));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00638}00638\ \ \ \ \ SDL\_DestroyTexture((*texture3));\ \ SDL\_DestroyTexture((*texture4));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00639}00639\ \ \ \ \ SDL\_DestroyTexture((*texture5));\ \ SDL\_DestroyTexture((*texture6));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00640}00640\ \ \ \ \ SDL\_DestroyTexture((*texture7));\ \ SDL\_DestroyTexture((*texture8));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00641}00641\ \ \ \ \ SDL\_DestroyTexture((*texture9));\ \ SDL\_DestroyTexture((*texture10));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00642}00642\ \ \ \ \ SDL\_DestroyTexture((*texture11));\ SDL\_DestroyTexture((*texture12));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00643}00643\ \ \ \ \ SDL\_DestroyTexture((*texture13));\ SDL\_DestroyTexture((*texture14));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00644}00644\ \ \ \ \ SDL\_DestroyTexture((*texture15));\ SDL\_DestroyTexture((*texture16));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00645}00645\ \ \ \ \ SDL\_DestroyTexture((*texture17));\ SDL\_DestroyTexture((*texture18));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00646}00646\ \ \ \ \ SDL\_DestroyTexture((*texture19));\ SDL\_DestroyTexture((*texture20));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00647}00647\ \ \ \ \ SDL\_DestroyTexture((*texture21));\ SDL\_DestroyTexture((*texture22));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00648}00648\ \ \ \ \ SDL\_DestroyTexture((*texture23));\ SDL\_DestroyTexture((*texture24));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00649}00649\ \ \ \ \ SDL\_DestroyTexture((*texture25));\ SDL\_DestroyTexture((*texture26));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00650}00650\ \ \ \ \ SDL\_DestroyTexture((*texture27));\ SDL\_DestroyTexture((*texture28));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00651}00651\ \ \ \ \ SDL\_DestroyTexture((*texture29));\ SDL\_DestroyTexture((*texture30));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00652}00652\ \ \ \ \ SDL\_DestroyTexture((*texture31));\ SDL\_DestroyTexture((*texture32));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00653}00653\ \ \ \ \ SDL\_DestroyTexture((*texture33));\ SDL\_DestroyTexture((*texture34));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00654}00654\ \ \ \ \ SDL\_DestroyTexture((*texture35));\ SDL\_DestroyTexture((*texture36));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00655}00655\ \ \ \ \ SDL\_DestroyTexture((*texture37));\ SDL\_DestroyTexture((*texture38));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00656}00656\ \ \ \ \ SDL\_DestroyTexture((*texture39));\ SDL\_DestroyTexture((*texture40));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00657}00657\ \ \ \ \ SDL\_DestroyTexture((*texture41));\ SDL\_DestroyTexture((*texture42));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00658}00658\ \ \ \ \ SDL\_DestroyTexture((*texture43));\ SDL\_DestroyTexture((*texture44));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00659}00659\ \ \ \ \ SDL\_DestroyTexture((*texture45));\ SDL\_DestroyTexture((*texture46));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00660}00660\ \ \ \ \ SDL\_DestroyTexture((*texture47));\ SDL\_DestroyTexture((*texture48));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00661}00661\ \ \ \ \ SDL\_DestroyTexture((*texture49));\ SDL\_DestroyTexture((*texture50));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00662}00662\ \ \ \ \ SDL\_DestroyTexture((*texture51));\ SDL\_DestroyTexture((*texture52));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00663}00663\ \ \ \ \ SDL\_DestroyTexture((*texture53));\ SDL\_DestroyTexture((*texture54));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00664}00664\ \ \ \ \ SDL\_DestroyTexture((*texture55));\ SDL\_DestroyTexture((*texture56));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00665}00665\ \ \ \ \ SDL\_DestroyTexture((*texture57));\ SDL\_DestroyTexture((*texture58));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00666}00666\ \ \ \ \ SDL\_DestroyTexture((*texture59));\ SDL\_DestroyTexture((*texture60));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00667}00667\ \ \ \ \ SDL\_DestroyTexture((*texture61));\ SDL\_DestroyTexture((*texture62));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00668}00668\ \ \ \ \ SDL\_DestroyTexture((*texture63));\ SDL\_DestroyTexture((*texture64));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00669}00669\ \ \ \ \ SDL\_DestroyTexture((*texture65));\ SDL\_DestroyTexture((*texture66));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00670}00670\ \ \ \ \ SDL\_DestroyTexture((*texture67));\ SDL\_DestroyTexture((*texture68));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00671}00671\ \ \ \ \ SDL\_DestroyTexture((*texture69));\ SDL\_DestroyTexture((*texture70));\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00672}00672\ \ \ \ \ SDL\_DestroyTexture((*texture71));\ SDL\_DestroyTexture((*texture72));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00674}00674\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 11;\ i++)}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00675}00675\ \ \ \ \ \ \ \ \ SDL\_DestroyTexture(textures\_images\_succes[i]);}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00676}00676\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00677}00677\ \ \ \ \ \textcolor{comment}{/*\ Destruction\ de\ la\ police\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00678}00678\ \ \ \ \ TTF\_CloseFont((*police));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00679}00679\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00680}00680\ \ \ \ \ \textcolor{comment}{/*\ Destruction\ de\ la\ musique\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00681}00681\ \ \ \ \ Mix\_FreeMusic((*musique));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00682}00682\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00683}00683\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00684}00684\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00685}00685\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ detruire\_fenetre\_rendu(SDL\_Renderer\ **renderer,\ SDL\_Window\ **window)}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00686}00686\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ détruire\ le\ rendu\ et\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00687}00687\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Rendu\ à\ détruire}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00688}00688\ \textcolor{comment}{\ *\ \(\backslash\)param\ widnow\ fenêtre\ à\ détruire}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00689}00689\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00690}\mbox{\hyperlink{fonctions__generales_8c_adec7f4fe3daaf651b21ff0204b2f33f9}{00690}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__generales_8c_adec7f4fe3daaf651b21ff0204b2f33f9}{detruire\_fenetre\_rendu}}(SDL\_Renderer\ **renderer,\ SDL\_Window\ **window)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00691}00691\ }
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00692}00692\ \ \ \ \ SDL\_DestroyRenderer((*renderer));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00693}00693\ \ \ \ \ SDL\_DestroyWindow((*window));}
+\DoxyCodeLine{\Hypertarget{fonctions__generales_8c_source_l00694}00694\ \}}
+
+\end{DoxyCode}

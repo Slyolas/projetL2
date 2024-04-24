@@ -1,0 +1,1046 @@
+\doxysection{fonctions\+\_\+niveau\+\_\+2.\+c}
+\hypertarget{fonctions__niveau__2_8c_source}{}\label{fonctions__niveau__2_8c_source}\index{fichiers\_c/fonctions\_niveau\_2.c@{fichiers\_c/fonctions\_niveau\_2.c}}
+\mbox{\hyperlink{fonctions__niveau__2_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00001}00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00002}00002\ \textcolor{comment}{\ *\ \(\backslash\)file\ fonctions\_niveau\_4.c}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00003}00003\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fichier\ contenant\ les\ fonctions\ servant\ à\ la\ gestion\ du\ niveau\ 2\ \ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00004}00004\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <../fichiers\_h/fonctions\_generales.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <../fichiers\_h/fonctions\_niveau\_2.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00008}00008\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00009}00009\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ initialisation\_objets\_niveau\_2(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_image\_fond\_niveau\_2,\ SDL\_Texture\ **texture\_image\_dossier\_niveau\_2,\ SDL\_Texture\ **texture\_image\_sol\_niveau\_2,\ SDL\_Texture\ **texture\_image\_mur\_mini\_jeu,\ SDL\_Texture\ **texture\_image\_pipe\_vertical,\ SDL\_Texture\ **texture\_image\_pipe\_horizontal,\ SDL\_Texture\ **texture\_image\_pipe\_haut\_droit,\ SDL\_Texture\ **texture\_image\_pipe\_bas\_droit,\ SDL\_Texture\ **texture\_image\_pipe\_bas\_gauche,\ SDL\_Texture\ **texture\_image\_pipe\_haut\_gauche,\ SDL\_Texture\ **texture\_image\_pipe\_courant,\ SDL\_Texture\ **texture\_image\_mur\_termine)}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00010}00010\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ d'initialiser\ les\ différents\ objets\ du\ niveau\ 2\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00011}00011\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00012}00012\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00013}00013\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_fond\_niveau\_2\ Texture\ de\ l'image\ de\ fond\ du\ niveau\ 2.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00014}00014\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_dossier\_niveau\_2\ Texture\ de\ l'image\ du\ dossier\ du\ niveau\ 2.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00015}00015\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_sol\_niveau\_2\ Texture\ de\ l'image\ du\ sol\ du\ niveau\ 2.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00016}00016\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_mur\_mini\_jeu\ Texture\ de\ l'image\ du\ mur\ du\ mini-\/jeu.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00017}00017\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_vertical\ Texture\ de\ l'image\ du\ tuyau\ vertical.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00018}00018\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_horizontal\ Texture\ de\ l'image\ du\ tuyau\ horizontal.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00019}00019\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_haut\_droit\ Texture\ de\ l'image\ du\ tuyau\ haut\ droit.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00020}00020\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_bas\_droit\ Texture\ de\ l'image\ du\ tuyau\ bas\ droit.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00021}00021\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_bas\_gauche\ Texture\ de\ l'image\ du\ tuyau\ bas\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00022}00022\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_haut\_gauche\ Texture\ de\ l'image\ du\ tuyau\ haut\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00023}00023\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_courant\ Texture\ de\ l'image\ du\ tuyau\ courant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00024}00024\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_mur\_termine\ Texture\ de\ l'image\ du\ mur\ terminé.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \(\backslash\)see\ chargement\_image}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00026}00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00027}\mbox{\hyperlink{fonctions__niveau__2_8c_a7600f63bdbae033777299b6cea5f18a2}{00027}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a7600f63bdbae033777299b6cea5f18a2}{initialisation\_objets\_niveau\_2}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_fond\_niveau\_2,\ SDL\_Texture\ **texture\_image\_dossier\_niveau\_2,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_sol\_niveau\_2,\ SDL\_Texture\ **texture\_image\_mur\_mini\_jeu,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_vertical,\ SDL\_Texture\ **texture\_image\_pipe\_horizontal,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_haut\_droit,\ SDL\_Texture\ **texture\_image\_pipe\_bas\_droit,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_bas\_gauche,\ SDL\_Texture\ **texture\_image\_pipe\_haut\_gauche,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_courant,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_mur\_termine)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00036}00036\ \ \ \ \ \textcolor{comment}{/*\ Chargement\ des\ images\ pour\ le\ niveau\ 2\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_fond\_niveau\_2,\ \textcolor{stringliteral}{"{}./images/niveau\_2/fond\_niveau\_2.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_dossier\_niveau\_2,\ \textcolor{stringliteral}{"{}./images/niveau\_2/dossier\_linux.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_sol\_niveau\_2,\ \textcolor{stringliteral}{"{}./images/niveau\_2/sol\_niveau\_2.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_mur\_mini\_jeu,\ \textcolor{stringliteral}{"{}./images/labyrinthe/mur\_mini\_jeux.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_pipe\_vertical,\ \textcolor{stringliteral}{"{}./images/pipe/pipe\_vertical.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_pipe\_horizontal,\ \textcolor{stringliteral}{"{}./images/pipe/pipe\_horizontal.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_pipe\_haut\_droit,\ \textcolor{stringliteral}{"{}./images/pipe/pipe\_HD.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_pipe\_bas\_droit,\ \textcolor{stringliteral}{"{}./images/pipe/pipe\_BD.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_pipe\_bas\_gauche,\ \textcolor{stringliteral}{"{}./images/pipe/pipe\_BG.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_pipe\_haut\_gauche,\ \textcolor{stringliteral}{"{}./images/pipe/pipe\_HG.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_pipe\_courant,\ \textcolor{stringliteral}{"{}./images/pipe/pipe\_courant.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_mur\_termine,\ \textcolor{stringliteral}{"{}./images/labyrinthe/mur\_fin\_mini\_jeux.png"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00051}00051\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00052}00052\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00053}00053\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ mini\_jeu\_1\_niveau\_2(int\ *position\_x,\ int\ *position\_y,\ int\ tile\_map[19][27])\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00054}00054\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ d'initialiser\ le\ premier\ mini-\/jeu\ du\ niveau\ 2}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00055}00055\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_x\ position\ horizontal\ du\ personnage\ sur\ le\ tile\ map}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00056}00056\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_y\ position\ verticale\ du\ personnage\ sur\ le\ tile\ map}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00057}00057\ \textcolor{comment}{\ *\ \(\backslash\)param\ tile\_map\ map\ ou\ se\ trouve\ le\ personnage}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00058}00058\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00059}\mbox{\hyperlink{fonctions__niveau__2_8c_a2d0e4ca9f523ed5280a5315ef10f18be}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a2d0e4ca9f523ed5280a5315ef10f18be}{mini\_jeu\_1\_niveau\_2}}(\textcolor{keywordtype}{int}\ *position\_x,\ \textcolor{keywordtype}{int}\ *position\_y,\ \textcolor{keywordtype}{int}\ tile\_map[19][27])\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00063}00063\ \ \ \ \ \textcolor{comment}{/*\ Positionnement\ du\ curseur\ en\ haut\ à\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00065}00065\ \ \ \ \ (*position\_x)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00066}00066\ \ \ \ \ (*position\_y)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00068}00068\ \ \ \ \ \textcolor{comment}{/*\ Création\ du\ premier\ mini-\/jeu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{int}\ initialisation\_tile\_map[19][27]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 0,\ 8,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ \ \ \ 0,\ \ \ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 4,\ 4,\ 6,\ 5,\ 2,\ 4,\ 3,\ 5,\ 4,\ 1,\ 2,\ 5,\ \ \ \ \ 0,\ \ 4,\ 6,\ 2,\ 6,\ 3,\ 4,\ 6,\ 4,\ 6,\ 2,\ 4,\ 0,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 2,\ 3,\ 4,\ 5,\ 4,\ 1,\ 4,\ 4,\ 2,\ 0,\ 5,\ 4,\ \ \ \ \ 0,\ \ 1,\ 5,\ 4,\ 1,\ 6,\ 4,\ 2,\ 6,\ 2,\ 1,\ 0,\ 0,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 1,\ 4,\ 2,\ 6,\ 1,\ 5,\ 4,\ 2,\ 3,\ 2,\ 3,\ 6,\ \ \ \ \ 0,\ \ 4,\ 5,\ 0,\ 6,\ 2,\ 5,\ 1,\ 3,\ 4,\ 6,\ 5,\ 0,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 2,\ 6,\ 3,\ 4,\ 5,\ 0,\ 0,\ 3,\ 1,\ 3,\ 6,\ 5,\ \ \ \ \ 0,\ \ 5,\ 6,\ 0,\ 6,\ 2,\ 3,\ 5,\ 2,\ 3,\ 0,\ 1,\ 4,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 3,\ 5,\ 1,\ 4,\ 4,\ 5,\ 0,\ 6,\ 2,\ 0,\ 0,\ 1,\ \ \ \ \ 0,\ \ 1,\ 4,\ 2,\ 3\ ,6,\ 0,\ 5,\ 3,\ 4,\ 0,\ 4,\ 6,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 4,\ 2,\ 3,\ 1,\ 6,\ 1,\ 3,\ 4,\ 6,\ 6,\ 1,\ 6,\ \ \ \ \ 0,\ \ 6,\ 2,\ 1,\ 4,\ 4,\ 1,\ 3,\ 4,\ 1,\ 0,\ 0,\ 1,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 0,\ 6,\ 3,\ 5,\ 4,\ 4,\ 3,\ 2,\ 6,\ 6,\ 2,\ 2,\ \ \ \ \ 0,\ \ 5,\ 3,\ 6,\ 2,\ 3,\ 4,\ 6,\ 5,\ 2,\ 2,\ 5,\ 4,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 0,\ 0,\ 5,\ 2,\ 1,\ 3,\ 1,\ 1,\ 4,\ 0,\ 6,\ 6,\ \ \ \ \ 0,\ \ 4,\ 3,\ 0,\ 0,\ 4,\ 2\ ,3,\ 6,\ 4,\ 5,\ 1,\ 3,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ \ \ \ \ 0,\ \ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 4,\ 2,\ 1,\ 3,\ 4,\ 5,\ 4,\ 3,\ 3,\ 1,\ 2,\ 3,\ \ \ \ \ 0,\ \ 4,\ 6,\ 3,\ 2,\ 6,\ 4,\ 5,\ 3,\ 0,\ 4,\ 2,\ 4,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 6,\ 1,\ 0,\ 4,\ 1,\ 5,\ 3,\ 2,\ 4,\ 6,\ 2,\ 1,\ \ \ \ \ 0,\ \ 2,\ 5,\ 0,\ 3,\ 2,\ 6,\ 5,\ 4,\ 0,\ 5,\ 1,\ 3,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 4,\ 4,\ 0,\ 6,\ 2,\ 3,\ 5,\ 6,\ 2,\ 3,\ 6,\ 6,\ \ \ \ \ 0,\ \ 5,\ 1,\ 0,\ 6,\ 2,\ 3,\ 2,\ 4,\ 3,\ 6,\ 5,\ 4,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 6,\ 5,\ 3,\ 1,\ 2,\ 4,\ 3,\ 4,\ 5,\ 6,\ 0,\ 0,\ \ \ \ \ 0,\ \ 3,\ 4,\ 6,\ 0,\ 2,\ 3,\ 4,\ 3,\ 2,\ 4,\ 2,\ 6,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 4,\ 2,\ 2,\ 0,\ 0,\ 1,\ 6,\ 4,\ 3,\ 1,\ 5,\ 4,\ \ \ \ \ 0,\ \ 4,\ 6,\ 1,\ 6,\ 0,\ 0,\ 0,\ 1,\ 2,\ 6,\ 0,\ 2,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 5,\ 6,\ 0,\ 5,\ 4,\ 3,\ 1,\ 3,\ 3,\ 3,\ 0,\ 4,\ \ \ \ \ 0,\ \ 5,\ 4,\ 6,\ 2,\ 1,\ 0,\ 3,\ 4,\ 2,\ 1,\ 0,\ 1,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 5,\ 4,\ 1,\ 2,\ 6,\ 5,\ 6,\ 2,\ 4,\ 5,\ 2,\ 1,\ \ \ \ \ 2,\ \ 4,\ 3,\ 1,\ 4,\ 3,\ 6,\ 2,\ 1,\ 5,\ 4,\ 6,\ 4,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 5,\ 3,\ 5,\ 2,\ 1,\ 6,\ 1,\ 3,\ 5,\ 6,\ 3,\ 0,\ \ \ \ \ 0,\ \ 6,\ 5,\ 3,\ 5,\ 1,\ 3,\ 4,\ 3,\ 5,\ 4,\ 1,\ 3,\ \ \ \ \ \ 0\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \{0,\ \ \ \ \ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ \ \ \ \ 0,\ \ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ \ \ \ \ \ 0\}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00095}00095\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00097}00097\ \ \ \ \ \textcolor{comment}{/*\ Copie\ du\ tilemap\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{for}\ (y\ =\ 0;\ y\ <\ 19;\ y++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (x\ =\ 0;\ x\ <\ 27;\ x++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map[y][x]\ =\ initialisation\_tile\_map[y][x];}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00102}00102\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00103}00103\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00104}00104\ \textcolor{comment}{\ *\ \(\backslash\)fn\ int\ verification\_chemin(int\ x,\ int\ y,\ int\ x\_precedent,\ int\ y\_precedent,\ int\ tilemap[19][27],\ int\ x\_arrivee,\ int\ y\_arrivee)}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00105}00105\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ de\ vérification\ du\ chemin\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00106}00106\ \textcolor{comment}{\ *\ \(\backslash\)param\ x\ position\ actuelle\ verticale\ dans\ la\ vérification\ du\ chemin}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00107}00107\ \textcolor{comment}{\ *\ \(\backslash\)param\ y\ position\ actuelle\ horizontale\ dans\ la\ vérification\ du\ chemin}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00108}00108\ \textcolor{comment}{\ *\ \(\backslash\)param\ x\_precedent\ position\ précédente\ à\ la\ position\ actuelle\ de\ x}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00109}00109\ \textcolor{comment}{\ *\ \(\backslash\)param\ y\_precedent\ position\ précédente\ à\ la\ position\ actuelle\ de\ y}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00110}00110\ \textcolor{comment}{\ *\ \(\backslash\)param\ tilemap\ map\ à\ vérifier}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00111}00111\ \textcolor{comment}{\ *\ \(\backslash\)param\ x\_arrivee\ coordonnée\ x\ ou\ se\ trouve\ la\ sortie}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00112}00112\ \textcolor{comment}{\ *\ \(\backslash\)param\ y\_arrivee\ coordonnée\ y\ ou\ se\ trouve\ la\ sortie}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00113}00113\ \textcolor{comment}{\ *\ \(\backslash\)return\ booléen\ (1\ si\ le\ chemin\ est\ bon\ sinon\ 0)}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00114}00114\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00115}\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{00115}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ x\_precedent,\ \textcolor{keywordtype}{int}\ y\_precedent,\ \textcolor{keywordtype}{int}\ tilemap[19][27],\ \textcolor{keywordtype}{int}\ x\_arrivee,\ \textcolor{keywordtype}{int}\ y\_arrivee)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00117}00117\ \ \ \ \ \textcolor{comment}{/*\ Vérifier\ si\ les\ coordonnées\ actuelles\ correspondent\ aux\ coordonnées\ de\ l'arrivée\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{if}\ ((x\ ==\ x\_arrivee)\ \&\&\ (y\ ==\ y\_arrivee))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00121}00121\ \ \ \ \ \textcolor{comment}{/*\ Vérification\ du\ premier\ tuyau\ car\ il\ n'est\ pas\ dans\ la\ boucle\ de\ vérification\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{if}(tilemap[1][2]\ !=\ 3)\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00126}00126\ \ \ \ \ \textcolor{comment}{/*\ Vérifier\ si\ le\ tuyau\ actuel\ est\ correctement\ aligné\ avec\ le\ précédent\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{switch}\ (tilemap[y][x])\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \textcolor{comment}{/*\ Tuyau\ vertical\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ du\ dessus\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\_precedent\ ==\ (y\ -\/\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ d'en\ haut*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y+1][x]\ !=\ 2)\ \&\&\ (tilemap[y+1][x]\ !=\ 4)\ \&\&\ (tilemap[y+1][x]\ !=\ 5))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x,\ y\ +\ 1,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee)\ ;\ \textcolor{comment}{/*\ On\ va\ en\ bas\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ d'en\ dessous\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ d'en\ bas*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y-\/1][x]\ !=\ 2)\ \&\&\ (tilemap[y-\/1][x]\ !=\ 3)\ \&\&\ (tilemap[y-\/1][x]\ !=\ 6))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x,\ y\ -\/\ 1,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ en\ haut\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ \textcolor{comment}{/*\ Tuyau\ horizontal\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ de\ la\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\_precedent\ ==\ (x\ -\/\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ de\ la\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y][x+1]\ !=\ 1)\ \&\&\ (tilemap[y][x+1]\ !=\ 3)\ \&\&\ (tilemap[y][x+1]\ !=\ 4))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x\ +\ 1,\ y,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ à\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ de\ la\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ de\ la\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y][x-\/1]\ !=\ 1)\ \&\&\ (tilemap[y][x-\/1]\ !=\ 5)\ \&\&\ (tilemap[y][x-\/1]\ !=\ 6))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x\ -\/\ 1,\ y,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ à\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ \textcolor{comment}{/*\ Tuyau\ HD\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ du\ dessus\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\_precedent\ ==\ (y\ -\/\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ de\ la\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y][x+1]\ !=\ 1)\ \&\&\ (tilemap[y][x+1]\ !=\ 3)\ \&\&\ (tilemap[y][x+1]\ !=\ 4))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x\ +\ 1,\ y,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ à\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ de\ la\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ d'en\ bas*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y-\/1][x]\ !=\ 2)\ \&\&\ (tilemap[y-\/1][x]\ !=\ 3)\ \&\&\ (tilemap[y-\/1][x]\ !=\ 6))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x,\ y\ -\/\ 1,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ en\ haut\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:\ \textcolor{comment}{/*\ Tuyau\ BD\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ de\ la\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\_precedent\ ==\ (x\ +\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ d'en\ haut*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y+1][x]\ !=\ 2)\ \&\&\ (tilemap[y+1][x]\ !=\ 4)\ \&\&\ (tilemap[y+1][x]\ !=\ 5))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x,\ y\ +\ 1,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ en\ bas\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ du\ bas\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ de\ la\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y][x+1]\ !=\ 1)\ \&\&\ (tilemap[y][x+1]\ !=\ 3)\ \&\&\ (tilemap[y][x+1]\ !=\ 4))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x\ +\ 1,\ y,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ à\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ \textcolor{comment}{/*\ Tuyau\ BG\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ de\ la\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\_precedent\ ==\ (x\ -\/\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ d'en\ haut*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y+1][x]\ !=\ 2)\ \&\&\ (tilemap[y+1][x]\ !=\ 4)\ \&\&\ (tilemap[y+1][x]\ !=\ 5))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x,\ y\ +\ 1,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ en\ bas\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ du\ bas\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ de\ la\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y][x-\/1]\ !=\ 1)\ \&\&\ (tilemap[y][x-\/1]\ !=\ 5)\ \&\&\ (tilemap[y][x-\/1]\ !=\ 6))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x\ -\/\ 1,\ y,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ à\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:\ \textcolor{comment}{/*\ Tuyau\ HG\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ du\ haut\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\_precedent\ ==\ (y\ -\/\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ de\ la\ droite\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y][x-\/1]\ !=\ 1)\ \&\&\ (tilemap[y][x-\/1]\ !=\ 5)\ \&\&\ (tilemap[y][x-\/1]\ !=\ 6))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x\ -\/\ 1,\ y,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ à\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vient\ de\ la\ gauche\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ que\ le\ tuyau\ suivant\ peut\ bien\ venir\ d'en\ bas*/}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tilemap[y-\/1][x]\ !=\ 2)\ \&\&\ (tilemap[y-\/1][x]\ !=\ 3)\ \&\&\ (tilemap[y-\/1][x]\ !=\ 6))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(x,\ y\ -\/\ 1,\ x,\ y,\ tilemap,\ x\_arrivee,\ y\_arrivee);\ \textcolor{comment}{/*\ On\ va\ au\ haut\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00231}00231\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00232}00232\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00233}00233\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00234}00234\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00235}00235\ \textcolor{comment}{\ *\ \(\backslash\)fn\ int\ mise\_a\_jour\_bordures\_niveau\_2(SDL\_Renderer*\ renderer,\ SDL\_Texture*\ texture\_image\_mur\_termine,\ int\ tilemap[19][27],\ int\ x\_tile,\ int\ y\_tile,\ int\ x,\ int\ y,\ SDL\_Rect\ *rectangle\_tile,\ int\ largeur\_tile,\ int\ hauteur\_tile)}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00236}00236\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ pour\ mettre\ à\ jour\ les\ tuiles\ de\ bordure\ lorsque\ le\ bloc\ atteint\ la\ 9\ du\ labyrinthe\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00237}00237\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00238}00238\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_mur\_termine\ Texture\ de\ l'image\ du\ mur\ terminé.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00239}00239\ \textcolor{comment}{\ *\ \(\backslash\)param\ tilemap\ Carte\ de\ tuiles\ du\ niveau\ 2.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00240}00240\ \textcolor{comment}{\ *\ \(\backslash\)param\ x\_tile\ Position\ x\ de\ la\ tuile\ à\ mettre\ à\ jour.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00241}00241\ \textcolor{comment}{\ *\ \(\backslash\)param\ y\_tile\ Position\ y\ de\ la\ tuile\ à\ mettre\ à\ jour.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00242}00242\ \textcolor{comment}{\ *\ \(\backslash\)param\ x\ Position\ x\ de\ la\ tuile\ dans\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00243}00243\ \textcolor{comment}{\ *\ \(\backslash\)param\ y\ Position\ y\ de\ la\ tuile\ dans\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00244}00244\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_tile\ Rectangle\ pour\ chaque\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00245}00245\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\_tile\ Largeur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00246}00246\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\_tile\ Hauteur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00247}00247\ \textcolor{comment}{\ *\ \(\backslash\)return\ appel\ récursif\ pour\ mettre\ les\ différents\ rectangle\ à\ jour\ jusqu'à\ la\ fin\ (appel\ se\ finissant\ par\ un\ 0)}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00248}00248\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00249}\mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{00249}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}(SDL\_Renderer*\ renderer,\ SDL\_Texture*\ texture\_image\_mur\_termine,\ \textcolor{keywordtype}{int}\ tilemap[19][27],\ \textcolor{keywordtype}{int}\ x\_tile,\ \textcolor{keywordtype}{int}\ y\_tile,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_tile,\ \textcolor{keywordtype}{int}\ largeur\_tile,\ \textcolor{keywordtype}{int}\ hauteur\_tile)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00252}00252\ \ \ \ \ \textcolor{comment}{/*\ Mise\ à\ jour\ du\ rendu\ de\ la\ tuile\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00253}00253\ \ \ \ \ tilemap[y\_tile][x\_tile]\ =\ 9;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00255}00255\ \ \ \ \ rectangle\_tile-\/>x\ =\ x\_tile\ *\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00256}00256\ \ \ \ \ rectangle\_tile-\/>y\ =\ y\_tile\ *\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00257}00257\ \ \ \ \ rectangle\_tile-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00258}00258\ \ \ \ \ rectangle\_tile-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00260}00260\ \ \ \ \ SDL\_RenderCopy(renderer,\ texture\_image\_mur\_termine,\ NULL,\ rectangle\_tile);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00262}00262\ \ \ \ \ SDL\_RenderPresent(renderer);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00264}00264\ \ \ \ \ SDL\_Delay(20);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00266}00266\ \ \ \ \ \textcolor{comment}{/*\ Vérification\ des\ tuiles\ adjacentes\ pour\ permettre\ un\ appel\ récursif\ et\ ainsi\ changé\ toute\ les\ tuiles\ de\ la\ bordure\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00267}00267\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00268}00268\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ à\ gauche\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00269}00269\ \ \ \ \ \textcolor{keywordflow}{if}((!tilemap[y\_tile][x\_tile\ -\/\ 1])\ \&\&\ (x\_tile\ >\ x)\ \&\&\ (!y\_tile))\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}(renderer,\ texture\_image\_mur\_termine,\ tilemap,\ x\_tile\ -\/\ 1,\ y\_tile,\ x,\ y,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ largeur\_tile,\ hauteur\_tile);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00272}00272\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00273}00273\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(((tilemap[y\_tile][x\_tile\ -\/\ 1]\ ==\ 8)\ ||\ (tilemap[y\_tile][x\_tile\ -\/\ 1]\ ==\ 1))\ \&\&\ (x\_tile\ >\ x)\ \&\&\ (!y\_tile))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}(renderer,\ texture\_image\_mur\_termine,\ tilemap,\ x\_tile\ -\/\ 2,\ y\_tile,\ x,\ y,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ largeur\_tile,\ hauteur\_tile);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00276}00276\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00277}00277\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ à\ droite\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00278}00278\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((!tilemap[y\_tile][x\_tile\ +\ 1])\ \&\&\ (x\_tile\ <\ x)\ \&\&\ (y\_tile\ ==\ (19\ -\/\ 1)))\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}(renderer,\ texture\_image\_mur\_termine,\ tilemap,\ x\_tile\ +\ 1,\ y\_tile,\ x,\ y,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ largeur\_tile,\ hauteur\_tile);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00281}00281\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00282}00282\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ en\ bas\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00283}00283\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((!tilemap[y\_tile\ +\ 1][x\_tile])\ \&\&\ (y\_tile\ <\ y)\ \&\&\ (!x\_tile))\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}(renderer,\ texture\_image\_mur\_termine,\ tilemap,\ x\_tile,\ y\_tile\ +\ 1,\ x,\ y,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ largeur\_tile,\ hauteur\_tile);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00286}00286\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00287}00287\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ en\ haut\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00288}00288\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((!tilemap[y\_tile\ -\/\ 1][x\_tile])\ \&\&\ (y\_tile\ >\ y)\ \&\&\ (x\_tile\ ==\ (27\ -\/\ 1)))\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}(renderer,\ texture\_image\_mur\_termine,\ tilemap,\ x\_tile,\ y\_tile\ -\/\ 1,\ x,\ y,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ largeur\_tile,\ hauteur\_tile);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00292}00292\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00293}00293\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00294}00294\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00295}00295\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00296}00296\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00297}00297\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ mise\_a\_jour\_mini\_jeu\_1\_niveau\_2(SDL\_Renderer\ **renderer,\ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_Texture\ **texture,\ SDL\_Rect\ *rectangle\_tile,\ int\ position\_x,\ int\ position\_y,\ int\ tile\_map\_mini\_jeu\_niveau\_2[19][27],\ int\ largeur,\ int\ hauteur,\ int\ largeur\_tile,\ int\ hauteur\_tile,\ SDL\_Texture\ **texture\_image\_mur\_mini\_jeu,\ SDL\_Texture\ **texture\_image\_pipe\_vertical,\ SDL\_Texture\ **texture\_image\_pipe\_horizontal,\ SDL\_Texture\ **texture\_image\_pipe\_haut\_droit,\ SDL\_Texture\ **texture\_image\_pipe\_bas\_droit,\ SDL\_Texture\ **texture\_image\_pipe\_bas\_gauche,\ SDL\_Texture\ **texture\_image\_pipe\_haut\_gauche,\ SDL\_Texture\ **texture\_image\_pipe\_courant,\ SDL\_Texture\ **texture\_image\_mur\_termine)}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00298}00298\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ mettre\ à\ jour\ le\ premier\ mini-\/jeu\ du\ niveau\ 2\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00299}00299\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00300}00300\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_plein\_ecran\ Rectangle\ pour\ le\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00301}00301\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_plein\_ecran\ Texture\ de\ l'image\ du\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00302}00302\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\ Texture\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00303}00303\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_tile\ Rectangle\ pour\ chaque\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00304}00304\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_x\ Position\ x\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00305}00305\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_y\ Position\ y\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00306}00306\ \textcolor{comment}{\ *\ \(\backslash\)param\ tile\_map\_mini\_jeu\_niveau\_2\ Carte\ de\ tuiles\ du\ mini-\/jeu\ 1\ du\ niveau\ 2.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00307}00307\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ Largeur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00308}00308\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ Hauteur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00309}00309\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\_tile\ Largeur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00310}00310\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\_tile\ Hauteur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00311}00311\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_mur\_mini\_jeu\ Texture\ de\ l'image\ du\ mur\ du\ mini-\/jeu.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00312}00312\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_vertical\ Texture\ de\ l'image\ du\ tuyau\ vertical.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00313}00313\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_horizontal\ Texture\ de\ l'image\ du\ tuyau\ horizontal.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00314}00314\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_haut\_droit\ Texture\ de\ l'image\ du\ tuyau\ haut\ droit.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00315}00315\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_bas\_droit\ Texture\ de\ l'image\ du\ tuyau\ bas\ droit.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00316}00316\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_bas\_gauche\ Texture\ de\ l'image\ du\ tuyau\ bas\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00317}00317\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_haut\_gauche\ Texture\ de\ l'image\ du\ tuyau\ haut\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00318}00318\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_courant\ Texture\ de\ l'image\ du\ tuyau\ courant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00319}00319\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_mur\_termine\ Texture\ de\ l'image\ du\ mur\ terminé.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00320}00320\ \textcolor{comment}{\ *\ \(\backslash\)see\ erreur}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00321}00321\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00322}\mbox{\hyperlink{fonctions__niveau__2_8c_ab5da5669ca8a12b4486f7b42c11a19f1}{00322}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__niveau__2_8c_ab5da5669ca8a12b4486f7b42c11a19f1}{mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}}(SDL\_Renderer\ **renderer,\ SDL\_Texture\ **texture\_image\_croix,\ SDL\_Rect\ *rectangle\_croix,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture,\ SDL\_Rect\ *rectangle\_tile,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ position\_x,\ \textcolor{keywordtype}{int}\ position\_y,\ \textcolor{keywordtype}{int}\ tile\_map\_mini\_jeu\_niveau\_2[19][27],}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur,\ \textcolor{keywordtype}{int}\ largeur\_tile,\ \textcolor{keywordtype}{int}\ hauteur\_tile,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_mur\_mini\_jeu,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_vertical,\ SDL\_Texture\ **texture\_image\_pipe\_horizontal,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_haut\_droit,\ SDL\_Texture\ **texture\_image\_pipe\_bas\_droit,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_bas\_gauche,\ SDL\_Texture\ **texture\_image\_pipe\_haut\_gauche,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_courant,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_mur\_termine)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00334}00334\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00336}00336\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 0,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00338}00338\ \ \ \ \ \textcolor{comment}{/*\ Nettoyer\ le\ renderer\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00339}00339\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderClear((*renderer))\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00340}00340\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Effacement\ rendu\ échoué"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00342}00342\ \ \ \ \ \textcolor{comment}{/*\ Rendu\ tilemap\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00343}00343\ \ \ \ \ \textcolor{keywordflow}{for}\ (y\ =\ 0;\ y\ <\ hauteur\ /\ hauteur\_tile;\ y++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (x\ =\ 0;\ x\ <\ largeur\ /\ largeur\_tile;\ x++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((x\ >=\ 0)\ \&\&\ (x\ <\ largeur\ /\ largeur\_tile)\ \&\&\ (y\ >=\ 0)\ \&\&\ (y\ <\ hauteur\ /\ hauteur\_tile))\ \{\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rendu\ de\ chaque\ tuile\ en\ fonction\ de\ son\ type\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>x\ =\ x\ *\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>y\ =\ y\ *\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_mur\_mini\_jeu),\ NULL,\ rectangle\_tile)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(tile\_map\_mini\_jeu\_niveau\_2[y][x])\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_vertical);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_horizontal);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_haut\_droit);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_bas\_droit);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_bas\_gauche);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_haut\_gauche);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 8:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_courant);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 9:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_mur\_termine);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*texture))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture),\ NULL,\ rectangle\_tile)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00408}00408\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00409}00409\ \ \ \ \ \textcolor{comment}{/*\ Rendu\ du\ curseur\ en\ rouge\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00410}00410\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00412}00412\ \ \ \ \ rectangle\_tile-\/>x\ =\ position\_x\ *\ largeur\_tile\ -\/\ largeur\ /\ 320;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00413}00413\ \ \ \ \ rectangle\_tile-\/>y\ =\ position\_y\ *\ hauteur\_tile\ -\/\ hauteur\ /\ 180;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00414}00414\ \ \ \ \ rectangle\_tile-\/>w\ =\ largeur\_tile\ +\ largeur\ /\ 320\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00415}00415\ \ \ \ \ rectangle\_tile-\/>h\ =\ hauteur\_tile\ +\ hauteur\ /\ 180\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00416}00416\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00417}00417\ \ \ \ \ SDL\_RenderFillRect((*renderer),\ rectangle\_tile);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00419}00419\ \ \ \ \ (*texture)\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00421}00421\ \ \ \ \ rectangle\_tile-\/>x\ =\ position\_x\ *\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00422}00422\ \ \ \ \ rectangle\_tile-\/>y\ =\ position\_y\ *\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00423}00423\ \ \ \ \ rectangle\_tile-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00424}00424\ \ \ \ \ rectangle\_tile-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00426}00426\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_mur\_mini\_jeu),\ NULL,\ rectangle\_tile)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00427}00427\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00429}00429\ \ \ \ \ \textcolor{keywordflow}{switch}(tile\_map\_mini\_jeu\_niveau\_2[position\_y][position\_x])\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00431}00431\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_vertical);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00436}00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_horizontal);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00441}00441\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_haut\_droit);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_bas\_droit);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00451}00451\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_bas\_gauche);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00455}00455\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00456}00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_haut\_gauche);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00460}00460\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00461}00461\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 8:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_pipe\_courant);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00463}00463\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00466}00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 9:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_mur\_termine);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00470}00470\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00471}00471\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00472}00472\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00473}00473\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00475}00475\ \ \ \ \ \textcolor{keywordflow}{if}((*texture))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00476}00476\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture),\ NULL,\ rectangle\_tile)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00479}00479\ \ \ \ \ \textcolor{comment}{/*\ Copie\ la\ texture\ de\ l'image\ de\ plein\ écran\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00480}00480\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00481}00481\ \ \ \ \ rectangle\_plein\_ecran-\/>x\ =\ largeur\_tile\ *\ 26;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00482}00482\ \ \ \ \ rectangle\_plein\_ecran-\/>y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00483}00483\ \ \ \ \ rectangle\_plein\_ecran-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00484}00484\ \ \ \ \ rectangle\_plein\_ecran-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00485}00485\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00486}00486\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_plein\_ecran),\ NULL,\ rectangle\_plein\_ecran)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00487}00487\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00489}00489\ \ \ \ \ \textcolor{comment}{/*\ Copie\ la\ texture\ de\ l'image\ de\ la\ croix\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00490}00490\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00491}00491\ \ \ \ \ rectangle\_croix-\/>x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00492}00492\ \ \ \ \ rectangle\_croix-\/>y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00493}00493\ \ \ \ \ rectangle\_croix-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00494}00494\ \ \ \ \ rectangle\_croix-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00496}00496\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_croix),\ NULL,\ rectangle\_croix)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00497}00497\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00499}00499\ \ \ \ \ \textcolor{comment}{/*\ Actualiser\ le\ renderer\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00500}00500\ \ \ \ \ SDL\_RenderPresent((*renderer));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00501}00501\ \}\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00502}00502\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00503}00503\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00504}00504\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ mini\_jeu\_2\_niveau\_2(int\ *position\_x,\ int\ *position\_y,\ int\ *position\_x\_initiale,\ int\ *position\_y\_initiale,\ int\ tile\_map[18][32],\ int\ mode\_difficile)\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00505}00505\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ d'initialiser\ le\ second\ mini-\/jeu\ du\ niveau\ 2\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00506}00506\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_x\ position\ verticale\ du\ joueur\ à\ l'apparition\ dans\ le\ niveau}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00507}00507\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_y\ position\ horizontale\ du\ joueur\ à\ l'apparition\ dans\ le\ niveau}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00508}00508\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_x\_initiale\ position\ du\ joueur\ verticale\ si\ il\ venait\ à\ revenir\ dans\ le\ niveau\ ou\ si\ il\ venait\ à\ mourir\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00509}00509\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_y\_initiale\ position\ du\ joueur\ horizontale\ si\ il\ venait\ à\ revenir\ dans\ le\ niveau\ ou\ si\ il\ venait\ à\ mourir}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00510}00510\ \textcolor{comment}{\ *\ \(\backslash\)param\ tile\_map\ map\ ou\ se\ trouve\ le\ personnage}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00511}00511\ \textcolor{comment}{\ *\ \(\backslash\)param\ mode\_difficile\ booléen\ indiquant\ la\ présence\ du\ mode\ difficile\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00512}00512\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00513}\mbox{\hyperlink{fonctions__niveau__2_8c_a123d8b7198c9c35b956ec041015f455b}{00513}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a123d8b7198c9c35b956ec041015f455b}{mini\_jeu\_2\_niveau\_2}}(\textcolor{keywordtype}{int}\ *position\_x,\ \textcolor{keywordtype}{int}\ *position\_y,\ \textcolor{keywordtype}{int}\ *position\_x\_initiale,\ \textcolor{keywordtype}{int}\ *position\_y\_initiale,\ \textcolor{keywordtype}{int}\ tile\_map[18][32],\ \textcolor{keywordtype}{int}\ mode\_difficile)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00514}00514\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00515}00515\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00516}00516\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00517}00517\ \ \ \ \ \textcolor{comment}{/*\ Positionnement\ du\ personnage\ au\ début\ du\ mini-\/jeu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00518}00518\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00519}00519\ \ \ \ \ \textcolor{keywordflow}{if}(!mode\_difficile)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ (*position\_x)\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00521}00521\ \ \ \ \ \ \ \ \ (*position\_y)\ =\ 16;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00522}00522\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00523}00523\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00524}00524\ \ \ \ \ (*position\_x\_initiale)\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00525}00525\ \ \ \ \ (*position\_y\_initiale)\ =\ 16;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00527}00527\ \ \ \ \ \textcolor{comment}{/*\ Création\ du\ second\ mini-\/jeu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00528}00528\ \ \ \ \ \textcolor{keywordtype}{int}\ initialisation\_tile\_map[18][32]\ =\ \{\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00529}00529\ \ \ \ \ \ \ \ \ \{2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00530}00530\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00531}00531\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00532}00532\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 9,\ 0,\ 0,\ 1,\ 1,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00533}00533\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 9,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00534}00534\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00535}00535\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 9,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00536}00536\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00537}00537\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00538}00538\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00539}00539\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00540}00540\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00541}00541\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00542}00542\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 8,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00543}00543\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00544}00544\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00546}00546\ \ \ \ \ \ \ \ \ \{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\}\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00547}00547\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00548}00548\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00549}00549\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00550}00550\ \ \ \ \ \textcolor{comment}{/*\ Copie\ du\ tilemap\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00551}00551\ \ \ \ \ \textcolor{keywordflow}{for}\ (y\ =\ 0;\ y\ <\ 18;\ y++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00552}00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (x\ =\ 0;\ x\ <\ 32;\ x++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map[y][x]\ =\ initialisation\_tile\_map[y][x];}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00554}00554\ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00555}00555\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00556}00556\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00557}00557\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ mise\_a\_jour\_mini\_jeu\_2\_niveau\_2(SDL\_Renderer\ **renderer,\ SDL\_Texture\ **texture\_image\_fond,\ SDL\_Texture\ **texture\_image\_sol,\ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_Texture\ **texture,\ SDL\_Rect\ *rectangle\_tile,\ SDL\_Texture\ **texture\_image\_monstre\_terrestre,\ SDL\_Texture\ **texture\_image\_monstre\_volant,\ SDL\_Texture\ **texture\_image\_personnage,\ SDL\_Rect\ *rectangle\_personnage,\ int\ mini\_jeu\_termine,\ int\ position\_x,\ int\ position\_y,\ int\ tile\_map[18][32],\ SDL\_Texture\ **texture\_image\_porte,\ niveaux\ *avancee\_niveaux,\ int\ largeur,\ int\ hauteur,\ int\ largeur\_tile,\ int\ hauteur\_tile)\ \{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00558}00558\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ mettre\ à\ jour\ le\ second\ mini-\/jeu\ du\ niveau\ 2\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00559}00559\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00560}00560\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_fond\ Texture\ de\ l'image\ de\ fond.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00561}00561\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_sol\ Texture\ de\ l'image\ du\ sol.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00562}00562\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_plein\_ecran\ Rectangle\ pour\ le\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00563}00563\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_plein\_ecran\ Texture\ de\ l'image\ du\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00564}00564\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\ Texture\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00565}00565\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_tile\ Rectangle\ pour\ chaque\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00566}00566\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_monstre\_terrestre\ Texture\ de\ l'image\ du\ monstre\ terrestre.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00567}00567\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_monstre\_volant\ Texture\ de\ l'image\ du\ monstre\ volant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00568}00568\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_personnage\ Texture\ de\ l'image\ du\ personnage.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00569}00569\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_personnage\ Rectangle\ pour\ le\ personnage.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00570}00570\ \textcolor{comment}{\ *\ \(\backslash\)param\ mini\_jeu\_termine\ Indicateur\ de\ la\ fin\ du\ mini-\/jeu.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00571}00571\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_x\ Position\ x\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00572}00572\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_y\ Position\ y\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00573}00573\ \textcolor{comment}{\ *\ \(\backslash\)param\ tile\_map\ Carte\ de\ tuiles\ du\ niveau.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00574}00574\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_porte\ Texture\ de\ l'image\ de\ la\ porte.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00575}00575\ \textcolor{comment}{\ *\ \(\backslash\)param\ avancee\_niveaux\ Pointeur\ vers\ l'état\ d'avancement\ des\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00576}00576\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ Largeur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00577}00577\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ Hauteur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00578}00578\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\_tile\ Largeur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00579}00579\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\_tile\ Hauteur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00580}00580\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00581}00581\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00582}00582\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00583}\mbox{\hyperlink{fonctions__niveau__2_8c_a183527c1875b0d68acaa10f6cd120f65}{00583}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__niveau__2_8c_a183527c1875b0d68acaa10f6cd120f65}{mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}}(SDL\_Renderer\ **renderer,\ SDL\_Texture\ **texture\_image\_fond,\ SDL\_Texture\ **texture\_image\_sol,\ SDL\_Texture\ **texture\_image\_croix,\ SDL\_Rect\ *rectangle\_croix,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture,\ SDL\_Rect\ *rectangle\_tile,\ SDL\_Texture\ **texture\_image\_monstre\_terrestre,\ SDL\_Texture\ **texture\_image\_monstre\_volant,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_personnage,\ SDL\_Rect\ *rectangle\_personnage,\ \textcolor{keywordtype}{int}\ mini\_jeu\_termine,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ position\_x,\ \textcolor{keywordtype}{int}\ position\_y,\ \textcolor{keywordtype}{int}\ tile\_map[18][32],\ SDL\_Texture\ **texture\_image\_porte,\ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur,\ \textcolor{keywordtype}{int}\ largeur\_tile,\ \textcolor{keywordtype}{int}\ hauteur\_tile)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00590}00590\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00592}00592\ \ \ \ \ \textcolor{comment}{/*\ Efface\ le\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00593}00593\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderClear((*renderer))\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00594}00594\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Effacement\ rendu\ échoué"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00595}00595\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00596}00596\ \ \ \ \ \textcolor{comment}{/*\ Copie\ la\ texture\ de\ l'image\ de\ fond\ du\ salon\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00597}00597\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_fond),\ NULL,\ NULL)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00598}00598\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00600}00600\ \ \ \ \ \textcolor{comment}{/*\ Affiche\ tout\ le\ salon\ en\ fonction\ des\ valeurs\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00601}00601\ \ \ \ \ \textcolor{keywordflow}{for}\ (y\ =\ 0;\ y\ <\ hauteur\ /\ hauteur\_tile;\ y++)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00602}00602\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00603}00603\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (x\ =\ 0;\ x\ <\ largeur\ /\ largeur\_tile;\ x++)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tile\_map[y][x]\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ (*texture\_image\_sol);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00607}00607\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00608}00608\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*texture)\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>x\ =\ x\ *\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>y\ =\ y\ *\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*texture))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture),\ NULL,\ rectangle\_tile))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(mini\_jeu\_termine)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00621}00621\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tile\_map[y][x]\ ==\ 4)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00623}00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_porte),\ NULL,\ rectangle\_tile))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00624}00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00625}00625\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00626}00626\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tile\_map[y][x]\ ==\ 5)\ \&\&\ (avancee\_niveaux[1].numero\_collectible[1]\ ==\ 0))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00627}00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ avancee\_niveaux[1].texture\_image\_collectible,\ NULL,\ rectangle\_tile))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00628}00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00629}00629\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00630}00630\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00631}00631\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tile\_map[y][x]\ ==\ 8)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00632}00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_monstre\_terrestre),\ NULL,\ rectangle\_tile))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00633}00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00634}00634\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00635}00635\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tile\_map[y][x]\ ==\ 9)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00636}00636\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_monstre\_volant),\ NULL,\ rectangle\_tile))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00637}00637\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00638}00638\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00639}00639\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00640}00640\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00641}00641\ \ \ \ \ \textcolor{comment}{/*\ Copie\ la\ texture\ de\ l'image\ du\ personnage\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00642}00642\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00643}00643\ \ \ \ \ rectangle\_personnage-\/>x\ =\ position\_x\ *\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00644}00644\ \ \ \ \ rectangle\_personnage-\/>y\ =\ position\_y\ *\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00645}00645\ \ \ \ \ rectangle\_personnage-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00646}00646\ \ \ \ \ rectangle\_personnage-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00647}00647\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00648}00648\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_personnage),\ NULL,\ rectangle\_personnage)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00649}00649\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00651}00651\ \ \ \ \ \textcolor{comment}{/*\ Copie\ la\ texture\ de\ l'image\ de\ plein\ écran\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00652}00652\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00653}00653\ \ \ \ \ rectangle\_plein\_ecran-\/>x\ =\ largeur\_tile\ *\ 31;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00654}00654\ \ \ \ \ rectangle\_plein\_ecran-\/>y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00655}00655\ \ \ \ \ rectangle\_plein\_ecran-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00656}00656\ \ \ \ \ rectangle\_plein\_ecran-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00657}00657\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00658}00658\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_plein\_ecran),\ NULL,\ rectangle\_plein\_ecran)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00659}00659\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00660}00660\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00661}00661\ \ \ \ \ \textcolor{comment}{/*\ Copie\ la\ texture\ de\ l'image\ de\ la\ croix\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00662}00662\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00663}00663\ \ \ \ \ rectangle\_croix-\/>x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00664}00664\ \ \ \ \ rectangle\_croix-\/>y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00665}00665\ \ \ \ \ rectangle\_croix-\/>w\ =\ largeur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00666}00666\ \ \ \ \ rectangle\_croix-\/>h\ =\ hauteur\_tile;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00668}00668\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_croix),\ NULL,\ rectangle\_croix)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00669}00669\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00670}00670\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00671}00671\ \ \ \ \ \textcolor{comment}{/*\ Affiche\ le\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00672}00672\ \ \ \ \ SDL\_RenderPresent((*renderer));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00673}00673\ \}\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00674}00674\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00675}00675\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00676}00676\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00677}00677\ \textcolor{comment}{\ *\ \(\backslash\)fn\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00678}00678\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ gérer\ toutes\ les\ possibilités\ qui\ sont\ possiblent\ dans\ les\ mini-\/jeux\ du\ niveau\ 2\ }}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00679}00679\ \textcolor{comment}{\ *\ \(\backslash\)param\ event\ Événement\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00680}00680\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00681}00681\ \textcolor{comment}{\ *\ \(\backslash\)param\ window\ Pointeur\ vers\ la\ fenêtre\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00682}00682\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_fond\ Texture\ de\ l'image\ de\ fond.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00683}00683\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_sol\ Texture\ de\ l'image\ du\ sol.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00684}00684\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_plein\_ecran\ Rectangle\ pour\ le\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00685}00685\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_plein\_ecran\ Texture\ de\ l'image\ du\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00686}00686\ \textcolor{comment}{\ *\ \(\backslash\)param\ plein\_ecran\ Indicateur\ de\ mode\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00687}00687\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_porte\ Texture\ de\ l'image\ de\ la\ porte.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00688}00688\ \textcolor{comment}{\ *\ \(\backslash\)param\ avancee\_niveaux\ Pointeur\ vers\ l'état\ d'avancement\ des\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00689}00689\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\ Texture\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00690}00690\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_tile\ Rectangle\ pour\ chaque\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00691}00691\ \textcolor{comment}{\ *\ \(\backslash\)param\ mini\_jeu\ Indicateur\ du\ mini-\/jeu\ en\ cours.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00692}00692\ \textcolor{comment}{\ *\ \(\backslash\)param\ mini\_jeu\_1\_termine\ Indicateur\ de\ la\ fin\ du\ mini-\/jeu\ 1.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00693}00693\ \textcolor{comment}{\ *\ \(\backslash\)param\ mini\_jeu\_2\_termine\ Indicateur\ de\ la\ fin\ du\ mini-\/jeu\ 2.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00694}00694\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_personnage\ Texture\ de\ l'image\ du\ personnage.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00695}00695\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_personnage\ Rectangle\ pour\ le\ personnage.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00696}00696\ \textcolor{comment}{\ *\ \(\backslash\)param\ mini\_jeu\_termine\ Indicateur\ de\ la\ fin\ du\ mini-\/jeu.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00697}00697\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_x\ Position\ x\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00698}00698\ \textcolor{comment}{\ *\ \(\backslash\)param\ position\_y\ Position\ y\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00699}00699\ \textcolor{comment}{\ *\ \(\backslash\)param\ tile\_map\ Carte\ de\ tuiles\ du\ niveau.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00700}00700\ \textcolor{comment}{\ *\ \(\backslash\)param\ tile\_map\_mini\_jeu\_niveau\_2\ Carte\ de\ tuiles\ du\ mini-\/jeu\ 1\ du\ niveau\ 2.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00701}00701\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_monstre\_terrestre\ Texture\ de\ l'image\ du\ monstre\ terrestre.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00702}00702\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_monstre\_volant\ Texture\ de\ l'image\ du\ monstre\ volant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00703}00703\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ Largeur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00704}00704\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ Hauteur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00705}00705\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\_tile\ Largeur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00706}00706\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\_tile\ Hauteur\ d'une\ tuile.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00707}00707\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_mur\_mini\_jeu\ Texture\ de\ l'image\ du\ mur\ du\ mini-\/jeu.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00708}00708\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_aller\_a\_droite\ Touche\ pour\ aller\ à\ droite.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00709}00709\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_aller\_a\_gauche\ Touche\ pour\ aller\ à\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00710}00710\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_interagir\ Touche\ pour\ interagir.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00711}00711\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_sauter\_monter\ Touche\ pour\ sauter/monter.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00712}00712\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_descendre\ Touche\ pour\ descendre.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00713}00713\ \textcolor{comment}{\ *\ \(\backslash\)param\ valide\ Indicateur\ de\ la\ validité\ de\ l'action.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00714}00714\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_vertical\ Texture\ de\ l'image\ du\ tuyau\ vertical.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00715}00715\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_horizontal\ Texture\ de\ l'image\ du\ tuyau\ horizontal.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00716}00716\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_haut\_droit\ Texture\ de\ l'image\ du\ tuyau\ haut\ droit.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00717}00717\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_bas\_droit\ Texture\ de\ l'image\ du\ tuyau\ bas\ droit.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00718}00718\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_bas\_gauche\ Texture\ de\ l'image\ du\ tuyau\ bas\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00719}00719\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_haut\_gauche\ Texture\ de\ l'image\ du\ tuyau\ haut\ gauche.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00720}00720\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_pipe\_courant\ Texture\ de\ l'image\ du\ tuyau\ courant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00721}00721\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_demande\_quitter\ Rectangle\ pour\ la\ demande\ de\ quitter.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00722}00722\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00723}00723\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_texte\ Texture\ du\ texte.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00724}00724\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ Police\ de\ caractères.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00725}00725\ \textcolor{comment}{\ *\ \(\backslash\)param\ couleurNoire\ Couleur\ noire.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00726}00726\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsDemandeQuitter\ Liste\ des\ items\ pour\ la\ demande\ de\ quitter.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00727}00727\ \textcolor{comment}{\ *\ \(\backslash\)param\ tailleDemandeQuitter\ Taille\ de\ la\ liste\ des\ items\ pour\ la\ demande\ de\ quitter.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00728}00728\ \textcolor{comment}{\ *\ \(\backslash\)param\ collectibles\_intermediaires\ Tableau\ des\ collectibles\ intermédiaires.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00729}00729\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_mur\_termine\ Texture\ de\ l'image\ du\ mur\ terminé.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00730}00730\ \textcolor{comment}{\ *\ \(\backslash\)param\ page\_active\ Page\ active.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00731}00731\ \textcolor{comment}{\ *\ \(\backslash\)param\ musique\ Musique\ SDL.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00732}00732\ \textcolor{comment}{\ *\ \(\backslash\)param\ avancer\ Indicateur\ de\ déplacement\ vers\ l'avant.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00733}00733\ \textcolor{comment}{\ *\ \(\backslash\)param\ reculer\ Indicateur\ de\ déplacement\ vers\ l'arrière.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00734}00734\ \textcolor{comment}{\ *\ \(\backslash\)param\ sauter\ Indicateur\ de\ saut.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00735}00735\ \textcolor{comment}{\ *\ \(\backslash\)param\ saut\ Indicateur\ de\ saut\ en\ cours.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00736}00736\ \textcolor{comment}{\ *\ \(\backslash\)param\ tombe\ Indicateur\ de\ chute.}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00737}00737\ \textcolor{comment}{\ *\ \(\backslash\)see\ redimensionnement\_fenetre}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00738}00738\ \textcolor{comment}{\ *\ \(\backslash\)see\ clic\_plein\_ecran}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00739}00739\ \textcolor{comment}{\ *\ \(\backslash\)see\ demande\_quitter\_niveau}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00740}00740\ \textcolor{comment}{\ *\ \(\backslash\)see\ clic\_case}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00741}00741\ \textcolor{comment}{\ *\ \(\backslash\)see\ verification\_chemin}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00742}00742\ \textcolor{comment}{\ *\ \(\backslash\)see\ mise\_a\_jour\_bordures\_niveau\_2}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00743}00743\ \textcolor{comment}{\ *\ \(\backslash\)see\ salon\_arrivee\_niveaux\_2\_3}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00744}00744\ \textcolor{comment}{\ *\ \(\backslash\)see\ mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00745}00745\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00746}\mbox{\hyperlink{fonctions__niveau__2_8c_ab7caf2d26ea17fd7e3f0ef46af721b43}{00746}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__niveau__2_8c_ab7caf2d26ea17fd7e3f0ef46af721b43}{mini\_jeux\_niveau\_2}}(SDL\_Event\ *event,\ SDL\_Renderer\ **renderer,\ SDL\_Window\ **window,\ SDL\_bool\ *programme\_lance,\ SDL\_Texture\ **texture\_image\_fond,\ SDL\_Texture\ **texture\_image\_sol,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00747}00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_bool\ *plein\_ecran,\ SDL\_Texture\ **texture\_image\_porte,\ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00748}00748\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture,\ SDL\_Rect\ *rectangle\_tile,\ \textcolor{keywordtype}{int}\ *mini\_jeu,\ \textcolor{keywordtype}{int}\ *mini\_jeu\_1\_termine,\ \textcolor{keywordtype}{int}\ *mini\_jeu\_2\_termine,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00749}00749\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_personnage,\ SDL\_Rect\ *rectangle\_personnage,\ \textcolor{keywordtype}{int}\ mini\_jeu\_termine,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00750}00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *position\_x,\ \textcolor{keywordtype}{int}\ *position\_y,\ \textcolor{keywordtype}{int}\ tile\_map[18][32],\ \textcolor{keywordtype}{int}\ tile\_map\_mini\_jeu\_niveau\_2[19][27],\ SDL\_Texture\ **texture\_image\_monstre\_terrestre,\ SDL\_Texture\ **texture\_image\_monstre\_volant,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00751}00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \textcolor{keywordtype}{int}\ *largeur\_tile,\ \textcolor{keywordtype}{int}\ *hauteur\_tile,\ SDL\_Texture\ **texture\_image\_croix,\ SDL\_Rect\ *rectangle\_croix,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00752}00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_mur\_mini\_jeu,\ SDL\_Keycode\ *touche\_aller\_a\_droite,\ SDL\_Keycode\ *touche\_aller\_a\_gauche,\ SDL\_Keycode\ *touche\_interagir,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00753}00753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Keycode\ *touche\_sauter\_monter,\ SDL\_Keycode\ *touche\_descendre,\ \textcolor{keywordtype}{int}\ *valide,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00754}00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_vertical,\ SDL\_Texture\ **texture\_image\_pipe\_horizontal,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00755}00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_haut\_droit,\ SDL\_Texture\ **texture\_image\_pipe\_bas\_droit,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00756}00756\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_bas\_gauche,\ SDL\_Texture\ **texture\_image\_pipe\_haut\_gauche,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00757}00757\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_pipe\_courant,\ SDL\_Rect\ *rectangle\_demande,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00758}00758\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ SDL\_Color\ couleurNoire,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00759}00759\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsDemandeQuitter,\ \textcolor{keywordtype}{int}\ tailleDemande,\ \textcolor{keywordtype}{int}\ collectibles\_intermediaires[3],}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00760}00760\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_mur\_termine,\ \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\_t}}\ *page\_active,\ Mix\_Music\ **musique,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00761}00761\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *avancer,\ \textcolor{keywordtype}{int}\ *reculer,\ \textcolor{keywordtype}{int}\ *sauter,\ \textcolor{keywordtype}{int}\ *saut,\ \textcolor{keywordtype}{int}\ *tombe,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00762}00762\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsDemandeSauvegarde,\ \mbox{\hyperlink{structbarreDeSon}{barreDeSon}}\ *barre\_de\_son,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *pseudo,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00763}00763\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}{modes\_t}}\ *modeActif,\ \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\_t}}\ *personnageActif,\ \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\_t}}\ *positionActive,\ \textcolor{keywordtype}{int}\ tailleNiveaux,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00764}00764\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\_t\ temps\_debut\_partie,\ \textcolor{keywordtype}{int}\ *compteur\_mort,\ \textcolor{keywordtype}{int}\ *avancee\_succes,\ \textcolor{keywordtype}{int}\ avancee\_succes\_intermediaires[10])\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00765}00765\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00766}00766\ \ \ \ \ \textcolor{comment}{/*\ Cas\ où\ on\ est\ dans\ le\ premier\ mini-\/jeu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00767}00767\ \ \ \ \ \textcolor{keywordflow}{if}((*mini\_jeu)\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00768}00768\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00769}00769\ \ \ \ \ \ \ \ \ SDL\_Event\ event\_temporaire;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00770}00770\ \ \ \ \ \ \ \ \ SDL\_bool\ clic\_effectue\ =\ SDL\_FALSE;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00771}00771\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00772}00772\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ courant\_active\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00773}00773\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00774}00774\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00775}00775\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00776}00776\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(SDL\_PollEvent(event))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00777}00777\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00778}00778\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(event-\/>type)\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00779}00779\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00780}00780\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Gestion\ de\ l'événement\ de\ redimensionnement\ de\ la\ fenêtre\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00781}00781\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_WINDOWEVENT:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00782}00782\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\_fenetre}}((*event),\ largeur,\ hauteur);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00783}00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00784}00784\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*largeur\_tile)\ =\ (*largeur)\ /\ 27;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00785}00785\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*hauteur\_tile)\ =\ (*hauteur)\ /\ 19;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00786}00786\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00787}00787\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00788}00788\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00789}00789\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_KEYDOWN:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00790}00790\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00791}00791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event-\/>key.keysym.sym\ ==\ (*touche\_sauter\_monter))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00792}00792\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*position\_y)\ >\ 0)\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00793}00793\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_y)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00794}00794\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00795}00795\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event-\/>key.keysym.sym\ ==\ (*touche\_descendre))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00796}00796\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*position\_y)\ <\ (19\ -\/\ 1))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00797}00797\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_y)++;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00798}00798\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00799}00799\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_gauche))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00800}00800\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*position\_x)\ >\ 0)\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00801}00801\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_x)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00802}00802\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00803}00803\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_droite))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00804}00804\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*position\_x)\ <\ (27\ -\/\ 1))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00805}00805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_x)++;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00806}00806\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00807}00807\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event-\/>key.keysym.sym\ ==\ (*touche\_interagir))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00808}00808\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00809}00809\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ !=\ 0)\ \&\&\ (tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ !=\ 7)\ \&\&\ (tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ !=\ 8))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00810}00810\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00811}00811\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((*valide)\ ==\ 1)\ \&\&\ ((*position\_x)\ <=\ 12)\ \&\&\ ((*position\_y)\ <=\ 9))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00812}00812\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00813}00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00814}00814\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((*valide)\ ==\ 2)\ \&\&\ ((*position\_x)\ <=\ 12)\ \&\&\ ((*position\_y)\ <=\ 18))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00815}00815\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00816}00816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00817}00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*valide)\ ==\ 3\ \&\&\ (((*position\_x)\ <=\ 12\ \&\&\ (*position\_y)\ <=\ 18)\ ||\ ((*position\_x)\ >=\ 12\ \&\&\ ((*position\_y)\ >=\ 9))))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00818}00818\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00819}00819\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00820}00820\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00821}00821\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ ==\ 1\ \&\&\ (*position\_y)\ !=\ 0\ \&\&\ (*position\_y)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00822}00822\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00823}00823\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00824}00824\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00825}00825\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00826}00826\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00827}00827\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ ==\ 3)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00828}00828\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00829}00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00830}00830\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ ==\ 4)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00831}00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00832}00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00833}00833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ ==\ 5)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00834}00834\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ =\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00835}00835\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00836}00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ ==\ 6)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00837}00837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00838}00838\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00839}00839\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00840}00840\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tile\_map\_mini\_jeu\_niveau\_2[(*position\_y)][(*position\_x)]\ ==\ 8\ \&\&\ (*position\_y)\ ==\ 0\ \&\&\ (*position\_x)\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00841}00841\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ courant\_active\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00842}00842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00843}00843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00844}00844\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00845}00845\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00846}00846\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Option\ plein\ écran\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00847}00847\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_MOUSEBUTTONDOWN:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00848}00848\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00849}00849\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_afe51c2fcb0206df7f65785b8b0137951}{clic\_plein\_ecran}}((*event),\ rectangle\_plein\_ecran,\ plein\_ecran,\ window))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00850}00850\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00851}00851\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\_fenetre}}((*event),\ largeur,\ hauteur);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00852}00852\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00853}00853\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*largeur\_tile)\ =\ (*largeur)\ /\ 27;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00854}00854\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*hauteur\_tile)\ =\ (*hauteur)\ /\ 19;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00855}00855\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00856}00856\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00857}00857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Demande\ au\ joueur\ s'il\ veut\ quitter\ le\ niveau\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00858}00858\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_croix)))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00859}00859\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00860}00860\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetWindowResizable((*window),\ SDL\_FALSE);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00861}00861\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00862}00862\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a1a8406a3255d6fd605e5cfd014142bdd}{demande\_quitter\_niveau}}(renderer,\ rectangle\_demande,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00863}00863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ couleurNoire,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00864}00864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsDemandeQuitter,\ tailleDemande,\ (*largeur),\ (*hauteur));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00865}00865\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00866}00866\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!clic\_effectue)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00867}00867\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00868}00868\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (SDL\_PollEvent(\&event\_temporaire))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00869}00869\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00870}00870\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event\_temporaire.type\ ==\ SDL\_MOUSEBUTTONDOWN)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00871}00871\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00872}00872\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}(event\_temporaire,\ itemsDemandeQuitter[1].rectangle))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00873}00873\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00874}00874\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a4824da671cbd0a1f39934252198189ad}{CARTE}};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00875}00875\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00876}00876\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00877}00877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[1].numero\_collectible[i]\ =\ collectibles\_intermediaires[i];}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00878}00878\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00879}00879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00880}00880\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_succes[i]\ =\ avancee\_succes\_intermediaires[i];}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00881}00881\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00882}00882\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clic\_effectue\ =\ SDL\_TRUE;\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00883}00883\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00884}00884\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00885}00885\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}(event\_temporaire,\ itemsDemandeQuitter[2].rectangle))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00886}00886\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clic\_effectue\ =\ SDL\_TRUE;\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00887}00887\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00888}00888\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00889}00889\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00890}00890\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00891}00891\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetWindowResizable((*window),\ SDL\_TRUE);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00892}00892\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00893}00893\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00894}00894\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00895}00895\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00896}00896\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Quitter\ le\ programme\ en\ demandant\ s'il\ faut\ sauvarger\ la\ partie\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00897}00897\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_QUIT:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00898}00898\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00899}00899\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetWindowResizable((*window),\ SDL\_FALSE);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00900}00900\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00901}00901\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a066cdfc0bac6604dc0a3a7d8b4c8bffb}{demande\_sauvegarde}}(renderer,\ rectangle\_demande,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00902}00902\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ couleurNoire,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00903}00903\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsDemandeSauvegarde,\ tailleDemande,\ (*largeur),\ (*hauteur));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00904}00904\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00905}00905\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!clic\_effectue)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00906}00906\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00907}00907\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (SDL\_PollEvent(\&event\_temporaire))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00908}00908\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00909}00909\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event\_temporaire.type\ ==\ SDL\_MOUSEBUTTONDOWN)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00910}00910\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00911}00911\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}(event\_temporaire,\ itemsDemandeSauvegarde[1].rectangle))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00912}00912\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00913}00913\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00914}00914\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[1].numero\_collectible[i]\ =\ collectibles\_intermediaires[i];}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00915}00915\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00916}00916\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a3845ad340a7ec5a5a341718c1b23fa7e}{sauvegarder\_partie}}(touche\_aller\_a\_droite,\ touche\_aller\_a\_gauche,\ touche\_sauter\_monter,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00917}00917\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ touche\_descendre,\ touche\_interagir,\ barre\_de\_son,\ pseudo,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00918}00918\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeActif),\ (*personnageActif),\ (*positionActive),}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00919}00919\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux,\ tailleNiveaux,\ temps\_debut\_partie,\ (*compteur\_mort),\ avancee\_succes);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00920}00920\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00921}00921\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*programme\_lance)\ =\ SDL\_FALSE;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00922}00922\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clic\_effectue\ =\ SDL\_TRUE;\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00923}00923\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00924}00924\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00925}00925\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}(event\_temporaire,\ itemsDemandeSauvegarde[2].rectangle))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00926}00926\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*programme\_lance)\ =\ SDL\_FALSE;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00927}00927\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clic\_effectue\ =\ SDL\_TRUE;\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00928}00928\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00929}00929\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00930}00930\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}(event\_temporaire,\ (*rectangle\_demande)))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00931}00931\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clic\_effectue\ =\ SDL\_TRUE;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00932}00932\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00933}00933\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00934}00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00935}00935\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00936}00936\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetWindowResizable((*window),\ SDL\_TRUE);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00937}00937\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00938}00938\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00939}00939\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00940}00940\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00941}00941\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00942}00942\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00943}00943\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00944}00944\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00945}00945\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Vérifier\ le\ chemin\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00946}00946\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(courant\_active)\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00947}00947\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00948}00948\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Vérifier\ si\ le\ joueur\ a\ gagné\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00949}00949\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(2,\ 0\ +\ 1,\ 2,\ 0,\ tile\_map\_mini\_jeu\_niveau\_2,\ 11,\ 9))\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00950}00950\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}((*renderer),\ (*texture\_image\_mur\_termine),\ tile\_map\_mini\_jeu\_niveau\_2,\ 12,\ 0,\ 0,\ 9,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00951}00951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ (*largeur\_tile),\ (*hauteur\_tile));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00952}00952\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*valide)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00953}00953\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00954}00954\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00955}00955\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00956}00956\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(2,\ 0\ +\ 1,\ 2,\ 0,\ tile\_map\_mini\_jeu\_niveau\_2,\ 11,\ 9))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00957}00957\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(11,\ 9\ +\ 1,\ 11,\ 9,\ tile\_map\_mini\_jeu\_niveau\_2,\ 13,\ 16)))\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00958}00958\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}((*renderer),\ (*texture\_image\_mur\_termine),\ tile\_map\_mini\_jeu\_niveau\_2,\ 0,\ 10,\ 12,\ (19\ -\/\ 1),}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00959}00959\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ (*largeur\_tile),\ (*hauteur\_tile));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00960}00960\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*valide)\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00961}00961\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00962}00962\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00963}00963\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(2,\ 0\ +\ 1,\ 2,\ 0,\ tile\_map\_mini\_jeu\_niveau\_2,\ 11,\ 9))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00964}00964\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(11,\ 9\ +\ 1,\ 11,\ 9,\ tile\_map\_mini\_jeu\_niveau\_2,\ 13,\ 16))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00965}00965\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(13,\ 16,\ 13\ -\/\ 1,\ 16,\ tile\_map\_mini\_jeu\_niveau\_2,\ 23,\ 9))\{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00966}00966\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}((*renderer),\ (*texture\_image\_mur\_termine),\ tile\_map\_mini\_jeu\_niveau\_2,\ 13,\ (19\ -\/\ 1),\ (27\ -\/\ 1),\ 9,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00967}00967\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ (*largeur\_tile),\ (*hauteur\_tile));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00968}00968\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*valide)\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00969}00969\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00970}00970\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00971}00971\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(2,\ 0\ +\ 1,\ 2,\ 0,\ tile\_map\_mini\_jeu\_niveau\_2,\ 11,\ 9))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00972}00972\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(11,\ 9\ +\ 1,\ 11,\ 9,\ tile\_map\_mini\_jeu\_niveau\_2,\ 13,\ 16))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00973}00973\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(13,\ 16,\ 13\ -\/\ 1,\ 16,\ tile\_map\_mini\_jeu\_niveau\_2,\ 23,\ 9)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00974}00974\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\_chemin}}(23,\ 9\ -\/\ 1,\ 23,\ 9,\ tile\_map\_mini\_jeu\_niveau\_2,\ 24,\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00975}00975\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00976}00976\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\_a\_jour\_bordures\_niveau\_2}}((*renderer),\ (*texture\_image\_mur\_termine),\ tile\_map\_mini\_jeu\_niveau\_2,\ (27\ -\/\ 1),\ 9,\ 13,\ 0,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00977}00977\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_tile,\ (*largeur\_tile),\ (*hauteur\_tile));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00978}00978\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00979}00979\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Musique\ du\ salon\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00980}00980\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((*musique)\ =\ Mix\_LoadMUS(\textcolor{stringliteral}{"{}./sons/musiques/salon.mp3"{}}))\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00981}00981\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Chargement\ de\ la\ musique"{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00982}00982\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00983}00983\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Mix\_PlayMusic((*musique),\ -\/1);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00984}00984\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00985}00985\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*mini\_jeu)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00986}00986\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*mini\_jeu\_1\_termine)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00987}00987\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00988}00988\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*largeur\_tile)\ =\ (*largeur)\ /\ 32;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00989}00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*hauteur\_tile)\ =\ (*hauteur)\ /\ 18;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00990}00990\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00991}00991\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*sauter)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00992}00992\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*avancer)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00993}00993\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*reculer)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00994}00994\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*tombe)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00995}00995\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*saut)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00996}00996\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00997}00997\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__arrivee__niveaux__2__3_8c_a798664785ac932f603e0a1bd51b4ae73}{salon\_arrivee\_niveaux\_2\_3}}(position\_x,\ position\_y,\ tile\_map,\ (*page\_active));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00998}00998\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l00999}00999\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map[4][2]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01000}01000\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map[6][3]\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01001}01001\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01002}01002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*mini\_jeu\_2\_termine))}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01003}01003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map[2][27]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01004}01004\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01005}01005\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01006}01006\ \ \ \ \ \ \ \ \ \ \ \ \ courant\_active\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01007}01007\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01008}01008\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01009}01009\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Mise\ à\ jour\ du\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01010}01010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_ab5da5669ca8a12b4486f7b42c11a19f1}{mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}}(renderer,\ texture\_image\_croix,\ rectangle\_croix,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01011}01011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_plein\_ecran,\ texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01012}01012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture,\ rectangle\_tile,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01013}01013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_x),\ (*position\_y),\ tile\_map\_mini\_jeu\_niveau\_2,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01014}01014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*largeur),\ (*hauteur),\ (*largeur\_tile),\ (*hauteur\_tile),}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01015}01015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_mur\_mini\_jeu,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01016}01016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_pipe\_vertical,\ texture\_image\_pipe\_horizontal,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01017}01017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_pipe\_haut\_droit,\ texture\_image\_pipe\_bas\_droit,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01018}01018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_pipe\_bas\_gauche,\ texture\_image\_pipe\_haut\_gauche,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01019}01019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_pipe\_courant,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01020}01020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_mur\_termine);}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01021}01021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01022}01022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01023}01023\ \ \ \ \ \textcolor{comment}{/*\ Cas\ où\ on\ est\ dans\ le\ deuxième\ mini-\/jeu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01024}01024\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*mini\_jeu)\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01025}01025\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01026}01026\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01027}01027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(mini\_jeu\_termine)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01028}01028\ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map[2][29]\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01029}01029\ \ \ \ \ \ \ \ \ \ \ \ \ tile\_map[16][20]\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01030}01030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01031}01031\ }
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01032}01032\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Mise\ à\ jour\ du\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01033}01033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__niveau__2_8c_a183527c1875b0d68acaa10f6cd120f65}{mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}}(renderer,\ texture\_image\_fond,texture\_image\_sol,\ texture\_image\_croix,\ rectangle\_croix,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01034}01034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_plein\_ecran,\ texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01035}01035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture,\ rectangle\_tile,\ texture\_image\_monstre\_terrestre,\ texture\_image\_monstre\_volant,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01036}01036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_personnage,\ rectangle\_personnage,\ mini\_jeu\_termine,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01037}01037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*position\_x),(*position\_y),\ tile\_map,\ texture\_image\_porte,\ avancee\_niveaux,}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01038}01038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*largeur),\ (*hauteur),\ (*largeur\_tile),\ (*hauteur\_tile));}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01039}01039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fonctions__niveau__2_8c_source_l01040}01040\ \}}
+
+\end{DoxyCode}

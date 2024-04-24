@@ -1,0 +1,29 @@
+\doxysection{fonctions\+\_\+menu\+\_\+principal.\+h}
+\hypertarget{fonctions__menu__principal_8h_source}{}\label{fonctions__menu__principal_8h_source}\index{fichiers\_h/fonctions\_menu\_principal.h@{fichiers\_h/fonctions\_menu\_principal.h}}
+\mbox{\hyperlink{fonctions__menu__principal_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00007}00007\ \textcolor{comment}{/*\ Squelette\ de\ la\ fonction\ initialisation\_objets\_menu\_principal\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00008}00008\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__menu__principal_8h_aa2d2258039f3f1d15973bdf6f154ebec}{initialisation\_objets\_menu\_principal}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_image\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00009}00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu);}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00011}00011\ \textcolor{comment}{/*\ Squelette\ de\ la\ fonction\ mise\_a\_jour\_rendu\_menu\_principal\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00012}00012\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__menu__principal_8h_a94296f3881d816cad69e2cccfe9c45d0}{mise\_a\_jour\_rendu\_menu\_principal}}(SDL\_Renderer\ **renderer,\ SDL\_Texture\ **texture\_image\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ couleurTitre,\ SDL\_Color\ couleurNoire,\ \textcolor{keywordtype}{int}\ selection\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00018}00018\ \textcolor{comment}{/*\ Squelette\ de\ la\ fonction\ menu\_principal\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00019}00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__menu__principal_8h_ada9b65addcc8f4bc4bb199507d304a48}{menu\_principal}}(SDL\_Event\ *event,\ SDL\_Window\ **window,\ SDL\_Renderer\ **renderer,\ SDL\_bool\ *programme\_lance,\ SDL\_Texture\ **texture\_image\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_bool\ *plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ couleurTitre,\ SDL\_Color\ couleurNoire,\ \textcolor{keywordtype}{int}\ code\_de\_triche[3],\ \textcolor{keywordtype}{int}\ *selection\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\_t}}\ *page\_active);}
+
+\end{DoxyCode}
