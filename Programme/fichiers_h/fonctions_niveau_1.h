@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#ifndef H_NIVEAU_1
+#define H_NIVEAU_1
+
 
 /* Fonction qui permet d'initialiser les différents objets du niveau 4 */
 void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface,
@@ -41,3 +37,4 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SD
               itemMenu *itemsDemandeSauvegarde, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo, 
               modes_t *modeActif, personnage_t *personnageActif, position_t *positionActive, int tailleNiveaux,
               time_t temps_debut_partie, int *compteur_mort, int *avancee_succes, int avancee_succes_intermediaires[10]);
+#endif

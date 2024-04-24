@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
+#ifndef H_MENU_PRINCIPAL
+#define H_MENU_PRINCIPAL
+#include "commun.h"
+
 
 /* Squelette de la fonction initialisation_objets_menu_principal */
 void initialisation_objets_menu_principal(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_menu,
@@ -21,3 +20,4 @@ void menu_principal(SDL_Event *event, SDL_Window **window, SDL_Renderer **render
                     itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                     SDL_Color couleurTitre, SDL_Color couleurNoire, int code_de_triche[3], int *selection_menu,
                     itemMenu *itemsMenu, int tailleMenu, int *largeur, int *hauteur, page_t *page_active);
+#endif

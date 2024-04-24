@@ -1,15 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#ifndef H_ARRIVE_2_3
+#define H_ARRIVE_2_3
 
-/* Squelette de la fonction salon_arrivee_niveaux_2_3 */
+/** Squelette de la fonction salon_arrivee_niveaux_2_3 */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active);
 
-/* Squelette de la fonction mise_a_jour_rendu_arrivee_niveaux_2_3 */
+
+
+
+
+
+/** Squelette de la fonction mise_a_jour_rendu_arrivee_niveaux_2_3 */
 void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol,
                                            SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_fin_premiers_niveaux,
                                            SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Texture **texture_image_dossier,
@@ -18,12 +18,12 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
                                            int position_x, int position_y, int tile_map[18][32], niveaux *avancee_niveaux, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix,
                                            int largeur, int hauteur, int largeur_tile, int hauteur_tile, page_t page_active);
 
+
 /* Squelette de la fonction explications */
 void explications(SDL_Renderer **renderer, SDL_Rect *rectangle_explications, SDL_Keycode touche_interagir, SDL_Keycode touche_sauter_monter,
                   SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                   itemMenu *itemsExplications, int largeur, int hauteur, int numero_mini_jeu);
-
-/* Squelette de la fonction arrivee_niveaux_2_3 */
+/** Squelette de la fonction arrivee_niveaux_2_3 */
 void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, int *mini_jeu, SDL_Texture **texture_image_fin_premiers_niveaux,
                          SDL_Texture **texture, SDL_Surface **surface, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                          SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int *mini_jeu_termine, int *mini_jeu_1_termine, int *mini_jeu_2_termine,
@@ -50,3 +50,4 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
                          itemMenu *itemsDemandeSauvegarde, barreDeSon *barre_de_son, itemMenu *pseudo, 
                          personnage_t *personnageActif, position_t *positionActive, int tailleNiveaux,
                          time_t temps_debut_partie, int *compteur_mort, int *avancee_succes, int avancee_succes_intermediaires[10]);
+#endif

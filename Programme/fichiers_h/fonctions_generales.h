@@ -1,48 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#ifndef H_GENERALE
+#define H_GENERALE
+#include "commun.h"
+#include "fonctions_menu_principal.h"
 
-/* Enumération de constantes pour l'onglet actif des options */
-typedef enum option_s {ONGLET_SON, ONGLET_TOUCHES} option_t;
+/** Enumération de constantes pour le mode séléctionné */
+typedef enum {
+    MODE_NORMAL,               /** Indice de sélection de la difficulté normale*/
+    MODE_HARD                  /** Indice de sélection de la difficulté difficile*/
+} modes_t;
 
-/* Enumération de constantes pour le mode séléctionné */
-typedef enum modes_s {MODE_NORMAL, MODE_HARD} modes_t;
+/** Enumération de constantes pour le personnage séléctionné */
+typedef enum {
+    PERSONNAGE_1,           /** Indice de sélection du personnage masculin*/
+    PERSONNAGE_2            /** Indice de sélection du personnage féminin*/
+} personnage_t;
 
-/* Enumération de constantes pour le personnage séléctionné */
-typedef enum personnage_s {PERSONNAGE_1, PERSONNAGE_2} personnage_t;
 
-/* Enumération de constantes pour la page */
-typedef enum page_s {MENU_PRINCIPAL, OPTIONS, NOUVELLE_PARTIE, INTRODUCTION, CARTE, NIVEAU_1, NIVEAU_2, NIVEAU_3, NIVEAU_4} page_t;
+/** Enumération de constantes pour la position sur la carte */
+typedef enum {
+    NIVEAU0,                    /** Indice du niveau 0*/
+    NIVEAU1,                    /** Indice du niveau 1*/                     
+    NIVEAU2,                    /** Indice du niveau 2*/ 
+    NIVEAU3,                    /** Indice du niveau 3*/ 
+    NIVEAU4                     /** Indice du niveau 4*/
+} position_t; 
 
-/* Enumération de constantes pour la position sur la carte */
-typedef enum position_s {NIVEAU0, NIVEAU1, NIVEAU2, NIVEAU3, NIVEAU4} position_t; 
+/** Enumération de constantes pour la direction du personnage sur la carte */
+typedef enum {
+    HAUT,                               /** Indice de la direction HAUT */
+    BAS,                                /** Indice de la direction BAS */
+    GAUCHE,                             /** Indice de la direction GAUCHE */
+    DROITE,                             /** Indice de la direction DROITE */
+    HAUT_DROITE,                        /** Indice de la direction HAUT_DROITE */
+    BAS_GAUCHE                          /** Indice de la direction BAS_GAUCHE */
+} direction_t; 
 
-/* Enumération de constantes pour la direction du personnage sur la carte */
-typedef enum direction_s {HAUT, BAS, GAUCHE, DROITE, HAUT_DROITE, BAS_GAUCHE} direction_t; 
-
-/* Structure pour représenter une case avec un rectangle et du texte */
-typedef struct {
-    SDL_Rect rectangle;
-    char texte[100];
-} itemMenu;
-
-/* Structure pour représenter une barre de son */
-typedef struct {
-    SDL_Rect barre;
-    SDL_Rect curseur;
-    float volume;
-    float volume_precedent;
-} barreDeSon;
-
-/* Structure pour représenter les collectibles de chaque niveaux */
-typedef struct {
-    int niveau_fini;
-    SDL_Texture *texture_image_collectible;
-    int numero_collectible[3];
-} niveaux;
 
 /* Squelette de la fonction erreur */
 void erreur(const char *message);
@@ -70,7 +62,8 @@ void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_T
 void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde,
                         SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                         itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur);
-
+                        
+                        
 /* Squelette de la fonction demande_quitter_niveau */
 void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter,
                             SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
@@ -78,6 +71,8 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
 
 /* Squelette de la fonction redimensionnement_fenetre */
 void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur);
+
+
 
 /* Squelette de la fonction verification_sauvegarde */
 int verification_sauvegarde();
@@ -91,12 +86,14 @@ void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_
 /* Squelette de la fonction clic_case */
 int clic_case(SDL_Event event, SDL_Rect rectangle);
 
+
 /* Squelette de la fonction deplacement_personnage */
 void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut,
                             int sauter, int avancer, int reculer, int tile_map[18][32], personnage_t personnageActif);
 
 /* Squelette de la fonction clic_plein_ecran */
-int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window);
+int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window);	
+
 
 /* Squelette de la fonction detruire_objets */
 void detruire_objets(TTF_Font **police, Mix_Music **musique, SDL_Texture **texture1, SDL_Texture **texture2,
@@ -137,3 +134,4 @@ void detruire_objets(TTF_Font **police, Mix_Music **musique, SDL_Texture **textu
 
 /* Squelette de la fonction detruire_fenetre_rendu */
 void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window);
+#endif

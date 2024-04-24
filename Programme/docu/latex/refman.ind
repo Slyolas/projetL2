@@ -1,612 +1,611 @@
 \begin{theindex}
 
+  \item {/info/etu/l2info/s2201668/Projet\_Jeu\_L2/projetL2/README.md}, 
+		\hyperpage{278}
+
+  \indexspace
+
   \item {affichage\_texte}
-    \subitem {fonctions\_generales.c}, \hyperpage{51}
-    \subitem {fonctions\_generales.h}, \hyperpage{219}
+    \subitem {fonctions\_generales.c}, \hyperpage{53}
+    \subitem {fonctions\_generales.h}, \hyperpage{221}
   \item {arrivee\_niveaux\_2\_3}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{10}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{204}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{12}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{206}
 
   \indexspace
 
   \item {barre}
-    \subitem {barreDeSon}, \hyperpage{6}
-  \item {barreDeSon}, \hyperpage{5}
-    \subitem {barre}, \hyperpage{6}
-    \subitem {curseur}, \hyperpage{6}
-    \subitem {volume}, \hyperpage{6}
-    \subitem {volume\_precedent}, \hyperpage{6}
+    \subitem {barreDeSon}, \hyperpage{8}
+  \item {barreDeSon}, \hyperpage{7}
+    \subitem {barre}, \hyperpage{8}
+    \subitem {curseur}, \hyperpage{8}
+    \subitem {volume}, \hyperpage{8}
+    \subitem {volume\_precedent}, \hyperpage{8}
   \item {BAS}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {BAS\_GAUCHE}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
-  \item {BUFFER\_SIZE}
-    \subitem {test\_pseudo.c}, \hyperpage{277}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
 
   \indexspace
 
   \item {CARTE}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {carte}
-    \subitem {fonctions\_carte.c}, \hyperpage{31}
-    \subitem {fonctions\_carte.h}, \hyperpage{210}
+    \subitem {fonctions\_carte.c}, \hyperpage{33}
+    \subitem {fonctions\_carte.h}, \hyperpage{212}
   \item {chargement\_image}
-    \subitem {fonctions\_generales.c}, \hyperpage{51}
-    \subitem {fonctions\_generales.h}, \hyperpage{219}
-  \item {chargement\_niveau\_1}
-    \subitem {fonctions\_niveau\_1.c}, \hyperpage{83}
-    \subitem {fonctions\_niveau\_1.h}, \hyperpage{237}
-  \item {clic\_case}
-    \subitem {fonctions\_generales.c}, \hyperpage{52}
-    \subitem {fonctions\_generales.h}, \hyperpage{219}
-  \item {clic\_plein\_ecran}
-    \subitem {fonctions\_generales.c}, \hyperpage{52}
-    \subitem {fonctions\_generales.h}, \hyperpage{220}
-  \item {creer\_fenetre\_rendu}
     \subitem {fonctions\_generales.c}, \hyperpage{53}
-    \subitem {fonctions\_generales.h}, \hyperpage{220}
+    \subitem {fonctions\_generales.h}, \hyperpage{221}
+  \item {chargement\_niveau\_1}
+    \subitem {fonctions\_niveau\_1.c}, \hyperpage{85}
+    \subitem {fonctions\_niveau\_1.h}, \hyperpage{239}
+  \item {clic\_case}
+    \subitem {fonctions\_generales.c}, \hyperpage{54}
+    \subitem {fonctions\_generales.h}, \hyperpage{221}
+  \item {clic\_plein\_ecran}
+    \subitem {fonctions\_generales.c}, \hyperpage{54}
+    \subitem {fonctions\_generales.h}, \hyperpage{222}
+  \item {creer\_fenetre\_rendu}
+    \subitem {fonctions\_generales.c}, \hyperpage{55}
+    \subitem {fonctions\_generales.h}, \hyperpage{222}
   \item {curseur}
-    \subitem {barreDeSon}, \hyperpage{6}
+    \subitem {barreDeSon}, \hyperpage{8}
 
   \indexspace
 
   \item {demande\_quitter\_niveau}
-    \subitem {fonctions\_generales.c}, \hyperpage{53}
-    \subitem {fonctions\_generales.h}, \hyperpage{220}
+    \subitem {fonctions\_generales.c}, \hyperpage{55}
+    \subitem {fonctions\_generales.h}, \hyperpage{222}
   \item {demande\_sauvegarde}
-    \subitem {fonctions\_generales.c}, \hyperpage{54}
-    \subitem {fonctions\_generales.h}, \hyperpage{221}
+    \subitem {fonctions\_generales.c}, \hyperpage{56}
+    \subitem {fonctions\_generales.h}, \hyperpage{223}
   \item {deplacement\_personnage}
-    \subitem {fonctions\_generales.c}, \hyperpage{55}
-    \subitem {fonctions\_generales.h}, \hyperpage{222}
+    \subitem {fonctions\_generales.c}, \hyperpage{57}
+    \subitem {fonctions\_generales.h}, \hyperpage{224}
   \item {deplacement\_personnage\_carte}
-    \subitem {fonctions\_carte.c}, \hyperpage{32}
-    \subitem {fonctions\_carte.h}, \hyperpage{211}
+    \subitem {fonctions\_carte.c}, \hyperpage{34}
+    \subitem {fonctions\_carte.h}, \hyperpage{213}
   \item {detruire\_fenetre\_rendu}
-    \subitem {fonctions\_generales.c}, \hyperpage{55}
-    \subitem {fonctions\_generales.h}, \hyperpage{222}
+    \subitem {fonctions\_generales.c}, \hyperpage{57}
+    \subitem {fonctions\_generales.h}, \hyperpage{224}
   \item {detruire\_objets}
-    \subitem {fonctions\_generales.c}, \hyperpage{55}
-    \subitem {fonctions\_generales.h}, \hyperpage{222}
+    \subitem {fonctions\_generales.c}, \hyperpage{57}
+    \subitem {fonctions\_generales.h}, \hyperpage{224}
   \item {direction\_s}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {direction\_t}
-    \subitem {fonctions\_generales.h}, \hyperpage{216}
+    \subitem {fonctions\_generales.h}, \hyperpage{218}
   \item {DROITE}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
 
   \indexspace
 
   \item {erreur}
-    \subitem {fonctions\_generales.c}, \hyperpage{57}
-    \subitem {fonctions\_generales.h}, \hyperpage{224}
+    \subitem {fonctions\_generales.c}, \hyperpage{59}
+    \subitem {fonctions\_generales.h}, \hyperpage{226}
   \item {etage\_1}
-    \subitem {fonctions\_niveau\_4.c}, \hyperpage{140}
-    \subitem {fonctions\_niveau\_4.h}, \hyperpage{260}
-  \item {etage\_2}
-    \subitem {fonctions\_niveau\_4.c}, \hyperpage{141}
-    \subitem {fonctions\_niveau\_4.h}, \hyperpage{260}
-  \item {etage\_3}
-    \subitem {fonctions\_niveau\_4.c}, \hyperpage{142}
-    \subitem {fonctions\_niveau\_4.h}, \hyperpage{261}
-  \item {etage\_4}
     \subitem {fonctions\_niveau\_4.c}, \hyperpage{142}
     \subitem {fonctions\_niveau\_4.h}, \hyperpage{262}
-  \item {etage\_5}
+  \item {etage\_2}
     \subitem {fonctions\_niveau\_4.c}, \hyperpage{143}
     \subitem {fonctions\_niveau\_4.h}, \hyperpage{262}
+  \item {etage\_3}
+    \subitem {fonctions\_niveau\_4.c}, \hyperpage{144}
+    \subitem {fonctions\_niveau\_4.h}, \hyperpage{263}
+  \item {etage\_4}
+    \subitem {fonctions\_niveau\_4.c}, \hyperpage{144}
+    \subitem {fonctions\_niveau\_4.h}, \hyperpage{264}
+  \item {etage\_5}
+    \subitem {fonctions\_niveau\_4.c}, \hyperpage{145}
+    \subitem {fonctions\_niveau\_4.h}, \hyperpage{264}
   \item {explications}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{12}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{206}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{14}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{208}
 
   \indexspace
 
   \item {fichiers\_c/fonctions\_arrivee\_niveaux\_2\_3.c}, 
-		\hyperpage{9}, \hyperpage{14}
-  \item {fichiers\_c/fonctions\_carte.c}, \hyperpage{29}, 
-		\hyperpage{34}
-  \item {fichiers\_c/fonctions\_generales.c}, \hyperpage{50}, 
-		\hyperpage{60}
-  \item {fichiers\_c/fonctions\_introduction.c}, \hyperpage{68}, 
-		\hyperpage{71}
-  \item {fichiers\_c/fonctions\_menu\_principal.c}, \hyperpage{74}, 
-		\hyperpage{78}
-  \item {fichiers\_c/fonctions\_niveau\_1.c}, \hyperpage{82}, 
-		\hyperpage{86}
-  \item {fichiers\_c/fonctions\_niveau\_2.c}, \hyperpage{96}, 
-		\hyperpage{103}
-  \item {fichiers\_c/fonctions\_niveau\_3.c}, \hyperpage{117}, 
-		\hyperpage{123}
-  \item {fichiers\_c/fonctions\_niveau\_4.c}, \hyperpage{139}, 
-		\hyperpage{146}
-  \item {fichiers\_c/fonctions\_nouvelle\_partie.c}, \hyperpage{159}, 
-		\hyperpage{162}
-  \item {fichiers\_c/fonctions\_options.c}, \hyperpage{168}, 
-		\hyperpage{173}
-  \item {fichiers\_c/metatravers.c}, \hyperpage{181}, \hyperpage{183}
+		\hyperpage{11}, \hyperpage{16}
+  \item {fichiers\_c/fonctions\_carte.c}, \hyperpage{31}, 
+		\hyperpage{36}
+  \item {fichiers\_c/fonctions\_generales.c}, \hyperpage{52}, 
+		\hyperpage{62}
+  \item {fichiers\_c/fonctions\_introduction.c}, \hyperpage{70}, 
+		\hyperpage{73}
+  \item {fichiers\_c/fonctions\_menu\_principal.c}, \hyperpage{76}, 
+		\hyperpage{80}
+  \item {fichiers\_c/fonctions\_niveau\_1.c}, \hyperpage{84}, 
+		\hyperpage{88}
+  \item {fichiers\_c/fonctions\_niveau\_2.c}, \hyperpage{98}, 
+		\hyperpage{105}
+  \item {fichiers\_c/fonctions\_niveau\_3.c}, \hyperpage{119}, 
+		\hyperpage{125}
+  \item {fichiers\_c/fonctions\_niveau\_4.c}, \hyperpage{141}, 
+		\hyperpage{148}
+  \item {fichiers\_c/fonctions\_nouvelle\_partie.c}, \hyperpage{161}, 
+		\hyperpage{164}
+  \item {fichiers\_c/fonctions\_options.c}, \hyperpage{170}, 
+		\hyperpage{175}
+  \item {fichiers\_c/metatravers.c}, \hyperpage{183}, \hyperpage{185}
   \item {fichiers\_h/fonctions\_arrivee\_niveaux\_2\_3.h}, 
-		\hyperpage{202}, \hyperpage{207}
-  \item {fichiers\_h/fonctions\_carte.h}, \hyperpage{208}, 
-		\hyperpage{213}
-  \item {fichiers\_h/fonctions\_generales.h}, \hyperpage{214}, 
-		\hyperpage{226}
-  \item {fichiers\_h/fonctions\_introduction.h}, \hyperpage{228}, 
-		\hyperpage{230}
-  \item {fichiers\_h/fonctions\_menu\_principal.h}, \hyperpage{231}, 
-		\hyperpage{234}
-  \item {fichiers\_h/fonctions\_niveau\_1.h}, \hyperpage{235}, 
-		\hyperpage{240}
-  \item {fichiers\_h/fonctions\_niveau\_2.h}, \hyperpage{240}, 
-		\hyperpage{248}
-  \item {fichiers\_h/fonctions\_niveau\_3.h}, \hyperpage{249}, 
-		\hyperpage{257}
-  \item {fichiers\_h/fonctions\_niveau\_4.h}, \hyperpage{258}, 
-		\hyperpage{265}
-  \item {fichiers\_h/fonctions\_nouvelle\_partie.h}, \hyperpage{266}, 
-		\hyperpage{270}
-  \item {fichiers\_h/fonctions\_options.h}, \hyperpage{270}, 
-		\hyperpage{275}
+		\hyperpage{204}, \hyperpage{209}
+  \item {fichiers\_h/fonctions\_carte.h}, \hyperpage{210}, 
+		\hyperpage{215}
+  \item {fichiers\_h/fonctions\_generales.h}, \hyperpage{216}, 
+		\hyperpage{228}
+  \item {fichiers\_h/fonctions\_introduction.h}, \hyperpage{230}, 
+		\hyperpage{232}
+  \item {fichiers\_h/fonctions\_menu\_principal.h}, \hyperpage{233}, 
+		\hyperpage{236}
+  \item {fichiers\_h/fonctions\_niveau\_1.h}, \hyperpage{237}, 
+		\hyperpage{242}
+  \item {fichiers\_h/fonctions\_niveau\_2.h}, \hyperpage{242}, 
+		\hyperpage{250}
+  \item {fichiers\_h/fonctions\_niveau\_3.h}, \hyperpage{251}, 
+		\hyperpage{259}
+  \item {fichiers\_h/fonctions\_niveau\_4.h}, \hyperpage{260}, 
+		\hyperpage{267}
+  \item {fichiers\_h/fonctions\_nouvelle\_partie.h}, \hyperpage{268}, 
+		\hyperpage{272}
+  \item {fichiers\_h/fonctions\_options.h}, \hyperpage{272}, 
+		\hyperpage{277}
   \item {fonctions\_arrivee\_niveaux\_2\_3.c}
-    \subitem {arrivee\_niveaux\_2\_3}, \hyperpage{10}
-    \subitem {explications}, \hyperpage{12}
+    \subitem {arrivee\_niveaux\_2\_3}, \hyperpage{12}
+    \subitem {explications}, \hyperpage{14}
     \subitem {mise\_a\_jour\_rendu\_arrivee\_niveaux\_2\_3}, 
-		\hyperpage{12}
-    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{13}
+		\hyperpage{14}
+    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{15}
   \item {fonctions\_arrivee\_niveaux\_2\_3.h}
-    \subitem {arrivee\_niveaux\_2\_3}, \hyperpage{204}
-    \subitem {explications}, \hyperpage{206}
+    \subitem {arrivee\_niveaux\_2\_3}, \hyperpage{206}
+    \subitem {explications}, \hyperpage{208}
     \subitem {mise\_a\_jour\_rendu\_arrivee\_niveaux\_2\_3}, 
-		\hyperpage{206}
-    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{207}
+		\hyperpage{208}
+    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{209}
   \item {fonctions\_carte.c}
-    \subitem {carte}, \hyperpage{31}
-    \subitem {deplacement\_personnage\_carte}, \hyperpage{32}
-    \subitem {initialisation\_objets\_carte}, \hyperpage{32}
-    \subitem {mise\_a\_jour\_rendu\_carte}, \hyperpage{33}
+    \subitem {carte}, \hyperpage{33}
+    \subitem {deplacement\_personnage\_carte}, \hyperpage{34}
+    \subitem {initialisation\_objets\_carte}, \hyperpage{34}
+    \subitem {mise\_a\_jour\_rendu\_carte}, \hyperpage{35}
   \item {fonctions\_carte.h}
-    \subitem {carte}, \hyperpage{210}
-    \subitem {deplacement\_personnage\_carte}, \hyperpage{211}
-    \subitem {initialisation\_objets\_carte}, \hyperpage{212}
-    \subitem {mise\_a\_jour\_rendu\_carte}, \hyperpage{212}
+    \subitem {carte}, \hyperpage{212}
+    \subitem {deplacement\_personnage\_carte}, \hyperpage{213}
+    \subitem {initialisation\_objets\_carte}, \hyperpage{214}
+    \subitem {mise\_a\_jour\_rendu\_carte}, \hyperpage{214}
   \item {fonctions\_generales.c}
-    \subitem {affichage\_texte}, \hyperpage{51}
-    \subitem {chargement\_image}, \hyperpage{51}
-    \subitem {clic\_case}, \hyperpage{52}
-    \subitem {clic\_plein\_ecran}, \hyperpage{52}
-    \subitem {creer\_fenetre\_rendu}, \hyperpage{53}
-    \subitem {demande\_quitter\_niveau}, \hyperpage{53}
-    \subitem {demande\_sauvegarde}, \hyperpage{54}
-    \subitem {deplacement\_personnage}, \hyperpage{55}
-    \subitem {detruire\_fenetre\_rendu}, \hyperpage{55}
-    \subitem {detruire\_objets}, \hyperpage{55}
-    \subitem {erreur}, \hyperpage{57}
-    \subitem {initialisation\_objets}, \hyperpage{57}
-    \subitem {redimensionnement\_fenetre}, \hyperpage{57}
-    \subitem {sauvegarder\_partie}, \hyperpage{59}
-    \subitem {verification\_sauvegarde}, \hyperpage{59}
+    \subitem {affichage\_texte}, \hyperpage{53}
+    \subitem {chargement\_image}, \hyperpage{53}
+    \subitem {clic\_case}, \hyperpage{54}
+    \subitem {clic\_plein\_ecran}, \hyperpage{54}
+    \subitem {creer\_fenetre\_rendu}, \hyperpage{55}
+    \subitem {demande\_quitter\_niveau}, \hyperpage{55}
+    \subitem {demande\_sauvegarde}, \hyperpage{56}
+    \subitem {deplacement\_personnage}, \hyperpage{57}
+    \subitem {detruire\_fenetre\_rendu}, \hyperpage{57}
+    \subitem {detruire\_objets}, \hyperpage{57}
+    \subitem {erreur}, \hyperpage{59}
+    \subitem {initialisation\_objets}, \hyperpage{59}
+    \subitem {redimensionnement\_fenetre}, \hyperpage{59}
+    \subitem {sauvegarder\_partie}, \hyperpage{61}
+    \subitem {verification\_sauvegarde}, \hyperpage{61}
   \item {fonctions\_generales.h}
-    \subitem {affichage\_texte}, \hyperpage{219}
-    \subitem {BAS}, \hyperpage{217}
-    \subitem {BAS\_GAUCHE}, \hyperpage{217}
-    \subitem {CARTE}, \hyperpage{218}
-    \subitem {chargement\_image}, \hyperpage{219}
-    \subitem {clic\_case}, \hyperpage{219}
-    \subitem {clic\_plein\_ecran}, \hyperpage{220}
-    \subitem {creer\_fenetre\_rendu}, \hyperpage{220}
-    \subitem {demande\_quitter\_niveau}, \hyperpage{220}
-    \subitem {demande\_sauvegarde}, \hyperpage{221}
-    \subitem {deplacement\_personnage}, \hyperpage{222}
-    \subitem {detruire\_fenetre\_rendu}, \hyperpage{222}
-    \subitem {detruire\_objets}, \hyperpage{222}
-    \subitem {direction\_s}, \hyperpage{217}
-    \subitem {direction\_t}, \hyperpage{216}
-    \subitem {DROITE}, \hyperpage{217}
-    \subitem {erreur}, \hyperpage{224}
-    \subitem {GAUCHE}, \hyperpage{217}
-    \subitem {HAUT}, \hyperpage{217}
-    \subitem {HAUT\_DROITE}, \hyperpage{217}
-    \subitem {initialisation\_objets}, \hyperpage{224}
-    \subitem {INTRODUCTION}, \hyperpage{218}
-    \subitem {MENU\_PRINCIPAL}, \hyperpage{218}
-    \subitem {MODE\_HARD}, \hyperpage{217}
-    \subitem {MODE\_NORMAL}, \hyperpage{217}
-    \subitem {modes\_s}, \hyperpage{217}
-    \subitem {modes\_t}, \hyperpage{216}
-    \subitem {NIVEAU0}, \hyperpage{218}
-    \subitem {NIVEAU1}, \hyperpage{218}
-    \subitem {NIVEAU2}, \hyperpage{218}
-    \subitem {NIVEAU3}, \hyperpage{218}
-    \subitem {NIVEAU4}, \hyperpage{218}
-    \subitem {NIVEAU\_1}, \hyperpage{218}
-    \subitem {NIVEAU\_2}, \hyperpage{218}
-    \subitem {NIVEAU\_3}, \hyperpage{218}
-    \subitem {NIVEAU\_4}, \hyperpage{218}
-    \subitem {NOUVELLE\_PARTIE}, \hyperpage{218}
-    \subitem {ONGLET\_SON}, \hyperpage{218}
-    \subitem {ONGLET\_TOUCHES}, \hyperpage{218}
-    \subitem {option\_s}, \hyperpage{217}
-    \subitem {option\_t}, \hyperpage{216}
-    \subitem {OPTIONS}, \hyperpage{218}
-    \subitem {page\_s}, \hyperpage{218}
-    \subitem {page\_t}, \hyperpage{216}
-    \subitem {PERSONNAGE\_1}, \hyperpage{218}
-    \subitem {PERSONNAGE\_2}, \hyperpage{218}
-    \subitem {personnage\_s}, \hyperpage{218}
-    \subitem {personnage\_t}, \hyperpage{217}
-    \subitem {position\_s}, \hyperpage{218}
-    \subitem {position\_t}, \hyperpage{217}
-    \subitem {redimensionnement\_fenetre}, \hyperpage{225}
-    \subitem {sauvegarder\_partie}, \hyperpage{225}
-    \subitem {verification\_sauvegarde}, \hyperpage{225}
+    \subitem {affichage\_texte}, \hyperpage{221}
+    \subitem {BAS}, \hyperpage{219}
+    \subitem {BAS\_GAUCHE}, \hyperpage{219}
+    \subitem {CARTE}, \hyperpage{220}
+    \subitem {chargement\_image}, \hyperpage{221}
+    \subitem {clic\_case}, \hyperpage{221}
+    \subitem {clic\_plein\_ecran}, \hyperpage{222}
+    \subitem {creer\_fenetre\_rendu}, \hyperpage{222}
+    \subitem {demande\_quitter\_niveau}, \hyperpage{222}
+    \subitem {demande\_sauvegarde}, \hyperpage{223}
+    \subitem {deplacement\_personnage}, \hyperpage{224}
+    \subitem {detruire\_fenetre\_rendu}, \hyperpage{224}
+    \subitem {detruire\_objets}, \hyperpage{224}
+    \subitem {direction\_s}, \hyperpage{219}
+    \subitem {direction\_t}, \hyperpage{218}
+    \subitem {DROITE}, \hyperpage{219}
+    \subitem {erreur}, \hyperpage{226}
+    \subitem {GAUCHE}, \hyperpage{219}
+    \subitem {HAUT}, \hyperpage{219}
+    \subitem {HAUT\_DROITE}, \hyperpage{219}
+    \subitem {initialisation\_objets}, \hyperpage{226}
+    \subitem {INTRODUCTION}, \hyperpage{220}
+    \subitem {MENU\_PRINCIPAL}, \hyperpage{220}
+    \subitem {MODE\_HARD}, \hyperpage{219}
+    \subitem {MODE\_NORMAL}, \hyperpage{219}
+    \subitem {modes\_s}, \hyperpage{219}
+    \subitem {modes\_t}, \hyperpage{218}
+    \subitem {NIVEAU0}, \hyperpage{220}
+    \subitem {NIVEAU1}, \hyperpage{220}
+    \subitem {NIVEAU2}, \hyperpage{220}
+    \subitem {NIVEAU3}, \hyperpage{220}
+    \subitem {NIVEAU4}, \hyperpage{220}
+    \subitem {NIVEAU\_1}, \hyperpage{220}
+    \subitem {NIVEAU\_2}, \hyperpage{220}
+    \subitem {NIVEAU\_3}, \hyperpage{220}
+    \subitem {NIVEAU\_4}, \hyperpage{220}
+    \subitem {NOUVELLE\_PARTIE}, \hyperpage{220}
+    \subitem {ONGLET\_SON}, \hyperpage{220}
+    \subitem {ONGLET\_TOUCHES}, \hyperpage{220}
+    \subitem {option\_s}, \hyperpage{219}
+    \subitem {option\_t}, \hyperpage{218}
+    \subitem {OPTIONS}, \hyperpage{220}
+    \subitem {page\_s}, \hyperpage{220}
+    \subitem {page\_t}, \hyperpage{218}
+    \subitem {PERSONNAGE\_1}, \hyperpage{220}
+    \subitem {PERSONNAGE\_2}, \hyperpage{220}
+    \subitem {personnage\_s}, \hyperpage{220}
+    \subitem {personnage\_t}, \hyperpage{219}
+    \subitem {position\_s}, \hyperpage{220}
+    \subitem {position\_t}, \hyperpage{219}
+    \subitem {redimensionnement\_fenetre}, \hyperpage{227}
+    \subitem {sauvegarder\_partie}, \hyperpage{227}
+    \subitem {verification\_sauvegarde}, \hyperpage{227}
   \item {fonctions\_introduction.c}
-    \subitem {introduction}, \hyperpage{69}
-    \subitem {mise\_a\_jour\_rendu\_introduction}, \hyperpage{70}
+    \subitem {introduction}, \hyperpage{71}
+    \subitem {mise\_a\_jour\_rendu\_introduction}, \hyperpage{72}
   \item {fonctions\_introduction.h}
-    \subitem {introduction}, \hyperpage{229}
-    \subitem {mise\_a\_jour\_rendu\_introduction}, \hyperpage{230}
+    \subitem {introduction}, \hyperpage{231}
+    \subitem {mise\_a\_jour\_rendu\_introduction}, \hyperpage{232}
   \item {fonctions\_menu\_principal.c}
-    \subitem {initialisation\_objets\_menu\_principal}, \hyperpage{75}
-    \subitem {menu\_principal}, \hyperpage{76}
-    \subitem {mise\_a\_jour\_rendu\_menu\_principal}, \hyperpage{77}
+    \subitem {initialisation\_objets\_menu\_principal}, \hyperpage{77}
+    \subitem {menu\_principal}, \hyperpage{78}
+    \subitem {mise\_a\_jour\_rendu\_menu\_principal}, \hyperpage{79}
   \item {fonctions\_menu\_principal.h}
-    \subitem {initialisation\_objets\_menu\_principal}, \hyperpage{232}
-    \subitem {menu\_principal}, \hyperpage{232}
-    \subitem {mise\_a\_jour\_rendu\_menu\_principal}, \hyperpage{233}
+    \subitem {initialisation\_objets\_menu\_principal}, \hyperpage{234}
+    \subitem {menu\_principal}, \hyperpage{234}
+    \subitem {mise\_a\_jour\_rendu\_menu\_principal}, \hyperpage{235}
   \item {fonctions\_niveau\_1.c}
-    \subitem {chargement\_niveau\_1}, \hyperpage{83}
-    \subitem {initialisation\_objets\_niveau\_1}, \hyperpage{84}
-    \subitem {mise\_a\_jour\_rendu\_niveau\_1}, \hyperpage{84}
-    \subitem {niveau\_1}, \hyperpage{85}
+    \subitem {chargement\_niveau\_1}, \hyperpage{85}
+    \subitem {initialisation\_objets\_niveau\_1}, \hyperpage{86}
+    \subitem {mise\_a\_jour\_rendu\_niveau\_1}, \hyperpage{86}
+    \subitem {niveau\_1}, \hyperpage{87}
   \item {fonctions\_niveau\_1.h}
-    \subitem {chargement\_niveau\_1}, \hyperpage{237}
-    \subitem {initialisation\_objets\_niveau\_1}, \hyperpage{237}
-    \subitem {mise\_a\_jour\_rendu\_niveau\_1}, \hyperpage{238}
-    \subitem {niveau\_1}, \hyperpage{238}
+    \subitem {chargement\_niveau\_1}, \hyperpage{239}
+    \subitem {initialisation\_objets\_niveau\_1}, \hyperpage{239}
+    \subitem {mise\_a\_jour\_rendu\_niveau\_1}, \hyperpage{240}
+    \subitem {niveau\_1}, \hyperpage{240}
   \item {fonctions\_niveau\_2.c}
-    \subitem {initialisation\_objets\_niveau\_2}, \hyperpage{97}
-    \subitem {mini\_jeu\_1\_niveau\_2}, \hyperpage{98}
-    \subitem {mini\_jeu\_2\_niveau\_2}, \hyperpage{98}
-    \subitem {mini\_jeux\_niveau\_2}, \hyperpage{99}
-    \subitem {mise\_a\_jour\_bordures\_niveau\_2}, \hyperpage{100}
-    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}, \hyperpage{101}
-    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}, \hyperpage{101}
-    \subitem {verification\_chemin}, \hyperpage{102}
+    \subitem {initialisation\_objets\_niveau\_2}, \hyperpage{99}
+    \subitem {mini\_jeu\_1\_niveau\_2}, \hyperpage{100}
+    \subitem {mini\_jeu\_2\_niveau\_2}, \hyperpage{100}
+    \subitem {mini\_jeux\_niveau\_2}, \hyperpage{101}
+    \subitem {mise\_a\_jour\_bordures\_niveau\_2}, \hyperpage{102}
+    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}, \hyperpage{103}
+    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}, \hyperpage{103}
+    \subitem {verification\_chemin}, \hyperpage{104}
   \item {fonctions\_niveau\_2.h}
-    \subitem {initialisation\_objets\_niveau\_2}, \hyperpage{242}
-    \subitem {mini\_jeu\_1\_niveau\_2}, \hyperpage{243}
-    \subitem {mini\_jeu\_2\_niveau\_2}, \hyperpage{243}
-    \subitem {mini\_jeux\_niveau\_2}, \hyperpage{244}
-    \subitem {mise\_a\_jour\_bordures\_niveau\_2}, \hyperpage{245}
-    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}, \hyperpage{246}
-    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}, \hyperpage{246}
-    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{247}
-    \subitem {verification\_chemin}, \hyperpage{247}
+    \subitem {initialisation\_objets\_niveau\_2}, \hyperpage{244}
+    \subitem {mini\_jeu\_1\_niveau\_2}, \hyperpage{245}
+    \subitem {mini\_jeu\_2\_niveau\_2}, \hyperpage{245}
+    \subitem {mini\_jeux\_niveau\_2}, \hyperpage{246}
+    \subitem {mise\_a\_jour\_bordures\_niveau\_2}, \hyperpage{247}
+    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}, \hyperpage{248}
+    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}, \hyperpage{248}
+    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{249}
+    \subitem {verification\_chemin}, \hyperpage{249}
   \item {fonctions\_niveau\_3.c}
-    \subitem {initialisation\_objets\_niveau\_3}, \hyperpage{118}
-    \subitem {mini\_jeu\_2\_niveau\_3}, \hyperpage{119}
-    \subitem {mini\_jeux\_niveau\_3}, \hyperpage{119}
-    \subitem {mise\_a\_jour\_bordures\_niveau\_3}, \hyperpage{120}
-    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_3}, \hyperpage{121}
-    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_3}, \hyperpage{121}
-    \subitem {piece\_proche\_position\_correcte}, \hyperpage{122}
-    \subitem {rectangle\_piece\_aleatoire}, \hyperpage{122}
-    \subitem {traitement\_touches}, \hyperpage{122}
-    \subitem {verification\_puzzle\_fini}, \hyperpage{123}
+    \subitem {initialisation\_objets\_niveau\_3}, \hyperpage{120}
+    \subitem {mini\_jeu\_2\_niveau\_3}, \hyperpage{121}
+    \subitem {mini\_jeux\_niveau\_3}, \hyperpage{121}
+    \subitem {mise\_a\_jour\_bordures\_niveau\_3}, \hyperpage{122}
+    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_3}, \hyperpage{123}
+    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_3}, \hyperpage{123}
+    \subitem {piece\_proche\_position\_correcte}, \hyperpage{124}
+    \subitem {rectangle\_piece\_aleatoire}, \hyperpage{124}
+    \subitem {traitement\_touches}, \hyperpage{124}
+    \subitem {verification\_puzzle\_fini}, \hyperpage{125}
   \item {fonctions\_niveau\_3.h}
-    \subitem {initialisation\_objets\_niveau\_3}, \hyperpage{251}
-    \subitem {mini\_jeu\_2\_niveau\_3}, \hyperpage{252}
-    \subitem {mini\_jeux\_niveau\_3}, \hyperpage{252}
-    \subitem {mise\_a\_jour\_bordures\_niveau\_3}, \hyperpage{254}
-    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_3}, \hyperpage{254}
-    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_3}, \hyperpage{254}
-    \subitem {piece\_proche\_position\_correcte}, \hyperpage{255}
-    \subitem {rectangle\_piece\_aleatoire}, \hyperpage{255}
-    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{256}
-    \subitem {traitement\_touches}, \hyperpage{256}
-    \subitem {verification\_puzzle\_fini}, \hyperpage{257}
+    \subitem {initialisation\_objets\_niveau\_3}, \hyperpage{253}
+    \subitem {mini\_jeu\_2\_niveau\_3}, \hyperpage{254}
+    \subitem {mini\_jeux\_niveau\_3}, \hyperpage{254}
+    \subitem {mise\_a\_jour\_bordures\_niveau\_3}, \hyperpage{256}
+    \subitem {mise\_a\_jour\_mini\_jeu\_1\_niveau\_3}, \hyperpage{256}
+    \subitem {mise\_a\_jour\_mini\_jeu\_2\_niveau\_3}, \hyperpage{256}
+    \subitem {piece\_proche\_position\_correcte}, \hyperpage{257}
+    \subitem {rectangle\_piece\_aleatoire}, \hyperpage{257}
+    \subitem {salon\_arrivee\_niveaux\_2\_3}, \hyperpage{258}
+    \subitem {traitement\_touches}, \hyperpage{258}
+    \subitem {verification\_puzzle\_fini}, \hyperpage{259}
   \item {fonctions\_niveau\_4.c}
-    \subitem {etage\_1}, \hyperpage{140}
-    \subitem {etage\_2}, \hyperpage{141}
-    \subitem {etage\_3}, \hyperpage{142}
-    \subitem {etage\_4}, \hyperpage{142}
-    \subitem {etage\_5}, \hyperpage{143}
-    \subitem {initialisation\_objets\_niveau\_4}, \hyperpage{143}
-    \subitem {mise\_a\_jour\_rendu\_niveau\_4}, \hyperpage{144}
-    \subitem {niveau\_4}, \hyperpage{145}
+    \subitem {etage\_1}, \hyperpage{142}
+    \subitem {etage\_2}, \hyperpage{143}
+    \subitem {etage\_3}, \hyperpage{144}
+    \subitem {etage\_4}, \hyperpage{144}
+    \subitem {etage\_5}, \hyperpage{145}
+    \subitem {initialisation\_objets\_niveau\_4}, \hyperpage{145}
+    \subitem {mise\_a\_jour\_rendu\_niveau\_4}, \hyperpage{146}
+    \subitem {niveau\_4}, \hyperpage{147}
   \item {fonctions\_niveau\_4.h}
-    \subitem {etage\_1}, \hyperpage{260}
-    \subitem {etage\_2}, \hyperpage{260}
-    \subitem {etage\_3}, \hyperpage{261}
-    \subitem {etage\_4}, \hyperpage{262}
-    \subitem {etage\_5}, \hyperpage{262}
-    \subitem {initialisation\_objets\_niveau\_4}, \hyperpage{263}
-    \subitem {mise\_a\_jour\_rendu\_niveau\_4}, \hyperpage{263}
-    \subitem {niveau\_4}, \hyperpage{264}
+    \subitem {etage\_1}, \hyperpage{262}
+    \subitem {etage\_2}, \hyperpage{262}
+    \subitem {etage\_3}, \hyperpage{263}
+    \subitem {etage\_4}, \hyperpage{264}
+    \subitem {etage\_5}, \hyperpage{264}
+    \subitem {initialisation\_objets\_niveau\_4}, \hyperpage{265}
+    \subitem {mise\_a\_jour\_rendu\_niveau\_4}, \hyperpage{265}
+    \subitem {niveau\_4}, \hyperpage{266}
   \item {fonctions\_nouvelle\_partie.c}
     \subitem {initialisation\_objets\_nouvelle\_partie}, 
-		\hyperpage{160}
-    \subitem {mise\_a\_jour\_rendu\_nouvelle\_partie}, \hyperpage{161}
-    \subitem {nouvelle\_partie}, \hyperpage{161}
+		\hyperpage{162}
+    \subitem {mise\_a\_jour\_rendu\_nouvelle\_partie}, \hyperpage{163}
+    \subitem {nouvelle\_partie}, \hyperpage{163}
   \item {fonctions\_nouvelle\_partie.h}
     \subitem {initialisation\_objets\_nouvelle\_partie}, 
-		\hyperpage{268}
-    \subitem {mise\_a\_jour\_rendu\_nouvelle\_partie}, \hyperpage{268}
-    \subitem {nouvelle\_partie}, \hyperpage{269}
+		\hyperpage{270}
+    \subitem {mise\_a\_jour\_rendu\_nouvelle\_partie}, \hyperpage{270}
+    \subitem {nouvelle\_partie}, \hyperpage{271}
   \item {fonctions\_options.c}
-    \subitem {initialisation\_objets\_options}, \hyperpage{169}
-    \subitem {mise\_a\_jour\_barre\_de\_son}, \hyperpage{170}
-    \subitem {mise\_a\_jour\_rendu\_options}, \hyperpage{170}
-    \subitem {mise\_a\_jour\_touches}, \hyperpage{171}
-    \subitem {options}, \hyperpage{172}
+    \subitem {initialisation\_objets\_options}, \hyperpage{171}
+    \subitem {mise\_a\_jour\_barre\_de\_son}, \hyperpage{172}
+    \subitem {mise\_a\_jour\_rendu\_options}, \hyperpage{172}
+    \subitem {mise\_a\_jour\_touches}, \hyperpage{173}
+    \subitem {options}, \hyperpage{174}
   \item {fonctions\_options.h}
-    \subitem {initialisation\_objets\_options}, \hyperpage{272}
-    \subitem {mise\_a\_jour\_barre\_de\_son}, \hyperpage{272}
-    \subitem {mise\_a\_jour\_rendu\_options}, \hyperpage{273}
-    \subitem {mise\_a\_jour\_touches}, \hyperpage{274}
-    \subitem {options}, \hyperpage{274}
+    \subitem {initialisation\_objets\_options}, \hyperpage{274}
+    \subitem {mise\_a\_jour\_barre\_de\_son}, \hyperpage{274}
+    \subitem {mise\_a\_jour\_rendu\_options}, \hyperpage{275}
+    \subitem {mise\_a\_jour\_touches}, \hyperpage{276}
+    \subitem {options}, \hyperpage{276}
 
   \indexspace
 
   \item {GAUCHE}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
 
   \indexspace
 
   \item {HAUT}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {HAUT\_DROITE}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
 
   \indexspace
 
   \item {initialisation\_objets}
-    \subitem {fonctions\_generales.c}, \hyperpage{57}
-    \subitem {fonctions\_generales.h}, \hyperpage{224}
+    \subitem {fonctions\_generales.c}, \hyperpage{59}
+    \subitem {fonctions\_generales.h}, \hyperpage{226}
   \item {initialisation\_objets\_carte}
-    \subitem {fonctions\_carte.c}, \hyperpage{32}
-    \subitem {fonctions\_carte.h}, \hyperpage{212}
+    \subitem {fonctions\_carte.c}, \hyperpage{34}
+    \subitem {fonctions\_carte.h}, \hyperpage{214}
   \item {initialisation\_objets\_menu\_principal}
-    \subitem {fonctions\_menu\_principal.c}, \hyperpage{75}
-    \subitem {fonctions\_menu\_principal.h}, \hyperpage{232}
+    \subitem {fonctions\_menu\_principal.c}, \hyperpage{77}
+    \subitem {fonctions\_menu\_principal.h}, \hyperpage{234}
   \item {initialisation\_objets\_niveau\_1}
-    \subitem {fonctions\_niveau\_1.c}, \hyperpage{84}
-    \subitem {fonctions\_niveau\_1.h}, \hyperpage{237}
+    \subitem {fonctions\_niveau\_1.c}, \hyperpage{86}
+    \subitem {fonctions\_niveau\_1.h}, \hyperpage{239}
   \item {initialisation\_objets\_niveau\_2}
-    \subitem {fonctions\_niveau\_2.c}, \hyperpage{97}
-    \subitem {fonctions\_niveau\_2.h}, \hyperpage{242}
+    \subitem {fonctions\_niveau\_2.c}, \hyperpage{99}
+    \subitem {fonctions\_niveau\_2.h}, \hyperpage{244}
   \item {initialisation\_objets\_niveau\_3}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{118}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{251}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{120}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{253}
   \item {initialisation\_objets\_niveau\_4}
-    \subitem {fonctions\_niveau\_4.c}, \hyperpage{143}
-    \subitem {fonctions\_niveau\_4.h}, \hyperpage{263}
+    \subitem {fonctions\_niveau\_4.c}, \hyperpage{145}
+    \subitem {fonctions\_niveau\_4.h}, \hyperpage{265}
   \item {initialisation\_objets\_nouvelle\_partie}
-    \subitem {fonctions\_nouvelle\_partie.c}, \hyperpage{160}
-    \subitem {fonctions\_nouvelle\_partie.h}, \hyperpage{268}
+    \subitem {fonctions\_nouvelle\_partie.c}, \hyperpage{162}
+    \subitem {fonctions\_nouvelle\_partie.h}, \hyperpage{270}
   \item {initialisation\_objets\_options}
-    \subitem {fonctions\_options.c}, \hyperpage{169}
-    \subitem {fonctions\_options.h}, \hyperpage{272}
+    \subitem {fonctions\_options.c}, \hyperpage{171}
+    \subitem {fonctions\_options.h}, \hyperpage{274}
   \item {INTRODUCTION}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {introduction}
-    \subitem {fonctions\_introduction.c}, \hyperpage{69}
-    \subitem {fonctions\_introduction.h}, \hyperpage{229}
-  \item {itemMenu}, \hyperpage{6}
-    \subitem {rectangle}, \hyperpage{7}
-    \subitem {texte}, \hyperpage{7}
+    \subitem {fonctions\_introduction.c}, \hyperpage{71}
+    \subitem {fonctions\_introduction.h}, \hyperpage{231}
+  \item {itemMenu}, \hyperpage{8}
+    \subitem {rectangle}, \hyperpage{9}
+    \subitem {texte}, \hyperpage{9}
 
   \indexspace
 
   \item {main}
-    \subitem {metatravers.c}, \hyperpage{182}
-    \subitem {test\_pseudo.c}, \hyperpage{277}
+    \subitem {metatravers.c}, \hyperpage{184}
   \item {MENU\_PRINCIPAL}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {menu\_principal}
-    \subitem {fonctions\_menu\_principal.c}, \hyperpage{76}
-    \subitem {fonctions\_menu\_principal.h}, \hyperpage{232}
+    \subitem {fonctions\_menu\_principal.c}, \hyperpage{78}
+    \subitem {fonctions\_menu\_principal.h}, \hyperpage{234}
+  \item {Metatravers}, \hyperpage{1}
   \item {metatravers.c}
-    \subitem {main}, \hyperpage{182}
+    \subitem {main}, \hyperpage{184}
   \item {mini\_jeu\_1\_niveau\_2}
-    \subitem {fonctions\_niveau\_2.c}, \hyperpage{98}
-    \subitem {fonctions\_niveau\_2.h}, \hyperpage{243}
-  \item {mini\_jeu\_2\_niveau\_2}
-    \subitem {fonctions\_niveau\_2.c}, \hyperpage{98}
-    \subitem {fonctions\_niveau\_2.h}, \hyperpage{243}
-  \item {mini\_jeu\_2\_niveau\_3}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{119}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{252}
-  \item {mini\_jeux\_niveau\_2}
-    \subitem {fonctions\_niveau\_2.c}, \hyperpage{99}
-    \subitem {fonctions\_niveau\_2.h}, \hyperpage{244}
-  \item {mini\_jeux\_niveau\_3}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{119}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{252}
-  \item {mise\_a\_jour\_barre\_de\_son}
-    \subitem {fonctions\_options.c}, \hyperpage{170}
-    \subitem {fonctions\_options.h}, \hyperpage{272}
-  \item {mise\_a\_jour\_bordures\_niveau\_2}
     \subitem {fonctions\_niveau\_2.c}, \hyperpage{100}
     \subitem {fonctions\_niveau\_2.h}, \hyperpage{245}
-  \item {mise\_a\_jour\_bordures\_niveau\_3}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{120}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{254}
-  \item {mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}
-    \subitem {fonctions\_niveau\_2.c}, \hyperpage{101}
-    \subitem {fonctions\_niveau\_2.h}, \hyperpage{246}
-  \item {mise\_a\_jour\_mini\_jeu\_1\_niveau\_3}
+  \item {mini\_jeu\_2\_niveau\_2}
+    \subitem {fonctions\_niveau\_2.c}, \hyperpage{100}
+    \subitem {fonctions\_niveau\_2.h}, \hyperpage{245}
+  \item {mini\_jeu\_2\_niveau\_3}
     \subitem {fonctions\_niveau\_3.c}, \hyperpage{121}
     \subitem {fonctions\_niveau\_3.h}, \hyperpage{254}
-  \item {mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}
+  \item {mini\_jeux\_niveau\_2}
     \subitem {fonctions\_niveau\_2.c}, \hyperpage{101}
     \subitem {fonctions\_niveau\_2.h}, \hyperpage{246}
-  \item {mise\_a\_jour\_mini\_jeu\_2\_niveau\_3}
+  \item {mini\_jeux\_niveau\_3}
     \subitem {fonctions\_niveau\_3.c}, \hyperpage{121}
     \subitem {fonctions\_niveau\_3.h}, \hyperpage{254}
-  \item {mise\_a\_jour\_rendu\_arrivee\_niveaux\_2\_3}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{12}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{206}
-  \item {mise\_a\_jour\_rendu\_carte}
-    \subitem {fonctions\_carte.c}, \hyperpage{33}
-    \subitem {fonctions\_carte.h}, \hyperpage{212}
-  \item {mise\_a\_jour\_rendu\_introduction}
-    \subitem {fonctions\_introduction.c}, \hyperpage{70}
-    \subitem {fonctions\_introduction.h}, \hyperpage{230}
-  \item {mise\_a\_jour\_rendu\_menu\_principal}
-    \subitem {fonctions\_menu\_principal.c}, \hyperpage{77}
-    \subitem {fonctions\_menu\_principal.h}, \hyperpage{233}
-  \item {mise\_a\_jour\_rendu\_niveau\_1}
-    \subitem {fonctions\_niveau\_1.c}, \hyperpage{84}
-    \subitem {fonctions\_niveau\_1.h}, \hyperpage{238}
-  \item {mise\_a\_jour\_rendu\_niveau\_4}
-    \subitem {fonctions\_niveau\_4.c}, \hyperpage{144}
-    \subitem {fonctions\_niveau\_4.h}, \hyperpage{263}
-  \item {mise\_a\_jour\_rendu\_nouvelle\_partie}
-    \subitem {fonctions\_nouvelle\_partie.c}, \hyperpage{161}
-    \subitem {fonctions\_nouvelle\_partie.h}, \hyperpage{268}
-  \item {mise\_a\_jour\_rendu\_options}
-    \subitem {fonctions\_options.c}, \hyperpage{170}
-    \subitem {fonctions\_options.h}, \hyperpage{273}
-  \item {mise\_a\_jour\_touches}
-    \subitem {fonctions\_options.c}, \hyperpage{171}
+  \item {mise\_a\_jour\_barre\_de\_son}
+    \subitem {fonctions\_options.c}, \hyperpage{172}
     \subitem {fonctions\_options.h}, \hyperpage{274}
+  \item {mise\_a\_jour\_bordures\_niveau\_2}
+    \subitem {fonctions\_niveau\_2.c}, \hyperpage{102}
+    \subitem {fonctions\_niveau\_2.h}, \hyperpage{247}
+  \item {mise\_a\_jour\_bordures\_niveau\_3}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{122}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{256}
+  \item {mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}
+    \subitem {fonctions\_niveau\_2.c}, \hyperpage{103}
+    \subitem {fonctions\_niveau\_2.h}, \hyperpage{248}
+  \item {mise\_a\_jour\_mini\_jeu\_1\_niveau\_3}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{123}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{256}
+  \item {mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}
+    \subitem {fonctions\_niveau\_2.c}, \hyperpage{103}
+    \subitem {fonctions\_niveau\_2.h}, \hyperpage{248}
+  \item {mise\_a\_jour\_mini\_jeu\_2\_niveau\_3}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{123}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{256}
+  \item {mise\_a\_jour\_rendu\_arrivee\_niveaux\_2\_3}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{14}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{208}
+  \item {mise\_a\_jour\_rendu\_carte}
+    \subitem {fonctions\_carte.c}, \hyperpage{35}
+    \subitem {fonctions\_carte.h}, \hyperpage{214}
+  \item {mise\_a\_jour\_rendu\_introduction}
+    \subitem {fonctions\_introduction.c}, \hyperpage{72}
+    \subitem {fonctions\_introduction.h}, \hyperpage{232}
+  \item {mise\_a\_jour\_rendu\_menu\_principal}
+    \subitem {fonctions\_menu\_principal.c}, \hyperpage{79}
+    \subitem {fonctions\_menu\_principal.h}, \hyperpage{235}
+  \item {mise\_a\_jour\_rendu\_niveau\_1}
+    \subitem {fonctions\_niveau\_1.c}, \hyperpage{86}
+    \subitem {fonctions\_niveau\_1.h}, \hyperpage{240}
+  \item {mise\_a\_jour\_rendu\_niveau\_4}
+    \subitem {fonctions\_niveau\_4.c}, \hyperpage{146}
+    \subitem {fonctions\_niveau\_4.h}, \hyperpage{265}
+  \item {mise\_a\_jour\_rendu\_nouvelle\_partie}
+    \subitem {fonctions\_nouvelle\_partie.c}, \hyperpage{163}
+    \subitem {fonctions\_nouvelle\_partie.h}, \hyperpage{270}
+  \item {mise\_a\_jour\_rendu\_options}
+    \subitem {fonctions\_options.c}, \hyperpage{172}
+    \subitem {fonctions\_options.h}, \hyperpage{275}
+  \item {mise\_a\_jour\_touches}
+    \subitem {fonctions\_options.c}, \hyperpage{173}
+    \subitem {fonctions\_options.h}, \hyperpage{276}
   \item {MODE\_HARD}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {MODE\_NORMAL}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {modes\_s}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {modes\_t}
-    \subitem {fonctions\_generales.h}, \hyperpage{216}
+    \subitem {fonctions\_generales.h}, \hyperpage{218}
 
   \indexspace
 
   \item {NIVEAU0}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {NIVEAU1}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {NIVEAU2}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {NIVEAU3}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {NIVEAU4}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {NIVEAU\_1}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {niveau\_1}
-    \subitem {fonctions\_niveau\_1.c}, \hyperpage{85}
-    \subitem {fonctions\_niveau\_1.h}, \hyperpage{238}
+    \subitem {fonctions\_niveau\_1.c}, \hyperpage{87}
+    \subitem {fonctions\_niveau\_1.h}, \hyperpage{240}
   \item {NIVEAU\_2}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {NIVEAU\_3}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {NIVEAU\_4}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {niveau\_4}
-    \subitem {fonctions\_niveau\_4.c}, \hyperpage{145}
-    \subitem {fonctions\_niveau\_4.h}, \hyperpage{264}
+    \subitem {fonctions\_niveau\_4.c}, \hyperpage{147}
+    \subitem {fonctions\_niveau\_4.h}, \hyperpage{266}
   \item {niveau\_fini}
-    \subitem {niveaux}, \hyperpage{8}
-  \item {niveaux}, \hyperpage{7}
-    \subitem {niveau\_fini}, \hyperpage{8}
-    \subitem {numero\_collectible}, \hyperpage{8}
-    \subitem {texture\_image\_collectible}, \hyperpage{8}
+    \subitem {niveaux}, \hyperpage{10}
+  \item {niveaux}, \hyperpage{9}
+    \subitem {niveau\_fini}, \hyperpage{10}
+    \subitem {numero\_collectible}, \hyperpage{10}
+    \subitem {texture\_image\_collectible}, \hyperpage{10}
   \item {NOUVELLE\_PARTIE}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {nouvelle\_partie}
-    \subitem {fonctions\_nouvelle\_partie.c}, \hyperpage{161}
-    \subitem {fonctions\_nouvelle\_partie.h}, \hyperpage{269}
+    \subitem {fonctions\_nouvelle\_partie.c}, \hyperpage{163}
+    \subitem {fonctions\_nouvelle\_partie.h}, \hyperpage{271}
   \item {numero\_collectible}
-    \subitem {niveaux}, \hyperpage{8}
+    \subitem {niveaux}, \hyperpage{10}
 
   \indexspace
 
   \item {ONGLET\_SON}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {ONGLET\_TOUCHES}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {option\_s}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {option\_t}
-    \subitem {fonctions\_generales.h}, \hyperpage{216}
-  \item {OPTIONS}
     \subitem {fonctions\_generales.h}, \hyperpage{218}
+  \item {OPTIONS}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {options}
-    \subitem {fonctions\_options.c}, \hyperpage{172}
-    \subitem {fonctions\_options.h}, \hyperpage{274}
+    \subitem {fonctions\_options.c}, \hyperpage{174}
+    \subitem {fonctions\_options.h}, \hyperpage{276}
 
   \indexspace
 
   \item {page\_s}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {page\_t}
-    \subitem {fonctions\_generales.h}, \hyperpage{216}
+    \subitem {fonctions\_generales.h}, \hyperpage{218}
   \item {PERSONNAGE\_1}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {PERSONNAGE\_2}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {personnage\_s}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {personnage\_t}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
   \item {piece\_proche\_position\_correcte}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{122}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{255}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{124}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{257}
   \item {position\_s}
-    \subitem {fonctions\_generales.h}, \hyperpage{218}
+    \subitem {fonctions\_generales.h}, \hyperpage{220}
   \item {position\_t}
-    \subitem {fonctions\_generales.h}, \hyperpage{217}
+    \subitem {fonctions\_generales.h}, \hyperpage{219}
 
   \indexspace
 
   \item {rectangle}
-    \subitem {itemMenu}, \hyperpage{7}
+    \subitem {itemMenu}, \hyperpage{9}
   \item {rectangle\_piece\_aleatoire}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{122}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{255}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{124}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{257}
   \item {redimensionnement\_fenetre}
-    \subitem {fonctions\_generales.c}, \hyperpage{57}
-    \subitem {fonctions\_generales.h}, \hyperpage{225}
+    \subitem {fonctions\_generales.c}, \hyperpage{59}
+    \subitem {fonctions\_generales.h}, \hyperpage{227}
 
   \indexspace
 
   \item {salon\_arrivee\_niveaux\_2\_3}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{13}
-    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{207}
-    \subitem {fonctions\_niveau\_2.h}, \hyperpage{247}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{256}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.c}, \hyperpage{15}
+    \subitem {fonctions\_arrivee\_niveaux\_2\_3.h}, \hyperpage{209}
+    \subitem {fonctions\_niveau\_2.h}, \hyperpage{249}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{258}
   \item {sauvegarder\_partie}
-    \subitem {fonctions\_generales.c}, \hyperpage{59}
-    \subitem {fonctions\_generales.h}, \hyperpage{225}
+    \subitem {fonctions\_generales.c}, \hyperpage{61}
+    \subitem {fonctions\_generales.h}, \hyperpage{227}
 
   \indexspace
 
-  \item {test unitaire/test\_pseudo.c}, \hyperpage{276, 277}
-  \item {test\_pseudo.c}
-    \subitem {BUFFER\_SIZE}, \hyperpage{277}
-    \subitem {main}, \hyperpage{277}
   \item {texte}
-    \subitem {itemMenu}, \hyperpage{7}
+    \subitem {itemMenu}, \hyperpage{9}
   \item {texture\_image\_collectible}
-    \subitem {niveaux}, \hyperpage{8}
+    \subitem {niveaux}, \hyperpage{10}
   \item {traitement\_touches}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{122}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{256}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{124}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{258}
 
   \indexspace
 
   \item {verification\_chemin}
-    \subitem {fonctions\_niveau\_2.c}, \hyperpage{102}
-    \subitem {fonctions\_niveau\_2.h}, \hyperpage{247}
+    \subitem {fonctions\_niveau\_2.c}, \hyperpage{104}
+    \subitem {fonctions\_niveau\_2.h}, \hyperpage{249}
   \item {verification\_puzzle\_fini}
-    \subitem {fonctions\_niveau\_3.c}, \hyperpage{123}
-    \subitem {fonctions\_niveau\_3.h}, \hyperpage{257}
+    \subitem {fonctions\_niveau\_3.c}, \hyperpage{125}
+    \subitem {fonctions\_niveau\_3.h}, \hyperpage{259}
   \item {verification\_sauvegarde}
-    \subitem {fonctions\_generales.c}, \hyperpage{59}
-    \subitem {fonctions\_generales.h}, \hyperpage{225}
+    \subitem {fonctions\_generales.c}, \hyperpage{61}
+    \subitem {fonctions\_generales.h}, \hyperpage{227}
   \item {volume}
-    \subitem {barreDeSon}, \hyperpage{6}
+    \subitem {barreDeSon}, \hyperpage{8}
   \item {volume\_precedent}
-    \subitem {barreDeSon}, \hyperpage{6}
+    \subitem {barreDeSon}, \hyperpage{8}
 
 \end{theindex}

@@ -11,7 +11,9 @@
         "fonctions_carte.h": "c",
         "fonctions_menu_principal.h": "c",
         "commun.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "fonctions_nouvelle_partie.h": "c",
+        "fonctions_niveau_1.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

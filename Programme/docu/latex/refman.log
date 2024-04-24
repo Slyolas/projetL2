@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.7.12)  24 APR 2024 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.7.12)  24 APR 2024 11:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -942,23 +942,53 @@ LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 
 ]
 Package hyperref Info: Option `pageanchor' set `true' on input line 209.
-
+ (./index.tex
 Chapitre 1.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 211.
+(Font)              scaled to size 18.66588pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 211.
+(Font)              scaled to size 18.66588pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 211.
-(./annotated.tex
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 1.
+(Font)              scaled to size 22.39185pt on input line 1.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 5.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (269.55635pt too wide) in paragraph at lines 13--13
+[]\T1/pcr/m/n/8 Notre projet est un jeu de plateforme tel que Super Mario Bros 
+mais en sortant du mario traditionnel en y ajoutant des références provenant d'
+internet. 
+ []
+
+
+Overfull \hbox (293.55637pt too wide) in paragraph at lines 14--14
+[]\T1/pcr/m/n/8 Le but du jeu sera de compléter un ou des niveaux en récupérant
+ un certain nombre de collectible tout en survivant au différent piège établi d
+ans le niveau.[] 
+ []
+
+
+Overfull \hbox (53.55621pt too wide) in paragraph at lines 33--33
+[]\T1/pcr/m/n/8 https://docs.google.com/spreadsheets/d/1KsalcYDiSb0bwymxdl439Ng
+qBB-l6BHZ-qmTuf0vVaM/edit?hl=fr&pli=1#gid=0 
+ []
+
 ) [1
 
 ] [2
 
 ]
 Chapitre 2.
+(./annotated.tex
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 12.9599pt on input line 1.
+) [3] [4
+
+]
+Chapitre 3.
 (./files.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--8
  []  
@@ -974,46 +1004,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
  []  
  []
 
-) [3] [4
+) [5] [6
 
 ]
-Chapitre 3.
-(./structbarreDeSon.tex
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 5.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) <./structbarreDeSon__coll__graph.pdf>
-<structbarreDeSon__coll__graph.pdf, id=1440, 192.72pt x 174.6525pt>
+Chapitre 4.
+(./structbarreDeSon.tex <./structbarreDeSon__coll__graph.pdf>
+<structbarreDeSon__coll__graph.pdf, id=1428, 192.72pt x 174.6525pt>
 File: structbarreDeSon__coll__graph.pdf Graphic file (type pdf)
 <use structbarreDeSon__coll__graph.pdf>
 Package pdftex.def Info: structbarreDeSon__coll__graph.pdf  used on input line 
-14.
+13.
 (pdftex.def)             Requested size: 192.0pt x 173.99915pt.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 30.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 42.
- [5]) (./structitemMenu.tex <./structitemMenu__coll__graph.pdf>
-<structitemMenu__coll__graph.pdf, id=1478, 147.55125pt x 144.54pt>
+(Font)              scaled to size 10.79993pt on input line 29.
+ [7])
+(./structitemMenu.tex <./structitemMenu__coll__graph.pdf>
+<structitemMenu__coll__graph.pdf, id=1465, 147.55125pt x 144.54pt>
 File: structitemMenu__coll__graph.pdf Graphic file (type pdf)
 <use structitemMenu__coll__graph.pdf>
-Package pdftex.def Info: structitemMenu__coll__graph.pdf  used on input line 14
+Package pdftex.def Info: structitemMenu__coll__graph.pdf  used on input line 13
 .
 (pdftex.def)             Requested size: 147.0pt x 144.00368pt.
-[6]) (./structniveaux.tex <./structniveaux__coll__graph.pdf>
-<structniveaux__coll__graph.pdf, id=1506, 228.855pt x 159.59625pt>
+ [8])
+(./structniveaux.tex <./structniveaux__coll__graph.pdf>
+<structniveaux__coll__graph.pdf, id=1493, 228.855pt x 159.59625pt>
 File: structniveaux__coll__graph.pdf Graphic file (type pdf)
 <use structniveaux__coll__graph.pdf>
-Package pdftex.def Info: structniveaux__coll__graph.pdf  used on input line 14.
+Package pdftex.def Info: structniveaux__coll__graph.pdf  used on input line 13.
 
 (pdftex.def)             Requested size: 228.0pt x 159.0065pt.
- [7]) [8]
-Chapitre 4.
+ [9]) [10]
+Chapitre 5.
 (./fonctions__arrivee__niveaux__2__3_8c.tex <./fonctions__arrivee__niveaux__2__
 3_8c__incl.pdf>
-<fonctions__arrivee__niveaux__2__3_8c__incl.pdf, id=1559, 714.67pt x 231.86626p
+<fonctions__arrivee__niveaux__2__3_8c__incl.pdf, id=1547, 714.67pt x 231.86626p
 t>
 File: fonctions__arrivee__niveaux__2__3_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__arrivee__niveaux__2__3_8c__incl.pdf>
@@ -1116,22 +1140,22 @@ emande[]Sauvegarde, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 barre[]_[]de[]_[]so
 n, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 pseudo,
  []
 
-[9
+[11
 
 ]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 47.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 47.
- [10] [11] [12]) (./fonctions__arrivee__niveaux__2__3_8c_source.tex [13]
-[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28])
-(./fonctions__carte_8c.tex <./fonctions__carte_8c__incl.pdf>
-<fonctions__carte_8c__incl.pdf, id=3017, 648.4225pt x 231.86626pt>
+ [12] [13] [14]) (./fonctions__arrivee__niveaux__2__3_8c_source.tex
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+[30]) (./fonctions__carte_8c.tex <./fonctions__carte_8c__incl.pdf>
+<fonctions__carte_8c__incl.pdf, id=3004, 648.4225pt x 231.86626pt>
 File: fonctions__carte_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__carte_8c__incl.pdf>
 Package pdftex.def Info: fonctions__carte_8c__incl.pdf  used on input line 15.
 (pdftex.def)             Requested size: 350.0pt x 125.15637pt.
- [29]
+ [31]
 Underfull \hbox (badness 10000) in paragraph at lines 21--23
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
@@ -1227,10 +1251,10 @@ MS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]interagir, [] $\OMS/cmsy/m/n/10 ^^
 C$\T1/phv/m/n/10 items[]Niveaux, int taille[]Niveaux, int
  []
 
-[30] [31] [32]) (./fonctions__carte_8c_source.tex [33] [34] [35] [36] [37]
-[38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49])
+[32] [33] [34]) (./fonctions__carte_8c_source.tex [35] [36] [37] [38] [39]
+[40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51])
 (./fonctions__generales_8c.tex <./fonctions__generales_8c__incl.pdf>
-<fonctions__generales_8c__incl.pdf, id=4648, 648.4225pt x 231.86626pt>
+<fonctions__generales_8c__incl.pdf, id=4636, 648.4225pt x 231.86626pt>
 File: fonctions__generales_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__generales_8c__incl.pdf>
 Package pdftex.def Info: fonctions__generales_8c__incl.pdf  used on input line 
@@ -1276,7 +1300,7 @@ TTF[]_[][]Font $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 police, SDL[]_[][]Colo
 r cou-leur, []
  []
 
-[50]
+[52]
 Underfull \hbox (badness 2644) in paragraph at lines 38--40
 \T1/phv/m/n/10 SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_
 []sauter[]_[]monter, SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 tou
@@ -1300,7 +1324,7 @@ Underfull \hbox (badness 1728) in paragraph at lines 46--48
 T1/phv/m/n/10 texture9, SDL[]_[][]Texture
  []
 
-[51]
+[53]
 Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
@@ -1310,7 +1334,7 @@ Underfull \hbox (badness 10000) detected at line 117
 [][][]
  []
 
-[52]
+[54]
 Underfull \hbox (badness 10000) detected at line 145
 [][][]
  []
@@ -1320,22 +1344,22 @@ Underfull \hbox (badness 10000) detected at line 173
 [][][]
  []
 
-[53]
+[55]
 Underfull \hbox (badness 10000) detected at line 213
 [][][]
  []
 
-[54]
+[56]
 Underfull \hbox (badness 10000) detected at line 253
 [][][]
  []
 
-[55] [56]
+[57] [58]
 Underfull \hbox (badness 10000) detected at line 316
 [][][]
  []
 
-[57] [58]
+[59] [60]
 Underfull \hbox (badness 10000) detected at line 376
 [][][]
  []
@@ -1345,16 +1369,16 @@ Underfull \hbox (badness 10000) detected at line 379
 [][][]
  []
 
-) (./fonctions__generales_8c_source.tex [59] [60] [61] [62] [63] [64] [65]
-[66] [67]) (./fonctions__introduction_8c.tex <./fonctions__introduction_8c__inc
+) (./fonctions__generales_8c_source.tex [61] [62] [63] [64] [65] [66] [67]
+[68] [69]) (./fonctions__introduction_8c.tex <./fonctions__introduction_8c__inc
 l.pdf>
-<fonctions__introduction_8c__incl.pdf, id=5587, 648.4225pt x 231.86626pt>
+<fonctions__introduction_8c__incl.pdf, id=5575, 648.4225pt x 231.86626pt>
 File: fonctions__introduction_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__introduction_8c__incl.pdf>
 Package pdftex.def Info: fonctions__introduction_8c__incl.pdf  used on input li
 ne 15.
 (pdftex.def)             Requested size: 350.0pt x 125.15637pt.
- [68]
+ [70]
 Underfull \hbox (badness 2735) in paragraph at lines 21--22
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, int in-dice, char $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 ligne,
@@ -1383,24 +1407,24 @@ msy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]passer, SDL[]_[][]Texture $\OMS/cms
 y/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]passer, SDL[]_[][]Rect
  []
 
-[69]
+[71]
 Underfull \hbox (badness 10000) detected at line 80
 [][][]
  []
 
-[70]
+[72]
 Underfull \hbox (badness 10000) detected at line 130
 [][][]
  []
 
-) (./fonctions__introduction_8c_source.tex [71] [72])
+) (./fonctions__introduction_8c_source.tex [73] [74])
 (./fonctions__menu__principal_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-[73] <./fonctions__menu__principal_8c__incl.pdf>
-<fonctions__menu__principal_8c__incl.pdf, id=5941, 648.4225pt x 231.86626pt>
+[75] <./fonctions__menu__principal_8c__incl.pdf>
+<fonctions__menu__principal_8c__incl.pdf, id=5929, 648.4225pt x 231.86626pt>
 File: fonctions__menu__principal_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__menu__principal_8c__incl.pdf>
 Package pdftex.def Info: fonctions__menu__principal_8c__incl.pdf  used on input
@@ -1411,29 +1435,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
-[74] [75]
+[76] [77]
 Underfull \hbox (badness 10000) detected at line 66
 [][][]
  []
 
-[76]
+[78]
 Underfull \hbox (badness 10000) detected at line 128
 [][][]
  []
 
-[77]
+[79]
 Underfull \hbox (badness 10000) detected at line 184
 [][][]
  []
 
-) (./fonctions__menu__principal_8c_source.tex [78] [79] [80] [81])
+) (./fonctions__menu__principal_8c_source.tex [80] [81] [82] [83])
 (./fonctions__niveau__1_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
  <./fonctions__niveau__1_8c__incl.pdf>
-<fonctions__niveau__1_8c__incl.pdf, id=6389, 714.67pt x 231.86626pt>
+<fonctions__niveau__1_8c__incl.pdf, id=6376, 714.67pt x 231.86626pt>
 File: fonctions__niveau__1_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__1_8c__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__1_8c__incl.pdf  used on input line 
@@ -1453,7 +1477,7 @@ age[]_[]sol[]_[]surface[]_[]niveau[]_[]1, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^
 ^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]sol[]_[]profondeur[]_[]niveau[]
  []
 
-[82]
+[84]
 Underfull \hbox (badness 3343) in paragraph at lines 28--29
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Event $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 
 event, SDL[]_[][]Window $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 window, SDL[]
@@ -1506,15 +1530,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 Overfull \vbox (60.63403pt too high) has occurred while \output is active []
 
 
-[83]
+[85]
 Underfull \hbox (badness 10000) detected at line 97
 [][][]
  []
 
-[84] [85]) (./fonctions__niveau__1_8c_source.tex [86] [87] [88] [89] [90]
-[91] [92] [93] [94] [95]) (./fonctions__niveau__2_8c.tex <./fonctions__niveau__
+[86] [87]) (./fonctions__niveau__1_8c_source.tex [88] [89] [90] [91] [92]
+[93] [94] [95] [96] [97]) (./fonctions__niveau__2_8c.tex <./fonctions__niveau__
 2_8c__incl.pdf>
-<fonctions__niveau__2_8c__incl.pdf, id=7300, 648.4225pt x 231.86626pt>
+<fonctions__niveau__2_8c__incl.pdf, id=7287, 648.4225pt x 231.86626pt>
 File: fonctions__niveau__2_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__2_8c__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__2_8c__incl.pdf  used on input line 
@@ -1550,7 +1574,7 @@ age[]_[]pipe[]_[]bas[]_[]gauche, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\
 T1/phv/m/n/10 texture[]_[]image[]_[]pipe[]_[]haut[]_[]gauche, SDL[]_[][]
  []
 
-[96]
+[98]
 Underfull \hbox (badness 1975) in paragraph at lines 30--31
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]porte, [] $\OMS/
 cmsy/m/n/10 ^^C$\T1/phv/m/n/10 avancee[]_[]niveaux, SDL[]_[][]Texture $\OMS/cms
@@ -1582,31 +1606,31 @@ msy/m/n/10 ^^C$\T1/phv/m/n/10 saut, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 to
 mbe, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 items[]
  []
 
-[97]
+[99]
 Underfull \hbox (badness 10000) detected at line 76
 [][][]
  []
 
-[98] [99] [100]
+[100] [101] [102]
 Underfull \hbox (badness 10000) detected at line 178
 [][][]
  []
 
-[101] [102]
+[103] [104]
 Underfull \hbox (badness 10000) detected at line 232
 [][][]
  []
 
-) (./fonctions__niveau__2_8c_source.tex [103] [104] [105] [106] [107] [108]
-[109] [110] [111] [112] [113] [114] [115]) (./fonctions__niveau__3_8c.tex <./fo
+) (./fonctions__niveau__2_8c_source.tex [105] [106] [107] [108] [109] [110]
+[111] [112] [113] [114] [115] [116] [117]) (./fonctions__niveau__3_8c.tex <./fo
 nctions__niveau__3_8c__incl.pdf>
-<fonctions__niveau__3_8c__incl.pdf, id=8556, 714.67pt x 231.86626pt>
+<fonctions__niveau__3_8c__incl.pdf, id=8544, 714.67pt x 231.86626pt>
 File: fonctions__niveau__3_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__3_8c__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__3_8c__incl.pdf  used on input line 
 10.
 (pdftex.def)             Requested size: 350.0pt x 113.55176pt.
- [116]
+ [118]
 Underfull \hbox (badness 10000) in paragraph at lines 16--17
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
@@ -1651,35 +1675,35 @@ re $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture, SDL[]_[][]Rect $\OMS/cmsy
 /m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]tile,
  []
 
-[117] [118]
+[119] [120]
 Underfull \hbox (badness 10000) detected at line 78
 [][][]
  []
 
-[119] [120]
+[121] [122]
 Underfull \hbox (badness 10000) detected at line 151
 [][][]
  []
 
-[121]
+[123]
 Underfull \hbox (badness 10000) detected at line 195
 [][][]
  []
 
-[122]
+[124]
 Underfull \hbox (badness 10000) detected at line 267
 [][][]
  []
 
-) (./fonctions__niveau__3_8c_source.tex [123] [124] [125] [126] [127] [128]
-[129] [130] [131] [132] [133] [134] [135] [136] [137] [138])
+) (./fonctions__niveau__3_8c_source.tex [125] [126] [127] [128] [129] [130]
+[131] [132] [133] [134] [135] [136] [137] [138] [139] [140])
 (./fonctions__niveau__4_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
  <./fonctions__niveau__4_8c__incl.pdf>
-<fonctions__niveau__4_8c__incl.pdf, id=10096, 714.67pt x 231.86626pt>
+<fonctions__niveau__4_8c__incl.pdf, id=10083, 714.67pt x 231.86626pt>
 File: fonctions__niveau__4_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__4_8c__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__4_8c__incl.pdf  used on input line 
@@ -1700,7 +1724,7 @@ Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]bordure
 []_[]porte,
  []
 
-[139]
+[141]
 Underfull \hbox (badness 3312) in paragraph at lines 34--36
 \T1/phv/m/n/10 _[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]til
 e, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]plein[]_[]
@@ -1766,12 +1790,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-[140]
+[142]
 Underfull \hbox (badness 10000) detected at line 84
 [][][]
  []
 
-[141]
+[143]
 Underfull \hbox (badness 10000) detected at line 120
 [][][]
  []
@@ -1781,7 +1805,7 @@ Underfull \hbox (badness 10000) detected at line 156
 [][][]
  []
 
-[142]
+[144]
 Underfull \hbox (badness 10000) detected at line 192
 [][][]
  []
@@ -1791,16 +1815,16 @@ Underfull \hbox (badness 10000) detected at line 228
 [][][]
  []
 
-[143]
+[145]
 Underfull \hbox (badness 10000) detected at line 262
 [][][]
  []
 
-[144] [145]) (./fonctions__niveau__4_8c_source.tex [146] [147] [148] [149]
-[150] [151] [152] [153] [154] [155] [156] [157] [158])
+[146] [147]) (./fonctions__niveau__4_8c_source.tex [148] [149] [150] [151]
+[152] [153] [154] [155] [156] [157] [158] [159] [160])
 (./fonctions__nouvelle__partie_8c.tex <./fonctions__nouvelle__partie_8c__incl.p
 df>
-<fonctions__nouvelle__partie_8c__incl.pdf, id=11327, 714.67pt x 231.86626pt>
+<fonctions__nouvelle__partie_8c__incl.pdf, id=11315, 714.67pt x 231.86626pt>
 File: fonctions__nouvelle__partie_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__nouvelle__partie_8c__incl.pdf>
 Package pdftex.def Info: fonctions__nouvelle__partie_8c__incl.pdf  used on inpu
@@ -1835,7 +1859,7 @@ ure[]_[]texte, TTF[]_[][]Font $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 police,
  SDL[]_[][]Color couleur[]Noire, int mode[]Saisie, []
  []
 
-[159]
+[161]
 Underfull \hbox (badness 3240) in paragraph at lines 25--26
 \T1/phv/m/n/10 _[]en[]_[]arriere, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/
 m/n/10 rectangle[]_[]options, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/
@@ -1870,14 +1894,14 @@ _[]partie, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 compteur[]_[]mort, int
 Overfull \vbox (13.93646pt too high) has occurred while \output is active []
 
 
-[160]
+[162]
 Underfull \hbox (badness 10000) detected at line 66
 [][][]
  []
 
-[161]) (./fonctions__nouvelle__partie_8c_source.tex [162] [163] [164] [165]
-[166] [167]) (./fonctions__options_8c.tex <./fonctions__options_8c__incl.pdf>
-<fonctions__options_8c__incl.pdf, id=12004, 714.67pt x 231.86626pt>
+[163]) (./fonctions__nouvelle__partie_8c_source.tex [164] [165] [166] [167]
+[168] [169]) (./fonctions__options_8c.tex <./fonctions__options_8c__incl.pdf>
+<fonctions__options_8c__incl.pdf, id=11991, 714.67pt x 231.86626pt>
 File: fonctions__options_8c__incl.pdf Graphic file (type pdf)
 <use fonctions__options_8c__incl.pdf>
 Package pdftex.def Info: fonctions__options_8c__incl.pdf  used on input line 15
@@ -1890,7 +1914,7 @@ Underfull \hbox (badness 5345) in paragraph at lines 21--22
 urface, SDL[]_[][]Texture
  []
 
-[168]
+[170]
 Underfull \hbox (badness 5622) in paragraph at lines 29--30
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Event $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 
 event, SDL[]_[][]Window $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 window, SDL[]
@@ -1912,25 +1936,25 @@ ectangles[]_[]boutons[]_[]sons, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 onglet[
 ]
  []
 
-[169]
+[171]
 Underfull \hbox (badness 10000) detected at line 72
 [][][]
  []
 
-[170]
+[172]
 Underfull \hbox (badness 10000) detected at line 165
 [][][]
  []
 
-[171] [172]) (./fonctions__options_8c_source.tex [173] [174] [175] [176]
-[177] [178] [179] [180]) (./metatravers_8c.tex <./metatravers_8c__incl.pdf>
-<metatravers_8c__incl.pdf, id=12985, 1755.55875pt x 220.825pt>
+[173] [174]) (./fonctions__options_8c_source.tex [175] [176] [177] [178]
+[179] [180] [181] [182]) (./metatravers_8c.tex <./metatravers_8c__incl.pdf>
+<metatravers_8c__incl.pdf, id=12971, 1755.55875pt x 220.825pt>
 File: metatravers_8c__incl.pdf Graphic file (type pdf)
 <use metatravers_8c__incl.pdf>
 Package pdftex.def Info: metatravers_8c__incl.pdf  used on input line 31.
 (pdftex.def)             Requested size: 350.0pt x 44.02269pt.
 
-[181]
+[183]
 Underfull \hbox (badness 10000) detected at line 61
 [][][]
  []
@@ -1940,28 +1964,28 @@ Underfull \hbox (badness 10000) detected at line 64
 [][][]
  []
 
-) (./metatravers_8c_source.tex [182] [183] [184] [185] [186] [187] [188]
-[189] [190] [191] [192] [193] [194] [195] [196] [197] [198] [199] [200]
-[201]) (./fonctions__arrivee__niveaux__2__3_8h.tex <./fonctions__arrivee__nivea
+) (./metatravers_8c_source.tex [184] [185] [186] [187] [188] [189] [190]
+[191] [192] [193] [194] [195] [196] [197] [198] [199] [200] [201] [202]
+[203]) (./fonctions__arrivee__niveaux__2__3_8h.tex <./fonctions__arrivee__nivea
 ux__2__3_8h__incl.pdf>
-<fonctions__arrivee__niveaux__2__3_8h__incl.pdf, id=14868, 714.67pt x 165.61874
+<fonctions__arrivee__niveaux__2__3_8h__incl.pdf, id=14855, 714.67pt x 165.61874
 pt>
 File: fonctions__arrivee__niveaux__2__3_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__arrivee__niveaux__2__3_8h__incl.pdf>
 Package pdftex.def Info: fonctions__arrivee__niveaux__2__3_8h__incl.pdf  used o
-n input line 15.
+n input line 14.
 (pdftex.def)             Requested size: 350.0pt x 81.1084pt.
- [202] <./fonctions__arrivee__niveaux__2__3_8h__dep__incl.pdf>
-<fonctions__arrivee__niveaux__2__3_8h__dep__incl.pdf, id=14947, 365.365pt x 176
+ [204] <./fonctions__arrivee__niveaux__2__3_8h__dep__incl.pdf>
+<fonctions__arrivee__niveaux__2__3_8h__dep__incl.pdf, id=14934, 365.365pt x 176
 .66pt>
 File: fonctions__arrivee__niveaux__2__3_8h__dep__incl.pdf Graphic file (type pd
 f)
 <use fonctions__arrivee__niveaux__2__3_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__arrivee__niveaux__2__3_8h__dep__incl.pdf  u
-sed on input line 23.
+sed on input line 21.
 (pdftex.def)             Requested size: 350.0pt x 169.23854pt.
 
-Underfull \hbox (badness 2197) in paragraph at lines 35--36
+Underfull \hbox (badness 2197) in paragraph at lines 33--34
 \T1/phv/m/n/10 _[]personnage, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 mini[]_[
 ]jeu[]_[]termine, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 mini[]_[]jeu[]_[]1[]
 _[]termine, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 mini[]_[]jeu[]_[]2[]_[]ter
@@ -1969,7 +1993,7 @@ mine, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 4582) in paragraph at lines 35--36
+Underfull \hbox (badness 4582) in paragraph at lines 33--34
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]fond, SDL[]_[][]
 Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]sol, SD
 L[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[
@@ -1977,20 +2001,20 @@ L[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[
  []
 
 
-Underfull \hbox (badness 1297) in paragraph at lines 35--36
+Underfull \hbox (badness 1297) in paragraph at lines 33--34
 [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 avancee[]_[]niveaux, SDL[]_[][]Keycode 
 $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]sauter[]_[]monter, SDL[]_[][]Ke
 ycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]descendre,
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 35--36
+Underfull \hbox (badness 2042) in paragraph at lines 33--34
 \T1/phv/m/n/10 Demande[]Quitter, int taille[]Demande, SDL[]_[][]Color couleur[]
 Noire, int tile[]_[]map[]_[]mini[]_[]jeu[]_[]niveau[]_[]2[]19[][]27[],
  []
 
 
-Underfull \hbox (badness 804) in paragraph at lines 35--36
+Underfull \hbox (badness 804) in paragraph at lines 33--34
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]texte, TTF[]_[][]Font $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 police,
  SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]demande, tim
@@ -1998,7 +2022,7 @@ e[]_[]t $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 timestamp,
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 35--36
+Underfull \hbox (badness 1540) in paragraph at lines 33--34
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]image[]_[]perso[]_[]gagnant, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 a
 vancer, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 reculer, int $\OMS/cmsy/m/n/10
@@ -2007,7 +2031,7 @@ vancer, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 reculer, int $\OMS/cmsy/m/n/10
  []
 
 
-Underfull \hbox (badness 800) in paragraph at lines 35--36
+Underfull \hbox (badness 800) in paragraph at lines 33--34
 \T1/phv/m/n/10 _[]avant[]_[]saut, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 saut
 , int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 tombe, int $\OMS/cmsy/m/n/10 ^^C$\T1
 /phv/m/n/10 position[]_[]x[]_[]initiale, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/
@@ -2016,63 +2040,63 @@ on[]_[]x, int
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 35--36
+Underfull \hbox (badness 1077) in paragraph at lines 33--34
 \T1/phv/m/n/10 Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]im
 age[]_[]mur[]_[]mini[]_[]jeu, int collectibles[]_[]intermediaires[]3[], [] $\OM
 S/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 items[]Explications,
  []
 
 
-Underfull \hbox (badness 1448) in paragraph at lines 35--36
+Underfull \hbox (badness 1448) in paragraph at lines 33--34
 \T1/phv/m/n/10 _[]image[]_[]pipe[]_[]bas[]_[]gauche, SDL[]_[][]Texture $\OMS/cm
 sy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]pipe[]_[]haut[]_[]gauch
 e, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]
  []
 
 
-Underfull \hbox (badness 764) in paragraph at lines 35--36
+Underfull \hbox (badness 764) in paragraph at lines 33--34
 \T1/phv/m/n/10 _[]image[]_[]pipe[]_[]courant, SDL[]_[][]Texture $\OMS/cmsy/m/n/
 10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]mur[]_[]termine, int $\OMS/cms
 y/m/n/10 ^^C$\T1/phv/m/n/10 valide, SDL[]_[][]Rect rectangle[]_[]
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 35--36
+Underfull \hbox (badness 1199) in paragraph at lines 33--34
 \T1/phv/m/n/10 _[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]
 _[]image[]_[]bordure[]_[]labyrinthe, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^
 ^C$\T1/phv/m/n/10 texture[]_[]image[]_[]fin[]_[]labyrinthe, SDL[]_[][]Color
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 35--36
+Underfull \hbox (badness 1502) in paragraph at lines 33--34
 \T1/phv/m/n/10 couleur[]Titre, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 items[]D
 emande[]Sauvegarde, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 barre[]_[]de[]_[]so
 n, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 pseudo,
  []
 
-[203] [204] [205] [206]) (./fonctions__arrivee__niveaux__2__3_8h_source.tex
-[207]) (./fonctions__carte_8h.tex <./fonctions__carte_8h__incl.pdf>
-<fonctions__carte_8h__incl.pdf, id=15073, 648.4225pt x 165.61874pt>
+[205] [206] [207] [208]) (./fonctions__arrivee__niveaux__2__3_8h_source.tex
+[209]) (./fonctions__carte_8h.tex <./fonctions__carte_8h__incl.pdf>
+<fonctions__carte_8h__incl.pdf, id=15060, 648.4225pt x 165.61874pt>
 File: fonctions__carte_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__carte_8h__incl.pdf>
-Package pdftex.def Info: fonctions__carte_8h__incl.pdf  used on input line 14.
+Package pdftex.def Info: fonctions__carte_8h__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 350.0pt x 89.3974pt.
- [208] <./fonctions__carte_8h__dep__incl.pdf>
-<fonctions__carte_8h__dep__incl.pdf, id=15124, 343.2825pt x 176.66pt>
+ [210] <./fonctions__carte_8h__dep__incl.pdf>
+<fonctions__carte_8h__dep__incl.pdf, id=15111, 343.2825pt x 176.66pt>
 File: fonctions__carte_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__carte_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__carte_8h__dep__incl.pdf  used on input line
- 22.
+ 20.
 (pdftex.def)             Requested size: 342.0pt x 175.99913pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--30
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
 urface, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 986) in paragraph at lines 28--30
+Underfull \hbox (badness 986) in paragraph at lines 26--28
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]image[]_[]perso[]_[]2[]_[]bas[]_[]1, SDL[]_[][]Texture $\OMS/cmsy/m/n/1
 0 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]2[]_[]bas[]_[]2, SDL[
@@ -2080,7 +2104,7 @@ ure[]_[]image[]_[]perso[]_[]2[]_[]bas[]_[]1, SDL[]_[][]Texture $\OMS/cmsy/m/n/1
  []
 
 
-Underfull \hbox (badness 3354) in paragraph at lines 28--30
+Underfull \hbox (badness 3354) in paragraph at lines 26--28
 \T1/phv/m/n/10 _[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]
 _[]image[]_[]perso[]_[]2[]_[]haut, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C
 $\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]2[]_[]droite, SDL[]_[][]Texture
@@ -2088,7 +2112,7 @@ $\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]2[]_[]droite, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 4556) in paragraph at lines 28--30
+Underfull \hbox (badness 4556) in paragraph at lines 26--28
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]2[]_[]
 gauche, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[
 ]image[]_[]perso[]_[]2[]_[]pose, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 items[
@@ -2096,22 +2120,22 @@ gauche, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 30--32
+Underfull \hbox (badness 1418) in paragraph at lines 28--30
 \T1/phv/m/n/10 _[]fin[]_[]dernier[]_[]niveau, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 
 ^^C$\T1/phv/m/n/10 rectangle[]_[]succes, [] position[]Active, SDL[]_[][]Color c
 ouleur[]Noire,
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 32--34
+Underfull \hbox (badness 2073) in paragraph at lines 30--32
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]carte, SDL[]_[][
 ]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]plein[]_[]ecran, SDL[]
 _[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]pl
 ein[]_[]ecran,
  []
 
-[209]
-Underfull \hbox (badness 2772) in paragraph at lines 34--35
+[211]
+Underfull \hbox (badness 2772) in paragraph at lines 32--33
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]bas[]_
 []1, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]im
 age[]_[]perso[]_[]bas[]_[]2, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/p
@@ -2119,92 +2143,92 @@ hv/m/n/10 texture[]
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 34--35
+Underfull \hbox (badness 1521) in paragraph at lines 32--33
 \T1/phv/m/n/10 _[]image[]_[]perso[]_[]haut[]_[]1, SDL[]_[][]Texture $\OMS/cmsy/
 m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]haut[]_[]2, SDL[
 ]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]
  []
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 34--35
+Underfull \hbox (badness 1845) in paragraph at lines 32--33
 \T1/phv/m/n/10 perso[]_[]bas[]_[]gauche[]_[]1, SDL[]_[][]Texture $\OMS/cmsy/m/n
 /10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]bas[]_[]gauche[]_[]
 2, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]
  []
 
 
-Underfull \hbox (badness 905) in paragraph at lines 34--35
+Underfull \hbox (badness 905) in paragraph at lines 32--33
 \T1/phv/m/n/10 image[]_[]perso[]_[]haut, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^
 C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]droite, SDL[]_[][]Texture
  $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]
  []
 
 
-Underfull \hbox (badness 1629) in paragraph at lines 34--35
+Underfull \hbox (badness 1629) in paragraph at lines 32--33
 \T1/phv/m/n/10 _[]gauche, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/
 m/n/10 texture[]_[]image[]_[]perso[]_[]pose, SDL[]_[][]Texture $\OMS/cmsy/m/n/1
 0 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso, SDL[]_[][]Rect
  []
 
 
-Underfull \hbox (badness 849) in paragraph at lines 34--35
+Underfull \hbox (badness 849) in paragraph at lines 32--33
 \OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 mode[]Actif, [] $\OMS/cmsy/m/n/10 ^^C$\T1/p
 hv/m/n/10 personnage[]Actif, SDL[]_[][]Color couleur[]Noire, SDL[]_[][]Keycode 
 $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]aller[]_[]
  []
 
 
-Underfull \hbox (badness 2318) in paragraph at lines 34--35
+Underfull \hbox (badness 2318) in paragraph at lines 32--33
 \OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]descendre, SDL[]_[][]Keycode $\O
 MS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]interagir, [] $\OMS/cmsy/m/n/10 ^^
 C$\T1/phv/m/n/10 items[]Niveaux, int taille[]Niveaux, int
  []
 
-[210] [211] [212]) (./fonctions__carte_8h_source.tex [213])
+[212] [213] [214]) (./fonctions__carte_8h_source.tex [215])
 (./fonctions__generales_8h.tex <./fonctions__generales_8h__incl.pdf>
-<fonctions__generales_8h__incl.pdf, id=15287, 648.4225pt x 165.61874pt>
+<fonctions__generales_8h__incl.pdf, id=15274, 648.4225pt x 165.61874pt>
 File: fonctions__generales_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__generales_8h__incl.pdf>
 Package pdftex.def Info: fonctions__generales_8h__incl.pdf  used on input line 
-14.
+13.
 (pdftex.def)             Requested size: 350.0pt x 89.3974pt.
  <./fonctions__generales_8h__dep__incl.pdf>
-<fonctions__generales_8h__dep__incl.pdf, id=15302, 1650.165pt x 176.66pt>
+<fonctions__generales_8h__dep__incl.pdf, id=15289, 1650.165pt x 176.66pt>
 File: fonctions__generales_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__generales_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__generales_8h__dep__incl.pdf  used on input 
-line 22.
+line 21.
 (pdftex.def)             Requested size: 350.0pt x 37.46898pt.
- [214]
-Underfull \hbox (badness 1264) in paragraph at lines 108--110
+ [216]
+Underfull \hbox (badness 1264) in paragraph at lines 107--109
 \T1/phv/m/n/10 image[]_[]plein[]_[]ecran, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^
 ^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]retour[]_[]en[]_[]arriere, SDL[]_[
 ][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 108--110
+Underfull \hbox (badness 1158) in paragraph at lines 107--109
 \T1/phv/m/n/10 Demande[]Quitter, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\
 T1/phv/m/n/10 texture[]_[]image[]_[]fin[]_[]premiers[]_[]niveaux, SDL[]_[][]Tex
 ture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]
  []
 
 
-Underfull \hbox (badness 5133) in paragraph at lines 108--110
+Underfull \hbox (badness 5133) in paragraph at lines 107--109
 \T1/phv/m/n/10 _[]monstre[]_[]terrestre, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^
 C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]monstre[]_[]volant, SDL[]_[][]Textu
 re $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 110--111
+Underfull \hbox (badness 3039) in paragraph at lines 109--110
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle
 []_[]demande[]_[]sauvegarde,
  []
 
 
-Underfull \hbox (badness 1184) in paragraph at lines 112--113
+Underfull \hbox (badness 1184) in paragraph at lines 111--112
 \T1/phv/m/n/10 _[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 surface, 
 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]texte, 
 TTF[]_[][]Font $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 police, SDL[]_[][]Colo
@@ -2212,15 +2236,15 @@ r cou-leur, []
  []
 
 
-Underfull \hbox (badness 2644) in paragraph at lines 118--120
+Underfull \hbox (badness 2644) in paragraph at lines 117--119
 \T1/phv/m/n/10 SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_
 []sauter[]_[]monter, SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 tou
 che[]_[]descendre, SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touch
 e[]_[]
  []
 
-[215]
-Underfull \hbox (badness 1728) in paragraph at lines 126--128
+[217]
+Underfull \hbox (badness 1728) in paragraph at lines 125--127
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture2, SDL[]_[][]Texture $\OMS/cmsy
 /m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture3, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^
 ^C$$^^C$\T1/phv/m/n/10 texture4, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\
@@ -2228,22 +2252,22 @@ T1/phv/m/n/10 texture5, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 126--128
+Underfull \hbox (badness 1728) in paragraph at lines 125--127
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture6, SDL[]_[][]Texture $\OMS/cmsy
 /m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture7, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^
 ^C$$^^C$\T1/phv/m/n/10 texture8, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\
 T1/phv/m/n/10 texture9, SDL[]_[][]Texture
  []
 
-[216]
+[218]
 LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 171.
- [217]
+(Font)              scaled to size 10.79993pt on input line 170.
+ [219]
 Overfull \vbox (23.33199pt too high) has occurred while \output is active []
 
 
-[218]
-Underfull \hbox (badness 10000) detected at line 382
+[220]
+Underfull \hbox (badness 10000) detected at line 381
 [][][]
  []
 
@@ -2251,70 +2275,70 @@ Underfull \hbox (badness 10000) detected at line 382
 Overfull \vbox (21.76385pt too high) has occurred while \output is active []
 
 
-[219]
-Underfull \hbox (badness 10000) detected at line 406
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 434
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 462
-[][][]
- []
-
-[220]
-Underfull \hbox (badness 10000) detected at line 502
-[][][]
- []
-
 [221]
-Underfull \hbox (badness 10000) detected at line 542
+Underfull \hbox (badness 10000) detected at line 405
 [][][]
  []
 
-[222] [223]
-Underfull \hbox (badness 10000) detected at line 605
+
+Underfull \hbox (badness 10000) detected at line 433
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 461
+[][][]
+ []
+
+[222]
+Underfull \hbox (badness 10000) detected at line 501
+[][][]
+ []
+
+[223]
+Underfull \hbox (badness 10000) detected at line 541
 [][][]
  []
 
 [224] [225]
-Underfull \hbox (badness 10000) detected at line 665
+Underfull \hbox (badness 10000) detected at line 604
+[][][]
+ []
+
+[226] [227]
+Underfull \hbox (badness 10000) detected at line 664
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 668
+Underfull \hbox (badness 10000) detected at line 667
 [][][]
  []
 
-) (./fonctions__generales_8h_source.tex [226] [227])
+) (./fonctions__generales_8h_source.tex [228] [229])
 (./fonctions__introduction_8h.tex <./fonctions__introduction_8h__incl.pdf>
-<fonctions__introduction_8h__incl.pdf, id=15813, 648.4225pt x 165.61874pt>
+<fonctions__introduction_8h__incl.pdf, id=15800, 648.4225pt x 165.61874pt>
 File: fonctions__introduction_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__introduction_8h__incl.pdf>
 Package pdftex.def Info: fonctions__introduction_8h__incl.pdf  used on input li
-ne 14.
+ne 13.
 (pdftex.def)             Requested size: 350.0pt x 89.3974pt.
  <./fonctions__introduction_8h__dep__incl.pdf>
-<fonctions__introduction_8h__dep__incl.pdf, id=15828, 343.2825pt x 176.66pt>
+<fonctions__introduction_8h__dep__incl.pdf, id=15815, 343.2825pt x 176.66pt>
 File: fonctions__introduction_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__introduction_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__introduction_8h__dep__incl.pdf  used on inp
-ut line 22.
+ut line 20.
 (pdftex.def)             Requested size: 342.0pt x 175.99913pt.
 
-Underfull \hbox (badness 2735) in paragraph at lines 28--29
+Underfull \hbox (badness 2735) in paragraph at lines 26--27
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, int in-dice, char $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 ligne,
  SDL[]_[][]Rect
  []
 
 
-Underfull \hbox (badness 841) in paragraph at lines 28--29
+Underfull \hbox (badness 841) in paragraph at lines 26--27
 \T1/phv/m/n/10 _[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 surface, 
 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]texte, 
 TTF[]_[][]Font $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 police, SDL[]_[][]Colo
@@ -2322,106 +2346,106 @@ r couleur[]Blanche, int
  []
 
 
-Underfull \hbox (badness 1325) in paragraph at lines 30--31
+Underfull \hbox (badness 1325) in paragraph at lines 28--29
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Event $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 
 event, SDL[]_[][]Window $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 window, SDL[]
 _[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 renderer, SDL[]_[]bool
  []
 
 
-Underfull \hbox (badness 4940) in paragraph at lines 30--31
+Underfull \hbox (badness 4940) in paragraph at lines 28--29
 \OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 programme[]_[]lance, SDL[]_[][]Rect $\OMS/c
 msy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]passer, SDL[]_[][]Texture $\OMS/cms
 y/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]passer, SDL[]_[][]Rect
  []
 
-[228]
-Underfull \hbox (badness 10000) detected at line 78
+[230]
+Underfull \hbox (badness 10000) detected at line 76
 [][][]
  []
 
-[229]
-Underfull \hbox (badness 10000) detected at line 128
+[231]
+Underfull \hbox (badness 10000) detected at line 126
 [][][]
  []
 
-) (./fonctions__introduction_8h_source.tex [230])
+) (./fonctions__introduction_8h_source.tex [232])
 (./fonctions__menu__principal_8h.tex <./fonctions__menu__principal_8h__incl.pdf
 >
-<fonctions__menu__principal_8h__incl.pdf, id=15900, 525.965pt x 165.61874pt>
+<fonctions__menu__principal_8h__incl.pdf, id=15888, 525.965pt x 165.61874pt>
 File: fonctions__menu__principal_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__menu__principal_8h__incl.pdf>
 Package pdftex.def Info: fonctions__menu__principal_8h__incl.pdf  used on input
- line 13.
+ line 12.
 (pdftex.def)             Requested size: 350.0pt x 110.21341pt.
  <./fonctions__menu__principal_8h__dep__incl.pdf>
-<fonctions__menu__principal_8h__dep__incl.pdf, id=15915, 343.2825pt x 176.66pt>
+<fonctions__menu__principal_8h__dep__incl.pdf, id=15903, 343.2825pt x 176.66pt>
 
 File: fonctions__menu__principal_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__menu__principal_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__menu__principal_8h__dep__incl.pdf  used on 
-input line 21.
+input line 19.
 (pdftex.def)             Requested size: 342.0pt x 175.99913pt.
- [231]
-Underfull \hbox (badness 10000) detected at line 61
+ [233]
+Underfull \hbox (badness 10000) detected at line 59
 [][][]
  []
 
-[232]
-Underfull \hbox (badness 10000) detected at line 123
+[234]
+Underfull \hbox (badness 10000) detected at line 121
 [][][]
  []
 
-[233]
-Underfull \hbox (badness 10000) detected at line 179
+[235]
+Underfull \hbox (badness 10000) detected at line 177
 [][][]
  []
 
-) (./fonctions__menu__principal_8h_source.tex [234])
+) (./fonctions__menu__principal_8h_source.tex [236])
 (./fonctions__niveau__1_8h.tex <./fonctions__niveau__1_8h__incl.pdf>
-<fonctions__niveau__1_8h__incl.pdf, id=16017, 714.67pt x 165.61874pt>
+<fonctions__niveau__1_8h__incl.pdf, id=16004, 714.67pt x 165.61874pt>
 File: fonctions__niveau__1_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__1_8h__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__1_8h__incl.pdf  used on input line 
-15.
+14.
 (pdftex.def)             Requested size: 350.0pt x 81.1084pt.
  <./fonctions__niveau__1_8h__dep__incl.pdf>
-<fonctions__niveau__1_8h__dep__incl.pdf, id=16032, 343.2825pt x 176.66pt>
+<fonctions__niveau__1_8h__dep__incl.pdf, id=16019, 343.2825pt x 176.66pt>
 File: fonctions__niveau__1_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__1_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__1_8h__dep__incl.pdf  used on input 
-line 23.
+line 21.
 (pdftex.def)             Requested size: 342.0pt x 175.99913pt.
- [235]
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
+ [237]
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
 urface, SDL[]_[][]
  []
 
 
-Underfull \hbox (badness 760) in paragraph at lines 29--30
+Underfull \hbox (badness 760) in paragraph at lines 27--28
 \T1/phv/m/n/10 Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]im
 age[]_[]sol[]_[]surface[]_[]niveau[]_[]1, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^
 ^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]sol[]_[]profondeur[]_[]niveau[]
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 35--36
+Underfull \hbox (badness 3343) in paragraph at lines 33--34
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Event $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 
 event, SDL[]_[][]Window $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 window, SDL[]
 _[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 renderer, SDL[]_[]bool
  []
 
 
-Underfull \hbox (badness 7777) in paragraph at lines 35--36
+Underfull \hbox (badness 7777) in paragraph at lines 33--34
 \OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 programme[]_[]lance, SDL[]_[][]Texture $\OM
 S/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]croix, SDL[]_[][]Re
 ct $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]croix, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 6016) in paragraph at lines 35--36
+Underfull \hbox (badness 6016) in paragraph at lines 33--34
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture, SDL[]_[][]Rect $\OMS/cmsy/m/n
 /10 ^^C$\T1/phv/m/n/10 rectangle[]_[]plein[]_[]ecran, SDL[]_[][]Texture $\OMS/c
 msy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]plein[]_[]ecran, SDL[]
@@ -2429,14 +2453,14 @@ _[]bool
  []
 
 
-Underfull \hbox (badness 2237) in paragraph at lines 35--36
+Underfull \hbox (badness 2237) in paragraph at lines 33--34
 \OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 plein[]_[]ecran, SDL[]_[][]Texture $\OMS/cm
 sy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]personnage, SDL[]_[][]R
 ect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]personnage, SDL[]_[][]
  []
 
 
-Underfull \hbox (badness 857) in paragraph at lines 35--36
+Underfull \hbox (badness 857) in paragraph at lines 33--34
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]sol[]_[]surface,
  SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[
 ]_[]sol[]_[]profondeur, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/
@@ -2444,41 +2468,41 @@ n/10 texture[]_[]
  []
 
 
-Underfull \hbox (badness 5008) in paragraph at lines 35--36
+Underfull \hbox (badness 5008) in paragraph at lines 33--34
 \T1/phv/m/n/10 _[]tile, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 items[]Demande[
 ]Quitter, int taille[]Demande, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1
 /phv/m/n/10 texture[]_[]image[]_[]perso[]_[]
  []
 
-[236] [237]
-Underfull \hbox (badness 10000) detected at line 94
+[238] [239]
+Underfull \hbox (badness 10000) detected at line 92
 [][][]
  []
 
-[238]) (./fonctions__niveau__1_8h_source.tex [239])
+[240]) (./fonctions__niveau__1_8h_source.tex [241])
 (./fonctions__niveau__2_8h.tex <./fonctions__niveau__2_8h__incl.pdf>
-<fonctions__niveau__2_8h__incl.pdf, id=16149, 648.4225pt x 165.61874pt>
+<fonctions__niveau__2_8h__incl.pdf, id=16135, 648.4225pt x 165.61874pt>
 File: fonctions__niveau__2_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__2_8h__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__2_8h__incl.pdf  used on input line 
-14.
+13.
 (pdftex.def)             Requested size: 350.0pt x 89.3974pt.
- [240] <./fonctions__niveau__2_8h__dep__incl.pdf>
-<fonctions__niveau__2_8h__dep__incl.pdf, id=16212, 493.845pt x 176.66pt>
+ [242] <./fonctions__niveau__2_8h__dep__incl.pdf>
+<fonctions__niveau__2_8h__dep__incl.pdf, id=16199, 493.845pt x 176.66pt>
 File: fonctions__niveau__2_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__2_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__2_8h__dep__incl.pdf  used on input 
-line 22.
+line 20.
 (pdftex.def)             Requested size: 350.0pt x 125.20303pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--31
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
 urface, SDL[]_[][]
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 30--31
+Underfull \hbox (badness 1231) in paragraph at lines 28--29
 \T1/phv/m/n/10 _[]haut[]_[]droit, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$
 \T1/phv/m/n/10 texture[]_[]image[]_[]pipe[]_[]bas[]_[]droit, SDL[]_[][]Texture 
 $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]pipe[]_[]bas[]_
@@ -2486,7 +2510,7 @@ $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]pipe[]_[]bas[]_
  []
 
 
-Underfull \hbox (badness 1852) in paragraph at lines 38--40
+Underfull \hbox (badness 1852) in paragraph at lines 36--38
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]image[]_[]pipe[]_[]haut[]_[]droit, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 
 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]pipe[]_[]bas[]_[]droit, SDL[]_[][
@@ -2494,14 +2518,14 @@ ure[]_[]image[]_[]pipe[]_[]haut[]_[]droit, SDL[]_[][]Texture $\OMS/cmsy/m/n/10
  []
 
 
-Underfull \hbox (badness 1448) in paragraph at lines 38--40
+Underfull \hbox (badness 1448) in paragraph at lines 36--38
 \T1/phv/m/n/10 Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]im
 age[]_[]pipe[]_[]bas[]_[]gauche, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\
 T1/phv/m/n/10 texture[]_[]image[]_[]pipe[]_[]haut[]_[]gauche, SDL[]_[][]
  []
 
-[241]
-Underfull \hbox (badness 1975) in paragraph at lines 44--45
+[243]
+Underfull \hbox (badness 1975) in paragraph at lines 42--43
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]porte, [] $\OMS/
 cmsy/m/n/10 ^^C$\T1/phv/m/n/10 avancee[]_[]niveaux, SDL[]_[][]Texture $\OMS/cms
 y/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$
@@ -2509,7 +2533,7 @@ y/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$
  []
 
 
-Underfull \hbox (badness 883) in paragraph at lines 44--45
+Underfull \hbox (badness 883) in paragraph at lines 42--43
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]image[]_[]croix, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 re
 ctangle[]_[]croix, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 
@@ -2517,14 +2541,14 @@ texture[]_[]image[]_[]mur[]
  []
 
 
-Underfull \hbox (badness 1189) in paragraph at lines 44--45
+Underfull \hbox (badness 1189) in paragraph at lines 42--43
 \T1/phv/m/n/10 collectibles[]_[]intermediaires[]3[], SDL[]_[][]Texture $\OMS/cm
 sy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]mur[]_[]termine, [] $\O
 MS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 page[]_[]active, Mix[]
  []
 
 
-Underfull \hbox (badness 768) in paragraph at lines 44--45
+Underfull \hbox (badness 768) in paragraph at lines 42--43
 \T1/phv/m/n/10 _[][]Music $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 musique, in
 t $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 avancer, int $\OMS/cmsy/m/n/10 ^^C$\T1/p
 hv/m/n/10 reculer, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 sauter, int $\OMS/c
@@ -2532,45 +2556,45 @@ msy/m/n/10 ^^C$\T1/phv/m/n/10 saut, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 to
 mbe, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 items[]
  []
 
-[242]
-Underfull \hbox (badness 10000) detected at line 90
+[244]
+Underfull \hbox (badness 10000) detected at line 88
 [][][]
  []
 
-[243] [244] [245]
-Underfull \hbox (badness 10000) detected at line 192
+[245] [246] [247]
+Underfull \hbox (badness 10000) detected at line 190
 [][][]
  []
 
-[246] [247]
-Underfull \hbox (badness 10000) detected at line 271
+[248] [249]
+Underfull \hbox (badness 10000) detected at line 269
 [][][]
  []
 
-) (./fonctions__niveau__2_8h_source.tex [248]) (./fonctions__niveau__3_8h.tex <
+) (./fonctions__niveau__2_8h_source.tex [250]) (./fonctions__niveau__3_8h.tex <
 ./fonctions__niveau__3_8h__incl.pdf>
-<fonctions__niveau__3_8h__incl.pdf, id=16383, 714.67pt x 165.61874pt>
+<fonctions__niveau__3_8h__incl.pdf, id=16371, 714.67pt x 165.61874pt>
 File: fonctions__niveau__3_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__3_8h__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__3_8h__incl.pdf  used on input line 
-15.
+14.
 (pdftex.def)             Requested size: 350.0pt x 81.1084pt.
- [249] <./fonctions__niveau__3_8h__dep__incl.pdf>
-<fonctions__niveau__3_8h__dep__incl.pdf, id=16448, 493.845pt x 176.66pt>
+ [251] <./fonctions__niveau__3_8h__dep__incl.pdf>
+<fonctions__niveau__3_8h__dep__incl.pdf, id=16434, 493.845pt x 176.66pt>
 File: fonctions__niveau__3_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__3_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__3_8h__dep__incl.pdf  used on input 
-line 23.
+line 21.
 (pdftex.def)             Requested size: 350.0pt x 125.20303pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
 urface, SDL[]_[][]
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 31--32
+Underfull \hbox (badness 6510) in paragraph at lines 29--30
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]sol[]_[]niveau[]
 _[]3, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 barre[]_[]win
 dows[]_[]1, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 barre[]
@@ -2578,7 +2602,7 @@ _[]windows[]_[]2,
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 31--32
+Underfull \hbox (badness 1019) in paragraph at lines 29--30
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 barr
 e[]_[]windows[]_[]3, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/1
 0 barre[]_[]windows[]_[]4, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
@@ -2586,71 +2610,71 @@ e[]_[]windows[]_[]3, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/1
  []
 
 
-Underfull \hbox (badness 756) in paragraph at lines 47--49
+Underfull \hbox (badness 756) in paragraph at lines 45--47
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 mode[]Actif, SDL[]_[]
 []Texture
  []
 
 
-Underfull \hbox (badness 995) in paragraph at lines 47--49
+Underfull \hbox (badness 995) in paragraph at lines 45--47
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]image[]_[]mur[]_[]termine, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C
 $\T1/phv/m/n/10 texture[]_[]image[]_[]fin[]_[]labyrinthe, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 991) in paragraph at lines 47--49
+Underfull \hbox (badness 991) in paragraph at lines 45--47
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]croix, SDL[]_[][
 ]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]croix, SDL[]_[][]Textu
 re $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture, SDL[]_[][]Rect $\OMS/cmsy
 /m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]tile,
  []
 
-[250] [251]
-Underfull \hbox (badness 10000) detected at line 93
-[][][]
- []
-
 [252] [253]
-Underfull \hbox (badness 10000) detected at line 166
+Underfull \hbox (badness 10000) detected at line 91
 [][][]
  []
 
-[254]
-Underfull \hbox (badness 10000) detected at line 210
+[254] [255]
+Underfull \hbox (badness 10000) detected at line 164
 [][][]
  []
 
-[255] [256]
-Underfull \hbox (badness 10000) detected at line 307
+[256]
+Underfull \hbox (badness 10000) detected at line 208
 [][][]
  []
 
-) (./fonctions__niveau__3_8h_source.tex [257]) (./fonctions__niveau__4_8h.tex <
+[257] [258]
+Underfull \hbox (badness 10000) detected at line 305
+[][][]
+ []
+
+) (./fonctions__niveau__3_8h_source.tex [259]) (./fonctions__niveau__4_8h.tex <
 ./fonctions__niveau__4_8h__incl.pdf>
-<fonctions__niveau__4_8h__incl.pdf, id=16641, 714.67pt x 165.61874pt>
+<fonctions__niveau__4_8h__incl.pdf, id=16628, 714.67pt x 165.61874pt>
 File: fonctions__niveau__4_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__4_8h__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__4_8h__incl.pdf  used on input line 
-15.
+14.
 (pdftex.def)             Requested size: 350.0pt x 81.1084pt.
- [258] <./fonctions__niveau__4_8h__dep__incl.pdf>
-<fonctions__niveau__4_8h__dep__incl.pdf, id=16698, 343.2825pt x 176.66pt>
+ [260] <./fonctions__niveau__4_8h__dep__incl.pdf>
+<fonctions__niveau__4_8h__dep__incl.pdf, id=16685, 343.2825pt x 176.66pt>
 File: fonctions__niveau__4_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__niveau__4_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__niveau__4_8h__dep__incl.pdf  used on input 
-line 23.
+line 22.
 (pdftex.def)             Requested size: 342.0pt x 175.99913pt.
 
-Underfull \hbox (badness 2582) in paragraph at lines 29--30
+Underfull \hbox (badness 2582) in paragraph at lines 28--29
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
 urface, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 7540) in paragraph at lines 29--30
+Underfull \hbox (badness 7540) in paragraph at lines 28--29
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]fond, SDL[]_[][]
 Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]bordure
 , SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image
@@ -2658,7 +2682,7 @@ Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]bordure
  []
 
 
-Underfull \hbox (badness 3312) in paragraph at lines 41--43
+Underfull \hbox (badness 3312) in paragraph at lines 40--42
 \T1/phv/m/n/10 _[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]til
 e, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]plein[]_[]
 ecran, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]
@@ -2666,14 +2690,14 @@ image[]_[]plein[]_[]ecran,
  []
 
 
-Underfull \hbox (badness 4940) in paragraph at lines 41--43
+Underfull \hbox (badness 4940) in paragraph at lines 40--42
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]image[]_[]porte, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m
 /n/10 texture[]_[]image[]_[]fin[]_[]dernier[]_[]niveau, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 991) in paragraph at lines 41--43
+Underfull \hbox (badness 991) in paragraph at lines 40--42
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]personnage, SDL[
 ]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]personnage, SDL[]
 _[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]pi
@@ -2681,40 +2705,40 @@ que,
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 43--44
+Underfull \hbox (badness 3343) in paragraph at lines 42--43
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Event $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 
 event, SDL[]_[][]Window $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 window, SDL[]
 _[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 renderer, SDL[]_[]bool
  []
 
 
-Underfull \hbox (badness 4454) in paragraph at lines 43--44
+Underfull \hbox (badness 4454) in paragraph at lines 42--43
 \T1/phv/m/n/10 _[]image[]_[]plein[]_[]ecran, SDL[]_[]bool $\OMS/cmsy/m/n/10 ^^C
 $\T1/phv/m/n/10 plein[]_[]ecran, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\
 T1/phv/m/n/10 texture[]_[]image[]_[]personnage, SDL[]_[][]Rect
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 43--44
+Underfull \hbox (badness 1454) in paragraph at lines 42--43
 \T1/phv/m/n/10 _[]pique, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 avancee[]_[]ni
 veaux, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 surface, [] 
 $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 mode[]Actif, int collectibles[]_[]
  []
 
 
-Underfull \hbox (badness 5036) in paragraph at lines 43--44
+Underfull \hbox (badness 5036) in paragraph at lines 42--43
 \T1/phv/m/n/10 _[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]sau
 ter[]_[]monter, SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]
 _[]interagir, int tile[]_[]map[]18[][]32[], SDL[]_[][]Rect
  []
 
-[259]
-Underfull \hbox (badness 10000) detected at line 77
+[261]
+Underfull \hbox (badness 10000) detected at line 76
 [][][]
  []
 
-[260]
-Underfull \hbox (badness 10000) detected at line 113
+[262]
+Underfull \hbox (badness 10000) detected at line 112
 [][][]
  []
 
@@ -2722,52 +2746,52 @@ Underfull \hbox (badness 10000) detected at line 113
 Overfull \vbox (41.02943pt too high) has occurred while \output is active []
 
 
-[261]
-Underfull \hbox (badness 10000) detected at line 149
+[263]
+Underfull \hbox (badness 10000) detected at line 148
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 185
+Underfull \hbox (badness 10000) detected at line 184
 [][][]
  []
 
-[262]
-Underfull \hbox (badness 10000) detected at line 221
+[264]
+Underfull \hbox (badness 10000) detected at line 220
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 255
+Underfull \hbox (badness 10000) detected at line 254
 [][][]
  []
 
-[263] [264]) (./fonctions__niveau__4_8h_source.tex [265])
+[265] [266]) (./fonctions__niveau__4_8h_source.tex [267])
 (./fonctions__nouvelle__partie_8h.tex <./fonctions__nouvelle__partie_8h__incl.p
 df>
-<fonctions__nouvelle__partie_8h__incl.pdf, id=16851, 592.2125pt x 165.61874pt>
+<fonctions__nouvelle__partie_8h__incl.pdf, id=16839, 592.2125pt x 165.61874pt>
 File: fonctions__nouvelle__partie_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__nouvelle__partie_8h__incl.pdf>
 Package pdftex.def Info: fonctions__nouvelle__partie_8h__incl.pdf  used on inpu
-t line 14.
+t line 13.
 (pdftex.def)             Requested size: 350.0pt x 97.88351pt.
- [266] <./fonctions__nouvelle__partie_8h__dep__incl.pdf>
-<fonctions__nouvelle__partie_8h__dep__incl.pdf, id=16914, 343.2825pt x 176.66pt
+ [268] <./fonctions__nouvelle__partie_8h__dep__incl.pdf>
+<fonctions__nouvelle__partie_8h__dep__incl.pdf, id=16902, 343.2825pt x 176.66pt
 >
 File: fonctions__nouvelle__partie_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__nouvelle__partie_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__nouvelle__partie_8h__dep__incl.pdf  used on
- input line 22.
+ input line 20.
 (pdftex.def)             Requested size: 342.0pt x 175.99913pt.
 
-Underfull \hbox (badness 5345) in paragraph at lines 30--32
+Underfull \hbox (badness 5345) in paragraph at lines 28--30
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle
 []_[]plein[]_[]
  []
 
 
-Underfull \hbox (badness 6995) in paragraph at lines 30--32
+Underfull \hbox (badness 6995) in paragraph at lines 28--30
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]retour[]_[]en[]_
 []arriere, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]op
 tions, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]
@@ -2775,21 +2799,21 @@ image[]_[]
  []
 
 
-Underfull \hbox (badness 2326) in paragraph at lines 30--32
+Underfull \hbox (badness 2326) in paragraph at lines 28--30
 \T1/phv/m/n/10 options, [] mode[]Actif, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C
 $$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]1, SDL[]_[][]Rect $\OMS/cm
 sy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]perso[]_[]1,
  []
 
 
-Underfull \hbox (badness 795) in paragraph at lines 30--32
+Underfull \hbox (badness 795) in paragraph at lines 28--30
 \T1/phv/m/n/10 SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 text
 ure[]_[]texte, TTF[]_[][]Font $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 police,
  SDL[]_[][]Color couleur[]Noire, int mode[]Saisie, []
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 32--33
+Underfull \hbox (badness 3240) in paragraph at lines 30--31
 \T1/phv/m/n/10 _[]en[]_[]arriere, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/
 m/n/10 rectangle[]_[]options, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/
 phv/m/n/10 texture[]_[]image[]_[]options, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n
@@ -2797,14 +2821,14 @@ phv/m/n/10 texture[]_[]image[]_[]options, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 32--33
+Underfull \hbox (badness 2277) in paragraph at lines 30--31
 \OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 texture[]_[]image[]_[]perso[]_[]2, SDL
 []_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]perso[]_[]2, [] 
 $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 personnage[]Actif, []
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 32--33
+Underfull \hbox (badness 1377) in paragraph at lines 30--31
 \OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]aller[]_[]a[]_[]droite, SDL[]_[]
 []Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]aller[]_[]a[]_[]gauch
 e, SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]sauter[]_[
@@ -2812,86 +2836,83 @@ e, SDL[]_[][]Keycode $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 touche[]_[]sauter[]_[
  []
 
 
-Underfull \hbox (badness 927) in paragraph at lines 32--33
+Underfull \hbox (badness 927) in paragraph at lines 30--31
 \T1/phv/m/n/10 int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 largeur, int $\OMS/cmsy
 /m/n/10 ^^C$\T1/phv/m/n/10 hauteur, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 pag
 e[]_[]active, time[]_[]t $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 temps[]_[]debut[]
 _[]partie, int $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 compteur[]_[]mort, int
  []
 
-[267]
-Underfull \hbox (badness 10000) detected at line 64
+[269]
+Underfull \hbox (badness 10000) detected at line 62
 [][][]
  []
 
-[268] [269]) (./fonctions__nouvelle__partie_8h_source.tex)
+[270] [271]) (./fonctions__nouvelle__partie_8h_source.tex)
 (./fonctions__options_8h.tex <./fonctions__options_8h__incl.pdf>
-<fonctions__options_8h__incl.pdf, id=17022, 592.2125pt x 165.61874pt>
+<fonctions__options_8h__incl.pdf, id=17009, 592.2125pt x 165.61874pt>
 File: fonctions__options_8h__incl.pdf Graphic file (type pdf)
 <use fonctions__options_8h__incl.pdf>
-Package pdftex.def Info: fonctions__options_8h__incl.pdf  used on input line 14
+Package pdftex.def Info: fonctions__options_8h__incl.pdf  used on input line 13
 .
 (pdftex.def)             Requested size: 350.0pt x 97.88351pt.
- [270] <./fonctions__options_8h__dep__incl.pdf>
-<fonctions__options_8h__dep__incl.pdf, id=17079, 343.2825pt x 176.66pt>
+ [272] <./fonctions__options_8h__dep__incl.pdf>
+<fonctions__options_8h__dep__incl.pdf, id=17065, 343.2825pt x 176.66pt>
 File: fonctions__options_8h__dep__incl.pdf Graphic file (type pdf)
 <use fonctions__options_8h__dep__incl.pdf>
 Package pdftex.def Info: fonctions__options_8h__dep__incl.pdf  used on input li
-ne 22.
+ne 20.
 (pdftex.def)             Requested size: 342.0pt x 175.99913pt.
 
-Underfull \hbox (badness 5345) in paragraph at lines 28--29
+Underfull \hbox (badness 5345) in paragraph at lines 26--27
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 renderer, SDL[]_[][]Surface $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 s
 urface, SDL[]_[][]Texture
  []
 
 
-Underfull \hbox (badness 5622) in paragraph at lines 36--37
+Underfull \hbox (badness 5622) in paragraph at lines 34--35
 []\T1/phv/m/n/10 void [] (SDL[]_[][]Event $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 
 event, SDL[]_[][]Window $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 window, SDL[]
 _[][]Renderer $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv/m/n/10 renderer, SDL[]_[]bool
  []
 
 
-Underfull \hbox (badness 2529) in paragraph at lines 36--37
+Underfull \hbox (badness 2529) in paragraph at lines 34--35
 \T1/phv/m/n/10 _[]arriere, SDL[]_[][]Texture $\OMS/cmsy/m/n/10 ^^C$$^^C$\T1/phv
 /m/n/10 texture[]_[]image[]_[]haut[]Parleur[]Actif, SDL[]_[][]Rect $\OMS/cmsy/m
 /n/10 ^^C$\T1/phv/m/n/10 rectangle[]_[]demande[]_[]sauvegarde,
  []
 
 
-Underfull \hbox (badness 800) in paragraph at lines 36--37
+Underfull \hbox (badness 800) in paragraph at lines 34--35
 \T1/phv/m/n/10 haut[]Parleur[]Desactive, SDL[]_[]bool $\OMS/cmsy/m/n/10 ^^C$\T1
 /phv/m/n/10 sons[]Actifs, SDL[]_[][]Rect $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 r
 ectangles[]_[]boutons[]_[]sons, [] $\OMS/cmsy/m/n/10 ^^C$\T1/phv/m/n/10 onglet[
 ]
  []
 
-[271]
-Underfull \hbox (badness 10000) detected at line 70
+[273]
+Underfull \hbox (badness 10000) detected at line 68
 [][][]
  []
 
-[272] [273]
-Underfull \hbox (badness 10000) detected at line 163
+[274] [275]
+Underfull \hbox (badness 10000) detected at line 161
 [][][]
  []
 
-[274]) (./fonctions__options_8h_source.tex [275]) (./test__pseudo_8c.tex <./tes
-t__pseudo_8c__incl.pdf>
-<test__pseudo_8c__incl.pdf, id=17239, 204.765pt x 165.61874pt>
-File: test__pseudo_8c__incl.pdf Graphic file (type pdf)
-<use test__pseudo_8c__incl.pdf>
-Package pdftex.def Info: test__pseudo_8c__incl.pdf  used on input line 10.
-(pdftex.def)             Requested size: 204.0pt x 165.00928pt.
- [276]) (./test__pseudo_8c_source.tex) [277] [278
-
-]
+[276]) (./fonctions__options_8h_source.tex [277]) (./README_8md.tex) [278]
 (./refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
- [279
+
+Overfull \hbox (28.9587pt too wide) in paragraph at lines 3--5
+[]\T1/phv/m/n/10 /info/etu/l2info/s2201668/Projet_Jeu_L2/projetL2/README.md,
+ []
+
+[279
+
 
 
 ] [280] [281] [282] [283])
@@ -2901,13 +2922,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 277.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 277.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 2F09274D9DF73EC99BDB15DB1AC35385;63607.
+(rerunfilecheck)             Checksum: 7369B6EAA714CE311C3976C5168C8C8E;62909.
  ) 
 Here is how much of TeX's memory you used:
- 31057 strings out of 481239
- 724245 string characters out of 5920377
- 689976 words of memory out of 5000000
- 34185 multiletter control sequences out of 15000+600000
+ 31024 strings out of 481239
+ 723299 string characters out of 5920377
+ 689327 words of memory out of 5000000
+ 34173 multiletter control sequences out of 15000+600000
  587345 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,96p,9251b,710s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2922,10 +2943,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (293 pages, 1498818 bytes).
+Output written on refman.pdf (293 pages, 1490747 bytes).
 PDF statistics:
- 20193 PDF objects out of 22161 (max. 8388607)
- 19482 compressed objects within 195 object streams
- 11691 named destinations out of 12825 (max. 500000)
- 2263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 20126 PDF objects out of 22161 (max. 8388607)
+ 19419 compressed objects within 195 object streams
+ 11670 named destinations out of 12825 (max. 500000)
+ 2226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

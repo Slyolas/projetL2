@@ -1,10 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#ifndef H_NIVEAU_3
+#define H_NIVEAU_3
 
 /* Squelette de la fonction salon_arrivee_niveaux_2_3 */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active);
@@ -73,3 +68,4 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
                         itemMenu *itemsDemandeSauvegarde, barreDeSon *barre_de_son, itemMenu *pseudo, 
                         personnage_t *personnageActif, position_t *positionActive, int tailleNiveaux,
                         time_t temps_debut_partie, int *compteur_mort, int *avancee_succes, int avancee_succes_intermediaires[10]);
+#endif

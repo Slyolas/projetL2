@@ -155,7 +155,7 @@ clean_exe:
 
 
 
-#Nom du projet 
+#Nom du projet
 PROJECT_NAME = Metatravers
 #Commande à exécuter
 DOXYGEN = doxygen
@@ -163,6 +163,7 @@ DOC_DIR = docu
 doc:
 	@echo "Génération de la documentation Doxygen"
 	@$(DOXYGEN) Doxyfile
+	 
 	@echo "Documentation générée dans $(DOC_DIR)/"
 
 clean_doxy:

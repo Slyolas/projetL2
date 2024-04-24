@@ -2,15 +2,7 @@
  * \file metatravers.c
  * \brief Fichier qui réunit les différents modules pour le bon fonctionnement du programme
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include "../fichiers_h/fonctions_generales.h"
-#include "../fichiers_h/fonctions_menu_principal.h"
+#include "../fichiers_h/commun.h"
 #include "../fichiers_h/fonctions_options.h"
 #include "../fichiers_h/fonctions_nouvelle_partie.h"
 #include "../fichiers_h/fonctions_introduction.h"

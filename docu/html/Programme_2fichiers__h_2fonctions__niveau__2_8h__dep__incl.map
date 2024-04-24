@@ -1,9 +1,0 @@
-<map id="Programme/fichiers_h/fonctions_niveau_2.h" name="Programme/fichiers_h/fonctions_niveau_2.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="182,5,361,45"/>
-<area shape="rect" id="Node000002" href="$Programme_2fichiers__c_2fonctions__arrivee__niveaux__2__3_8c.html" title="Fichier contenant les fonctions s&#39;occupant du hub du niveau 2 et 3." alt="" coords="5,93,159,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,54,136,96,134,91,220,49"/>
-<area shape="rect" id="Node000003" href="$Programme_2fichiers__c_2fonctions__niveau__2_8c.html" title=" " alt="" coords="183,101,360,141"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,59,274,101,269,101,269,59"/>
-<area shape="rect" id="Node000004" href="$Programme_2fichiers__c_2metatravers_8c.html" title="Fichier qui réunit les différents modules pour le bon fonctionnement du programme." alt="" coords="385,101,534,141"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="323,49,423,98,420,103,320,54"/>
-</map>
