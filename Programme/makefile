@@ -42,7 +42,7 @@ SRCS_NIVEAU_4_FONC = $(wildcard $(SRC_DIR)/fonctions_niveau_4.c)
 
 # Récupération des fichiers objets correspondants
 OBJS_JEU = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_JEU))
-
+	
 OBJS_COMMUN_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_COMMUN_FONC))
 
 OBJS_MENU_FONC = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS_MENU_FONC))
@@ -73,7 +73,7 @@ EXECUTABLE = metatravers
 #
 
 # Compilation de l'exécutable
-all: $(BIN_DIR)/$(EXECUTABLE); gcc test\ unitaire/test_pseudo.c -Wall -o test\ unitaire/test_pseudo; ./bin/metatravers 
+all: $(BIN_DIR)/$(EXECUTABLE); gcc test\ unitaire/test_pseudo.c -Wall -o test\ unitaire/test_pseudo; ./bin/metatravers
 
 # Créer le répertoire bin s'il n'existe pas
 $(shell mkdir -p $(BIN_DIR))
@@ -155,7 +155,7 @@ test:
 
 
 # Nettoyage des fichiers temporaires
-clean: clean_exe clean_obj clean_test
+clean: clean_exe clean_obj clean_test clean_doc
 
 # Supprimer les fichiers objets
 clean_obj:
@@ -175,10 +175,9 @@ DOC_DIR = docu
 doc:
 	@echo "Génération de la documentation Doxygen"
 	@$(DOXYGEN) Doxyfile
-
 	@echo "Documentation générée dans $(DOC_DIR)/"
+	@browse $(DOC_DIR)/html/index.html
 
-clean_doxy:
+clean_doc:
 	@echo "Suppression de la documentation Doxygen"
-	@rm -rf $(DOC_DIR)/latex
 	@rm -rf $(DOC_DIR)/html

@@ -71,6 +71,7 @@ SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur) {
  * \param renderer rendu de l'écran
  * \param texture_image_puzzle  image final du puzzle 
  * \param rectangle_piece les différentes pièces du puzzle 
+ * \param rectangle_croix Rectangle ou se trouve la croix pour fermer le jeu
  * \see erreur
  */
 void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[45],
@@ -666,6 +667,16 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
  * \param touche_sauter_monter Touche pour sauter/monter.
  * \param touche_descendre Touche pour descendre.
  * \param modeActif Mode actif du jeu.
+ * \param itemsDemandeSauvegarde Éléments pour la demande de sauvegarde.
+ * \param barre_de_son Barre de son.
+ * \param pseudo Pseudo.
+ * \param personnageActif Personnage actif.
+ * \param positionActive Position active.
+ * \param tailleNiveaux Taille des niveaux.
+ * \param temps_debut_partie Temps de début de partie.
+ * \param compteur_mort Compteur de mort.
+ * \param avancee_succes Avancée des succès.
+ * \param avancee_succes_intermediaires Avancée des succès intermédiaires.
  * \see clic_case
  * \see clic_plein_ecran
  * \see demande_quitter_niveau

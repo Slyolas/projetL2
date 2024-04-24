@@ -328,12 +328,15 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
  * \param largeur Largeur de l'écran.
  * \param hauteur Hauteur de l'écran.
  * \param page_active Page active.
+ * \param temps_debut_partie Temps de début de partie.
+ * \param compteur_mort Compteur de mort.
+ * \param avancee_succes Avancée des succès.
  * \see redimensionnement_fenetre 
  * \see clic_case 
  * \see clic_plein_ecran 
  * \see sauvegarder_partie 
  * \see mise_a_jour_rendu_nouvelle_partie
- */
+*/
 void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, 
                      SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere, 

@@ -111,6 +111,7 @@ void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeu
  * \param texture_image_perso_2_gagnant Texture de l'image du personnage 2 gagnant.
  * \param avancee_niveaux Structure de progression des niveaux.
  * \param police Police de caractères TTF.
+ * \param texture_image_croix texture de la croix 
  * \see chargement_image
  * \see erreur
  */
@@ -354,6 +355,9 @@ int verification_sauvegarde() {
  * \param positionActive Position active.
  * \param avancee_niveaux Structure de progression des niveaux.
  * \param tailleNiveaux Taille du tableau d'items pour les niveaux.
+ * \param temps_debut_partie timer de debut de partie
+ * \param compteur_mort compteur pour compter le nombre de fois ou le personnage meurt
+ * \param avancee_succes Succès du jeu
  * \see erreur
  */
 void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
@@ -487,6 +491,7 @@ int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool 
  * \param avancer Indicateur d'avancement.
  * \param reculer Indicateur de recul.
  * \param tile_map Carte du niveau.
+ * \param personnageActif Type de personnage
  */
 void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut,
                             int sauter, int avancer, int reculer, int tile_map[18][32], personnage_t personnageActif) {
@@ -594,7 +599,8 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
  * \fn
  * \brief Fonction qui permet de détruire les objets initialisés
  * \param police Police d'écriture qui sera désallouer
- * \param texture_1_to_71 les 71 textures à désallouer
+ * \param texture_1_to_72 les 72 textures à désallouer
+ * \param textures_images_succes Texture des succès 
  */
 void detruire_objets(TTF_Font **police, Mix_Music **musique, SDL_Texture **texture1, SDL_Texture **texture2,
                      SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,

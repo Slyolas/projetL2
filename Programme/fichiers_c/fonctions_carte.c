@@ -34,6 +34,8 @@
  * \param texture_image_perso_2_pose Texture de l'image du personnage 2 en pose.
  * \param itemsNiveaux Tableau d'items pour les niveaux.
  * \param texture_image_retour_menu Texture de l'image du bouton retour au menu.
+ * \param itemsSucces Tableau des éléments de succès.
+ * \param textures_images_succes Tableau des textures pour les images de succès.
  * \see chargement_image
  */
 void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_carte,
@@ -528,6 +530,12 @@ void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Window **window, 
  * \param largeur Largeur de la carte.
  * \param hauteur Hauteur de la carte.
  * \param page_active Page active.
+ * \param itemsSucces Éléments des succès.
+ * \param textures_images_succes Textures des images des succès.
+ * \param temps_debut_partie Temps de début de partie.
+ * \param compteur_mort Compteur de mort.
+ * \param avancee_succes Avancée des succès.
+ * \param avancee_succes_intermediaires Avancée des succès intermédiaires.
  * \see mise_a_jour_rendu_carte
  * \see redimensionnement_fenetre
  * \see deplacement_personnage_carte

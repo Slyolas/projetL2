@@ -290,9 +290,9 @@ void mise_a_jour_rendu_options(SDL_Renderer **renderer, SDL_Rect *rectangle_plei
 /** 
  * \fn void mise_a_jour_barre_de_son(SDL_Event *event, barreDeSon *barre_de_son, SDL_bool *sonsActifs)
  * \brief Fonction qui permet de mettre à jour les barres de sons 
- * @param event Pointeur vers l'événement SDL.
- * @param barre_de_son Pointeur vers la barre de son.
- * @param sonsActifs Pointeur booléen pour l'état des sons.
+ * \param event Pointeur vers l'événement SDL.
+ * \param barre_de_son Pointeur vers la barre de son.
+ * \param sonsActifs Pointeur booléen pour l'état des sons.
  */
 void mise_a_jour_barre_de_son(SDL_Event *event, barreDeSon *barre_de_son, SDL_bool *sonsActifs) {
 
@@ -307,10 +307,10 @@ void mise_a_jour_barre_de_son(SDL_Event *event, barreDeSon *barre_de_son, SDL_bo
 /** 
  * \fn void mise_a_jour_touches(SDL_Event *event, SDL_Keycode *touche, int *selection_touche, itemMenu *itemsTouches)
  * \brief Fonction qui permet de mettre à jour les touches 
- * @param event Pointeur vers l'événement SDL.
- * @param touche Pointeur vers la touche sélectionnée.
- * @param selection_touche Pointeur vers l'indice de la touche sélectionnée.
- * @param itemsTouches Tableau des éléments de menu des touches.
+ * \param event Pointeur vers l'événement SDL.
+ * \param touche Pointeur vers la touche sélectionnée.
+ * \param selection_touche Pointeur vers l'indice de la touche sélectionnée.
+ * \param itemsTouches Tableau des éléments de menu des touches.
  */
 void mise_a_jour_touches(SDL_Event *event, SDL_Keycode *touche, int *selection_touche, itemMenu *itemsTouches) {
 
@@ -323,52 +323,55 @@ void mise_a_jour_touches(SDL_Event *event, SDL_Keycode *touche, int *selection_t
 /** 
  * \fn void options(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_hautParleurActif, SDL_Rect *rectangle_demande_sauvegarde, itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, SDL_Texture **texture_image_hautParleurDesactive, SDL_bool *sonsActifs, SDL_Rect *rectangles_boutons_sons, option_t *ongletActif, itemMenu *pseudo, modes_t *modeActif, personnage_t *personnageActif, position_t *positionActive, niveaux *avancee_niveaux, int tailleNiveaux, itemMenu *titre, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, int *selection_touche, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, SDL_Color couleurNoire, itemMenu *itemsMenu, int tailleMenu, itemMenu *itemsTouches, int tailleTouches,  barreDeSon *barre_de_son, int tailleBarres, itemMenu *itemsBarres, int *largeur, int *hauteur, page_t *page_active, page_t *page_precedente, int *maintient_clic) 
  * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les options 
- * @param event Pointeur vers l'événement SDL.
- * @param window Pointeur vers la fenêtre SDL.
- * @param renderer Pointeur vers le renderer SDL.
- * @param programme_lance Pointeur vers le booléen indiquant si le programme est en cours d'exécution.
- * @param rectangle_plein_ecran Rectangle pour le mode plein écran.
- * @param texture_image_plein_ecran Texture pour le bouton du mode plein écran.
- * @param plein_ecran Pointeur vers le booléen indiquant si le jeu est en mode plein écran.
- * @param rectangle_retour_en_arriere Rectangle pour le bouton de retour en arrière.
- * @param texture_image_retour_en_arriere Texture pour le bouton de retour en arrière.
- * @param texture_image_hautParleurActif Texture pour l'icône du haut-parleur actif.
- * @param rectangle_demande_sauvegarde Rectangle pour le bouton de demande de sauvegarde.
- * @param itemsDemandeSauvegarde Tableau des éléments de menu pour la demande de sauvegarde.
- * @param tailleDemandeSauvegarde Taille du tableau des éléments de menu de demande de sauvegarde.
- * @param texture_image_hautParleurDesactive Texture pour l'icône du haut-parleur désactivé.
- * @param sonsActifs Pointeur vers le booléen indiquant si les sons sont actifs.
- * @param rectangles_boutons_sons Tableau des rectangles pour les boutons des sons.
- * @param ongletActif Pointeur vers l'onglet actif dans les options.
- * @param pseudo Pseudo du joueur.
- * @param modeActif Mode de jeu actif.
- * @param personnageActif Personnage actif.
- * @param positionActive Position active du joueur.
- * @param avancee_niveaux Tableau de progression des niveaux.
- * @param tailleNiveaux Taille du tableau de progression des niveaux.
- * @param titre Élément de menu pour le titre.
- * @param surface Surface SDL pour le rendu de texte.
- * @param texture_texte Texture SDL pour le rendu de texte.
- * @param police Police TTF pour le rendu de texte.
- * @param selection_touche Indice de la touche sélectionnée.
- * @param touche_aller_a_droite Touche pour aller à droite.
- * @param touche_aller_a_gauche Touche pour aller à gauche.
- * @param touche_sauter_monter Touche pour sauter/monter.
- * @param touche_descendre Touche pour descendre.
- * @param touche_interagir Touche pour interagir.
- * @param couleurNoire Couleur noire pour le texte.
- * @param itemsMenu Tableau des éléments de menu.
- * @param tailleMenu Taille du tableau des éléments de menu.
- * @param itemsTouches Tableau des éléments de menu pour les touches.
- * @param tailleTouches Taille du tableau des éléments de menu pour les touches.
- * @param barre_de_son Tableau des barres de son.
- * @param tailleBarres Taille du tableau des barres de son.
- * @param itemsBarres Tableau des éléments de menu pour les barres de son.
- * @param largeur Largeur de la fenêtre.
- * @param hauteur Hauteur de la fenêtre.
- * @param page_active Page active.
- * @param page_precedente Page précédente.
- * @param maintient_clic Booléen indiquant si le clic est maintenu.
+ * \param event Pointeur vers l'événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param programme_lance Pointeur vers le booléen indiquant si le programme est en cours d'exécution.
+ * \param rectangle_plein_ecran Rectangle pour le mode plein écran.
+ * \param texture_image_plein_ecran Texture pour le bouton du mode plein écran.
+ * \param plein_ecran Pointeur vers le booléen indiquant si le jeu est en mode plein écran.
+ * \param rectangle_retour_en_arriere Rectangle pour le bouton de retour en arrière.
+ * \param texture_image_retour_en_arriere Texture pour le bouton de retour en arrière.
+ * \param texture_image_hautParleurActif Texture pour l'icône du haut-parleur actif.
+ * \param rectangle_demande_sauvegarde Rectangle pour le bouton de demande de sauvegarde.
+ * \param itemsDemandeSauvegarde Tableau des éléments de menu pour la demande de sauvegarde.
+ * \param tailleDemandeSauvegarde Taille du tableau des éléments de menu de demande de sauvegarde.
+ * \param texture_image_hautParleurDesactive Texture pour l'icône du haut-parleur désactivé.
+ * \param sonsActifs Pointeur vers le booléen indiquant si les sons sont actifs.
+ * \param rectangles_boutons_sons Tableau des rectangles pour les boutons des sons.
+ * \param ongletActif Pointeur vers l'onglet actif dans les options.
+ * \param pseudo Pseudo du joueur.
+ * \param modeActif Mode de jeu actif.
+ * \param personnageActif Personnage actif.
+ * \param positionActive Position active du joueur.
+ * \param avancee_niveaux Tableau de progression des niveaux.
+ * \param tailleNiveaux Taille du tableau de progression des niveaux.
+ * \param titre Élément de menu pour le titre.
+ * \param surface Surface SDL pour le rendu de texte.
+ * \param texture_texte Texture SDL pour le rendu de texte.
+ * \param police Police TTF pour le rendu de texte.
+ * \param selection_touche Indice de la touche sélectionnée.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param touche_descendre Touche pour descendre.
+ * \param touche_interagir Touche pour interagir.
+ * \param couleurNoire Couleur noire pour le texte.
+ * \param itemsMenu Tableau des éléments de menu.
+ * \param tailleMenu Taille du tableau des éléments de menu.
+ * \param itemsTouches Tableau des éléments de menu pour les touches.
+ * \param tailleTouches Taille du tableau des éléments de menu pour les touches.
+ * \param barre_de_son Tableau des barres de son.
+ * \param tailleBarres Taille du tableau des barres de son.
+ * \param itemsBarres Tableau des éléments de menu pour les barres de son.
+ * \param largeur Largeur de la fenêtre.
+ * \param hauteur Hauteur de la fenêtre.
+ * \param page_active Page active.
+ * \param page_precedente Page précédente.
+ * \param maintient_clic Booléen indiquant si le clic est maintenu.
+ * \param temps_debut_partie Temps de début de partie.
+ * \param compteur_mort Compteur de mort.
+ * \param avancee_succes Avancée des succès.
  * \see redimensionnement_fenetre
  * \see clic_case
  * \see clic_plein_ecran

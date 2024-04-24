@@ -109,6 +109,7 @@ void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initi
  * \param hauteur Hauteur de l'écran.
  * \param largeur_tile Largeur d'une tuile.
  * \param hauteur_tile Hauteur d'une tuile.
+ * \param rectangle_croix rectangle de la croix 
  * \see erreur
  */
 void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond,
@@ -287,6 +288,19 @@ void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_i
  * \param largeur_tile Largeur d'une tuile.
  * \param hauteur_tile Hauteur d'une tuile.
  * \param page_active Page active du jeu.
+ * \param itemsDemandeSauvegarde Éléments pour la demande de sauvegarde.
+ * \param touche_descendre Touche pour descendre.
+ * \param touche_interagir Touche pour interagir.
+ * \param barre_de_son Barre de son.
+ * \param pseudo Pseudo.
+ * \param modeActif Mode actif.
+ * \param personnageActif Personnage actif.
+ * \param positionActive Position active.
+ * \param tailleNiveaux Taille des niveaux.
+ * \param temps_debut_partie Temps de début de partie.
+ * \param compteur_mort Compteur de mort.
+ * \param avancee_succes Avancée des succès.
+ * \param avancee_succes_intermediaires Avancée des succès intermédiaires.
  * \see redimensionnement_fenetre
  * \see clic_plein_ecran
  * \see demande_quitter_niveau

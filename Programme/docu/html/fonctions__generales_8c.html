@@ -215,7 +215,19 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00055">55</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                                                           {</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>    SDL_RenderFillRect((*renderer), &amp;(item-&gt;rectangle));</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    (*surface) = TTF_RenderText_Solid((*police), item-&gt;texte, couleur);</div>
+<div class="line"><span class="lineno">   61</span>    (*texture) = SDL_CreateTextureFromSurface((*renderer), (*surface));</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    SDL_RenderCopy((*renderer), (*texture), NULL, &amp;(item-&gt;rectangle));</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    SDL_FreeSurface((*surface));</div>
+<div class="line"><span class="lineno">   66</span>    SDL_DestroyTexture((*texture));</div>
+<div class="line"><span class="lineno">   67</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5157feb5eb905d33c1f9b2e7c0e727dc" name="a5157feb5eb905d33c1f9b2e7c0e727dc"></a>
@@ -269,7 +281,22 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89" title="Affiche l&#39;erreur en cas de problème et ferme la SDL.">erreur</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00030">30</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                                                                                                           {</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    (*surface) = IMG_Load(chemin);</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span>((*surface) == NULL)</div>
+<div class="line"><span class="lineno">   35</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;image&quot;</span>);</div>
+<div class="line"><span class="lineno">   36</span>    </div>
+<div class="line"><span class="lineno">   37</span>    (*texture) = SDL_CreateTextureFromSurface((*renderer), (*surface));</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span>((*texture) == NULL)</div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Création de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    SDL_FreeSurface((*surface));</div>
+<div class="line"><span class="lineno">   43</span>}</div>
+<div class="ttc" id="afonctions__generales_8c_html_a02efc10954bca92c1219a7a3b41dbe89"><div class="ttname"><a href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a></div><div class="ttdeci">void erreur(const char *message)</div><div class="ttdoc">Affiche l'erreur en cas de problème et ferme la SDL.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00014">fonctions_generales.c:14</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4e9c4517e62999bd244b9031d9482d7a" name="a4e9c4517e62999bd244b9031d9482d7a"></a>
@@ -308,8 +335,29 @@ Fonctions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>booléen représentant si le clic s'est fait dans le rectangle (1 si c'est le cas sinon 0) </dd></dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00414">414</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00418">418</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  418</span>                                                   {</div>
+<div class="line"><span class="lineno">  419</span>    </div>
+<div class="line"><span class="lineno">  420</span>    Mix_Chunk *effet_sonore = NULL;</div>
+<div class="line"><span class="lineno">  421</span> </div>
+<div class="line"><span class="lineno">  422</span>    <span class="keywordflow">if</span>((event.button.x &gt;= rectangle.x) &amp;&amp;</div>
+<div class="line"><span class="lineno">  423</span>        (event.button.x &lt;= rectangle.x + rectangle.w) &amp;&amp;</div>
+<div class="line"><span class="lineno">  424</span>        (event.button.y &gt;= rectangle.y) &amp;&amp;</div>
+<div class="line"><span class="lineno">  425</span>        (event.button.y &lt;= rectangle.y + rectangle.h) &amp;&amp;</div>
+<div class="line"><span class="lineno">  426</span>        (event.button.button == SDL_BUTTON_LEFT)) {</div>
+<div class="line"><span class="lineno">  427</span> </div>
+<div class="line"><span class="lineno">  428</span>        <span class="comment">/* Effet sonore quand on clique sur un bouton */</span></div>
+<div class="line"><span class="lineno">  429</span>        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/clic_bouton.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  430</span>            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  431</span>            </div>
+<div class="line"><span class="lineno">  432</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  433</span> </div>
+<div class="line"><span class="lineno">  434</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  435</span>    }</div>
+<div class="line"><span class="lineno">  436</span>    </div>
+<div class="line"><span class="lineno">  437</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  438</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afe51c2fcb0206df7f65785b8b0137951" name="afe51c2fcb0206df7f65785b8b0137951"></a>
@@ -362,8 +410,40 @@ Fonctions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>le changement d'état sous la forme d'un booléen </dd></dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00445">445</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00449">449</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  449</span>                                                                                                                   {</div>
+<div class="line"><span class="lineno">  450</span> </div>
+<div class="line"><span class="lineno">  451</span>    Mix_Chunk *effet_sonore = NULL;</div>
+<div class="line"><span class="lineno">  452</span> </div>
+<div class="line"><span class="lineno">  453</span>    <span class="keywordflow">if</span> ((event.button.x &gt;= rectangle_plein_ecran-&gt;x) &amp;&amp;</div>
+<div class="line"><span class="lineno">  454</span>        (event.button.x &lt;= rectangle_plein_ecran-&gt;x + rectangle_plein_ecran-&gt;w) &amp;&amp;</div>
+<div class="line"><span class="lineno">  455</span>        (event.button.y &gt;= rectangle_plein_ecran-&gt;y) &amp;&amp;</div>
+<div class="line"><span class="lineno">  456</span>        (event.button.y &lt;= rectangle_plein_ecran-&gt;y + rectangle_plein_ecran-&gt;h) &amp;&amp;</div>
+<div class="line"><span class="lineno">  457</span>        (event.button.button == SDL_BUTTON_LEFT)) {</div>
+<div class="line"><span class="lineno">  458</span> </div>
+<div class="line"><span class="lineno">  459</span>        <span class="comment">/* Effet sonore quand on clique sur un bouton */</span></div>
+<div class="line"><span class="lineno">  460</span>        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/clic_bouton.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  461</span>            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  462</span>            </div>
+<div class="line"><span class="lineno">  463</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  464</span>        <span class="keywordflow">if</span> ((*plein_ecran)) {   </div>
+<div class="line"><span class="lineno">  465</span> </div>
+<div class="line"><span class="lineno">  466</span>            SDL_SetWindowFullscreen((*window), 0);</div>
+<div class="line"><span class="lineno">  467</span>            (*plein_ecran) = SDL_FALSE;</div>
+<div class="line"><span class="lineno">  468</span>        } </div>
+<div class="line"><span class="lineno">  469</span>        </div>
+<div class="line"><span class="lineno">  470</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  471</span> </div>
+<div class="line"><span class="lineno">  472</span>            SDL_SetWindowFullscreen((*window), SDL_WINDOW_FULLSCREEN_DESKTOP);</div>
+<div class="line"><span class="lineno">  473</span>            (*plein_ecran) = SDL_TRUE;</div>
+<div class="line"><span class="lineno">  474</span>        }</div>
+<div class="line"><span class="lineno">  475</span> </div>
+<div class="line"><span class="lineno">  476</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  477</span>    }</div>
+<div class="line"><span class="lineno">  478</span> </div>
+<div class="line"><span class="lineno">  479</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  480</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="add13b30b9e22e1fefef7897d49222b47" name="add13b30b9e22e1fefef7897d49222b47"></a>
@@ -417,7 +497,24 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89" title="Affiche l&#39;erreur en cas de problème et ferme la SDL.">erreur</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00078">78</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                                                                                {</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>    <span class="comment">/* Création de la fenêtre */</span></div>
+<div class="line"><span class="lineno">   81</span>    (*window) = SDL_CreateWindow(<span class="stringliteral">&quot;MétaTravers&quot;</span>, SDL_WINDOWPOS_CENTERED,</div>
+<div class="line"><span class="lineno">   82</span>                                 SDL_WINDOWPOS_CENTERED, </div>
+<div class="line"><span class="lineno">   83</span>                                 largeur, hauteur,</div>
+<div class="line"><span class="lineno">   84</span>                                 SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN);</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span>((*window) == NULL)</div>
+<div class="line"><span class="lineno">   87</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Création fenêtre échouée&quot;</span>);</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    <span class="comment">/* Création du rendu */</span></div>
+<div class="line"><span class="lineno">   90</span>    (*renderer) = SDL_CreateRenderer((*window), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span>((*renderer) == NULL)</div>
+<div class="line"><span class="lineno">   93</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Création rendu échoué&quot;</span>);</div>
+<div class="line"><span class="lineno">   94</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a1a8406a3255d6fd605e5cfd014142bdd" name="a1a8406a3255d6fd605e5cfd014142bdd"></a>
@@ -512,8 +609,56 @@ Fonctions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a7c6541df22bdacd36c6b01a67a989b82">affichage_texte</a> </dd></dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00252">252</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00253">253</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  255</span>                                                                                                               {</div>
+<div class="line"><span class="lineno">  256</span> </div>
+<div class="line"><span class="lineno">  257</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  258</span> </div>
+<div class="line"><span class="lineno">  259</span>    <span class="comment">/* Affichage du rectangle de la demande de quitter le niveau */</span></div>
+<div class="line"><span class="lineno">  260</span>    rectangle_demande_quitter-&gt;x = largeur / 6;</div>
+<div class="line"><span class="lineno">  261</span>    rectangle_demande_quitter-&gt;y = hauteur / 6;</div>
+<div class="line"><span class="lineno">  262</span>    rectangle_demande_quitter-&gt;w = largeur / 3 * 2;</div>
+<div class="line"><span class="lineno">  263</span>    rectangle_demande_quitter-&gt;h = hauteur / 3 * 2;</div>
+<div class="line"><span class="lineno">  264</span> </div>
+<div class="line"><span class="lineno">  265</span>    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);</div>
+<div class="line"><span class="lineno">  266</span>    SDL_RenderFillRect((*renderer), rectangle_demande_quitter);</div>
+<div class="line"><span class="lineno">  267</span> </div>
+<div class="line"><span class="lineno">  268</span>    SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);</div>
+<div class="line"><span class="lineno">  269</span>    SDL_RenderDrawRect((*renderer), rectangle_demande_quitter);</div>
+<div class="line"><span class="lineno">  270</span> </div>
+<div class="line"><span class="lineno">  271</span>    <span class="comment">/* Affichage du rectangle de la question de la demande de quitter le niveau */</span></div>
+<div class="line"><span class="lineno">  272</span>    itemsDemandeQuitter[0].rectangle.x = largeur / 6 + largeur / 100;</div>
+<div class="line"><span class="lineno">  273</span>    itemsDemandeQuitter[0].rectangle.y = hauteur / 4 + hauteur / 20;</div>
+<div class="line"><span class="lineno">  274</span>    itemsDemandeQuitter[0].rectangle.w = largeur / 3 * 2 - largeur / 50;</div>
+<div class="line"><span class="lineno">  275</span>    itemsDemandeQuitter[0].rectangle.h = hauteur / 10;</div>
+<div class="line"><span class="lineno">  276</span> </div>
+<div class="line"><span class="lineno">  277</span>    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);</div>
+<div class="line"><span class="lineno">  278</span>    </div>
+<div class="line"><span class="lineno">  279</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a7c6541df22bdacd36c6b01a67a989b82">affichage_texte</a>(renderer, surface, texture_texte, &amp;(itemsDemandeQuitter[0]), </div>
+<div class="line"><span class="lineno">  280</span>                    police, couleur);</div>
+<div class="line"><span class="lineno">  281</span> </div>
+<div class="line"><span class="lineno">  282</span>    <span class="comment">/* Affichage des rectangles des réponses de la demande de quitter le niveau */</span></div>
+<div class="line"><span class="lineno">  283</span>    <span class="keywordflow">for</span>(i = 1; i &lt; tailleDemandeQuitter; i++) {</div>
+<div class="line"><span class="lineno">  284</span>        </div>
+<div class="line"><span class="lineno">  285</span>        itemsDemandeQuitter[i].rectangle.x = largeur / 3 + (i-1) * largeur / 3 - (i-1) * largeur / 10;</div>
+<div class="line"><span class="lineno">  286</span>        itemsDemandeQuitter[i].rectangle.y = hauteur - hauteur / 4 - hauteur / 20 - hauteur / 10;</div>
+<div class="line"><span class="lineno">  287</span>        itemsDemandeQuitter[i].rectangle.w = largeur / 10;</div>
+<div class="line"><span class="lineno">  288</span>        itemsDemandeQuitter[i].rectangle.h = hauteur / 10;</div>
+<div class="line"><span class="lineno">  289</span> </div>
+<div class="line"><span class="lineno">  290</span>        SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);</div>
+<div class="line"><span class="lineno">  291</span> </div>
+<div class="line"><span class="lineno">  292</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a7c6541df22bdacd36c6b01a67a989b82">affichage_texte</a>(renderer, surface, texture_texte, &amp;(itemsDemandeQuitter[i]), </div>
+<div class="line"><span class="lineno">  293</span>                        police, couleur);</div>
+<div class="line"><span class="lineno">  294</span> </div>
+<div class="line"><span class="lineno">  295</span>        SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);</div>
+<div class="line"><span class="lineno">  296</span>        SDL_RenderDrawRect((*renderer), &amp;(itemsDemandeQuitter[i].rectangle));</div>
+<div class="line"><span class="lineno">  297</span>    }</div>
+<div class="line"><span class="lineno">  298</span> </div>
+<div class="line"><span class="lineno">  299</span>    <span class="comment">/* Affiche le rendu */</span></div>
+<div class="line"><span class="lineno">  300</span>    SDL_RenderPresent((*renderer));</div>
+<div class="line"><span class="lineno">  301</span>}</div>
+<div class="ttc" id="afonctions__generales_8c_html_a7c6541df22bdacd36c6b01a67a989b82"><div class="ttname"><a href="fonctions__generales_8c.html#a7c6541df22bdacd36c6b01a67a989b82">affichage_texte</a></div><div class="ttdeci">void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, itemMenu *item, TTF_Font **police, SDL_Color couleur)</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00055">fonctions_generales.c:55</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a066cdfc0bac6604dc0a3a7d8b4c8bffb" name="a066cdfc0bac6604dc0a3a7d8b4c8bffb"></a>
@@ -608,8 +753,55 @@ Fonctions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a7c6541df22bdacd36c6b01a67a989b82">affichage_texte</a> </dd></dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00187">187</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00188">188</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  190</span>                                                                                                                 {</div>
+<div class="line"><span class="lineno">  191</span> </div>
+<div class="line"><span class="lineno">  192</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  193</span> </div>
+<div class="line"><span class="lineno">  194</span>    <span class="comment">/* Affichage du rectangle de la demande de sauvegarde */</span></div>
+<div class="line"><span class="lineno">  195</span>    rectangle_demande_sauvegarde-&gt;x = largeur / 6;</div>
+<div class="line"><span class="lineno">  196</span>    rectangle_demande_sauvegarde-&gt;y = hauteur / 6;</div>
+<div class="line"><span class="lineno">  197</span>    rectangle_demande_sauvegarde-&gt;w = largeur / 3 * 2;</div>
+<div class="line"><span class="lineno">  198</span>    rectangle_demande_sauvegarde-&gt;h = hauteur / 3 * 2;</div>
+<div class="line"><span class="lineno">  199</span> </div>
+<div class="line"><span class="lineno">  200</span>    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);</div>
+<div class="line"><span class="lineno">  201</span>    SDL_RenderFillRect((*renderer), rectangle_demande_sauvegarde);</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>    SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);</div>
+<div class="line"><span class="lineno">  204</span>    SDL_RenderDrawRect((*renderer), rectangle_demande_sauvegarde);</div>
+<div class="line"><span class="lineno">  205</span> </div>
+<div class="line"><span class="lineno">  206</span>    <span class="comment">/* Affichage du rectangle de la question de la demande de sauvegarde */</span></div>
+<div class="line"><span class="lineno">  207</span>    itemsDemandeSauvegarde[0].rectangle.x = largeur / 6 + largeur / 100;</div>
+<div class="line"><span class="lineno">  208</span>    itemsDemandeSauvegarde[0].rectangle.y = hauteur / 4 + hauteur / 20;</div>
+<div class="line"><span class="lineno">  209</span>    itemsDemandeSauvegarde[0].rectangle.w = largeur / 3 * 2 - largeur / 50;</div>
+<div class="line"><span class="lineno">  210</span>    itemsDemandeSauvegarde[0].rectangle.h = hauteur / 10;</div>
+<div class="line"><span class="lineno">  211</span> </div>
+<div class="line"><span class="lineno">  212</span>    SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);</div>
+<div class="line"><span class="lineno">  213</span>    </div>
+<div class="line"><span class="lineno">  214</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a7c6541df22bdacd36c6b01a67a989b82">affichage_texte</a>(renderer, surface, texture_texte, &amp;(itemsDemandeSauvegarde[0]), </div>
+<div class="line"><span class="lineno">  215</span>                    police, couleur);</div>
+<div class="line"><span class="lineno">  216</span> </div>
+<div class="line"><span class="lineno">  217</span>    <span class="comment">/* Affichage des rectangles des réponses de la demande de sauvegarde */</span></div>
+<div class="line"><span class="lineno">  218</span>    <span class="keywordflow">for</span>(i = 1; i &lt; tailleDemandeSauvegarde; i++) {</div>
+<div class="line"><span class="lineno">  219</span> </div>
+<div class="line"><span class="lineno">  220</span>        itemsDemandeSauvegarde[i].rectangle.x = largeur / 3 + (i-1) * largeur / 3 - (i-1) * largeur / 10;</div>
+<div class="line"><span class="lineno">  221</span>        itemsDemandeSauvegarde[i].rectangle.y = hauteur - hauteur / 4 - hauteur / 20 - hauteur / 10;</div>
+<div class="line"><span class="lineno">  222</span>        itemsDemandeSauvegarde[i].rectangle.w = largeur / 10;</div>
+<div class="line"><span class="lineno">  223</span>        itemsDemandeSauvegarde[i].rectangle.h = hauteur / 10;</div>
+<div class="line"><span class="lineno">  224</span> </div>
+<div class="line"><span class="lineno">  225</span>        SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);</div>
+<div class="line"><span class="lineno">  226</span> </div>
+<div class="line"><span class="lineno">  227</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a7c6541df22bdacd36c6b01a67a989b82">affichage_texte</a>(renderer, surface, texture_texte, &amp;(itemsDemandeSauvegarde[i]), </div>
+<div class="line"><span class="lineno">  228</span>                        police, couleur);</div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>        SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);</div>
+<div class="line"><span class="lineno">  231</span>        SDL_RenderDrawRect((*renderer), &amp;(itemsDemandeSauvegarde[i].rectangle));</div>
+<div class="line"><span class="lineno">  232</span>    }</div>
+<div class="line"><span class="lineno">  233</span> </div>
+<div class="line"><span class="lineno">  234</span>    <span class="comment">/* Affiche le rendu */</span></div>
+<div class="line"><span class="lineno">  235</span>    SDL_RenderPresent((*renderer));</div>
+<div class="line"><span class="lineno">  236</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adca5346b92d851a5c8c1beb85988477b" name="adca5346b92d851a5c8c1beb85988477b"></a>
@@ -686,8 +878,110 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00491">491</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00496">496</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  497</span>                                                                                                                      {</div>
+<div class="line"><span class="lineno">  498</span> </div>
+<div class="line"><span class="lineno">  499</span>    Mix_Chunk *effet_sonore = NULL;</div>
+<div class="line"><span class="lineno">  500</span> </div>
+<div class="line"><span class="lineno">  501</span>    <span class="comment">/* Cas où la touche pour sauter est pressée */</span></div>
+<div class="line"><span class="lineno">  502</span>    <span class="keywordflow">if</span>((!(*saut)) &amp;&amp; (!(*tombe)) &amp;&amp; (sauter)) {</div>
+<div class="line"><span class="lineno">  503</span> </div>
+<div class="line"><span class="lineno">  504</span>        <span class="keywordflow">if</span>(personnageActif == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417">PERSONNAGE_1</a>) {</div>
+<div class="line"><span class="lineno">  505</span> </div>
+<div class="line"><span class="lineno">  506</span>            <span class="comment">/* Effet sonore quand le premier personnage saute */</span></div>
+<div class="line"><span class="lineno">  507</span>            <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/saut_masculin.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  508</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  509</span>        }</div>
+<div class="line"><span class="lineno">  510</span> </div>
+<div class="line"><span class="lineno">  511</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(personnageActif == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e">PERSONNAGE_2</a>) {</div>
+<div class="line"><span class="lineno">  512</span> </div>
+<div class="line"><span class="lineno">  513</span>            <span class="comment">/* Effet sonore quand le second personnage saute */</span></div>
+<div class="line"><span class="lineno">  514</span>            <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/saut_feminin.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  515</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  516</span>        }</div>
+<div class="line"><span class="lineno">  517</span>                </div>
+<div class="line"><span class="lineno">  518</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  519</span>        (*position_avant_saut) = (*position_y);</div>
+<div class="line"><span class="lineno">  520</span>        (*saut) = 1;</div>
+<div class="line"><span class="lineno">  521</span>    }</div>
+<div class="line"><span class="lineno">  522</span> </div>
+<div class="line"><span class="lineno">  523</span>    <span class="comment">/* Cas où la touche pour aller à gauche est pressée */</span></div>
+<div class="line"><span class="lineno">  524</span>    <span class="keywordflow">if</span>(((!(tile_map[(*position_y)][(*position_x) - 1])) || </div>
+<div class="line"><span class="lineno">  525</span>        ((tile_map[(*position_y)][(*position_x) - 1] &gt;= 3) &amp;&amp;</div>
+<div class="line"><span class="lineno">  526</span>        (tile_map[(*position_y)][(*position_x) - 1] &lt;= 9)) ||</div>
+<div class="line"><span class="lineno">  527</span>        (tile_map[(*position_y)][(*position_x) - 1] == 11) ||</div>
+<div class="line"><span class="lineno">  528</span>        (tile_map[(*position_y)][(*position_x) - 1] == 12)) &amp;&amp; (reculer)) {</div>
+<div class="line"><span class="lineno">  529</span>                                    </div>
+<div class="line"><span class="lineno">  530</span>        (*position_x)--;</div>
+<div class="line"><span class="lineno">  531</span> </div>
+<div class="line"><span class="lineno">  532</span>        <span class="keywordflow">if</span>((!(*saut)) &amp;&amp; (!(*tombe))) {</div>
+<div class="line"><span class="lineno">  533</span> </div>
+<div class="line"><span class="lineno">  534</span>            (*tombe) = 1;</div>
+<div class="line"><span class="lineno">  535</span>            SDL_Delay(75);</div>
+<div class="line"><span class="lineno">  536</span>        }</div>
+<div class="line"><span class="lineno">  537</span>    }</div>
+<div class="line"><span class="lineno">  538</span> </div>
+<div class="line"><span class="lineno">  539</span>    <span class="comment">/* Cas où la touche pour aller à droite est pressée */</span></div>
+<div class="line"><span class="lineno">  540</span>    <span class="keywordflow">if</span>(((!(tile_map[(*position_y)][(*position_x) + 1])) || </div>
+<div class="line"><span class="lineno">  541</span>        ((tile_map[(*position_y)][(*position_x) + 1] &gt;= 3) &amp;&amp;</div>
+<div class="line"><span class="lineno">  542</span>        (tile_map[(*position_y)][(*position_x) + 1] &lt;= 9)) ||</div>
+<div class="line"><span class="lineno">  543</span>        (tile_map[(*position_y)][(*position_x) + 1] == 11) ||</div>
+<div class="line"><span class="lineno">  544</span>        (tile_map[(*position_y)][(*position_x) + 1] == 12)) &amp;&amp; (avancer)) {</div>
+<div class="line"><span class="lineno">  545</span> </div>
+<div class="line"><span class="lineno">  546</span>        (*position_x)++;</div>
+<div class="line"><span class="lineno">  547</span> </div>
+<div class="line"><span class="lineno">  548</span>        <span class="keywordflow">if</span>((!(*saut)) &amp;&amp; (!(*tombe))) {</div>
+<div class="line"><span class="lineno">  549</span> </div>
+<div class="line"><span class="lineno">  550</span>            (*tombe) = 1;</div>
+<div class="line"><span class="lineno">  551</span>            SDL_Delay(75);</div>
+<div class="line"><span class="lineno">  552</span>        }</div>
+<div class="line"><span class="lineno">  553</span>    }</div>
+<div class="line"><span class="lineno">  554</span> </div>
+<div class="line"><span class="lineno">  555</span>    <span class="comment">/* Cas où le personnage est entrain de sauter */</span></div>
+<div class="line"><span class="lineno">  556</span>    <span class="keywordflow">if</span>((*saut)) {</div>
+<div class="line"><span class="lineno">  557</span> </div>
+<div class="line"><span class="lineno">  558</span>        <span class="keywordflow">if</span> ((*position_y) &lt; (*position_avant_saut)-2) {</div>
+<div class="line"><span class="lineno">  559</span> </div>
+<div class="line"><span class="lineno">  560</span>            (*tombe) = 1;</div>
+<div class="line"><span class="lineno">  561</span>            (*saut) = 0;</div>
+<div class="line"><span class="lineno">  562</span>        }</div>
+<div class="line"><span class="lineno">  563</span> </div>
+<div class="line"><span class="lineno">  564</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>((tile_map[(*position_y) - 1][(*position_x)] == 0) || </div>
+<div class="line"><span class="lineno">  565</span>                (tile_map[(*position_y) - 1][(*position_x)] == 5) ||</div>
+<div class="line"><span class="lineno">  566</span>                (tile_map[(*position_y) - 1][(*position_x)] == 6) ||</div>
+<div class="line"><span class="lineno">  567</span>                (tile_map[(*position_y) - 1][(*position_x)] == 9)) {</div>
+<div class="line"><span class="lineno">  568</span> </div>
+<div class="line"><span class="lineno">  569</span>            (*position_y) -= 1; </div>
+<div class="line"><span class="lineno">  570</span>            SDL_Delay(75);</div>
+<div class="line"><span class="lineno">  571</span>        }</div>
+<div class="line"><span class="lineno">  572</span> </div>
+<div class="line"><span class="lineno">  573</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  574</span> </div>
+<div class="line"><span class="lineno">  575</span>            (*tombe) = 1;</div>
+<div class="line"><span class="lineno">  576</span>            (*saut) = 0; </div>
+<div class="line"><span class="lineno">  577</span>        }</div>
+<div class="line"><span class="lineno">  578</span>    }</div>
+<div class="line"><span class="lineno">  579</span> </div>
+<div class="line"><span class="lineno">  580</span>    <span class="comment">/* Cas où le personnage est entrain de tomber */</span></div>
+<div class="line"><span class="lineno">  581</span>    <span class="keywordflow">if</span>((*tombe)) {</div>
+<div class="line"><span class="lineno">  582</span> </div>
+<div class="line"><span class="lineno">  583</span>        <span class="keywordflow">if</span> ((tile_map[(*position_y) + 1][(*position_x)] == 1) || (tile_map[(*position_y) + 1][(*position_x)] == 10) ||</div>
+<div class="line"><span class="lineno">  584</span>            (tile_map[(*position_y) + 1][(*position_x)] == 13) || (tile_map[(*position_y) + 1][(*position_x)] == 14) ||</div>
+<div class="line"><span class="lineno">  585</span>            (tile_map[(*position_y) + 1][(*position_x)] == 15) || (tile_map[(*position_y) + 1][(*position_x)] == 16)) {</div>
+<div class="line"><span class="lineno">  586</span> </div>
+<div class="line"><span class="lineno">  587</span>            (*tombe) = 0;</div>
+<div class="line"><span class="lineno">  588</span>        }</div>
+<div class="line"><span class="lineno">  589</span> </div>
+<div class="line"><span class="lineno">  590</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  591</span> </div>
+<div class="line"><span class="lineno">  592</span>            (*position_y) += 1;</div>
+<div class="line"><span class="lineno">  593</span>            SDL_Delay(75);</div>
+<div class="line"><span class="lineno">  594</span>        }</div>
+<div class="line"><span class="lineno">  595</span>    }</div>
+<div class="line"><span class="lineno">  596</span>}</div>
+<div class="ttc" id="afonctions__generales_8h_html_a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e"><div class="ttname"><a href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e">PERSONNAGE_2</a></div><div class="ttdeci">@ PERSONNAGE_2</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8h_source.html#l00016">fonctions_generales.h:15</a></div></div>
+<div class="ttc" id="afonctions__generales_8h_html_a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417"><div class="ttname"><a href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417">PERSONNAGE_1</a></div><div class="ttdeci">@ PERSONNAGE_1</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8h_source.html#l00014">fonctions_generales.h:14</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adec7f4fe3daaf651b21ff0204b2f33f9" name="adec7f4fe3daaf651b21ff0204b2f33f9"></a>
@@ -725,8 +1019,13 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00690">690</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00696">696</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  696</span>                                                                          {</div>
+<div class="line"><span class="lineno">  697</span> </div>
+<div class="line"><span class="lineno">  698</span>    SDL_DestroyRenderer((*renderer));</div>
+<div class="line"><span class="lineno">  699</span>    SDL_DestroyWindow((*window));</div>
+<div class="line"><span class="lineno">  700</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3be1a4e737ca57c4c927b3c4eabec209" name="a3be1a4e737ca57c4c927b3c4eabec209"></a>
@@ -1193,8 +1492,59 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00599">599</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00605">605</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  638</span>                                                           {</div>
+<div class="line"><span class="lineno">  639</span> </div>
+<div class="line"><span class="lineno">  640</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  641</span> </div>
+<div class="line"><span class="lineno">  642</span>    <span class="comment">/* Destructions des textures */</span></div>
+<div class="line"><span class="lineno">  643</span>    SDL_DestroyTexture((*texture1));  SDL_DestroyTexture((*texture2)); </div>
+<div class="line"><span class="lineno">  644</span>    SDL_DestroyTexture((*texture3));  SDL_DestroyTexture((*texture4)); </div>
+<div class="line"><span class="lineno">  645</span>    SDL_DestroyTexture((*texture5));  SDL_DestroyTexture((*texture6)); </div>
+<div class="line"><span class="lineno">  646</span>    SDL_DestroyTexture((*texture7));  SDL_DestroyTexture((*texture8)); </div>
+<div class="line"><span class="lineno">  647</span>    SDL_DestroyTexture((*texture9));  SDL_DestroyTexture((*texture10)); </div>
+<div class="line"><span class="lineno">  648</span>    SDL_DestroyTexture((*texture11)); SDL_DestroyTexture((*texture12)); </div>
+<div class="line"><span class="lineno">  649</span>    SDL_DestroyTexture((*texture13)); SDL_DestroyTexture((*texture14)); </div>
+<div class="line"><span class="lineno">  650</span>    SDL_DestroyTexture((*texture15)); SDL_DestroyTexture((*texture16)); </div>
+<div class="line"><span class="lineno">  651</span>    SDL_DestroyTexture((*texture17)); SDL_DestroyTexture((*texture18)); </div>
+<div class="line"><span class="lineno">  652</span>    SDL_DestroyTexture((*texture19)); SDL_DestroyTexture((*texture20)); </div>
+<div class="line"><span class="lineno">  653</span>    SDL_DestroyTexture((*texture21)); SDL_DestroyTexture((*texture22));</div>
+<div class="line"><span class="lineno">  654</span>    SDL_DestroyTexture((*texture23)); SDL_DestroyTexture((*texture24)); </div>
+<div class="line"><span class="lineno">  655</span>    SDL_DestroyTexture((*texture25)); SDL_DestroyTexture((*texture26)); </div>
+<div class="line"><span class="lineno">  656</span>    SDL_DestroyTexture((*texture27)); SDL_DestroyTexture((*texture28)); </div>
+<div class="line"><span class="lineno">  657</span>    SDL_DestroyTexture((*texture29)); SDL_DestroyTexture((*texture30));</div>
+<div class="line"><span class="lineno">  658</span>    SDL_DestroyTexture((*texture31)); SDL_DestroyTexture((*texture32)); </div>
+<div class="line"><span class="lineno">  659</span>    SDL_DestroyTexture((*texture33)); SDL_DestroyTexture((*texture34));</div>
+<div class="line"><span class="lineno">  660</span>    SDL_DestroyTexture((*texture35)); SDL_DestroyTexture((*texture36)); </div>
+<div class="line"><span class="lineno">  661</span>    SDL_DestroyTexture((*texture37)); SDL_DestroyTexture((*texture38));</div>
+<div class="line"><span class="lineno">  662</span>    SDL_DestroyTexture((*texture39)); SDL_DestroyTexture((*texture40)); </div>
+<div class="line"><span class="lineno">  663</span>    SDL_DestroyTexture((*texture41)); SDL_DestroyTexture((*texture42));</div>
+<div class="line"><span class="lineno">  664</span>    SDL_DestroyTexture((*texture43)); SDL_DestroyTexture((*texture44));</div>
+<div class="line"><span class="lineno">  665</span>    SDL_DestroyTexture((*texture45)); SDL_DestroyTexture((*texture46));</div>
+<div class="line"><span class="lineno">  666</span>    SDL_DestroyTexture((*texture47)); SDL_DestroyTexture((*texture48));</div>
+<div class="line"><span class="lineno">  667</span>    SDL_DestroyTexture((*texture49)); SDL_DestroyTexture((*texture50));</div>
+<div class="line"><span class="lineno">  668</span>    SDL_DestroyTexture((*texture51)); SDL_DestroyTexture((*texture52));</div>
+<div class="line"><span class="lineno">  669</span>    SDL_DestroyTexture((*texture53)); SDL_DestroyTexture((*texture54)); </div>
+<div class="line"><span class="lineno">  670</span>    SDL_DestroyTexture((*texture55)); SDL_DestroyTexture((*texture56));</div>
+<div class="line"><span class="lineno">  671</span>    SDL_DestroyTexture((*texture57)); SDL_DestroyTexture((*texture58)); </div>
+<div class="line"><span class="lineno">  672</span>    SDL_DestroyTexture((*texture59)); SDL_DestroyTexture((*texture60));</div>
+<div class="line"><span class="lineno">  673</span>    SDL_DestroyTexture((*texture61)); SDL_DestroyTexture((*texture62));</div>
+<div class="line"><span class="lineno">  674</span>    SDL_DestroyTexture((*texture63)); SDL_DestroyTexture((*texture64));</div>
+<div class="line"><span class="lineno">  675</span>    SDL_DestroyTexture((*texture65)); SDL_DestroyTexture((*texture66));</div>
+<div class="line"><span class="lineno">  676</span>    SDL_DestroyTexture((*texture67)); SDL_DestroyTexture((*texture68));</div>
+<div class="line"><span class="lineno">  677</span>    SDL_DestroyTexture((*texture69)); SDL_DestroyTexture((*texture70)); </div>
+<div class="line"><span class="lineno">  678</span>    SDL_DestroyTexture((*texture71)); SDL_DestroyTexture((*texture72));</div>
+<div class="line"><span class="lineno">  679</span> </div>
+<div class="line"><span class="lineno">  680</span>    <span class="keywordflow">for</span>(i = 0; i &lt; 11; i++)</div>
+<div class="line"><span class="lineno">  681</span>        SDL_DestroyTexture(textures_images_succes[i]);</div>
+<div class="line"><span class="lineno">  682</span>    </div>
+<div class="line"><span class="lineno">  683</span>    <span class="comment">/* Destruction de la police */</span></div>
+<div class="line"><span class="lineno">  684</span>    TTF_CloseFont((*police));</div>
+<div class="line"><span class="lineno">  685</span> </div>
+<div class="line"><span class="lineno">  686</span>    <span class="comment">/* Destruction de la musique */</span></div>
+<div class="line"><span class="lineno">  687</span>    Mix_FreeMusic((*musique));</div>
+<div class="line"><span class="lineno">  688</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a02efc10954bca92c1219a7a3b41dbe89" name="a02efc10954bca92c1219a7a3b41dbe89"></a>
@@ -1223,7 +1573,13 @@ Fonctions</h2></td></tr>
 <dl class="section return"><dt>Renvoie</dt><dd>Arrêt du programme en Echec </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00014">14</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                 {</div>
+<div class="line"><span class="lineno">   15</span> </div>
+<div class="line"><span class="lineno">   16</span>    SDL_Log(<span class="stringliteral">&quot;ERREUR : %s &gt; %s\n&quot;</span>, message, SDL_GetError());</div>
+<div class="line"><span class="lineno">   17</span>    SDL_Quit();</div>
+<div class="line"><span class="lineno">   18</span>    exit(EXIT_FAILURE);</div>
+<div class="line"><span class="lineno">   19</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a33b460c1c1e05276096fcf577956465c" name="a33b460c1c1e05276096fcf577956465c"></a>
@@ -1336,8 +1692,57 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00117">117</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00118">118</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  124</span>                                                                                                           {</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>    <span class="comment">/* Initialisation de l&#39;image du plein écran du menu */</span></div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_plein_ecran, <span class="stringliteral">&quot;./images/plein_ecran_blanc.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>    <span class="comment">/* Initialisation de l&#39;image du retour en arrière */</span></div>
+<div class="line"><span class="lineno">  130</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_retour_en_arriere, <span class="stringliteral">&quot;./images/retour_en_arriere.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  131</span> </div>
+<div class="line"><span class="lineno">  132</span>    <span class="comment">/* Initialisation de l&#39;image des options du menu */</span></div>
+<div class="line"><span class="lineno">  133</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_options, <span class="stringliteral">&quot;./images/options_blanc.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span>    <span class="comment">/* Initialisation de l&#39;image du passer du menu */</span></div>
+<div class="line"><span class="lineno">  136</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_passer, <span class="stringliteral">&quot;./images/passer.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  137</span> </div>
+<div class="line"><span class="lineno">  138</span>    <span class="comment">/* Initialisation de l&#39;image de la croix */</span></div>
+<div class="line"><span class="lineno">  139</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_croix, <span class="stringliteral">&quot;./images/croix.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>    <span class="comment">/* Initialisation de la police */</span></div>
+<div class="line"><span class="lineno">  142</span>    <span class="keywordflow">if</span>(((*police) = TTF_OpenFont(<span class="stringliteral">&quot;./polices/04B_11__.TTF&quot;</span>, 20)) == NULL)</div>
+<div class="line"><span class="lineno">  143</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de la police&quot;</span>);</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>    <span class="comment">/* Initialisation des images pour les collectibles */</span></div>
+<div class="line"><span class="lineno">  146</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, &amp;(avancee_niveaux[0].texture_image_collectible), <span class="stringliteral">&quot;./images/niveau_1/collectible_niveau_1.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  147</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, &amp;(avancee_niveaux[1].texture_image_collectible), <span class="stringliteral">&quot;./images/niveau_2/collectible_niveau_2.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  148</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, &amp;(avancee_niveaux[2].texture_image_collectible), <span class="stringliteral">&quot;./images/niveau_3/collectible_niveau_3.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  149</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, &amp;(avancee_niveaux[3].texture_image_collectible), <span class="stringliteral">&quot;./images/niveau_4/collectible_niveau_4.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="comment">/* Initialisation de l&#39;image de la fin des premiers niveaux */</span></div>
+<div class="line"><span class="lineno">  152</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_fin_premiers_niveaux, <span class="stringliteral">&quot;./images/fin_premiers_niveaux.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>    <span class="comment">/* Initialisation des images des monstres */</span></div>
+<div class="line"><span class="lineno">  155</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_monstre_terrestre, <span class="stringliteral">&quot;./images/monstre_terrestre.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  156</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_monstre_volant, <span class="stringliteral">&quot;./images/monstre_volant.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  157</span> </div>
+<div class="line"><span class="lineno">  158</span>    <span class="comment">/* Initialisation des images des poses gagnantes des personnages */</span></div>
+<div class="line"><span class="lineno">  159</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_perso_1_gagnant, <span class="stringliteral">&quot;./images/personnages/personnage_masculin_gagnant.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  160</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_perso_2_gagnant, <span class="stringliteral">&quot;./images/personnages/personnage_feminin_gagnant.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  161</span> </div>
+<div class="line"><span class="lineno">  162</span>    <span class="comment">/* Initialisation du texte dans les items de la demande de sauvegarde */</span></div>
+<div class="line"><span class="lineno">  163</span>    sprintf(itemsDemandeSauvegarde[0].texte, <span class="stringliteral">&quot; Voulez-vous sauvegarder la partie avant de quitter ? &quot;</span>);</div>
+<div class="line"><span class="lineno">  164</span>    sprintf(itemsDemandeSauvegarde[1].texte, <span class="stringliteral">&quot; Oui &quot;</span>);</div>
+<div class="line"><span class="lineno">  165</span>    sprintf(itemsDemandeSauvegarde[2].texte, <span class="stringliteral">&quot; Non &quot;</span>);</div>
+<div class="line"><span class="lineno">  166</span> </div>
+<div class="line"><span class="lineno">  167</span>    <span class="comment">/* Initialisation du texte dans les items de la demande de quitter le niveau */</span></div>
+<div class="line"><span class="lineno">  168</span>    sprintf(itemsDemandeQuitter[0].texte, <span class="stringliteral">&quot; Voulez-vous quittez le niveau ? &quot;</span>);</div>
+<div class="line"><span class="lineno">  169</span>    sprintf(itemsDemandeQuitter[1].texte, <span class="stringliteral">&quot; Oui &quot;</span>);</div>
+<div class="line"><span class="lineno">  170</span>    sprintf(itemsDemandeQuitter[2].texte, <span class="stringliteral">&quot; Non &quot;</span>);</div>
+<div class="line"><span class="lineno">  171</span>}</div>
+<div class="ttc" id="afonctions__generales_8c_html_a5157feb5eb905d33c1f9b2e7c0e727dc"><div class="ttname"><a href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a></div><div class="ttdeci">void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, char *chemin)</div><div class="ttdoc">Fonction qui permet de charger une image.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00030">fonctions_generales.c:30</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5c46ccfb829656680145d5fe3b33418f" name="a5c46ccfb829656680145d5fe3b33418f"></a>
@@ -1382,8 +1787,16 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00309">309</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00310">310</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  310</span>                                                                            {</div>
+<div class="line"><span class="lineno">  311</span> </div>
+<div class="line"><span class="lineno">  312</span>    <span class="keywordflow">if</span>(event.window.event == SDL_WINDOWEVENT_RESIZED) {</div>
+<div class="line"><span class="lineno">  313</span> </div>
+<div class="line"><span class="lineno">  314</span>        (*largeur) = <span class="keyword">event</span>.window.data1;</div>
+<div class="line"><span class="lineno">  315</span>        (*hauteur) = <span class="keyword">event</span>.window.data2;</div>
+<div class="line"><span class="lineno">  316</span>    }</div>
+<div class="line"><span class="lineno">  317</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3845ad340a7ec5a5a341718c1b23fa7e" name="a3845ad340a7ec5a5a341718c1b23fa7e"></a>
@@ -1490,8 +1903,51 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00359">359</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00363">363</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  366</span>                                                                                                                                           {</div>
+<div class="line"><span class="lineno">  367</span> </div>
+<div class="line"><span class="lineno">  368</span>    FILE *fichier_sauvegarde;</div>
+<div class="line"><span class="lineno">  369</span> </div>
+<div class="line"><span class="lineno">  370</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  371</span> </div>
+<div class="line"><span class="lineno">  372</span>    <span class="comment">/* Ouverture du fichier en mode écriture */</span></div>
+<div class="line"><span class="lineno">  373</span>    fichier_sauvegarde = fopen(<span class="stringliteral">&quot;./sauvegardes/sauvegarde.txt&quot;</span>, <span class="stringliteral">&quot;w&quot;</span>);</div>
+<div class="line"><span class="lineno">  374</span> </div>
+<div class="line"><span class="lineno">  375</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%f\n&quot;</span>, barre_de_son[0].volume);</div>
+<div class="line"><span class="lineno">  376</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%f\n&quot;</span>, barre_de_son[1].volume);</div>
+<div class="line"><span class="lineno">  377</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%s\n&quot;</span>, SDL_GetKeyName((*touche_aller_a_droite)));</div>
+<div class="line"><span class="lineno">  378</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%s\n&quot;</span>, SDL_GetKeyName((*touche_aller_a_gauche)));</div>
+<div class="line"><span class="lineno">  379</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%s\n&quot;</span>, SDL_GetKeyName((*touche_sauter_monter)));</div>
+<div class="line"><span class="lineno">  380</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%s\n&quot;</span>, SDL_GetKeyName((*touche_descendre)));</div>
+<div class="line"><span class="lineno">  381</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%s\n&quot;</span>, SDL_GetKeyName((*touche_interagir)));</div>
+<div class="line"><span class="lineno">  382</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%s\n&quot;</span>, pseudo-&gt;texte);</div>
+<div class="line"><span class="lineno">  383</span> </div>
+<div class="line"><span class="lineno">  384</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%d\n&quot;</span>, personnageActif);</div>
+<div class="line"><span class="lineno">  385</span> </div>
+<div class="line"><span class="lineno">  386</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%d\n&quot;</span>, modeActif);</div>
+<div class="line"><span class="lineno">  387</span> </div>
+<div class="line"><span class="lineno">  388</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%d\n&quot;</span>, positionActive);</div>
+<div class="line"><span class="lineno">  389</span> </div>
+<div class="line"><span class="lineno">  390</span>    <span class="keywordflow">for</span>(i = 0; i &lt; tailleNiveaux; i++) {</div>
+<div class="line"><span class="lineno">  391</span> </div>
+<div class="line"><span class="lineno">  392</span>        fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%d %d %d %d\n&quot;</span>, avancee_niveaux[i].niveau_fini,</div>
+<div class="line"><span class="lineno">  393</span>                                                     avancee_niveaux[i].numero_collectible[0],</div>
+<div class="line"><span class="lineno">  394</span>                                                     avancee_niveaux[i].numero_collectible[1],</div>
+<div class="line"><span class="lineno">  395</span>                                                     avancee_niveaux[i].numero_collectible[2]);</div>
+<div class="line"><span class="lineno">  396</span>    }</div>
+<div class="line"><span class="lineno">  397</span> </div>
+<div class="line"><span class="lineno">  398</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%ld\n&quot;</span>, temps_debut_partie);</div>
+<div class="line"><span class="lineno">  399</span> </div>
+<div class="line"><span class="lineno">  400</span>    fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%d\n&quot;</span>, compteur_mort);</div>
+<div class="line"><span class="lineno">  401</span> </div>
+<div class="line"><span class="lineno">  402</span>    <span class="keywordflow">for</span>(i = 0; i &lt; 10; i++)</div>
+<div class="line"><span class="lineno">  403</span>        fprintf(fichier_sauvegarde, <span class="stringliteral">&quot;%d &quot;</span>, avancee_succes[i]); </div>
+<div class="line"><span class="lineno">  404</span> </div>
+<div class="line"><span class="lineno">  405</span>    <span class="comment">/* Fermeture du fichier */</span></div>
+<div class="line"><span class="lineno">  406</span>    <span class="keywordflow">if</span> (fclose(fichier_sauvegarde) != 0)</div>
+<div class="line"><span class="lineno">  407</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Fermeture du fichier&quot;</span>);</div>
+<div class="line"><span class="lineno">  408</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5f3d9f5a1b24e53bd19ef9d7631917a4" name="a5f3d9f5a1b24e53bd19ef9d7631917a4"></a>
@@ -1513,8 +1969,25 @@ Fonctions</h2></td></tr>
 <dl class="section return"><dt>Renvoie</dt><dd>booléen représentant si il y a une sauvegarde ou non (1 si existant, sinon 0) </dd></dl>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89" title="Affiche l&#39;erreur en cas de problème et ferme la SDL.">erreur</a> </dd></dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00324">324</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__generales_8c_source.html#l00325">325</a> du fichier <a class="el" href="fonctions__generales_8c_source.html">fonctions_generales.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  325</span>                              {</div>
+<div class="line"><span class="lineno">  326</span>    </div>
+<div class="line"><span class="lineno">  327</span>    FILE *fichier_sauvegarde;</div>
+<div class="line"><span class="lineno">  328</span> </div>
+<div class="line"><span class="lineno">  329</span>    <span class="comment">/* Ouverture du fichier en mode lecture */</span></div>
+<div class="line"><span class="lineno">  330</span>    fichier_sauvegarde = fopen(<span class="stringliteral">&quot;./sauvegardes/sauvegarde.txt&quot;</span>, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><span class="lineno">  331</span> </div>
+<div class="line"><span class="lineno">  332</span>    <span class="comment">/* Vérifie si le fichier existe */</span></div>
+<div class="line"><span class="lineno">  333</span>    <span class="keywordflow">if</span> (fichier_sauvegarde == NULL)</div>
+<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  335</span> </div>
+<div class="line"><span class="lineno">  336</span>    <span class="comment">/* Fermeture du fichier */</span></div>
+<div class="line"><span class="lineno">  337</span>    <span class="keywordflow">if</span> (fclose(fichier_sauvegarde) != 0)</div>
+<div class="line"><span class="lineno">  338</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Fermeture du fichier&quot;</span>);</div>
+<div class="line"><span class="lineno">  339</span> </div>
+<div class="line"><span class="lineno">  340</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  341</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

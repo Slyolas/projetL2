@@ -234,7 +234,51 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc" title="Fonction qui permet de charger une image.">chargement_image</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00047">47</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                                                                                              {</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>    <span class="comment">/* Positionnement du personnage au début de l&#39;étage */</span></div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>    (*position_x) = 2;</div>
+<div class="line"><span class="lineno">   55</span>    (*position_y) = 15;</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>    (*position_x_initiale) = (*position_x);</div>
+<div class="line"><span class="lineno">   58</span>    (*position_y_initiale) = (*position_y);</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    <span class="comment">/* Création de l&#39;étage 1 */</span></div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordtype">int</span> initialisation_tile_map[18][32] = { </div>
+<div class="line"><span class="lineno">   62</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},</div>
+<div class="line"><span class="lineno">   63</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   64</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2},</div>
+<div class="line"><span class="lineno">   65</span>        {2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">   66</span>        {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   67</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   68</span>        {2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   69</span>        {2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   70</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">   71</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   72</span>        {2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   73</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   74</span>        {2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">   75</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   76</span>        {2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   77</span>        {2, 0, 4, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">   78</span>        {2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">   79</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}   </div>
+<div class="line"><span class="lineno">   80</span>        </div>
+<div class="line"><span class="lineno">   81</span>    };</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    <span class="comment">/* Copie du nouvel étage */</span></div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">for</span> (y = 0; y &lt; 18; y++)</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">for</span> (x = 0; x &lt; 32; x++)</div>
+<div class="line"><span class="lineno">   86</span>            tile_map[y][x] = initialisation_tile_map[y][x];</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>    <span class="comment">/* Changement de mur pour l&#39;étage 1 */</span></div>
+<div class="line"><span class="lineno">   89</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_mur, <span class="stringliteral">&quot;./images/niveau_4/mur_etage_1.png&quot;</span>);</div>
+<div class="line"><span class="lineno">   90</span>}</div>
+<div class="ttc" id="afonctions__generales_8c_html_a5157feb5eb905d33c1f9b2e7c0e727dc"><div class="ttname"><a href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a></div><div class="ttdeci">void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, char *chemin)</div><div class="ttdoc">Fonction qui permet de charger une image.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00030">fonctions_generales.c:30</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5cd3912481c0e3fce5cb71d46d2cee48" name="a5cd3912481c0e3fce5cb71d46d2cee48"></a>
@@ -316,7 +360,50 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc" title="Fonction qui permet de charger une image.">chargement_image</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00105">105</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">  106</span>                                                                                              {</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>    <span class="comment">/* Positionnement du personnage au début de l&#39;étage */</span></div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    (*position_x) = 29;</div>
+<div class="line"><span class="lineno">  113</span>    (*position_y) = 15;</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    (*position_x_initiale) = (*position_x);</div>
+<div class="line"><span class="lineno">  116</span>    (*position_y_initiale) = (*position_y);</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="comment">/* Création de l&#39;étage 2 */</span></div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordtype">int</span> initialisation_tile_map[18][32] = { </div>
+<div class="line"><span class="lineno">  120</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},</div>
+<div class="line"><span class="lineno">  121</span>        {2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  122</span>        {2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 4, 0, 2},</div>
+<div class="line"><span class="lineno">  123</span>        {2, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  124</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  125</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">  126</span>        {2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  127</span>        {2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2},</div>
+<div class="line"><span class="lineno">  128</span>        {2, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  129</span>        {2, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  130</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2},</div>
+<div class="line"><span class="lineno">  131</span>        {2, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  132</span>        {2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  133</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  134</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  135</span>        {2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 4, 0, 2},</div>
+<div class="line"><span class="lineno">  136</span>        {2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  137</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}   </div>
+<div class="line"><span class="lineno">  138</span>        </div>
+<div class="line"><span class="lineno">  139</span>    };</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>    <span class="comment">/* Copie du nouvel étage */</span></div>
+<div class="line"><span class="lineno">  142</span>    <span class="keywordflow">for</span> (y = 0; y &lt; 18; y++)</div>
+<div class="line"><span class="lineno">  143</span>        <span class="keywordflow">for</span> (x = 0; x &lt; 32; x++) </div>
+<div class="line"><span class="lineno">  144</span>            tile_map[y][x] = initialisation_tile_map[y][x];</div>
+<div class="line"><span class="lineno">  145</span> </div>
+<div class="line"><span class="lineno">  146</span>    <span class="comment">/* Changement de mur pour l&#39;étage 2 */</span></div>
+<div class="line"><span class="lineno">  147</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_mur, <span class="stringliteral">&quot;./images/niveau_4/mur_etage_2.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  148</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a50c50064452a711103b9cf8288dfd0ec" name="a50c50064452a711103b9cf8288dfd0ec"></a>
@@ -398,7 +485,50 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc" title="Fonction qui permet de charger une image.">chargement_image</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00163">163</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">  164</span>                                                                                              {</div>
+<div class="line"><span class="lineno">  165</span> </div>
+<div class="line"><span class="lineno">  166</span>    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>    <span class="comment">/* Positionnement du personnage au début de l&#39;étage */</span></div>
+<div class="line"><span class="lineno">  169</span> </div>
+<div class="line"><span class="lineno">  170</span>    (*position_x) = 29;</div>
+<div class="line"><span class="lineno">  171</span>    (*position_y) = 15;</div>
+<div class="line"><span class="lineno">  172</span> </div>
+<div class="line"><span class="lineno">  173</span>    (*position_x_initiale) = (*position_x);</div>
+<div class="line"><span class="lineno">  174</span>    (*position_y_initiale) = (*position_y);</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>    <span class="comment">/* Création de l&#39;étage 3 */</span></div>
+<div class="line"><span class="lineno">  177</span>    <span class="keywordtype">int</span> initialisation_tile_map[18][32] = { </div>
+<div class="line"><span class="lineno">  178</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},</div>
+<div class="line"><span class="lineno">  179</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  180</span>        {2, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">  181</span>        {2, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  182</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  183</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2},</div>
+<div class="line"><span class="lineno">  184</span>        {2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  185</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  186</span>        {2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  187</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  188</span>        {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  189</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2},</div>
+<div class="line"><span class="lineno">  190</span>        {2, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  191</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  192</span>        {2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  193</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 4, 0, 2},</div>
+<div class="line"><span class="lineno">  194</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  195</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}   </div>
+<div class="line"><span class="lineno">  196</span>        </div>
+<div class="line"><span class="lineno">  197</span>    };</div>
+<div class="line"><span class="lineno">  198</span> </div>
+<div class="line"><span class="lineno">  199</span>    <span class="comment">/* Copie du nouvel étage */</span></div>
+<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">for</span> (y = 0; y &lt; 18; y++)</div>
+<div class="line"><span class="lineno">  201</span>        <span class="keywordflow">for</span> (x = 0; x &lt; 32; x++)</div>
+<div class="line"><span class="lineno">  202</span>            tile_map[y][x] = initialisation_tile_map[y][x];</div>
+<div class="line"><span class="lineno">  203</span> </div>
+<div class="line"><span class="lineno">  204</span>    <span class="comment">/* Changement de mur pour l&#39;étage 3 */</span></div>
+<div class="line"><span class="lineno">  205</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_mur, <span class="stringliteral">&quot;./images/niveau_4/mur_etage_3.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  206</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa4bba241422f541a36f3fca215f01455" name="aa4bba241422f541a36f3fca215f01455"></a>
@@ -480,7 +610,50 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc" title="Fonction qui permet de charger une image.">chargement_image</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00221">221</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">  222</span>                                                                                              {</div>
+<div class="line"><span class="lineno">  223</span> </div>
+<div class="line"><span class="lineno">  224</span>    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">  225</span> </div>
+<div class="line"><span class="lineno">  226</span>    <span class="comment">/* Positionnement du personnage au début de l&#39;étage */</span></div>
+<div class="line"><span class="lineno">  227</span> </div>
+<div class="line"><span class="lineno">  228</span>    (*position_x) = 2;</div>
+<div class="line"><span class="lineno">  229</span>    (*position_y) = 15;</div>
+<div class="line"><span class="lineno">  230</span> </div>
+<div class="line"><span class="lineno">  231</span>    (*position_x_initiale) = (*position_x);</div>
+<div class="line"><span class="lineno">  232</span>    (*position_y_initiale) = (*position_y);</div>
+<div class="line"><span class="lineno">  233</span> </div>
+<div class="line"><span class="lineno">  234</span>    <span class="comment">/* Création de l&#39;étage 4 */</span></div>
+<div class="line"><span class="lineno">  235</span>    <span class="keywordtype">int</span> initialisation_tile_map[18][32] = { </div>
+<div class="line"><span class="lineno">  236</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},</div>
+<div class="line"><span class="lineno">  237</span>        {2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  238</span>        {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">  239</span>        {2, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  240</span>        {2, 0, 0, 1, 1, 3, 1, 1, 1, 3, 3, 1, 1, 3, 1, 1, 1, 3, 3, 1, 1, 3, 1, 1, 1, 3, 3, 0, 0, 4, 0, 2},</div>
+<div class="line"><span class="lineno">  241</span>        {2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  242</span>        {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  243</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">  244</span>        {2, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  245</span>        {2, 3, 3, 1, 3, 3, 1, 1, 1, 3, 1, 1, 3, 3, 1, 1, 1, 3, 1, 1, 3, 3, 1, 1, 1, 3, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  246</span>        {2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">  247</span>        {2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  248</span>        {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  249</span>        {2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  250</span>        {2, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  251</span>        {2, 0, 4, 0, 0, 0, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2},</div>
+<div class="line"><span class="lineno">  252</span>        {2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  253</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}   </div>
+<div class="line"><span class="lineno">  254</span>        </div>
+<div class="line"><span class="lineno">  255</span>    };</div>
+<div class="line"><span class="lineno">  256</span> </div>
+<div class="line"><span class="lineno">  257</span>    <span class="comment">/* Copie du nouvel étage */</span></div>
+<div class="line"><span class="lineno">  258</span>    <span class="keywordflow">for</span> (y = 0; y &lt; 18; y++)</div>
+<div class="line"><span class="lineno">  259</span>        <span class="keywordflow">for</span> (x = 0; x &lt; 32; x++)</div>
+<div class="line"><span class="lineno">  260</span>            tile_map[y][x] = initialisation_tile_map[y][x];</div>
+<div class="line"><span class="lineno">  261</span> </div>
+<div class="line"><span class="lineno">  262</span>    <span class="comment">/* Changement de mur pour l&#39;étage 4 */</span></div>
+<div class="line"><span class="lineno">  263</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_mur, <span class="stringliteral">&quot;./images/niveau_4/mur_etage_4.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  264</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6efdad35f95e85508d3f230b6de7bcbd" name="a6efdad35f95e85508d3f230b6de7bcbd"></a>
@@ -562,7 +735,50 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc" title="Fonction qui permet de charger une image.">chargement_image</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00279">279</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">  280</span>                                                                                              {</div>
+<div class="line"><span class="lineno">  281</span> </div>
+<div class="line"><span class="lineno">  282</span>    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>    <span class="comment">/* Positionnement du personnage au début de l&#39;étage */</span></div>
+<div class="line"><span class="lineno">  285</span> </div>
+<div class="line"><span class="lineno">  286</span>    (*position_x) = 29;</div>
+<div class="line"><span class="lineno">  287</span>    (*position_y) = 15;</div>
+<div class="line"><span class="lineno">  288</span> </div>
+<div class="line"><span class="lineno">  289</span>    (*position_x_initiale) = (*position_x);</div>
+<div class="line"><span class="lineno">  290</span>    (*position_y_initiale) = (*position_y);</div>
+<div class="line"><span class="lineno">  291</span> </div>
+<div class="line"><span class="lineno">  292</span>    <span class="comment">/* Création de l&#39;étage 5 */</span></div>
+<div class="line"><span class="lineno">  293</span>    <span class="keywordtype">int</span> initialisation_tile_map[18][32] = { </div>
+<div class="line"><span class="lineno">  294</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},</div>
+<div class="line"><span class="lineno">  295</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  296</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  297</span>        {2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  298</span>        {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  299</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  300</span>        {2, 3, 3, 1, 3, 3, 1, 1, 3, 3, 1, 1, 3, 3, 1, 1, 3, 3, 1, 1, 3, 3, 1, 1, 3, 3, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  301</span>        {2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  302</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2},</div>
+<div class="line"><span class="lineno">  303</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  304</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  305</span>        {2, 0, 0, 0, 0, 1, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 2},</div>
+<div class="line"><span class="lineno">  306</span>        {2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  307</span>        {2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  308</span>        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},</div>
+<div class="line"><span class="lineno">  309</span>        {2, 5, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2},</div>
+<div class="line"><span class="lineno">  310</span>        {2, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 2},</div>
+<div class="line"><span class="lineno">  311</span>        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}   </div>
+<div class="line"><span class="lineno">  312</span>        </div>
+<div class="line"><span class="lineno">  313</span>    };</div>
+<div class="line"><span class="lineno">  314</span> </div>
+<div class="line"><span class="lineno">  315</span>    <span class="comment">/* Copie du nouvel étage */</span></div>
+<div class="line"><span class="lineno">  316</span>    <span class="keywordflow">for</span> (y = 0; y &lt; 18; y++)</div>
+<div class="line"><span class="lineno">  317</span>        <span class="keywordflow">for</span> (x = 0; x &lt; 32; x++)</div>
+<div class="line"><span class="lineno">  318</span>            tile_map[y][x] = initialisation_tile_map[y][x];</div>
+<div class="line"><span class="lineno">  319</span> </div>
+<div class="line"><span class="lineno">  320</span>    <span class="comment">/* Changement de mur pour l&#39;étage 5 */</span></div>
+<div class="line"><span class="lineno">  321</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_mur, <span class="stringliteral">&quot;./images/niveau_4/mur_etage_5.png&quot;</span>);</div>
+<div class="line"><span class="lineno">  322</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afa0e796dacbdc278196320d5c6510a61" name="afa0e796dacbdc278196320d5c6510a61"></a>
@@ -637,7 +853,17 @@ Fonctions</h2></td></tr>
 <dl class="section see"><dt>Voir également</dt><dd><a class="el" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc" title="Fonction qui permet de charger une image.">chargement_image</a> </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00020">20</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                                                    {</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    <span class="comment">/* Chargement des images pour le niveau 4 */</span></div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_fond, <span class="stringliteral">&quot;./images/niveau_4/fond_niveau_4.jpg&quot;</span>);</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_bordure, <span class="stringliteral">&quot;./images/niveau_4/bordure_niveau_4.png&quot;</span>);</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_porte, <span class="stringliteral">&quot;./images/niveau_4/porte.png&quot;</span>);</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_pique, <span class="stringliteral">&quot;./images/pique.png&quot;</span>);</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_function" href="fonctions__generales_8c.html#a5157feb5eb905d33c1f9b2e7c0e727dc">chargement_image</a>(renderer, surface, texture_image_fin_dernier_niveau, <span class="stringliteral">&quot;./images/niveau_4/fin_dernier_niveau.png&quot;</span>);</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0f07b9e7c9acd2202ef8d6f28a53bcd8" name="a0f07b9e7c9acd2202ef8d6f28a53bcd8"></a>
@@ -799,7 +1025,97 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00351">351</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">  357</span>                                                                                              {</div>
+<div class="line"><span class="lineno">  358</span>                                </div>
+<div class="line"><span class="lineno">  359</span>    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">  360</span> </div>
+<div class="line"><span class="lineno">  361</span>    <span class="comment">/* Efface le rendu */</span></div>
+<div class="line"><span class="lineno">  362</span>    <span class="keywordflow">if</span>(SDL_RenderClear((*renderer)) != 0)</div>
+<div class="line"><span class="lineno">  363</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Effacement rendu échoué&quot;</span>);</div>
+<div class="line"><span class="lineno">  364</span> </div>
+<div class="line"><span class="lineno">  365</span>    <span class="comment">/* Affiche tout l&#39;étage en fonction des valeurs */</span></div>
+<div class="line"><span class="lineno">  366</span>    <span class="keywordflow">for</span> (y = 0; y &lt; hauteur / hauteur_tile; y++) {</div>
+<div class="line"><span class="lineno">  367</span> </div>
+<div class="line"><span class="lineno">  368</span>        <span class="keywordflow">for</span> (x = 0; x &lt; largeur / largeur_tile; x++) {</div>
+<div class="line"><span class="lineno">  369</span> </div>
+<div class="line"><span class="lineno">  370</span>            <span class="keywordflow">if</span>(tile_map[y][x] == 1)</div>
+<div class="line"><span class="lineno">  371</span>                (*texture) = (*texture_image_mur);</div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span>((!(tile_map[y][x])) || (tile_map[y][x] == 3) || (tile_map[y][x] == 4) || (tile_map[y][x] == 5) || (tile_map[y][x] == 7)) </div>
+<div class="line"><span class="lineno">  374</span>                (*texture) = (*texture_image_fond);</div>
+<div class="line"><span class="lineno">  375</span> </div>
+<div class="line"><span class="lineno">  376</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(tile_map[y][x] == 2) </div>
+<div class="line"><span class="lineno">  377</span>                (*texture) = (*texture_image_bordure);</div>
+<div class="line"><span class="lineno">  378</span> </div>
+<div class="line"><span class="lineno">  379</span>            rectangle_tile-&gt;x = x * largeur_tile;</div>
+<div class="line"><span class="lineno">  380</span>            rectangle_tile-&gt;y = y * hauteur_tile;</div>
+<div class="line"><span class="lineno">  381</span>            rectangle_tile-&gt;w = largeur_tile;</div>
+<div class="line"><span class="lineno">  382</span>            rectangle_tile-&gt;h = hauteur_tile;</div>
+<div class="line"><span class="lineno">  383</span> </div>
+<div class="line"><span class="lineno">  384</span>            <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), (*texture), NULL, rectangle_tile) != 0)</div>
+<div class="line"><span class="lineno">  385</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  386</span> </div>
+<div class="line"><span class="lineno">  387</span>            <span class="keywordflow">if</span>(tile_map[y][x] == 3)</div>
+<div class="line"><span class="lineno">  388</span>                <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), (*texture_image_pique), NULL, rectangle_tile) != 0)</div>
+<div class="line"><span class="lineno">  389</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  390</span> </div>
+<div class="line"><span class="lineno">  391</span>            <span class="keywordflow">if</span>(tile_map[y][x] == 4)</div>
+<div class="line"><span class="lineno">  392</span>                <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), (*texture_image_porte), NULL, rectangle_tile) != 0)</div>
+<div class="line"><span class="lineno">  393</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  394</span> </div>
+<div class="line"><span class="lineno">  395</span>            <span class="keywordflow">if</span>(tile_map[y][x] == 7)</div>
+<div class="line"><span class="lineno">  396</span>                <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), (*texture_image_fin_dernier_niveau), NULL, rectangle_tile) != 0)</div>
+<div class="line"><span class="lineno">  397</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  398</span> </div>
+<div class="line"><span class="lineno">  399</span>            <span class="keywordflow">if</span>((tile_map[y][x] == 5) &amp;&amp; (numero_etage == 2) &amp;&amp; (avancee_niveaux[3].numero_collectible[0] == 0))</div>
+<div class="line"><span class="lineno">  400</span>                <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), avancee_niveaux[3].texture_image_collectible, NULL, rectangle_tile) != 0)</div>
+<div class="line"><span class="lineno">  401</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  402</span> </div>
+<div class="line"><span class="lineno">  403</span>            <span class="keywordflow">if</span>((tile_map[y][x] == 5) &amp;&amp; (numero_etage == 3) &amp;&amp; (avancee_niveaux[3].numero_collectible[1] == 0))</div>
+<div class="line"><span class="lineno">  404</span>                <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), avancee_niveaux[3].texture_image_collectible, NULL, rectangle_tile) != 0)</div>
+<div class="line"><span class="lineno">  405</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  406</span> </div>
+<div class="line"><span class="lineno">  407</span>            <span class="keywordflow">if</span>((tile_map[y][x] == 5) &amp;&amp; (numero_etage == 5) &amp;&amp; (avancee_niveaux[3].numero_collectible[2] == 0))</div>
+<div class="line"><span class="lineno">  408</span>                <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), avancee_niveaux[3].texture_image_collectible, NULL, rectangle_tile) != 0)</div>
+<div class="line"><span class="lineno">  409</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  410</span>        }</div>
+<div class="line"><span class="lineno">  411</span>    }</div>
+<div class="line"><span class="lineno">  412</span> </div>
+<div class="line"><span class="lineno">  413</span>    <span class="comment">/* Copie la texture de l&#39;image du personnage */</span></div>
+<div class="line"><span class="lineno">  414</span>            </div>
+<div class="line"><span class="lineno">  415</span>    rectangle_personnage-&gt;x = position_x * largeur_tile;</div>
+<div class="line"><span class="lineno">  416</span>    rectangle_personnage-&gt;y = position_y * hauteur_tile;</div>
+<div class="line"><span class="lineno">  417</span>    rectangle_personnage-&gt;w = largeur_tile;</div>
+<div class="line"><span class="lineno">  418</span>    rectangle_personnage-&gt;h = hauteur_tile;</div>
+<div class="line"><span class="lineno">  419</span>    </div>
+<div class="line"><span class="lineno">  420</span>    <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), (*texture_image_personnage), NULL, rectangle_personnage) != 0)</div>
+<div class="line"><span class="lineno">  421</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  422</span> </div>
+<div class="line"><span class="lineno">  423</span>    <span class="comment">/* Copie la texture de l&#39;image de plein écran */</span></div>
+<div class="line"><span class="lineno">  424</span> </div>
+<div class="line"><span class="lineno">  425</span>    rectangle_plein_ecran-&gt;x = largeur_tile * 31;</div>
+<div class="line"><span class="lineno">  426</span>    rectangle_plein_ecran-&gt;y = 0;</div>
+<div class="line"><span class="lineno">  427</span>    rectangle_plein_ecran-&gt;w = largeur_tile;</div>
+<div class="line"><span class="lineno">  428</span>    rectangle_plein_ecran-&gt;h = hauteur_tile;</div>
+<div class="line"><span class="lineno">  429</span> </div>
+<div class="line"><span class="lineno">  430</span>    <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), (*texture_image_plein_ecran), NULL, rectangle_plein_ecran) != 0)</div>
+<div class="line"><span class="lineno">  431</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  432</span> </div>
+<div class="line"><span class="lineno">  433</span>    <span class="comment">/* Copie la texture de l&#39;image de la croix */</span></div>
+<div class="line"><span class="lineno">  434</span> </div>
+<div class="line"><span class="lineno">  435</span>    rectangle_croix-&gt;x = 0;</div>
+<div class="line"><span class="lineno">  436</span>    rectangle_croix-&gt;y = 0;</div>
+<div class="line"><span class="lineno">  437</span>    rectangle_croix-&gt;w = largeur_tile;</div>
+<div class="line"><span class="lineno">  438</span>    rectangle_croix-&gt;h = hauteur_tile;</div>
+<div class="line"><span class="lineno">  439</span> </div>
+<div class="line"><span class="lineno">  440</span>    <span class="keywordflow">if</span>(SDL_RenderCopy((*renderer), (*texture_image_croix), NULL, rectangle_croix) != 0)</div>
+<div class="line"><span class="lineno">  441</span>        <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Copie de la texture&quot;</span>);</div>
+<div class="line"><span class="lineno">  442</span> </div>
+<div class="line"><span class="lineno">  443</span>    <span class="comment">/* Affiche le rendu */</span></div>
+<div class="line"><span class="lineno">  444</span>    SDL_RenderPresent((*renderer));</div>
+<div class="line"><span class="lineno">  445</span>}</div>
+<div class="ttc" id="afonctions__generales_8c_html_a02efc10954bca92c1219a7a3b41dbe89"><div class="ttname"><a href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a></div><div class="ttdeci">void erreur(const char *message)</div><div class="ttdoc">Affiche l'erreur en cas de problème et ferme la SDL.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00014">fonctions_generales.c:14</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a29aa6d3fc41a4bde5ced2ea174426020" name="a29aa6d3fc41a4bde5ced2ea174426020"></a>
@@ -1188,8 +1504,454 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00510">510</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
-
+<p class="definition">Définition à la ligne <a class="el" href="fonctions__niveau__4_8c_source.html#l00521">521</a> du fichier <a class="el" href="fonctions__niveau__4_8c_source.html">fonctions_niveau_4.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  539</span>                                                                                                                         {</div>
+<div class="line"><span class="lineno">  540</span> </div>
+<div class="line"><span class="lineno">  541</span>    SDL_Event event_temporaire;</div>
+<div class="line"><span class="lineno">  542</span>    SDL_bool clic_effectue = SDL_FALSE;</div>
+<div class="line"><span class="lineno">  543</span> </div>
+<div class="line"><span class="lineno">  544</span>    Mix_Chunk *effet_sonore = NULL;</div>
+<div class="line"><span class="lineno">  545</span>    </div>
+<div class="line"><span class="lineno">  546</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  547</span> </div>
+<div class="line"><span class="lineno">  548</span>    <span class="keywordflow">while</span>(SDL_PollEvent(event)) {</div>
+<div class="line"><span class="lineno">  549</span> </div>
+<div class="line"><span class="lineno">  550</span>        <span class="keywordflow">switch</span>(event-&gt;type) {</div>
+<div class="line"><span class="lineno">  551</span> </div>
+<div class="line"><span class="lineno">  552</span>            <span class="comment">/* Gestion de l&#39;événement de redimensionnement de la fenêtre */</span></div>
+<div class="line"><span class="lineno">  553</span>            <span class="keywordflow">case</span> SDL_WINDOWEVENT:</div>
+<div class="line"><span class="lineno">  554</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a5c46ccfb829656680145d5fe3b33418f">redimensionnement_fenetre</a>((*event), largeur, hauteur);</div>
+<div class="line"><span class="lineno">  555</span>                </div>
+<div class="line"><span class="lineno">  556</span>                (*largeur_tile) = (*largeur) / 32;</div>
+<div class="line"><span class="lineno">  557</span>                (*hauteur_tile) = (*hauteur) / 18;</div>
+<div class="line"><span class="lineno">  558</span> </div>
+<div class="line"><span class="lineno">  559</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  560</span> </div>
+<div class="line"><span class="lineno">  561</span>            <span class="keywordflow">case</span> SDL_KEYDOWN:</div>
+<div class="line"><span class="lineno">  562</span> </div>
+<div class="line"><span class="lineno">  563</span>                <span class="keywordflow">if</span>(event-&gt;key.keysym.sym == (*touche_sauter_monter))</div>
+<div class="line"><span class="lineno">  564</span>                    (*sauter) = 1;</div>
+<div class="line"><span class="lineno">  565</span> </div>
+<div class="line"><span class="lineno">  566</span>                <span class="keywordflow">if</span>(event-&gt;key.keysym.sym == (*touche_aller_a_droite))</div>
+<div class="line"><span class="lineno">  567</span>                    (*avancer) = 1;</div>
+<div class="line"><span class="lineno">  568</span> </div>
+<div class="line"><span class="lineno">  569</span>                <span class="keywordflow">if</span>(event-&gt;key.keysym.sym == (*touche_aller_a_gauche))</div>
+<div class="line"><span class="lineno">  570</span>                    (*reculer) = 1;</div>
+<div class="line"><span class="lineno">  571</span> </div>
+<div class="line"><span class="lineno">  572</span>                <span class="keywordflow">if</span>(event-&gt;key.keysym.sym == (*touche_interagir)) {</div>
+<div class="line"><span class="lineno">  573</span> </div>
+<div class="line"><span class="lineno">  574</span>                    <span class="comment">/* Cas où vous retournez sur la carte */</span></div>
+<div class="line"><span class="lineno">  575</span>                    <span class="keywordflow">if</span> (((*numero_etage) == 1) &amp;&amp; ((*position_x) == 2) &amp;&amp; ((*position_y) == 15)) {</div>
+<div class="line"><span class="lineno">  576</span> </div>
+<div class="line"><span class="lineno">  577</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  578</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  579</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  580</span>                            </div>
+<div class="line"><span class="lineno">  581</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  582</span> </div>
+<div class="line"><span class="lineno">  583</span>                        (*page_active) = CARTE;</div>
+<div class="line"><span class="lineno">  584</span>                    }</div>
+<div class="line"><span class="lineno">  585</span>                        </div>
+<div class="line"><span class="lineno">  586</span> </div>
+<div class="line"><span class="lineno">  587</span>                    <span class="comment">/* Cas où vous montez à l&#39;étage 2 */</span></div>
+<div class="line"><span class="lineno">  588</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 1) &amp;&amp; ((*position_x) == 29) &amp;&amp; ((*position_y) == 2)) {</div>
+<div class="line"><span class="lineno">  589</span> </div>
+<div class="line"><span class="lineno">  590</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  591</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  592</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  593</span>                            </div>
+<div class="line"><span class="lineno">  594</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  595</span> </div>
+<div class="line"><span class="lineno">  596</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#a5cd3912481c0e3fce5cb71d46d2cee48">etage_2</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  597</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  598</span> </div>
+<div class="line"><span class="lineno">  599</span>                        (*numero_etage) = 2;</div>
+<div class="line"><span class="lineno">  600</span>                    }</div>
+<div class="line"><span class="lineno">  601</span> </div>
+<div class="line"><span class="lineno">  602</span>                    <span class="comment">/* Cas où vous descendez à l&#39;étage 1 */</span></div>
+<div class="line"><span class="lineno">  603</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 2) &amp;&amp; ((*position_x) == 29) &amp;&amp; ((*position_y) == 15)) {</div>
+<div class="line"><span class="lineno">  604</span> </div>
+<div class="line"><span class="lineno">  605</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  606</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  607</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  608</span>                            </div>
+<div class="line"><span class="lineno">  609</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  610</span> </div>
+<div class="line"><span class="lineno">  611</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#acb4915da59b767735accd4bac47b5127">etage_1</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  612</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  613</span> </div>
+<div class="line"><span class="lineno">  614</span>                        (*position_x) = 29;</div>
+<div class="line"><span class="lineno">  615</span>                        (*position_y) = 2;</div>
+<div class="line"><span class="lineno">  616</span>                        (*numero_etage) = 1;</div>
+<div class="line"><span class="lineno">  617</span>                    }</div>
+<div class="line"><span class="lineno">  618</span> </div>
+<div class="line"><span class="lineno">  619</span>                    <span class="comment">/* Cas où vous montez à l&#39;étage 3 */</span></div>
+<div class="line"><span class="lineno">  620</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 2) &amp;&amp; ((*position_x) == 29) &amp;&amp; ((*position_y) == 2)) {</div>
+<div class="line"><span class="lineno">  621</span> </div>
+<div class="line"><span class="lineno">  622</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  623</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  624</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  625</span>                            </div>
+<div class="line"><span class="lineno">  626</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  627</span> </div>
+<div class="line"><span class="lineno">  628</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#a50c50064452a711103b9cf8288dfd0ec">etage_3</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  629</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  630</span> </div>
+<div class="line"><span class="lineno">  631</span>                        (*numero_etage) = 3;</div>
+<div class="line"><span class="lineno">  632</span>                    }</div>
+<div class="line"><span class="lineno">  633</span> </div>
+<div class="line"><span class="lineno">  634</span>                    <span class="comment">/* Cas où vous descendez à l&#39;étage 2 */</span></div>
+<div class="line"><span class="lineno">  635</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 3) &amp;&amp; ((*position_x) == 29) &amp;&amp; ((*position_y) == 15)) {</div>
+<div class="line"><span class="lineno">  636</span> </div>
+<div class="line"><span class="lineno">  637</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  638</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  639</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  640</span>                            </div>
+<div class="line"><span class="lineno">  641</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  642</span> </div>
+<div class="line"><span class="lineno">  643</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#a5cd3912481c0e3fce5cb71d46d2cee48">etage_2</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  644</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  645</span> </div>
+<div class="line"><span class="lineno">  646</span>                        (*position_x) = 29;</div>
+<div class="line"><span class="lineno">  647</span>                        (*position_y) = 2;</div>
+<div class="line"><span class="lineno">  648</span>                        (*numero_etage) = 2;</div>
+<div class="line"><span class="lineno">  649</span>                    }</div>
+<div class="line"><span class="lineno">  650</span> </div>
+<div class="line"><span class="lineno">  651</span>                    <span class="comment">/* Cas où vous montez à l&#39;étage 4 */</span></div>
+<div class="line"><span class="lineno">  652</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 3) &amp;&amp; ((*position_x) == 2) &amp;&amp; ((*position_y) == 2)) {</div>
+<div class="line"><span class="lineno">  653</span> </div>
+<div class="line"><span class="lineno">  654</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  655</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  656</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  657</span>                            </div>
+<div class="line"><span class="lineno">  658</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  659</span> </div>
+<div class="line"><span class="lineno">  660</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#aa4bba241422f541a36f3fca215f01455">etage_4</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  661</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  662</span> </div>
+<div class="line"><span class="lineno">  663</span>                        (*numero_etage) = 4;</div>
+<div class="line"><span class="lineno">  664</span>                    }</div>
+<div class="line"><span class="lineno">  665</span> </div>
+<div class="line"><span class="lineno">  666</span>                    <span class="comment">/* Cas où vous descendez à l&#39;étage 3 */</span></div>
+<div class="line"><span class="lineno">  667</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 4) &amp;&amp; ((*position_x) == 2) &amp;&amp; ((*position_y) == 15)) {</div>
+<div class="line"><span class="lineno">  668</span> </div>
+<div class="line"><span class="lineno">  669</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  670</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  671</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  672</span>                            </div>
+<div class="line"><span class="lineno">  673</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  674</span> </div>
+<div class="line"><span class="lineno">  675</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#a50c50064452a711103b9cf8288dfd0ec">etage_3</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  676</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  677</span> </div>
+<div class="line"><span class="lineno">  678</span>                        (*position_x) = 2;</div>
+<div class="line"><span class="lineno">  679</span>                        (*position_y) = 2;</div>
+<div class="line"><span class="lineno">  680</span>                        (*numero_etage) = 3;</div>
+<div class="line"><span class="lineno">  681</span>                    }</div>
+<div class="line"><span class="lineno">  682</span> </div>
+<div class="line"><span class="lineno">  683</span>                    <span class="comment">/* Cas où vous montez à l&#39;étage 5 */</span></div>
+<div class="line"><span class="lineno">  684</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 4) &amp;&amp; ((*position_x) == 29) &amp;&amp; ((*position_y) == 2)) {</div>
+<div class="line"><span class="lineno">  685</span> </div>
+<div class="line"><span class="lineno">  686</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  687</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  688</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  689</span>                            </div>
+<div class="line"><span class="lineno">  690</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  691</span> </div>
+<div class="line"><span class="lineno">  692</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#a6efdad35f95e85508d3f230b6de7bcbd">etage_5</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  693</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  694</span> </div>
+<div class="line"><span class="lineno">  695</span>                        (*numero_etage) = 5;</div>
+<div class="line"><span class="lineno">  696</span>                    }</div>
+<div class="line"><span class="lineno">  697</span> </div>
+<div class="line"><span class="lineno">  698</span>                    <span class="comment">/* Cas où vous descendez à l&#39;étage 4 */</span></div>
+<div class="line"><span class="lineno">  699</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (((*numero_etage) == 5) &amp;&amp; ((*position_x) == 29) &amp;&amp; ((*position_y) == 15)) {</div>
+<div class="line"><span class="lineno">  700</span> </div>
+<div class="line"><span class="lineno">  701</span>                        <span class="comment">/* Effet sonore quand on passe dans une porte */</span></div>
+<div class="line"><span class="lineno">  702</span>                        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/porte.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  703</span>                            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  704</span>                            </div>
+<div class="line"><span class="lineno">  705</span>                        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  706</span> </div>
+<div class="line"><span class="lineno">  707</span>                        <a class="code hl_function" href="fonctions__niveau__4_8c.html#aa4bba241422f541a36f3fca215f01455">etage_4</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  708</span>                                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  709</span> </div>
+<div class="line"><span class="lineno">  710</span>                        (*position_x) = 29;</div>
+<div class="line"><span class="lineno">  711</span>                        (*position_y) = 2;</div>
+<div class="line"><span class="lineno">  712</span>                        (*numero_etage) = 4;</div>
+<div class="line"><span class="lineno">  713</span>                    }</div>
+<div class="line"><span class="lineno">  714</span>                }</div>
+<div class="line"><span class="lineno">  715</span> </div>
+<div class="line"><span class="lineno">  716</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  717</span> </div>
+<div class="line"><span class="lineno">  718</span>            <span class="keywordflow">case</span> SDL_KEYUP:</div>
+<div class="line"><span class="lineno">  719</span> </div>
+<div class="line"><span class="lineno">  720</span>                <span class="keywordflow">if</span>(event-&gt;key.keysym.sym == (*touche_sauter_monter))</div>
+<div class="line"><span class="lineno">  721</span>                        (*sauter) = 0;</div>
+<div class="line"><span class="lineno">  722</span> </div>
+<div class="line"><span class="lineno">  723</span>                <span class="keywordflow">if</span>(event-&gt;key.keysym.sym == (*touche_aller_a_droite))</div>
+<div class="line"><span class="lineno">  724</span>                        (*avancer) = 0;</div>
+<div class="line"><span class="lineno">  725</span> </div>
+<div class="line"><span class="lineno">  726</span>                <span class="keywordflow">if</span>(event-&gt;key.keysym.sym == (*touche_aller_a_gauche))</div>
+<div class="line"><span class="lineno">  727</span>                        (*reculer) = 0;</div>
+<div class="line"><span class="lineno">  728</span> </div>
+<div class="line"><span class="lineno">  729</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  730</span> </div>
+<div class="line"><span class="lineno">  731</span>            <span class="comment">/* Option plein écran */</span></div>
+<div class="line"><span class="lineno">  732</span>            <span class="keywordflow">case</span> SDL_MOUSEBUTTONDOWN:</div>
+<div class="line"><span class="lineno">  733</span> </div>
+<div class="line"><span class="lineno">  734</span>                <span class="keywordflow">if</span>(<a class="code hl_function" href="fonctions__generales_8c.html#afe51c2fcb0206df7f65785b8b0137951">clic_plein_ecran</a>((*event), rectangle_plein_ecran, plein_ecran, window)) {</div>
+<div class="line"><span class="lineno">  735</span> </div>
+<div class="line"><span class="lineno">  736</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a5c46ccfb829656680145d5fe3b33418f">redimensionnement_fenetre</a>((*event), largeur, hauteur);</div>
+<div class="line"><span class="lineno">  737</span> </div>
+<div class="line"><span class="lineno">  738</span>                    (*largeur_tile) = (*largeur) / 32;</div>
+<div class="line"><span class="lineno">  739</span>                    (*hauteur_tile) = (*hauteur) / 18;</div>
+<div class="line"><span class="lineno">  740</span>                }</div>
+<div class="line"><span class="lineno">  741</span> </div>
+<div class="line"><span class="lineno">  742</span>                <span class="comment">/* Demande au joueur s&#39;il veut quitter le niveau */</span></div>
+<div class="line"><span class="lineno">  743</span>                <span class="keywordflow">if</span>(<a class="code hl_function" href="fonctions__generales_8c.html#a4e9c4517e62999bd244b9031d9482d7a">clic_case</a>((*event), (*rectangle_croix))) {</div>
+<div class="line"><span class="lineno">  744</span> </div>
+<div class="line"><span class="lineno">  745</span>                    SDL_SetWindowResizable((*window), SDL_FALSE);</div>
+<div class="line"><span class="lineno">  746</span> </div>
+<div class="line"><span class="lineno">  747</span>                    <a class="code hl_function" href="fonctions__generales_8c.html#a1a8406a3255d6fd605e5cfd014142bdd">demande_quitter_niveau</a>(renderer, rectangle_demande,</div>
+<div class="line"><span class="lineno">  748</span>                                        surface, texture_texte, police, couleurNoire,</div>
+<div class="line"><span class="lineno">  749</span>                                        itemsDemandeQuitter, tailleDemande, (*largeur), (*hauteur));</div>
+<div class="line"><span class="lineno">  750</span> </div>
+<div class="line"><span class="lineno">  751</span>                    <span class="keywordflow">while</span> (!clic_effectue) {</div>
+<div class="line"><span class="lineno">  752</span> </div>
+<div class="line"><span class="lineno">  753</span>                        <span class="keywordflow">while</span> (SDL_PollEvent(&amp;event_temporaire)) {</div>
+<div class="line"><span class="lineno">  754</span> </div>
+<div class="line"><span class="lineno">  755</span>                            <span class="keywordflow">if</span>(event_temporaire.type == SDL_MOUSEBUTTONDOWN) {</div>
+<div class="line"><span class="lineno">  756</span> </div>
+<div class="line"><span class="lineno">  757</span>                                <span class="keywordflow">if</span>(<a class="code hl_function" href="fonctions__generales_8c.html#a4e9c4517e62999bd244b9031d9482d7a">clic_case</a>(event_temporaire, itemsDemandeQuitter[1].rectangle)) {</div>
+<div class="line"><span class="lineno">  758</span> </div>
+<div class="line"><span class="lineno">  759</span>                                    (*page_active) = CARTE;</div>
+<div class="line"><span class="lineno">  760</span> </div>
+<div class="line"><span class="lineno">  761</span>                                    <span class="keywordflow">for</span>(i = 0; i &lt; 3; i++)</div>
+<div class="line"><span class="lineno">  762</span>                                        avancee_niveaux[3].numero_collectible[i] = collectibles_intermediaires[i];</div>
+<div class="line"><span class="lineno">  763</span> </div>
+<div class="line"><span class="lineno">  764</span>                                    <span class="keywordflow">for</span>(i = 0; i &lt; 10; i++)</div>
+<div class="line"><span class="lineno">  765</span>                                        avancee_succes[i] = avancee_succes_intermediaires[i];</div>
+<div class="line"><span class="lineno">  766</span> </div>
+<div class="line"><span class="lineno">  767</span>                                    clic_effectue = SDL_TRUE; </div>
+<div class="line"><span class="lineno">  768</span>                                }</div>
+<div class="line"><span class="lineno">  769</span> </div>
+<div class="line"><span class="lineno">  770</span>                                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code hl_function" href="fonctions__generales_8c.html#a4e9c4517e62999bd244b9031d9482d7a">clic_case</a>(event_temporaire, itemsDemandeQuitter[2].rectangle))</div>
+<div class="line"><span class="lineno">  771</span>                                    clic_effectue = SDL_TRUE; </div>
+<div class="line"><span class="lineno">  772</span>                            }</div>
+<div class="line"><span class="lineno">  773</span>                        }</div>
+<div class="line"><span class="lineno">  774</span>                    }</div>
+<div class="line"><span class="lineno">  775</span> </div>
+<div class="line"><span class="lineno">  776</span>                    SDL_SetWindowResizable((*window), SDL_TRUE);</div>
+<div class="line"><span class="lineno">  777</span>                }</div>
+<div class="line"><span class="lineno">  778</span> </div>
+<div class="line"><span class="lineno">  779</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  780</span> </div>
+<div class="line"><span class="lineno">  781</span>            <span class="comment">/* Quitter le programme en demandant s&#39;il faut sauvarger la partie */</span></div>
+<div class="line"><span class="lineno">  782</span>            <span class="keywordflow">case</span> SDL_QUIT:</div>
+<div class="line"><span class="lineno">  783</span> </div>
+<div class="line"><span class="lineno">  784</span>                SDL_SetWindowResizable((*window), SDL_FALSE);</div>
+<div class="line"><span class="lineno">  785</span> </div>
+<div class="line"><span class="lineno">  786</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a066cdfc0bac6604dc0a3a7d8b4c8bffb">demande_sauvegarde</a>(renderer, rectangle_demande,</div>
+<div class="line"><span class="lineno">  787</span>                                    surface, texture_texte, police, couleurNoire,</div>
+<div class="line"><span class="lineno">  788</span>                                    itemsDemandeSauvegarde, tailleDemande, (*largeur), (*hauteur));</div>
+<div class="line"><span class="lineno">  789</span> </div>
+<div class="line"><span class="lineno">  790</span>                <span class="keywordflow">while</span> (!clic_effectue) {</div>
+<div class="line"><span class="lineno">  791</span> </div>
+<div class="line"><span class="lineno">  792</span>                    <span class="keywordflow">while</span> (SDL_PollEvent(&amp;event_temporaire)) {</div>
+<div class="line"><span class="lineno">  793</span> </div>
+<div class="line"><span class="lineno">  794</span>                        <span class="keywordflow">if</span>(event_temporaire.type == SDL_MOUSEBUTTONDOWN) {</div>
+<div class="line"><span class="lineno">  795</span> </div>
+<div class="line"><span class="lineno">  796</span>                            <span class="keywordflow">if</span>(<a class="code hl_function" href="fonctions__generales_8c.html#a4e9c4517e62999bd244b9031d9482d7a">clic_case</a>(event_temporaire, itemsDemandeSauvegarde[1].rectangle)) {</div>
+<div class="line"><span class="lineno">  797</span> </div>
+<div class="line"><span class="lineno">  798</span>                                <span class="keywordflow">for</span>(i = 0; i &lt; 3; i++)</div>
+<div class="line"><span class="lineno">  799</span>                                    avancee_niveaux[3].numero_collectible[i] = collectibles_intermediaires[i];</div>
+<div class="line"><span class="lineno">  800</span> </div>
+<div class="line"><span class="lineno">  801</span>                                <a class="code hl_function" href="fonctions__generales_8c.html#a3845ad340a7ec5a5a341718c1b23fa7e">sauvegarder_partie</a>(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,</div>
+<div class="line"><span class="lineno">  802</span>                                                    touche_descendre, touche_interagir, barre_de_son, pseudo,</div>
+<div class="line"><span class="lineno">  803</span>                                                    (*modeActif), (*personnageActif), (*positionActive),</div>
+<div class="line"><span class="lineno">  804</span>                                                    avancee_niveaux, tailleNiveaux, temps_debut_partie, (*compteur_mort), avancee_succes);</div>
+<div class="line"><span class="lineno">  805</span> </div>
+<div class="line"><span class="lineno">  806</span>                                (*programme_lance) = SDL_FALSE;</div>
+<div class="line"><span class="lineno">  807</span>                                clic_effectue = SDL_TRUE; </div>
+<div class="line"><span class="lineno">  808</span>                            }</div>
+<div class="line"><span class="lineno">  809</span> </div>
+<div class="line"><span class="lineno">  810</span>                            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code hl_function" href="fonctions__generales_8c.html#a4e9c4517e62999bd244b9031d9482d7a">clic_case</a>(event_temporaire, itemsDemandeSauvegarde[2].rectangle)) {</div>
+<div class="line"><span class="lineno">  811</span>                                (*programme_lance) = SDL_FALSE;</div>
+<div class="line"><span class="lineno">  812</span>                                clic_effectue = SDL_TRUE; </div>
+<div class="line"><span class="lineno">  813</span>                            }</div>
+<div class="line"><span class="lineno">  814</span> </div>
+<div class="line"><span class="lineno">  815</span>                            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!<a class="code hl_function" href="fonctions__generales_8c.html#a4e9c4517e62999bd244b9031d9482d7a">clic_case</a>(event_temporaire, (*rectangle_demande)))</div>
+<div class="line"><span class="lineno">  816</span>                                clic_effectue = SDL_TRUE;    </div>
+<div class="line"><span class="lineno">  817</span>                        }</div>
+<div class="line"><span class="lineno">  818</span>                    }</div>
+<div class="line"><span class="lineno">  819</span>                }</div>
+<div class="line"><span class="lineno">  820</span> </div>
+<div class="line"><span class="lineno">  821</span>                SDL_SetWindowResizable((*window), SDL_TRUE);</div>
+<div class="line"><span class="lineno">  822</span> </div>
+<div class="line"><span class="lineno">  823</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  824</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  825</span>        }</div>
+<div class="line"><span class="lineno">  826</span>    }</div>
+<div class="line"><span class="lineno">  827</span>    </div>
+<div class="line"><span class="lineno">  828</span>    <span class="comment">/* Déplacement du personnage */</span></div>
+<div class="line"><span class="lineno">  829</span>    <a class="code hl_function" href="fonctions__generales_8c.html#adca5346b92d851a5c8c1beb85988477b">deplacement_personnage</a>(saut, tombe, position_x, position_y, position_avant_saut,</div>
+<div class="line"><span class="lineno">  830</span>                           (*sauter), (*avancer), (*reculer), tile_map, (*personnageActif));</div>
+<div class="line"><span class="lineno">  831</span> </div>
+<div class="line"><span class="lineno">  832</span>    <span class="comment">/* Cas où le personnage meurt dans le vide ou par des piques */</span></div>
+<div class="line"><span class="lineno">  833</span> </div>
+<div class="line"><span class="lineno">  834</span>    <span class="keywordflow">if</span>(((tile_map[(*position_y)][(*position_x)] == 2) || (tile_map[(*position_y)][(*position_x)] == 3)) &amp;&amp; ((*modeActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3af81b467c1f5e20f847402b03925c0d12">MODE_NORMAL</a>)) {</div>
+<div class="line"><span class="lineno">  835</span> </div>
+<div class="line"><span class="lineno">  836</span>        (*compteur_mort)++;</div>
+<div class="line"><span class="lineno">  837</span> </div>
+<div class="line"><span class="lineno">  838</span>        <span class="keywordflow">if</span>((*personnageActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417">PERSONNAGE_1</a>) {</div>
+<div class="line"><span class="lineno">  839</span> </div>
+<div class="line"><span class="lineno">  840</span>            <span class="comment">/* Effet sonore quand le premier personnage meurt */</span></div>
+<div class="line"><span class="lineno">  841</span>            <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/mort_masculin.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  842</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  843</span>        }</div>
+<div class="line"><span class="lineno">  844</span> </div>
+<div class="line"><span class="lineno">  845</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>((*personnageActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e">PERSONNAGE_2</a>) {</div>
+<div class="line"><span class="lineno">  846</span> </div>
+<div class="line"><span class="lineno">  847</span>            <span class="comment">/* Effet sonore quand le premier personnage meurt */</span></div>
+<div class="line"><span class="lineno">  848</span>            <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/mort_feminin.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  849</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  850</span>        }</div>
+<div class="line"><span class="lineno">  851</span>            </div>
+<div class="line"><span class="lineno">  852</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  853</span> </div>
+<div class="line"><span class="lineno">  854</span>        (*position_x) = (*position_x_initiale);</div>
+<div class="line"><span class="lineno">  855</span>        (*position_y) = (*position_y_initiale);</div>
+<div class="line"><span class="lineno">  856</span>    }</div>
+<div class="line"><span class="lineno">  857</span> </div>
+<div class="line"><span class="lineno">  858</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(((tile_map[(*position_y)][(*position_x)] == 2) || (tile_map[(*position_y)][(*position_x)] == 3)) &amp;&amp; ((*modeActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0">MODE_HARD</a>)) {</div>
+<div class="line"><span class="lineno">  859</span> </div>
+<div class="line"><span class="lineno">  860</span>        <span class="keywordflow">if</span>((*personnageActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417">PERSONNAGE_1</a>) {</div>
+<div class="line"><span class="lineno">  861</span> </div>
+<div class="line"><span class="lineno">  862</span>            <span class="comment">/* Effet sonore quand le premier personnage meurt */</span></div>
+<div class="line"><span class="lineno">  863</span>            <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/mort_masculin.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  864</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  865</span>        }</div>
+<div class="line"><span class="lineno">  866</span> </div>
+<div class="line"><span class="lineno">  867</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>((*personnageActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e">PERSONNAGE_2</a>) {</div>
+<div class="line"><span class="lineno">  868</span> </div>
+<div class="line"><span class="lineno">  869</span>            <span class="comment">/* Effet sonore quand le premier personnage meurt */</span></div>
+<div class="line"><span class="lineno">  870</span>            <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/mort_feminin.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  871</span>                <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  872</span>        }</div>
+<div class="line"><span class="lineno">  873</span>            </div>
+<div class="line"><span class="lineno">  874</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  875</span> </div>
+<div class="line"><span class="lineno">  876</span>        (*numero_etage) = 1;</div>
+<div class="line"><span class="lineno">  877</span> </div>
+<div class="line"><span class="lineno">  878</span>        <a class="code hl_function" href="fonctions__niveau__4_8c.html#acb4915da59b767735accd4bac47b5127">etage_1</a>(position_x, position_y, position_x_initiale, position_y_initiale, tile_map,</div>
+<div class="line"><span class="lineno">  879</span>                renderer, surface, texture_image_mur);</div>
+<div class="line"><span class="lineno">  880</span>    }</div>
+<div class="line"><span class="lineno">  881</span> </div>
+<div class="line"><span class="lineno">  882</span>    <span class="comment">/* Cas où le joueur récupère un collectible */</span></div>
+<div class="line"><span class="lineno">  883</span> </div>
+<div class="line"><span class="lineno">  884</span>    <span class="keywordflow">if</span>(((*numero_etage) == 2) &amp;&amp; (tile_map[(*position_y)][(*position_x)] == 5) &amp;&amp; (!avancee_niveaux[3].numero_collectible[0])) {</div>
+<div class="line"><span class="lineno">  885</span> </div>
+<div class="line"><span class="lineno">  886</span>        <span class="comment">/* Effet sonore quand on ramasse un collectible */</span></div>
+<div class="line"><span class="lineno">  887</span>        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/collectibles.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  888</span>            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  889</span>            </div>
+<div class="line"><span class="lineno">  890</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  891</span> </div>
+<div class="line"><span class="lineno">  892</span>        avancee_niveaux[3].numero_collectible[0] = 1;</div>
+<div class="line"><span class="lineno">  893</span>    } </div>
+<div class="line"><span class="lineno">  894</span> </div>
+<div class="line"><span class="lineno">  895</span>    <span class="keywordflow">if</span>(((*numero_etage) == 3) &amp;&amp; (tile_map[(*position_y)][(*position_x)] == 5) &amp;&amp; (!avancee_niveaux[3].numero_collectible[1])) {</div>
+<div class="line"><span class="lineno">  896</span> </div>
+<div class="line"><span class="lineno">  897</span>        <span class="comment">/* Effet sonore quand on ramasse un collectible */</span></div>
+<div class="line"><span class="lineno">  898</span>        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/collectibles.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  899</span>            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  900</span>            </div>
+<div class="line"><span class="lineno">  901</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  902</span> </div>
+<div class="line"><span class="lineno">  903</span>        avancee_niveaux[3].numero_collectible[1] = 1;</div>
+<div class="line"><span class="lineno">  904</span>    }</div>
+<div class="line"><span class="lineno">  905</span> </div>
+<div class="line"><span class="lineno">  906</span>    <span class="keywordflow">if</span>(((*numero_etage) == 5) &amp;&amp; (tile_map[(*position_y)][(*position_x)] == 5) &amp;&amp; (!avancee_niveaux[3].numero_collectible[2])) {</div>
+<div class="line"><span class="lineno">  907</span> </div>
+<div class="line"><span class="lineno">  908</span>        <span class="comment">/* Effet sonore quand on ramasse un collectible */</span></div>
+<div class="line"><span class="lineno">  909</span>        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/collectibles.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  910</span>            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  911</span>            </div>
+<div class="line"><span class="lineno">  912</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  913</span> </div>
+<div class="line"><span class="lineno">  914</span>        avancee_niveaux[3].numero_collectible[2] = 1;</div>
+<div class="line"><span class="lineno">  915</span>    }</div>
+<div class="line"><span class="lineno">  916</span> </div>
+<div class="line"><span class="lineno">  917</span>    <span class="comment">/* Cas où vous avez fini le niveau */</span></div>
+<div class="line"><span class="lineno">  918</span>    <span class="keywordflow">if</span> (tile_map[(*position_y)][(*position_x)] == 7) {</div>
+<div class="line"><span class="lineno">  919</span> </div>
+<div class="line"><span class="lineno">  920</span>        <span class="keywordflow">if</span>((effet_sonore = Mix_LoadWAV(<span class="stringliteral">&quot;./sons/effets_sonores/fin_niveaux.wav&quot;</span>)) == NULL)</div>
+<div class="line"><span class="lineno">  921</span>            <a class="code hl_function" href="fonctions__generales_8c.html#a02efc10954bca92c1219a7a3b41dbe89">erreur</a>(<span class="stringliteral">&quot;Chargement de l&#39;effet sonore&quot;</span>);</div>
+<div class="line"><span class="lineno">  922</span>        </div>
+<div class="line"><span class="lineno">  923</span>        Mix_PlayChannel(1, effet_sonore, 0);</div>
+<div class="line"><span class="lineno">  924</span>        </div>
+<div class="line"><span class="lineno">  925</span>        <span class="comment">/* Mise à jour du rendu */</span></div>
+<div class="line"><span class="lineno">  926</span>        <a class="code hl_function" href="fonctions__niveau__4_8c.html#a0f07b9e7c9acd2202ef8d6f28a53bcd8">mise_a_jour_rendu_niveau_4</a>(renderer, texture_image_mur, texture_image_fond, texture_image_bordure,</div>
+<div class="line"><span class="lineno">  927</span>                                   texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,</div>
+<div class="line"><span class="lineno">  928</span>                                   texture_image_porte, texture_image_fin_dernier_niveau,</div>
+<div class="line"><span class="lineno">  929</span>                                   texture_image_perso_gagnant, rectangle_personnage,</div>
+<div class="line"><span class="lineno">  930</span>                                   texture_image_pique, avancee_niveaux, (*numero_etage),</div>
+<div class="line"><span class="lineno">  931</span>                                   (*position_x), (*position_y), tile_map, texture_image_croix, rectangle_croix,</div>
+<div class="line"><span class="lineno">  932</span>                                   (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile));  </div>
+<div class="line"><span class="lineno">  933</span> </div>
+<div class="line"><span class="lineno">  934</span>        SDL_Delay(1000);</div>
+<div class="line"><span class="lineno">  935</span> </div>
+<div class="line"><span class="lineno">  936</span>        avancee_niveaux[3].niveau_fini = 1; </div>
+<div class="line"><span class="lineno">  937</span> </div>
+<div class="line"><span class="lineno">  938</span>        avancee_succes[0] = 1;</div>
+<div class="line"><span class="lineno">  939</span> </div>
+<div class="line"><span class="lineno">  940</span>        <span class="keywordflow">if</span>((time(NULL) - temps_debut_partie) &lt; 600)</div>
+<div class="line"><span class="lineno">  941</span>            avancee_succes[2] = 1;</div>
+<div class="line"><span class="lineno">  942</span> </div>
+<div class="line"><span class="lineno">  943</span>        <span class="keywordflow">if</span>((*modeActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0">MODE_HARD</a>)</div>
+<div class="line"><span class="lineno">  944</span>            avancee_succes[3] = 1;</div>
+<div class="line"><span class="lineno">  945</span> </div>
+<div class="line"><span class="lineno">  946</span>        <span class="keywordflow">if</span>(!(*compteur_mort))</div>
+<div class="line"><span class="lineno">  947</span>            avancee_succes[5] = 1;</div>
+<div class="line"><span class="lineno">  948</span> </div>
+<div class="line"><span class="lineno">  949</span>        <span class="keywordflow">if</span>(((*modeActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0">MODE_HARD</a>) &amp;&amp; ((time(NULL) - temps_debut_partie) &lt; 600))</div>
+<div class="line"><span class="lineno">  950</span>            avancee_succes[6] = 1;</div>
+<div class="line"><span class="lineno">  951</span> </div>
+<div class="line"><span class="lineno">  952</span>        <span class="keywordflow">if</span>(((*modeActif) == <a class="code hl_enumvalue" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0">MODE_HARD</a>) &amp;&amp; ((time(NULL) - temps_debut_partie) &lt; 600) &amp;&amp; (!(*compteur_mort)))</div>
+<div class="line"><span class="lineno">  953</span>            avancee_succes[8] = 1;</div>
+<div class="line"><span class="lineno">  954</span> </div>
+<div class="line"><span class="lineno">  955</span>        (*numero_etage) = 1;</div>
+<div class="line"><span class="lineno">  956</span> </div>
+<div class="line"><span class="lineno">  957</span>        (*page_active) = CARTE;</div>
+<div class="line"><span class="lineno">  958</span>    }</div>
+<div class="line"><span class="lineno">  959</span>    <span class="comment">/* Mise à jour du rendu */</span></div>
+<div class="line"><span class="lineno">  960</span>    <a class="code hl_function" href="fonctions__niveau__4_8c.html#a0f07b9e7c9acd2202ef8d6f28a53bcd8">mise_a_jour_rendu_niveau_4</a>(renderer, texture_image_mur, texture_image_fond, texture_image_bordure,</div>
+<div class="line"><span class="lineno">  961</span>                               texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,</div>
+<div class="line"><span class="lineno">  962</span>                               texture_image_porte, texture_image_fin_dernier_niveau,</div>
+<div class="line"><span class="lineno">  963</span>                               texture_image_personnage, rectangle_personnage,</div>
+<div class="line"><span class="lineno">  964</span>                               texture_image_pique, avancee_niveaux, (*numero_etage),</div>
+<div class="line"><span class="lineno">  965</span>                               (*position_x), (*position_y), tile_map, texture_image_croix, rectangle_croix,</div>
+<div class="line"><span class="lineno">  966</span>                               (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile));  </div>
+<div class="line"><span class="lineno">  967</span>}</div>
+<div class="ttc" id="afonctions__generales_8c_html_a066cdfc0bac6604dc0a3a7d8b4c8bffb"><div class="ttname"><a href="fonctions__generales_8c.html#a066cdfc0bac6604dc0a3a7d8b4c8bffb">demande_sauvegarde</a></div><div class="ttdeci">void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur)</div><div class="ttdoc">fenêtre se chargeant de demander à l'utilisateur si il souhaite sauvegarder</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00188">fonctions_generales.c:188</a></div></div>
+<div class="ttc" id="afonctions__generales_8c_html_a1a8406a3255d6fd605e5cfd014142bdd"><div class="ttname"><a href="fonctions__generales_8c.html#a1a8406a3255d6fd605e5cfd014142bdd">demande_quitter_niveau</a></div><div class="ttdeci">void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur)</div><div class="ttdoc">Fonction qui permet de demander à l'utilisateur de quitter le niveau.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00253">fonctions_generales.c:253</a></div></div>
+<div class="ttc" id="afonctions__generales_8c_html_a3845ad340a7ec5a5a341718c1b23fa7e"><div class="ttname"><a href="fonctions__generales_8c.html#a3845ad340a7ec5a5a341718c1b23fa7e">sauvegarder_partie</a></div><div class="ttdeci">void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo, modes_t modeActif, personnage_t personnageActif, position_t positionActive, niveaux *avancee_niveaux, int tailleNiveaux, time_t temps_debut_partie, int compteur_mort, int avancee_succes[10])</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00363">fonctions_generales.c:363</a></div></div>
+<div class="ttc" id="afonctions__generales_8c_html_a4e9c4517e62999bd244b9031d9482d7a"><div class="ttname"><a href="fonctions__generales_8c.html#a4e9c4517e62999bd244b9031d9482d7a">clic_case</a></div><div class="ttdeci">int clic_case(SDL_Event event, SDL_Rect rectangle)</div><div class="ttdoc">Fonction qui permet de renvoyer vrai quand on clique sur un rectangle, faux sinon.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00418">fonctions_generales.c:418</a></div></div>
+<div class="ttc" id="afonctions__generales_8c_html_a5c46ccfb829656680145d5fe3b33418f"><div class="ttname"><a href="fonctions__generales_8c.html#a5c46ccfb829656680145d5fe3b33418f">redimensionnement_fenetre</a></div><div class="ttdeci">void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur)</div><div class="ttdoc">Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette der...</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00310">fonctions_generales.c:310</a></div></div>
+<div class="ttc" id="afonctions__generales_8c_html_adca5346b92d851a5c8c1beb85988477b"><div class="ttname"><a href="fonctions__generales_8c.html#adca5346b92d851a5c8c1beb85988477b">deplacement_personnage</a></div><div class="ttdeci">void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut, int sauter, int avancer, int reculer, int tile_map[18][32], personnage_t personnageActif)</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00496">fonctions_generales.c:496</a></div></div>
+<div class="ttc" id="afonctions__generales_8c_html_afe51c2fcb0206df7f65785b8b0137951"><div class="ttname"><a href="fonctions__generales_8c.html#afe51c2fcb0206df7f65785b8b0137951">clic_plein_ecran</a></div><div class="ttdeci">int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window)</div><div class="ttdoc">Fonction qui permet de mettre la fenêtre en plein écran quand on clique sur le bouton plein écran.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8c_source.html#l00449">fonctions_generales.c:449</a></div></div>
+<div class="ttc" id="afonctions__generales_8h_html_a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0"><div class="ttname"><a href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0">MODE_HARD</a></div><div class="ttdeci">@ MODE_HARD</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8h_source.html#l00010">fonctions_generales.h:9</a></div></div>
+<div class="ttc" id="afonctions__generales_8h_html_a8eed5a50145baadb7eb8bf497dbb06e3af81b467c1f5e20f847402b03925c0d12"><div class="ttname"><a href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3af81b467c1f5e20f847402b03925c0d12">MODE_NORMAL</a></div><div class="ttdeci">@ MODE_NORMAL</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8h_source.html#l00008">fonctions_generales.h:8</a></div></div>
+<div class="ttc" id="afonctions__generales_8h_html_a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e"><div class="ttname"><a href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e">PERSONNAGE_2</a></div><div class="ttdeci">@ PERSONNAGE_2</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8h_source.html#l00016">fonctions_generales.h:15</a></div></div>
+<div class="ttc" id="afonctions__generales_8h_html_a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417"><div class="ttname"><a href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417">PERSONNAGE_1</a></div><div class="ttdeci">@ PERSONNAGE_1</div><div class="ttdef"><b>Definition</b> <a href="fonctions__generales_8h_source.html#l00014">fonctions_generales.h:14</a></div></div>
+<div class="ttc" id="afonctions__niveau__4_8c_html_a0f07b9e7c9acd2202ef8d6f28a53bcd8"><div class="ttname"><a href="fonctions__niveau__4_8c.html#a0f07b9e7c9acd2202ef8d6f28a53bcd8">mise_a_jour_rendu_niveau_4</a></div><div class="ttdeci">void mise_a_jour_rendu_niveau_4(SDL_Renderer **renderer, SDL_Texture **texture_image_mur, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_bordure, SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_porte, SDL_Texture **texture_image_fin_dernier_niveau, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, int numero_etage, int position_x, int position_y, int tile_map[18][32], SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix, int largeur, int hauteur, int largeur_tile, int hauteur_tile)</div><div class="ttdef"><b>Definition</b> <a href="fonctions__niveau__4_8c_source.html#l00351">fonctions_niveau_4.c:351</a></div></div>
+<div class="ttc" id="afonctions__niveau__4_8c_html_a50c50064452a711103b9cf8288dfd0ec"><div class="ttname"><a href="fonctions__niveau__4_8c.html#a50c50064452a711103b9cf8288dfd0ec">etage_3</a></div><div class="ttdeci">void etage_3(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32], SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur)</div><div class="ttdoc">Fonction qui permet de créer l'étage 3.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__niveau__4_8c_source.html#l00163">fonctions_niveau_4.c:163</a></div></div>
+<div class="ttc" id="afonctions__niveau__4_8c_html_a5cd3912481c0e3fce5cb71d46d2cee48"><div class="ttname"><a href="fonctions__niveau__4_8c.html#a5cd3912481c0e3fce5cb71d46d2cee48">etage_2</a></div><div class="ttdeci">void etage_2(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32], SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur)</div><div class="ttdoc">Fonction qui permet de créer l'étage 2.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__niveau__4_8c_source.html#l00105">fonctions_niveau_4.c:105</a></div></div>
+<div class="ttc" id="afonctions__niveau__4_8c_html_a6efdad35f95e85508d3f230b6de7bcbd"><div class="ttname"><a href="fonctions__niveau__4_8c.html#a6efdad35f95e85508d3f230b6de7bcbd">etage_5</a></div><div class="ttdeci">void etage_5(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32], SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur)</div><div class="ttdoc">Fonction qui permet de créer l'étage 5.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__niveau__4_8c_source.html#l00279">fonctions_niveau_4.c:279</a></div></div>
+<div class="ttc" id="afonctions__niveau__4_8c_html_aa4bba241422f541a36f3fca215f01455"><div class="ttname"><a href="fonctions__niveau__4_8c.html#aa4bba241422f541a36f3fca215f01455">etage_4</a></div><div class="ttdeci">void etage_4(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32], SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur)</div><div class="ttdoc">Fonction qui permet de créer l'étage 4.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__niveau__4_8c_source.html#l00221">fonctions_niveau_4.c:221</a></div></div>
+<div class="ttc" id="afonctions__niveau__4_8c_html_acb4915da59b767735accd4bac47b5127"><div class="ttname"><a href="fonctions__niveau__4_8c.html#acb4915da59b767735accd4bac47b5127">etage_1</a></div><div class="ttdeci">void etage_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32], SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur)</div><div class="ttdoc">Fonction qui permet de créer l'étage 1.</div><div class="ttdef"><b>Definition</b> <a href="fonctions__niveau__4_8c_source.html#l00047">fonctions_niveau_4.c:47</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

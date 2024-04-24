@@ -734,6 +734,17 @@ void mise_a_jour_mini_jeu_2_niveau_2(SDL_Renderer **renderer, SDL_Texture **text
  * \param sauter Indicateur de saut.
  * \param saut Indicateur de saut en cours.
  * \param tombe Indicateur de chute.
+ * \param itemsDemandeSauvegarde Éléments pour la demande de sauvegarde.
+ * \param barre_de_son Barre de son.
+ * \param pseudo Pseudo.
+ * \param modeActif Mode actif.
+ * \param personnageActif Personnage actif.
+ * \param positionActive Position active.
+ * \param tailleNiveaux Taille des niveaux.
+ * \param temps_debut_partie Temps de début de partie.
+ * \param compteur_mort Compteur de mort.
+ * \param avancee_succes Avancée des succès.
+ * \param avancee_succes_intermediaires Avancée des succès intermédiaires.
  * \see redimensionnement_fenetre
  * \see clic_plein_ecran
  * \see demande_quitter_niveau

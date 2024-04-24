@@ -263,9 +263,26 @@ void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture 
 
     /* Affiche le rendu */
     SDL_RenderPresent((*renderer));
-} 
+}
 
-/* Fonction qui permet d'afficher des explications pour chaque mini-jeux */
+/**
+ * \fn void explications(SDL_Renderer **renderer, SDL_Rect *rectangle_explications, SDL_Keycode touche_interagir, SDL_Keycode touche_sauter_monter, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsExplications, int largeur, int hauteur, int numero_mini_jeu)
+ * \brief  Fonction qui permet d'afficher des explications pour chaque mini-jeux.
+ * \param renderer Renderer SDL.
+ * \param rectangle_explications Rectangle pour les explications.
+ * \param touche_interagir Touche pour interagir.
+ * \param touche_sauter_monter Touche pour sauter ou monter.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture pour le texte.
+ * \param police Police de caractères.
+ * \param couleur Couleur du texte.
+ * \param itemsExplications Éléments des explications.
+ * \param largeur Largeur.
+ * \param hauteur Hauteur.
+ * \param numero_mini_jeu Numéro du mini-jeu.
+ * \see affichage_texte
+ */
+
 void explications(SDL_Renderer **renderer, SDL_Rect *rectangle_explications, SDL_Keycode touche_interagir, SDL_Keycode touche_sauter_monter,
                   SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                   itemMenu *itemsExplications, int largeur, int hauteur, int numero_mini_jeu) {
@@ -378,57 +395,58 @@ void explications(SDL_Renderer **renderer, SDL_Rect *rectangle_explications, SDL
  *
  * Cette fonction prend en charge la gestion de l'arrivée aux niveaux 2 et 3 du jeu.
  *
- * \param event Pointeur vers l'événement SDL.
+ * \param event Événement SDL.
  * \param window Pointeur vers la fenêtre SDL.
  * \param renderer Pointeur vers le renderer SDL.
- * \param mini_jeu Pointeur vers le type de mini-jeu en cours.
- * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
- * \param texture Texture SDL.
+ * \param programme_lance Booléen pour vérifier si le programme est en cours d'exécution.
+ * \param mini_jeu Indicateur de mini-jeu en cours.
+ * \param texture_image_fin_premiers_niveaux Texture pour l'image de fin des premiers niveaux.
+ * \param texture Texture générale.
  * \param surface Surface SDL.
- * \param rectangle_plein_ecran Rectangle plein écran SDL.
- * \param texture_image_plein_ecran Texture de l'image en plein écran.
- * \param plein_ecran Booléen pour le plein écran.
- * \param texture_image_personnage Texture de l'image du personnage.
- * \param rectangle_personnage Rectangle du personnage SDL.
- * \param mini_jeu_termine Booléen pour le mini-jeu terminé.
- * \param mini_jeu_1_termine Booléen pour le mini-jeu 1 terminé.
- * \param mini_jeu_2_termine Booléen pour le mini-jeu 2 terminé.
- * \param texture_image_fond Texture de l'image de fond.
- * \param texture_image_sol Texture de l'image du sol.
- * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
- * \param texture_image_monstre_volant Texture de l'image du monstre volant.
+ * \param rectangle_plein_ecran Rectangle représentant l'écran entier.
+ * \param texture_image_plein_ecran Texture pour l'écran entier.
+ * \param plein_ecran Booléen pour vérifier si le jeu est en mode plein écran.
+ * \param texture_image_personnage Texture pour le personnage.
+ * \param rectangle_personnage Rectangle pour le personnage.
+ * \param mini_jeu_termine Booléen pour vérifier si le mini-jeu est terminé.
+ * \param mini_jeu_1_termine Booléen pour vérifier si le mini-jeu 1 est terminé.
+ * \param mini_jeu_2_termine Booléen pour vérifier si le mini-jeu 2 est terminé.
+ * \param texture_image_fond Texture pour l'image de fond.
+ * \param texture_image_sol Texture pour l'image du sol.
+ * \param texture_image_monstre_terrestre Texture pour le monstre terrestre.
+ * \param texture_image_monstre_volant Texture pour le monstre volant.
  * \param touche_aller_a_droite Touche pour aller à droite.
  * \param touche_aller_a_gauche Touche pour aller à gauche.
  * \param touche_interagir Touche pour interagir.
- * \param texture_image_porte Texture de l'image de porte.
- * \param avancee_niveaux Structure de progression des niveaux.
- * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param texture_image_porte Texture pour l'image de la porte.
+ * \param avancee_niveaux Avancée des niveaux.
+ * \param touche_sauter_monter Touche pour sauter ou monter.
  * \param touche_descendre Touche pour descendre.
- * \param texture_image_dossier Texture de l'image du dossier.
- * \param barre_windows_1 Texture de la barre Windows 1.
- * \param barre_windows_2 Texture de la barre Windows 2.
- * \param barre_windows_3 Texture de la barre Windows 3.
- * \param barre_windows_4 Texture de la barre Windows 4.
- * \param tile_map Carte de tuiles.
- * \param rectangle_tile Rectangle de la tuile SDL.
+ * \param texture_image_dossier Texture pour l'image du dossier.
+ * \param barre_windows_1 Texture pour la barre Windows 1.
+ * \param barre_windows_2 Texture pour la barre Windows 2.
+ * \param barre_windows_3 Texture pour la barre Windows 3.
+ * \param barre_windows_4 Texture pour la barre Windows 4.
+ * \param tile_map Carte des tuiles.
+ * \param rectangle_tile Rectangle pour la tuile.
  * \param mouvement_monstre Mouvement du monstre.
- * \param modeActif Mode actif du jeu.
- * \param mode_difficile Niveau de difficulté.
- * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter.
- * \param tailleDemandeQuitter Taille du tableau d'items pour la demande de quitter.
- * \param couleurNoire Couleur noire SDL.
- * \param tile_map_mini_jeu_niveau_2 Carte de tuiles pour le mini-jeu niveau 2.
- * \param texture_texte Texture du texte SDL.
- * \param police Police de caractères TTF.
- * \param rectangle_demande_quitter Rectangle de la demande de quitter.
- * \param timestamp Timestamp.
- * \param texture_image_perso_gagnant Texture de l'image du personnage gagnant.
- * \param avancer Avancer.
- * \param reculer Reculer.
- * \param sauter Sauter.
+ * \param modeActif Mode de jeu actif.
+ * \param mode_difficile Booléen pour le mode difficile.
+ * \param itemsDemandeQuitter Tableau des éléments de demande de quitter.
+ * \param tailleDemande Taille du tableau des éléments de demande de quitter.
+ * \param couleurNoire Couleur noire.
+ * \param tile_map_mini_jeu_niveau_2 Carte des tuiles pour le mini-jeu niveau 2.
+ * \param texture_texte Texture pour le texte.
+ * \param police Police de caractères.
+ * \param rectangle_demande Rectangle pour la demande.
+ * \param timestamp Horodatage.
+ * \param texture_image_perso_gagnant Texture pour l'image du personnage gagnant.
+ * \param avancer Booléen pour avancer.
+ * \param reculer Booléen pour reculer.
+ * \param sauter Booléen pour sauter.
  * \param position_avant_saut Position avant le saut.
- * \param saut Saut.
- * \param tombe Tomber.
+ * \param saut Booléen pour vérifier si le personnage est en train de sauter.
+ * \param tombe Booléen pour vérifier si le personnage tombe.
  * \param position_x_initiale Position initiale en x.
  * \param position_y_initiale Position initiale en y.
  * \param position_x Position en x.
@@ -438,33 +456,47 @@ void explications(SDL_Renderer **renderer, SDL_Rect *rectangle_explications, SDL
  * \param largeur_tile Largeur de la tuile.
  * \param hauteur_tile Hauteur de la tuile.
  * \param page_active Page active.
- * \param texture_image_mur_mini_jeu Texture de l'image du mur pour le mini-jeu.
- * \param collectibles_intermediaires Collectibles intermédiaires.
- * \param texture_image_pipe_vertical Texture de l'image du tuyau vertical.
- * \param texture_image_pipe_horizontal Texture de l'image du tuyau horizontal.
- * \param texture_image_pipe_haut_droit Texture de l'image du tuyau haut droit.
- * \param texture_image_pipe_bas_droit Texture de l'image du tuyau bas droit.
- * \param texture_image_pipe_bas_gauche Texture de l'image du tuyau bas gauche.
- * \param texture_image_pipe_haut_gauche Texture de l'image du tuyau haut gauche.
- * \param texture_image_pipe_courant Texture de l'image du tuyau courant.
- * \param texture_image_mur_termine Texture de l'image du mur terminé.
- * \param valide Valide.
- * \param rectangle_piece Rectangle des pièces.
+ * \param texture_image_mur_mini_jeu Texture pour l'image du mur du mini-jeu.
+ * \param collectibles_intermediaires Tableau des collectibles intermédiaires.
+ * \param itemsExplications Tableau des éléments d'explications.
+ * \param texture_image_pipe_vertical Texture pour le tuyau vertical.
+ * \param texture_image_pipe_horizontal Texture pour le tuyau horizontal.
+ * \param texture_image_pipe_haut_droit Texture pour le tuyau haut droit.
+ * \param texture_image_pipe_bas_droit Texture pour le tuyau bas droit.
+ * \param texture_image_pipe_bas_gauche Texture pour le tuyau bas gauche.
+ * \param texture_image_pipe_haut_gauche Texture pour le tuyau haut gauche.
+ * \param texture_image_pipe_courant Texture pour le tuyau courant.
+ * \param texture_image_mur_termine Texture pour l'image du mur terminé.
+ * \param valide Booléen pour valider.
+ * \param rectangle_piece Rectangle pour la pièce.
  * \param piece_bloquee Pièce bloquée.
- * \param rectangle_emplacement_piece Rectangle de l'emplacement de la pièce.
+ * \param rectangle_emplacement_piece Rectangle pour l'emplacement de la pièce.
  * \param piece_selectionnee Pièce sélectionnée.
  * \param decalage_x Décalage en x.
  * \param decalage_y Décalage en y.
- * \param texture_image_puzzle Texture de l'image du puzzle.
- * \param musique Musique du jeu.
- * \param tile_map_mini_jeu_niveau_3 Carte de tuiles pour le mini-jeu niveau 3.
+ * \param texture_image_puzzle Texture pour l'image du puzzle.
+ * \param musique Musique.
+ * \param texture_image_croix Texture pour l'image de la croix.
+ * \param rectangle_croix Rectangle pour la croix.
+ * \param tile_map_mini_jeu_niveau_3 Carte des tuiles pour le mini-jeu niveau 3.
  * \param descendre Descendre.
  * \param interagir Interagir.
  * \param bloc_x Bloc en x.
  * \param bloc_y Bloc en y.
- * \param texture_image_sol_labyrinthe Texture de l'image du sol pour le labyrinthe.
- * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure pour le labyrinthe.
- * \param texture_image_fin_labyrinthe Texture de l'image de fin pour le labyrinthe.
+ * \param texture_image_sol_labyrinthe Texture pour l'image du sol du labyrinthe.
+ * \param texture_image_bordure_labyrinthe Texture pour l'image de la bordure du labyrinthe.
+ * \param texture_image_fin_labyrinthe Texture pour l'image de fin du labyrinthe.
+ * \param couleurTitre Couleur du titre.
+ * \param itemsDemandeSauvegarde Tableau des éléments de demande de sauvegarde.
+ * \param barre_de_son Barre de son.
+ * \param pseudo Pseudo.
+ * \param personnageActif Personnage actif.
+ * \param positionActive Position active.
+ * \param tailleNiveaux Taille du tableau des niveaux.
+ * \param temps_debut_partie Temps de début de la partie.
+ * \param compteur_mort Compteur de mort.
+ * \param avancee_succes Avancée des succès.
+ * \param avancee_succes_intermediaires Avancée des succès intermédiaires.
  * \see erreur
  * \see redimensionnement_fenetre
  * \see salon_arrivee_niveaux_2_3
@@ -478,6 +510,7 @@ void explications(SDL_Renderer **renderer, SDL_Rect *rectangle_explications, SDL
  * \see rectangle_piece_aleatoire
  * \see mini_jeux_niveau_3
  * \see mise_a_jour_rendu_arrivee_niveaux_2_3
+ * \see explications
  */
 void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, int *mini_jeu, SDL_Texture **texture_image_fin_premiers_niveaux,
                          SDL_Texture **texture, SDL_Surface **surface, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
