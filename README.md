@@ -45,17 +45,18 @@ Lien GANTT :
 
 
 Commande Makefile :
-		Pour compiler et démarrer le lancement du jeu :
-			-make all
 
-		Pour supprimer les fichiers de compilation (doc, exécutable, .o) :
-			-make clean
+	Pour compiler et démarrer le lancement du jeu :
+		-make all
 
-		Pour compiler la documentation et l'exécuter :
-			-make doc
+	Pour supprimer les fichiers de compilation (doc, exécutable, .o) :
+		-make clean
 
-		Pour nettoyer les fichiers de la documentation :
-			-make clean_doc
+	Pour compiler la documentation et l'exécuter :
+		-make doc
 
-		Pour compiler et exécutable le fichier test :
-			-make test
+	Pour nettoyer les fichiers de la documentation :
+		-make clean_doc
+
+	Pour compiler et exécutable le fichier test :
+		-make test
