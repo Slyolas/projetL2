@@ -2,6 +2,9 @@
 # Macro
 #
 
+# Commande pour compiler le programme : make -f makefile all
+# Commande pour exécuter le programme : ./bin/metatravers
+
 # Compilation avec SDL
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror `sdl2-config --cflags`
@@ -69,8 +72,7 @@ EXECUTABLE = metatravers
 #
 # Compilations
 #
-tout_comp: all doc
-tout_det : clean clean_doxy
+
 # Compilation de l'exécutable
 all: $(BIN_DIR)/$(EXECUTABLE)
 
@@ -141,7 +143,7 @@ $(OBJ_DIR)/fonctions_niveau_4.o: $(SRC_DIR)/fonctions_niveau_4.c $(INC_DIR)/fonc
 #
 
 # Nettoyage des fichiers temporaires
-clean: clean_exe clean_obj clean_doxy
+clean: clean_exe clean_obj
 
 # Supprimer les fichiers objets
 clean_obj:
@@ -150,23 +152,3 @@ clean_obj:
 # Supprimer l'exécutable
 clean_exe:
 	rm -rf $(BIN_DIR)/$(EXECUTABLES)
-
-################################
-# 			Doxygen			   #
-################################
-
-#Nom du projet 
-PROJECT_NAME = Metatravers
-#Commande à exécuter
-DOXYGEN = doxygen
-#Répertoire ou se trouve la documentation 
-DOC_DIR = docu
-
-doc:
-	@echo "Génération de la documentation Doxygen"
-	@$(DOXYGEN) Doxyfile
-	@echo "Documentation générée dans $(DOC_DIR)/"
-
-clean_doxy:
-	@echo "Suppression de la documentation Doxygen"
-	@rm -rf $(DOC_DIR)/*

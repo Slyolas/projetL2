@@ -1,52 +1,26 @@
-/**
- * \file fonctions_niveau_1.c
- * \brief Fichier contenant les fonctions servant à la gestion du niveau 1  
-*/
-
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_1.h>
 
-/**
- * \fn void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_sol_surface_niveau_1, SDL_Texture **texture_image_sol_profondeur_niveau_1, SDL_Texture **texture_image_fond_niveau_1, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2) 
- * \brief Fonction qui permet d'initialiser les différents objets du niveau 4
- * \param renderer Pointeur vers le renderer SDL.
- * \param surface Surface SDL.
- * \param texture_image_sol_surface_niveau_1 Texture de l'image du sol de surface du niveau 1.
- * \param texture_image_sol_profondeur_niveau_1 Texture de l'image du sol de profondeur du niveau 1.
- * \param texture_image_fond_niveau_1 Texture de l'image de fond du niveau 1.
- * \param texture_image_nuage_1 Texture de l'image du nuage 1.
- * \param texture_image_nuage_2 Texture de l'image du nuage 2.
- * \see chargement_image
- */
+/* Fonction qui permet d'initialiser les différents objets du niveau 1 */
 void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_sol_surface_niveau_1, SDL_Texture **texture_image_sol_profondeur_niveau_1,
                                     SDL_Texture **texture_image_fond_niveau_1, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2) {
 
-    /** Chargement des images pour le niveau 1 */
+    /* Chargement des images pour le niveau 1 */
 
     chargement_image(renderer, surface, texture_image_sol_surface_niveau_1, "./images/niveau_1/sol_niveau_1_surface.jpg");
     chargement_image(renderer, surface, texture_image_sol_profondeur_niveau_1, "./images/niveau_1/sol_niveau_1_profondeur.jpg");
     chargement_image(renderer, surface, texture_image_fond_niveau_1, "./images/niveau_1/fond_niveau_1.png");
-
     chargement_image(renderer, surface, texture_image_nuage_1, "./images/niveau_1/nuage_1.png");
     chargement_image(renderer, surface, texture_image_nuage_2, "./images/niveau_1/nuage_2.png");
 }
 
-/**
- * \fn void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map_niveau_1[18][110])
- * \brief Fonction qui permet de créer l'étage 1
- * \param position_x Position du personnage à l'apparition sur la verticale
- * \param position_y Position du personnage à l'apparition sur l'horizontale
- * \param position_x_initiale Position initiale verticale du niveau en cas de mort du personnage
- * \param position_y_initiale Position initiale horizontal du niveau en cas de mort du personnage
- * \param tile_map_niveau_1 Map du niveau 1
- * 
- */
+/* Fonction qui permet de créer le niveau 1 */
 void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map_niveau_1[18][110]) {
 
     int x, y;
 
-    /** Positionnement du personnage au début de l'étage */
+    /* Positionnement du personnage au début du niveau 1 */
 
     (*position_x) = 2;
     (*position_y) = 15;
@@ -54,7 +28,7 @@ void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initi
     (*position_x_initiale) = (*position_x);
     (*position_y_initiale) = (*position_y);
 
-    /** Création de l'étage 1 */
+    /* Création du niveau 1 */
     int initialisation_tile_map[18][110] = { 
         {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
         {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},
@@ -77,56 +51,27 @@ void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initi
         
     };
 
-    /** Copie du nouvel étage */
+    /* Copie du niveau 1 */
     for (y = 0; y < 18; y++)
         for (x = 0; x < 110; x++)
             tile_map_niveau_1[y][x] = initialisation_tile_map[y][x];
 }
 
-/**
- * \fn void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond, SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, SDL_Texture **texture_image_fin_premiers_niveaux, int position_x, int position_y, int tile_map[18][32], int secret, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2, int largeur, int hauteur, int largeur_tile, int hauteur_tile)
- * \brief Fonction qui permet de mettre à jour le rendu du niveau 4
- * \param renderer Pointeur vers le renderer SDL.
- * \param texture_image_sol_surface Texture de l'image du sol de surface.
- * \param texture_image_sol_profondeur Texture de l'image du sol de profondeur.
- * \param texture_image_fond Texture de l'image de fond.
- * \param texture Texture SDL.
- * \param rectangle_tile Rectangle pour chaque tuile.
- * \param rectangle_plein_ecran Rectangle plein écran SDL.
- * \param texture_image_plein_ecran Texture de l'image en plein écran.
- * \param texture_image_personnage Texture de l'image du personnage.
- * \param rectangle_personnage Rectangle du personnage.
- * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
- * \param texture_image_monstre_volant Texture de l'image du monstre volant.
- * \param texture_image_pique Texture de l'image du piège.
- * \param avancee_niveaux Structure de progression des niveaux.
- * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
- * \param position_x Position en x du joueur.
- * \param position_y Position en y du joueur.
- * \param tile_map Carte du niveau.
- * \param secret Indicateur de secret découvert.
- * \param texture_image_nuage_1 Texture de l'image du nuage 1.
- * \param texture_image_nuage_2 Texture de l'image du nuage 2.
- * \param largeur Largeur de l'écran.
- * \param hauteur Hauteur de l'écran.
- * \param largeur_tile Largeur d'une tuile.
- * \param hauteur_tile Hauteur d'une tuile.
- * \see erreur
- */
+/* Fonction qui permet de mettre à jour le rendu du niveau 1 */
 void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond,
                                 SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                 SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant,
                                 SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, SDL_Texture **texture_image_fin_premiers_niveaux,
                                 int position_x, int position_y, int tile_map[18][32], int secret, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2,
-                                int largeur, int hauteur, int largeur_tile, int hauteur_tile) {
+                                int largeur, int hauteur, int largeur_tile, int hauteur_tile, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix) {
                                 
     int x, y;
 
-    /** Efface le rendu */
+    /* Efface le rendu */
     if(SDL_RenderClear((*renderer)) != 0)
         erreur("Effacement rendu échoué");
 
-    /** Affiche tout l'étage en fonction des valeurs */
+    /* Affiche une partie du niveau 1 en fonction des valeurs */
     for (y = 0; y < hauteur / hauteur_tile; y++) {
 
         for (x = 0; x < largeur / largeur_tile; x++) {
@@ -198,7 +143,7 @@ void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_i
         }
     }
 
-    /** Copie la texture de l'image du personnage */
+    /* Copie la texture de l'image du personnage */
             
     rectangle_personnage->x = position_x * largeur_tile;
     rectangle_personnage->y = position_y * hauteur_tile;
@@ -208,7 +153,7 @@ void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_i
     if(SDL_RenderCopy((*renderer), (*texture_image_personnage), NULL, rectangle_personnage) != 0)
         erreur("Copie de la texture");
 
-    /** Copie la texture de l'image de plein écran */
+    /* Copie la texture de l'image de plein écran */
 
     rectangle_plein_ecran->x = largeur_tile * 31;
     rectangle_plein_ecran->y = 0;
@@ -218,78 +163,22 @@ void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_i
     if(SDL_RenderCopy((*renderer), (*texture_image_plein_ecran), NULL, rectangle_plein_ecran) != 0)
         erreur("Copie de la texture");
 
-    /** Affiche le rendu */
+    /* Copie la texture de l'image de la croix */
+
+    rectangle_croix->x = 0;
+    rectangle_croix->y = 0;
+    rectangle_croix->w = largeur_tile;
+    rectangle_croix->h = hauteur_tile;
+
+    if(SDL_RenderCopy((*renderer), (*texture_image_croix), NULL, rectangle_croix) != 0)
+        erreur("Copie de la texture");
+
+    /* Affiche le rendu */
     SDL_RenderPresent((*renderer));
 }
 
-/**
- * \fn void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **texture, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, int *mouvement_monstre, SDL_Surface **surface, int collectibles_intermediaires[3], time_t *timestamp, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, int *decalage, int *secret_1, int *secret_2, int tile_map[18][32], int tile_map_niveau_1[18][110], SDL_Rect *rectangle_tile, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Texture **texture_image_perso_gagnant, SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2, SDL_Color couleurNoire, SDL_Texture **texture_image_fin_premiers_niveaux, int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe, int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y, int *largeur, int *hauteur, int *largeur_tile, int *hauteur_tile, page_t *page_active)
- * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le niveau 4
- * \param event Événement SDL.
- * \param window Pointeur vers la fenêtre SDL.
- * \param renderer Pointeur vers le renderer SDL.
- * \param texture Texture SDL.
- * \param rectangle_plein_ecran Rectangle plein écran SDL.
- * \param texture_image_plein_ecran Texture de l'image en plein écran.
- * \param plein_ecran Indicateur de mode plein écran.
- * \param texture_image_personnage Texture de l'image du personnage.
- * \param rectangle_personnage Rectangle du personnage.
- * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
- * \param texture_image_monstre_volant Texture de l'image du monstre volant.
- * \param texture_image_sol_surface Texture de l'image du sol de surface.
- * \param texture_image_sol_profondeur Texture de l'image du sol de profondeur.
- * \param texture_image_fond Texture de l'image de fond.
- * \param texture_image_pique Texture de l'image du piège.
- * \param avancee_niveaux Structure de progression des niveaux.
- * \param mouvement_monstre Indicateur de mouvement des monstres.
- * \param surface Surface SDL.
- * \param collectibles_intermediaires Tableau de collectibles intermédiaires.
- * \param timestamp Horodatage.
- * \param touche_aller_a_droite Touche pour aller à droite.
- * \param touche_aller_a_gauche Touche pour aller à gauche.
- * \param touche_sauter_monter Touche pour sauter/monter.
- * \param decalage Décalage.
- * \param secret_1 Indicateur du premier secret découvert.
- * \param secret_2 Indicateur du deuxième secret découvert.
- * \param tile_map Carte du niveau.
- * \param tile_map_niveau_1 Carte spécifique du niveau 1.
- * \param rectangle_tile Rectangle pour chaque tuile.
- * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter.
- * \param tailleDemandeQuitter Taille du tableau d'items pour la demande de quitter.
- * \param texture_image_perso_gagnant Texture de l'image du personnage gagnant.
- * \param texture_texte Texture du texte SDL.
- * \param police Police de caractères TTF.
- * \param rectangle_demande_quitter Rectangle de la demande de quitter.
- * \param texture_image_nuage_1 Texture de l'image du nuage 1.
- * \param texture_image_nuage_2 Texture de l'image du nuage 2.
- * \param couleurNoire Couleur noire SDL.
- * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
- * \param avancer Indicateur d'avancer.
- * \param reculer Indicateur de reculer.
- * \param sauter Indicateur de sauter.
- * \param position_avant_saut Position avant le saut.
- * \param saut Indicateur de saut.
- * \param tombe Indicateur de chute.
- * \param position_x_initiale Position initiale en x.
- * \param position_y_initiale Position initiale en y.
- * \param position_x Position en x du joueur.
- * \param position_y Position en y du joueur.
- * \param largeur Largeur de l'écran.
- * \param hauteur Hauteur de l'écran.
- * \param largeur_tile Largeur d'une tuile.
- * \param hauteur_tile Hauteur d'une tuile.
- * \param page_active Page active du jeu.
- * \see redimensionnement_fenetre
- * \see clic_plein_ecran
- * \see demande_quitter_niveau
- * \see clic_case
- * \see deplacement_personnage
- * \see erreur
- * \see chargement_niveau_1
- * \see mise_a_jour_rendu_niveau_1
- * 
-*/
-void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
+/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le niveau 1 */
+void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix,
               SDL_Texture **texture, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
               SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant,
               SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond,
@@ -298,12 +187,15 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
               SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche,
               SDL_Keycode *touche_sauter_monter, int *decalage, int *secret_1, int *secret_2,
               int tile_map[18][32], int tile_map_niveau_1[18][110], SDL_Rect *rectangle_tile,
-              itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Texture **texture_image_perso_gagnant,
-              SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2,
+              itemMenu *itemsDemandeQuitter, int tailleDemande, SDL_Texture **texture_image_perso_gagnant,
+              SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2,
               SDL_Color couleurNoire, SDL_Texture **texture_image_fin_premiers_niveaux,
               int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe,
               int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y,
-              int *largeur, int *hauteur, int *largeur_tile, int *hauteur_tile, page_t *page_active) {
+              int *largeur, int *hauteur, int *largeur_tile, int *hauteur_tile, page_t *page_active,
+              itemMenu *itemsDemandeSauvegarde, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo, 
+              modes_t *modeActif, personnage_t *personnageActif, position_t *positionActive, int tailleNiveaux,
+              time_t temps_debut_partie, int *compteur_mort, int *avancee_succes, int avancee_succes_intermediaires[10]) {
 
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
@@ -312,19 +204,19 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
     
     int i, x, y;
 
-    /** Mise à jour du rendu */
+    /* Mise à jour du rendu */
     mise_a_jour_rendu_niveau_1(renderer, texture_image_sol_surface, texture_image_sol_profondeur, texture_image_fond,
                                texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,
                                texture_image_personnage, rectangle_personnage, texture_image_monstre_terrestre, texture_image_monstre_volant,
                                texture_image_pique, avancee_niveaux, texture_image_fin_premiers_niveaux,
                                (*position_x), (*position_y), tile_map, (*secret_2), texture_image_nuage_1, texture_image_nuage_2,
-                               (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile)); 
+                               (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile), texture_image_croix, rectangle_croix); 
 
     while(SDL_PollEvent(event)) {
 
         switch(event->type) {
 
-            /** Gestion de l'événement de redimensionnement de la fenêtre */
+            /* Gestion de l'événement de redimensionnement de la fenêtre */
             case SDL_WINDOWEVENT:
                 redimensionnement_fenetre((*event), largeur, hauteur);
                 
@@ -359,7 +251,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
                 break;
 
-            /** Option plein écran */
+            /* Option plein écran */
             case SDL_MOUSEBUTTONDOWN:
 
                 if(clic_plein_ecran((*event), rectangle_plein_ecran, plein_ecran, window)) {
@@ -370,16 +262,53 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
                     (*hauteur_tile) = (*hauteur) / 18;
                 }
 
+                /* Demande au joueur s'il veut quitter le niveau */
+                if(clic_case((*event), (*rectangle_croix))) {
+
+                    SDL_SetWindowResizable((*window), SDL_FALSE);
+
+                    demande_quitter_niveau(renderer, rectangle_demande,
+                                        surface, texture_texte, police, couleurNoire,
+                                        itemsDemandeQuitter, tailleDemande, (*largeur), (*hauteur));
+
+                    while (!clic_effectue) {
+
+                        while (SDL_PollEvent(&event_temporaire)) {
+
+                            if(event_temporaire.type == SDL_MOUSEBUTTONDOWN) {
+
+                                if(clic_case(event_temporaire, itemsDemandeQuitter[1].rectangle)) {
+
+                                    (*page_active) = CARTE;
+
+                                    for(i = 0; i < 3; i++)
+                                        avancee_niveaux[0].numero_collectible[i] = collectibles_intermediaires[i];
+
+                                    for(i = 0; i < 10; i++)
+                                        avancee_succes[i] = avancee_succes_intermediaires[i];
+
+                                    clic_effectue = SDL_TRUE; 
+                                }
+
+                                else if(clic_case(event_temporaire, itemsDemandeQuitter[2].rectangle))
+                                    clic_effectue = SDL_TRUE; 
+                            }
+                        }
+                    }
+
+                    SDL_SetWindowResizable((*window), SDL_TRUE);
+                }
+
                 break;
 
-            /** Demande au joueur s'il veut quitter le niveau */
+            /* Quitter le programme en demandant s'il faut sauvarger la partie */
             case SDL_QUIT:
 
                 SDL_SetWindowResizable((*window), SDL_FALSE);
 
-                demande_quitter_niveau(renderer, rectangle_demande_quitter,
-                                       surface, texture_texte, police, couleurNoire,
-                                       itemsDemandeQuitter, tailleDemandeQuitter, (*largeur), (*hauteur));
+                demande_sauvegarde(renderer, rectangle_demande,
+                                    surface, texture_texte, police, couleurNoire,
+                                    itemsDemandeSauvegarde, tailleDemande, (*largeur), (*hauteur));
 
                 while (!clic_effectue) {
 
@@ -387,18 +316,27 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
                         if(event_temporaire.type == SDL_MOUSEBUTTONDOWN) {
 
-                            if(clic_case(event_temporaire, itemsDemandeQuitter[1].rectangle)) {
-
-                                (*page_active) = CARTE;
+                            if(clic_case(event_temporaire, itemsDemandeSauvegarde[1].rectangle)) {
 
                                 for(i = 0; i < 3; i++)
                                     avancee_niveaux[0].numero_collectible[i] = collectibles_intermediaires[i];
 
+                                sauvegarder_partie(touche_aller_a_droite, touche_aller_a_gauche, touche_sauter_monter,
+                                                    touche_descendre, touche_interagir, barre_de_son, pseudo,
+                                                    (*modeActif), (*personnageActif), (*positionActive),
+                                                    avancee_niveaux, tailleNiveaux, temps_debut_partie, (*compteur_mort), avancee_succes);
+
+                                (*programme_lance) = SDL_FALSE;
                                 clic_effectue = SDL_TRUE; 
                             }
 
-                            else if(clic_case(event_temporaire, itemsDemandeQuitter[2].rectangle))
+                            else if(clic_case(event_temporaire, itemsDemandeSauvegarde[2].rectangle)) {
+                                (*programme_lance) = SDL_FALSE;
                                 clic_effectue = SDL_TRUE; 
+                            }
+
+                            else if(!clic_case(event_temporaire, (*rectangle_demande)))
+                                clic_effectue = SDL_TRUE;    
                         }
                     }
                 }
@@ -412,11 +350,11 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
         }
     }
 
-    /** Déplacement du personnage */
+    /* Déplacement du personnage */
     deplacement_personnage(saut, tombe, position_x, position_y, position_avant_saut,
-                           (*sauter), (*avancer), (*reculer), tile_map);
+                           (*sauter), (*avancer), (*reculer), tile_map, (*personnageActif));
 
-    /** Déplacement du niveau en fonction du joueur */
+    /* Déplacement du niveau en fonction du joueur */
     if((((*position_x) >= 16) && ((*decalage) < 65) && (!(*secret_1))) ||
        (((*position_x) <= 16) && ((*decalage) > 0) && (!(*secret_1)))) {
 
@@ -425,7 +363,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
         (*position_x) = 16;
     }
 
-    /** Cas où le joueur découvre le premier secret */
+    /* Cas où le joueur découvre le premier secret */
 
     else if(((*position_x) < 0) && (!(*secret_1))) {
 
@@ -442,15 +380,25 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
         (*position_x) = 0;
     }
 
-    /** Cas où le joueur découvre le deuxième secret */
+    /* Cas où le joueur découvre le deuxième secret */
+
+    if((tile_map[(*position_y)][(*position_x)] == 11) && (!(*secret_2))) {
+
+        /* Effet sonore quand le joueur découvre le second secret */
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/guilian.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+        
+        Mix_PlayChannel(1, effet_sonore, 0);
+    }
 
     if((tile_map[(*position_y)][(*position_x)] == 11) || (tile_map[(*position_y)][(*position_x)] == 12) || ((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 15))) {
-
+        
         (*secret_2) = 1;
 
         tile_map_niveau_1[15][52] = 5; 
     }
 
+    /* Cas où le joueur sort du deuxième secret */
     else {
 
         (*secret_2) = 0;
@@ -458,10 +406,11 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
         tile_map_niveau_1[15][52] = 12; 
     }
 
-    /** Cas où le joueur récupère un collectible */
+    /* Cas où le joueur récupère un collectible dans le niveau 1 */
 
     if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 8) && (!avancee_niveaux[0].numero_collectible[0])) {
 
+        /* Effet sonore quand on ramasse un collectible */
         if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
             erreur("Chargement de l'effet sonore");
             
@@ -472,6 +421,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
     if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 15) && (!avancee_niveaux[0].numero_collectible[1])) {
 
+        /* Effet sonore quand on ramasse un collectible */
         if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
             erreur("Chargement de l'effet sonore");
             
@@ -482,6 +432,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
 
     if((tile_map[(*position_y)][(*position_x)] == 5) && ((*position_y) == 3) && (!avancee_niveaux[0].numero_collectible[2])) {
 
+        /* Effet sonore quand on ramasse un collectible */
         if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/collectibles.wav")) == NULL)
             erreur("Chargement de l'effet sonore");
             
@@ -500,8 +451,15 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
             for(x = 0; x < 32; x++)
                 tile_map[y][x] = tile_map_niveau_1[y][x];
 
-    /** Cas où le personnage tue un monstre */
+    /* Cas où le personnage tue un monstre */
     if((tile_map[(*position_y) + 1][(*position_x)] == 8) || (tile_map[(*position_y) + 1][(*position_x)] == 9)) {
+
+        /* Effet sonore quand un monstre est tué */
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/mort_monstre.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
 
         tile_map_niveau_1[(*position_y) + 1][13 + (*position_x) + (*decalage)] = 0;
 
@@ -509,9 +467,27 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
         (*saut) = 1;
     }
 
-    /** Cas où le personnage meurt dans le vide, par des piques ou par des monstres */
+    /* Cas où le personnage meurt dans le vide, par des piques ou par des monstres */
     if(((*position_y) == 18) || (tile_map[(*position_y)][(*position_x)] == 3) || (tile_map[(*position_y)][(*position_x)] == 8) || (tile_map[(*position_y)][(*position_x)] == 9)) {
 
+        (*compteur_mort)++;
+
+        if((*personnageActif) == PERSONNAGE_1) {
+
+            /* Effet sonore quand le premier personnage meurt */
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/mort_masculin.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+        }
+
+        else if((*personnageActif) == PERSONNAGE_2) {
+
+            /* Effet sonore quand le premier personnage meurt */
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/mort_feminin.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+        }
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+        
         (*saut) = 0;
         (*tombe) = 0;
 
@@ -522,6 +498,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
         chargement_niveau_1(position_x, position_y, position_x_initiale, position_y_initiale, tile_map_niveau_1);
     }
 
+    /* Déplacement des monstres */
     else if((!((time(NULL) - 1) % 4)) && (!((time(NULL) - 1) % 4)))
         (*mouvement_monstre) = 1;
 
@@ -564,20 +541,37 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer,
                 }
     }
 
-    /** Cas où vous avez fini le niveau */
+    /* Cas où vous avez fini le niveau */
     if (tile_map[(*position_y)][(*position_x)] == 7) {
 
+        for (y = 0; y < 18; y++)
+            for (x = 0; x < 110; x++)
+        
+                if((tile_map[y][x] == 8) || (tile_map[y][x] == 9)) {
+
+                    avancee_succes[4] = 0;
+                    x = 110;
+                    y = 18;
+                }
+
+                else {
+
+                    avancee_succes[4] = 1;
+                }
+
+        /* Effet sonore quand on fini un niveau */
         if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/fin_niveaux.wav")) == NULL)
             erreur("Chargement de l'effet sonore");
         
         Mix_PlayChannel(1, effet_sonore, 0);
 
+        /* Mise à jour du rendu */
         mise_a_jour_rendu_niveau_1(renderer, texture_image_sol_surface, texture_image_sol_profondeur, texture_image_fond,
                                    texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,
                                    texture_image_perso_gagnant, rectangle_personnage, texture_image_monstre_terrestre, texture_image_monstre_volant,
                                    texture_image_pique, avancee_niveaux, texture_image_fin_premiers_niveaux,
                                    (*position_x), (*position_y), tile_map, (*secret_2), texture_image_nuage_1, texture_image_nuage_2,
-                                   (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile));
+                                   (*largeur), (*hauteur), (*largeur_tile), (*hauteur_tile), texture_image_croix, rectangle_croix);
 
         SDL_Delay(2000); 
 

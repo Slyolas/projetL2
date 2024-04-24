@@ -1,104 +1,111 @@
-#ifndef H_GENERALE
-#define H_GENERALE
-#include "commun.h"
-#include "fonctions_menu_principal.h"
-/** Définir le nombre d'FPS (100 / nombre_FPS) */
+#include <stdio.h>
+#include <stdlib.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+
+/* Définir le nombre d'FPS (100 / nombre_FPS) */
 #define FPS_LIMIT 16
 
+/* Enumération de constantes pour l'onglet actif des options */
+typedef enum option_s {ONGLET_SON, ONGLET_TOUCHES} option_t;
 
-/** Enumération de constantes pour le mode séléctionné */
-typedef enum {
-    MODE_NORMAL,               /** Indice de sélection de la difficulté normale*/
-    MODE_HARD                  /** Indice de sélection de la difficulté difficile*/
-} modes_t;
+/* Enumération de constantes pour le mode séléctionné */
+typedef enum modes_s {MODE_NORMAL, MODE_HARD} modes_t;
 
-/** Enumération de constantes pour le personnage séléctionné */
-typedef enum {
-    PERSONNAGE_1,           /** Indice de sélection du personnage masculin*/
-    PERSONNAGE_2            /** Indice de sélection du personnage féminin*/
-} personnage_t;
+/* Enumération de constantes pour le personnage séléctionné */
+typedef enum personnage_s {PERSONNAGE_1, PERSONNAGE_2} personnage_t;
 
+/* Enumération de constantes pour la page */
+typedef enum page_s {MENU_PRINCIPAL, OPTIONS, NOUVELLE_PARTIE, INTRODUCTION, CARTE, NIVEAU_1, NIVEAU_2, NIVEAU_3, NIVEAU_4} page_t;
 
-/** Enumération de constantes pour la position sur la carte */
-typedef enum {
-    NIVEAU0,                    /** Indice du niveau 0*/
-    NIVEAU1,                    /** Indice du niveau 1*/                     
-    NIVEAU2,                    /** Indice du niveau 2*/ 
-    NIVEAU3,                    /** Indice du niveau 3*/ 
-    NIVEAU4                     /** Indice du niveau 4*/
-} position_t; 
+/* Enumération de constantes pour la position sur la carte */
+typedef enum position_s {NIVEAU0, NIVEAU1, NIVEAU2, NIVEAU3, NIVEAU4} position_t; 
 
-/** Enumération de constantes pour la direction du personnage sur la carte */
-typedef enum {
-    HAUT,                               /** Indice de la direction HAUT */
-    BAS,                                /** Indice de la direction BAS */
-    GAUCHE,                             /** Indice de la direction GAUCHE */
-    DROITE,                             /** Indice de la direction DROITE */
-    HAUT_DROITE,                        /** Indice de la direction HAUT_DROITE */
-    BAS_GAUCHE                          /** Indice de la direction BAS_GAUCHE */
-} direction_t; 
+/* Enumération de constantes pour la direction du personnage sur la carte */
+typedef enum direction_s {HAUT, BAS, GAUCHE, DROITE, HAUT_DROITE, BAS_GAUCHE} direction_t; 
 
+/* Structure pour représenter une case avec un rectangle et du texte */
+typedef struct {
+    SDL_Rect rectangle;
+    char texte[100];
+} itemMenu;
 
+/* Structure pour représenter une barre de son */
+typedef struct {
+    SDL_Rect barre;
+    SDL_Rect curseur;
+    float volume;
+    float volume_precedent;
+} barreDeSon;
 
-/** Squelette de la fonction erreur */
+/* Structure pour représenter les collectibles de chaque niveaux */
+typedef struct {
+    int niveau_fini;
+    SDL_Texture *texture_image_collectible;
+    int numero_collectible[3];
+} niveaux;
+
+/* Squelette de la fonction erreur */
 void erreur(const char *message);
 
-/** Squelette de la fonction chargement_image */
+/* Squelette de la fonction chargement_image */
 void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, char *chemin);
 
-/** Squelette de la fonction affichage_texte */
+/* Squelette de la fonction affichage_texte */
 void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, itemMenu *item, 
                      TTF_Font **police, SDL_Color couleur);
 
-/** Squelette de la fonction creer_fenetre_rendu */
+/* Squelette de la fonction creer_fenetre_rendu */
 void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur);
 
-/** Squelette de la fonction initialisation_objets */
+/* Squelette de la fonction initialisation_objets */
 void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,
                            SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,
                            SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, itemMenu *itemsDemandeQuitter,
                            SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture_image_monstre_terrestre,
                            SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_perso_1_gagnant,
                            SDL_Texture **texture_image_perso_2_gagnant,
-                           niveaux *avancee_niveaux, TTF_Font **police);
+                           niveaux *avancee_niveaux, TTF_Font **police, SDL_Texture **texture_image_croix);
 
-/** Squelette de la fonction demande_sauvegarde */
+/* Squelette de la fonction demande_sauvegarde */
 void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde,
                         SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                         itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur);
 
-/** Squelette de la fonction demande_quitter_niveau */
+/* Squelette de la fonction demande_quitter_niveau */
 void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter,
                             SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                             itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur);
 
-/** Squelette de la fonction redimensionnement_fenetre */
+/* Squelette de la fonction redimensionnement_fenetre */
 void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur);
 
-/** Squelette de la fonction verification_sauvegarde */
+/* Squelette de la fonction verification_sauvegarde */
 int verification_sauvegarde();
 
-/** Squelette de la fonction sauvegarder_partie */
+/* Squelette de la fonction sauvegarder_partie */
 void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
                         SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo,
                         modes_t modeActif, personnage_t personnageActif, position_t positionActive,
-                        niveaux *avancee_niveaux, int tailleNiveaux);
+                        niveaux *avancee_niveaux, int tailleNiveaux, time_t temps_debut_partie, int compteur_mort, int avancee_succes[10]);
 
-/** Squelette de la fonction clic_case */
+/* Squelette de la fonction clic_case */
 int clic_case(SDL_Event event, SDL_Rect rectangle);
 
-/** Squelette de la fonction deplacement_personnage */
+/* Squelette de la fonction deplacement_personnage */
 void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut,
-                            int sauter, int avancer, int reculer, int tile_map[18][32]);
+                            int sauter, int avancer, int reculer, int tile_map[18][32], personnage_t personnageActif);
 
-/** Squelette de la fonction clic_plein_ecran */
+/* Squelette de la fonction clic_plein_ecran */
 int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window);
 
-/** Squelette de la fonction SDL_LimitFPS */
+/* Squelette de la fonction SDL_LimitFPS */
 void SDL_LimitFPS(unsigned int limit);
 
-/** Squelette de la fonction detruire_objets */
-void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **texture2,
+/* Squelette de la fonction detruire_objets */
+void detruire_objets(TTF_Font **police, Mix_Music **musique, SDL_Texture **texture1, SDL_Texture **texture2,
                      SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,
                      SDL_Texture **texture7, SDL_Texture **texture8,
                      SDL_Texture **texture9, SDL_Texture **texture10, SDL_Texture **texture11,
@@ -129,9 +136,10 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                      SDL_Texture **texture63, SDL_Texture **texture64, 
                      SDL_Texture **texture65, SDL_Texture **texture66,
                      SDL_Texture **texture67, SDL_Texture **texture68, 
-                     SDL_Texture **texture69, SDL_Texture **texture70, SDL_Texture **texture71);
+                     SDL_Texture **texture69, SDL_Texture **texture70,
+                     SDL_Texture **texture71, SDL_Texture **texture72,
+                     SDL_Texture **textures_images_succes);
 
 
-/** Squelette de la fonction detruire_fenetre_rendu */
+/* Squelette de la fonction detruire_fenetre_rendu */
 void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window);
-#endif

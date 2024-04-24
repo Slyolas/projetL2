@@ -1,68 +1,46 @@
-/**
- * \file fonctions_introduction.c
- * \brief Fichier avec les fonctions présentant l'introduction du jeu
-*/
-
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_introduction.h>
 
-/** 
- * \fn void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *ligne, SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer, SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte,  TTF_Font **police, SDL_Color couleurBlanche, int largeur, int hauteur)
- * \brief Fonction qui met à jour le rendu de l'introduction 
- * \param renderer Pointeur vers le renderer SDL.
- * \param indice Indice de la ligne de texte.
- * \param ligne Ligne de texte à afficher.
- * \param rectangle_passer Rectangle pour le bouton "Passer".
- * \param texture_image_passer Texture de l'image du bouton "Passer".
- * \param rectangle_texte_introduction Rectangle pour le texte d'introduction.
- * \param surface Surface SDL.
- * \param texture_texte Texture du texte SDL.
- * \param police Police de caractères TTF.
- * \param couleurBlanche Couleur blanche SDL.
- * \param largeur Largeur de l'écran.
- * \param hauteur Hauteur de l'écran.
- * \see erreur
- */
-
+/* Fonction qui met à jour le rendu de l'introduction */
 void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *ligne,
                                     SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
                                     SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, 
                                     TTF_Font **police, SDL_Color couleurBlanche,
                                     int largeur, int hauteur) {
 
-    /** Création d'une sous-chaîne du texte jusqu'à la lettre actuelle */
+    /* Création d'une sous-chaîne du texte jusqu'à la lettre actuelle */
     char buffer[indice + 2];
     strncpy(buffer, ligne, indice);
 
-    /** Ajout de la lettre actuelle */
+    /* Ajout de la lettre actuelle */
     buffer[indice] = ligne[indice];
 
-    /** Ajout d'un caractère '\0' pour terminer la chaîne */
+    /* Ajout d'un caractère '\0' pour terminer la chaîne */
     buffer[indice + 1] = '\0';
 
-    /** Rendu du texte actuel sur la surface texte */
+    /* Rendu du texte actuel sur la surface texte */
     (*surface) = TTF_RenderUTF8_Blended((*police), buffer, couleurBlanche);
     
-    /** Création de la texture texture_texte depuis la surface texte */
+    /* Création de la texture texture_texte depuis la surface texte */
     (*texture_texte) = SDL_CreateTextureFromSurface((*renderer), (*surface));
 
-    /** Récupération des dimensions du texte */
+    /* Récupération des dimensions du texte */
     int largeur_texte, hauteur_texte;
     SDL_QueryTexture((*texture_texte), NULL, NULL, &largeur_texte, &hauteur_texte);
 
-    /** Positionnement du texte au centre */
+    /* Positionnement du texte au centre */
     rectangle_texte_introduction->x = largeur / 2 - largeur_texte / 2;
     rectangle_texte_introduction->y = hauteur / 2 - hauteur_texte ;
     rectangle_texte_introduction->w = largeur_texte;
     rectangle_texte_introduction->h = hauteur_texte;
 
-    /** Affichage de la texture texture_texte */
+    /* Affichage de la texture texture_texte */
     SDL_RenderCopy((*renderer), (*texture_texte), NULL, rectangle_texte_introduction);
 
     SDL_FreeSurface((*surface));
     SDL_DestroyTexture((*texture_texte));
 
-    /** Copie la texture de l'image du passer */
+    /* Copie la texture de l'image du passer */
     rectangle_passer->x = largeur - largeur / 21- largeur / 53;
     rectangle_passer->y = hauteur / 30;
     rectangle_passer->w = largeur / 21;
@@ -71,69 +49,49 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
     if(SDL_RenderCopy((*renderer), (*texture_image_passer), NULL, rectangle_passer) != 0)
         erreur("Copie de la texture");
 
-    /** Fond noir */
+    /* Fond noir */
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 0);
 
-    /** Affiche le rendu */
+    /* Affiche le rendu */
     SDL_RenderPresent((*renderer));
 
 }
 
-/** 
- * \fn void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer, SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, personnage_t *personnageActif, SDL_Color couleurBlanche, int *largeur, int *hauteur, page_t *page_active)
- * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction 
- * \param event Événement SDL.
- * \param window Pointeur vers la fenêtre SDL.
- * \param renderer Pointeur vers le renderer SDL.
- * \param programme_lance Indicateur de lancement du programme.
- * \param rectangle_passer Rectangle pour le bouton "Passer".
- * \param texture_image_passer Texture de l'image du bouton "Passer".
- * \param rectangle_texte_introduction Rectangle pour le texte d'introduction.
- * \param surface Surface SDL.
- * \param texture_texte Texture du texte SDL.
- * \param police Police de caractères TTF.
- * \param personnageActif Personnage actif du joueur.
- * \param couleurBlanche Couleur blanche SDL.
- * \param largeur Largeur de l'écran.
- * \param hauteur Hauteur de l'écran.
- * \param page_active Page active du jeu.
- * \see erreur
- * \see redimensionnement_fenetre
- * \see clic_case
- * \see mise_a_jour_rendu_introduction
- */
+/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction */
 void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
                   SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
                   SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
                   personnage_t *personnageActif, SDL_Color couleurBlanche,
                   int *largeur, int *hauteur, page_t *page_active) {
 
-    /** Ouverture du fichier contenant l'introduction */
+    /* Ouverture du fichier contenant l'introduction */
     FILE *fichier = NULL;
 
     if((*personnageActif) == PERSONNAGE_1) {
+
         fichier = fopen("./textes/introduction_masculin.txt", "r");
         if (!fichier)
             erreur("Ouverture du fichier introduction_masculin.txt");
     }
     
     else {
+
         fichier = fopen("./textes/introduction_feminin.txt", "r");
         if (!fichier)
             erreur("Ouverture du fichier introduction_feminin.txt");
     }
     
-    /** Initialisation d'une chaîne de caractères */
+    /* Initialisation d'une chaîne de caractères */
     char * ligne = malloc(sizeof(char) * 125);
     int indice;
 
-    /** Lecture de chaque ligne du fichier */
+    /* Lecture de chaque ligne du fichier */
     while((fgets(ligne, sizeof(char) * 125, fichier) != NULL) && ((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE)) {
 
-        /** Boucle pour afficher le texte lettre par lettre */
+        /* Boucle pour afficher le texte lettre par lettre */
         for (indice = 0; (indice < ((int)strlen(ligne))) && ((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE); indice++) {
 
-            /** Effacement du rendu précédent */
+            /* Effacement du rendu précédent */
             SDL_RenderClear((*renderer));
 
             while(SDL_PollEvent(event)) {
@@ -142,28 +100,28 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
 
                     case SDL_WINDOWEVENT:
 
-                        /** Gestion de l'événement de redimensionnement de la fenêtre */
+                        /* Gestion de l'événement de redimensionnement de la fenêtre */
                         redimensionnement_fenetre((*event), largeur, hauteur);
 
-                        /** Actualisation de la taille de la police */
+                        /* Actualisation de la taille de la police */
                         (*police) = TTF_OpenFont("./polices/02587_ARIALMT.ttf", (*largeur) / 50);
 
                         break;
                         
                     case SDL_MOUSEBUTTONDOWN:
 
-                        /** Appuiyer sur le clic gauche de la souris */
+                        /* Appuyer sur le clic gauche de la souris */
                         if(event->button.button == SDL_BUTTON_LEFT)
-                            /** Fin de la ligne */
+                            /* Fin de la ligne */
                             indice = strlen(ligne);
 
-                        /** Bouton pour passer l'introduction */
+                        /* Bouton pour passer l'introduction */
                         if(clic_case((*event), *rectangle_passer))
                             (*page_active) = NIVEAU_1;
 
                         break;
                     
-                    /** Quitter le programme*/
+                    /* Quitter le programme */
                     case SDL_QUIT:
                         (*programme_lance) = SDL_FALSE;
                         break;
@@ -175,14 +133,14 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
 
             if(((*page_active) == INTRODUCTION) && ((*programme_lance) == SDL_TRUE)) {
 
-                /** Mise à jour du rendu */
+                /* Mise à jour du rendu */
                 mise_a_jour_rendu_introduction(renderer, indice, ligne,
                                                rectangle_passer, texture_image_passer, 
                                                rectangle_texte_introduction, surface, texture_texte, 
                                                police, couleurBlanche,
                                                (*largeur), (*hauteur));
 
-                /** Délai entre chaque lettre */
+                /* Délai entre chaque lettre */
                 SDL_Delay(50);
             }
         }
@@ -193,7 +151,7 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
 
             Mix_PauseMusic();
 
-            /** Délai d'attente avant de passer à la ligne suivante */
+            /* Délai d'attente avant de passer à la ligne suivante */
             SDL_Delay(2000);
 
             Mix_ResumeMusic();
@@ -202,7 +160,7 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
         }
     }
 
-    /** Libération de la mémoire allouée pour la ligne et fermeture du fichier */
+    /* Libération de la mémoire allouée pour la ligne et fermeture du fichier */
     free(ligne);
     fclose(fichier);
 }

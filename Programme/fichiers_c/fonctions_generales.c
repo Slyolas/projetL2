@@ -1,15 +1,6 @@
-/**
- * \file fonctions_generales.c
- * \brief Fichier avec les fichiers utilisé régulièrement
-*/
 #include <../fichiers_h/fonctions_generales.h>
 
-/**
- * \fn erreur(const char *message)
- * \brief Affiche l'erreur en cas de problème et ferme la SDL
- * \param message Un pointeur sur caractère en lecture représentant le message d'erreur
- * \return Arrêt du programme en Echec
- */
+/* Fonction qui affiche un message d'erreur quand une chose n'a pas pû être exécuté */
 void erreur(const char *message) {
 
     SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
@@ -17,36 +8,23 @@ void erreur(const char *message) {
     exit(EXIT_FAILURE);
 }
 
-/**
- * \fn chargement_image(SDL_Renderer **renderer, SDL_Surface **surface,SDL_Texture **texture, char *chemin)
- * \brief Fonction qui permet de charger une image
- * \param renderer rendu sur lequel posé l'image
- * \param surface Surface à utiliser pour récupérer l'image
- * \param texture Texture à crée 
- * \param chemin Pointeur sur caractère représentant le chemin d'accès du fichier
- * \see erreur
-  */
+/* Fonction qui permet de charger une image */
 void chargement_image(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, char *chemin) {
+
     (*surface) = IMG_Load(chemin);
+
     if((*surface) == NULL)
         erreur("Chargement de l'image");
     
     (*texture) = SDL_CreateTextureFromSurface((*renderer), (*surface));
+
     if((*texture) == NULL)
         erreur("Création de la texture");
+
     SDL_FreeSurface((*surface));
 }
 
-/**
- * \fn affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, itemMenu *item,TTF_Font **police, SDL_SDL_Color couleur)
- * \brief Affiche du texte sur la fenêtre
- * \param renderer Rendu de la fenêtre 
- * \param surface Surface ou appliquer la texture
- * \param texture Texture à afficher
- * \param item Texte à afficher
- * \param police police d'écriture
- * \param couleur couleur 
- */
+/* Fonction qui permet d'afficher le texte */
 void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture, itemMenu *item, 
                      TTF_Font **police, SDL_Color couleur) {
 
@@ -61,18 +39,10 @@ void affichage_texte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture
     SDL_DestroyTexture((*texture));
 }
 
-/**
- * \fn void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur) 
- * \brief Fonction qui permet de créer une fenêtre et le rendu
- * \param window fenêtre à créer
- * \param renderer Rendu de la fenêtre à créer 
- * \param largeur largeur de la fenêtre souhaité
- * \param hauteur hauteur de la fenêtre souhaité
- * \see erreur
- */
+/* Fonction qui permet de créer une fenêtre et le rendu */
 void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeur, int hauteur) {
 
-    /** Création de la fenêtre */
+    /* Création de la fenêtre */
     (*window) = SDL_CreateWindow("MétaTravers", SDL_WINDOWPOS_CENTERED,
                                  SDL_WINDOWPOS_CENTERED, 
                                  largeur, hauteur,
@@ -81,105 +51,77 @@ void creer_fenetre_rendu(SDL_Window **window,SDL_Renderer **renderer, int largeu
     if((*window) == NULL)
         erreur("Création fenêtre échouée");
 
-    /** Création du rendu */
+    /* Création du rendu */
     (*renderer) = SDL_CreateRenderer((*window), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     if((*renderer) == NULL)
         erreur("Création rendu échoué");
 }
 
-/**
- * \fn void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options, SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, itemMenu *itemsDemandeQuitter, SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_perso_1_gagnant, SDL_Texture **texture_image_perso_2_gagnant, niveaux *avancee_niveaux, TTF_Font **police)
- * \brief Fonctions qui permet d'initialiser les objets globaux
- * \param renderer Pointeur vers le renderer SDL.
- * \param surface Surface SDL.
- * \param texture_image_plein_ecran Texture de l'image en plein écran.
- * \param texture_image_retour_en_arriere Texture de l'image du bouton retour en arrière.
- * \param texture_image_options Texture de l'image du bouton options.
- * \param texture_image_passer Texture de l'image du bouton passer.
- * \param itemsDemandeSauvegarde Tableau d'items pour la demande de sauvegarde.
- * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter.
- * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
- * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
- * \param texture_image_monstre_volant Texture de l'image du monstre volant.
- * \param texture_image_perso_1_gagnant Texture de l'image du personnage 1 gagnant.
- * \param texture_image_perso_2_gagnant Texture de l'image du personnage 2 gagnant.
- * \param avancee_niveaux Structure de progression des niveaux.
- * \param police Police de caractères TTF.
- * \see chargement_image
- * \see erreur
- */
+/* Fonctions qui permet d'initialiser les objets globaux */
 void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_plein_ecran,
                            SDL_Texture **texture_image_retour_en_arriere, SDL_Texture **texture_image_options,
                            SDL_Texture **texture_image_passer, itemMenu *itemsDemandeSauvegarde, itemMenu *itemsDemandeQuitter,
                            SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture_image_monstre_terrestre,
                            SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_perso_1_gagnant,
                            SDL_Texture **texture_image_perso_2_gagnant,
-                           niveaux *avancee_niveaux, TTF_Font **police) {
+                           niveaux *avancee_niveaux, TTF_Font **police, SDL_Texture **texture_image_croix) {
 
-    /** Initialisation de l'image du plein écran du menu */
+    /* Initialisation de l'image du plein écran du menu */
     chargement_image(renderer, surface, texture_image_plein_ecran, "./images/plein_ecran_blanc.png");
 
-    /** Initialisation de l'image du retour en arrière */
+    /* Initialisation de l'image du retour en arrière */
     chargement_image(renderer, surface, texture_image_retour_en_arriere, "./images/retour_en_arriere.png");
 
-    /** Initialisation de l'image des options du menu */
+    /* Initialisation de l'image des options du menu */
     chargement_image(renderer, surface, texture_image_options, "./images/options_blanc.png");
 
-    /** Initialisation de l'image du passer du menu */
+    /* Initialisation de l'image du passer du menu */
     chargement_image(renderer, surface, texture_image_passer, "./images/passer.png");
 
-    /** Initialisation de la police */
+    /* Initialisation de l'image de la croix */
+    chargement_image(renderer, surface, texture_image_croix, "./images/croix.png");
+
+    /* Initialisation de la police */
     if(((*police) = TTF_OpenFont("./polices/04B_11__.TTF", 20)) == NULL)
         erreur("Chargement de la police");
 
-    /** Initialisation des images pour les collectibles */
+    /* Initialisation des images pour les collectibles */
     chargement_image(renderer, surface, &(avancee_niveaux[0].texture_image_collectible), "./images/niveau_1/collectible_niveau_1.png");
     chargement_image(renderer, surface, &(avancee_niveaux[1].texture_image_collectible), "./images/niveau_2/collectible_niveau_2.png");
     chargement_image(renderer, surface, &(avancee_niveaux[2].texture_image_collectible), "./images/niveau_3/collectible_niveau_3.png");
     chargement_image(renderer, surface, &(avancee_niveaux[3].texture_image_collectible), "./images/niveau_4/collectible_niveau_4.png");
 
+    /* Initialisation de l'image de la fin des premiers niveaux */
     chargement_image(renderer, surface, texture_image_fin_premiers_niveaux, "./images/fin_premiers_niveaux.png");
 
+    /* Initialisation des images des monstres */
     chargement_image(renderer, surface, texture_image_monstre_terrestre, "./images/monstre_terrestre.png");
     chargement_image(renderer, surface, texture_image_monstre_volant, "./images/monstre_volant.png");
 
+    /* Initialisation des images des poses gagnantes des personnages */
     chargement_image(renderer, surface, texture_image_perso_1_gagnant, "./images/personnages/personnage_masculin_gagnant.png");
     chargement_image(renderer, surface, texture_image_perso_2_gagnant, "./images/personnages/personnage_feminin_gagnant.png");
 
-    /** Initialisation du texte dans les items de la demande de sauvegarde */
+    /* Initialisation du texte dans les items de la demande de sauvegarde */
     sprintf(itemsDemandeSauvegarde[0].texte, " Voulez-vous sauvegarder la partie avant de quitter ? ");
     sprintf(itemsDemandeSauvegarde[1].texte, " Oui ");
     sprintf(itemsDemandeSauvegarde[2].texte, " Non ");
 
-    /** Initialisation du texte dans les items de la demande de quitter le niveau */
+    /* Initialisation du texte dans les items de la demande de quitter le niveau */
     sprintf(itemsDemandeQuitter[0].texte, " Voulez-vous quittez le niveau ? ");
     sprintf(itemsDemandeQuitter[1].texte, " Oui ");
     sprintf(itemsDemandeQuitter[2].texte, " Non ");
 }
 
-/**
- * \fn void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur)
- * \brief fenêtre se chargeant de demander à l'utilisateur si il souhaite sauvegarder
- * \param renderer Pointeur vers le renderer SDL.
- * \param rectangle_demande_sauvegarde Rectangle de la demande de sauvegarde SDL.
- * \param surface Surface SDL.
- * \param texture_texte Texture du texte SDL.
- * \param police Police de caractères TTF.
- * \param couleur Couleur du texte.
- * \param itemsDemandeSauvegarde Tableau d'items pour la demande de sauvegarde.
- * \param tailleDemandeSauvegarde Taille du tableau d'items pour la demande de sauvegarde.
- * \param largeur Largeur de l'écran.
- * \param hauteur Hauteur de l'écran.
- * \see affichage_texte
- */
+/* Fonction qui permet de demander à l'utilisateur de sauvegarder */
 void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sauvegarde,
                         SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                         itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, int largeur, int hauteur) {
 
     int i;
 
-    /** Affichage du rectangle de la demande de sauvegarde */
+    /* Affichage du rectangle de la demande de sauvegarde */
     rectangle_demande_sauvegarde->x = largeur / 6;
     rectangle_demande_sauvegarde->y = hauteur / 6;
     rectangle_demande_sauvegarde->w = largeur / 3 * 2;
@@ -191,19 +133,20 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
     SDL_RenderDrawRect((*renderer), rectangle_demande_sauvegarde);
 
-    /** Affichage du rectangle de la question de la demande de sauvegarde */
-    itemsDemandeSauvegarde[0].rectangle.x = largeur / 6;
+    /* Affichage du rectangle de la question de la demande de sauvegarde */
+    itemsDemandeSauvegarde[0].rectangle.x = largeur / 6 + largeur / 100;
     itemsDemandeSauvegarde[0].rectangle.y = hauteur / 4 + hauteur / 20;
-    itemsDemandeSauvegarde[0].rectangle.w = largeur / 3 * 2;
-    itemsDemandeSauvegarde[0].rectangle.h = hauteur / 9;
+    itemsDemandeSauvegarde[0].rectangle.w = largeur / 3 * 2 - largeur / 50;
+    itemsDemandeSauvegarde[0].rectangle.h = hauteur / 10;
 
     SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
     
     affichage_texte(renderer, surface, texture_texte, &(itemsDemandeSauvegarde[0]), 
                     police, couleur);
 
-    /** Affichage des rectangles des réponses de la demande de sauvegarde */
+    /* Affichage des rectangles des réponses de la demande de sauvegarde */
     for(i = 1; i < tailleDemandeSauvegarde; i++) {
+
         itemsDemandeSauvegarde[i].rectangle.x = largeur / 3 + (i-1) * largeur / 3 - (i-1) * largeur / 10;
         itemsDemandeSauvegarde[i].rectangle.y = hauteur - hauteur / 4 - hauteur / 20 - hauteur / 10;
         itemsDemandeSauvegarde[i].rectangle.w = largeur / 10;
@@ -218,32 +161,18 @@ void demande_sauvegarde(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_sau
         SDL_RenderDrawRect((*renderer), &(itemsDemandeSauvegarde[i].rectangle));
     }
 
-    /** Affiche le rendu */
+    /* Affiche le rendu */
     SDL_RenderPresent((*renderer));
 }
 
-/** 
- * \fn void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur)
- * \brief Fonction qui permet de demander à l'utilisateur de quitter le niveau
- * \param renderer Pointeur vers le renderer SDL.
- * \param rectangle_demande_quitter Rectangle de la demande de quitter le niveau SDL.
- * \param surface Surface SDL.
- * \param texture_texte Texture du texte SDL.
- * \param police Police de caractères TTF.
- * \param couleur Couleur du texte.
- * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter le niveau.
- * \param tailleDemandeQuitter Taille du tableau d'items pour la demande de quitter le niveau.
- * \param largeur Largeur de l'écran.
- * \param hauteur Hauteur de l'écran.
- * \see affichage_texte
- */
+/* Fonction qui permet de demander à l'utilisateur de quitter le niveau */
 void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande_quitter,
                             SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleur,
                             itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int largeur, int hauteur) {
 
     int i;
 
-    /** Affichage du rectangle de la demande de quitter le niveau */
+    /* Affichage du rectangle de la demande de quitter le niveau */
     rectangle_demande_quitter->x = largeur / 6;
     rectangle_demande_quitter->y = hauteur / 6;
     rectangle_demande_quitter->w = largeur / 3 * 2;
@@ -255,19 +184,20 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
     SDL_RenderDrawRect((*renderer), rectangle_demande_quitter);
 
-    /** Affichage du rectangle de la question de la demande de quitter le niveau */
-    itemsDemandeQuitter[0].rectangle.x = largeur / 6;
+    /* Affichage du rectangle de la question de la demande de quitter le niveau */
+    itemsDemandeQuitter[0].rectangle.x = largeur / 6 + largeur / 100;
     itemsDemandeQuitter[0].rectangle.y = hauteur / 4 + hauteur / 20;
-    itemsDemandeQuitter[0].rectangle.w = largeur / 3 * 2;
-    itemsDemandeQuitter[0].rectangle.h = hauteur / 9;
+    itemsDemandeQuitter[0].rectangle.w = largeur / 3 * 2 - largeur / 50;
+    itemsDemandeQuitter[0].rectangle.h = hauteur / 10;
 
     SDL_SetRenderDrawColor((*renderer), 255, 255, 255, 255);
     
     affichage_texte(renderer, surface, texture_texte, &(itemsDemandeQuitter[0]), 
                     police, couleur);
 
-    /** Affichage des rectangles des réponses de la demande de quitter le niveau */
+    /* Affichage des rectangles des réponses de la demande de quitter le niveau */
     for(i = 1; i < tailleDemandeQuitter; i++) {
+        
         itemsDemandeQuitter[i].rectangle.x = largeur / 3 + (i-1) * largeur / 3 - (i-1) * largeur / 10;
         itemsDemandeQuitter[i].rectangle.y = hauteur - hauteur / 4 - hauteur / 20 - hauteur / 10;
         itemsDemandeQuitter[i].rectangle.w = largeur / 10;
@@ -282,17 +212,11 @@ void demande_quitter_niveau(SDL_Renderer **renderer, SDL_Rect *rectangle_demande
         SDL_RenderDrawRect((*renderer), &(itemsDemandeQuitter[i].rectangle));
     }
 
-    /** Affiche le rendu */
+    /* Affiche le rendu */
     SDL_RenderPresent((*renderer));
 }
 
-/**
- * \fn void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur)
- * \brief Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette dernière et les différents objets
- * \param event Evenement SDL
- * \param largeur largeur de la fenêtre a redimensionné
- * \param hauteur hauteur de la fenêtre a redimensionné
- */
+/* Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette dernière et les différents objets */
 void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur) {
 
     if(event.window.event == SDL_WINDOWEVENT_RESIZED) {
@@ -302,57 +226,36 @@ void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur) {
     }
 }
 
-/**
- * \fn int verification_sauvegarde()
- * \brief Vérifie si une sauvegarde existe 
- * \return booléen représentant si il y a une sauvegarde ou non (1 si existant, sinon 0)
- * \see erreur
-*/
+/* Vérifie si une sauvegarde existe */
 int verification_sauvegarde() {
     
     FILE *fichier_sauvegarde;
 
-    /** Ouverture du fichier en mode lecture */
+    /* Ouverture du fichier en mode lecture */
     fichier_sauvegarde = fopen("./sauvegardes/sauvegarde.txt", "r");
 
-    /** Vérifie si le fichier existe */
+    /* Vérifie si le fichier existe */
     if (fichier_sauvegarde == NULL)
         return 0;
 
-    /** Fermeture du fichier */
+    /* Fermeture du fichier */
     if (fclose(fichier_sauvegarde) != 0)
         erreur("Fermeture du fichier");
 
     return 1;
 }
 
-/**
- * \fn void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo, modes_t modeActif, personnage_t personnageActif, position_t positionActive, niveaux *avancee_niveaux, int tailleNiveaux) 
- * \brief Fonction qui permet de sauvegarder la partie dans un fichier
- * \param touche_aller_a_droite Touche pour aller à droite.
- * \param touche_aller_a_gauche Touche pour aller à gauche.
- * \param touche_sauter_monter Touche pour sauter/monter.
- * \param touche_descendre Touche pour descendre.
- * \param touche_interagir Touche pour interagir.
- * \param barre_de_son Réglages de la barre de son.
- * \param pseudo Pseudo du joueur.
- * \param modeActif Mode actif du jeu.
- * \param personnageActif Personnage actif.
- * \param positionActive Position active.
- * \param avancee_niveaux Structure de progression des niveaux.
- * \param tailleNiveaux Taille du tableau d'items pour les niveaux.
- * \see erreur
- */
+/* Fonction qui permet de sauvegarder la partie dans un fichier */
 void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter,
                         SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, barreDeSon *barre_de_son, itemMenu *pseudo,
                         modes_t modeActif, personnage_t personnageActif, position_t positionActive,
-                        niveaux *avancee_niveaux, int tailleNiveaux) {
+                        niveaux *avancee_niveaux, int tailleNiveaux, time_t temps_debut_partie, int compteur_mort, int avancee_succes[10]) {
 
     FILE *fichier_sauvegarde;
 
     int i;
 
-    /** Ouverture du fichier en mode écriture */
+    /* Ouverture du fichier en mode écriture */
     fichier_sauvegarde = fopen("./sauvegardes/sauvegarde.txt", "w");
 
     fprintf(fichier_sauvegarde, "%f\n", barre_de_son[0].volume);
@@ -371,90 +274,113 @@ void sauvegarder_partie(SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_
     fprintf(fichier_sauvegarde, "%d\n", positionActive);
 
     for(i = 0; i < tailleNiveaux; i++) {
+
         fprintf(fichier_sauvegarde, "%d %d %d %d\n", avancee_niveaux[i].niveau_fini,
                                                      avancee_niveaux[i].numero_collectible[0],
                                                      avancee_niveaux[i].numero_collectible[1],
                                                      avancee_niveaux[i].numero_collectible[2]);
     }
 
-    /** Fermeture du fichier */
+    fprintf(fichier_sauvegarde, "%ld\n", temps_debut_partie);
+
+    fprintf(fichier_sauvegarde, "%d\n", compteur_mort);
+
+    for(i = 0; i < 10; i++)
+        fprintf(fichier_sauvegarde, "%d ", avancee_succes[i]); 
+
+    /* Fermeture du fichier */
     if (fclose(fichier_sauvegarde) != 0)
         erreur("Fermeture du fichier");
 }
 
-/**
- * \fn int clic_case(SDL_Event event, SDL_Rect rectangle)
- * \brief Fonction qui permet de renvoyer vrai quand on clique sur un rectangle, faux sinon
- * \param event Evenement SDL
- * \param rectangle Rectangle qui a été cliqué ou non
- * \return booléen représentant si le clic s'est fait dans le rectangle (1 si c'est le cas sinon 0)
- * 
- */
+/* Fonction qui permet de renvoyer vrai quand on clique sur un rectangle, faux sinon */
 int clic_case(SDL_Event event, SDL_Rect rectangle) {
+    
+    Mix_Chunk *effet_sonore;
 
-        if((event.button.x >= rectangle.x) &&
-           (event.button.x <= rectangle.x + rectangle.w) &&
-           (event.button.y >= rectangle.y) &&
-           (event.button.y <= rectangle.y + rectangle.h) &&
-           (event.button.button == SDL_BUTTON_LEFT))
-            return 1;
-        
-        return 0;
+    if((event.button.x >= rectangle.x) &&
+        (event.button.x <= rectangle.x + rectangle.w) &&
+        (event.button.y >= rectangle.y) &&
+        (event.button.y <= rectangle.y + rectangle.h) &&
+        (event.button.button == SDL_BUTTON_LEFT)) {
+
+        /* Effet sonore quand on clique sur un bouton */
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/clic_bouton.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
+
+        return 1;
+    }
+    
+    return 0;
 }
 
-/**
- * \fn int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran,SDL_bool *plein_ecran, SDL_Window **window)
- * \brief Fonction qui permet de mettre la fenêtre en plein écran quand on clique sur le bouton plein écran
- * \param event Evenement SDL
- * \param rectangle_plein_ecran Rectangle ou se situe le bouton pour afficher le plein écran ou le retirer
- * \param plein_ecran booléen qui dit si il est en mode plein écran
- * \param window fenêtre à changer en pleine écran ou non
- * \return le changement d'état sous la forme d'un booléen 
- */
+/* Fonction qui permet de mettre la fenêtre en plein écran quand on clique sur le bouton plein écran */
 int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window) {
+
+    Mix_Chunk *effet_sonore;
 
     if ((event.button.x >= rectangle_plein_ecran->x) &&
         (event.button.x <= rectangle_plein_ecran->x + rectangle_plein_ecran->w) &&
         (event.button.y >= rectangle_plein_ecran->y) &&
         (event.button.y <= rectangle_plein_ecran->y + rectangle_plein_ecran->h) &&
         (event.button.button == SDL_BUTTON_LEFT)) {
+
+        /* Effet sonore quand on clique sur un bouton */
+        if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/clic_bouton.wav")) == NULL)
+            erreur("Chargement de l'effet sonore");
+            
+        Mix_PlayChannel(1, effet_sonore, 0);
             
         if ((*plein_ecran)) {   
+
             SDL_SetWindowFullscreen((*window), 0);
             (*plein_ecran) = SDL_FALSE;
-        } else {
+        } 
+        
+        else {
+
             SDL_SetWindowFullscreen((*window), SDL_WINDOW_FULLSCREEN_DESKTOP);
             (*plein_ecran) = SDL_TRUE;
         }
+
         return 1;
     }
+
     return 0;
 }
 
-/**
- * \fn void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut,int sauter, int avancer, int reculer, int tile_map[18][32]) 
- * \brief Fonction qui permet de déplacer le personnage dans les différents niveaux
- * \param saut Indicateur de saut.
- * \param tombe Indicateur de chute.
- * \param position_x Position en x du personnage.
- * \param position_y Position en y du personnage.
- * \param position_avant_saut Position avant le saut.
- * \param sauter Indicateur de tentative de saut.
- * \param avancer Indicateur d'avancement.
- * \param reculer Indicateur de recul.
- * \param tile_map Carte du niveau.
- */
+/* Fonction qui permet de déplacer le personnage dans les différents niveaux */
 void deplacement_personnage(int *saut, int *tombe, int *position_x, int *position_y, int *position_avant_saut,
-                            int sauter, int avancer, int reculer, int tile_map[18][32]) {
+                            int sauter, int avancer, int reculer, int tile_map[18][32], personnage_t personnageActif) {
 
-    /** Cas où la touche pour sauter est pressée */
+    Mix_Chunk *effet_sonore;
+
+    /* Cas où la touche pour sauter est pressée */
     if((!(*saut)) && (!(*tombe)) && (sauter)) {
+
+        if(personnageActif == PERSONNAGE_1) {
+
+            /* Effet sonore quand le premier personnage saute */
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/saut_masculin.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+        }
+
+        else if(personnageActif == PERSONNAGE_2) {
+
+            /* Effet sonore quand le second personnage saute */
+            if((effet_sonore = Mix_LoadWAV("./sons/effets_sonores/saut_feminin.wav")) == NULL)
+                erreur("Chargement de l'effet sonore");
+        }
+                
+        Mix_PlayChannel(1, effet_sonore, 0);
 
         (*position_avant_saut) = (*position_y);
         (*saut) = 1;
     }
 
-    /** Cas où la touche pour aller à gauche est pressée */
+    /* Cas où la touche pour aller à gauche est pressée */
     if(((!(tile_map[(*position_y)][(*position_x) - 1])) || 
         ((tile_map[(*position_y)][(*position_x) - 1] >= 3) &&
         (tile_map[(*position_y)][(*position_x) - 1] <= 9)) ||
@@ -470,7 +396,7 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         }
     }
 
-    /** Cas où la touche pour aller à droite est pressée */
+    /* Cas où la touche pour aller à droite est pressée */
     if(((!(tile_map[(*position_y)][(*position_x) + 1])) || 
         ((tile_map[(*position_y)][(*position_x) + 1] >= 3) &&
         (tile_map[(*position_y)][(*position_x) + 1] <= 9)) ||
@@ -486,7 +412,7 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         }
     }
 
-    /** Cas où le personnage est entrain de sauter */
+    /* Cas où le personnage est entrain de sauter */
     if((*saut)) {
 
         if ((*position_y) < (*position_avant_saut)-2) {
@@ -511,7 +437,7 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
         }
     }
 
-    /** Cas où le personnage est entrain de tomber */
+    /* Cas où le personnage est entrain de tomber */
     if((*tombe)) {
 
         if ((tile_map[(*position_y) + 1][(*position_x)] == 1) || (tile_map[(*position_y) + 1][(*position_x)] == 10) ||
@@ -529,30 +455,23 @@ void deplacement_personnage(int *saut, int *tombe, int *position_x, int *positio
     }
 }
 
-/**
- * \fn void SDL_LimitFPS(unsigned int limit)
- * \brief Fonction qui permet de gérer le nombre d'FPS à différents moments du jeu 
- * \param limit la limite désiré en FPS 
- */
+/* Fonction qui permet de gérer le nombre d'FPS à différents moments du jeu */
 void SDL_LimitFPS(unsigned int limit) {
 
     unsigned int ticks = SDL_GetTicks();
 
     if(limit < ticks)
         return;
+
     else if(limit > ticks + FPS_LIMIT)
         SDL_Delay(FPS_LIMIT);
+
     else
         SDL_Delay(limit - ticks);
 }
 
-/**
- * \fn
- * \brief Fonction qui permet de détruire les objets initialisés
- * \param police Police d'écriture qui sera désallouer
- * \param texture_1_to_71 les 71 textures à désallouer
- */
-void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **texture2,
+/* Fonction qui permet de détruire les objets initialisés */
+void detruire_objets(TTF_Font **police, Mix_Music **musique, SDL_Texture **texture1, SDL_Texture **texture2,
                      SDL_Texture **texture3, SDL_Texture **texture4, SDL_Texture **texture5, SDL_Texture **texture6,
                      SDL_Texture **texture7, SDL_Texture **texture8,
                      SDL_Texture **texture9, SDL_Texture **texture10, SDL_Texture **texture11,
@@ -583,9 +502,13 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
                      SDL_Texture **texture63, SDL_Texture **texture64, 
                      SDL_Texture **texture65, SDL_Texture **texture66,
                      SDL_Texture **texture67, SDL_Texture **texture68, 
-                     SDL_Texture **texture69, SDL_Texture **texture70, SDL_Texture **texture71) {
+                     SDL_Texture **texture69, SDL_Texture **texture70,
+                     SDL_Texture **texture71, SDL_Texture **texture72,
+                     SDL_Texture **textures_images_succes) {
 
-    /** Destructions des textures */
+    int i;
+
+    /* Destructions des textures */
     SDL_DestroyTexture((*texture1));  SDL_DestroyTexture((*texture2)); 
     SDL_DestroyTexture((*texture3));  SDL_DestroyTexture((*texture4)); 
     SDL_DestroyTexture((*texture5));  SDL_DestroyTexture((*texture6)); 
@@ -620,18 +543,20 @@ void detruire_objets(TTF_Font **police, SDL_Texture **texture1, SDL_Texture **te
     SDL_DestroyTexture((*texture63)); SDL_DestroyTexture((*texture64));
     SDL_DestroyTexture((*texture65)); SDL_DestroyTexture((*texture66));
     SDL_DestroyTexture((*texture67)); SDL_DestroyTexture((*texture68));
-    SDL_DestroyTexture((*texture69)); SDL_DestroyTexture((*texture70)); SDL_DestroyTexture((*texture71));
+    SDL_DestroyTexture((*texture69)); SDL_DestroyTexture((*texture70)); 
+    SDL_DestroyTexture((*texture71)); SDL_DestroyTexture((*texture72));
+
+    for(i = 0; i < 11; i++)
+        SDL_DestroyTexture(textures_images_succes[i]);
     
-    /** Destructions de la police */
+    /* Destruction de la police */
     TTF_CloseFont((*police));
+
+    /* Destruction de la musique */
+    Mix_FreeMusic((*musique));
 }
 
-/**
- * \fn void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window)
- * \brief Fonction qui permet de détruire le rendu et la fenêtre
- * \param renderer Rendu à détruire
- * \param widnow fenêtre à détruire
- */
+/* Fonction qui permet de détruire le rendu et la fenêtre */
 void detruire_fenetre_rendu(SDL_Renderer **renderer, SDL_Window **window) {
 
     SDL_DestroyRenderer((*renderer));
