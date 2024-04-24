@@ -94,36 +94,7 @@ $(document).ready(function(){initNavTree('fonctions__niveau__3_8h.html',''); ini
   <div class="headertitle"><div class="title">Référence du fichier fonctions_niveau_3.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Graphe des dépendances par inclusion de fonctions_niveau_3.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="fonctions__niveau__3_8h__incl.png" border="0" usemap="#afichiers__h_2fonctions__niveau__3_8h" alt=""/></div>
-<map name="afichiers__h_2fonctions__niveau__3_8h" id="afichiers__h_2fonctions__niveau__3_8h">
-<area shape="rect" title=" " alt="" coords="254,5,402,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,72,119"/>
-<area shape="poly" title=" " alt="" coords="259,48,86,95,84,90,258,43"/>
-<area shape="rect" title=" " alt="" coords="97,93,167,119"/>
-<area shape="poly" title=" " alt="" coords="282,48,175,91,173,86,280,43"/>
-<area shape="rect" title=" " alt="" coords="192,93,256,119"/>
-<area shape="poly" title=" " alt="" coords="304,48,252,87,249,83,301,43"/>
-<area shape="rect" title=" " alt="" coords="280,93,376,119"/>
-<area shape="poly" title=" " alt="" coords="331,46,331,79,325,79,325,46"/>
-<area shape="rect" title=" " alt="" coords="400,93,517,119"/>
-<area shape="poly" title=" " alt="" coords="361,43,429,84,426,88,358,48"/>
-<area shape="rect" title=" " alt="" coords="541,93,685,119"/>
-<area shape="poly" title=" " alt="" coords="397,43,559,87,558,92,396,48"/>
-<area shape="rect" title=" " alt="" coords="709,93,848,119"/>
-<area shape="poly" title=" " alt="" coords="403,37,700,88,699,94,402,42"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
+<div class="textblock"><div class="dynheader">
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
 <div class="dyncontent">
 <div class="center"><img src="fonctions__niveau__3_8h__dep__incl.png" border="0" usemap="#afichiers__h_2fonctions__niveau__3_8hdep" alt=""/></div>
@@ -142,7 +113,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a798664785ac932f603e0a1bd51b4ae73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#a798664785ac932f603e0a1bd51b4ae73">salon_arrivee_niveaux_2_3</a> (int *position_x, int *position_y, int tile_map[18][32], <a class="el" href="fonctions__generales_8h.html#a7b4c0d524c23a5b00bc0be8d17ee5ae3">page_t</a> page_active)</td></tr>
+<tr class="memitem:a798664785ac932f603e0a1bd51b4ae73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#a798664785ac932f603e0a1bd51b4ae73">salon_arrivee_niveaux_2_3</a> (int *position_x, int *position_y, int tile_map[18][32], page_t page_active)</td></tr>
 <tr class="memdesc:a798664785ac932f603e0a1bd51b4ae73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui permet de créer le salon en arrivant dans le niveau 2 ou 3.  <br /></td></tr>
 <tr class="separator:a798664785ac932f603e0a1bd51b4ae73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52bc3d806b81cdb89abd08efcf41ea60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#a52bc3d806b81cdb89abd08efcf41ea60">initialisation_objets_niveau_3</a> (SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_fond_niveau_3, SDL_Texture **texture_image_dossier_niveau_3, SDL_Texture **texture_image_sol_niveau_3, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, SDL_Texture **barre_windows_3, SDL_Texture **barre_windows_4, SDL_Texture **texture_image_puzzle, SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe)</td></tr>
@@ -168,9 +139,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:aa327cf1c9254f49b7832a54ef1cddf8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#aa327cf1c9254f49b7832a54ef1cddf8e">mise_a_jour_bordures_niveau_3</a> (SDL_Renderer *renderer, SDL_Texture *texture_image_mur_termine, int tilemap[24][32], int x_tile, int y_tile, SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile)</td></tr>
 <tr class="memdesc:aa327cf1c9254f49b7832a54ef1cddf8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la fin du labyrinthe.  <br /></td></tr>
 <tr class="separator:aa327cf1c9254f49b7832a54ef1cddf8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a820cc8c1fff4cd2c002015ff64f9d3b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#a820cc8c1fff4cd2c002015ff64f9d3b2">mise_a_jour_mini_jeu_2_niveau_3</a> (SDL_Renderer **renderer, <a class="el" href="fonctions__generales_8h.html#a53cab44ad700161a509d5a6e48857321">modes_t</a> *modeActif, SDL_Texture **texture_image_sol_labyrinthe, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_fin_labyrinthe, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix, SDL_Texture **texture, SDL_Rect *rectangle_tile, int bloc_x, int bloc_y, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int position_x, int position_y, int tile_map_mini_jeu_niveau_3[24][32], <a class="el" href="structniveaux.html">niveaux</a> *avancee_niveaux, int largeur_tile, int hauteur_tile)</td></tr>
+<tr class="memitem:a820cc8c1fff4cd2c002015ff64f9d3b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#a820cc8c1fff4cd2c002015ff64f9d3b2">mise_a_jour_mini_jeu_2_niveau_3</a> (SDL_Renderer **renderer, <a class="el" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3">modes_t</a> *modeActif, SDL_Texture **texture_image_sol_labyrinthe, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_fin_labyrinthe, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix, SDL_Texture **texture, SDL_Rect *rectangle_tile, int bloc_x, int bloc_y, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int position_x, int position_y, int tile_map_mini_jeu_niveau_3[24][32], niveaux *avancee_niveaux, int largeur_tile, int hauteur_tile)</td></tr>
 <tr class="separator:a820cc8c1fff4cd2c002015ff64f9d3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac94c889d043ce3ed10c612a543dd69ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#ac94c889d043ce3ed10c612a543dd69ac">mini_jeux_niveau_3</a> (SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window, SDL_bool *programme_lance, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, <a class="el" href="structniveaux.html">niveaux</a> *avancee_niveaux, int tile_map[18][32], SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix, int *mini_jeu, int *mini_jeu_1_termine, int *mini_jeu_2_termine, int *position_x, int *position_y, SDL_Texture **texture, int *largeur, int *hauteur, SDL_Rect *rectangle_demande, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleurNoire, <a class="el" href="structitemMenu.html">itemMenu</a> *itemsDemandeQuitter, int tailleDemande, int collectibles_intermediaires[3], <a class="el" href="fonctions__generales_8h.html#a7b4c0d524c23a5b00bc0be8d17ee5ae3">page_t</a> *page_active, SDL_Rect *rectangle_tile, int *largeur_tile, int *hauteur_tile, int *avancer, int *reculer, int *sauter, int *saut, int *tombe, SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45], int *piece_selectionnee, int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle, int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y, SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe, Mix_Music **musique, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_mur_mini_jeu, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_interagir, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, <a class="el" href="fonctions__generales_8h.html#a53cab44ad700161a509d5a6e48857321">modes_t</a> *modeActif, <a class="el" href="structitemMenu.html">itemMenu</a> *itemsDemandeSauvegarde, <a class="el" href="structbarreDeSon.html">barreDeSon</a> *barre_de_son, <a class="el" href="structitemMenu.html">itemMenu</a> *pseudo, <a class="el" href="fonctions__generales_8h.html#adcb36ac3acaf6aa61d61545b6d8971f0">personnage_t</a> *personnageActif, <a class="el" href="fonctions__generales_8h.html#aaac581f09f83ef8206fd3880d3b0a0df">position_t</a> *positionActive, int tailleNiveaux, time_t temps_debut_partie, int *compteur_mort, int *avancee_succes, int avancee_succes_intermediaires[10])</td></tr>
+<tr class="memitem:ac94c889d043ce3ed10c612a543dd69ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions__niveau__3_8h.html#ac94c889d043ce3ed10c612a543dd69ac">mini_jeux_niveau_3</a> (SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window, SDL_bool *programme_lance, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, niveaux *avancee_niveaux, int tile_map[18][32], SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix, int *mini_jeu, int *mini_jeu_1_termine, int *mini_jeu_2_termine, int *position_x, int *position_y, SDL_Texture **texture, int *largeur, int *hauteur, SDL_Rect *rectangle_demande, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleurNoire, itemMenu *itemsDemandeQuitter, int tailleDemande, int collectibles_intermediaires[3], page_t *page_active, SDL_Rect *rectangle_tile, int *largeur_tile, int *hauteur_tile, int *avancer, int *reculer, int *sauter, int *saut, int *tombe, SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45], int *piece_selectionnee, int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle, int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y, SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe, Mix_Music **musique, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_mur_mini_jeu, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_interagir, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, <a class="el" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3">modes_t</a> *modeActif, itemMenu *itemsDemandeSauvegarde, barreDeSon *barre_de_son, itemMenu *pseudo, <a class="el" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adc">personnage_t</a> *personnageActif, <a class="el" href="fonctions__generales_8h.html#a31f24aef3ddd32d2e6538ffff4055d37">position_t</a> *positionActive, int tailleNiveaux, time_t temps_debut_partie, int *compteur_mort, int *avancee_succes, int avancee_succes_intermediaires[10])</td></tr>
 <tr class="separator:ac94c889d043ce3ed10c612a543dd69ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
@@ -402,7 +373,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structniveaux.html">niveaux</a> *&#160;</td>
+          <td class="paramtype">niveaux *&#160;</td>
           <td class="paramname"><em>avancee_niveaux</em>, </td>
         </tr>
         <tr>
@@ -504,7 +475,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structitemMenu.html">itemMenu</a> *&#160;</td>
+          <td class="paramtype">itemMenu *&#160;</td>
           <td class="paramname"><em>itemsDemandeQuitter</em>, </td>
         </tr>
         <tr>
@@ -522,7 +493,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a7b4c0d524c23a5b00bc0be8d17ee5ae3">page_t</a> *&#160;</td>
+          <td class="paramtype">page_t *&#160;</td>
           <td class="paramname"><em>page_active</em>, </td>
         </tr>
         <tr>
@@ -726,37 +697,37 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a53cab44ad700161a509d5a6e48857321">modes_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3">modes_t</a> *&#160;</td>
           <td class="paramname"><em>modeActif</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structitemMenu.html">itemMenu</a> *&#160;</td>
+          <td class="paramtype">itemMenu *&#160;</td>
           <td class="paramname"><em>itemsDemandeSauvegarde</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbarreDeSon.html">barreDeSon</a> *&#160;</td>
+          <td class="paramtype">barreDeSon *&#160;</td>
           <td class="paramname"><em>barre_de_son</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structitemMenu.html">itemMenu</a> *&#160;</td>
+          <td class="paramtype">itemMenu *&#160;</td>
           <td class="paramname"><em>pseudo</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#adcb36ac3acaf6aa61d61545b6d8971f0">personnage_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a95d8677193780a1abc208b6090213adc">personnage_t</a> *&#160;</td>
           <td class="paramname"><em>personnageActif</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#aaac581f09f83ef8206fd3880d3b0a0df">position_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a31f24aef3ddd32d2e6538ffff4055d37">position_t</a> *&#160;</td>
           <td class="paramname"><em>positionActive</em>, </td>
         </tr>
         <tr>
@@ -946,7 +917,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a53cab44ad700161a509d5a6e48857321">modes_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3">modes_t</a> *&#160;</td>
           <td class="paramname"><em>modeActif</em>, </td>
         </tr>
         <tr>
@@ -1060,7 +1031,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structniveaux.html">niveaux</a> *&#160;</td>
+          <td class="paramtype">niveaux *&#160;</td>
           <td class="paramname"><em>avancee_niveaux</em>, </td>
         </tr>
         <tr>
@@ -1193,7 +1164,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="fonctions__generales_8h.html#a7b4c0d524c23a5b00bc0be8d17ee5ae3">page_t</a>&#160;</td>
+          <td class="paramtype">page_t&#160;</td>
           <td class="paramname"><em>page_active</em>&#160;</td>
         </tr>
         <tr>

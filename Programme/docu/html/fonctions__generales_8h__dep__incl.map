@@ -20,8 +20,11 @@
 <area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1134,41,1388,91,1400,93,1399,98,1387,96,1133,46"/>
 <area shape="rect" id="Node000011" href="$fonctions__nouvelle__partie_8c.html" title="Fichier contenant les fonctions servant à la fenêtre d&#39;une nouvelle partie." alt="" coords="1570,93,1717,133"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1134,33,1329,56,1558,91,1570,93,1569,98,1558,96,1328,62,1133,38"/>
-<area shape="rect" id="Node000012" href="$fonctions__options_8c.html" title="Fichier qui réunit les fonctions s&#39;occupant de la fenêtre des options du jeu." alt="" coords="1741,93,1887,133"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1134,29,1401,51,1565,68,1729,91,1741,93,1740,98,1728,96,1564,73,1400,56,1133,35"/>
-<area shape="rect" id="Node000013" href="$metatravers_8c.html" title="Fichier qui réunit les différents modules pour le bon fonctionnement du programme." alt="" coords="1911,101,2090,126"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1134,28,1471,48,1684,67,1900,91,1945,98,1944,103,1899,96,1684,72,1470,54,1134,33"/>
+<area shape="rect" id="Node000012" href="$fonctions__options_8c.html" title="Fichier qui réunit les fonctions s&#39;occupant de la fenêtre des options du jeu." alt="" coords="1681,181,1827,221"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1134,27,1294,34,1480,47,1642,66,1698,77,1730,91,1746,112,1754,136,1758,181,1753,182,1749,137,1741,114,1727,95,1697,82,1641,71,1480,52,1294,40,1134,32"/>
+<area shape="rect" id="Node000013" href="$fonctions__options_8h.html" title=" " alt="" coords="1792,93,1940,133"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1134,29,1419,51,1596,68,1773,91,1792,94,1791,99,1772,96,1595,73,1418,56,1133,34"/>
+<area shape="poly" id="edge13_Node000013_Node000012" title=" " alt="" coords="1832,144,1780,183,1777,179,1828,140"/>
+<area shape="rect" id="Node000014" href="$metatravers_8c.html" title="Fichier qui réunit les différents modules pour le bon fonctionnement du programme." alt="" coords="1851,189,2030,214"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="1894,142,1932,186,1928,190,1890,146"/>
 </map>

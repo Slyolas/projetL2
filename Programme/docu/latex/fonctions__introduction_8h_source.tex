@@ -2,25 +2,20 @@
 \hypertarget{fonctions__introduction_8h_source}{}\label{fonctions__introduction_8h_source}\index{fichiers\_h/fonctions\_introduction.h@{fichiers\_h/fonctions\_introduction.h}}
 \mbox{\hyperlink{fonctions__introduction_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00008}00008\ \textcolor{comment}{/*\ Squelette\ de\ la\ fonction\ mise\_a\_jour\_rendu\_introduction\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00009}00009\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__introduction_8h_a12fc2c022438af04ad9c0adf79bd9fb6}{mise\_a\_jour\_rendu\_introduction}}(SDL\_Renderer\ **renderer,\ \textcolor{keywordtype}{int}\ indice,\ \textcolor{keywordtype}{char}\ *ligne,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_passer,\ SDL\_Texture\ **texture\_image\_passer,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_texte\_introduction,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ }
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TTF\_Font\ **police,\ SDL\_Color\ couleurBlanche,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00015}00015\ \textcolor{comment}{/*\ Squelette\ de\ la\ fonction\ introduction\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00016}00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__introduction_8h_a844084df0e965f53f8bac324d3cd78c1}{introduction}}(SDL\_Event\ *event,\ SDL\_Window\ **window,\ SDL\_Renderer\ **renderer,\ SDL\_bool\ *programme\_lance,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_passer,\ SDL\_Texture\ **texture\_image\_passer,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_texte\_introduction,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\_t}}\ *personnageActif,\ SDL\_Color\ couleurBlanche,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\_t}}\ *page\_active);}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ H\_INTRODUCTION}}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ H\_INTRODUCTION}}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00003}00003\ \textcolor{comment}{/*\ Squelette\ de\ la\ fonction\ mise\_a\_jour\_rendu\_introduction\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00004}00004\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__introduction_8h_a12fc2c022438af04ad9c0adf79bd9fb6}{mise\_a\_jour\_rendu\_introduction}}(SDL\_Renderer\ **renderer,\ \textcolor{keywordtype}{int}\ indice,\ \textcolor{keywordtype}{char}\ *ligne,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00005}00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_passer,\ SDL\_Texture\ **texture\_image\_passer,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00006}00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_texte\_introduction,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ }
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00007}00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TTF\_Font\ **police,\ SDL\_Color\ couleurBlanche,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00008}00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00009}00009\ \textcolor{comment}{/*\ Squelette\ de\ la\ fonction\ introduction\ */}}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00010}00010\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__introduction_8h_a844084df0e965f53f8bac324d3cd78c1}{introduction}}(SDL\_Event\ *event,\ SDL\_Window\ **window,\ SDL\_Renderer\ **renderer,\ SDL\_bool\ *programme\_lance,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_passer,\ SDL\_Texture\ **texture\_image\_passer,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_texte\_introduction,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\_t}}\ *personnageActif,\ SDL\_Color\ couleurBlanche,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ page\_t\ *page\_active);}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8h_source_l00015}00015\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

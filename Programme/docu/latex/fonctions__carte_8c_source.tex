@@ -51,8 +51,8 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_2\_bas\_gauche\_1,\ SDL\_Texture\ **texture\_image\_perso\_2\_bas\_gauche\_2,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_2\_haut,\ SDL\_Texture\ **texture\_image\_perso\_2\_droite,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_2\_gauche,\ SDL\_Texture\ **texture\_image\_perso\_2\_pose,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsNiveaux,\ SDL\_Texture\ **texture\_image\_retour\_menu,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsSucces,\ SDL\_Texture\ **textures\_images\_succes)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsNiveaux,\ SDL\_Texture\ **texture\_image\_retour\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsSucces,\ SDL\_Texture\ **textures\_images\_succes)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00052}00052\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00053}00053\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ l'image\ de\ fond\ de\ la\ carte\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_carte,\ \textcolor{stringliteral}{"{}./images/carte.jpg"{}});}
@@ -147,8 +147,8 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_options,\ SDL\_Texture\ **texture\_image\_options,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_perso,\ SDL\_Texture\ **texture\_image\_perso,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ SDL\_Texture\ **texture\_image\_fin\_dernier\_niveau,\ SDL\_Rect\ *rectangle\_succes,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\_t}}\ positionActive,\ SDL\_Color\ couleurNoire,\ SDL\_Rect\ *rectangle\_retour\_menu,\ SDL\_Texture\ **texture\_image\_retour\_menu,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsNiveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur,\ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\_t}}\ positionActive,\ SDL\_Color\ couleurNoire,\ SDL\_Rect\ *rectangle\_retour\_menu,\ SDL\_Texture\ **texture\_image\_retour\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsNiveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur,\ niveaux\ *avancee\_niveaux)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00148}00148\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00149}00149\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00150}00150\ }
@@ -219,11 +219,11 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00215}00215\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ tailleNiveaux;\ i++)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00217}00217\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ itemsNiveaux[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 7;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ itemsNiveaux[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 17;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ itemsNiveaux[i].rectangle.w\ =\ largeur\ /\ 7;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ itemsNiveaux[i].rectangle.h\ =\ hauteur\ /\ 17;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00220}00220\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00221}00221\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00222}00222\ \ \ \ \ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00222}00222\ \ \ \ \ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00223}00223\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 4\ +\ largeur\ /\ 75;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 2\ +\ hauteur\ /\ 20\ +\ hauteur\ /\ 17;}
@@ -243,14 +243,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00241}00241\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ itemsNiveaux[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 4\ +\ largeur\ /\ 75;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ itemsNiveaux[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 2\ +\ hauteur\ /\ 20;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ itemsNiveaux[0].rectangle.x\ =\ largeur\ /\ 4\ +\ largeur\ /\ 75;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ itemsNiveaux[0].rectangle.y\ =\ hauteur\ /\ 2\ +\ hauteur\ /\ 20;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00244}00244\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 3\ -\/\ largeur\ /\ 70;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 3\ *\ 2\ +\ hauteur\ /\ 50;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00247}00247\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00248}00248\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00249}00249\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00249}00249\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00250}00250\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 18;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 3\ *\ 2\ -\/\ hauteur\ /\ 30\ +\ hauteur\ /\ 17;}
@@ -270,14 +270,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00268}00268\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ itemsNiveaux[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 18;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ itemsNiveaux[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 3\ *\ 2\ -\/\ hauteur\ /\ 30;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ itemsNiveaux[1].rectangle.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 18;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ itemsNiveaux[1].rectangle.y\ =\ hauteur\ /\ 3\ *\ 2\ -\/\ hauteur\ /\ 30;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00271}00271\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 500;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 2\ +\ hauteur\ /\ 50;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00274}00274\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00275}00275\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00276}00276\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00276}00276\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00277}00277\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 20;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 3\ -\/\ hauteur\ /\ 27\ +\ hauteur\ /\ 17;}
@@ -298,14 +298,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00297}00297\ \ \ \ \ \ \ \ \ itemsNiveaux[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 20;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00298}00298\ \ \ \ \ \ \ \ \ itemsNiveaux[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 3\ -\/\ hauteur\ /\ 27;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00297}00297\ \ \ \ \ \ \ \ \ itemsNiveaux[2].rectangle.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 20;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00298}00298\ \ \ \ \ \ \ \ \ itemsNiveaux[2].rectangle.y\ =\ hauteur\ /\ 3\ -\/\ hauteur\ /\ 27;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00299}00299\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 2\ +\ largeur\ /\ 400;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00301}00301\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 2\ -\/\ hauteur\ /\ 14;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00302}00302\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00303}00303\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00304}00304\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}})\{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00304}00304\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}})\{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00305}00305\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 3\ *\ 2\ -\/\ largeur\ /\ 9;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00307}00307\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 4\ -\/\ hauteur\ /\ 18\ +\ hauteur\ /\ 17;}
@@ -326,15 +326,15 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00323}00323\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00324}00324\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00325}00325\ \ \ \ \ \ \ \ \ itemsNiveaux[3].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 3\ *\ 2\ -\/\ largeur\ /\ 9;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ itemsNiveaux[3].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 4\ -\/\ hauteur\ /\ 18;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00325}00325\ \ \ \ \ \ \ \ \ itemsNiveaux[3].rectangle.x\ =\ largeur\ /\ 3\ *\ 2\ -\/\ largeur\ /\ 9;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ itemsNiveaux[3].rectangle.y\ =\ hauteur\ /\ 4\ -\/\ hauteur\ /\ 18;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00327}00327\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00328}00328\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ =\ largeur\ /\ 3\ *\ 2\ -\/\ largeur\ /\ 19;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00329}00329\ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ =\ hauteur\ /\ 4\ +\ hauteur\ /\ 13;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00330}00330\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00331}00331\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00332}00332\ \ \ \ \ \textcolor{comment}{/*\ Le\ personnage\ est\ sur\ un\ niveau\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00333}00333\ \ \ \ \ \textcolor{keywordflow}{if}(positionActive\ !=\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bafc5388d742c4a38ad1158bcca5716444}{NIVEAU0}})}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00333}00333\ \ \ \ \ \textcolor{keywordflow}{if}(positionActive\ !=\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37afc5388d742c4a38ad1158bcca5716444}{NIVEAU0}})}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00334}00334\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsNiveaux[positionActive\ -\/\ 1]),\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00336}00336\ }
@@ -382,31 +382,31 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_options,\ SDL\_Texture\ **texture\_image\_options,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_perso,\ SDL\_Texture\ **texture\_image\_perso\_1,\ SDL\_Texture\ **texture\_image\_perso\_2,\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ SDL\_Texture\ **texture\_image\_fin\_dernier\_niveau,\ SDL\_Rect\ *rectangle\_succes,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\_t}}\ *positionActive,\ SDL\_Color\ couleurNoire,\ SDL\_Rect\ *rectangle\_retour\_menu,\ SDL\_Texture\ **texture\_image\_retour\_menu,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsNiveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ valeur\_maximale,\ \mbox{\hyperlink{fonctions__generales_8h_a84c4a0cbb39f5434914cc25c3b17ca10}{direction\_t}}\ direction,\ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\_t}}\ *positionActive,\ SDL\_Color\ couleurNoire,\ SDL\_Rect\ *rectangle\_retour\_menu,\ SDL\_Texture\ **texture\_image\_retour\_menu,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsNiveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ valeur\_maximale,\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\_t}}\ direction,\ niveaux\ *avancee\_niveaux)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00384}00384\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00385}00385\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00386}00386\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00387}00387\ \ \ \ \ SDL\_SetWindowResizable((*window),\ SDL\_FALSE);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00388}00388\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00389}00389\ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bafc5388d742c4a38ad1158bcca5716444}{NIVEAU0}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00389}00389\ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37afc5388d742c4a38ad1158bcca5716444}{NIVEAU0}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00390}00390\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00391}00391\ \ \ \ \ \textcolor{comment}{/*\ Cas\ pour\ aller\ vers\ le\ haut\ ou\ vers\ le\ haut\ à\ gauche\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00392}00392\ \ \ \ \ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}}))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00392}00392\ \ \ \ \ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}}))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00393}00393\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ rectangle\_perso-\/>y\ >\ valeur\_maximale;\ i++)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00395}00395\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}}))}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}}))}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ -\/=\ hauteur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00398}00398\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}}))}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}}))}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ +=\ hauteur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00401}00401\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}})}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}})}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ +=\ largeur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00404}00404\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}})}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}})}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ -\/=\ largeur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00408}00408\ }
@@ -433,20 +433,20 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00429}00429\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00430}00430\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00431}00431\ \ \ \ \ \textcolor{comment}{/*\ Cas\ pour\ aller\ vers\ le\ bas\ ou\ vers\ le\ bas\ à\ gauche\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00432}00432\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}}))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00432}00432\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}}))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00433}00433\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00434}00434\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ rectangle\_perso-\/>y\ <\ valeur\_maximale;\ i++)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00435}00435\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}}))}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}}))}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ -\/=\ hauteur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00438}00438\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}}))}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}})\ ||\ (direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}}))}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>y\ +=\ hauteur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00441}00441\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}})}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}})}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ +=\ largeur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00444}00444\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}})}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(direction\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}})}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_perso-\/>x\ -\/=\ largeur\ /\ 100;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00448}00448\ }
@@ -548,15 +548,15 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_bas\_gauche\_1,\ SDL\_Texture\ **texture\_image\_perso\_bas\_gauche\_2,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_haut,\ SDL\_Texture\ **texture\_image\_perso\_droite,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_gauche,\ SDL\_Texture\ **texture\_image\_perso\_pose,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00547}00547\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso,\ SDL\_Rect\ *rectangle\_perso,\ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ niveau\_fini[4],\ \textcolor{keywordtype}{int}\ collectibles[12],\ \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\_t}}\ *position\_intermediaire,\ SDL\_Texture\ **texture\_image\_fin\_dernier\_niveau,\ SDL\_Rect\ *rectangle\_succes,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ \mbox{\hyperlink{fonctions__generales_8h_a84c4a0cbb39f5434914cc25c3b17ca10}{direction\_t}}\ *direction,\ \textcolor{keywordtype}{int}\ *touche\_pressee,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_demande\_sauvegarde,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsDemandeSauvegarde,\ \textcolor{keywordtype}{int}\ tailleDemandeSauvegarde,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\_t}}\ *positionActive,\ \mbox{\hyperlink{structbarreDeSon}{barreDeSon}}\ *barre\_de\_son,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *pseudo,\ \mbox{\hyperlink{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}{modes\_t}}\ *modeActif,\ \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\_t}}\ *personnageActif,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00547}00547\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso,\ SDL\_Rect\ *rectangle\_perso,\ niveaux\ *avancee\_niveaux,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ niveau\_fini[4],\ \textcolor{keywordtype}{int}\ collectibles[12],\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\_t}}\ *position\_intermediaire,\ SDL\_Texture\ **texture\_image\_fin\_dernier\_niveau,\ SDL\_Rect\ *rectangle\_succes,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\_t}}\ *direction,\ \textcolor{keywordtype}{int}\ *touche\_pressee,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_demande\_sauvegarde,\ itemMenu\ *itemsDemandeSauvegarde,\ \textcolor{keywordtype}{int}\ tailleDemandeSauvegarde,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\_t}}\ *positionActive,\ barreDeSon\ *barre\_de\_son,\ itemMenu\ *pseudo,\ \mbox{\hyperlink{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\_t}}\ *modeActif,\ \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\_t}}\ *personnageActif,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00552}00552\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ couleurNoire,\ SDL\_Keycode\ *touche\_aller\_a\_droite,\ SDL\_Keycode\ *touche\_aller\_a\_gauche,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ SDL\_Keycode\ *touche\_sauter\_monter,\ SDL\_Keycode\ *touche\_descendre,\ SDL\_Keycode\ *touche\_interagir,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsNiveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\_t}}\ *page\_active,}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsSucces,\ SDL\_Texture\ **textures\_images\_succes,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsNiveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ page\_t\ *page\_active,}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsSucces,\ SDL\_Texture\ **textures\_images\_succes,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ time\_t\ temps\_debut\_partie,\ \textcolor{keywordtype}{int}\ *compteur\_mort,\ \textcolor{keywordtype}{int}\ *avancee\_succes,\ \textcolor{keywordtype}{int}\ avancee\_succes\_intermediaires[10])\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00557}00557\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00558}00558\ \ \ \ \ SDL\_Event\ event\_temporaire;}
@@ -590,7 +590,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00586}00586\ \ \ \ \ \textcolor{comment}{/*\ Mise\ à\ jour\ du\ rendu\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00587}00587\ \ \ \ \ \textcolor{keywordflow}{switch}((*direction))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00588}00588\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00589}00589\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}}:\ }
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00589}00589\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}}:\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__carte_8c_a623f9d009e6fb7cd767e78c699b0e1d7}{mise\_a\_jour\_rendu\_carte}}(renderer,\ texture\_image\_carte,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_plein\_ecran,\ texture\_image\_plein\_ecran,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00592}00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_options,\ texture\_image\_options,}
@@ -601,7 +601,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00597}00597\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00598}00598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00599}00599\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00600}00600\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}}:}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00600}00600\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}}:}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__carte_8c_a623f9d009e6fb7cd767e78c699b0e1d7}{mise\_a\_jour\_rendu\_carte}}(renderer,\ texture\_image\_carte,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_plein\_ecran,\ texture\_image\_plein\_ecran,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_options,\ texture\_image\_options,}
@@ -612,7 +612,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00608}00608\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00610}00610\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00611}00611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a79f680205087956546ae263797bd1343}{DROITE}}:}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00611}00611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba79f680205087956546ae263797bd1343}{DROITE}}:}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__carte_8c_a623f9d009e6fb7cd767e78c699b0e1d7}{mise\_a\_jour\_rendu\_carte}}(renderer,\ texture\_image\_carte,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_plein\_ecran,\ texture\_image\_plein\_ecran,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_options,\ texture\_image\_options,}
@@ -647,7 +647,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00643}00643\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_KEYDOWN\ :}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00644}00644\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00645}00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Aller\ du\ niveau\ 1\ au\ niveau\ 2\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00646}00646\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!(*touche\_pressee))\ \&\&\ (avancee\_niveaux[0].niveau\_fini)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00646}00646\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!(*touche\_pressee))\ \&\&\ (avancee\_niveaux[0].niveau\_fini)\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00647}00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_droite))\ ||\ (event-\/>key.keysym.sym\ ==\ (*touche\_sauter\_monter))))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00648}00648\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00649}00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
@@ -659,15 +659,15 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00655}00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ texture\_image\_fin\_dernier\_niveau,\ rectangle\_succes,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00656}00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionActive,\ couleurNoire,\ rectangle\_retour\_menu,\ texture\_image\_retour\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00657}00657\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsNiveaux,\ tailleNiveaux,\ (*largeur),\ (*hauteur),}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00658}00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ +\ (*hauteur)\ /\ 50)\ +\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}},\ avancee\_niveaux);}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00658}00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ +\ (*hauteur)\ /\ 50)\ +\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}},\ avancee\_niveaux);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00659}00659\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00660}00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}};}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00661}00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00660}00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00661}00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00662}00662\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00663}00663\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00664}00664\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00665}00665\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Entrer\ dans\ le\ niveau\ 1\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00666}00666\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00666}00666\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00667}00667\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_interagir)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00668}00668\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00669}00669\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ rentre\ dans\ un\ niveau\ */}}
@@ -688,11 +688,11 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00684}00684\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00685}00685\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(1000);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00686}00686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00687}00687\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad385b296b3c981b6590afbe05856dff0}{NIVEAU\_1}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00687}00687\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ NIVEAU\_1;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00688}00688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00689}00689\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00690}00690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Aller\ du\ niveau\ 2\ au\ niveau\ 3\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00691}00691\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!(*touche\_pressee))\ \&\&\ (avancee\_niveaux[1].niveau\_fini)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00691}00691\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!(*touche\_pressee))\ \&\&\ (avancee\_niveaux[1].niveau\_fini)\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00692}00692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_sauter\_monter)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00693}00693\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00694}00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
@@ -704,14 +704,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00700}00700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ texture\_image\_fin\_dernier\_niveau,\ rectangle\_succes,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00701}00701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionActive,\ couleurNoire,\ rectangle\_retour\_menu,\ texture\_image\_retour\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00702}00702\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsNiveaux,\ tailleNiveaux,\ (*largeur),\ (*hauteur),}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00703}00703\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ -\/\ (*hauteur)\ /\ 14)\ +\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}},\ avancee\_niveaux);}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00703}00703\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ -\/\ (*hauteur)\ /\ 14)\ +\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}},\ avancee\_niveaux);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00704}00704\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00705}00705\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}};}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00706}00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00705}00705\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00706}00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00707}00707\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00708}00708\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00709}00709\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Aller\ du\ niveau\ 2\ au\ niveau\ 1\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00711}00711\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_gauche))\ ||\ (event-\/>key.keysym.sym\ ==\ (*touche\_descendre))))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00712}00712\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00713}00713\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
@@ -723,14 +723,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00719}00719\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ texture\_image\_fin\_dernier\_niveau,\ rectangle\_succes,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00720}00720\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionActive,\ couleurNoire,\ rectangle\_retour\_menu,\ texture\_image\_retour\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00721}00721\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsNiveaux,\ tailleNiveaux,\ (*largeur),\ (*hauteur),}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00722}00722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 3\ *\ 2\ +\ (*hauteur)\ /\ 50)\ -\/\ (*largeur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}},\ avancee\_niveaux);}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00722}00722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 3\ *\ 2\ +\ (*hauteur)\ /\ 50)\ -\/\ (*largeur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}},\ avancee\_niveaux);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00723}00723\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00724}00724\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}};}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00725}00725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00724}00724\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00725}00725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00726}00726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00727}00727\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00728}00728\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Entrer\ dans\ le\ niveau\ 2\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00729}00729\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00729}00729\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00730}00730\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_interagir)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00731}00731\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00732}00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ rentre\ dans\ un\ niveau\ */}}
@@ -751,11 +751,11 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00747}00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00748}00748\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(1000);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00749}00749\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00750}00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a9d63f872b6236b7298787586585e38ec}{NIVEAU\_2}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00750}00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ NIVEAU\_2;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00751}00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00752}00752\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00753}00753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Aller\ du\ niveau\ 3\ au\ niveau\ 4\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00754}00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!(*touche\_pressee))\ \&\&\ (avancee\_niveaux[2].niveau\_fini)\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00754}00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!(*touche\_pressee))\ \&\&\ (avancee\_niveaux[2].niveau\_fini)\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00755}00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_droite))\ ||\ (event-\/>key.keysym.sym\ ==\ (*touche\_sauter\_monter))))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00756}00756\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00757}00757\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
@@ -767,14 +767,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00763}00763\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ texture\_image\_fin\_dernier\_niveau,\ rectangle\_succes,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00764}00764\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionActive,\ couleurNoire,\ rectangle\_retour\_menu,\ texture\_image\_retour\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00765}00765\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsNiveaux,\ tailleNiveaux,\ (*largeur),\ (*hauteur),}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00766}00766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 4\ +\ (*hauteur)\ /\ 13)\ +\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}},\ avancee\_niveaux);}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00766}00766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 4\ +\ (*hauteur)\ /\ 13)\ +\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\_DROITE}},\ avancee\_niveaux);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00767}00767\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00768}00768\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}};}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00769}00769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00768}00768\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00769}00769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00770}00770\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00771}00771\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00772}00772\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Aller\ du\ niveau\ 3\ au\ niveau\ 2\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00773}00773\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00773}00773\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00774}00774\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_descendre)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00775}00775\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00776}00776\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
@@ -786,14 +786,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00782}00782\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ texture\_image\_fin\_dernier\_niveau,\ rectangle\_succes,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00783}00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionActive,\ couleurNoire,\ rectangle\_retour\_menu,\ texture\_image\_retour\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00784}00784\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsNiveaux,\ tailleNiveaux,\ (*largeur),\ (*hauteur),}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00785}00785\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ +\ (*hauteur)\ /\ 50)\ -\/\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}},\ avancee\_niveaux);}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00785}00785\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ +\ (*hauteur)\ /\ 50)\ -\/\ (*hauteur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}},\ avancee\_niveaux);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00786}00786\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00787}00787\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}};}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00788}00788\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00787}00787\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00788}00788\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00789}00789\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00790}00790\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00791}00791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Entrer\ dans\ le\ niveau\ 3\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00792}00792\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00792}00792\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00793}00793\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_interagir)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00794}00794\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00795}00795\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ rentre\ dans\ un\ niveau\ */}}
@@ -814,11 +814,11 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00810}00810\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00811}00811\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(1000);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00812}00812\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00813}00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ac0c170a1d26779279f731e7a169ae1dc}{NIVEAU\_3}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00813}00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ NIVEAU\_3;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00814}00814\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00815}00815\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00816}00816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Aller\ du\ niveau\ 4\ au\ niveau\ 3\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00817}00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00817}00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00818}00818\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_gauche))\ ||\ (event-\/>key.keysym.sym\ ==\ (*touche\_descendre))))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00819}00819\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00820}00820\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
@@ -830,14 +830,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00826}00826\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surface,\ texture\_texte,\ police,\ texture\_image\_fin\_dernier\_niveau,\ rectangle\_succes,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00827}00827\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionActive,\ couleurNoire,\ rectangle\_retour\_menu,\ texture\_image\_retour\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00828}00828\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsNiveaux,\ tailleNiveaux,\ (*largeur),\ (*hauteur),}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00829}00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ -\/\ (*hauteur)\ /\ 14)\ -\/\ (*largeur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}},\ avancee\_niveaux);}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00829}00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*hauteur)\ /\ 2\ -\/\ (*hauteur)\ /\ 14)\ -\/\ (*largeur)\ /\ 75),\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\_GAUCHE}},\ avancee\_niveaux);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00830}00830\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00831}00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}};}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00832}00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00831}00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00832}00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00833}00833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00834}00834\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00835}00835\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Entrer\ dans\ le\ niveau\ 4\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00836}00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00836}00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((*positionActive\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00837}00837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_interagir)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00838}00838\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00839}00839\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ rentre\ dans\ un\ niveau\ */}}
@@ -858,14 +858,14 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00854}00854\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00855}00855\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(1000);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00856}00856\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00857}00857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3adeb9889be8f12532b67ca2b2e68fe0ca}{NIVEAU\_4}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00857}00857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ NIVEAU\_4;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00858}00858\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00859}00859\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00860}00860\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Pivoter\ vers\ le\ haut\ si\ on\ ne\ peut\ pas\ monter\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00861}00861\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(((((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!avancee\_niveaux[0].niveau\_fini))\ ||}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00862}00862\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!avancee\_niveaux[1].niveau\_fini))\ ||}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00863}00863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!avancee\_niveaux[2].niveau\_fini))\ ||}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00864}00864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}}))\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00861}00861\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(((((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!avancee\_niveaux[0].niveau\_fini))\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00862}00862\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ \&\&\ (!avancee\_niveaux[1].niveau\_fini))\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00863}00863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!avancee\_niveaux[2].niveau\_fini))\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00864}00864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}}))\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00865}00865\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_sauter\_monter)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00866}00866\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00867}00867\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ ne\ peut\ pas\ aller\ dans\ une\ direction\ */}}
@@ -876,11 +876,11 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00872}00872\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00873}00873\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00874}00874\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00875}00875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00875}00875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00876}00876\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00877}00877\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00878}00878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Pivoter\ vers\ le\ bas\ si\ on\ ne\ peut\ pas\ descendre\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00879}00879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00879}00879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!(*touche\_pressee))\ \&\&}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00880}00880\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>key.keysym.sym\ ==\ (*touche\_descendre)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00881}00881\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00882}00882\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ ne\ peut\ pas\ aller\ dans\ une\ direction\ */}}
@@ -891,13 +891,13 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00887}00887\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00888}00888\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00889}00889\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00890}00890\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00890}00890\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00891}00891\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00892}00892\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00893}00893\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Pivoter\ vers\ la\ droite\ si\ on\ ne\ peut\ pas\ aller\ vers\ la\ droite\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00894}00894\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(((((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ ||\ ((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}}))\ ||\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00895}00895\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!avancee\_niveaux[0].niveau\_fini))\ ||}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00896}00896\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!avancee\_niveaux[2].niveau\_fini)))\ \&\&\ }
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00894}00894\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(((((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}})\ ||\ ((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}}))\ ||\ }
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00895}00895\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ \&\&\ (!avancee\_niveaux[0].niveau\_fini))\ ||}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00896}00896\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}})\ \&\&\ (!avancee\_niveaux[2].niveau\_fini)))\ \&\&\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00897}00897\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (!(*touche\_pressee))\ \&\&\ (event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_droite)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00898}00898\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00899}00899\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ ne\ peut\ pas\ aller\ dans\ une\ direction\ */}}
@@ -908,11 +908,11 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00904}00904\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00905}00905\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00906}00906\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00907}00907\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a79f680205087956546ae263797bd1343}{DROITE}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00907}00907\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba79f680205087956546ae263797bd1343}{DROITE}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00908}00908\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00909}00909\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00910}00910\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Pivoter\ vers\ la\ gauche\ si\ on\ ne\ peut\ pas\ aller\ vers\ la\ gauche\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00911}00911\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ ||\ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}})))\ \&\&\ }
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00911}00911\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}})\ ||\ (((*positionActive)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}})))\ \&\&\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00912}00912\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (!(*touche\_pressee))\ \&\&\ (event-\/>key.keysym.sym\ ==\ (*touche\_aller\_a\_gauche)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00913}00913\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00914}00914\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effet\ sonore\ quand\ on\ ne\ peut\ pas\ aller\ dans\ une\ direction\ */}}
@@ -923,7 +923,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00919}00919\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00920}00920\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*touche\_pressee)\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00921}00921\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00922}00922\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4ee960d97b04a1f22ed7ff81c7aa2e86}{GAUCHE}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00922}00922\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*direction)\ =\ \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4ee960d97b04a1f22ed7ff81c7aa2e86}{GAUCHE}};}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00923}00923\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00924}00924\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00925}00925\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
@@ -935,7 +935,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00931}00931\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\_fenetre}}((*event),\ largeur,\ hauteur);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00932}00932\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00933}00933\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_options)))}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00934}00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a1b20f1b4adb6ff9778b284fb46f6f99d}{OPTIONS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00934}00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ OPTIONS;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00935}00935\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00936}00936\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_retour\_menu)))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00937}00937\ }
@@ -958,7 +958,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00954}00954\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeActif),\ (*personnageActif),\ (*positionActive),}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00955}00955\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux,\ tailleNiveaux,\ temps\_debut\_partie,\ (*compteur\_mort),\ avancee\_succes);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00956}00956\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00957}00957\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad84154820fb7cc5480aa99b8e888ef2e}{MENU\_PRINCIPAL}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00957}00957\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ MENU\_PRINCIPAL;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00958}00958\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clic\_effectue\ =\ SDL\_TRUE;\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00959}00959\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00960}00960\ }
@@ -966,7 +966,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00962}00962\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00963}00963\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 4;\ i++)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00964}00964\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00965}00965\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].\mbox{\hyperlink{structniveaux_a277cae0b70c72c3a7363879a8ebe157e}{niveau\_fini}}\ =\ niveau\_fini[i];}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00965}00965\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].niveau\_fini\ =\ niveau\_fini[i];}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00966}00966\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00967}00967\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(j\ =\ 0;\ j\ <\ 3;\ j++)}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00968}00968\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].numero\_collectible[j]\ =\ collectibles[i\ +\ j];}
@@ -977,7 +977,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00973}00973\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 10;\ i++)}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00974}00974\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_succes[i]\ =\ avancee\_succes\_intermediaires[i];}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00975}00975\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00976}00976\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad84154820fb7cc5480aa99b8e888ef2e}{MENU\_PRINCIPAL}};}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00976}00976\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ MENU\_PRINCIPAL;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00977}00977\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clic\_effectue\ =\ SDL\_TRUE;\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00978}00978\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l00979}00979\ }
@@ -1032,10 +1032,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01028}01028\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01029}01029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Affiche\ le\ titre\ de\ la\ page\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01030}01030\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01031}01031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ (*largeur)\ /\ 8\ *\ 3;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01032}01032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ (*hauteur)\ /\ 11\ -\/\ (*hauteur)\ /\ 12;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01033}01033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ (*largeur)\ /\ 4;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01034}01034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ (*hauteur)\ /\ 15;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01031}01031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].rectangle.x\ =\ (*largeur)\ /\ 8\ *\ 3;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01032}01032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].rectangle.y\ =\ (*hauteur)\ /\ 11\ -\/\ (*hauteur)\ /\ 12;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01033}01033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].rectangle.w\ =\ (*largeur)\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01034}01034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[0].rectangle.h\ =\ (*hauteur)\ /\ 15;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01035}01035\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01036}01036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsSucces[0]),\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01037}01037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
@@ -1043,10 +1043,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01039}01039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Affichage\ les\ différentes\ phrases\ pour\ chaque\ succès\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01040}01040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 10;\ i++)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01041}01041\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01042}01042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ rectangle\_succes-\/>x\ *\ 2\ +\ rectangle\_succes-\/>w;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01043}01043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ (*hauteur)\ /\ 14\ +\ i\ *\ ((*hauteur)\ /\ 70\ +\ (*hauteur)\ /\ 14);}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01044}01044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ (*largeur)\ -\/\ itemsSucces[i\ +\ 1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ -\/\ rectangle\_succes-\/>x;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01045}01045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ (*hauteur)\ /\ 14;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01042}01042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].rectangle.x\ =\ rectangle\_succes-\/>x\ *\ 2\ +\ rectangle\_succes-\/>w;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01043}01043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].rectangle.y\ =\ (*hauteur)\ /\ 14\ +\ i\ *\ ((*hauteur)\ /\ 70\ +\ (*hauteur)\ /\ 14);}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01044}01044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].rectangle.w\ =\ (*largeur)\ -\/\ itemsSucces[i\ +\ 1].rectangle.x\ -\/\ rectangle\_succes-\/>x;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01045}01045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[i\ +\ 1].rectangle.h\ =\ (*hauteur)\ /\ 14;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01046}01046\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01047}01047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsSucces[i\ +\ 1]),\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01048}01048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
@@ -1054,10 +1054,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01050}01050\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01051}01051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Initialise\ le\ rectangle\ pour\ le\ bouton\ de\ sorti\ de\ la\ page\ des\ succès\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01052}01052\ }
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01053}01053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ (*largeur)\ /\ 3\ *\ 2;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01054}01054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ (*hauteur)\ -\/\ (*hauteur)\ /\ 11;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01055}01055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ (*largeur)\ /\ 7;}
-\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01056}01056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ (*hauteur)\ /\ 12;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01053}01053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].rectangle.x\ =\ (*largeur)\ /\ 3\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01054}01054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].rectangle.y\ =\ (*hauteur)\ -\/\ (*hauteur)\ /\ 11;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01055}01055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].rectangle.w\ =\ (*largeur)\ /\ 7;}
+\DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01056}01056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsSucces[11].rectangle.h\ =\ (*hauteur)\ /\ 12;}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01057}01057\ }
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01058}01058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 0,\ 0,\ 0,\ 255);}
 \DoxyCodeLine{\Hypertarget{fonctions__carte_8c_source_l01059}01059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderDrawRect((*renderer),\ \&(itemsSucces[11].rectangle));}

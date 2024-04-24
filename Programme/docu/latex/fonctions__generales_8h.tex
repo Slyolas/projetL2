@@ -1,16 +1,13 @@
 \doxysection{Référence du fichier fichiers\+\_\+h/fonctions\+\_\+generales.h}
 \hypertarget{fonctions__generales_8h}{}\label{fonctions__generales_8h}\index{fichiers\_h/fonctions\_generales.h@{fichiers\_h/fonctions\_generales.h}}
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
-Graphe des dépendances par inclusion de fonctions\+\_\+generales.\+h\+:\nopagebreak
+{\ttfamily \#include \"{}commun.\+h\"{}}\newline
+{\ttfamily \#include \"{}fonctions\+\_\+menu\+\_\+principal.\+h\"{}}\newline
+Graphe des dépendances par inclusion de fonctions\+\_\+generales.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{fonctions__generales_8h__incl}
+\includegraphics[width=263pt]{fonctions__generales_8h__incl}
 \end{center}
 \end{figure}
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
@@ -21,76 +18,34 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \includegraphics[width=350pt]{fonctions__generales_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structitemMenu}{item\+Menu}}
-\item 
-struct \mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}}
-\item 
-struct \mbox{\hyperlink{structniveaux}{niveaux}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Définitions de type}
-\begin{DoxyCompactItemize}
-\item 
-typedef enum \mbox{\hyperlink{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364}{option\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a0326ccf9b7f34b705de9ab12ff062beb}{option\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30a}{modes\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}{modes\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2eca}{personnage\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3}{page\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600b}{position\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\+\_\+t}}
-\item 
-typedef enum \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6}{direction\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a84c4a0cbb39f5434914cc25c3b17ca10}{direction\+\_\+t}}
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Énumérations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364}{option\+\_\+s}} \{ \mbox{\hyperlink{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364a2e98a954ec1b0246c867b436c6341b3b}{ONGLET\+\_\+\+SON}}
-, \mbox{\hyperlink{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364a7b77d5982c5312b395828ad434f8df7f}{ONGLET\+\_\+\+TOUCHES}}
+enum \mbox{\hyperlink{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}} \{ \mbox{\hyperlink{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3af81b467c1f5e20f847402b03925c0d12}{MODE\+\_\+\+NORMAL}}
+, \mbox{\hyperlink{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0}{MODE\+\_\+\+HARD}}
  \}
 \item 
-enum \mbox{\hyperlink{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30a}{modes\+\_\+s}} \{ \mbox{\hyperlink{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aaf81b467c1f5e20f847402b03925c0d12}{MODE\+\_\+\+NORMAL}}
-, \mbox{\hyperlink{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aa0f3711846999a02a4d5614bd2d6862d0}{MODE\+\_\+\+HARD}}
+enum \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} \{ \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417}{PERSONNAGE\+\_\+1}}
+, \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e}{PERSONNAGE\+\_\+2}}
  \}
 \item 
-enum \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2eca}{personnage\+\_\+s}} \{ \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaaf05a30be343ce697093befd506a7f417}{PERSONNAGE\+\_\+1}}
-, \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaad485fac01b98f131c212cc5aa675b88e}{PERSONNAGE\+\_\+2}}
- \}
-\item 
-enum \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3}{page\+\_\+s}} \{ \newline
-\mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad84154820fb7cc5480aa99b8e888ef2e}{MENU\+\_\+\+PRINCIPAL}}
-, \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a1b20f1b4adb6ff9778b284fb46f6f99d}{OPTIONS}}
-, \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3aebc79ee34b720b22062779bedf6344de}{NOUVELLE\+\_\+\+PARTIE}}
-, \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}}
+enum \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}} \{ \newline
+\mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37afc5388d742c4a38ad1158bcca5716444}{NIVEAU0}}
+, \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}}
+, \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}}
+, \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}{NIVEAU3}}
 , \newline
-\mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a4824da671cbd0a1f39934252198189ad}{CARTE}}
-, \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad385b296b3c981b6590afbe05856dff0}{NIVEAU\+\_\+1}}
-, \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a9d63f872b6236b7298787586585e38ec}{NIVEAU\+\_\+2}}
-, \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ac0c170a1d26779279f731e7a169ae1dc}{NIVEAU\+\_\+3}}
-, \newline
-\mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3adeb9889be8f12532b67ca2b2e68fe0ca}{NIVEAU\+\_\+4}}
+\mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}}
  \}
 \item 
-enum \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600b}{position\+\_\+s}} \{ \newline
-\mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bafc5388d742c4a38ad1158bcca5716444}{NIVEAU0}}
-, \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}}
-, \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}{NIVEAU2}}
-, \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}{NIVEAU3}}
+enum \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}} \{ \newline
+\mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}}
+, \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}{BAS}}
+, \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4ee960d97b04a1f22ed7ff81c7aa2e86}{GAUCHE}}
+, \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba79f680205087956546ae263797bd1343}{DROITE}}
 , \newline
-\mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}{NIVEAU4}}
- \}
-\item 
-enum \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6}{direction\+\_\+s}} \{ \newline
-\mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}{HAUT}}
-, \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}{BAS}}
-, \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4ee960d97b04a1f22ed7ff81c7aa2e86}{GAUCHE}}
-, \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a79f680205087956546ae263797bd1343}{DROITE}}
-, \newline
-\mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}{HAUT\+\_\+\+DROITE}}
-, \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}{BAS\+\_\+\+GAUCHE}}
+\mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}{HAUT\+\_\+\+DROITE}}
+, \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}{BAS\+\_\+\+GAUCHE}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
@@ -100,25 +55,25 @@ void \mbox{\hyperlink{fonctions__generales_8h_a4b6ab0cfff2a3843b8b79d9066445167}
 \begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}erreur en cas de problème et ferme la SDL. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fonctions__generales_8h_acff1251085538233a46c7c5454e18bc7}{chargement\+\_\+image}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture, char \texorpdfstring{$\ast$}{*}chemin)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de charger une image. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{fonctions__generales_8h_a7c6541df22bdacd36c6b01a67a989b82}{affichage\+\_\+texte}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}item, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur)
+void \mbox{\hyperlink{fonctions__generales_8h_a7c6541df22bdacd36c6b01a67a989b82}{affichage\+\_\+texte}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture, item\+Menu \texorpdfstring{$\ast$}{*}item, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur)
 \item 
 void \mbox{\hyperlink{fonctions__generales_8h_add13b30b9e22e1fefef7897d49222b47}{creer\+\_\+fenetre\+\_\+rendu}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, int largeur, int hauteur)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de créer une fenêtre et le rendu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{fonctions__generales_8h_a33b460c1c1e05276096fcf577956465c}{initialisation\+\_\+objets}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+options, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+passer, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Demande\+Sauvegarde, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Demande\+Quitter, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+fin\+\_\+premiers\+\_\+niveaux, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+terrestre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+volant, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+1\+\_\+gagnant, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+2\+\_\+gagnant, \mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+croix)
+void \mbox{\hyperlink{fonctions__generales_8h_a33b460c1c1e05276096fcf577956465c}{initialisation\+\_\+objets}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+options, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+passer, item\+Menu \texorpdfstring{$\ast$}{*}items\+Demande\+Sauvegarde, item\+Menu \texorpdfstring{$\ast$}{*}items\+Demande\+Quitter, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+fin\+\_\+premiers\+\_\+niveaux, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+terrestre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+volant, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+1\+\_\+gagnant, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+2\+\_\+gagnant, niveaux \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+croix)
 \item 
-void \mbox{\hyperlink{fonctions__generales_8h_a066cdfc0bac6604dc0a3a7d8b4c8bffb}{demande\+\_\+sauvegarde}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+demande\+\_\+sauvegarde, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Demande\+Sauvegarde, int taille\+Demande\+Sauvegarde, int largeur, int hauteur)
+void \mbox{\hyperlink{fonctions__generales_8h_a066cdfc0bac6604dc0a3a7d8b4c8bffb}{demande\+\_\+sauvegarde}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+demande\+\_\+sauvegarde, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur, item\+Menu \texorpdfstring{$\ast$}{*}items\+Demande\+Sauvegarde, int taille\+Demande\+Sauvegarde, int largeur, int hauteur)
 \begin{DoxyCompactList}\small\item\em fenêtre se chargeant de demander à l\textquotesingle{}utilisateur si il souhaite sauvegarder \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{fonctions__generales_8h_a1a8406a3255d6fd605e5cfd014142bdd}{demande\+\_\+quitter\+\_\+niveau}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+demande\+\_\+quitter, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Demande\+Quitter, int taille\+Demande\+Quitter, int largeur, int hauteur)
+void \mbox{\hyperlink{fonctions__generales_8h_a1a8406a3255d6fd605e5cfd014142bdd}{demande\+\_\+quitter\+\_\+niveau}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+demande\+\_\+quitter, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur, item\+Menu \texorpdfstring{$\ast$}{*}items\+Demande\+Quitter, int taille\+Demande\+Quitter, int largeur, int hauteur)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de demander à l\textquotesingle{}utilisateur de quitter le niveau. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fonctions__generales_8h_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\+\_\+fenetre}} (SDL\+\_\+\+Event event, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette dernière et les différents objets. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{fonctions__generales_8h_a5f3d9f5a1b24e53bd19ef9d7631917a4}{verification\+\_\+sauvegarde}} ()
 \begin{DoxyCompactList}\small\item\em Vérifie si une sauvegarde existe. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{fonctions__generales_8h_a3845ad340a7ec5a5a341718c1b23fa7e}{sauvegarder\+\_\+partie}} (SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+droite, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+gauche, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+sauter\+\_\+monter, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+descendre, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+interagir, \mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}barre\+\_\+de\+\_\+son, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}pseudo, \mbox{\hyperlink{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}{modes\+\_\+t}} mode\+Actif, \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\+\_\+t}} personnage\+Actif, \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\+\_\+t}} position\+Active, \mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, int taille\+Niveaux, time\+\_\+t temps\+\_\+debut\+\_\+partie, int compteur\+\_\+mort, int avancee\+\_\+succes\mbox{[}10\mbox{]})
+void \mbox{\hyperlink{fonctions__generales_8h_a3845ad340a7ec5a5a341718c1b23fa7e}{sauvegarder\+\_\+partie}} (SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+droite, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+gauche, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+sauter\+\_\+monter, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+descendre, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+interagir, barre\+De\+Son \texorpdfstring{$\ast$}{*}barre\+\_\+de\+\_\+son, item\+Menu \texorpdfstring{$\ast$}{*}pseudo, \mbox{\hyperlink{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}} mode\+Actif, \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} personnage\+Actif, \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}} position\+Active, niveaux \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, int taille\+Niveaux, time\+\_\+t temps\+\_\+debut\+\_\+partie, int compteur\+\_\+mort, int avancee\+\_\+succes\mbox{[}10\mbox{]})
 \item 
 int \mbox{\hyperlink{fonctions__generales_8h_a4e9c4517e62999bd244b9031d9482d7a}{clic\+\_\+case}} (SDL\+\_\+\+Event event, SDL\+\_\+\+Rect rectangle)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de renvoyer vrai quand on clique sur un rectangle, faux sinon. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{fonctions__generales_8h_adca5346b92d851a5c8c1beb85988477b}{deplacement\+\_\+personnage}} (int \texorpdfstring{$\ast$}{*}saut, int \texorpdfstring{$\ast$}{*}tombe, int \texorpdfstring{$\ast$}{*}position\+\_\+x, int \texorpdfstring{$\ast$}{*}position\+\_\+y, int \texorpdfstring{$\ast$}{*}position\+\_\+avant\+\_\+saut, int sauter, int avancer, int reculer, int tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]}, \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\+\_\+t}} personnage\+Actif)
+void \mbox{\hyperlink{fonctions__generales_8h_adca5346b92d851a5c8c1beb85988477b}{deplacement\+\_\+personnage}} (int \texorpdfstring{$\ast$}{*}saut, int \texorpdfstring{$\ast$}{*}tombe, int \texorpdfstring{$\ast$}{*}position\+\_\+x, int \texorpdfstring{$\ast$}{*}position\+\_\+y, int \texorpdfstring{$\ast$}{*}position\+\_\+avant\+\_\+saut, int sauter, int avancer, int reculer, int tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]}, \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} personnage\+Actif)
 \item 
 int \mbox{\hyperlink{fonctions__generales_8h_afe51c2fcb0206df7f65785b8b0137951}{clic\+\_\+plein\+\_\+ecran}} (SDL\+\_\+\+Event event, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}plein\+\_\+ecran, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de mettre la fenêtre en plein écran quand on clique sur le bouton plein écran. \end{DoxyCompactList}\item 
@@ -128,221 +83,114 @@ void \mbox{\hyperlink{fonctions__generales_8h_adec7f4fe3daaf651b21ff0204b2f33f9}
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de détruire le rendu et la fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Documentation des définitions de type}
-\Hypertarget{fonctions__generales_8h_a84c4a0cbb39f5434914cc25c3b17ca10}\label{fonctions__generales_8h_a84c4a0cbb39f5434914cc25c3b17ca10} 
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6b}\label{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6b} 
 \index{fonctions\_generales.h@{fonctions\_generales.h}!direction\_t@{direction\_t}}
 \index{direction\_t@{direction\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
 \doxysubsubsection{\texorpdfstring{direction\_t}{direction\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6}{direction\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a84c4a0cbb39f5434914cc25c3b17ca10}{direction\+\_\+t}}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6b}{direction\+\_\+t}}}
 
-\Hypertarget{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}\label{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!modes\_t@{modes\_t}}
-\index{modes\_t@{modes\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{modes\_t}{modes\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30a}{modes\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}{modes\+\_\+t}}}
-
-\Hypertarget{fonctions__generales_8h_a0326ccf9b7f34b705de9ab12ff062beb}\label{fonctions__generales_8h_a0326ccf9b7f34b705de9ab12ff062beb} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!option\_t@{option\_t}}
-\index{option\_t@{option\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{option\_t}{option\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364}{option\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a0326ccf9b7f34b705de9ab12ff062beb}{option\+\_\+t}}}
-
-\Hypertarget{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}\label{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!page\_t@{page\_t}}
-\index{page\_t@{page\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{page\_t}{page\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3}{page\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\+\_\+t}}}
-
-\Hypertarget{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}\label{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!personnage\_t@{personnage\_t}}
-\index{personnage\_t@{personnage\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{personnage\_t}{personnage\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2eca}{personnage\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\+\_\+t}}}
-
-\Hypertarget{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}\label{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!position\_t@{position\_t}}
-\index{position\_t@{position\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{position\_t}{position\_t}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600b}{position\+\_\+s}} \mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\+\_\+t}}}
-
-
-
-\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
-\Hypertarget{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6}\label{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!direction\_s@{direction\_s}}
-\index{direction\_s@{direction\_s}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{direction\_s}{direction\_s}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6}{direction\+\_\+s}}}
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{HAUT@{HAUT}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!HAUT@{HAUT}}}\Hypertarget{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2}\label{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5c97701a87d36c8f2c0de80c5865b8e2} 
+Enumération de constantes pour la direction du personnage sur la carte \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAUT@{HAUT}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!HAUT@{HAUT}}}\Hypertarget{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2}\label{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5c97701a87d36c8f2c0de80c5865b8e2} 
 HAUT&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{BAS@{BAS}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!BAS@{BAS}}}\Hypertarget{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa}\label{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4b07baad9e862178efeac3e522475caa} 
-BAS&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BAS@{BAS}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!BAS@{BAS}}}\Hypertarget{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa}\label{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4b07baad9e862178efeac3e522475caa} 
+BAS&Indice de la direction HAUT \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{GAUCHE@{GAUCHE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!GAUCHE@{GAUCHE}}}\Hypertarget{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4ee960d97b04a1f22ed7ff81c7aa2e86}\label{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a4ee960d97b04a1f22ed7ff81c7aa2e86} 
-GAUCHE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAUCHE@{GAUCHE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!GAUCHE@{GAUCHE}}}\Hypertarget{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4ee960d97b04a1f22ed7ff81c7aa2e86}\label{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba4ee960d97b04a1f22ed7ff81c7aa2e86} 
+GAUCHE&Indice de la direction BAS \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DROITE@{DROITE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!DROITE@{DROITE}}}\Hypertarget{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a79f680205087956546ae263797bd1343}\label{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a79f680205087956546ae263797bd1343} 
-DROITE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DROITE@{DROITE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!DROITE@{DROITE}}}\Hypertarget{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba79f680205087956546ae263797bd1343}\label{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba79f680205087956546ae263797bd1343} 
+DROITE&Indice de la direction GAUCHE \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{HAUT\_DROITE@{HAUT\_DROITE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!HAUT\_DROITE@{HAUT\_DROITE}}}\Hypertarget{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c}\label{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6ae03ba231106011b859289ef76eb6fb4c} 
-HAUT\+\_\+\+DROITE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAUT\_DROITE@{HAUT\_DROITE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!HAUT\_DROITE@{HAUT\_DROITE}}}\Hypertarget{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c}\label{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6bae03ba231106011b859289ef76eb6fb4c} 
+HAUT\+\_\+\+DROITE&Indice de la direction DROITE \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{BAS\_GAUCHE@{BAS\_GAUCHE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!BAS\_GAUCHE@{BAS\_GAUCHE}}}\Hypertarget{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8}\label{fonctions__generales_8h_aa9aabf24ef46feff65320960721536e6a5ec7ee2eeade21efcc17a56557f9eec8} 
-BAS\+\_\+\+GAUCHE&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BAS\_GAUCHE@{BAS\_GAUCHE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!BAS\_GAUCHE@{BAS\_GAUCHE}}}\Hypertarget{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8}\label{fonctions__generales_8h_ae9ae980041e438eed7a3af43ce4e9f6ba5ec7ee2eeade21efcc17a56557f9eec8} 
+BAS\+\_\+\+GAUCHE&Indice de la direction HAUT\+\_\+\+DROITE Indice de la direction BAS\+\_\+\+GAUCHE \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00024}{24}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
+Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00029}{29}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
 
-\Hypertarget{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30a}\label{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30a} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!modes\_s@{modes\_s}}
-\index{modes\_s@{modes\_s}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{modes\_s}{modes\_s}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30a}{modes\+\_\+s}}}
+\Hypertarget{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}\label{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3} 
+\index{fonctions\_generales.h@{fonctions\_generales.h}!modes\_t@{modes\_t}}
+\index{modes\_t@{modes\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
+\doxysubsubsection{\texorpdfstring{modes\_t}{modes\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}}}
 
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE\_NORMAL@{MODE\_NORMAL}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!MODE\_NORMAL@{MODE\_NORMAL}}}\Hypertarget{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aaf81b467c1f5e20f847402b03925c0d12}\label{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aaf81b467c1f5e20f847402b03925c0d12} 
+Enumération de constantes pour le mode séléctionné \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE\_NORMAL@{MODE\_NORMAL}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!MODE\_NORMAL@{MODE\_NORMAL}}}\Hypertarget{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3af81b467c1f5e20f847402b03925c0d12}\label{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3af81b467c1f5e20f847402b03925c0d12} 
 MODE\+\_\+\+NORMAL&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE\_HARD@{MODE\_HARD}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!MODE\_HARD@{MODE\_HARD}}}\Hypertarget{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aa0f3711846999a02a4d5614bd2d6862d0}\label{fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aa0f3711846999a02a4d5614bd2d6862d0} 
-MODE\+\_\+\+HARD&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE\_HARD@{MODE\_HARD}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!MODE\_HARD@{MODE\_HARD}}}\Hypertarget{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0}\label{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3a0f3711846999a02a4d5614bd2d6862d0} 
+MODE\+\_\+\+HARD&Indice de sélection de la difficulté normale Indice de sélection de la difficulté difficile \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00012}{12}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
+Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00007}{7}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
 
-\Hypertarget{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364}\label{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!option\_s@{option\_s}}
-\index{option\_s@{option\_s}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{option\_s}{option\_s}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364}{option\+\_\+s}}}
+\Hypertarget{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}\label{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc} 
+\index{fonctions\_generales.h@{fonctions\_generales.h}!personnage\_t@{personnage\_t}}
+\index{personnage\_t@{personnage\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
+\doxysubsubsection{\texorpdfstring{personnage\_t}{personnage\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}}}
 
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ONGLET\_SON@{ONGLET\_SON}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!ONGLET\_SON@{ONGLET\_SON}}}\Hypertarget{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364a2e98a954ec1b0246c867b436c6341b3b}\label{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364a2e98a954ec1b0246c867b436c6341b3b} 
-ONGLET\+\_\+\+SON&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ONGLET\_TOUCHES@{ONGLET\_TOUCHES}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!ONGLET\_TOUCHES@{ONGLET\_TOUCHES}}}\Hypertarget{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364a7b77d5982c5312b395828ad434f8df7f}\label{fonctions__generales_8h_a51597df745ec0491d186d1901b3bb364a7b77d5982c5312b395828ad434f8df7f} 
-ONGLET\+\_\+\+TOUCHES&\\
-\hline
-
-\end{DoxyEnumFields}
-
-
-Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00009}{9}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
-
-\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!page\_s@{page\_s}}
-\index{page\_s@{page\_s}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{page\_s}{page\_s}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3}{page\+\_\+s}}}
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MENU\_PRINCIPAL@{MENU\_PRINCIPAL}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!MENU\_PRINCIPAL@{MENU\_PRINCIPAL}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad84154820fb7cc5480aa99b8e888ef2e}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad84154820fb7cc5480aa99b8e888ef2e} 
-MENU\+\_\+\+PRINCIPAL&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{OPTIONS@{OPTIONS}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!OPTIONS@{OPTIONS}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a1b20f1b4adb6ff9778b284fb46f6f99d}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a1b20f1b4adb6ff9778b284fb46f6f99d} 
-OPTIONS&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NOUVELLE\_PARTIE@{NOUVELLE\_PARTIE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NOUVELLE\_PARTIE@{NOUVELLE\_PARTIE}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3aebc79ee34b720b22062779bedf6344de}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3aebc79ee34b720b22062779bedf6344de} 
-NOUVELLE\+\_\+\+PARTIE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INTRODUCTION@{INTRODUCTION}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!INTRODUCTION@{INTRODUCTION}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe} 
-INTRODUCTION&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{CARTE@{CARTE}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!CARTE@{CARTE}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a4824da671cbd0a1f39934252198189ad}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a4824da671cbd0a1f39934252198189ad} 
-CARTE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_1@{NIVEAU\_1}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU\_1@{NIVEAU\_1}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad385b296b3c981b6590afbe05856dff0}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad385b296b3c981b6590afbe05856dff0} 
-NIVEAU\+\_\+1&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_2@{NIVEAU\_2}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU\_2@{NIVEAU\_2}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a9d63f872b6236b7298787586585e38ec}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a9d63f872b6236b7298787586585e38ec} 
-NIVEAU\+\_\+2&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_3@{NIVEAU\_3}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU\_3@{NIVEAU\_3}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ac0c170a1d26779279f731e7a169ae1dc}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ac0c170a1d26779279f731e7a169ae1dc} 
-NIVEAU\+\_\+3&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_4@{NIVEAU\_4}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU\_4@{NIVEAU\_4}}}\Hypertarget{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3adeb9889be8f12532b67ca2b2e68fe0ca}\label{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3adeb9889be8f12532b67ca2b2e68fe0ca} 
-NIVEAU\+\_\+4&\\
-\hline
-
-\end{DoxyEnumFields}
-
-
-Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00018}{18}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
-
-\Hypertarget{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2eca}\label{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2eca} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!personnage\_s@{personnage\_s}}
-\index{personnage\_s@{personnage\_s}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{personnage\_s}{personnage\_s}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2eca}{personnage\+\_\+s}}}
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{PERSONNAGE\_1@{PERSONNAGE\_1}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!PERSONNAGE\_1@{PERSONNAGE\_1}}}\Hypertarget{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaaf05a30be343ce697093befd506a7f417}\label{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaaf05a30be343ce697093befd506a7f417} 
+Enumération de constantes pour le personnage séléctionné \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PERSONNAGE\_1@{PERSONNAGE\_1}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!PERSONNAGE\_1@{PERSONNAGE\_1}}}\Hypertarget{fonctions__generales_8h_a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417}\label{fonctions__generales_8h_a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417} 
 PERSONNAGE\+\_\+1&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{PERSONNAGE\_2@{PERSONNAGE\_2}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!PERSONNAGE\_2@{PERSONNAGE\_2}}}\Hypertarget{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaad485fac01b98f131c212cc5aa675b88e}\label{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaad485fac01b98f131c212cc5aa675b88e} 
-PERSONNAGE\+\_\+2&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PERSONNAGE\_2@{PERSONNAGE\_2}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!PERSONNAGE\_2@{PERSONNAGE\_2}}}\Hypertarget{fonctions__generales_8h_a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e}\label{fonctions__generales_8h_a95d8677193780a1abc208b6090213adcad485fac01b98f131c212cc5aa675b88e} 
+PERSONNAGE\+\_\+2&Indice de sélection du personnage masculin Indice de sélection du personnage féminin \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00015}{15}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
+Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00013}{13}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
 
-\Hypertarget{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600b}\label{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600b} 
-\index{fonctions\_generales.h@{fonctions\_generales.h}!position\_s@{position\_s}}
-\index{position\_s@{position\_s}!fonctions\_generales.h@{fonctions\_generales.h}}
-\doxysubsubsection{\texorpdfstring{position\_s}{position\_s}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600b}{position\+\_\+s}}}
+\Hypertarget{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}\label{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37} 
+\index{fonctions\_generales.h@{fonctions\_generales.h}!position\_t@{position\_t}}
+\index{position\_t@{position\_t}!fonctions\_generales.h@{fonctions\_generales.h}}
+\doxysubsubsection{\texorpdfstring{position\_t}{position\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}}}
 
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU0@{NIVEAU0}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU0@{NIVEAU0}}}\Hypertarget{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bafc5388d742c4a38ad1158bcca5716444}\label{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bafc5388d742c4a38ad1158bcca5716444} 
+Enumération de constantes pour la position sur la carte \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU0@{NIVEAU0}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU0@{NIVEAU0}}}\Hypertarget{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37afc5388d742c4a38ad1158bcca5716444}\label{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37afc5388d742c4a38ad1158bcca5716444} 
 NIVEAU0&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU1@{NIVEAU1}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU1@{NIVEAU1}}}\Hypertarget{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}\label{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b} 
-NIVEAU1&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU1@{NIVEAU1}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU1@{NIVEAU1}}}\Hypertarget{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b}\label{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a5618f7c0396cf5085f67cdbbd623f16b} 
+NIVEAU1&Indice du niveau 0 \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU2@{NIVEAU2}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU2@{NIVEAU2}}}\Hypertarget{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab}\label{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bad1e43437246bc30c512e1d0440bd60ab} 
-NIVEAU2&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU2@{NIVEAU2}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU2@{NIVEAU2}}}\Hypertarget{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab}\label{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37ad1e43437246bc30c512e1d0440bd60ab} 
+NIVEAU2&Indice du niveau 1 \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU3@{NIVEAU3}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU3@{NIVEAU3}}}\Hypertarget{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494}\label{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600bacd005e4b891ccc60558df88f80004494} 
-NIVEAU3&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU3@{NIVEAU3}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU3@{NIVEAU3}}}\Hypertarget{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494}\label{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37acd005e4b891ccc60558df88f80004494} 
+NIVEAU3&Indice du niveau 2 \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU4@{NIVEAU4}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU4@{NIVEAU4}}}\Hypertarget{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05}\label{fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba8c85a9d1adbf192355c3ce94c6337c05} 
-NIVEAU4&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU4@{NIVEAU4}!fonctions\_generales.h@{fonctions\_generales.h}}\index{fonctions\_generales.h@{fonctions\_generales.h}!NIVEAU4@{NIVEAU4}}}\Hypertarget{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05}\label{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37a8c85a9d1adbf192355c3ce94c6337c05} 
+NIVEAU4&Indice du niveau 3 Indice du niveau 4 \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00021}{21}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
+Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00020}{20}} du fichier \mbox{\hyperlink{fonctions__generales_8h_source}{fonctions\+\_\+generales.\+h}}.
 
 
 
@@ -351,7 +199,7 @@ Définition à la ligne \mbox{\hyperlink{fonctions__generales_8h_source_l00021}{
 \index{fonctions\_generales.h@{fonctions\_generales.h}!affichage\_texte@{affichage\_texte}}
 \index{affichage\_texte@{affichage\_texte}!fonctions\_generales.h@{fonctions\_generales.h}}
 \doxysubsubsection{\texorpdfstring{affichage\_texte()}{affichage\_texte()}}
-{\footnotesize\ttfamily void affichage\+\_\+texte (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{item,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void affichage\+\_\+texte (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture,  }\item[{item\+Menu \texorpdfstring{$\ast$}{*}}]{item,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur }\end{DoxyParamCaption})}
 
 
 
@@ -469,7 +317,7 @@ Définition à la ligne \mbox{\hyperlink{fonctions__generales_8c_source_l00078}{
 \index{fonctions\_generales.h@{fonctions\_generales.h}!demande\_quitter\_niveau@{demande\_quitter\_niveau}}
 \index{demande\_quitter\_niveau@{demande\_quitter\_niveau}!fonctions\_generales.h@{fonctions\_generales.h}}
 \doxysubsubsection{\texorpdfstring{demande\_quitter\_niveau()}{demande\_quitter\_niveau()}}
-{\footnotesize\ttfamily void demande\+\_\+quitter\+\_\+niveau (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+demande\+\_\+quitter,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Quitter,  }\item[{int}]{taille\+Demande\+Quitter,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void demande\+\_\+quitter\+\_\+niveau (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+demande\+\_\+quitter,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur,  }\item[{item\+Menu \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Quitter,  }\item[{int}]{taille\+Demande\+Quitter,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
 
 
 
@@ -509,7 +357,7 @@ Définition à la ligne \mbox{\hyperlink{fonctions__generales_8c_source_l00252}{
 \index{fonctions\_generales.h@{fonctions\_generales.h}!demande\_sauvegarde@{demande\_sauvegarde}}
 \index{demande\_sauvegarde@{demande\_sauvegarde}!fonctions\_generales.h@{fonctions\_generales.h}}
 \doxysubsubsection{\texorpdfstring{demande\_sauvegarde()}{demande\_sauvegarde()}}
-{\footnotesize\ttfamily void demande\+\_\+sauvegarde (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+demande\+\_\+sauvegarde,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Sauvegarde,  }\item[{int}]{taille\+Demande\+Sauvegarde,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void demande\+\_\+sauvegarde (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+demande\+\_\+sauvegarde,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur,  }\item[{item\+Menu \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Sauvegarde,  }\item[{int}]{taille\+Demande\+Sauvegarde,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
 
 
 
@@ -549,7 +397,7 @@ Définition à la ligne \mbox{\hyperlink{fonctions__generales_8c_source_l00187}{
 \index{fonctions\_generales.h@{fonctions\_generales.h}!deplacement\_personnage@{deplacement\_personnage}}
 \index{deplacement\_personnage@{deplacement\_personnage}!fonctions\_generales.h@{fonctions\_generales.h}}
 \doxysubsubsection{\texorpdfstring{deplacement\_personnage()}{deplacement\_personnage()}}
-{\footnotesize\ttfamily void deplacement\+\_\+personnage (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{saut,  }\item[{int \texorpdfstring{$\ast$}{*}}]{tombe,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+x,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+y,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+avant\+\_\+saut,  }\item[{int}]{sauter,  }\item[{int}]{avancer,  }\item[{int}]{reculer,  }\item[{int}]{tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]},  }\item[{\mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\+\_\+t}}}]{personnage\+Actif }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void deplacement\+\_\+personnage (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{saut,  }\item[{int \texorpdfstring{$\ast$}{*}}]{tombe,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+x,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+y,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+avant\+\_\+saut,  }\item[{int}]{sauter,  }\item[{int}]{avancer,  }\item[{int}]{reculer,  }\item[{int}]{tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]},  }\item[{\mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}}}]{personnage\+Actif }\end{DoxyParamCaption})}
 
 
 
@@ -612,7 +460,7 @@ Définition à la ligne \mbox{\hyperlink{fonctions__generales_8c_source_l00014}{
 \index{fonctions\_generales.h@{fonctions\_generales.h}!initialisation\_objets@{initialisation\_objets}}
 \index{initialisation\_objets@{initialisation\_objets}!fonctions\_generales.h@{fonctions\_generales.h}}
 \doxysubsubsection{\texorpdfstring{initialisation\_objets()}{initialisation\_objets()}}
-{\footnotesize\ttfamily void initialisation\+\_\+objets (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+options,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+passer,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Sauvegarde,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Quitter,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+fin\+\_\+premiers\+\_\+niveaux,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+terrestre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+volant,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+1\+\_\+gagnant,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+2\+\_\+gagnant,  }\item[{\mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+croix }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void initialisation\+\_\+objets (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+options,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+passer,  }\item[{item\+Menu \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Sauvegarde,  }\item[{item\+Menu \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Quitter,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+fin\+\_\+premiers\+\_\+niveaux,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+terrestre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+volant,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+1\+\_\+gagnant,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+2\+\_\+gagnant,  }\item[{niveaux \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+croix }\end{DoxyParamCaption})}
 
 
 
@@ -645,7 +493,7 @@ Définition à la ligne \mbox{\hyperlink{fonctions__generales_8c_source_l00309}{
 \index{fonctions\_generales.h@{fonctions\_generales.h}!sauvegarder\_partie@{sauvegarder\_partie}}
 \index{sauvegarder\_partie@{sauvegarder\_partie}!fonctions\_generales.h@{fonctions\_generales.h}}
 \doxysubsubsection{\texorpdfstring{sauvegarder\_partie()}{sauvegarder\_partie()}}
-{\footnotesize\ttfamily void sauvegarder\+\_\+partie (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+droite,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+gauche,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+sauter\+\_\+monter,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+descendre,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+interagir,  }\item[{\mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}}]{barre\+\_\+de\+\_\+son,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{pseudo,  }\item[{\mbox{\hyperlink{fonctions__generales_8h_a53cab44ad700161a509d5a6e48857321}{modes\+\_\+t}}}]{mode\+Actif,  }\item[{\mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\+\_\+t}}}]{personnage\+Actif,  }\item[{\mbox{\hyperlink{fonctions__generales_8h_aaac581f09f83ef8206fd3880d3b0a0df}{position\+\_\+t}}}]{position\+Active,  }\item[{\mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{int}]{taille\+Niveaux,  }\item[{time\+\_\+t}]{temps\+\_\+debut\+\_\+partie,  }\item[{int}]{compteur\+\_\+mort,  }\item[{int}]{avancee\+\_\+succes\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void sauvegarder\+\_\+partie (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+droite,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+gauche,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+sauter\+\_\+monter,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+descendre,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+interagir,  }\item[{barre\+De\+Son \texorpdfstring{$\ast$}{*}}]{barre\+\_\+de\+\_\+son,  }\item[{item\+Menu \texorpdfstring{$\ast$}{*}}]{pseudo,  }\item[{\mbox{\hyperlink{fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}}}]{mode\+Actif,  }\item[{\mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}}}]{personnage\+Actif,  }\item[{\mbox{\hyperlink{fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}}}]{position\+Active,  }\item[{niveaux \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{int}]{taille\+Niveaux,  }\item[{time\+\_\+t}]{temps\+\_\+debut\+\_\+partie,  }\item[{int}]{compteur\+\_\+mort,  }\item[{int}]{avancee\+\_\+succes\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
 
 
 

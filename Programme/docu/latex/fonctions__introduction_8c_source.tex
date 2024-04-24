@@ -107,13 +107,13 @@
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00103}\mbox{\hyperlink{fonctions__introduction_8c_a844084df0e965f53f8bac324d3cd78c1}{00103}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__introduction_8c_a844084df0e965f53f8bac324d3cd78c1}{introduction}}(SDL\_Event\ *event,\ SDL\_Window\ **window,\ SDL\_Renderer\ **renderer,\ SDL\_bool\ *programme\_lance,}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_passer,\ SDL\_Texture\ **texture\_image\_passer,}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_texte\_introduction,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_adcb36ac3acaf6aa61d61545b6d8971f0}{personnage\_t}}\ *personnageActif,\ SDL\_Color\ couleurBlanche,}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\_t}}\ *page\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\_t}}\ *personnageActif,\ SDL\_Color\ couleurBlanche,}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ page\_t\ *page\_active)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00108}00108\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00109}00109\ \ \ \ \ \textcolor{comment}{/*\ Ouverture\ du\ fichier\ contenant\ l'introduction\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00110}00110\ \ \ \ \ FILE\ *fichier\ =\ NULL;}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00111}00111\ }
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}((*personnageActif)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaaf05a30be343ce697093befd506a7f417}{PERSONNAGE\_1}})\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}((*personnageActif)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a95d8677193780a1abc208b6090213adcaf05a30be343ce697093befd506a7f417}{PERSONNAGE\_1}})\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00113}00113\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ fichier\ =\ fopen(\textcolor{stringliteral}{"{}./textes/introduction\_masculin.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fichier)}
@@ -132,10 +132,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{int}\ indice;}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00129}00129\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00130}00130\ \ \ \ \ \textcolor{comment}{/*\ Lecture\ de\ chaque\ ligne\ du\ fichier\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{while}((fgets(ligne,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})\ *\ 125,\ fichier)\ !=\ NULL)\ \&\&\ ((*page\_active)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}})\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{while}((fgets(ligne,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})\ *\ 125,\ fichier)\ !=\ NULL)\ \&\&\ ((*page\_active)\ ==\ INTRODUCTION)\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00132}00132\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Boucle\ pour\ afficher\ le\ texte\ lettre\ par\ lettre\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (indice\ =\ 0;\ (indice\ <\ ((int)strlen(ligne)))\ \&\&\ ((*page\_active)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}})\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE);\ indice++)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (indice\ =\ 0;\ (indice\ <\ ((int)strlen(ligne)))\ \&\&\ ((*page\_active)\ ==\ INTRODUCTION)\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE);\ indice++)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00135}00135\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Effacement\ du\ rendu\ précédent\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderClear((*renderer));}
@@ -163,7 +163,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00159}00159\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Bouton\ pour\ passer\ l'introduction\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ *rectangle\_passer))}
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad385b296b3c981b6590afbe05856dff0}{NIVEAU\_1}};}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ NIVEAU\_1;}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00163}00163\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
@@ -177,7 +177,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00175}00175\ }
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((*page\_active)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}})\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((*page\_active)\ ==\ INTRODUCTION)\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00177}00177\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Mise\ à\ jour\ du\ rendu\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__introduction_8c_a12fc2c022438af04ad9c0adf79bd9fb6}{mise\_a\_jour\_rendu\_introduction}}(renderer,\ indice,\ ligne,}
@@ -191,7 +191,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00189}00189\ }
-\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((*page\_active)\ ==\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}})\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE))\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((*page\_active)\ ==\ INTRODUCTION)\ \&\&\ ((*programme\_lance)\ ==\ SDL\_TRUE))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00191}00191\ }
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetWindowResizable((*window),\ SDL\_FALSE);}
 \DoxyCodeLine{\Hypertarget{fonctions__introduction_8c_source_l00193}00193\ }

@@ -23,7 +23,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00019}00019\ \textcolor{comment}{\ *\ }}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00020}00020\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00021}\mbox{\hyperlink{fonctions__menu__principal_8c_aa2d2258039f3f1d15973bdf6f154ebec}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__menu__principal_8c_aa2d2258039f3f1d15973bdf6f154ebec}{initialisation\_objets\_menu\_principal}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_image\_menu,}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *titre,\ itemMenu\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00023}00023\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00025}00025\ \ \ \ \ }
@@ -31,7 +31,7 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_menu,\ \textcolor{stringliteral}{"{}./images/ecran\_accueil.png"{}});}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00028}00028\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00029}00029\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ du\ titre\ du\ menu\ */}}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00030}00030\ \ \ \ \ sprintf(titre-\/>\mbox{\hyperlink{structitemMenu_aed9d49dc53daa3cf450d38fe9f57e605}{texte}},\ \textcolor{stringliteral}{"{}\ MetaTravers\ "{}});}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00030}00030\ \ \ \ \ sprintf(titre-\/>texte,\ \textcolor{stringliteral}{"{}\ MetaTravers\ "{}});}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00031}00031\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00032}00032\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ du\ texte\ dans\ les\ items\ du\ menu\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00033}00033\ }
@@ -87,9 +87,9 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00083}00083\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00084}\mbox{\hyperlink{fonctions__menu__principal_8c_a94296f3881d816cad69e2cccfe9c45d0}{00084}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__menu__principal_8c_a94296f3881d816cad69e2cccfe9c45d0}{mise\_a\_jour\_rendu\_menu\_principal}}(SDL\_Renderer\ **renderer,\ SDL\_Texture\ **texture\_image\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *titre,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ couleurTitre,\ SDL\_Color\ couleurNoire,\ \textcolor{keywordtype}{int}\ selection\_menu,}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00089}00089\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00091}00091\ }
@@ -118,10 +118,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00114}00114\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00115}00115\ \ \ \ \ \textcolor{comment}{/*\ Dessine\ le\ titre\ du\ menu\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00116}00116\ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00117}00117\ \ \ \ \ titre-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 3;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00118}00118\ \ \ \ \ titre-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 20;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00119}00119\ \ \ \ \ titre-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 2\ +\ largeur\ /\ 5;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00120}00120\ \ \ \ \ titre-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 5;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00117}00117\ \ \ \ \ titre-\/>rectangle.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00118}00118\ \ \ \ \ titre-\/>rectangle.y\ =\ hauteur\ /\ 20;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00119}00119\ \ \ \ \ titre-\/>rectangle.w\ =\ largeur\ /\ 2\ +\ largeur\ /\ 5;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00120}00120\ \ \ \ \ titre-\/>rectangle.h\ =\ hauteur\ /\ 5;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00121}00121\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00122}00122\ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ titre,\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurTitre);}
@@ -134,10 +134,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00130}00130\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(selection\_menu\ ==\ (i\ +\ 1))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00132}00132\ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6\ -\/\ largeur\ /\ 200;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 3\ +\ (i+1)\ *\ hauteur\ /\ 13\ +\ i\ *\ hauteur\ /\ 11\ -\/\ hauteur\ /\ 90;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3\ +\ largeur\ /\ 100;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10\ +\ hauteur\ /\ 60\ +\ hauteur\ /\ 250;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6\ -\/\ largeur\ /\ 200;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.y\ =\ hauteur\ /\ 3\ +\ (i+1)\ *\ hauteur\ /\ 13\ +\ i\ *\ hauteur\ /\ 11\ -\/\ hauteur\ /\ 90;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.w\ =\ largeur\ /\ 3\ +\ largeur\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.h\ =\ hauteur\ /\ 10\ +\ hauteur\ /\ 60\ +\ hauteur\ /\ 250;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00137}00137\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 175,\ 95,\ 185,\ 255);}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ \&(itemsMenu[i].rectangle));}
@@ -145,10 +145,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00141}00141\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00143}00143\ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 3\ +\ (i+1)\ *\ hauteur\ /\ 13\ +\ i\ *\ hauteur\ /\ 11;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.y\ =\ hauteur\ /\ 3\ +\ (i+1)\ *\ hauteur\ /\ 13\ +\ i\ *\ hauteur\ /\ 11;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.w\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.h\ =\ hauteur\ /\ 10;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00148}00148\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsMenu[i]),\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
@@ -161,10 +161,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00157}00157\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(selection\_menu\ ==\ (i\ +\ 1))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00159}00159\ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6\ -\/\ largeur\ /\ 200;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 3\ +\ i\ *\ hauteur\ /\ 6\ -\/\ hauteur\ /\ 90;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3\ +\ largeur\ /\ 100;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10\ +\ hauteur\ /\ 60\ +\ hauteur\ /\ 250;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6\ -\/\ largeur\ /\ 200;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.y\ =\ hauteur\ /\ 3\ +\ i\ *\ hauteur\ /\ 6\ -\/\ hauteur\ /\ 90;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.w\ =\ largeur\ /\ 3\ +\ largeur\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.h\ =\ hauteur\ /\ 10\ +\ hauteur\ /\ 60\ +\ hauteur\ /\ 250;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00164}00164\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 175,\ 95,\ 185,\ 255);}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ \&(itemsMenu[i].rectangle));}
@@ -172,10 +172,10 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00168}00168\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00170}00170\ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 3\ +\ i\ *\ hauteur\ /\ 6;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3;}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.x\ =\ largeur\ /\ 2\ -\/\ largeur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.y\ =\ hauteur\ /\ 3\ +\ i\ *\ hauteur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.w\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu[i].rectangle.h\ =\ hauteur\ /\ 10;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00175}00175\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsMenu[i]),\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
@@ -217,9 +217,9 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00213}00213\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00214}\mbox{\hyperlink{fonctions__menu__principal_8c_ada9b65addcc8f4bc4bb199507d304a48}{00214}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fonctions__menu__principal_8c_ada9b65addcc8f4bc4bb199507d304a48}{menu\_principal}}(SDL\_Event\ *event,\ SDL\_Window\ **window,\ SDL\_Renderer\ **renderer,\ SDL\_bool\ *programme\_lance,\ SDL\_Texture\ **texture\_image\_menu,}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_bool\ *plein\_ecran,}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *titre,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ TTF\_Font\ **police,}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ couleurTitre,\ SDL\_Color\ couleurNoire,\ \textcolor{keywordtype}{int}\ code\_de\_triche[3],\ \textcolor{keywordtype}{int}\ *selection\_menu,}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \mbox{\hyperlink{fonctions__generales_8h_a7b4c0d524c23a5b00bc0be8d17ee5ae3}{page\_t}}\ *page\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemMenu\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ page\_t\ *page\_active)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00219}00219\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00220}00220\ \ \ \ \ \textcolor{keywordflow}{while}(SDL\_PollEvent(event))\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00221}00221\ }
@@ -234,16 +234,16 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Gestion\ de\ l'événement\ de\ la\ position\ de\ la\ souris\ sur\ les\ différents\ items\ */}}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_MOUSEMOTION:}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((event-\/>motion.x\ >=\ itemsMenu[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x)\ \&\&\ (event-\/>motion.x\ <=\ (itemsMenu[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ +\ itemsMenu[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w))\ \&\&}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>motion.y\ >=\ itemsMenu[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y)\ \&\&\ (event-\/>motion.y\ <=\ (itemsMenu[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ +\ itemsMenu[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h)))}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((event-\/>motion.x\ >=\ itemsMenu[0].rectangle.x)\ \&\&\ (event-\/>motion.x\ <=\ (itemsMenu[0].rectangle.x\ +\ itemsMenu[0].rectangle.w))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>motion.y\ >=\ itemsMenu[0].rectangle.y)\ \&\&\ (event-\/>motion.y\ <=\ (itemsMenu[0].rectangle.y\ +\ itemsMenu[0].rectangle.h)))}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*selection\_menu)\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00236}00236\ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((event-\/>motion.x\ >=\ itemsMenu[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x)\ \&\&\ (event-\/>motion.x\ <=\ (itemsMenu[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ +\ itemsMenu[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w))\ \&\&}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>motion.y\ >=\ itemsMenu[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y)\ \&\&\ (event-\/>motion.y\ <=\ (itemsMenu[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ +\ itemsMenu[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h)))}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((event-\/>motion.x\ >=\ itemsMenu[1].rectangle.x)\ \&\&\ (event-\/>motion.x\ <=\ (itemsMenu[1].rectangle.x\ +\ itemsMenu[1].rectangle.w))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>motion.y\ >=\ itemsMenu[1].rectangle.y)\ \&\&\ (event-\/>motion.y\ <=\ (itemsMenu[1].rectangle.y\ +\ itemsMenu[1].rectangle.h)))}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*selection\_menu)\ =\ 2;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00240}00240\ }
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((event-\/>motion.x\ >=\ itemsMenu[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x)\ \&\&\ (event-\/>motion.x\ <=\ (itemsMenu[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ +\ itemsMenu[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w))\ \&\&}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>motion.y\ >=\ itemsMenu[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y)\ \&\&\ (event-\/>motion.y\ <=\ (itemsMenu[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ +\ itemsMenu[2].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h)))}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((event-\/>motion.x\ >=\ itemsMenu[2].rectangle.x)\ \&\&\ (event-\/>motion.x\ <=\ (itemsMenu[2].rectangle.x\ +\ itemsMenu[2].rectangle.w))\ \&\&}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (event-\/>motion.y\ >=\ itemsMenu[2].rectangle.y)\ \&\&\ (event-\/>motion.y\ <=\ (itemsMenu[2].rectangle.y\ +\ itemsMenu[2].rectangle.h)))}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*selection\_menu)\ =\ 3;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00244}00244\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
@@ -257,22 +257,22 @@
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tailleMenu\ ==\ 2)\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00254}00254\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ itemsMenu[0].rectangle))}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3aebc79ee34b720b22062779bedf6344de}{NOUVELLE\_PARTIE}};}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ NOUVELLE\_PARTIE;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00257}00257\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ itemsMenu[1].rectangle))}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a1b20f1b4adb6ff9778b284fb46f6f99d}{OPTIONS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ OPTIONS;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00261}00261\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00263}00263\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ itemsMenu[0].rectangle))}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a4824da671cbd0a1f39934252198189ad}{CARTE}};}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ CARTE;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00266}00266\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ itemsMenu[1].rectangle))}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3aebc79ee34b720b22062779bedf6344de}{NOUVELLE\_PARTIE}};}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ NOUVELLE\_PARTIE;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00269}00269\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ itemsMenu[2].rectangle))}
-\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a1b20f1b4adb6ff9778b284fb46f6f99d}{OPTIONS}};}
+\DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ OPTIONS;}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00273}00273\ }
 \DoxyCodeLine{\Hypertarget{fonctions__menu__principal_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Option\ plein\ écran\ */}}

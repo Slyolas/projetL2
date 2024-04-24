@@ -1,25 +1,12 @@
 <map id="fichiers_c/fonctions_carte.c" name="fichiers_c/fonctions_carte.c">
-<area shape="rect" id="Node000001" title="Fichier contenant toutes les fonctions gérant la carte principal." alt="" coords="232,5,379,45"/>
-<area shape="rect" id="Node000002" href="$fonctions__generales_8h.html" title=" " alt="" coords="133,93,293,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="287,48,245,86,242,82,283,44"/>
-<area shape="rect" id="Node000009" href="$fonctions__carte_8h.html" title=" " alt="" coords="317,93,477,133"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="328,44,369,82,365,86,324,48"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,181,72,207"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="173,136,78,178,76,173,170,131"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="97,181,167,207"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="195,135,156,173,152,170,192,132"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="192,181,288,207"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="222,133,234,167,229,169,217,134"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="312,181,429,207"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="252,131,336,173,334,177,250,136"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="453,181,597,207"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="289,131,467,175,466,181,287,136"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="621,181,760,207"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="294,129,306,131,608,178,607,184,305,136,293,134"/>
-<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="318,133,86,184,85,178,317,128"/>
-<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="335,136,181,181,180,176,333,131"/>
-<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="361,136,277,177,274,173,358,131"/>
-<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="393,134,382,169,377,167,388,133"/>
-<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="430,131,496,172,494,176,427,136"/>
-<area shape="poly" id="edge14_Node000009_Node000008" title=" " alt="" coords="468,131,635,175,634,180,467,136"/>
+<area shape="rect" id="Node000001" title="Fichier contenant toutes les fonctions gérant la carte principal." alt="" coords="104,5,251,45"/>
+<area shape="rect" id="Node000002" href="$fonctions__generales_8h.html" title=" " alt="" coords="5,93,165,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,48,117,86,114,82,155,44"/>
+<area shape="rect" id="Node000005" href="$fonctions__carte_8h.html" title=" " alt="" coords="189,93,349,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="200,44,241,82,237,86,196,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="40,255,131,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,135,47,168,42,187,44,206,53,225,66,243,62,246,49,228,39,207,37,186,42,166,65,132"/>
+<area shape="rect" id="Node000004" href="$fonctions__menu__principal_8h.html" title=" " alt="" coords="54,181,255,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="104,132,137,169,133,172,100,135"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="145,209,108,247,104,243,141,205"/>
 </map>

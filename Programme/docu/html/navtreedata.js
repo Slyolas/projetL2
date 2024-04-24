@@ -25,20 +25,11 @@
 var NAVTREE =
 [
   [ "Metatravers", "index.html", [
-    [ "Classes", "annotated.html", [
-      [ "Liste des classes", "annotated.html", "annotated_dup" ],
-      [ "Index des classes", "classes.html", null ],
-      [ "Membres de classe", "functions.html", [
-        [ "Tout", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
-      ] ]
-    ] ],
     [ "Fichiers", "files.html", [
       [ "Liste des fichiers", "files.html", "files_dup" ],
       [ "Membres de fichier", "globals.html", [
         [ "Tout", "globals.html", null ],
         [ "Fonctions", "globals_func.html", null ],
-        [ "Définitions de type", "globals_type.html", null ],
         [ "Énumérations", "globals_enum.html", null ],
         [ "Valeurs énumérées", "globals_eval.html", null ]
       ] ]
@@ -48,7 +39,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"dir_159ce5358f5cf3921a71eb8867616d69.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

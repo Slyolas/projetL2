@@ -1,7 +1,33 @@
 <map id="fichiers_h/fonctions_menu_principal.h" name="fichiers_h/fonctions_menu_principal.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="98,5,246,45"/>
-<area shape="rect" id="Node000002" href="$fonctions__menu__principal_8c.html" title="Fichier contenant les fonctions pour le menu principal" alt="" coords="5,93,152,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,57,101,95,98,91,139,53"/>
-<area shape="rect" id="Node000003" href="$metatravers_8c.html" title="Fichier qui réunit les différents modules pour le bon fonctionnement du programme." alt="" coords="176,101,355,126"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,53,254,98,251,102,201,57"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="446,5,594,45"/>
+<area shape="rect" id="Node000002" href="$fonctions__menu__principal_8c.html" title="Fichier contenant les fonctions pour le menu principal" alt="" coords="5,181,152,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="461,53,128,184,126,179,459,48"/>
+<area shape="rect" id="Node000003" href="$fonctions__generales_8h.html" title=" " alt="" coords="887,93,1035,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="608,41,888,95,887,100,607,46"/>
+<area shape="poly" id="edge7_Node000003_Node000002" title=" " alt="" coords="874,121,560,141,363,159,164,184,153,186,152,181,164,179,362,154,559,135,873,116"/>
+<area shape="rect" id="Node000004" href="$fonctions__arrivee__niveaux__2__3_8c.html" title="Fichier contenant les fonctions s&#39;occupant du hub du niveau 2 et 3." alt="" coords="177,181,351,221"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="874,125,643,148,364,184,352,186,351,181,364,179,642,143,873,120"/>
+<area shape="rect" id="Node000005" href="$fonctions__carte_8c.html" title="Fichier contenant toutes les fonctions gérant la carte principal." alt="" coords="376,181,523,221"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="874,129,716,153,535,184,523,186,522,181,534,179,715,148,873,124"/>
+<area shape="rect" id="Node000006" href="$fonctions__generales_8c.html" title="Fichier avec les fichiers utilisé régulièrement." alt="" coords="547,181,693,221"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="875,139,695,184,693,179,874,134"/>
+<area shape="rect" id="Node000007" href="$fonctions__introduction_8c.html" title="Fichier avec les fonctions présentant l&#39;introduction du jeu." alt="" coords="717,181,864,221"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="913,142,829,184,827,179,910,137"/>
+<area shape="rect" id="Node000008" href="$fonctions__niveau__1_8c.html" title="Fichier contenant les fonctions servant à la gestion du niveau 1" alt="" coords="888,181,1035,221"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="964,147,964,181,959,181,959,147"/>
+<area shape="rect" id="Node000009" href="$fonctions__niveau__2_8c.html" title=" " alt="" coords="1059,181,1205,221"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="1012,137,1096,179,1093,184,1010,142"/>
+<area shape="rect" id="Node000010" href="$fonctions__niveau__3_8c.html" title=" " alt="" coords="1229,181,1376,221"/>
+<area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="1049,134,1229,179,1228,184,1048,139"/>
+<area shape="rect" id="Node000011" href="$fonctions__niveau__4_8c.html" title="Fichier contenant les fonctions servant à la gestion du niveau 4" alt="" coords="1400,181,1547,221"/>
+<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="1049,124,1208,148,1388,179,1400,181,1399,186,1388,184,1207,153,1049,129"/>
+<area shape="rect" id="Node000012" href="$fonctions__nouvelle__partie_8c.html" title="Fichier contenant les fonctions servant à la fenêtre d&#39;une nouvelle partie." alt="" coords="1571,181,1717,221"/>
+<area shape="poly" id="edge12_Node000003_Node000012" title=" " alt="" coords="1049,119,1280,141,1420,158,1559,179,1571,181,1570,186,1558,184,1419,164,1280,147,1049,124"/>
+<area shape="rect" id="Node000013" href="$fonctions__options_8c.html" title="Fichier qui réunit les fonctions s&#39;occupant de la fenêtre des options du jeu." alt="" coords="1681,269,1828,309"/>
+<area shape="poly" id="edge13_Node000003_Node000013" title=" " alt="" coords="1049,114,1229,120,1442,132,1629,151,1694,164,1731,179,1747,200,1755,224,1759,269,1754,269,1750,225,1742,202,1728,183,1693,169,1628,156,1442,137,1229,125,1049,119"/>
+<area shape="rect" id="Node000014" href="$fonctions__options_8h.html" title=" " alt="" coords="1793,181,1941,221"/>
+<area shape="poly" id="edge14_Node000003_Node000014" title=" " alt="" coords="1049,116,1369,136,1571,154,1774,179,1793,182,1792,187,1773,184,1570,160,1369,142,1049,121"/>
+<area shape="poly" id="edge15_Node000014_Node000013" title=" " alt="" coords="1832,232,1781,271,1778,267,1829,228"/>
+<area shape="rect" id="Node000015" href="$metatravers_8c.html" title="Fichier qui réunit les différents modules pour le bon fonctionnement du programme." alt="" coords="1852,277,2031,302"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="1894,230,1933,274,1929,278,1890,234"/>
 </map>

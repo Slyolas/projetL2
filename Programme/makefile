@@ -2,8 +2,7 @@
 # Macro
 #
 
-# Commande pour compiler le programme : make -f makefile all
-# Commande pour exécuter le programme : ./bin/metatravers
+
 
 # Compilation avec SDL
 CC = gcc
@@ -74,7 +73,7 @@ EXECUTABLE = metatravers
 #
 
 # Compilation de l'exécutable
-all: $(BIN_DIR)/$(EXECUTABLE)
+all: $(BIN_DIR)/$(EXECUTABLE); ./bin/metatravers
 
 # Créer le répertoire bin s'il n'existe pas
 $(shell mkdir -p $(BIN_DIR))
@@ -144,6 +143,7 @@ $(OBJ_DIR)/fonctions_niveau_4.o: $(SRC_DIR)/fonctions_niveau_4.c $(INC_DIR)/fonc
 #
 #Test unitaire
 #
+
 test:
 	gcc test\ unitaire/test_pseudo.c -Wall -o test\ unitaire/test_pseudo;
 	./test\ unitaire/test_pseudo
