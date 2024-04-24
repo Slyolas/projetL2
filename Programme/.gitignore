@@ -1,4 +1,0 @@
-#Ignore le répertoire LaTex
-\latex
-#Ignore le répertoire html ou se trouve le doxygen
-\html

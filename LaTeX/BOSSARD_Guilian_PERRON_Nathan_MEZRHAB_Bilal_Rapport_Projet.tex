@@ -10,7 +10,7 @@
 \begin{document}
 
     \begin{figure}
- 
+    
         \includegraphics[width=4cm]{images/logolemansU.png}
         \hspace{150pt}
         \includegraphics[width=4cm]{images/logo_IC2.png}
@@ -86,6 +86,7 @@
             \begin{figure}[h]
                 \centering
                 \includegraphics[width=13cm]{images/diagramme_GANTT.png}\\
+                \caption{Diagramme de Gantt}
             \end{figure}
 
     \newpage
@@ -106,36 +107,51 @@
                 \item \tabto{1cm} \underline{Le menu principal~:} \\\\
                 \tabto{1cm} Cet onglet est le tout premier qui s’affiche quand l’utilisateur lance le jeu, il est composé d’un fond d’écran qui représente le thème de notre projet, son titre et de plusieurs boutons cliquables. Ces derniers permettent de continuer la partie s’il en existe déjà une, de créer une nouvelle partie si le joueur veut recommencer le jeu ou bien d’accéder aux différentes options mises à disposition.\\
 
-                \includegraphics[width=10cm]{images/menu_principal.png}\\
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=10cm]{images/menu_principal.png}
+                    \caption{Menu principal du jeu}
+                \end{figure}
                 
                 \item \tabto{1cm} \underline{La nouvelle partie~:}\\\\
                 \tabto{1cm} En cliquant sur le bouton « Nouvelle partie », le joueur accède à une
                 nouvelle page où il pourra recommencer le jeu du début. Il aura la possibilité de choisir différents paramètres comme son pseudonyme, son personnage entre un homme et une femme et le mode de jeu. Il existe le mode normal qui est accessible par tous les joueurs quel que soit leur niveau et un mode difficile qui est réservé aux personnes qui connaissent bien le jeu et qui cherchent un défi supplémentaire.\\
 
-                \includegraphics[width=10cm]{images/nouvelle_partie.png}\\
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=10cm]{images/nouvelle_partie.png}
+                    \caption{Création d'une nouvelle partie}
+                \end{figure}
 
                 \newpage
 
                 \item \tabto{1cm} \underline{Les options~:}\\\\
                 \tabto{1cm} En cliquant sur le bouton «~Options~», le joueur accède à une nouvelle page où il pourra changer différents paramètres contenus dans deux onglets différents. On peut y retrouver l’onglet «~Son~» où la modification du son de la musique et celle des effets sonores est possible. De plus, on peut accéder à l’onglet «~Touches~» où le joueur peut modifier les touches pour aller à droite, pour aller à gauche, pour sauter ou monter, pour descendre et celle pour intéragir.\\
 
-                \includegraphics[width=5cm]{images/options_son.png}
-                \includegraphics[width=5cm]{images/options_touches.png}\\
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=5cm]{images/options_son.png}
+                    \includegraphics[width=5cm]{images/options_touches.png}
+                    \caption{Options du jeu}
+                \end{figure}
                 
                 \item \tabto{1cm} \underline{La carte~:}\\\\
                 \tabto{1cm} Puis en cliquant sur le bouton «~Continuer~», le joueur accède à l’onglet central du jeu où il peut se déplacer sur la carte du monde pour choisir le niveau auquel il veut jouer. Il est possible d'observer l’image de fond qui représente la carte et qui possède quatre niveaux. Au début d’une partie, le joueur est au premier niveau mais n’a pas accès aux niveaux suivants. Ils se débloquent au fur et à mesure que l’utilisateur termine les niveaux.\\
 
-                \includegraphics[width=10cm]{images/carte.png}\\
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=10cm]{images/carte.png}
+                    \caption{Carte du jeu}
+                \end{figure}
                 
             \end{itemize}
-
-            \newpage
 
             \tabto{1cm} La navigation dans notre projet est toujours la même et permet de d'accéder directement à la plupart des onglets rapidement et sans difficulté.\\
 
             \begin{figure}[h]
                 \centering
-                \includegraphics[width=13cm]{images/schéma_navigation.png}\\
+                \includegraphics[width=13cm]{images/schéma_navigation.png}
+                \caption{Schéma de la navigation dans le jeu}
             \end{figure}
 
             Pour plus d'informations, voir le schéma détaillé dans l'annexe : \ref{subsec:schéma_navigation_detaille}\\
@@ -168,7 +184,11 @@
                 \begin{itemize}
                     \item Doxygen~: mettre en forme les commentaires sous forme de Doxygen\\
 
-                    \includegraphics[width=10cm]{images/doxygen.png}\\
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=10cm]{images/doxygen.png}
+                        \caption{Exemple du Doxygen dans un programme}
+                    \end{figure}
 
                     Pour plus d'informations, voir le Doxygen dans l'annexe : \ref{subsec:doxygen}.\\
                     
@@ -187,7 +207,13 @@
             \subsubsection{GDB}
                 \tabto{1cm} GDB est un outil de débogage que nous avons utilisé pour identifier des erreurs lors de nos tests sur plusieurs entités, surtout liées à l’utilisation de la bibliothèque SDL. Vous pouvez voir ci-dessous une utilisation de cet outil permettant de comprendre où se situait l’erreur de segmentation lors de l’appel d’une fonction.\\
 
-                \includegraphics[width=13cm]{images/debogage.png}\\
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=13cm]{images/debogage.png}
+                    \caption{Exemple de débogage}
+                \end{figure}
+
+                \tabto{1cm} Dans le cas que l'on peut observer au-dessus, nous avons obtenu une erreur de segmentation lorsque l'on voulait mettre à jour les textures des tuiles pour la \textit{tilemap}. En utilisant l'outil GDB, nous avons pû repérer facilement l'erreur et avons découvert qu'il manquait un \textit{return} à la fin de la fonction.\\
                 
             \subsubsection{Google Drive}
                 \tabto{1cm} Nous avons utilisé cet outil pour la mise en commun de nos idées, pour l’utilisation du diagramme de Gantt et pour le cahier des charges.
@@ -213,8 +239,6 @@
                 \item erreur~: fonction qui arrête le programme en cas d’erreur et retourne un message correspondant
                 \item chargement\textunderscore image~: charge une image dans une texture
             \end{itemize}
-
-        \newpage
         
          \subsection{La gestion des niveaux et des mini-jeux}   
             \tabto{1cm} Les niveaux sont stockés dans des structures, qui sont elles-mêmes représentées par des pointeurs et des variables, servant à la représentation des différents éléments du niveau.\\
@@ -226,7 +250,7 @@
 
             \subsubsection{Test unitaire du pseudo}
                 \tabto{1cm} Le test unitaire le plus important qui nous a permis de trouver le plus grand nombre d'erreurs dans notre code a été celui de la saisie du pseudo dans l'onglet «~Nouvelle Partie~». Il possède un grand nombre de conditions qui permet au pseudo d'être valide.\\
-                Pour plus d'informations, voir le test unitaire du pseudo dans l'annexe : \ref{subsec:test_unitaire_pseudo}.
+                Pour plus d'informations, voir le test unitaire test\textunderscore pseudo.c sur notre GitHub et le tableau des différents cas possibles dans l'annexe : \ref{subsec:test_unitaire_pseudo}.
                 
             \subsubsection{Création des mini-jeux}
                 \tabto{1cm} Afin de tester l’agencement de nos mini-jeux, nous avons créé un algorithme permettant d’avoir un suivi sur leurs comportements. La création de ces derniers à partir d’un fichier externe ont permis de tester différents paternes de jeu afin de prévoir des comportements qui pourraient poser plusieurs problèmes et la destruction de ces derniers (mise à «~NULL~»). En parallèle, nous avons fait appel à des personnes extérieures au projet, avec aucune connaissance du jeu et des règles, afin de tester les limites de nos mini-jeux. Ceci nous a permis de détecter plusieurs erreurs graphiques et pratiques. Par la même occasion, cela nous a permis de s’assurer qu’aucune fuite de mémoire était présente.
@@ -248,19 +272,25 @@
 
         \subsection{Schéma détaillé de la navigation}
             \label{subsec:schéma_navigation_detaille}
-            \includegraphics[width=13cm]{images/schéma_navigation_détaillé.png}
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=13cm]{images/schéma_navigation_détaillé.png}
+                \caption{Schéma détaillé de la navigation dans le jeu}
+            \end{figure}
 
         \newpage
 
         \subsection{Doxygen}
             \label{subsec:doxygen}
             
-            \begin{center}
+            \begin{figure}[h]
                 \includegraphics[width=13cm]{images/doxygen_html.png}\\
                 \includegraphics[width=13cm]{images/doxygen_niveau.png}\\
                 \includegraphics[width=13cm]{images/doxygen_itemMenu.png}\\
                 \includegraphics[width=13cm]{images/doxygen_barreDeSon.png}
-            \end{center}
+                \caption{Doxygen}
+            \end{figure}
             
         \subsection{Test unitaire du pseudo}
             \label{subsec:test_unitaire_pseudo}
