@@ -1,0 +1,490 @@
+\doxysection{Référence du fichier Save/fichiers\+\_\+c/fonctions\+\_\+niveau\+\_\+2.c}
+\hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c}{}\label{Save_2fichiers__c_2fonctions__niveau__2_8c}\index{Save/fichiers\_c/fonctions\_niveau\_2.c@{Save/fichiers\_c/fonctions\_niveau\_2.c}}
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+generales.\+h$>$}\newline
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+niveau\+\_\+2.\+h$>$}\newline
+Graphe des dépendances par inclusion de fonctions\+\_\+niveau\+\_\+2.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Save_2fichiers__c_2fonctions__niveau__2_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_a7600f63bdbae033777299b6cea5f18a2}{initialisation\+\_\+objets\+\_\+niveau\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+fond\+\_\+niveau\+\_\+2, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+dossier\+\_\+niveau\+\_\+2, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+sol\+\_\+niveau\+\_\+2, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+vertical, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+horizontal, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+courant, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+mur\+\_\+termine)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser les différents objets du niveau 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_a2d0e4ca9f523ed5280a5315ef10f18be}{mini\+\_\+jeu\+\_\+1\+\_\+niveau\+\_\+2}} (int \texorpdfstring{$\ast$}{*}position\+\_\+x, int \texorpdfstring{$\ast$}{*}position\+\_\+y, int tile\+\_\+map\mbox{[}19\mbox{]}\mbox{[}27\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser le premier mini-\/jeu du niveau 2. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}{verification\+\_\+chemin}} (int x, int y, int x\+\_\+precedent, int y\+\_\+precedent, int tilemap\mbox{[}19\mbox{]}\mbox{[}27\mbox{]}, int x\+\_\+arrivee, int y\+\_\+arrivee)
+\begin{DoxyCompactList}\small\item\em Fonction de vérification du chemin. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}{mise\+\_\+a\+\_\+jour\+\_\+bordures\+\_\+niveau\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+mur\+\_\+termine, int tilemap\mbox{[}19\mbox{]}\mbox{[}27\mbox{]}, int x\+\_\+tile, int y\+\_\+tile, int x, int y, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+tile, int largeur\+\_\+tile, int hauteur\+\_\+tile)
+\begin{DoxyCompactList}\small\item\em Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la 9 du labyrinthe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_a6a54e7a3ef1cf2739269282559390bb7}{mise\+\_\+a\+\_\+jour\+\_\+mini\+\_\+jeu\+\_\+1\+\_\+niveau\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+tile, int position\+\_\+x, int position\+\_\+y, int tile\+\_\+map\+\_\+mini\+\_\+jeu\+\_\+niveau\+\_\+2\mbox{[}19\mbox{]}\mbox{[}27\mbox{]}, int largeur, int hauteur, int largeur\+\_\+tile, int hauteur\+\_\+tile, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+vertical, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+horizontal, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+courant, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+mur\+\_\+termine)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de mettre à jour le premier mini-\/jeu du niveau 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_a123d8b7198c9c35b956ec041015f455b}{mini\+\_\+jeu\+\_\+2\+\_\+niveau\+\_\+2}} (int \texorpdfstring{$\ast$}{*}position\+\_\+x, int \texorpdfstring{$\ast$}{*}position\+\_\+y, int \texorpdfstring{$\ast$}{*}position\+\_\+x\+\_\+initiale, int \texorpdfstring{$\ast$}{*}position\+\_\+y\+\_\+initiale, int tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]}, int mode\+\_\+difficile)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser le second mini-\/jeu du niveau 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_aa0c34cf55e8c7747f6c4e28db845d6c0}{mise\+\_\+a\+\_\+jour\+\_\+mini\+\_\+jeu\+\_\+2\+\_\+niveau\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+fond, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+sol, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+tile, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+terrestre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+volant, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+personnage, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+personnage, int mini\+\_\+jeu\+\_\+termine, int position\+\_\+x, int position\+\_\+y, int tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+porte, \mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, int largeur, int hauteur, int largeur\+\_\+tile, int hauteur\+\_\+tile)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de mettre à jour le second mini-\/jeu du niveau 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_a1581844b9a670969a24c83ad14158af5}{mini\+\_\+jeux\+\_\+niveau\+\_\+2}} (SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+fond, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+sol, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+porte, \mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+tile, int \texorpdfstring{$\ast$}{*}mini\+\_\+jeu, int \texorpdfstring{$\ast$}{*}mini\+\_\+jeu\+\_\+1\+\_\+termine, int \texorpdfstring{$\ast$}{*}mini\+\_\+jeu\+\_\+2\+\_\+termine, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+personnage, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+personnage, int mini\+\_\+jeu\+\_\+termine, int \texorpdfstring{$\ast$}{*}position\+\_\+x, int \texorpdfstring{$\ast$}{*}position\+\_\+y, int tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]}, int tile\+\_\+map\+\_\+mini\+\_\+jeu\+\_\+niveau\+\_\+2\mbox{[}19\mbox{]}\mbox{[}27\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+terrestre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+monstre\+\_\+volant, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, int \texorpdfstring{$\ast$}{*}largeur\+\_\+tile, int \texorpdfstring{$\ast$}{*}hauteur\+\_\+tile, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+droite, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+gauche, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+interagir, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+sauter\+\_\+monter, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+descendre, int \texorpdfstring{$\ast$}{*}valide, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+vertical, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+horizontal, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+pipe\+\_\+courant, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+demande\+\_\+quitter, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur\+Noire, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Demande\+Quitter, int taille\+Demande\+Quitter, int collectibles\+\_\+intermediaires\mbox{[}3\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+mur\+\_\+termine, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}page\+\_\+active, Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}musique, int \texorpdfstring{$\ast$}{*}avancer, int \texorpdfstring{$\ast$}{*}reculer, int \texorpdfstring{$\ast$}{*}sauter, int \texorpdfstring{$\ast$}{*}saut, int \texorpdfstring{$\ast$}{*}tombe)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_a7600f63bdbae033777299b6cea5f18a2}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_a7600f63bdbae033777299b6cea5f18a2} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!initialisation\_objets\_niveau\_2@{initialisation\_objets\_niveau\_2}}
+\index{initialisation\_objets\_niveau\_2@{initialisation\_objets\_niveau\_2}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{initialisation\_objets\_niveau\_2()}{initialisation\_objets\_niveau\_2()}}
+{\footnotesize\ttfamily void initialisation\+\_\+objets\+\_\+niveau\+\_\+2 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+fond\+\_\+niveau\+\_\+2,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+dossier\+\_\+niveau\+\_\+2,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+sol\+\_\+niveau\+\_\+2,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+vertical,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+horizontal,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+courant,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+mur\+\_\+termine }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser les différents objets du niveau 2. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em surface} & Surface SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+fond\+\_\+niveau\+\_\+2} & Texture de l\textquotesingle{}image de fond du niveau 2. \\
+\hline
+{\em texture\+\_\+image\+\_\+dossier\+\_\+niveau\+\_\+2} & Texture de l\textquotesingle{}image du dossier du niveau 2. \\
+\hline
+{\em texture\+\_\+image\+\_\+sol\+\_\+niveau\+\_\+2} & Texture de l\textquotesingle{}image du sol du niveau 2. \\
+\hline
+{\em texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu} & Texture de l\textquotesingle{}image du mur du mini-\/jeu. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+vertical} & Texture de l\textquotesingle{}image du tuyau vertical. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+horizontal} & Texture de l\textquotesingle{}image du tuyau horizontal. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit} & Texture de l\textquotesingle{}image du tuyau haut droit. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit} & Texture de l\textquotesingle{}image du tuyau bas droit. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche} & Texture de l\textquotesingle{}image du tuyau bas gauche. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche} & Texture de l\textquotesingle{}image du tuyau haut gauche. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+courant} & Texture de l\textquotesingle{}image du tuyau courant. \\
+\hline
+{\em texture\+\_\+image\+\_\+mur\+\_\+termine} & Texture de l\textquotesingle{}image du mur terminé. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\+\_\+image} 
+\end{DoxySeeAlso}
+Chargement des images pour le niveau 2
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_a2d0e4ca9f523ed5280a5315ef10f18be}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_a2d0e4ca9f523ed5280a5315ef10f18be} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!mini\_jeu\_1\_niveau\_2@{mini\_jeu\_1\_niveau\_2}}
+\index{mini\_jeu\_1\_niveau\_2@{mini\_jeu\_1\_niveau\_2}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{mini\_jeu\_1\_niveau\_2()}{mini\_jeu\_1\_niveau\_2()}}
+{\footnotesize\ttfamily void mini\+\_\+jeu\+\_\+1\+\_\+niveau\+\_\+2 (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+x,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+y,  }\item[{int}]{tile\+\_\+map\mbox{[}19\mbox{]}\mbox{[}27\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser le premier mini-\/jeu du niveau 2. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em position\+\_\+x} & position horizontal du personnage sur le tile map \\
+\hline
+{\em position\+\_\+y} & position verticale du personnage sur le tile map \\
+\hline
+{\em tile\+\_\+map} & map ou se trouve le personnage \\
+\hline
+\end{DoxyParams}
+Positionnement du curseur en haut à gauche
+
+Création du premier mini-\/jeu
+
+Copie du tile-\/map
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00061}{61}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_a123d8b7198c9c35b956ec041015f455b}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_a123d8b7198c9c35b956ec041015f455b} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!mini\_jeu\_2\_niveau\_2@{mini\_jeu\_2\_niveau\_2}}
+\index{mini\_jeu\_2\_niveau\_2@{mini\_jeu\_2\_niveau\_2}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{mini\_jeu\_2\_niveau\_2()}{mini\_jeu\_2\_niveau\_2()}}
+{\footnotesize\ttfamily void mini\+\_\+jeu\+\_\+2\+\_\+niveau\+\_\+2 (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+x,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+y,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+x\+\_\+initiale,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+y\+\_\+initiale,  }\item[{int}]{tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]},  }\item[{int}]{mode\+\_\+difficile }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser le second mini-\/jeu du niveau 2. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em position\+\_\+x} & position verticale du joueur à l\textquotesingle{}apparition dans le niveau \\
+\hline
+{\em position\+\_\+y} & position horizontale du joueur à l\textquotesingle{}apparition dans le niveau \\
+\hline
+{\em position\+\_\+x\+\_\+initiale} & position du joueur verticale si il venait à revenir dans le niveau ou si il venait à mourir \\
+\hline
+{\em position\+\_\+y\+\_\+initiale} & position du joueur horizontale si il venait à revenir dans le niveau ou si il venait à mourir \\
+\hline
+{\em tile\+\_\+map} & map ou se trouve le personnage \\
+\hline
+{\em mode\+\_\+difficile} & booléen indiquant la présence du mode difficile \\
+\hline
+\end{DoxyParams}
+Positionnement du personnage au début de l\textquotesingle{}étage
+
+Création du second mini-\/jeu
+
+Copie du tile-\/map
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00505}{505}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_a1581844b9a670969a24c83ad14158af5}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_a1581844b9a670969a24c83ad14158af5} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!mini\_jeux\_niveau\_2@{mini\_jeux\_niveau\_2}}
+\index{mini\_jeux\_niveau\_2@{mini\_jeux\_niveau\_2}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{mini\_jeux\_niveau\_2()}{mini\_jeux\_niveau\_2()}}
+{\footnotesize\ttfamily void mini\+\_\+jeux\+\_\+niveau\+\_\+2 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+fond,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+sol,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+porte,  }\item[{\mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+tile,  }\item[{int \texorpdfstring{$\ast$}{*}}]{mini\+\_\+jeu,  }\item[{int \texorpdfstring{$\ast$}{*}}]{mini\+\_\+jeu\+\_\+1\+\_\+termine,  }\item[{int \texorpdfstring{$\ast$}{*}}]{mini\+\_\+jeu\+\_\+2\+\_\+termine,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+personnage,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+personnage,  }\item[{int}]{mini\+\_\+jeu\+\_\+termine,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+x,  }\item[{int \texorpdfstring{$\ast$}{*}}]{position\+\_\+y,  }\item[{int}]{tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]},  }\item[{int}]{tile\+\_\+map\+\_\+mini\+\_\+jeu\+\_\+niveau\+\_\+2\mbox{[}19\mbox{]}\mbox{[}27\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+terrestre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+volant,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur\+\_\+tile,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur\+\_\+tile,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+droite,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+gauche,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+interagir,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+sauter\+\_\+monter,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+descendre,  }\item[{int \texorpdfstring{$\ast$}{*}}]{valide,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+vertical,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+horizontal,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+courant,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+demande\+\_\+quitter,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur\+Noire,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Quitter,  }\item[{int}]{taille\+Demande\+Quitter,  }\item[{int}]{collectibles\+\_\+intermediaires\mbox{[}3\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+mur\+\_\+termine,  }\item[{\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page\+\_\+active,  }\item[{Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{musique,  }\item[{int \texorpdfstring{$\ast$}{*}}]{avancer,  }\item[{int \texorpdfstring{$\ast$}{*}}]{reculer,  }\item[{int \texorpdfstring{$\ast$}{*}}]{sauter,  }\item[{int \texorpdfstring{$\ast$}{*}}]{saut,  }\item[{int \texorpdfstring{$\ast$}{*}}]{tombe }\end{DoxyParamCaption})}
+
+Squelette de la fonction mini\+\_\+jeux\+\_\+niveau\+\_\+2 Gestion de l\textquotesingle{}événement de redimensionnement de la fenêtre
+
+Option plein écran
+
+Demande au joueur s\textquotesingle{}il veut quitter le niveau
+
+Vérifier le chemin
+
+Vérifier si le joueur a gagné
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00727}{727}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_a49b9521b72599cf076d161bc50082c55} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!mise\_a\_jour\_bordures\_niveau\_2@{mise\_a\_jour\_bordures\_niveau\_2}}
+\index{mise\_a\_jour\_bordures\_niveau\_2@{mise\_a\_jour\_bordures\_niveau\_2}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_bordures\_niveau\_2()}{mise\_a\_jour\_bordures\_niveau\_2()}}
+{\footnotesize\ttfamily int mise\+\_\+a\+\_\+jour\+\_\+bordures\+\_\+niveau\+\_\+2 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+mur\+\_\+termine,  }\item[{int}]{tilemap\mbox{[}19\mbox{]}\mbox{[}27\mbox{]},  }\item[{int}]{x\+\_\+tile,  }\item[{int}]{y\+\_\+tile,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+tile,  }\item[{int}]{largeur\+\_\+tile,  }\item[{int}]{hauteur\+\_\+tile }\end{DoxyParamCaption})}
+
+
+
+Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la 9 du labyrinthe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Renderer SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+mur\+\_\+termine} & Texture de l\textquotesingle{}image du mur terminé. \\
+\hline
+{\em tilemap} & Carte de tuiles du niveau 2. \\
+\hline
+{\em x\+\_\+tile} & Position x de la tuile à mettre à jour. \\
+\hline
+{\em y\+\_\+tile} & Position y de la tuile à mettre à jour. \\
+\hline
+{\em x} & Position x de la tuile dans l\textquotesingle{}écran. \\
+\hline
+{\em y} & Position y de la tuile dans l\textquotesingle{}écran. \\
+\hline
+{\em rectangle\+\_\+tile} & Rectangle pour chaque tuile. \\
+\hline
+{\em largeur\+\_\+tile} & Largeur d\textquotesingle{}une tuile. \\
+\hline
+{\em hauteur\+\_\+tile} & Hauteur d\textquotesingle{}une tuile. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+appel récursif pour mettre les différents rectangle à jour jusqu\textquotesingle{}à la fin (appel se finissant par un 0) 
+\end{DoxyReturn}
+Mise à jour du rendu de la tuile courante
+
+Vérification des tuiles adjacentes pour permettre un appel récursif et ainsi changé toute les tuiles de la bordure
+
+Tuile à gauche de la courante
+
+Tuile à droite de la courante
+
+Tuile en bas de la courante
+
+Tuile en haut de la courante
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00251}{251}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_a6a54e7a3ef1cf2739269282559390bb7}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_a6a54e7a3ef1cf2739269282559390bb7} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!mise\_a\_jour\_mini\_jeu\_1\_niveau\_2@{mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}}
+\index{mise\_a\_jour\_mini\_jeu\_1\_niveau\_2@{mise\_a\_jour\_mini\_jeu\_1\_niveau\_2}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_mini\_jeu\_1\_niveau\_2()}{mise\_a\_jour\_mini\_jeu\_1\_niveau\_2()}}
+{\footnotesize\ttfamily void mise\+\_\+a\+\_\+jour\+\_\+mini\+\_\+jeu\+\_\+1\+\_\+niveau\+\_\+2 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+tile,  }\item[{int}]{position\+\_\+x,  }\item[{int}]{position\+\_\+y,  }\item[{int}]{tile\+\_\+map\+\_\+mini\+\_\+jeu\+\_\+niveau\+\_\+2\mbox{[}19\mbox{]}\mbox{[}27\mbox{]},  }\item[{int}]{largeur,  }\item[{int}]{hauteur,  }\item[{int}]{largeur\+\_\+tile,  }\item[{int}]{hauteur\+\_\+tile,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+vertical,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+horizontal,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+pipe\+\_\+courant,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+mur\+\_\+termine }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de mettre à jour le premier mini-\/jeu du niveau 2. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em rectangle\+\_\+plein\+\_\+ecran} & Rectangle pour le plein écran. \\
+\hline
+{\em texture\+\_\+image\+\_\+plein\+\_\+ecran} & Texture de l\textquotesingle{}image du plein écran. \\
+\hline
+{\em texture} & Texture SDL. \\
+\hline
+{\em rectangle\+\_\+tile} & Rectangle pour chaque tuile. \\
+\hline
+{\em position\+\_\+x} & Position x du joueur. \\
+\hline
+{\em position\+\_\+y} & Position y du joueur. \\
+\hline
+{\em tile\+\_\+map\+\_\+mini\+\_\+jeu\+\_\+niveau\+\_\+2} & Carte de tuiles du mini-\/jeu 1 du niveau 2. \\
+\hline
+{\em largeur} & Largeur de l\textquotesingle{}écran. \\
+\hline
+{\em hauteur} & Hauteur de l\textquotesingle{}écran. \\
+\hline
+{\em largeur\+\_\+tile} & Largeur d\textquotesingle{}une tuile. \\
+\hline
+{\em hauteur\+\_\+tile} & Hauteur d\textquotesingle{}une tuile. \\
+\hline
+{\em texture\+\_\+image\+\_\+mur\+\_\+mini\+\_\+jeu} & Texture de l\textquotesingle{}image du mur du mini-\/jeu. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+vertical} & Texture de l\textquotesingle{}image du tuyau vertical. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+horizontal} & Texture de l\textquotesingle{}image du tuyau horizontal. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+droit} & Texture de l\textquotesingle{}image du tuyau haut droit. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+droit} & Texture de l\textquotesingle{}image du tuyau bas droit. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+bas\+\_\+gauche} & Texture de l\textquotesingle{}image du tuyau bas gauche. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+haut\+\_\+gauche} & Texture de l\textquotesingle{}image du tuyau haut gauche. \\
+\hline
+{\em texture\+\_\+image\+\_\+pipe\+\_\+courant} & Texture de l\textquotesingle{}image du tuyau courant. \\
+\hline
+{\em texture\+\_\+image\+\_\+mur\+\_\+termine} & Texture de l\textquotesingle{}image du mur terminé. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur} 
+\end{DoxySeeAlso}
+Nettoyer le renderer
+
+Rendu tilemap
+
+Rendu de chaque tuile en fonction de son type
+
+Rendu du curseur en rouge
+
+Copie la texture de l\textquotesingle{}image de plein écran
+
+Actualiser le renderer
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00324}{324}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_aa0c34cf55e8c7747f6c4e28db845d6c0}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_aa0c34cf55e8c7747f6c4e28db845d6c0} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!mise\_a\_jour\_mini\_jeu\_2\_niveau\_2@{mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}}
+\index{mise\_a\_jour\_mini\_jeu\_2\_niveau\_2@{mise\_a\_jour\_mini\_jeu\_2\_niveau\_2}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_mini\_jeu\_2\_niveau\_2()}{mise\_a\_jour\_mini\_jeu\_2\_niveau\_2()}}
+{\footnotesize\ttfamily void mise\+\_\+a\+\_\+jour\+\_\+mini\+\_\+jeu\+\_\+2\+\_\+niveau\+\_\+2 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+fond,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+sol,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+tile,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+terrestre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+monstre\+\_\+volant,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+personnage,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+personnage,  }\item[{int}]{mini\+\_\+jeu\+\_\+termine,  }\item[{int}]{position\+\_\+x,  }\item[{int}]{position\+\_\+y,  }\item[{int}]{tile\+\_\+map\mbox{[}18\mbox{]}\mbox{[}32\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+porte,  }\item[{\mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{int}]{largeur,  }\item[{int}]{hauteur,  }\item[{int}]{largeur\+\_\+tile,  }\item[{int}]{hauteur\+\_\+tile }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de mettre à jour le second mini-\/jeu du niveau 2. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+fond} & Texture de l\textquotesingle{}image de fond. \\
+\hline
+{\em texture\+\_\+image\+\_\+sol} & Texture de l\textquotesingle{}image du sol. \\
+\hline
+{\em rectangle\+\_\+plein\+\_\+ecran} & Rectangle pour le plein écran. \\
+\hline
+{\em texture\+\_\+image\+\_\+plein\+\_\+ecran} & Texture de l\textquotesingle{}image du plein écran. \\
+\hline
+{\em texture} & Texture SDL. \\
+\hline
+{\em rectangle\+\_\+tile} & Rectangle pour chaque tuile. \\
+\hline
+{\em texture\+\_\+image\+\_\+monstre\+\_\+terrestre} & Texture de l\textquotesingle{}image du monstre terrestre. \\
+\hline
+{\em texture\+\_\+image\+\_\+monstre\+\_\+volant} & Texture de l\textquotesingle{}image du monstre volant. \\
+\hline
+{\em texture\+\_\+image\+\_\+personnage} & Texture de l\textquotesingle{}image du personnage. \\
+\hline
+{\em rectangle\+\_\+personnage} & Rectangle pour le personnage. \\
+\hline
+{\em mini\+\_\+jeu\+\_\+termine} & Indicateur de la fin du mini-\/jeu. \\
+\hline
+{\em position\+\_\+x} & Position x du joueur. \\
+\hline
+{\em position\+\_\+y} & Position y du joueur. \\
+\hline
+{\em tile\+\_\+map} & Carte de tuiles du niveau. \\
+\hline
+{\em texture\+\_\+image\+\_\+porte} & Texture de l\textquotesingle{}image de la porte. \\
+\hline
+{\em avancee\+\_\+niveaux} & Pointeur vers l\textquotesingle{}état d\textquotesingle{}avancement des niveaux. \\
+\hline
+{\em largeur} & Largeur de l\textquotesingle{}écran. \\
+\hline
+{\em hauteur} & Hauteur de l\textquotesingle{}écran. \\
+\hline
+{\em largeur\+\_\+tile} & Largeur d\textquotesingle{}une tuile. \\
+\hline
+{\em hauteur\+\_\+tile} & Hauteur d\textquotesingle{}une tuile. \\
+\hline
+\end{DoxyParams}
+Efface le rendu
+
+Copie la texture de l\textquotesingle{}image de fond du salon
+
+Affiche tout le salon en fonction des valeurs
+
+Copie la texture de l\textquotesingle{}image du personnage
+
+Copie la texture de l\textquotesingle{}image de plein écran
+
+Affiche le rendu
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00575}{575}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370}\label{Save_2fichiers__c_2fonctions__niveau__2_8c_a1fa05636c524b7e77b44bb5a2522a370} 
+\index{fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}!verification\_chemin@{verification\_chemin}}
+\index{verification\_chemin@{verification\_chemin}!fonctions\_niveau\_2.c@{fonctions\_niveau\_2.c}}
+\doxysubsubsection{\texorpdfstring{verification\_chemin()}{verification\_chemin()}}
+{\footnotesize\ttfamily int verification\+\_\+chemin (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{x\+\_\+precedent,  }\item[{int}]{y\+\_\+precedent,  }\item[{int}]{tilemap\mbox{[}19\mbox{]}\mbox{[}27\mbox{]},  }\item[{int}]{x\+\_\+arrivee,  }\item[{int}]{y\+\_\+arrivee }\end{DoxyParamCaption})}
+
+
+
+Fonction de vérification du chemin. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & position actuelle verticale dans la vérification du chemin \\
+\hline
+{\em y} & position actuelle horizontale dans la vérification du chemin \\
+\hline
+{\em x\+\_\+precedent} & position précédente à la position actuelle de x \\
+\hline
+{\em y\+\_\+precedent} & position précédente à la position actuelle de y \\
+\hline
+{\em tilemap} & map à vérifier \\
+\hline
+{\em x\+\_\+arrivee} & coordonnée x ou se trouve la sortie \\
+\hline
+{\em y\+\_\+arrivee} & coordonnée y ou se trouve la sortie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+booléen (1 si le chemin est bon sinon 0)
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & position actuelle verticale dans la vérification du chemin \\
+\hline
+{\em y} & position actuelle horizontale dans la vérification du chemin \\
+\hline
+{\em x\+\_\+precedent} & position précédente à la position actuelle de x \\
+\hline
+{\em y\+\_\+precedent} & position précédente à la position actuelle de y \\
+\hline
+{\em tilemap} & map à vérifier \\
+\hline
+{\em x\+\_\+arrivee} & coordonnée x ou se trouve la sortie \\
+\hline
+{\em y\+\_\+arrivee} & coordonnée y ou se trouve la sortie \\
+\hline
+\end{DoxyParams}
+Vérifier si les coordonnées actuelles correspondent aux coordonnées de l\textquotesingle{}arrivée
+
+Vérification du premier tuyau car il n\textquotesingle{}est pas dans la boucle de vérification
+
+Vérifier si le tuyau actuel est correctement aligné avec le précédent
+
+Tuyau vertical
+
+On vient du dessus
+
+On regarde que le tuyau suivant peut bien venir d\textquotesingle{}en haut
+
+On va en bas
+
+On vient d\textquotesingle{}en dessous
+
+On regarde que le tuyau suivant peut bien venir d\textquotesingle{}en bas
+
+On va en haut
+
+Tuyau horizontal
+
+On vient de la gauche
+
+On regarde que le tuyau suivant peut bien venir de la gauche
+
+On va à droite
+
+On vient de la droite
+
+On regarde que le tuyau suivant peut bien venir de la droite
+
+On va à gauche
+
+Tuyau HD
+
+On vient du dessus
+
+On regarde que le tuyau suivant peut bien venir de la gauche
+
+On va à droite
+
+On vient de la droite
+
+On regarde que le tuyau suivant peut bien venir d\textquotesingle{}en bas
+
+On va en haut
+
+Tuyau BD
+
+On vient de la droite
+
+On regarde que le tuyau suivant peut bien venir d\textquotesingle{}en haut
+
+On va en bas
+
+On vient du bas
+
+On regarde que le tuyau suivant peut bien venir de la gauche
+
+On va à droite
+
+Tuyau BG
+
+On vient de la gauche
+
+On regarde que le tuyau suivant peut bien venir d\textquotesingle{}en haut
+
+On va en bas
+
+On vient du bas
+
+On regarde que le tuyau suivant peut bien venir de la droite
+
+On va à gauche
+
+Tuyau HG
+
+On vient du haut
+
+On regarde que le tuyau suivant peut bien venir de la droite
+
+On va à gauche
+
+On vient de la gauche
+
+On regarde que le tuyau suivant peut bien venir d\textquotesingle{}en bas
+
+On va au haut
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source_l00117}{117}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__niveau__2_8c_source}{fonctions\+\_\+niveau\+\_\+2.\+c}}.
+

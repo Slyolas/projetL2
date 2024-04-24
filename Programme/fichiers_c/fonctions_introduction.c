@@ -1,7 +1,27 @@
+/**
+ * \file fonctions_introduction.c
+ * \brief Fichier avec les fonctions présentant l'introduction du jeu
+*/
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_introduction.h>
 
-/* Fonction qui met à jour le rendu de l'introduction */
+/** 
+ * \fn void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *ligne, SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer, SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte,  TTF_Font **police, SDL_Color couleurBlanche, int largeur, int hauteur)
+ * \brief Fonction qui met à jour le rendu de l'introduction 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param indice Indice de la ligne de texte.
+ * \param ligne Ligne de texte à afficher.
+ * \param rectangle_passer Rectangle pour le bouton "Passer".
+ * \param texture_image_passer Texture de l'image du bouton "Passer".
+ * \param rectangle_texte_introduction Rectangle pour le texte d'introduction.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param couleurBlanche Couleur blanche SDL.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \see erreur
+ */
 void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *ligne,
                                     SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
                                     SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, 
@@ -57,7 +77,29 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
 
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction */
+/** 
+ * \fn void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer, SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, personnage_t *personnageActif, SDL_Color couleurBlanche, int *largeur, int *hauteur, page_t *page_active)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction 
+ * \param event Événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param programme_lance Indicateur de lancement du programme.
+ * \param rectangle_passer Rectangle pour le bouton "Passer".
+ * \param texture_image_passer Texture de l'image du bouton "Passer".
+ * \param rectangle_texte_introduction Rectangle pour le texte d'introduction.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param personnageActif Personnage actif du joueur.
+ * \param couleurBlanche Couleur blanche SDL.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param page_active Page active du jeu.
+ * \see erreur
+ * \see redimensionnement_fenetre
+ * \see clic_case
+ * \see mise_a_jour_rendu_introduction
+ */
 void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
                   SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
                   SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,

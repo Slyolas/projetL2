@@ -1,0 +1,208 @@
+\doxysection{Référence du fichier Programme/fichiers\+\_\+c/fonctions\+\_\+options.c}
+\hypertarget{Programme_2fichiers__c_2fonctions__options_8c}{}\label{Programme_2fichiers__c_2fonctions__options_8c}\index{Programme/fichiers\_c/fonctions\_options.c@{Programme/fichiers\_c/fonctions\_options.c}}
+
+
+Fichier qui réunit les fonctions s\textquotesingle{}occupant de la fenêtre des options du jeu.  
+
+
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+generales.\+h$>$}\newline
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+options.\+h$>$}\newline
+Graphe des dépendances par inclusion de fonctions\+\_\+options.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Programme_2fichiers__c_2fonctions__options_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_abe273bd3b471de7067043676c1e2eef7}{initialisation\+\_\+objets\+\_\+options}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+haut\+Parleur\+Actif, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+haut\+Parleur\+Desactive, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titre, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Touches, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Barres)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser les différents objets des options. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_a32b954f7ecd62846bb5d926af54fb321}{mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+options}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+haut\+Parleur\+Actif, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+haut\+Parleur\+Desactive, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}sons\+Actifs, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangles\+\_\+boutons\+\_\+sons, \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{option\+\_\+t}} onglet\+Actif, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titre, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur\+Noire, int selection\+\_\+touche, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, int taille\+Menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Touches, int taille\+Touches, \mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}barre\+\_\+de\+\_\+son, int taille\+Barres, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Barres, int largeur, int hauteur)
+\begin{DoxyCompactList}\small\item\em Fonction qui met à jour le rendu des options. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_a2a2e04019b08425453a21b773361781e}{mise\+\_\+a\+\_\+jour\+\_\+barre\+\_\+de\+\_\+son}} (SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event, \mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}barre\+\_\+de\+\_\+son, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}sons\+Actifs)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de mettre à jour les barres de sons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_a93c3598a1b4058df4f4121b7755c672e}{mise\+\_\+a\+\_\+jour\+\_\+touches}} (SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche, int \texorpdfstring{$\ast$}{*}selection\+\_\+touche, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Touches)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de mettre à jour les touches. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_a8bdd9c80ba51365b04256e860b3b8801}{options}} (SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}programme\+\_\+lance, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}plein\+\_\+ecran, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+haut\+Parleur\+Actif, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+demande\+\_\+sauvegarde, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Demande\+Sauvegarde, int taille\+Demande\+Sauvegarde, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+haut\+Parleur\+Desactive, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}sons\+Actifs, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangles\+\_\+boutons\+\_\+sons, \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{option\+\_\+t}} \texorpdfstring{$\ast$}{*}onglet\+Actif, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}pseudo, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}} \texorpdfstring{$\ast$}{*}mode\+Actif, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} \texorpdfstring{$\ast$}{*}personnage\+Actif, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}} \texorpdfstring{$\ast$}{*}position\+Active, \mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, int taille\+Niveaux, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titre, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, int \texorpdfstring{$\ast$}{*}selection\+\_\+touche, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+droite, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+gauche, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+sauter\+\_\+monter, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+descendre, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+interagir, SDL\+\_\+\+Color couleur\+Noire, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, int taille\+Menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Touches, int taille\+Touches, \mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}barre\+\_\+de\+\_\+son, int taille\+Barres, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Barres, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}page\+\_\+active, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}page\+\_\+precedente, int \texorpdfstring{$\ast$}{*}maintient\+\_\+clic, time\+\_\+t temps\+\_\+debut\+\_\+partie, int \texorpdfstring{$\ast$}{*}compteur\+\_\+mort, int \texorpdfstring{$\ast$}{*}avancee\+\_\+succes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier qui réunit les fonctions s\textquotesingle{}occupant de la fenêtre des options du jeu. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source}{fonctions\+\_\+options.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Programme_2fichiers__c_2fonctions__options_8c_abe273bd3b471de7067043676c1e2eef7}\label{Programme_2fichiers__c_2fonctions__options_8c_abe273bd3b471de7067043676c1e2eef7} 
+\index{fonctions\_options.c@{fonctions\_options.c}!initialisation\_objets\_options@{initialisation\_objets\_options}}
+\index{initialisation\_objets\_options@{initialisation\_objets\_options}!fonctions\_options.c@{fonctions\_options.c}}
+\doxysubsubsection{\texorpdfstring{initialisation\_objets\_options()}{initialisation\_objets\_options()}}
+{\footnotesize\ttfamily void initialisation\+\_\+objets\+\_\+options (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+haut\+Parleur\+Actif,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+haut\+Parleur\+Desactive,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titre,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Touches,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Barres }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser les différents objets des options. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em surface} & Pointeur vers la surface SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+haut\+Parleur\+Actif} & Texture pour l\textquotesingle{}icône de haut-\/parleur actif. \\
+\hline
+{\em texture\+\_\+image\+\_\+haut\+Parleur\+Desactive} & Texture pour l\textquotesingle{}icône de haut-\/parleur désactivé. \\
+\hline
+{\em titre} & Pointeur vers l\textquotesingle{}item du titre du menu. \\
+\hline
+{\em items\+Menu} & Tableau des items du menu. \\
+\hline
+{\em items\+Touches} & Tableau des items pour les touches du clavier. \\
+\hline
+{\em items\+Barres} & Tableau des items pour les barres de volume. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\+\_\+image} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source_l00019}{19}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source}{fonctions\+\_\+options.\+c}}.
+
+\Hypertarget{Programme_2fichiers__c_2fonctions__options_8c_a2a2e04019b08425453a21b773361781e}\label{Programme_2fichiers__c_2fonctions__options_8c_a2a2e04019b08425453a21b773361781e} 
+\index{fonctions\_options.c@{fonctions\_options.c}!mise\_a\_jour\_barre\_de\_son@{mise\_a\_jour\_barre\_de\_son}}
+\index{mise\_a\_jour\_barre\_de\_son@{mise\_a\_jour\_barre\_de\_son}!fonctions\_options.c@{fonctions\_options.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_barre\_de\_son()}{mise\_a\_jour\_barre\_de\_son()}}
+{\footnotesize\ttfamily void mise\+\_\+a\+\_\+jour\+\_\+barre\+\_\+de\+\_\+son (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{\mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}}]{barre\+\_\+de\+\_\+son,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{sons\+Actifs }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de mettre à jour les barres de sons. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & Pointeur vers l\textquotesingle{}événement SDL. \\
+\hline
+{\em barre\+\_\+de\+\_\+son} & Pointeur vers la barre de son. \\
+\hline
+{\em sons\+Actifs} & Pointeur booléen pour l\textquotesingle{}état des sons. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source_l00297}{297}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source}{fonctions\+\_\+options.\+c}}.
+
+\Hypertarget{Programme_2fichiers__c_2fonctions__options_8c_a32b954f7ecd62846bb5d926af54fb321}\label{Programme_2fichiers__c_2fonctions__options_8c_a32b954f7ecd62846bb5d926af54fb321} 
+\index{fonctions\_options.c@{fonctions\_options.c}!mise\_a\_jour\_rendu\_options@{mise\_a\_jour\_rendu\_options}}
+\index{mise\_a\_jour\_rendu\_options@{mise\_a\_jour\_rendu\_options}!fonctions\_options.c@{fonctions\_options.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_rendu\_options()}{mise\_a\_jour\_rendu\_options()}}
+{\footnotesize\ttfamily void mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+options (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+haut\+Parleur\+Actif,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+haut\+Parleur\+Desactive,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{sons\+Actifs,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangles\+\_\+boutons\+\_\+sons,  }\item[{\mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{option\+\_\+t}}}]{onglet\+Actif,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titre,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur\+Noire,  }\item[{int}]{selection\+\_\+touche,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{int}]{taille\+Menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Touches,  }\item[{int}]{taille\+Touches,  }\item[{\mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}}]{barre\+\_\+de\+\_\+son,  }\item[{int}]{taille\+Barres,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Barres,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+
+
+
+Fonction qui met à jour le rendu des options. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em rectangle\+\_\+plein\+\_\+ecran} & Rectangle pour le plein écran. \\
+\hline
+{\em texture\+\_\+image\+\_\+plein\+\_\+ecran} & Texture pour l\textquotesingle{}image du plein écran. \\
+\hline
+{\em rectangle\+\_\+retour\+\_\+en\+\_\+arriere} & Rectangle pour le bouton de retour en arrière. \\
+\hline
+{\em texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere} & Texture pour l\textquotesingle{}image du bouton de retour en arrière. \\
+\hline
+{\em texture\+\_\+image\+\_\+haut\+Parleur\+Actif} & Texture pour l\textquotesingle{}icône de haut-\/parleur actif. \\
+\hline
+{\em texture\+\_\+image\+\_\+haut\+Parleur\+Desactive} & Texture pour l\textquotesingle{}icône de haut-\/parleur désactivé. \\
+\hline
+{\em sons\+Actifs} & Pointeur booléen pour l\textquotesingle{}état des sons. \\
+\hline
+{\em rectangles\+\_\+boutons\+\_\+sons} & Tableau des rectangles pour les boutons de sons. \\
+\hline
+{\em onglet\+Actif} & Onglet actif dans le menu des options. \\
+\hline
+{\em titre} & Pointeur vers l\textquotesingle{}item du titre du menu. \\
+\hline
+{\em surface} & Pointeur vers la surface SDL. \\
+\hline
+{\em texture\+\_\+texte} & Texture pour le texte. \\
+\hline
+{\em police} & Pointeur vers la police TTF. \\
+\hline
+{\em couleur\+Noire} & Couleur noire. \\
+\hline
+{\em selection\+\_\+touche} & Sélection de la touche du clavier. \\
+\hline
+{\em items\+Menu} & Tableau des items du menu. \\
+\hline
+{\em taille\+Menu} & Taille du tableau des items du menu. \\
+\hline
+{\em items\+Touches} & Tableau des items pour les touches du clavier. \\
+\hline
+{\em taille\+Touches} & Taille du tableau des items pour les touches du clavier. \\
+\hline
+{\em barre\+\_\+de\+\_\+son} & Tableau des barres de son. \\
+\hline
+{\em taille\+Barres} & Taille du tableau des barres de son. \\
+\hline
+{\em items\+Barres} & Tableau des items pour les barres de volume. \\
+\hline
+{\em largeur} & Largeur de la fenêtre. \\
+\hline
+{\em hauteur} & Hauteur de la fenêtre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\+\_\+texte} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source_l00083}{83}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source}{fonctions\+\_\+options.\+c}}.
+
+\Hypertarget{Programme_2fichiers__c_2fonctions__options_8c_a93c3598a1b4058df4f4121b7755c672e}\label{Programme_2fichiers__c_2fonctions__options_8c_a93c3598a1b4058df4f4121b7755c672e} 
+\index{fonctions\_options.c@{fonctions\_options.c}!mise\_a\_jour\_touches@{mise\_a\_jour\_touches}}
+\index{mise\_a\_jour\_touches@{mise\_a\_jour\_touches}!fonctions\_options.c@{fonctions\_options.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_touches()}{mise\_a\_jour\_touches()}}
+{\footnotesize\ttfamily void mise\+\_\+a\+\_\+jour\+\_\+touches (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche,  }\item[{int \texorpdfstring{$\ast$}{*}}]{selection\+\_\+touche,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Touches }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de mettre à jour les touches. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & Pointeur vers l\textquotesingle{}événement SDL. \\
+\hline
+{\em touche} & Pointeur vers la touche sélectionnée. \\
+\hline
+{\em selection\+\_\+touche} & Pointeur vers l\textquotesingle{}indice de la touche sélectionnée. \\
+\hline
+{\em items\+Touches} & Tableau des éléments de menu des touches. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source_l00315}{315}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source}{fonctions\+\_\+options.\+c}}.
+
+\Hypertarget{Programme_2fichiers__c_2fonctions__options_8c_a8bdd9c80ba51365b04256e860b3b8801}\label{Programme_2fichiers__c_2fonctions__options_8c_a8bdd9c80ba51365b04256e860b3b8801} 
+\index{fonctions\_options.c@{fonctions\_options.c}!options@{options}}
+\index{options@{options}!fonctions\_options.c@{fonctions\_options.c}}
+\doxysubsubsection{\texorpdfstring{options()}{options()}}
+{\footnotesize\ttfamily void options (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{programme\+\_\+lance,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+haut\+Parleur\+Actif,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+demande\+\_\+sauvegarde,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Demande\+Sauvegarde,  }\item[{int}]{taille\+Demande\+Sauvegarde,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+haut\+Parleur\+Desactive,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{sons\+Actifs,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangles\+\_\+boutons\+\_\+sons,  }\item[{\mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{option\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{onglet\+Actif,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{pseudo,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{mode\+Actif,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{personnage\+Actif,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{position\+Active,  }\item[{\mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{int}]{taille\+Niveaux,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titre,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{int \texorpdfstring{$\ast$}{*}}]{selection\+\_\+touche,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+droite,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+gauche,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+sauter\+\_\+monter,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+descendre,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+interagir,  }\item[{SDL\+\_\+\+Color}]{couleur\+Noire,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{int}]{taille\+Menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Touches,  }\item[{int}]{taille\+Touches,  }\item[{\mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}}]{barre\+\_\+de\+\_\+son,  }\item[{int}]{taille\+Barres,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Barres,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page\+\_\+active,  }\item[{\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page\+\_\+precedente,  }\item[{int \texorpdfstring{$\ast$}{*}}]{maintient\+\_\+clic,  }\item[{time\+\_\+t}]{temps\+\_\+debut\+\_\+partie,  }\item[{int \texorpdfstring{$\ast$}{*}}]{compteur\+\_\+mort,  }\item[{int \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+succes }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source_l00381}{381}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__options_8c_source}{fonctions\+\_\+options.\+c}}.
+

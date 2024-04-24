@@ -1,0 +1,192 @@
+\doxysection{Référence du fichier Programme/fichiers\+\_\+c/fonctions\+\_\+menu\+\_\+principal.c}
+\hypertarget{Programme_2fichiers__c_2fonctions__menu__principal_8c}{}\label{Programme_2fichiers__c_2fonctions__menu__principal_8c}\index{Programme/fichiers\_c/fonctions\_menu\_principal.c@{Programme/fichiers\_c/fonctions\_menu\_principal.c}}
+
+
+Fichier contenant les fonctions pour le menu principal ~\newline
+  
+
+
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+generales.\+h$>$}\newline
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+menu\+\_\+principal.\+h$>$}\newline
+Graphe des dépendances par inclusion de fonctions\+\_\+menu\+\_\+principal.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Programme_2fichiers__c_2fonctions__menu__principal_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_aa2d2258039f3f1d15973bdf6f154ebec}{initialisation\+\_\+objets\+\_\+menu\+\_\+principal}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titre, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, int taille\+Menu)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser les différents objets du menu principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_a94296f3881d816cad69e2cccfe9c45d0}{mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+menu\+\_\+principal}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+menu, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titre, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur\+Titre, SDL\+\_\+\+Color couleur\+Noire, int selection\+\_\+menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, int taille\+Menu, int largeur, int hauteur)
+\begin{DoxyCompactList}\small\item\em Fonction qui met à jour le rendu du menu principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_ada9b65addcc8f4bc4bb199507d304a48}{menu\+\_\+principal}} (SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}programme\+\_\+lance, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+menu, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}plein\+\_\+ecran, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titre, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur\+Titre, SDL\+\_\+\+Color couleur\+Noire, int code\+\_\+de\+\_\+triche\mbox{[}3\mbox{]}, int \texorpdfstring{$\ast$}{*}selection\+\_\+menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, int taille\+Menu, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}page\+\_\+active)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions pour le menu principal ~\newline
+ 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_source}{fonctions\+\_\+menu\+\_\+principal.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Programme_2fichiers__c_2fonctions__menu__principal_8c_aa2d2258039f3f1d15973bdf6f154ebec}\label{Programme_2fichiers__c_2fonctions__menu__principal_8c_aa2d2258039f3f1d15973bdf6f154ebec} 
+\index{fonctions\_menu\_principal.c@{fonctions\_menu\_principal.c}!initialisation\_objets\_menu\_principal@{initialisation\_objets\_menu\_principal}}
+\index{initialisation\_objets\_menu\_principal@{initialisation\_objets\_menu\_principal}!fonctions\_menu\_principal.c@{fonctions\_menu\_principal.c}}
+\doxysubsubsection{\texorpdfstring{initialisation\_objets\_menu\_principal()}{initialisation\_objets\_menu\_principal()}}
+{\footnotesize\ttfamily void initialisation\+\_\+objets\+\_\+menu\+\_\+principal (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titre,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{int}]{taille\+Menu }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser les différents objets du menu principal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em surface} & Surface SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+menu} & Texture de l\textquotesingle{}image du menu principal. \\
+\hline
+{\em titre} & Titre du menu. \\
+\hline
+{\em items\+Menu} & Tableau d\textquotesingle{}items pour le menu principal. \\
+\hline
+{\em taille\+Menu} & Taille du tableau d\textquotesingle{}items pour le menu principal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\+\_\+image} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_source}{fonctions\+\_\+menu\+\_\+principal.\+c}}.
+
+\Hypertarget{Programme_2fichiers__c_2fonctions__menu__principal_8c_ada9b65addcc8f4bc4bb199507d304a48}\label{Programme_2fichiers__c_2fonctions__menu__principal_8c_ada9b65addcc8f4bc4bb199507d304a48} 
+\index{fonctions\_menu\_principal.c@{fonctions\_menu\_principal.c}!menu\_principal@{menu\_principal}}
+\index{menu\_principal@{menu\_principal}!fonctions\_menu\_principal.c@{fonctions\_menu\_principal.c}}
+\doxysubsubsection{\texorpdfstring{menu\_principal()}{menu\_principal()}}
+{\footnotesize\ttfamily void menu\+\_\+principal (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{programme\+\_\+lance,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+menu,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{plein\+\_\+ecran,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titre,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur\+Titre,  }\item[{SDL\+\_\+\+Color}]{couleur\+Noire,  }\item[{int}]{code\+\_\+de\+\_\+triche\mbox{[}3\mbox{]},  }\item[{int \texorpdfstring{$\ast$}{*}}]{selection\+\_\+menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{int}]{taille\+Menu,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page\+\_\+active }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu principal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & Événement SDL. \\
+\hline
+{\em window} & Pointeur vers la fenêtre SDL. \\
+\hline
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em programme\+\_\+lance} & Indicateur de lancement du programme. \\
+\hline
+{\em texture\+\_\+image\+\_\+menu} & Texture de l\textquotesingle{}image du menu principal. \\
+\hline
+{\em rectangle\+\_\+plein\+\_\+ecran} & Rectangle plein écran SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+plein\+\_\+ecran} & Texture de l\textquotesingle{}image en plein écran. \\
+\hline
+{\em plein\+\_\+ecran} & Indicateur de mode plein écran. \\
+\hline
+{\em titre} & Titre du menu principal. \\
+\hline
+{\em surface} & Surface SDL. \\
+\hline
+{\em texture\+\_\+texte} & Texture du texte SDL. \\
+\hline
+{\em police} & Police de caractères TTF. \\
+\hline
+{\em couleur\+Titre} & Couleur du titre. \\
+\hline
+{\em couleur\+Noire} & Couleur noire SDL. \\
+\hline
+{\em code\+\_\+de\+\_\+triche} & Tableau de codes de triche. \\
+\hline
+{\em selection\+\_\+menu} & Sélection actuelle du menu. \\
+\hline
+{\em items\+Menu} & Tableau d\textquotesingle{}items pour le menu principal. \\
+\hline
+{\em taille\+Menu} & Taille du tableau d\textquotesingle{}items pour le menu principal. \\
+\hline
+{\em largeur} & Largeur de l\textquotesingle{}écran. \\
+\hline
+{\em hauteur} & Hauteur de l\textquotesingle{}écran. \\
+\hline
+{\em page\+\_\+active} & Page active du menu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\+\_\+fenetre} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\+\_\+case} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_afe51c2fcb0206df7f65785b8b0137951}{clic\+\_\+plein\+\_\+ecran} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__menu__principal_8c_a94296f3881d816cad69e2cccfe9c45d0}{mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+menu\+\_\+principal} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_source_l00214}{214}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_source}{fonctions\+\_\+menu\+\_\+principal.\+c}}.
+
+\Hypertarget{Programme_2fichiers__c_2fonctions__menu__principal_8c_a94296f3881d816cad69e2cccfe9c45d0}\label{Programme_2fichiers__c_2fonctions__menu__principal_8c_a94296f3881d816cad69e2cccfe9c45d0} 
+\index{fonctions\_menu\_principal.c@{fonctions\_menu\_principal.c}!mise\_a\_jour\_rendu\_menu\_principal@{mise\_a\_jour\_rendu\_menu\_principal}}
+\index{mise\_a\_jour\_rendu\_menu\_principal@{mise\_a\_jour\_rendu\_menu\_principal}!fonctions\_menu\_principal.c@{fonctions\_menu\_principal.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_rendu\_menu\_principal()}{mise\_a\_jour\_rendu\_menu\_principal()}}
+{\footnotesize\ttfamily void mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+menu\+\_\+principal (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+menu,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titre,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur\+Titre,  }\item[{SDL\+\_\+\+Color}]{couleur\+Noire,  }\item[{int}]{selection\+\_\+menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{int}]{taille\+Menu,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+
+
+
+Fonction qui met à jour le rendu du menu principal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+menu} & Texture de l\textquotesingle{}image du menu principal. \\
+\hline
+{\em rectangle\+\_\+plein\+\_\+ecran} & Rectangle plein écran SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+plein\+\_\+ecran} & Texture de l\textquotesingle{}image en plein écran. \\
+\hline
+{\em titre} & Titre du menu principal. \\
+\hline
+{\em surface} & Surface SDL. \\
+\hline
+{\em texture\+\_\+texte} & Texture du texte SDL. \\
+\hline
+{\em police} & Police de caractères TTF. \\
+\hline
+{\em couleur\+Titre} & Couleur du titre. \\
+\hline
+{\em couleur\+Noire} & Couleur noire SDL. \\
+\hline
+{\em selection\+\_\+menu} & Sélection actuelle du menu. \\
+\hline
+{\em items\+Menu} & Tableau d\textquotesingle{}items pour le menu principal. \\
+\hline
+{\em taille\+Menu} & Taille du tableau d\textquotesingle{}items pour le menu principal. \\
+\hline
+{\em largeur} & Largeur de l\textquotesingle{}écran. \\
+\hline
+{\em hauteur} & Hauteur de l\textquotesingle{}écran. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\+\_\+texte} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_source_l00084}{84}} du fichier \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__menu__principal_8c_source}{fonctions\+\_\+menu\+\_\+principal.\+c}}.
+

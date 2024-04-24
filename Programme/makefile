@@ -152,3 +152,20 @@ clean_obj:
 # Supprimer l'exécutable
 clean_exe:
 	rm -rf $(BIN_DIR)/$(EXECUTABLES)
+
+
+
+#Nom du projet 
+PROJECT_NAME = Metatravers
+#Commande à exécuter
+DOXYGEN = doxygen
+DOC_DIR = docu
+doc:
+	@echo "Génération de la documentation Doxygen"
+	@$(DOXYGEN) Doxyfile
+	@echo "Documentation générée dans $(DOC_DIR)/"
+
+clean_doxy:
+	@echo "Suppression de la documentation Doxygen"
+	@rm -rf $(DOC_DIR)/latex
+	@rm -rf $(DOC_DIR)/html

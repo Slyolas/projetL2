@@ -1,0 +1,69 @@
+\doxysection{commun.\+h}
+\hypertarget{commun_8h_source}{}\label{commun_8h_source}\index{Save/fichiers\_h/commun.h@{Save/fichiers\_h/commun.h}}
+\mbox{\hyperlink{commun_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ H\_COMMUN}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ H\_COMMUN}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00011}00011\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00012}00012\ \textcolor{comment}{/**\ Enumération\ de\ constantes\ pour\ la\ page\ */}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00013}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{00013}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00014}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ad84154820fb7cc5480aa99b8e888ef2e}{00014}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ad84154820fb7cc5480aa99b8e888ef2e}{MENU\_PRINCIPAL}},\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ du\ menu\ principal*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00015}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a1b20f1b4adb6ff9778b284fb46f6f99d}{00015}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a1b20f1b4adb6ff9778b284fb46f6f99d}{OPTIONS}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ d'options*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00016}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88aebc79ee34b720b22062779bedf6344de}{00016}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88aebc79ee34b720b22062779bedf6344de}{NOUVELLE\_PARTIE}},\ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ d'une\ Nouvelle\ partie*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00017}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a493cde94037928d32cb2a20ff3acbdfe}{00017}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}},\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ d'introduction*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00018}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a4824da671cbd0a1f39934252198189ad}{00018}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a4824da671cbd0a1f39934252198189ad}{CARTE}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ de\ la\ carte*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00019}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ad385b296b3c981b6590afbe05856dff0}{00019}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ad385b296b3c981b6590afbe05856dff0}{NIVEAU\_1}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ du\ niveau\ 1*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00020}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a9d63f872b6236b7298787586585e38ec}{00020}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a9d63f872b6236b7298787586585e38ec}{NIVEAU\_2}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ du\ niveau\ 2*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00021}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ac0c170a1d26779279f731e7a169ae1dc}{00021}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ac0c170a1d26779279f731e7a169ae1dc}{NIVEAU\_3}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ du\ niveau\ 3*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88adeb9889be8f12532b67ca2b2e68fe0ca}{NIVEAU\_4}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ page\ du\ niveau\ 4*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00023}\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88adeb9889be8f12532b67ca2b2e68fe0ca}{00023}}\ \}\ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\_t}};}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00026}00026\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00027}00027\ \textcolor{comment}{/**\ Structure\ pour\ représenter\ les\ collectibles\ de\ chaque\ niveaux\ */}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00028}00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{int}\ niveau\_fini;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Booléen\ état\ du\ niveau*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00030}00030\ \ \ \ \ SDL\_Texture\ *texture\_image\_collectible;\ \ \ \ \ \textcolor{comment}{/**\ Texture\ du\ collectible\ du\ niveau*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{int}\ numero\_collectible[3];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Tableau\ représentant\ le\ nombre\ de\ collectible*/}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00032}00032\ \}\ \mbox{\hyperlink{structniveaux}{niveaux}};}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00035}00035\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00036}00036\ \textcolor{comment}{/**\ Structure\ pour\ représenter\ une\ case\ avec\ un\ rectangle\ et\ du\ texte\ */}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00037}00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00038}00038\ \ \ \ \ SDL\_Rect\ rectangle;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Rectangle\ ou\ se\ trouvera\ le\ texte*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{char}\ texte[60];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Texte\ à\ afficher\ */}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00040}00040\ \}\ \mbox{\hyperlink{structitemMenu}{itemMenu}};}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00043}00043\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00044}00044\ \textcolor{comment}{/**\ Enumération\ de\ constantes\ pour\ l'onglet\ actif\ des\ options\ */}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00045}\mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{00045}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00046}\mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa2e98a954ec1b0246c867b436c6341b3b}{00046}}\ \ \ \ \ \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa2e98a954ec1b0246c867b436c6341b3b}{ONGLET\_SON}},\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**\ Indice\ de\ l'onglet\ son\ de\ la\ page\ paramètre*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00047}00047\ \ \ \ \ \ \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa7b77d5982c5312b395828ad434f8df7f}{ONGLET\_TOUCHES}}\ \ \ \ \ \textcolor{comment}{/**\ Indice\ de\ l'onglet\ touche\ de\ la\ page\ paramètre*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00048}\mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa7b77d5982c5312b395828ad434f8df7f}{00048}}\ \}\ \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{option\_t}};}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00049}00049\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00050}00050\ \textcolor{comment}{/**\ Structure\ pour\ représenter\ une\ barre\ de\ son\ */}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00051}00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00052}00052\ \ \ \ \ SDL\_Rect\ barre;\ \ \ \ \ \textcolor{comment}{/**\ Barre\ de\ chargement\ du\ son*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00053}00053\ \ \ \ \ SDL\_Rect\ curseur;\ \ \ \ \ \ \ \textcolor{comment}{/**\ Curseur\ de\ position\ du\ son*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{float}\ volume;\ \ \ \ \ \ \ \textcolor{comment}{/**\ Volume\ actuelle\ du\ son*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{float}\ volume\_precedent;\ \textcolor{comment}{/**\ Volume\ précédent\ (avant\ le\ mute)*/}}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00056}00056\ \}\ \mbox{\hyperlink{structbarreDeSon}{barreDeSon}};}
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{commun_8h_source_l00063}00063\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

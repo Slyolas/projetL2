@@ -1,7 +1,22 @@
+/**
+ * \file fonctions_nouvelle_partie.c
+ * \brief Fichier contenant les fonctions servant à la fenêtre d'une nouvelle partie 
+*/
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_nouvelle_partie.h>
 
-/* Fonction qui permet d'initialiser les différents objets de la nouvelle partie*/
+/** 
+ * \fn void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_perso_1, SDL_Texture **texture_image_perso_2, itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider)
+ * \brief Fonction qui permet d'initialiser les différents objets de la nouvelle partie
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_perso_1 Texture pour le premier personnage.
+ * \param texture_image_perso_2 Texture pour le deuxième personnage.
+ * \param titres Tableau des titres des sections.
+ * \param itemsMenu Tableau des éléments de menu.
+ * \param valider Élément de menu pour valider.
+ * \see chargement_image
+ */
 void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_perso_1,
                                            SDL_Texture **texture_image_perso_2,
                                            itemMenu *titres, itemMenu *itemsMenu, itemMenu *valider) {
@@ -25,7 +40,37 @@ void initialisation_objets_nouvelle_partie(SDL_Renderer **renderer, SDL_Surface 
     sprintf(valider->texte, " Commencer la partie ");
 }
 
-/* Fonction qui met à jour le rendu du menu nouvelle partie */
+/** 
+ * \fn void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere, SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, modes_t modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1, SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, personnage_t personnageActif, itemMenu *pseudo, SDL_Rect *rectangle_pseudo, itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte,  TTF_Font **police, SDL_Color couleurNoire, itemMenu *itemsMenu, itemMenu *valider, int largeur, int hauteur)
+ * \brief Fonction qui met à jour le rendu du menu nouvelle partie 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param rectangle_plein_ecran Rectangle représentant l'écran entier.
+ * \param texture_image_plein_ecran Texture pour l'écran entier.
+ * \param rectangle_retour_en_arriere Rectangle pour le bouton retour.
+ * \param texture_image_retour_en_arriere Texture pour le bouton retour.
+ * \param rectangle_options Rectangle pour les options.
+ * \param texture_image_options Texture pour les options.
+ * \param modeActif Mode de jeu actif.
+ * \param texture_image_perso_1 Texture pour le premier personnage.
+ * \param rectangle_perso_1 Rectangle pour le premier personnage.
+ * \param texture_image_perso_2 Texture pour le deuxième personnage.
+ * \param rectangle_perso_2 Rectangle pour le deuxième personnage.
+ * \param personnageActif Personnage actif.
+ * \param pseudo Pseudo du joueur.
+ * \param rectangle_pseudo Rectangle pour le pseudo.
+ * \param titres Tableau des titres des sections.
+ * \param tailleTitres Taille du tableau des titres.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_texte Texture pour le texte.
+ * \param police Police de caractères.
+ * \param couleurNoire Couleur noire.
+ * \param itemsMenu Tableau des éléments de menu.
+ * \param valider Élément de menu pour valider.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \see erreur
+ * \see affichage_texte
+ */
 void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                        SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,
                                        SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
@@ -239,7 +284,56 @@ void mise_a_jour_rendu_nouvelle_partie(SDL_Renderer **renderer, SDL_Rect *rectan
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu nouvelle partie */
+/** 
+ * \fn void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,  SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere,  SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, int *modeSaisie, modes_t *modeActif, SDL_Texture **texture_image_perso_1, SDL_Rect *rectangle_perso_1, SDL_Texture **texture_image_perso_2, SDL_Rect *rectangle_perso_2, personnage_t *personnageActif, itemMenu *pseudo, SDL_Rect *rectangle_pseudo, barreDeSon *barre_de_son, int *pseudo_valide, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *titres, int tailleTitres, SDL_Surface **surface, SDL_Texture **texture_texte,  TTF_Font **police, SDL_Color couleurNoire, position_t *positionActive, niveaux *avancee_niveaux, int tailleNiveaux, itemMenu *itemsMenu, itemMenu *valider, int *largeur, int *hauteur, page_t *page_active)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu nouvelle partie
+ * \param event Événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param programme_lance Booléen pour vérifier si le programme est en cours d'exécution.
+ * \param rectangle_plein_ecran Rectangle représentant l'écran entier.
+ * \param texture_image_plein_ecran Texture pour l'écran entier.
+ * \param plein_ecran Booléen pour vérifier si le jeu est en mode plein écran.
+ * \param rectangle_retour_en_arriere Rectangle pour le bouton retour.
+ * \param texture_image_retour_en_arriere Texture pour le bouton retour.
+ * \param rectangle_options Rectangle pour les options.
+ * \param texture_image_options Texture pour les options.
+ * \param modeSaisie Mode de saisie pour le pseudo.
+ * \param modeActif Mode de jeu actif.
+ * \param texture_image_perso_1 Texture pour le premier personnage.
+ * \param rectangle_perso_1 Rectangle pour le premier personnage.
+ * \param texture_image_perso_2 Texture pour le deuxième personnage.
+ * \param rectangle_perso_2 Rectangle pour le deuxième personnage.
+ * \param personnageActif Personnage actif.
+ * \param pseudo Pseudo du joueur.
+ * \param rectangle_pseudo Rectangle pour le pseudo.
+ * \param barre_de_son Barre de son.
+ * \param pseudo_valide Booléen pour vérifier si le pseudo est valide.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_sauter_monter Touche pour sauter ou monter.
+ * \param touche_descendre Touche pour descendre.
+ * \param touche_interagir Touche pour interagir.
+ * \param titres Tableau des titres des sections.
+ * \param tailleTitres Taille du tableau des titres.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_texte Texture pour le texte.
+ * \param police Police de caractères.
+ * \param couleurNoire Couleur noire.
+ * \param positionActive Position active.
+ * \param avancee_niveaux Tableau de l'avancée des niveaux.
+ * \param tailleNiveaux Taille du tableau de l'avancée des niveaux.
+ * \param itemsMenu Tableau des éléments de menu.
+ * \param valider Élément de menu pour valider.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param page_active Page active.
+ * \see redimensionnement_fenetre 
+ * \see clic_case 
+ * \see clic_plein_ecran 
+ * \see sauvegarder_partie 
+ * \see mise_a_jour_rendu_nouvelle_partie
+ */
 void nouvelle_partie(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, 
                      SDL_Rect *rectangle_retour_en_arriere, SDL_Texture **texture_image_retour_en_arriere, 

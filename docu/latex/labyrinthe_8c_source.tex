@@ -1,0 +1,499 @@
+\doxysection{labyrinthe.\+c}
+\hypertarget{labyrinthe_8c_source}{}\label{labyrinthe_8c_source}\index{Save/Programme/fichiers\_c/labyrinthe.c@{Save/Programme/fichiers\_c/labyrinthe.c}}
+\mbox{\hyperlink{labyrinthe_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00006}00006\ \textcolor{comment}{/*\ Dimensions\ de\ la\ fenêtre\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00007}\mbox{\hyperlink{labyrinthe_8c_a2cd109632a6dcccaa80b43561b1ab700}{00007}}\ \textcolor{preprocessor}{\#define\ SCREEN\_WIDTH\ 800}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00008}\mbox{\hyperlink{labyrinthe_8c_a6974d08a74da681b3957b2fead2608b8}{00008}}\ \textcolor{preprocessor}{\#define\ SCREEN\_HEIGHT\ 600}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00010}00010\ \textcolor{comment}{/*\ Dimensions\ des\ tiles\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00011}\mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{00011}}\ \textcolor{preprocessor}{\#define\ TILE\_SIZE\_X\ SCREEN\_WIDTH\ /\ 32}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00012}\mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{00012}}\ \textcolor{preprocessor}{\#define\ TILE\_SIZE\_Y\ SCREEN\_HEIGHT\ /\ 24}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00014}\mbox{\hyperlink{labyrinthe_8c_a1965eaca47dbf3f87acdafc2208f04eb}{00014}}\ \textcolor{preprocessor}{\#define\ UP\ 0}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00015}\mbox{\hyperlink{labyrinthe_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{00015}}\ \textcolor{preprocessor}{\#define\ DOWN\ 1}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00016}\mbox{\hyperlink{labyrinthe_8c_a437ef08681e7210d6678427030446a54}{00016}}\ \textcolor{preprocessor}{\#define\ LEFT\ 2}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00017}\mbox{\hyperlink{labyrinthe_8c_a80fb826a684cf3f0d306b22aa100ddac}{00017}}\ \textcolor{preprocessor}{\#define\ RIGHT\ 3}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00019}00019\ \textcolor{comment}{/*\ Fonction\ pour\ charger\ une\ image\ dans\ une\ texture\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00020}\mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{00020}}\ SDL\_Texture*\ \mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{chargement\_texture}}(SDL\_Renderer*\ renderer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filePath)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00021}00021\ \ \ \ \ SDL\_Surface*\ surface\ =\ IMG\_Load(filePath);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (!surface)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ load\ image:\ \%s\(\backslash\)n"{}},\ filePath);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00026}00026\ \ \ \ \ SDL\_Texture*\ texture\ =\ SDL\_CreateTextureFromSurface(renderer,\ surface);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00027}00027\ \ \ \ \ SDL\_FreeSurface(surface);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ texture;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00031}00031\ \textcolor{comment}{/*\ Fonction\ pour\ traiter\ les\ commandes\ utilisateur\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00032}\mbox{\hyperlink{labyrinthe_8c_aef2301db522106aa234a14e6f011d828}{00032}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{labyrinthe_8c_aef2301db522106aa234a14e6f011d828}{traitementTouches}}(\textcolor{keywordtype}{int}*\ joueur\_X,\ \textcolor{keywordtype}{int}*\ joueur\_Y,\ \textcolor{keywordtype}{int}*\ bloc\_X,\ \textcolor{keywordtype}{int}*\ bloc\_Y,\ \textcolor{keywordtype}{int}\ tilemap[24][32],\ \textcolor{keywordtype}{int}\ direction)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00034}00034\ \ \ \ \ \textcolor{comment}{/*\ Vérification\ si\ le\ joueur\ est\ à\ côté\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*joueur\_X\ ==\ *bloc\_X\ -\/\ 1\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y)\ ||\ \ \ \textcolor{comment}{/*\ Le\ joueur\ est\ à\ gauche\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ (*joueur\_X\ ==\ *bloc\_X\ +\ 1\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y)\ ||\ \ \ \textcolor{comment}{/*\ Le\ joueur\ est\ à\ droite\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ (*joueur\_X\ ==\ *bloc\_X\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y\ -\/\ 1)\ ||\ \ \ \textcolor{comment}{/*\ Le\ joueur\ est\ au\ dessus\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ (*joueur\_X\ ==\ *bloc\_X\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y\ +\ 1))\ \{\ \ \ \textcolor{comment}{/*\ Le\ joueur\ est\ en\ dessous\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ personnage\ est\ au\ dessus\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*joueur\_X\ ==\ *bloc\_X\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y\ -\/\ 1)\ \{\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ pousser\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ on\ peut\ pousser\ le\ bloc\ sur\ la\ case\ suivante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*bloc\_Y\ +\ 1][*bloc\_X]\ ==\ 0\ ||\ tilemap[*bloc\_Y\ +\ 1][*bloc\_X]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_Y)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_Y)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ tirer\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ le\ personnage\ peut\ être\ sur\ la\ case\ de\ derrière\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*joueur\_Y\ -\/\ 1][*joueur\_X]\ ==\ 0\ ||\ tilemap[*joueur\_Y\ -\/\ 1][*joueur\_X]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_Y)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_Y)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ personnage\ est\ en\ dessous\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*joueur\_X\ ==\ *bloc\_X\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y\ +\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ pousser\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ on\ peut\ pousser\ le\ bloc\ sur\ la\ case\ suivante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*bloc\_Y\ -\/\ 1][*bloc\_X]\ ==\ 0\ ||\ tilemap[*bloc\_Y\ -\/\ 1][*bloc\_X]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_Y)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_Y)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ tirer\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ le\ personnage\ peut\ être\ sur\ la\ case\ de\ derrière\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*joueur\_Y\ +\ 1][*joueur\_X]\ ==\ 0\ ||\ tilemap[*joueur\_Y\ +\ 1][*joueur\_X]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_Y)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_Y)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ personnage\ est\ à\ gauche\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*joueur\_X\ ==\ *bloc\_X\ -\/\ 1\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y)\ \{\ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ pousser\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 3)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ on\ peut\ pousser\ le\ bloc\ sur\ la\ case\ suivante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*bloc\_Y][*bloc\_X\ +\ 1]\ ==\ 0\ ||\ tilemap[*bloc\_Y][*bloc\_X\ +\ 1]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_X)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_X)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ tirer\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 2)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ le\ personnage\ peut\ être\ sur\ la\ case\ de\ derrière\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*joueur\_Y][*joueur\_X\ -\/\ 1]\ ==\ 0\ ||\ tilemap[*joueur\_Y][*joueur\_X\ -\/\ 1]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_X)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_X)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ personnage\ est\ à\ droite\ du\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*joueur\_X\ ==\ *bloc\_X\ +\ 1\ \&\&\ *joueur\_Y\ ==\ *bloc\_Y)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ pousser\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 2)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ on\ peut\ pousser\ le\ bloc\ sur\ la\ case\ suivante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*bloc\_Y][*bloc\_X\ -\/\ 1]\ ==\ 0\ ||\ tilemap[*bloc\_Y][*bloc\_X\ -\/\ 1]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_X)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_X)-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ veut\ tirer\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(direction\ ==\ 3)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ regarde\ si\ le\ personnage\ peut\ être\ sur\ la\ case\ de\ derrière\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tilemap[*joueur\_Y][*joueur\_X\ +\ 1]\ ==\ 0\ ||\ tilemap[*joueur\_Y][*joueur\_X\ +\ 1]\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*joueur\_X)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*bloc\_X)++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00125}00125\ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00127}00127\ \textcolor{comment}{/*\ Fonction\ pour\ mettre\ à\ jour\ les\ tuiles\ de\ bordure\ lorsque\ le\ bloc\ atteint\ la\ fin\ du\ labyrinthe\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00128}\mbox{\hyperlink{labyrinthe_8c_a3ed0af4cb965916bb6435e6fd44d889c}{00128}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{labyrinthe_8c_a3ed0af4cb965916bb6435e6fd44d889c}{updateBorderTiles}}(SDL\_Renderer*\ renderer,\ SDL\_Texture*\ texture\_image\_arrivee,\ \textcolor{keywordtype}{int}\ tilemap[24][32],\ \textcolor{keywordtype}{int}\ tileX,\ \textcolor{keywordtype}{int}\ tileY)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00130}00130\ \ \ \ \ \textcolor{comment}{/*\ Mise\ à\ jour\ du\ rendu\ de\ la\ tuile\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00131}00131\ \ \ \ \ tilemap[tileY][tileX]\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00132}00132\ \ \ \ \ SDL\_Rect\ dstRect\ =\ \{tileX\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ tileY\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00133}00133\ \ \ \ \ SDL\_RenderCopy(renderer,\ texture\_image\_arrivee,\ NULL,\ \&dstRect);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00134}00134\ \ \ \ \ SDL\_RenderPresent(renderer);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00135}00135\ \ \ \ \ SDL\_Delay(20);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00137}00137\ \ \ \ \ \textcolor{comment}{/*\ Vérification\ des\ tuiles\ adjacentes\ pour\ permettre\ un\ appel\ récursif\ et\ ainsi\ changé\ toute\ les\ tuiles\ de\ la\ bordure\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00138}00138\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00139}00139\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ à\ droite\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00140}00140\ \ \ \ \ \textcolor{keywordflow}{if}(tilemap[tileY][tileX\ +\ 1]\ ==\ 2\ \&\&\ tileX\ <\ 31)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{labyrinthe_8c_a3ed0af4cb965916bb6435e6fd44d889c}{updateBorderTiles}}(renderer,\ texture\_image\_arrivee,\ tilemap,\ tileX\ +\ 1,\ tileY);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00143}00143\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ à\ gauche\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tilemap[tileY][tileX\ -\/\ 1]\ ==\ 2\ \&\&\ tileX\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{labyrinthe_8c_a3ed0af4cb965916bb6435e6fd44d889c}{updateBorderTiles}}(renderer,\ texture\_image\_arrivee,\ tilemap,\ tileX\ -\/\ 1,\ tileY);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00147}00147\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ en\ dessous\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00148}00148\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tilemap[tileY\ +\ 1][tileX]\ ==\ 2\ \&\&\ tileY\ <\ 31)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{labyrinthe_8c_a3ed0af4cb965916bb6435e6fd44d889c}{updateBorderTiles}}(renderer,\ texture\_image\_arrivee,\ tilemap,\ tileX,\ tileY\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00150}00150\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00151}00151\ \ \ \ \ \textcolor{comment}{/*\ Tuile\ au\ dessus\ de\ la\ courante\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00152}00152\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tilemap[tileY\ -\/\ 1][tileX]\ ==\ 2\ \&\&\ tileY\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{labyrinthe_8c_a3ed0af4cb965916bb6435e6fd44d889c}{updateBorderTiles}}(renderer,\ texture\_image\_arrivee,\ tilemap,\ tileX,\ tileY\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00155}00155\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00156}00156\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00157}00157\ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00159}\mbox{\hyperlink{labyrinthe_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{00159}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{labyrinthe_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00161}00161\ \ \ \ \ \textcolor{comment}{/*\ Déclaration\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00162}00162\ \ \ \ \ SDL\_Window*\ window;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00163}00163\ \ \ \ \ SDL\_Renderer*\ renderer;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00165}00165\ \ \ \ \ SDL\_Texture*\ texture\_image\_mur;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00166}00166\ \ \ \ \ SDL\_Texture*\ texture\_image\_sol;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00167}00167\ \ \ \ \ SDL\_Texture*\ texture\_image\_bordure;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00168}00168\ \ \ \ \ SDL\_Texture*\ texture\_image\_joueur;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00169}00169\ \ \ \ \ SDL\_Texture*\ texture\_image\_bloc;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00170}00170\ \ \ \ \ SDL\_Texture*\ texture\_image\_arrivee;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00172}00172\ \ \ \ \ SDL\_Event\ event;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00174}00174\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ la\ carte\ du\ labyrinthe\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00175}00175\ \ \ \ \ \textcolor{comment}{/*\ 0\ :\ sol,\ 1\ :\ mur,\ 2\ :\ bordure,\ 3\ :\ tuile\ de\ fin\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00176}00176\ \ \ \ \ \textcolor{keywordtype}{int}\ tilemap[24][32]\ =\ \{\ \textcolor{comment}{/*\ 24*32\ max\ avec\ ces\ dimensions\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \{2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 0,\ 0,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 1,\ 1,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 1,\ 0,\ 1,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 4,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 1,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 1,\ 4,\ 4,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 1,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 1,\ 1,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 1,\ 0,\ 1,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 1,\ 1,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 1,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \{2,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 0,\ 0,\ 1,\ 0,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 0,\ 0,\ 1,\ 1,\ 0,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \{2,\ 1,\ 1,\ 0,\ 0,\ 1,\ 0,\ 1,\ 1,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ 1,\ 0,\ 1,\ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 3,\ 2\},}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \{2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 2\}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00202}00202\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00204}00204\ \ \ \ \ \textcolor{comment}{/*\ Position\ initiale\ du\ joueur\ en\ coordonnées\ de\ tuile\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00205}00205\ \ \ \ \ \textcolor{keywordtype}{int}\ joueur\_X\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00206}00206\ \ \ \ \ \textcolor{keywordtype}{int}\ joueur\_Y\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00207}00207\ \ \ \ \ \textcolor{comment}{/*\ Position\ initiale\ du\ block\ à\ deplacer\ en\ coordonnées\ de\ tuile\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00208}00208\ \ \ \ \ \textcolor{keywordtype}{int}\ bloc\_X\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00209}00209\ \ \ \ \ \textcolor{keywordtype}{int}\ bloc\_Y\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00210}00210\ \ \ \ \ \textcolor{comment}{/*\ Position\ du\ block\ d'arriver\ en\ coordonnées\ de\ tuile\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00211}00211\ \ \ \ \ \textcolor{keywordtype}{int}\ arrivee\_X\ =\ 30;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00212}00212\ \ \ \ \ \textcolor{keywordtype}{int}\ arrivee\_Y\ =\ 22;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00214}00214\ \ \ \ \ \textcolor{keywordtype}{int}\ haut\ =\ 0,\ bas\ =\ 0,\ gauche\ =\ 0,\ droite\ =\ 0,\ appuie\_touche\_interaction\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordtype}{int}\ quit\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00218}00218\ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ SDL\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00219}00219\ \ \ \ \ \textcolor{keywordflow}{if}\ (SDL\_Init(SDL\_INIT\_VIDEO)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ initialize\ SDL:\ \%s\(\backslash\)n"{}},\ SDL\_GetError());}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00224}00224\ \ \ \ \ \textcolor{comment}{/*\ Création\ de\ la\ fenêtre\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00225}00225\ \ \ \ \ window\ =\ SDL\_CreateWindow(\textcolor{stringliteral}{"{}Tilemap\ Labyrinth"{}},\ SDL\_WINDOWPOS\_UNDEFINED,\ SDL\_WINDOWPOS\_UNDEFINED,\ \mbox{\hyperlink{labyrinthe_8c_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}},\ \mbox{\hyperlink{labyrinthe_8c_a6974d08a74da681b3957b2fead2608b8}{SCREEN\_HEIGHT}},\ 0);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00226}00226\ \ \ \ \ \textcolor{keywordflow}{if}\ (!window)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ create\ window:\ \%s\(\backslash\)n"{}},\ SDL\_GetError());}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ SDL\_Quit();}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00232}00232\ \ \ \ \ \textcolor{comment}{/*\ Création\ du\ renderer\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00233}00233\ \ \ \ \ renderer\ =\ SDL\_CreateRenderer(window,\ -\/1,\ SDL\_RENDERER\_ACCELERATED\ |\ SDL\_RENDERER\_PRESENTVSYNC);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00234}00234\ \ \ \ \ \textcolor{keywordflow}{if}\ (!renderer)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ create\ renderer:\ \%s\(\backslash\)n"{}},\ SDL\_GetError());}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ SDL\_DestroyWindow(window);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ SDL\_Quit();}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00239}00239\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00241}00241\ \ \ \ \ \textcolor{comment}{/*\ Chargement\ des\ textures\ des\ tuiles\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00242}00242\ \ \ \ \ texture\_image\_mur\ =\ \mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{chargement\_texture}}(renderer,\ \textcolor{stringliteral}{"{}../images/labyrinthe/mur.png"{}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00243}00243\ \ \ \ \ texture\_image\_sol\ =\ \mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{chargement\_texture}}(renderer,\ \textcolor{stringliteral}{"{}../images/labyrinthe/sol.png"{}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00244}00244\ \ \ \ \ texture\_image\_bordure\ =\ \mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{chargement\_texture}}(renderer,\ \textcolor{stringliteral}{"{}../images/labyrinthe/obsi.png"{}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00245}00245\ \ \ \ \ texture\_image\_joueur\ =\ \mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{chargement\_texture}}(renderer,\ \textcolor{stringliteral}{"{}../images/labyrinthe/steve.png"{}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00246}00246\ \ \ \ \ texture\_image\_bloc\ =\ \mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{chargement\_texture}}(renderer,\ \textcolor{stringliteral}{"{}../images/labyrinthe/diamand.png"{}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00247}00247\ \ \ \ \ texture\_image\_arrivee\ =\ \mbox{\hyperlink{labyrinthe_8c_a1eba2fbe7e99fbbbce5ac17872817238}{chargement\_texture}}(renderer,\ \textcolor{stringliteral}{"{}../images/labyrinthe/emerald.png"{}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00248}00248\ \ \ \ \ \textcolor{keywordflow}{if}\ (!texture\_image\_mur\ ||\ !texture\_image\_sol\ ||\ !texture\_image\_bordure\ ||\ !texture\_image\_joueur\ ||\ !texture\_image\_bloc\ ||\ !texture\_image\_arrivee)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ SDL\_DestroyRenderer(renderer);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ SDL\_DestroyWindow(window);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ SDL\_Quit();}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00253}00253\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00255}00255\ \ \ \ \ \textcolor{comment}{/*\ Boucle\ principale\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00256}00256\ \ \ \ \ \textcolor{keywordflow}{while}\ (!quit)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Gestion\ des\ événements\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (SDL\_PollEvent(\&event)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(event.type)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_QUIT:}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quit\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00265}00265\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ On\ peut\ pas\ traiter\ l'appui\ de\ 2\ touches\ en\ même\ temps\ donc\ }}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00266}00266\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ On\ stocke\ une\ valeur\ pour\ permettre\ l'appuie\ de\ 2\ touches\ en\ même\ }}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00267}00267\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Et\ ainsi\ pouvoir\ traiter\ cette\ information\ }}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00268}00268\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_KEYDOWN:}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_UP)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ haut\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_DOWN)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bas\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_LEFT)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gauche\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_RIGHT)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ droite\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_e)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ appuie\_touche\_interaction\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_KEYUP:}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_UP)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ haut\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_DOWN)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bas\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_LEFT)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gauche\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_RIGHT)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ droite\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.key.keysym.sym\ ==\ SDLK\_e)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ appuie\_touche\_interaction\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00308}00308\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00309}00309\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Traitement\ de\ l'appuie\ des\ touches\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(haut)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(appuie\_touche\_interaction)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{labyrinthe_8c_aef2301db522106aa234a14e6f011d828}{traitementTouches}}(\&joueur\_X,\ \&joueur\_Y,\ \&bloc\_X,\ \&bloc\_Y,\ tilemap,\ \mbox{\hyperlink{labyrinthe_8c_a1965eaca47dbf3f87acdafc2208f04eb}{UP}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vérifie\ que\ c'est\ bien\ un\ chemin\ et\ qu'il\ n'y\ a\ pas\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((tilemap[joueur\_Y\ -\/\ 1][joueur\_X]\ ==\ 0\ ||\ tilemap[joueur\_Y\ -\/\ 1][joueur\_X]\ ==\ 3\ ||\ tilemap[joueur\_Y\ -\/\ 1][joueur\_X]\ ==\ 4)\ \&\&\ !(joueur\_X\ ==\ bloc\_X\ \&\&\ joueur\_Y\ ==\ bloc\_Y\ +\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ joueur\_Y-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00319}00319\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(bas)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(appuie\_touche\_interaction)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{labyrinthe_8c_aef2301db522106aa234a14e6f011d828}{traitementTouches}}(\&joueur\_X,\ \&joueur\_Y,\ \&bloc\_X,\ \&bloc\_Y,\ tilemap,\ \mbox{\hyperlink{labyrinthe_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{DOWN}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vérifie\ que\ c'est\ bien\ un\ chemin\ et\ qu'il\ n'y\ a\ pas\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((tilemap[joueur\_Y\ +\ 1][joueur\_X]\ ==\ 0\ ||\ tilemap[joueur\_Y\ +\ 1][joueur\_X]\ ==\ 3\ ||\ tilemap[joueur\_Y\ +\ 1][joueur\_X]\ ==\ 4)\ \&\&\ !(joueur\_X\ ==\ bloc\_X\ \&\&\ joueur\_Y\ ==\ bloc\_Y\ -\/\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ joueur\_Y++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00329}00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00330}00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gauche)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(appuie\_touche\_interaction)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{labyrinthe_8c_aef2301db522106aa234a14e6f011d828}{traitementTouches}}(\&joueur\_X,\ \&joueur\_Y,\ \&bloc\_X,\ \&bloc\_Y,\ tilemap,\ \mbox{\hyperlink{labyrinthe_8c_a437ef08681e7210d6678427030446a54}{LEFT}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vérifie\ que\ c'est\ bien\ un\ chemin\ et\ qu'il\ n'y\ a\ pas\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((tilemap[joueur\_Y][joueur\_X\ -\/\ 1]\ ==\ 0\ ||\ tilemap[joueur\_Y][joueur\_X\ -\/\ 1]\ ==\ 3\ ||\ tilemap[joueur\_Y][joueur\_X\ -\/\ 1]\ ==\ 4)\ \&\&\ !(joueur\_X\ ==\ bloc\_X\ +\ 1\ \&\&\ joueur\_Y\ ==\ bloc\_Y))\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ joueur\_X-\/-\/;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00339}00339\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00340}00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(droite)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(appuie\_touche\_interaction)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{labyrinthe_8c_aef2301db522106aa234a14e6f011d828}{traitementTouches}}(\&joueur\_X,\ \&joueur\_Y,\ \&bloc\_X,\ \&bloc\_Y,\ tilemap,\ \mbox{\hyperlink{labyrinthe_8c_a80fb826a684cf3f0d306b22aa100ddac}{RIGHT}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ On\ vérifie\ que\ c'est\ bien\ un\ chemin\ et\ qu'il\ n'y\ a\ pas\ le\ bloc\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((tilemap[joueur\_Y][joueur\_X\ +\ 1]\ ==\ 0\ ||\ tilemap[joueur\_Y][joueur\_X\ +\ 1]\ ==\ 3\ ||\ tilemap[joueur\_Y][joueur\_X\ +\ 1]\ ==\ 4)\ \&\&\ !(joueur\_X\ ==\ bloc\_X\ -\/\ 1\ \&\&\ joueur\_Y\ ==\ bloc\_Y))\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ joueur\_X++;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay(200);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00351}00351\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Nettoyer\ le\ renderer\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00352}00352\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor(renderer,\ 0,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00353}00353\ \ \ \ \ \ \ \ \ SDL\_RenderClear(renderer);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00355}00355\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rendu\ tilemap\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Mode\ Normal\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00357}00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(modeActif\ ==\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aaf81b467c1f5e20f847402b03925c0d12}{MODE\_NORMAL}})\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ 24;\ ++y)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ 32;\ ++x)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Vérifiez\ que\ les\ coordonnées\ sont\ à\ l'intérieur\ des\ limites\ du\ labyrinthe\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ 0\ \&\&\ x\ <\ 32\ \&\&\ y\ >=\ 0\ \&\&\ y\ <\ 24)\ \{\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rendu\ de\ chaque\ tuile\ en\ fonction\ de\ son\ type\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tileType\ =\ tilemap[y][x];}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ texture\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tileType\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_sol;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_mur;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 2)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_bordure;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 3)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_arrivee;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 4)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_mur;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(texture)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect\ =\ \{x\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ y\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Mode\ Difficile\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(modeActif\ ==\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aa0f3711846999a02a4d5614bd2d6862d0}{MODE\_HARD}})\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ joueur\_Y\ -\/\ 2;\ y\ <=\ joueur\_Y\ +\ 2;\ ++y)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ joueur\_X\ -\/\ 2;\ x\ <=\ joueur\_X\ +\ 2;\ ++x)\ \{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Vérifiez\ que\ les\ coordonnées\ sont\ à\ l'intérieur\ des\ limites\ du\ labyrinthe\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ 0\ \&\&\ x\ <\ 32\ \&\&\ y\ >=\ 0\ \&\&\ y\ <\ 24)\ \{\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rendu\ de\ chaque\ tuile\ en\ fonction\ de\ son\ type\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tileType\ =\ tilemap[y][x];}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ texture\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tileType\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_sol;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_mur;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 2)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_bordure;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 3)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_arrivee;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tileType\ ==\ 4)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_mur;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(texture)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect\ =\ \{x\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ y\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00419}00419\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00421}00421\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Passage\ secret\ vers\ un\ collectible\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00422}00422\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(joueur\_X\ ==\ 12\ \&\&\ joueur\_Y\ ==\ 11\ \&\&\ tilemap[joueur\_Y][joueur\_X]\ ==\ 4)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ texture\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ tilemap[11][12]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_sol;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect1\ =\ \{12\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ 11\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect1);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ tilemap[12][12]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect2\ =\ \{12\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ 12\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect2);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ tilemap[12][13]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect3\ =\ \{13\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ 12\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect3);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00437}00437\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00439}00439\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Remise\ à\ l'état\ initial\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00440}00440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(joueur\_X\ ==\ 12\ \&\&\ joueur\_Y\ ==\ 10\ \&\&\ tilemap[11][12]\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ texture\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ tilemap[11][12]\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ texture\ =\ texture\_image\_sol;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect1\ =\ \{12\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ 11\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect1);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00447}00447\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ tilemap[12][12]\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect2\ =\ \{12\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ 12\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect2);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00451}00451\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ tilemap[12][13]\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect3\ =\ \{13\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ 12\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ NULL,\ \&dstRect3);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00456}00456\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00458}00458\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rendu\ du\ bloc\ à\ deplacer\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00459}00459\ \ \ \ \ \ \ \ \ SDL\_Rect\ rectangle\_bloc\ =\ \{bloc\_X\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ bloc\_Y\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00460}00460\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture\_image\_bloc,\ NULL,\ \&rectangle\_bloc);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00462}00462\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rendu\ du\ bloc\ d'arriver\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00463}00463\ \ \ \ \ \ \ \ \ SDL\_Rect\ rectangle\_arrivee\ =\ \{arrivee\_X\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ arrivee\_Y\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00464}00464\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture\_image\_arrivee,\ NULL,\ \&rectangle\_arrivee);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00466}00466\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rendu\ du\ joueur\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00467}00467\ \ \ \ \ \ \ \ \ SDL\_Rect\ rectangle\_joueur\ =\ \{joueur\_X\ *\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ joueur\_Y\ *\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}},\ \mbox{\hyperlink{labyrinthe_8c_a14a1fbc2a125c9d05482c82e15b7261e}{TILE\_SIZE\_X}},\ \mbox{\hyperlink{labyrinthe_8c_a0268a851406f420ef5cd66a14ef85765}{TILE\_SIZE\_Y}}\};}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture\_image\_joueur,\ NULL,\ \&rectangle\_joueur);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00470}00470\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00471}00471\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Vérifier\ si\ le\ bloc\ atteint\ la\ fin\ du\ labyrinthe\ et\ mettre\ à\ jour\ les\ tuiles\ de\ bordure\ si\ nécessaire\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00472}00472\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(bloc\_X\ ==\ 30\ \&\&\ bloc\_Y\ ==\ 22)\{}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00473}00473\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{labyrinthe_8c_a3ed0af4cb965916bb6435e6fd44d889c}{updateBorderTiles}}(renderer,\ texture\_image\_arrivee,\ tilemap,\ 31,\ 23);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Oui\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00475}00475\ \ \ \ \ \ \ \ \ \ \ \ \ quit\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00476}00476\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00478}00478\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Actualiser\ le\ renderer\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00479}00479\ \ \ \ \ \ \ \ \ SDL\_RenderPresent(renderer);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00480}00480\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00481}00481\ }
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00482}00482\ \ \ \ \ \textcolor{comment}{/*\ Nettoyer\ et\ quitter\ */}}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00483}00483\ \ \ \ \ SDL\_DestroyTexture(texture\_image\_mur);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00484}00484\ \ \ \ \ SDL\_DestroyTexture(texture\_image\_sol);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00485}00485\ \ \ \ \ SDL\_DestroyTexture(texture\_image\_bordure);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00486}00486\ \ \ \ \ SDL\_DestroyTexture(texture\_image\_joueur);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00487}00487\ \ \ \ \ SDL\_DestroyTexture(texture\_image\_bloc);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00488}00488\ \ \ \ \ SDL\_DestroyTexture(texture\_image\_arrivee);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00489}00489\ \ \ \ \ SDL\_DestroyRenderer(renderer);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00490}00490\ \ \ \ \ SDL\_DestroyWindow(window);}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00491}00491\ \ \ \ \ SDL\_Quit();}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00492}00492\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{labyrinthe_8c_source_l00493}00493\ \}}
+
+\end{DoxyCode}

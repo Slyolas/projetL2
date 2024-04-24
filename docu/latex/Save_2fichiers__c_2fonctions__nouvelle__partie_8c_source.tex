@@ -1,0 +1,427 @@
+\doxysection{fonctions\+\_\+nouvelle\+\_\+partie.\+c}
+\hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source}{}\label{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source}\index{Save/fichiers\_c/fonctions\_nouvelle\_partie.c@{Save/fichiers\_c/fonctions\_nouvelle\_partie.c}}
+\mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00001}00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00002}00002\ \textcolor{comment}{\ *\ \(\backslash\)file\ fonctions\_nouvelle\_partie.c}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00003}00003\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fichier\ contenant\ les\ fonctions\ servant\ à\ la\ fenêtre\ d'une\ nouvelle\ partie\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00004}00004\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <../fichiers\_h/fonctions\_generales.h>}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <../fichiers\_h/fonctions\_nouvelle\_partie.h>}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00008}00008\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00009}00009\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00010}00010\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ initialisation\_objets\_nouvelle\_partie(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_image\_perso\_1,\ SDL\_Texture\ **texture\_image\_perso\_2,\ itemMenu\ *titres,\ itemMenu\ *itemsMenu,\ itemMenu\ *valider)}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00011}00011\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ d'initialiser\ les\ différents\ objets\ de\ la\ nouvelle\ partie}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00012}00012\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00013}00013\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Pointeur\ vers\ la\ surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00014}00014\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_1\ Texture\ pour\ le\ premier\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00015}00015\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_2\ Texture\ pour\ le\ deuxième\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00016}00016\ \textcolor{comment}{\ *\ \(\backslash\)param\ titres\ Tableau\ des\ titres\ des\ sections.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00017}00017\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsMenu\ Tableau\ des\ éléments\ de\ menu.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00018}00018\ \textcolor{comment}{\ *\ \(\backslash\)param\ valider\ Élément\ de\ menu\ pour\ valider.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00019}00019\ \textcolor{comment}{\ *\ \(\backslash\)see\ chargement\_image}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00020}00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00021}\mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a94f5ec92a0df98c0aab21cb1041f6511}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__nouvelle__partie_8c_a94f5ec92a0df98c0aab21cb1041f6511}{initialisation\_objets\_nouvelle\_partie}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_image\_perso\_1,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_2,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titres,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *valider)\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00024}00024\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00025}00025\ \textcolor{comment}{\ \ \ \ /**\ Initialisation\ de\ l'image\ du\ premier\ personnage\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_perso\_1,\ \textcolor{stringliteral}{"{}./images/personnages/personnage\_masculin.png"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00027}00027\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00028}00028\ \textcolor{comment}{\ \ \ \ /**\ Initialisation\ de\ l'image\ du\ deuxième\ personnage\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\_image}}(renderer,\ surface,\ texture\_image\_perso\_2,\ \textcolor{stringliteral}{"{}./images/personnages/personnage\_feminin.png"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00030}00030\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00031}00031\ \textcolor{comment}{\ \ \ \ /**\ Initialisation\ des\ titres\ du\ menu\ nouvelle\ partie\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00032}00032\ \ \ \ \ sprintf(titres[0].texte,\ \textcolor{stringliteral}{"{}\ \ \ \ Pseudo\ :\ \ \ \ "{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00033}00033\ \ \ \ \ sprintf(titres[1].texte,\ \textcolor{stringliteral}{"{}\ \ Personnage\ :\ \ "{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00034}00034\ \ \ \ \ sprintf(titres[2].texte,\ \textcolor{stringliteral}{"{}\ Mode\ de\ jeu\ :\ "{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00035}00035\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00036}00036\ \textcolor{comment}{\ \ \ \ /**\ Initialisation\ du\ texte\ dans\ les\ items\ de\ la\ difficulté\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00037}00037\ \ \ \ \ sprintf(itemsMenu[0].texte,\ \textcolor{stringliteral}{"{}\ \ Normal\ \ "{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00038}00038\ \ \ \ \ sprintf(itemsMenu[1].texte,\ \textcolor{stringliteral}{"{}\ Difficile\ "{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00039}00039\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00040}00040\ \textcolor{comment}{\ \ \ \ /**\ Initialisation\ du\ texte\ dans\ l'item\ pour\ commencer\ la\ partie\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00041}00041\ \ \ \ \ sprintf(valider-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}},\ \textcolor{stringliteral}{"{}\ Commencer\ la\ partie\ "{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00043}00043\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00044}00044\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00045}00045\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ mise\_a\_jour\_rendu\_nouvelle\_partie(SDL\_Renderer\ **renderer,\ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_Rect\ *rectangle\_retour\_en\_arriere,\ SDL\_Texture\ **texture\_image\_retour\_en\_arriere,\ SDL\_Rect\ *rectangle\_options,\ SDL\_Texture\ **texture\_image\_options,\ modes\_t\ modeActif,\ SDL\_Texture\ **texture\_image\_perso\_1,\ SDL\_Rect\ *rectangle\_perso\_1,\ SDL\_Texture\ **texture\_image\_perso\_2,\ SDL\_Rect\ *rectangle\_perso\_2,\ personnage\_t\ personnageActif,\ itemMenu\ *pseudo,\ SDL\_Rect\ *rectangle\_pseudo,\ itemMenu\ *titres,\ int\ tailleTitres,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ \ TTF\_Font\ **police,\ SDL\_Color\ couleurNoire,\ itemMenu\ *itemsMenu,\ itemMenu\ *valider,\ int\ largeur,\ int\ hauteur)}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00046}00046\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ met\ à\ jour\ le\ rendu\ du\ menu\ nouvelle\ partie\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00047}00047\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00048}00048\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_plein\_ecran\ Rectangle\ représentant\ l'écran\ entier.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00049}00049\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_plein\_ecran\ Texture\ pour\ l'écran\ entier.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00050}00050\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_retour\_en\_arriere\ Rectangle\ pour\ le\ bouton\ retour.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00051}00051\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_retour\_en\_arriere\ Texture\ pour\ le\ bouton\ retour.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00052}00052\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_options\ Rectangle\ pour\ les\ options.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00053}00053\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_options\ Texture\ pour\ les\ options.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00054}00054\ \textcolor{comment}{\ *\ \(\backslash\)param\ modeActif\ Mode\ de\ jeu\ actif.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00055}00055\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_1\ Texture\ pour\ le\ premier\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00056}00056\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_perso\_1\ Rectangle\ pour\ le\ premier\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00057}00057\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_2\ Texture\ pour\ le\ deuxième\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00058}00058\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_perso\_2\ Rectangle\ pour\ le\ deuxième\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00059}00059\ \textcolor{comment}{\ *\ \(\backslash\)param\ personnageActif\ Personnage\ actif.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00060}00060\ \textcolor{comment}{\ *\ \(\backslash\)param\ pseudo\ Pseudo\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00061}00061\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_pseudo\ Rectangle\ pour\ le\ pseudo.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00062}00062\ \textcolor{comment}{\ *\ \(\backslash\)param\ titres\ Tableau\ des\ titres\ des\ sections.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00063}00063\ \textcolor{comment}{\ *\ \(\backslash\)param\ tailleTitres\ Taille\ du\ tableau\ des\ titres.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00064}00064\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Pointeur\ vers\ la\ surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00065}00065\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_texte\ Texture\ pour\ le\ texte.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00066}00066\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ Police\ de\ caractères.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00067}00067\ \textcolor{comment}{\ *\ \(\backslash\)param\ couleurNoire\ Couleur\ noire.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00068}00068\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsMenu\ Tableau\ des\ éléments\ de\ menu.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00069}00069\ \textcolor{comment}{\ *\ \(\backslash\)param\ valider\ Élément\ de\ menu\ pour\ valider.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00070}00070\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ Largeur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00071}00071\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ Hauteur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00072}00072\ \textcolor{comment}{\ *\ \(\backslash\)see\ erreur}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00073}00073\ \textcolor{comment}{\ *\ \(\backslash\)see\ affichage\_texte}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00074}00074\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00075}\mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a14e3dff981f7ccb792307349335203f3}{00075}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__nouvelle__partie_8c_aec8c48643b901a8a6789a9506bd00c4e}{mise\_a\_jour\_rendu\_nouvelle\_partie}}(SDL\_Renderer\ **renderer,\ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_retour\_en\_arriere,\ SDL\_Texture\ **texture\_image\_retour\_en\_arriere,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_options,\ SDL\_Texture\ **texture\_image\_options,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\_t}}\ modeActif,\ SDL\_Texture\ **texture\_image\_perso\_1,\ SDL\_Rect\ *rectangle\_perso\_1,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_2,\ SDL\_Rect\ *rectangle\_perso\_2,\ \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\_t}}\ personnageActif,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *pseudo,\ SDL\_Rect\ *rectangle\_pseudo,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titres,\ \textcolor{keywordtype}{int}\ tailleTitres,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TTF\_Font\ **police,\ SDL\_Color\ couleurNoire,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *valider,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur)\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00086}00086\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00087}00087\ \textcolor{comment}{\ \ \ \ /**\ Efface\ le\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderClear((*renderer))\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Effacement\ rendu\ échoué"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00090}00090\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00091}00091\ \textcolor{comment}{\ \ \ \ /**\ Utilisation\ de\ la\ fusion\ pour\ un\ rendu\ avec\ transparence\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00092}00092\ \ \ \ \ SDL\_SetRenderDrawBlendMode((*renderer),\ SDL\_BLENDMODE\_BLEND);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00093}00093\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00094}00094\ \textcolor{comment}{\ \ \ \ /**\ Copie\ la\ texture\ de\ l'image\ de\ plein\ écran\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00095}00095\ \ \ \ \ rectangle\_plein\_ecran-\/>x\ =\ largeur\ -\/\ largeur\ /\ 21\ -\/\ largeur\ /\ 53;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00096}00096\ \ \ \ \ rectangle\_plein\_ecran-\/>y\ =\ hauteur\ /\ 30;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00097}00097\ \ \ \ \ rectangle\_plein\_ecran-\/>w\ =\ largeur\ /\ 21;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00098}00098\ \ \ \ \ rectangle\_plein\_ecran-\/>h\ =\ hauteur\ /\ 12;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_plein\_ecran),\ NULL,\ rectangle\_plein\_ecran)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00102}00102\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00103}00103\ \textcolor{comment}{\ \ \ \ /**\ Copie\ la\ texture\ de\ l'image\ du\ retour\ en\ arrière\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00104}00104\ \ \ \ \ rectangle\_retour\_en\_arriere-\/>x\ =\ largeur\ /\ 53;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00105}00105\ \ \ \ \ rectangle\_retour\_en\_arriere-\/>y\ =\ hauteur\ /\ 30;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00106}00106\ \ \ \ \ rectangle\_retour\_en\_arriere-\/>w\ =\ largeur\ /\ 21;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00107}00107\ \ \ \ \ rectangle\_retour\_en\_arriere-\/>h\ =\ hauteur\ /\ 12;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_retour\_en\_arriere),\ NULL,\ rectangle\_retour\_en\_arriere)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00111}00111\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00112}00112\ \textcolor{comment}{\ \ \ \ /**\ Copie\ la\ texture\ de\ l'image\ des\ options\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00113}00113\ \ \ \ \ rectangle\_options-\/>x\ =\ largeur\ -\/\ largeur\ /\ 21\ -\/\ largeur\ /\ 53;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00114}00114\ \ \ \ \ rectangle\_options-\/>y\ =\ hauteur\ -\/\ hauteur\ /\ 12\ -\/\ hauteur\ /\ 30;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00115}00115\ \ \ \ \ rectangle\_options-\/>w\ =\ largeur\ /\ 21;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00116}00116\ \ \ \ \ rectangle\_options-\/>h\ =\ hauteur\ /\ 12;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_options),\ NULL,\ rectangle\_options)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00120}00120\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00121}00121\ \textcolor{comment}{\ \ \ \ /**\ Dessine\ les\ items\ du\ menu\ nouvelle\ partie\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00122}00122\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 240,\ 240,\ 240,\ 0);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ tailleTitres;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ titres[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ titres[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 20\ +\ i\ *\ hauteur\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ titres[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ titres[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 14;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(titres[i]),\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00134}00134\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00135}00135\ \textcolor{comment}{\ \ \ \ /**\ Dessine\ le\ rectangle\ pour\ le\ pseudo\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00136}00136\ \ \ \ \ rectangle\_pseudo-\/>x\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00137}00137\ \ \ \ \ rectangle\_pseudo-\/>y\ =\ hauteur\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00138}00138\ \ \ \ \ rectangle\_pseudo-\/>w\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00139}00139\ \ \ \ \ rectangle\_pseudo-\/>h\ =\ hauteur\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00141}00141\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00142}00142\ \ \ \ \ SDL\_RenderFillRect((*renderer),\ rectangle\_pseudo);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00144}00144\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 175,\ 95,\ 185,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00145}00145\ \ \ \ \ SDL\_RenderDrawRect((*renderer),\ rectangle\_pseudo);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00146}00146\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00147}00147\ \textcolor{comment}{\ \ \ \ /**\ Rendu\ du\ texte\ actuel\ sur\ la\ surface\ texte\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00148}00148\ \ \ \ \ (*surface)\ =\ TTF\_RenderUTF8\_Blended((*police),\ pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}},\ couleurNoire);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00149}00149\ \ \ \ \ (*texture\_texte)\ =\ SDL\_CreateTextureFromSurface((*renderer),\ (*surface));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00150}00150\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00151}00151\ \textcolor{comment}{\ \ \ \ /**\ Récupération\ des\ dimensions\ du\ texte\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00152}00152\ \ \ \ \ \textcolor{keywordtype}{int}\ largeur\_texte,\ hauteur\_texte;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00153}00153\ \ \ \ \ SDL\_QueryTexture((*texture\_texte),\ NULL,\ NULL,\ \&largeur\_texte,\ \&hauteur\_texte);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00154}00154\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00155}00155\ \textcolor{comment}{\ \ \ \ /**\ Positionnement\ du\ texte\ au\ centre\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00156}00156\ \ \ \ \ pseudo-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 3\ +\ largeur\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00157}00157\ \ \ \ \ pseudo-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00158}00158\ \ \ \ \ pseudo-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\_texte;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00159}00159\ \ \ \ \ pseudo-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00160}00160\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00161}00161\ \textcolor{comment}{\ \ \ \ /**\ Affichage\ de\ la\ texture\ texture\_texte\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00162}00162\ \ \ \ \ SDL\_RenderCopy((*renderer),\ (*texture\_texte),\ NULL,\ \&(pseudo-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00164}00164\ \ \ \ \ SDL\_FreeSurface((*surface));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00165}00165\ \ \ \ \ SDL\_DestroyTexture((*texture\_texte));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00167}00167\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 175,\ 95,\ 185,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00169}00169\ \ \ \ \ \textcolor{keywordflow}{if}(personnageActif\ ==\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaaf05a30be343ce697093befd506a7f417}{PERSONNAGE\_1}})}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ rectangle\_perso\_1);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ rectangle\_perso\_2);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00173}00173\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00174}00174\ \textcolor{comment}{\ \ \ \ /**\ Copie\ la\ texture\ de\ l'image\ du\ premier\ personnage\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00175}00175\ \ \ \ \ rectangle\_perso\_1-\/>x\ =\ largeur\ /\ 4\ +\ largeur\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00176}00176\ \ \ \ \ rectangle\_perso\_1-\/>y\ =\ hauteur\ /\ 3\ +\ hauteur\ /\ 20;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00177}00177\ \ \ \ \ rectangle\_perso\_1-\/>w\ =\ largeur\ /\ 16;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00178}00178\ \ \ \ \ rectangle\_perso\_1-\/>h\ =\ hauteur\ /\ 7;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_perso\_1),\ NULL,\ rectangle\_perso\_1)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00182}00182\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00183}00183\ \textcolor{comment}{\ \ \ \ /**\ Copie\ la\ texture\ de\ l'image\ du\ deuxième\ personnage\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00184}00184\ \ \ \ \ rectangle\_perso\_2-\/>x\ =\ largeur\ -\/\ largeur\ /\ 4\ -\/\ largeur\ /\ 16\ -\/\ largeur\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00185}00185\ \ \ \ \ rectangle\_perso\_2-\/>y\ =\ hauteur\ /\ 3\ +\ hauteur\ /\ 20;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00186}00186\ \ \ \ \ rectangle\_perso\_2-\/>w\ =\ largeur\ /\ 16;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00187}00187\ \ \ \ \ rectangle\_perso\_2-\/>h\ =\ hauteur\ /\ 7;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00189}00189\ \ \ \ \ \textcolor{keywordflow}{if}(SDL\_RenderCopy((*renderer),\ (*texture\_image\_perso\_2),\ NULL,\ rectangle\_perso\_2)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur}}(\textcolor{stringliteral}{"{}Copie\ de\ la\ texture"{}});}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00191}00191\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00192}00192\ \textcolor{comment}{\ \ \ \ /**\ Dessine\ les\ éléments\ du\ menu\ pour\ la\ difficulté\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00194}00194\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 175,\ 95,\ 185,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00196}00196\ \ \ \ \ \textcolor{keywordflow}{if}(modeActif\ ==\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aaf81b467c1f5e20f847402b03925c0d12}{MODE\_NORMAL}})\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ \&(itemsMenu[0].rectangle));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ \&(itemsMenu[1].rectangle));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00200}00200\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ \&(itemsMenu[1].rectangle));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ SDL\_RenderFillRect((*renderer),\ \&(itemsMenu[0].rectangle));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00206}00206\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00207}00207\ \textcolor{comment}{\ \ \ \ /**\ Décide\ de\ la\ couleur\ en\ fonction\ de\ l'onglet\ actif\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00208}00208\ \ \ \ \ \textcolor{keywordflow}{if}(modeActif\ ==\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aaf81b467c1f5e20f847402b03925c0d12}{MODE\_NORMAL}})}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 175,\ 95,\ 185,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00210}00210\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00213}00213\ \ \ \ \ itemsMenu[0].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00214}00214\ \ \ \ \ itemsMenu[1].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ -\/\ largeur\ /\ 6\ -\/\ largeur\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((i)\ \&\&\ (modeActif\ ==\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aa0f3711846999a02a4d5614bd2d6862d0}{MODE\_HARD}}))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 175,\ 95,\ 185,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(i)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 2\ +\ hauteur\ /\ 6;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ itemsMenu[i].\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 12;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ \&(itemsMenu[i]),\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00229}00229\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00230}00230\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00231}00231\ \textcolor{comment}{\ \ \ \ /**\ Dessine\ les\ éléments\ du\ menu\ pour\ le\ bouton\ "{}Commencer\ la\ partie\ !"{}\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00232}00232\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 255,\ 255,\ 255,\ 255);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00234}00234\ \ \ \ \ valider-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.x\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00235}00235\ \ \ \ \ valider-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.y\ =\ hauteur\ /\ 2\ +\ hauteur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00236}00236\ \ \ \ \ valider-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.w\ =\ largeur\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00237}00237\ \ \ \ \ valider-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}.h\ =\ hauteur\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00239}00239\ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\_texte}}(renderer,\ surface,\ texture\_texte,\ valider,\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00242}00242\ \ \ \ \ SDL\_SetRenderDrawColor((*renderer),\ 240,\ 240,\ 240,\ 0);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00243}00243\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00244}00244\ \textcolor{comment}{\ \ \ \ /**\ Affiche\ le\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00245}00245\ \ \ \ \ SDL\_RenderPresent((*renderer));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00246}00246\ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00247}00247\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00248}00248\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00249}00249\ \textcolor{comment}{\ *\ \(\backslash\)fn\ void\ nouvelle\_partie(SDL\_Event\ *event,\ SDL\_Window\ **window,\ SDL\_Renderer\ **renderer,\ SDL\_bool\ *programme\_lance,\ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_bool\ *plein\_ecran,\ \ SDL\_Rect\ *rectangle\_retour\_en\_arriere,\ SDL\_Texture\ **texture\_image\_retour\_en\_arriere,\ \ SDL\_Rect\ *rectangle\_options,\ SDL\_Texture\ **texture\_image\_options,\ int\ *modeSaisie,\ modes\_t\ *modeActif,\ SDL\_Texture\ **texture\_image\_perso\_1,\ SDL\_Rect\ *rectangle\_perso\_1,\ SDL\_Texture\ **texture\_image\_perso\_2,\ SDL\_Rect\ *rectangle\_perso\_2,\ personnage\_t\ *personnageActif,\ itemMenu\ *pseudo,\ SDL\_Rect\ *rectangle\_pseudo,\ barreDeSon\ *barre\_de\_son,\ int\ *pseudo\_valide,\ SDL\_Keycode\ *touche\_aller\_a\_droite,\ SDL\_Keycode\ *touche\_aller\_a\_gauche,\ SDL\_Keycode\ *touche\_sauter\_monter,\ SDL\_Keycode\ *touche\_descendre,\ SDL\_Keycode\ *touche\_interagir,\ itemMenu\ *titres,\ int\ tailleTitres,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ \ TTF\_Font\ **police,\ SDL\_Color\ couleurNoire,\ position\_t\ *positionActive,\ niveaux\ *avancee\_niveaux,\ int\ tailleNiveaux,\ itemMenu\ *itemsMenu,\ itemMenu\ *valider,\ int\ *largeur,\ int\ *hauteur,\ page\_t\ *page\_active)}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00250}00250\ \textcolor{comment}{\ *\ \(\backslash\)brief\ Fonction\ qui\ permet\ de\ gérer\ toutes\ les\ possibilités\ qui\ sont\ possiblent\ dans\ le\ menu\ nouvelle\ partie}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00251}00251\ \textcolor{comment}{\ *\ \(\backslash\)param\ event\ Événement\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00252}00252\ \textcolor{comment}{\ *\ \(\backslash\)param\ window\ Pointeur\ vers\ la\ fenêtre\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00253}00253\ \textcolor{comment}{\ *\ \(\backslash\)param\ renderer\ Pointeur\ vers\ le\ renderer\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00254}00254\ \textcolor{comment}{\ *\ \(\backslash\)param\ programme\_lance\ Booléen\ pour\ vérifier\ si\ le\ programme\ est\ en\ cours\ d'exécution.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00255}00255\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_plein\_ecran\ Rectangle\ représentant\ l'écran\ entier.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00256}00256\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_plein\_ecran\ Texture\ pour\ l'écran\ entier.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00257}00257\ \textcolor{comment}{\ *\ \(\backslash\)param\ plein\_ecran\ Booléen\ pour\ vérifier\ si\ le\ jeu\ est\ en\ mode\ plein\ écran.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00258}00258\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_retour\_en\_arriere\ Rectangle\ pour\ le\ bouton\ retour.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00259}00259\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_retour\_en\_arriere\ Texture\ pour\ le\ bouton\ retour.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00260}00260\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_options\ Rectangle\ pour\ les\ options.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00261}00261\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_options\ Texture\ pour\ les\ options.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00262}00262\ \textcolor{comment}{\ *\ \(\backslash\)param\ modeSaisie\ Mode\ de\ saisie\ pour\ le\ pseudo.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00263}00263\ \textcolor{comment}{\ *\ \(\backslash\)param\ modeActif\ Mode\ de\ jeu\ actif.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00264}00264\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_1\ Texture\ pour\ le\ premier\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00265}00265\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_perso\_1\ Rectangle\ pour\ le\ premier\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00266}00266\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_image\_perso\_2\ Texture\ pour\ le\ deuxième\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00267}00267\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_perso\_2\ Rectangle\ pour\ le\ deuxième\ personnage.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00268}00268\ \textcolor{comment}{\ *\ \(\backslash\)param\ personnageActif\ Personnage\ actif.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00269}00269\ \textcolor{comment}{\ *\ \(\backslash\)param\ pseudo\ Pseudo\ du\ joueur.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00270}00270\ \textcolor{comment}{\ *\ \(\backslash\)param\ rectangle\_pseudo\ Rectangle\ pour\ le\ pseudo.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00271}00271\ \textcolor{comment}{\ *\ \(\backslash\)param\ barre\_de\_son\ Barre\ de\ son.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00272}00272\ \textcolor{comment}{\ *\ \(\backslash\)param\ pseudo\_valide\ Booléen\ pour\ vérifier\ si\ le\ pseudo\ est\ valide.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00273}00273\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_aller\_a\_droite\ Touche\ pour\ aller\ à\ droite.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00274}00274\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_aller\_a\_gauche\ Touche\ pour\ aller\ à\ gauche.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00275}00275\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_sauter\_monter\ Touche\ pour\ sauter\ ou\ monter.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00276}00276\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_descendre\ Touche\ pour\ descendre.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00277}00277\ \textcolor{comment}{\ *\ \(\backslash\)param\ touche\_interagir\ Touche\ pour\ interagir.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00278}00278\ \textcolor{comment}{\ *\ \(\backslash\)param\ titres\ Tableau\ des\ titres\ des\ sections.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00279}00279\ \textcolor{comment}{\ *\ \(\backslash\)param\ tailleTitres\ Taille\ du\ tableau\ des\ titres.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00280}00280\ \textcolor{comment}{\ *\ \(\backslash\)param\ surface\ Pointeur\ vers\ la\ surface\ SDL.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00281}00281\ \textcolor{comment}{\ *\ \(\backslash\)param\ texture\_texte\ Texture\ pour\ le\ texte.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00282}00282\ \textcolor{comment}{\ *\ \(\backslash\)param\ police\ Police\ de\ caractères.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00283}00283\ \textcolor{comment}{\ *\ \(\backslash\)param\ couleurNoire\ Couleur\ noire.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00284}00284\ \textcolor{comment}{\ *\ \(\backslash\)param\ positionActive\ Position\ active.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00285}00285\ \textcolor{comment}{\ *\ \(\backslash\)param\ avancee\_niveaux\ Tableau\ de\ l'avancée\ des\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00286}00286\ \textcolor{comment}{\ *\ \(\backslash\)param\ tailleNiveaux\ Taille\ du\ tableau\ de\ l'avancée\ des\ niveaux.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00287}00287\ \textcolor{comment}{\ *\ \(\backslash\)param\ itemsMenu\ Tableau\ des\ éléments\ de\ menu.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00288}00288\ \textcolor{comment}{\ *\ \(\backslash\)param\ valider\ Élément\ de\ menu\ pour\ valider.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00289}00289\ \textcolor{comment}{\ *\ \(\backslash\)param\ largeur\ Largeur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00290}00290\ \textcolor{comment}{\ *\ \(\backslash\)param\ hauteur\ Hauteur\ de\ l'écran.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00291}00291\ \textcolor{comment}{\ *\ \(\backslash\)param\ page\_active\ Page\ active.}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00292}00292\ \textcolor{comment}{\ *\ \(\backslash\)see\ redimensionnement\_fenetre\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00293}00293\ \textcolor{comment}{\ *\ \(\backslash\)see\ clic\_case\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00294}00294\ \textcolor{comment}{\ *\ \(\backslash\)see\ clic\_plein\_ecran\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00295}00295\ \textcolor{comment}{\ *\ \(\backslash\)see\ sauvegarder\_partie\ }}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00296}00296\ \textcolor{comment}{\ *\ \(\backslash\)see\ mise\_a\_jour\_rendu\_nouvelle\_partie}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00297}00297\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00298}\mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a9f18378f2b1fe4812a70a5b6d27b52c3}{00298}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__nouvelle__partie_8c_a50fe1053bacc1c7b9c642f019795a885}{nouvelle\_partie}}(SDL\_Event\ *event,\ SDL\_Window\ **window,\ SDL\_Renderer\ **renderer,\ SDL\_bool\ *programme\_lance,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,\ SDL\_bool\ *plein\_ecran,\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_retour\_en\_arriere,\ SDL\_Texture\ **texture\_image\_retour\_en\_arriere,\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_options,\ SDL\_Texture\ **texture\_image\_options,\ \textcolor{keywordtype}{int}\ *modeSaisie,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\_t}}\ *modeActif,\ SDL\_Texture\ **texture\_image\_perso\_1,\ SDL\_Rect\ *rectangle\_perso\_1,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ **texture\_image\_perso\_2,\ SDL\_Rect\ *rectangle\_perso\_2,\ \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\_t}}\ *personnageActif,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *pseudo,\ SDL\_Rect\ *rectangle\_pseudo,\ \mbox{\hyperlink{structbarreDeSon}{barreDeSon}}\ *barre\_de\_son,\ \textcolor{keywordtype}{int}\ *pseudo\_valide,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Keycode\ *touche\_aller\_a\_droite,\ SDL\_Keycode\ *touche\_aller\_a\_gauche,\ SDL\_Keycode\ *touche\_sauter\_monter,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Keycode\ *touche\_descendre,\ SDL\_Keycode\ *touche\_interagir,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titres,\ \textcolor{keywordtype}{int}\ tailleTitres,\ SDL\_Surface\ **surface,\ SDL\_Texture\ **texture\_texte,\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TTF\_Font\ **police,\ SDL\_Color\ couleurNoire,\ \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\_t}}\ *positionActive,\ \mbox{\hyperlink{structniveaux}{niveaux}}\ *avancee\_niveaux,\ \textcolor{keywordtype}{int}\ tailleNiveaux,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *valider,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\_t}}\ *page\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00310}00310\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00312}00312\ \ \ \ \ \textcolor{keywordflow}{while}(SDL\_PollEvent(event))\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(event-\/>type)\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00315}00315\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00316}00316\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Gestion\ de\ l'événement\ de\ redimensionnement\ de\ la\ fenêtre\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_WINDOWEVENT:}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\_fenetre}}((*event),\ largeur,\ hauteur);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00319}00319\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00320}00320\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Actualisation\ de\ la\ taille\ de\ la\ police\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*police)\ =\ TTF\_OpenFont(\textcolor{stringliteral}{"{}./polices/04B\_11\_\_.TTF"{}},\ (*largeur)\ /\ 28);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00324}00324\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00325}00325\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Si\ l'utilisateur\ tape\ quelque\ chose\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_TEXTINPUT:}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*modeSaisie))\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00328}00328\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Concatène\ le\ texte\ saisi\ au\ pseudo\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}})\ +\ strlen(event-\/>text.text)\ <=\ 10)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcat(pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}},\ event-\/>text.text);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00333}00333\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00334}00334\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Si\ l'utilisateur\ clic\ quelque\ part\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_MOUSEBUTTONDOWN:}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_pseudo)))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeSaisie)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeSaisie)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ itemsMenu[0].rectangle))\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeActif)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aaf81b467c1f5e20f847402b03925c0d12}{MODE\_NORMAL}};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ itemsMenu[1].rectangle))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeActif)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ab41d5e5dd6912c95d5315bf6d4ecc30aa0f3711846999a02a4d5614bd2d6862d0}{MODE\_HARD}};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_perso\_1)))\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*personnageActif)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaaf05a30be343ce697093befd506a7f417}{PERSONNAGE\_1}};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_perso\_2)))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*personnageActif)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_ae5618d6dad89bff9cf3c9e5eae1c2ecaad485fac01b98f131c212cc5aa675b88e}{PERSONNAGE\_2}};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00350}00350\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00351}00351\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Options\ plein\ écran,\ options\ et\ retour\ en\ arrière\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_afe51c2fcb0206df7f65785b8b0137951}{clic\_plein\_ecran}}((*event),\ rectangle\_plein\_ecran,\ plein\_ecran,\ window))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\_fenetre}}((*event),\ largeur,\ hauteur);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_retour\_en\_arriere)))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3ad84154820fb7cc5480aa99b8e888ef2e}{MENU\_PRINCIPAL}};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ (*rectangle\_options)))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a1b20f1b4adb6ff9778b284fb46f6f99d}{OPTIONS}};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00361}00361\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00362}00362\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Options\ valider\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\_case}}((*event),\ valider-\/>\mbox{\hyperlink{structitemMenu_a0fc07814e006a49fba9192a0e8d7d3dd}{rectangle}}))\ \&\&\ (strcmp(pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}},\ \textcolor{stringliteral}{"{}\(\backslash\)0"{}})))\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}}[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'};\ i++)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}}[i]\ !=\ \textcolor{charliteral}{'\ '})}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*pseudo\_valide)\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*pseudo\_valide))\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*positionActive)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_a891ad84c312c25e650f355b629e5600ba5618f7c0396cf5085f67cdbbd623f16b}{NIVEAU1}};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ tailleNiveaux;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].\mbox{\hyperlink{structniveaux_a277cae0b70c72c3a7363879a8ebe157e}{niveau\_fini}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].\mbox{\hyperlink{structniveaux_ae449b6dc99cde23547db1d4cb7ed876a}{numero\_collectible}}[0]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].\mbox{\hyperlink{structniveaux_ae449b6dc99cde23547db1d4cb7ed876a}{numero\_collectible}}[1]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux[i].\mbox{\hyperlink{structniveaux_ae449b6dc99cde23547db1d4cb7ed876a}{numero\_collectible}}[2]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__generales_8c_a3845ad340a7ec5a5a341718c1b23fa7e}{sauvegarder\_partie}}(touche\_aller\_a\_droite,\ touche\_aller\_a\_gauche,\ touche\_sauter\_monter,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ touche\_descendre,\ touche\_interagir,\ barre\_de\_son,\ pseudo,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeActif),\ (*personnageActif),\ (*positionActive),}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avancee\_niveaux,\ tailleNiveaux);}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*page\_active)\ =\ \mbox{\hyperlink{Programme_2fichiers__h_2fonctions__generales_8h_a2cbae93ea482503b066433625257cfa3a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}};\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00390}00390\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00391}00391\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Mode\ saisie\ du\ pseudo\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_KEYDOWN:}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((*modeSaisie))}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event-\/>key.keysym.sym\ ==\ SDLK\_BACKSPACE\ \&\&\ strlen(pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}})\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}}[strlen(pseudo-\/>\mbox{\hyperlink{structitemMenu_aa6e98c2e3fa58f29da35005658255f51}{texte}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{/**\ Supprime\ le\ dernier\ caractère\ du\ pseudo\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00400}00400\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00401}00401\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /**\ Quitter\ le\ programme\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_QUIT:}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*programme\_lance)\ =\ SDL\_FALSE;}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00409}00409\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00410}00410\ \ \ \ \ \ \ \ \ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00411}00411\ \textcolor{comment}{\ \ \ \ \ \ \ \ /**\ Mise\ à\ jour\ du\ rendu\ */}}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00412}00412\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{Programme_2fichiers__c_2fonctions__nouvelle__partie_8c_aec8c48643b901a8a6789a9506bd00c4e}{mise\_a\_jour\_rendu\_nouvelle\_partie}}(renderer,\ rectangle\_plein\_ecran,\ texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_retour\_en\_arriere,\ texture\_image\_retour\_en\_arriere,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rectangle\_options,\ texture\_image\_options,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*modeActif),\ texture\_image\_perso\_1,\ rectangle\_perso\_1,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_image\_perso\_2,\ rectangle\_perso\_2,\ (*personnageActif),}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pseudo,\ rectangle\_pseudo,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ titres,\ tailleTitres,\ surface,\ texture\_texte,\ }
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ police,\ couleurNoire,}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itemsMenu,\ valider,\ (*largeur),\ (*hauteur));}
+\DoxyCodeLine{\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00421}00421\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Metatravers:  Fichier source de Save/Programme/Prec/menu_principal.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Metatravers
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('menu__principal_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">menu_principal.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="menu__principal_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/* Fonction qui affiche un message d&#39;erreur quand une chose n&#39;a pas pû être exécuté */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> <a class="code hl_function" href="menu__principal_8h.html#a4b6ab0cfff2a3843b8b79d9066445167">erreur</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *message);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/* Vérifie si une sauvegarde existe */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">int</span> <a class="code hl_function" href="menu__principal_8h.html#a5f3d9f5a1b24e53bd19ef9d7631917a4">verification_sauvegarde</a>();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/* Fonction qui permet d&#39;initialiser les différents objets */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">void</span> <a class="code hl_function" href="menu__principal_8h.html#a6b93b0bb5eaaf6b466e07fa40cd7d39e">initialisation_objets</a>(SDL_Renderer **renderer, SDL_Surface **image_menu, SDL_Texture **texture_image_menu,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                           SDL_Surface **image_plein_ecran, SDL_Texture **texture_image_plein_ecran,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                           TTF_Font **police, <a class="code hl_struct" href="structitemMenu.html">itemMenu</a> *titre, <a class="code hl_struct" href="structitemMenu.html">itemMenu</a> *itemsMenu, <span class="keywordtype">int</span> tailleMenu);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/* Fonction qui permet de redimensionner la fenêtre et les différents objets */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="menu__principal_8h.html#a5c46ccfb829656680145d5fe3b33418f">redimensionnement_fenetre</a>(SDL_Event event, <span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* Fonction qui met à jour le rendu après redimension de la fenêtre */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> <a class="code hl_function" href="menu__principal_8h.html#a1f5a0ec5994ca28e3fb9452347d0aab8">mise_a_jour_rendu</a>(SDL_Renderer **renderer, SDL_Texture **texture_image_menu,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                       SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                       <a class="code hl_struct" href="structitemMenu.html">itemMenu</a> *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                       SDL_Color couleurTitre, SDL_Color couleurNoire,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                       <a class="code hl_struct" href="structitemMenu.html">itemMenu</a> *itemsMenu, <span class="keywordtype">int</span> tailleMenu, <span class="keywordtype">int</span> largeur, <span class="keywordtype">int</span> hauteur);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/* Fonction qui permet de ... quand on clique sur une case du menu */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> <a class="code hl_function" href="menu__principal_8h.html#ac7aefab99aeff52f3ef5b6acee082ab4">clic_case</a>(SDL_Event event, <a class="code hl_struct" href="structitemMenu.html">itemMenu</a> *itemsMenu, <span class="keywordtype">int</span> numero_case, <span class="keywordtype">int</span> tailleMenu);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/* Fonction qui permet de mettre la fenêtre en plein écran quand on clique sur le bouton plein écran */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">int</span> <a class="code hl_function" href="menu__principal_8h.html#afe51c2fcb0206df7f65785b8b0137951">clic_plein_ecran</a>(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window);</div>
+<div class="ttc" id="amenu__principal_8h_html_a1f5a0ec5994ca28e3fb9452347d0aab8"><div class="ttname"><a href="menu__principal_8h.html#a1f5a0ec5994ca28e3fb9452347d0aab8">mise_a_jour_rendu</a></div><div class="ttdeci">void mise_a_jour_rendu(SDL_Renderer **renderer, SDL_Texture **texture_image_menu, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, itemMenu *titre, SDL_Surface **texte_menu, SDL_Texture **texture_texte_menu, TTF_Font **police, SDL_Color couleurTitre, SDL_Color couleurNoire, itemMenu *itemsMenu, int tailleMenu, int largeur, int hauteur)</div><div class="ttdef"><b>Definition</b> <a href="menu__principal_8c_source.html#l00098">menu_principal.c:98</a></div></div>
+<div class="ttc" id="amenu__principal_8h_html_a4b6ab0cfff2a3843b8b79d9066445167"><div class="ttname"><a href="menu__principal_8h.html#a4b6ab0cfff2a3843b8b79d9066445167">erreur</a></div><div class="ttdeci">void erreur(const char *message)</div><div class="ttdoc">Affiche l'erreur en cas de problème et ferme la SDL.</div><div class="ttdef"><b>Definition</b> <a href="Programme_2fichiers__c_2fonctions__generales_8c_source.html#l00014">fonctions_generales.c:14</a></div></div>
+<div class="ttc" id="amenu__principal_8h_html_a5c46ccfb829656680145d5fe3b33418f"><div class="ttname"><a href="menu__principal_8h.html#a5c46ccfb829656680145d5fe3b33418f">redimensionnement_fenetre</a></div><div class="ttdeci">void redimensionnement_fenetre(SDL_Event event, int *largeur, int *hauteur)</div><div class="ttdoc">Fonction qui permet de récupérer les nouvelles dimensions de la fenêtre pour redimensionner cette der...</div><div class="ttdef"><b>Definition</b> <a href="Programme_2fichiers__c_2fonctions__generales_8c_source.html#l00309">fonctions_generales.c:309</a></div></div>
+<div class="ttc" id="amenu__principal_8h_html_a5f3d9f5a1b24e53bd19ef9d7631917a4"><div class="ttname"><a href="menu__principal_8h.html#a5f3d9f5a1b24e53bd19ef9d7631917a4">verification_sauvegarde</a></div><div class="ttdeci">int verification_sauvegarde()</div><div class="ttdoc">Vérifie si une sauvegarde existe.</div><div class="ttdef"><b>Definition</b> <a href="Programme_2fichiers__c_2fonctions__generales_8c_source.html#l00324">fonctions_generales.c:324</a></div></div>
+<div class="ttc" id="amenu__principal_8h_html_a6b93b0bb5eaaf6b466e07fa40cd7d39e"><div class="ttname"><a href="menu__principal_8h.html#a6b93b0bb5eaaf6b466e07fa40cd7d39e">initialisation_objets</a></div><div class="ttdeci">void initialisation_objets(SDL_Renderer **renderer, SDL_Surface **image_menu, SDL_Texture **texture_image_menu, SDL_Surface **image_plein_ecran, SDL_Texture **texture_image_plein_ecran, TTF_Font **police, itemMenu *titre, itemMenu *itemsMenu, int tailleMenu)</div><div class="ttdef"><b>Definition</b> <a href="menu__principal_8c_source.html#l00035">menu_principal.c:35</a></div></div>
+<div class="ttc" id="amenu__principal_8h_html_ac7aefab99aeff52f3ef5b6acee082ab4"><div class="ttname"><a href="menu__principal_8h.html#ac7aefab99aeff52f3ef5b6acee082ab4">clic_case</a></div><div class="ttdeci">void clic_case(SDL_Event event, itemMenu *itemsMenu, int numero_case, int tailleMenu)</div><div class="ttdef"><b>Definition</b> <a href="menu__principal_8c_source.html#l00189">menu_principal.c:189</a></div></div>
+<div class="ttc" id="amenu__principal_8h_html_afe51c2fcb0206df7f65785b8b0137951"><div class="ttname"><a href="menu__principal_8h.html#afe51c2fcb0206df7f65785b8b0137951">clic_plein_ecran</a></div><div class="ttdeci">int clic_plein_ecran(SDL_Event event, SDL_Rect *rectangle_plein_ecran, SDL_bool *plein_ecran, SDL_Window **window)</div><div class="ttdoc">Fonction qui permet de mettre la fenêtre en plein écran quand on clique sur le bouton plein écran.</div><div class="ttdef"><b>Definition</b> <a href="Programme_2fichiers__c_2fonctions__generales_8c_source.html#l00446">fonctions_generales.c:446</a></div></div>
+<div class="ttc" id="astructitemMenu_html"><div class="ttname"><a href="structitemMenu.html">itemMenu</a></div><div class="ttdef"><b>Definition</b> <a href="Programme_2fichiers__h_2fonctions__generales_8h_source.html#l00027">fonctions_generales.h:27</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1fb9562a33eaf61d0b2d491c400f7d15.html">Save</a></li><li class="navelem"><a class="el" href="dir_b906b13e3fbb5a32875e59eddac6c230.html">Programme</a></li><li class="navelem"><a class="el" href="dir_b1aca2fcbe7178467b1c885dfd75f240.html">Prec</a></li><li class="navelem"><a class="el" href="menu__principal_8h.html">menu_principal.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+\doxysection{Référence du fichier Save/fichiers\+\_\+c/fonctions\+\_\+nouvelle\+\_\+partie.c}
+\hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c}{}\label{Save_2fichiers__c_2fonctions__nouvelle__partie_8c}\index{Save/fichiers\_c/fonctions\_nouvelle\_partie.c@{Save/fichiers\_c/fonctions\_nouvelle\_partie.c}}
+
+
+Fichier contenant les fonctions servant à la fenêtre d\textquotesingle{}une nouvelle partie.  
+
+
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+generales.\+h$>$}\newline
+{\ttfamily \#include $<$../fichiers\+\_\+h/fonctions\+\_\+nouvelle\+\_\+partie.\+h$>$}\newline
+Graphe des dépendances par inclusion de fonctions\+\_\+nouvelle\+\_\+partie.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Save_2fichiers__c_2fonctions__nouvelle__partie_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a94f5ec92a0df98c0aab21cb1041f6511}{initialisation\+\_\+objets\+\_\+nouvelle\+\_\+partie}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+1, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+2, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titres, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}valider)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser les différents objets de la nouvelle partie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a14e3dff981f7ccb792307349335203f3}{mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+nouvelle\+\_\+partie}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+options, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+options, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}} mode\+Actif, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+1, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+perso\+\_\+1, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+2, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+perso\+\_\+2, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} personnage\+Actif, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}pseudo, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+pseudo, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titres, int taille\+Titres, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur\+Noire, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}valider, int largeur, int hauteur)
+\begin{DoxyCompactList}\small\item\em Fonction qui met à jour le rendu du menu nouvelle partie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a9f18378f2b1fe4812a70a5b6d27b52c3}{nouvelle\+\_\+partie}} (SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}programme\+\_\+lance, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+plein\+\_\+ecran, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+plein\+\_\+ecran, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}plein\+\_\+ecran, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+options, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+options, int \texorpdfstring{$\ast$}{*}mode\+Saisie, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}} \texorpdfstring{$\ast$}{*}mode\+Actif, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+1, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+perso\+\_\+1, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+perso\+\_\+2, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+perso\+\_\+2, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} \texorpdfstring{$\ast$}{*}personnage\+Actif, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}pseudo, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}rectangle\+\_\+pseudo, \mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}barre\+\_\+de\+\_\+son, int \texorpdfstring{$\ast$}{*}pseudo\+\_\+valide, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+droite, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+aller\+\_\+a\+\_\+gauche, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+sauter\+\_\+monter, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+descendre, SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}touche\+\_\+interagir, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}titres, int taille\+Titres, SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}surface, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+texte, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Color couleur\+Noire, \mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}} \texorpdfstring{$\ast$}{*}position\+Active, \mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}avancee\+\_\+niveaux, int taille\+Niveaux, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}items\+Menu, \mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}valider, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}page\+\_\+active)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu nouvelle partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions servant à la fenêtre d\textquotesingle{}une nouvelle partie. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source}{fonctions\+\_\+nouvelle\+\_\+partie.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a94f5ec92a0df98c0aab21cb1041f6511}\label{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a94f5ec92a0df98c0aab21cb1041f6511} 
+\index{fonctions\_nouvelle\_partie.c@{fonctions\_nouvelle\_partie.c}!initialisation\_objets\_nouvelle\_partie@{initialisation\_objets\_nouvelle\_partie}}
+\index{initialisation\_objets\_nouvelle\_partie@{initialisation\_objets\_nouvelle\_partie}!fonctions\_nouvelle\_partie.c@{fonctions\_nouvelle\_partie.c}}
+\doxysubsubsection{\texorpdfstring{initialisation\_objets\_nouvelle\_partie()}{initialisation\_objets\_nouvelle\_partie()}}
+{\footnotesize\ttfamily void initialisation\+\_\+objets\+\_\+nouvelle\+\_\+partie (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+1,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+2,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titres,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{valider }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser les différents objets de la nouvelle partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em surface} & Pointeur vers la surface SDL. \\
+\hline
+{\em texture\+\_\+image\+\_\+perso\+\_\+1} & Texture pour le premier personnage. \\
+\hline
+{\em texture\+\_\+image\+\_\+perso\+\_\+2} & Texture pour le deuxième personnage. \\
+\hline
+{\em titres} & Tableau des titres des sections. \\
+\hline
+{\em items\+Menu} & Tableau des éléments de menu. \\
+\hline
+{\em valider} & Élément de menu pour valider. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a5157feb5eb905d33c1f9b2e7c0e727dc}{chargement\+\_\+image} 
+\end{DoxySeeAlso}
+Initialisation de l\textquotesingle{}image du premier personnage
+
+Initialisation de l\textquotesingle{}image du deuxième personnage
+
+Initialisation des titres du menu nouvelle partie
+
+Initialisation du texte dans les items de la difficulté
+
+Initialisation du texte dans l\textquotesingle{}item pour commencer la partie
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source}{fonctions\+\_\+nouvelle\+\_\+partie.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a14e3dff981f7ccb792307349335203f3}\label{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a14e3dff981f7ccb792307349335203f3} 
+\index{fonctions\_nouvelle\_partie.c@{fonctions\_nouvelle\_partie.c}!mise\_a\_jour\_rendu\_nouvelle\_partie@{mise\_a\_jour\_rendu\_nouvelle\_partie}}
+\index{mise\_a\_jour\_rendu\_nouvelle\_partie@{mise\_a\_jour\_rendu\_nouvelle\_partie}!fonctions\_nouvelle\_partie.c@{fonctions\_nouvelle\_partie.c}}
+\doxysubsubsection{\texorpdfstring{mise\_a\_jour\_rendu\_nouvelle\_partie()}{mise\_a\_jour\_rendu\_nouvelle\_partie()}}
+{\footnotesize\ttfamily void mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+nouvelle\+\_\+partie (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+options,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+options,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}}}]{mode\+Actif,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+1,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+perso\+\_\+1,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+2,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+perso\+\_\+2,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}}}]{personnage\+Actif,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{pseudo,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+pseudo,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titres,  }\item[{int}]{taille\+Titres,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur\+Noire,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{valider,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+
+
+
+Fonction qui met à jour le rendu du menu nouvelle partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em rectangle\+\_\+plein\+\_\+ecran} & Rectangle représentant l\textquotesingle{}écran entier. \\
+\hline
+{\em texture\+\_\+image\+\_\+plein\+\_\+ecran} & Texture pour l\textquotesingle{}écran entier. \\
+\hline
+{\em rectangle\+\_\+retour\+\_\+en\+\_\+arriere} & Rectangle pour le bouton retour. \\
+\hline
+{\em texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere} & Texture pour le bouton retour. \\
+\hline
+{\em rectangle\+\_\+options} & Rectangle pour les options. \\
+\hline
+{\em texture\+\_\+image\+\_\+options} & Texture pour les options. \\
+\hline
+{\em mode\+Actif} & Mode de jeu actif. \\
+\hline
+{\em texture\+\_\+image\+\_\+perso\+\_\+1} & Texture pour le premier personnage. \\
+\hline
+{\em rectangle\+\_\+perso\+\_\+1} & Rectangle pour le premier personnage. \\
+\hline
+{\em texture\+\_\+image\+\_\+perso\+\_\+2} & Texture pour le deuxième personnage. \\
+\hline
+{\em rectangle\+\_\+perso\+\_\+2} & Rectangle pour le deuxième personnage. \\
+\hline
+{\em personnage\+Actif} & Personnage actif. \\
+\hline
+{\em pseudo} & Pseudo du joueur. \\
+\hline
+{\em rectangle\+\_\+pseudo} & Rectangle pour le pseudo. \\
+\hline
+{\em titres} & Tableau des titres des sections. \\
+\hline
+{\em taille\+Titres} & Taille du tableau des titres. \\
+\hline
+{\em surface} & Pointeur vers la surface SDL. \\
+\hline
+{\em texture\+\_\+texte} & Texture pour le texte. \\
+\hline
+{\em police} & Police de caractères. \\
+\hline
+{\em couleur\+Noire} & Couleur noire. \\
+\hline
+{\em items\+Menu} & Tableau des éléments de menu. \\
+\hline
+{\em valider} & Élément de menu pour valider. \\
+\hline
+{\em largeur} & Largeur de l\textquotesingle{}écran. \\
+\hline
+{\em hauteur} & Hauteur de l\textquotesingle{}écran. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a7c6541df22bdacd36c6b01a67a989b82}{affichage\+\_\+texte} 
+\end{DoxySeeAlso}
+Efface le rendu
+
+Utilisation de la fusion pour un rendu avec transparence
+
+Copie la texture de l\textquotesingle{}image de plein écran
+
+Copie la texture de l\textquotesingle{}image du retour en arrière
+
+Copie la texture de l\textquotesingle{}image des options
+
+Dessine les items du menu nouvelle partie
+
+Dessine le rectangle pour le pseudo
+
+Rendu du texte actuel sur la surface texte
+
+Récupération des dimensions du texte
+
+Positionnement du texte au centre
+
+Affichage de la texture texture\+\_\+texte
+
+Copie la texture de l\textquotesingle{}image du premier personnage
+
+Copie la texture de l\textquotesingle{}image du deuxième personnage
+
+Dessine les éléments du menu pour la difficulté
+
+Décide de la couleur en fonction de l\textquotesingle{}onglet actif
+
+Dessine les éléments du menu pour le bouton \"{}\+Commencer la partie !\"{}
+
+Affiche le rendu
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00075}{75}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source}{fonctions\+\_\+nouvelle\+\_\+partie.\+c}}.
+
+\Hypertarget{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a9f18378f2b1fe4812a70a5b6d27b52c3}\label{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_a9f18378f2b1fe4812a70a5b6d27b52c3} 
+\index{fonctions\_nouvelle\_partie.c@{fonctions\_nouvelle\_partie.c}!nouvelle\_partie@{nouvelle\_partie}}
+\index{nouvelle\_partie@{nouvelle\_partie}!fonctions\_nouvelle\_partie.c@{fonctions\_nouvelle\_partie.c}}
+\doxysubsubsection{\texorpdfstring{nouvelle\_partie()}{nouvelle\_partie()}}
+{\footnotesize\ttfamily void nouvelle\+\_\+partie (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{programme\+\_\+lance,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+plein\+\_\+ecran,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{plein\+\_\+ecran,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+options,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+options,  }\item[{int \texorpdfstring{$\ast$}{*}}]{mode\+Saisie,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{mode\+Actif,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+1,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+perso\+\_\+1,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+perso\+\_\+2,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+perso\+\_\+2,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a95d8677193780a1abc208b6090213adc}{personnage\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{personnage\+Actif,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{pseudo,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{rectangle\+\_\+pseudo,  }\item[{\mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}} \texorpdfstring{$\ast$}{*}}]{barre\+\_\+de\+\_\+son,  }\item[{int \texorpdfstring{$\ast$}{*}}]{pseudo\+\_\+valide,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+droite,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+aller\+\_\+a\+\_\+gauche,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+sauter\+\_\+monter,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+descendre,  }\item[{SDL\+\_\+\+Keycode \texorpdfstring{$\ast$}{*}}]{touche\+\_\+interagir,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{titres,  }\item[{int}]{taille\+Titres,  }\item[{SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{surface,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+texte,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Color}]{couleur\+Noire,  }\item[{\mbox{\hyperlink{Save_2fichiers__h_2fonctions__generales_8h_a31f24aef3ddd32d2e6538ffff4055d37}{position\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{position\+Active,  }\item[{\mbox{\hyperlink{structniveaux}{niveaux}} \texorpdfstring{$\ast$}{*}}]{avancee\+\_\+niveaux,  }\item[{int}]{taille\+Niveaux,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{items\+Menu,  }\item[{\mbox{\hyperlink{structitemMenu}{item\+Menu}} \texorpdfstring{$\ast$}{*}}]{valider,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page\+\_\+active }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le menu nouvelle partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em event} & Événement SDL. \\
+\hline
+{\em window} & Pointeur vers la fenêtre SDL. \\
+\hline
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em programme\+\_\+lance} & Booléen pour vérifier si le programme est en cours d\textquotesingle{}exécution. \\
+\hline
+{\em rectangle\+\_\+plein\+\_\+ecran} & Rectangle représentant l\textquotesingle{}écran entier. \\
+\hline
+{\em texture\+\_\+image\+\_\+plein\+\_\+ecran} & Texture pour l\textquotesingle{}écran entier. \\
+\hline
+{\em plein\+\_\+ecran} & Booléen pour vérifier si le jeu est en mode plein écran. \\
+\hline
+{\em rectangle\+\_\+retour\+\_\+en\+\_\+arriere} & Rectangle pour le bouton retour. \\
+\hline
+{\em texture\+\_\+image\+\_\+retour\+\_\+en\+\_\+arriere} & Texture pour le bouton retour. \\
+\hline
+{\em rectangle\+\_\+options} & Rectangle pour les options. \\
+\hline
+{\em texture\+\_\+image\+\_\+options} & Texture pour les options. \\
+\hline
+{\em mode\+Saisie} & Mode de saisie pour le pseudo. \\
+\hline
+{\em mode\+Actif} & Mode de jeu actif. \\
+\hline
+{\em texture\+\_\+image\+\_\+perso\+\_\+1} & Texture pour le premier personnage. \\
+\hline
+{\em rectangle\+\_\+perso\+\_\+1} & Rectangle pour le premier personnage. \\
+\hline
+{\em texture\+\_\+image\+\_\+perso\+\_\+2} & Texture pour le deuxième personnage. \\
+\hline
+{\em rectangle\+\_\+perso\+\_\+2} & Rectangle pour le deuxième personnage. \\
+\hline
+{\em personnage\+Actif} & Personnage actif. \\
+\hline
+{\em pseudo} & Pseudo du joueur. \\
+\hline
+{\em rectangle\+\_\+pseudo} & Rectangle pour le pseudo. \\
+\hline
+{\em barre\+\_\+de\+\_\+son} & Barre de son. \\
+\hline
+{\em pseudo\+\_\+valide} & Booléen pour vérifier si le pseudo est valide. \\
+\hline
+{\em touche\+\_\+aller\+\_\+a\+\_\+droite} & Touche pour aller à droite. \\
+\hline
+{\em touche\+\_\+aller\+\_\+a\+\_\+gauche} & Touche pour aller à gauche. \\
+\hline
+{\em touche\+\_\+sauter\+\_\+monter} & Touche pour sauter ou monter. \\
+\hline
+{\em touche\+\_\+descendre} & Touche pour descendre. \\
+\hline
+{\em touche\+\_\+interagir} & Touche pour interagir. \\
+\hline
+{\em titres} & Tableau des titres des sections. \\
+\hline
+{\em taille\+Titres} & Taille du tableau des titres. \\
+\hline
+{\em surface} & Pointeur vers la surface SDL. \\
+\hline
+{\em texture\+\_\+texte} & Texture pour le texte. \\
+\hline
+{\em police} & Police de caractères. \\
+\hline
+{\em couleur\+Noire} & Couleur noire. \\
+\hline
+{\em position\+Active} & Position active. \\
+\hline
+{\em avancee\+\_\+niveaux} & Tableau de l\textquotesingle{}avancée des niveaux. \\
+\hline
+{\em taille\+Niveaux} & Taille du tableau de l\textquotesingle{}avancée des niveaux. \\
+\hline
+{\em items\+Menu} & Tableau des éléments de menu. \\
+\hline
+{\em valider} & Élément de menu pour valider. \\
+\hline
+{\em largeur} & Largeur de l\textquotesingle{}écran. \\
+\hline
+{\em hauteur} & Hauteur de l\textquotesingle{}écran. \\
+\hline
+{\em page\+\_\+active} & Page active. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\+\_\+fenetre} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a4e9c4517e62999bd244b9031d9482d7a}{clic\+\_\+case} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_afe51c2fcb0206df7f65785b8b0137951}{clic\+\_\+plein\+\_\+ecran} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a3845ad340a7ec5a5a341718c1b23fa7e}{sauvegarder\+\_\+partie} 
+
+\doxylink{Programme_2fichiers__c_2fonctions__nouvelle__partie_8c_aec8c48643b901a8a6789a9506bd00c4e}{mise\+\_\+a\+\_\+jour\+\_\+rendu\+\_\+nouvelle\+\_\+partie} 
+\end{DoxySeeAlso}
+Gestion de l\textquotesingle{}événement de redimensionnement de la fenêtre
+
+Actualisation de la taille de la police
+
+Si l\textquotesingle{}utilisateur tape quelque chose
+
+Concatène le texte saisi au pseudo
+
+Si l\textquotesingle{}utilisateur clic quelque part
+
+Options plein écran, options et retour en arrière
+
+Options valider
+
+Mode saisie du pseudo
+
+Supprime le dernier caractère du pseudo
+
+Quitter le programme
+
+Mise à jour du rendu
+
+Définition à la ligne \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source_l00298}{298}} du fichier \mbox{\hyperlink{Save_2fichiers__c_2fonctions__nouvelle__partie_8c_source}{fonctions\+\_\+nouvelle\+\_\+partie.\+c}}.
+

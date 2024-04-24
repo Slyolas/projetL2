@@ -1,7 +1,27 @@
+/**
+ * \file fonctions_introduction.c
+ * \brief Fichier avec les fonctions présentant l'introduction du jeu
+*/
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_introduction.h>
 
-/* Fonction qui met à jour le rendu de l'introduction */
+/** 
+ * \fn void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *ligne, SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer, SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte,  TTF_Font **police, SDL_Color couleurBlanche, int largeur, int hauteur)
+ * \brief Fonction qui met à jour le rendu de l'introduction 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param indice Indice de la ligne de texte.
+ * \param ligne Ligne de texte à afficher.
+ * \param rectangle_passer Rectangle pour le bouton "Passer".
+ * \param texture_image_passer Texture de l'image du bouton "Passer".
+ * \param rectangle_texte_introduction Rectangle pour le texte d'introduction.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param couleurBlanche Couleur blanche SDL.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \see erreur
+ */
 void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *ligne,
                                     SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
                                     SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, 
@@ -41,8 +61,8 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
     SDL_DestroyTexture((*texture_texte));
 
     /* Copie la texture de l'image du passer */
-    rectangle_passer->x = largeur - largeur / 21;
-    rectangle_passer->y = 0;
+    rectangle_passer->x = largeur - largeur / 21- largeur / 53;
+    rectangle_passer->y = hauteur / 30;
     rectangle_passer->w = largeur / 21;
     rectangle_passer->h = hauteur / 12;
 
@@ -57,7 +77,29 @@ void mise_a_jour_rendu_introduction(SDL_Renderer **renderer, int indice, char *l
 
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction */
+/** 
+ * \fn void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer, SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, personnage_t *personnageActif, SDL_Color couleurBlanche, int *largeur, int *hauteur, page_t *page_active)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans l'introduction 
+ * \param event Événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param programme_lance Indicateur de lancement du programme.
+ * \param rectangle_passer Rectangle pour le bouton "Passer".
+ * \param texture_image_passer Texture de l'image du bouton "Passer".
+ * \param rectangle_texte_introduction Rectangle pour le texte d'introduction.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param personnageActif Personnage actif du joueur.
+ * \param couleurBlanche Couleur blanche SDL.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param page_active Page active du jeu.
+ * \see erreur
+ * \see redimensionnement_fenetre
+ * \see clic_case
+ * \see mise_a_jour_rendu_introduction
+ */
 void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
                   SDL_Rect *rectangle_passer, SDL_Texture **texture_image_passer,
                   SDL_Rect *rectangle_texte_introduction, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police,
@@ -68,12 +110,14 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
     FILE *fichier = NULL;
 
     if((*personnageActif) == PERSONNAGE_1) {
+
         fichier = fopen("./textes/introduction_masculin.txt", "r");
         if (!fichier)
             erreur("Ouverture du fichier introduction_masculin.txt");
     }
     
     else {
+
         fichier = fopen("./textes/introduction_feminin.txt", "r");
         if (!fichier)
             erreur("Ouverture du fichier introduction_feminin.txt");
@@ -108,7 +152,7 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
                         
                     case SDL_MOUSEBUTTONDOWN:
 
-                        /* Appuiyer sur le clic gauche de la souris */
+                        /* Appuyer sur le clic gauche de la souris */
                         if(event->button.button == SDL_BUTTON_LEFT)
                             /* Fin de la ligne */
                             indice = strlen(ligne);
@@ -119,7 +163,7 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
 
                         break;
                     
-                    /* Quitter le programme*/
+                    /* Quitter le programme */
                     case SDL_QUIT:
                         (*programme_lance) = SDL_FALSE;
                         break;
@@ -147,8 +191,12 @@ void introduction(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer
 
             SDL_SetWindowResizable((*window), SDL_FALSE);
 
+            Mix_PauseMusic();
+
             /* Délai d'attente avant de passer à la ligne suivante */
             SDL_Delay(2000);
+
+            Mix_ResumeMusic();
 
             SDL_SetWindowResizable((*window), SDL_TRUE);
         }

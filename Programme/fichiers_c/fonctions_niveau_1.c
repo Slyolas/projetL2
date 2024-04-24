@@ -1,7 +1,22 @@
+/**
+ * \file fonctions_niveau_1.c
+ * \brief Fichier contenant les fonctions servant à la gestion du niveau 1  
+*/
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_1.h>
 
-/* Fonction qui permet d'initialiser les différents objets du niveau 1 */
+/**
+ * \fn void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_sol_surface_niveau_1, SDL_Texture **texture_image_sol_profondeur_niveau_1, SDL_Texture **texture_image_fond_niveau_1, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2) 
+ * \brief Fonction qui permet d'initialiser les différents objets du niveau 4
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Surface SDL.
+ * \param texture_image_sol_surface_niveau_1 Texture de l'image du sol de surface du niveau 1.
+ * \param texture_image_sol_profondeur_niveau_1 Texture de l'image du sol de profondeur du niveau 1.
+ * \param texture_image_fond_niveau_1 Texture de l'image de fond du niveau 1.
+ * \param texture_image_nuage_1 Texture de l'image du nuage 1.
+ * \param texture_image_nuage_2 Texture de l'image du nuage 2.
+ * \see chargement_image
+ */
 void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_sol_surface_niveau_1, SDL_Texture **texture_image_sol_profondeur_niveau_1,
                                     SDL_Texture **texture_image_fond_niveau_1, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2) {
@@ -15,7 +30,16 @@ void initialisation_objets_niveau_1(SDL_Renderer **renderer, SDL_Surface **surfa
     chargement_image(renderer, surface, texture_image_nuage_2, "./images/niveau_1/nuage_2.png");
 }
 
-/* Fonction qui permet de créer le niveau 1 */
+/**
+ * \fn void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map_niveau_1[18][110])
+ * \brief Fonction qui permet de créer l'étage 1
+ * \param position_x Position du personnage à l'apparition sur la verticale
+ * \param position_y Position du personnage à l'apparition sur l'horizontale
+ * \param position_x_initiale Position initiale verticale du niveau en cas de mort du personnage
+ * \param position_y_initiale Position initiale horizontal du niveau en cas de mort du personnage
+ * \param tile_map_niveau_1 Map du niveau 1
+ * 
+ */
 void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map_niveau_1[18][110]) {
 
     int x, y;
@@ -57,7 +81,36 @@ void chargement_niveau_1(int *position_x, int *position_y, int *position_x_initi
             tile_map_niveau_1[y][x] = initialisation_tile_map[y][x];
 }
 
-/* Fonction qui permet de mettre à jour le rendu du niveau 1 */
+/**
+ * \fn void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond, SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, SDL_Texture **texture_image_fin_premiers_niveaux, int position_x, int position_y, int tile_map[18][32], int secret, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2, int largeur, int hauteur, int largeur_tile, int hauteur_tile)
+ * \brief Fonction qui permet de mettre à jour le rendu du niveau 4
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture_image_sol_surface Texture de l'image du sol de surface.
+ * \param texture_image_sol_profondeur Texture de l'image du sol de profondeur.
+ * \param texture_image_fond Texture de l'image de fond.
+ * \param texture Texture SDL.
+ * \param rectangle_tile Rectangle pour chaque tuile.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle du personnage.
+ * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
+ * \param texture_image_monstre_volant Texture de l'image du monstre volant.
+ * \param texture_image_pique Texture de l'image du piège.
+ * \param avancee_niveaux Structure de progression des niveaux.
+ * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
+ * \param position_x Position en x du joueur.
+ * \param position_y Position en y du joueur.
+ * \param tile_map Carte du niveau.
+ * \param secret Indicateur de secret découvert.
+ * \param texture_image_nuage_1 Texture de l'image du nuage 1.
+ * \param texture_image_nuage_2 Texture de l'image du nuage 2.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \see erreur
+ */
 void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond,
                                 SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                 SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant,
@@ -177,7 +230,73 @@ void mise_a_jour_rendu_niveau_1(SDL_Renderer **renderer, SDL_Texture **texture_i
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le niveau 1 */
+/**
+ * \fn void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **texture, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_sol_surface, SDL_Texture **texture_image_sol_profondeur, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, int *mouvement_monstre, SDL_Surface **surface, int collectibles_intermediaires[3], time_t *timestamp, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, int *decalage, int *secret_1, int *secret_2, int tile_map[18][32], int tile_map_niveau_1[18][110], SDL_Rect *rectangle_tile, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Texture **texture_image_perso_gagnant, SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, SDL_Texture **texture_image_nuage_1, SDL_Texture **texture_image_nuage_2, SDL_Color couleurNoire, SDL_Texture **texture_image_fin_premiers_niveaux, int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe, int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y, int *largeur, int *hauteur, int *largeur_tile, int *hauteur_tile, page_t *page_active)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le niveau 4
+ * \param event Événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture Texture SDL.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param plein_ecran Indicateur de mode plein écran.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle du personnage.
+ * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
+ * \param texture_image_monstre_volant Texture de l'image du monstre volant.
+ * \param texture_image_sol_surface Texture de l'image du sol de surface.
+ * \param texture_image_sol_profondeur Texture de l'image du sol de profondeur.
+ * \param texture_image_fond Texture de l'image de fond.
+ * \param texture_image_pique Texture de l'image du piège.
+ * \param avancee_niveaux Structure de progression des niveaux.
+ * \param mouvement_monstre Indicateur de mouvement des monstres.
+ * \param surface Surface SDL.
+ * \param collectibles_intermediaires Tableau de collectibles intermédiaires.
+ * \param timestamp Horodatage.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param decalage Décalage.
+ * \param secret_1 Indicateur du premier secret découvert.
+ * \param secret_2 Indicateur du deuxième secret découvert.
+ * \param tile_map Carte du niveau.
+ * \param tile_map_niveau_1 Carte spécifique du niveau 1.
+ * \param rectangle_tile Rectangle pour chaque tuile.
+ * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter.
+ * \param tailleDemandeQuitter Taille du tableau d'items pour la demande de quitter.
+ * \param texture_image_perso_gagnant Texture de l'image du personnage gagnant.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param rectangle_demande_quitter Rectangle de la demande de quitter.
+ * \param texture_image_nuage_1 Texture de l'image du nuage 1.
+ * \param texture_image_nuage_2 Texture de l'image du nuage 2.
+ * \param couleurNoire Couleur noire SDL.
+ * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
+ * \param avancer Indicateur d'avancer.
+ * \param reculer Indicateur de reculer.
+ * \param sauter Indicateur de sauter.
+ * \param position_avant_saut Position avant le saut.
+ * \param saut Indicateur de saut.
+ * \param tombe Indicateur de chute.
+ * \param position_x_initiale Position initiale en x.
+ * \param position_y_initiale Position initiale en y.
+ * \param position_x Position en x du joueur.
+ * \param position_y Position en y du joueur.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \param page_active Page active du jeu.
+ * \see redimensionnement_fenetre
+ * \see clic_plein_ecran
+ * \see demande_quitter_niveau
+ * \see clic_case
+ * \see deplacement_personnage
+ * \see erreur
+ * \see chargement_niveau_1
+ * \see mise_a_jour_rendu_niveau_1
+ * 
+*/
 void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix,
               SDL_Texture **texture, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
               SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant,
@@ -200,7 +319,7 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SD
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
 
-    Mix_Chunk *effet_sonore;
+    Mix_Chunk *effet_sonore = NULL;
     
     int i, x, y;
 
@@ -564,7 +683,6 @@ void niveau_1(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SD
             erreur("Chargement de l'effet sonore");
         
         Mix_PlayChannel(1, effet_sonore, 0);
-
         /* Mise à jour du rendu */
         mise_a_jour_rendu_niveau_1(renderer, texture_image_sol_surface, texture_image_sol_profondeur, texture_image_fond,
                                    texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,

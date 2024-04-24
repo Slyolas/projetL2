@@ -1,3 +1,7 @@
+/**
+ * \file metatravers.c
+ * \brief Fichier qui réunit les différents modules pour le bon fonctionnement du programme
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -16,7 +20,37 @@
 #include "../fichiers_h/fonctions_niveau_3.h"
 #include "../fichiers_h/fonctions_arrivee_niveaux_2_3.h"
 #include "../fichiers_h/fonctions_niveau_4.h"
-
+/**
+ * \fn int main(void)
+ * \brief Fonction principal du programme
+ * \return déroulement du programme (0 si bien passé sinon code erreur)
+ * \see creer_fenetre_rendu
+ * \see initialisation_objets
+ * \see verification_sauvegarde
+ * \see erreur
+ * \see initialisation_objets_menu_principal
+ * \see initialisation_objets_options
+ * \see initialisation_objets_nouvelle_partie
+ * \see initialisation_objets_carte
+ * \see initialisation_objets_niveau_1
+ * \see initialisation_objets_niveau_2
+ * \see initialisation_objets_niveau_3
+ * \see initialisation_objets_niveau_4
+ * \see chargement_image
+ * \see menu_principal
+ * \see options
+ * \see nouvelle_partie
+ * \see introduction
+ * \see carte
+ * \see chargement_niveau_1
+ * \see salon_arrivee_niveaux_2_3
+ * \see etage_1 
+ * \see arrivee_niveaux_2_3
+ * \see niveau_1
+ * \see niveau_4
+ * \see detruire_objets
+ * \see detruire_fenetre_rendu
+*/ 
 int main() {
 
     /* Initialisation de la largeur de la fenêtre */
@@ -34,7 +68,7 @@ int main() {
     SDL_Surface *surface = NULL;
 
     /* Initialisation de la texture */
-    SDL_Texture *texture;
+    SDL_Texture *texture = NULL;
 
     /* Création du pointeur sur la texture du texte */
     SDL_Texture *texture_texte = NULL;
@@ -178,7 +212,7 @@ int main() {
     SDL_Texture *texture_image_fin_dernier_niveau = NULL;
 
     /* Création des pointeurs sur la texture des différentes images pour les succès et pour leur rectangle */
-    SDL_Texture *textures_images_succes[11];
+    SDL_Texture *textures_images_succes[11] = {NULL};
     SDL_Rect rectangle_succes;
 
     /* Création du rectangle pour le texte de l'introduction */
@@ -213,7 +247,7 @@ int main() {
         erreur("Initialisation AUDIO SDL");
 
     /* Initialisation de la musique */
-    Mix_Music *musique;
+    Mix_Music *musique = NULL;
 
     creer_fenetre_rendu(&window, &renderer, largeur, hauteur);
 
@@ -278,7 +312,6 @@ int main() {
     itemMenu *itemsMenuPrincipal = malloc(tailleMenuPrincipal * sizeof(itemMenu));
     if (itemsMenuPrincipal == NULL) {
         erreur("Allocation de la mémoire");
-        exit(EXIT_FAILURE);
     }
 
     initialisation_objets_menu_principal(&renderer, &surface, &texture_image_menu,

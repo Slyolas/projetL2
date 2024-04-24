@@ -1,7 +1,29 @@
+/**
+ * \file fonctions_niveau_4.c
+ * \brief Fichier contenant les fonctions servant à la gestion du niveau 2  
+*/
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_2.h>
 
-/* Fonction qui permet d'initialiser les différents objets du niveau 2 */
+/** 
+ * \fn void initialisation_objets_niveau_2(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_fond_niveau_2, SDL_Texture **texture_image_dossier_niveau_2, SDL_Texture **texture_image_sol_niveau_2, SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_pipe_vertical, SDL_Texture **texture_image_pipe_horizontal, SDL_Texture **texture_image_pipe_haut_droit, SDL_Texture **texture_image_pipe_bas_droit, SDL_Texture **texture_image_pipe_bas_gauche, SDL_Texture **texture_image_pipe_haut_gauche, SDL_Texture **texture_image_pipe_courant, SDL_Texture **texture_image_mur_termine)
+ * \brief Fonction qui permet d'initialiser les différents objets du niveau 2 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Surface SDL.
+ * \param texture_image_fond_niveau_2 Texture de l'image de fond du niveau 2.
+ * \param texture_image_dossier_niveau_2 Texture de l'image du dossier du niveau 2.
+ * \param texture_image_sol_niveau_2 Texture de l'image du sol du niveau 2.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur du mini-jeu.
+ * \param texture_image_pipe_vertical Texture de l'image du tuyau vertical.
+ * \param texture_image_pipe_horizontal Texture de l'image du tuyau horizontal.
+ * \param texture_image_pipe_haut_droit Texture de l'image du tuyau haut droit.
+ * \param texture_image_pipe_bas_droit Texture de l'image du tuyau bas droit.
+ * \param texture_image_pipe_bas_gauche Texture de l'image du tuyau bas gauche.
+ * \param texture_image_pipe_haut_gauche Texture de l'image du tuyau haut gauche.
+ * \param texture_image_pipe_courant Texture de l'image du tuyau courant.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \see chargement_image
+ */
 void initialisation_objets_niveau_2(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_fond_niveau_2, SDL_Texture **texture_image_dossier_niveau_2,
                                     SDL_Texture **texture_image_sol_niveau_2, SDL_Texture **texture_image_mur_mini_jeu,
@@ -27,7 +49,13 @@ void initialisation_objets_niveau_2(SDL_Renderer **renderer, SDL_Surface **surfa
     chargement_image(renderer, surface, texture_image_mur_termine, "./images/labyrinthe/mur_fin_mini_jeux.png");
 }
 
-/* Fonction qui permet d'initialiser le premier mini-jeu du niveau 2 */
+/** 
+ * \fn void mini_jeu_1_niveau_2(int *position_x, int *position_y, int tile_map[19][27]) 
+ * \brief Fonction qui permet d'initialiser le premier mini-jeu du niveau 2
+ * \param position_x position horizontal du personnage sur le tile map
+ * \param position_y position verticale du personnage sur le tile map
+ * \param tile_map map ou se trouve le personnage
+ */
 void mini_jeu_1_niveau_2(int *position_x, int *position_y, int tile_map[19][27]) {
 
     int x, y;
@@ -72,7 +100,18 @@ void mini_jeu_1_niveau_2(int *position_x, int *position_y, int tile_map[19][27])
             tile_map[y][x] = initialisation_tile_map[y][x];
 }
 
-/* Fonction de vérification du chemin */
+/** 
+ * \fn int verification_chemin(int x, int y, int x_precedent, int y_precedent, int tilemap[19][27], int x_arrivee, int y_arrivee)
+ * \brief Fonction de vérification du chemin 
+ * \param x position actuelle verticale dans la vérification du chemin
+ * \param y position actuelle horizontale dans la vérification du chemin
+ * \param x_precedent position précédente à la position actuelle de x
+ * \param y_precedent position précédente à la position actuelle de y
+ * \param tilemap map à vérifier
+ * \param x_arrivee coordonnée x ou se trouve la sortie
+ * \param y_arrivee coordonnée y ou se trouve la sortie
+ * \return booléen (1 si le chemin est bon sinon 0)
+ */
 int verification_chemin(int x, int y, int x_precedent, int y_precedent, int tilemap[19][27], int x_arrivee, int y_arrivee) {
 
     /* Vérifier si les coordonnées actuelles correspondent aux coordonnées de l'arrivée */
@@ -192,7 +231,21 @@ int verification_chemin(int x, int y, int x_precedent, int y_precedent, int tile
     return 0;
 }
 
-/* Fonction pour mettre à jour les tuiles de bordure lorsque l'on finit une partie */
+/** 
+ * \fn int mise_a_jour_bordures_niveau_2(SDL_Renderer* renderer, SDL_Texture* texture_image_mur_termine, int tilemap[19][27], int x_tile, int y_tile, int x, int y, SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile)
+ * \brief Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la 9 du labyrinthe 
+ * \param renderer Renderer SDL.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \param tilemap Carte de tuiles du niveau 2.
+ * \param x_tile Position x de la tuile à mettre à jour.
+ * \param y_tile Position y de la tuile à mettre à jour.
+ * \param x Position x de la tuile dans l'écran.
+ * \param y Position y de la tuile dans l'écran.
+ * \param rectangle_tile Rectangle pour chaque tuile.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \return appel récursif pour mettre les différents rectangle à jour jusqu'à la fin (appel se finissant par un 0)
+ */
 int mise_a_jour_bordures_niveau_2(SDL_Renderer* renderer, SDL_Texture* texture_image_mur_termine, int tilemap[19][27], int x_tile, int y_tile, int x, int y,
                                   SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile) {
 
@@ -239,7 +292,33 @@ int mise_a_jour_bordures_niveau_2(SDL_Renderer* renderer, SDL_Texture* texture_i
     return 0;
 }
 
-/* Fonction qui permet de mettre à jour le premier mini-jeu du niveau 2 */
+/** 
+
+ * \fn void mise_a_jour_mini_jeu_1_niveau_2(SDL_Renderer **renderer, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture, SDL_Rect *rectangle_tile, int position_x, int position_y, int tile_map_mini_jeu_niveau_2[19][27], int largeur, int hauteur, int largeur_tile, int hauteur_tile, SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_pipe_vertical, SDL_Texture **texture_image_pipe_horizontal, SDL_Texture **texture_image_pipe_haut_droit, SDL_Texture **texture_image_pipe_bas_droit, SDL_Texture **texture_image_pipe_bas_gauche, SDL_Texture **texture_image_pipe_haut_gauche, SDL_Texture **texture_image_pipe_courant, SDL_Texture **texture_image_mur_termine)
+ * \brief Fonction qui permet de mettre à jour le premier mini-jeu du niveau 2 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param rectangle_plein_ecran Rectangle pour le plein écran.
+ * \param texture_image_plein_ecran Texture de l'image du plein écran.
+ * \param texture Texture SDL.
+ * \param rectangle_tile Rectangle pour chaque tuile.
+ * \param position_x Position x du joueur.
+ * \param position_y Position y du joueur.
+ * \param tile_map_mini_jeu_niveau_2 Carte de tuiles du mini-jeu 1 du niveau 2.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur du mini-jeu.
+ * \param texture_image_pipe_vertical Texture de l'image du tuyau vertical.
+ * \param texture_image_pipe_horizontal Texture de l'image du tuyau horizontal.
+ * \param texture_image_pipe_haut_droit Texture de l'image du tuyau haut droit.
+ * \param texture_image_pipe_bas_droit Texture de l'image du tuyau bas droit.
+ * \param texture_image_pipe_bas_gauche Texture de l'image du tuyau bas gauche.
+ * \param texture_image_pipe_haut_gauche Texture de l'image du tuyau haut gauche.
+ * \param texture_image_pipe_courant Texture de l'image du tuyau courant.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \see erreur
+ */
 void mise_a_jour_mini_jeu_1_niveau_2(SDL_Renderer **renderer, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix,
                                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                      SDL_Texture **texture, SDL_Rect *rectangle_tile,
@@ -421,7 +500,16 @@ void mise_a_jour_mini_jeu_1_niveau_2(SDL_Renderer **renderer, SDL_Texture **text
     SDL_RenderPresent((*renderer));
 } 
 
-/* Fonction qui permet d'initialiser le second mini-jeu du niveau 2 */
+/** 
+ * \fn void mini_jeu_2_niveau_2(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32], int mode_difficile) 
+ * \brief Fonction qui permet d'initialiser le second mini-jeu du niveau 2 
+ * \param position_x position verticale du joueur à l'apparition dans le niveau
+ * \param position_y position horizontale du joueur à l'apparition dans le niveau
+ * \param position_x_initiale position du joueur verticale si il venait à revenir dans le niveau ou si il venait à mourir 
+ * \param position_y_initiale position du joueur horizontale si il venait à revenir dans le niveau ou si il venait à mourir
+ * \param tile_map map ou se trouve le personnage
+ * \param mode_difficile booléen indiquant la présence du mode difficile 
+ */
 void mini_jeu_2_niveau_2(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32], int mode_difficile) {
 
     int x, y;
@@ -465,7 +553,33 @@ void mini_jeu_2_niveau_2(int *position_x, int *position_y, int *position_x_initi
             tile_map[y][x] = initialisation_tile_map[y][x];
 }
 
-/* Fonction qui permet de mettre à jour le second mini-jeu du niveau 2 */
+/** 
+ * \fn void mise_a_jour_mini_jeu_2_niveau_2(SDL_Renderer **renderer, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int mini_jeu_termine, int position_x, int position_y, int tile_map[18][32], SDL_Texture **texture_image_porte, niveaux *avancee_niveaux, int largeur, int hauteur, int largeur_tile, int hauteur_tile) {
+ * \brief Fonction qui permet de mettre à jour le second mini-jeu du niveau 2 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture_image_fond Texture de l'image de fond.
+ * \param texture_image_sol Texture de l'image du sol.
+ * \param rectangle_plein_ecran Rectangle pour le plein écran.
+ * \param texture_image_plein_ecran Texture de l'image du plein écran.
+ * \param texture Texture SDL.
+ * \param rectangle_tile Rectangle pour chaque tuile.
+ * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
+ * \param texture_image_monstre_volant Texture de l'image du monstre volant.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle pour le personnage.
+ * \param mini_jeu_termine Indicateur de la fin du mini-jeu.
+ * \param position_x Position x du joueur.
+ * \param position_y Position y du joueur.
+ * \param tile_map Carte de tuiles du niveau.
+ * \param texture_image_porte Texture de l'image de la porte.
+ * \param avancee_niveaux Pointeur vers l'état d'avancement des niveaux.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * 
+ * 
+ */
 void mise_a_jour_mini_jeu_2_niveau_2(SDL_Renderer **renderer, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol, SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix,
                                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                      SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant,
@@ -558,7 +672,77 @@ void mise_a_jour_mini_jeu_2_niveau_2(SDL_Renderer **renderer, SDL_Texture **text
     SDL_RenderPresent((*renderer));
 } 
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les mini-jeux du niveau 2 */
+
+/** 
+ * \fn 
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les mini-jeux du niveau 2 
+ * \param event Événement SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param texture_image_fond Texture de l'image de fond.
+ * \param texture_image_sol Texture de l'image du sol.
+ * \param rectangle_plein_ecran Rectangle pour le plein écran.
+ * \param texture_image_plein_ecran Texture de l'image du plein écran.
+ * \param plein_ecran Indicateur de mode plein écran.
+ * \param texture_image_porte Texture de l'image de la porte.
+ * \param avancee_niveaux Pointeur vers l'état d'avancement des niveaux.
+ * \param texture Texture SDL.
+ * \param rectangle_tile Rectangle pour chaque tuile.
+ * \param mini_jeu Indicateur du mini-jeu en cours.
+ * \param mini_jeu_1_termine Indicateur de la fin du mini-jeu 1.
+ * \param mini_jeu_2_termine Indicateur de la fin du mini-jeu 2.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle pour le personnage.
+ * \param mini_jeu_termine Indicateur de la fin du mini-jeu.
+ * \param position_x Position x du joueur.
+ * \param position_y Position y du joueur.
+ * \param tile_map Carte de tuiles du niveau.
+ * \param tile_map_mini_jeu_niveau_2 Carte de tuiles du mini-jeu 1 du niveau 2.
+ * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
+ * \param texture_image_monstre_volant Texture de l'image du monstre volant.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur du mini-jeu.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_interagir Touche pour interagir.
+ * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param touche_descendre Touche pour descendre.
+ * \param valide Indicateur de la validité de l'action.
+ * \param texture_image_pipe_vertical Texture de l'image du tuyau vertical.
+ * \param texture_image_pipe_horizontal Texture de l'image du tuyau horizontal.
+ * \param texture_image_pipe_haut_droit Texture de l'image du tuyau haut droit.
+ * \param texture_image_pipe_bas_droit Texture de l'image du tuyau bas droit.
+ * \param texture_image_pipe_bas_gauche Texture de l'image du tuyau bas gauche.
+ * \param texture_image_pipe_haut_gauche Texture de l'image du tuyau haut gauche.
+ * \param texture_image_pipe_courant Texture de l'image du tuyau courant.
+ * \param rectangle_demande_quitter Rectangle pour la demande de quitter.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte.
+ * \param police Police de caractères.
+ * \param couleurNoire Couleur noire.
+ * \param itemsDemandeQuitter Liste des items pour la demande de quitter.
+ * \param tailleDemandeQuitter Taille de la liste des items pour la demande de quitter.
+ * \param collectibles_intermediaires Tableau des collectibles intermédiaires.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \param page_active Page active.
+ * \param musique Musique SDL.
+ * \param avancer Indicateur de déplacement vers l'avant.
+ * \param reculer Indicateur de déplacement vers l'arrière.
+ * \param sauter Indicateur de saut.
+ * \param saut Indicateur de saut en cours.
+ * \param tombe Indicateur de chute.
+ * \see redimensionnement_fenetre
+ * \see clic_plein_ecran
+ * \see demande_quitter_niveau
+ * \see clic_case
+ * \see verification_chemin
+ * \see mise_a_jour_bordures_niveau_2
+ * \see salon_arrivee_niveaux_2_3
+ * \see mise_a_jour_mini_jeu_1_niveau_2
+ */
 void mini_jeux_niveau_2(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window, SDL_bool *programme_lance, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol,
                         SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, SDL_Texture **texture_image_porte, niveaux *avancee_niveaux,
                         SDL_Texture **texture, SDL_Rect *rectangle_tile, int *mini_jeu, int *mini_jeu_1_termine, int *mini_jeu_2_termine,

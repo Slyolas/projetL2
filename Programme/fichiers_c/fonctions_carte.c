@@ -1,7 +1,41 @@
+/**
+ * \file fonctions_carte.c
+ * \brief Fichier contenant toutes les fonctions gérant la carte principal
+*/
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_carte.h>
 
-/* Fonction qui permet d'initialiser les différents objets de la carte */
+/**
+ * \fn void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_carte, SDL_Texture **texture_image_perso_1_bas_1, SDL_Texture **texture_image_perso_1_bas_2, SDL_Texture **texture_image_perso_1_haut_1, SDL_Texture **texture_image_perso_1_haut_2, SDL_Texture **texture_image_perso_1_bas_gauche_1, SDL_Texture **texture_image_perso_1_bas_gauche_2, SDL_Texture **texture_image_perso_1_haut, SDL_Texture **texture_image_perso_1_droite, SDL_Texture **texture_image_perso_1_gauche, SDL_Texture **texture_image_perso_1_pose, SDL_Texture **texture_image_perso_2_bas_1, SDL_Texture **texture_image_perso_2_bas_2, SDL_Texture **texture_image_perso_2_haut_1, SDL_Texture **texture_image_perso_2_haut_2, SDL_Texture **texture_image_perso_2_bas_gauche_1, SDL_Texture **texture_image_perso_2_bas_gauche_2, SDL_Texture **texture_image_perso_2_haut, SDL_Texture **texture_image_perso_2_droite, SDL_Texture **texture_image_perso_2_gauche, SDL_Texture **texture_image_perso_2_pose, itemMenu *itemsNiveaux, SDL_Texture **texture_image_retour_menu)
+ * \brief Fonction qui permet d'initialiser les différents objets de la carte.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Surface SDL.
+ * \param texture_image_carte Texture de l'image de la carte.
+ * \param texture_image_perso_1_bas_1 Texture de l'image du personnage 1 en bas 1.
+ * \param texture_image_perso_1_bas_2 Texture de l'image du personnage 1 en bas 2.
+ * \param texture_image_perso_1_haut_1 Texture de l'image du personnage 1 en haut 1.
+ * \param texture_image_perso_1_haut_2 Texture de l'image du personnage 1 en haut 2.
+ * \param texture_image_perso_1_bas_gauche_1 Texture de l'image du personnage 1 en bas gauche 1.
+ * \param texture_image_perso_1_bas_gauche_2 Texture de l'image du personnage 1 en bas gauche 2.
+ * \param texture_image_perso_1_haut Texture de l'image du personnage 1 en haut.
+ * \param texture_image_perso_1_droite Texture de l'image du personnage 1 à droite.
+ * \param texture_image_perso_1_gauche Texture de l'image du personnage 1 à gauche.
+ * \param texture_image_perso_1_pose Texture de l'image du personnage 1 en pose.
+ * \param texture_image_perso_2_bas_1 Texture de l'image du personnage 2 en bas 1.
+ * \param texture_image_perso_2_bas_2 Texture de l'image du personnage 2 en bas 2.
+ * \param texture_image_perso_2_haut_1 Texture de l'image du personnage 2 en haut 1.
+ * \param texture_image_perso_2_haut_2 Texture de l'image du personnage 2 en haut 2.
+ * \param texture_image_perso_2_bas_gauche_1 Texture de l'image du personnage 2 en bas gauche 1.
+ * \param texture_image_perso_2_bas_gauche_2 Texture de l'image du personnage 2 en bas gauche 2.
+ * \param texture_image_perso_2_haut Texture de l'image du personnage 2 en haut.
+ * \param texture_image_perso_2_droite Texture de l'image du personnage 2 à droite.
+ * \param texture_image_perso_2_gauche Texture de l'image du personnage 2 à gauche.
+ * \param texture_image_perso_2_pose Texture de l'image du personnage 2 en pose.
+ * \param itemsNiveaux Tableau d'items pour les niveaux.
+ * \param texture_image_retour_menu Texture de l'image du bouton retour au menu.
+ * \see chargement_image
+ */
 void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_carte,
                                  SDL_Texture **texture_image_perso_1_bas_1, SDL_Texture **texture_image_perso_1_bas_2,
                                  SDL_Texture **texture_image_perso_1_haut_1, SDL_Texture **texture_image_perso_1_haut_2,
@@ -79,7 +113,31 @@ void initialisation_objets_carte(SDL_Renderer **renderer, SDL_Surface **surface,
     sprintf(itemsSucces[11].texte, " Fermer ");
 }
 
-/* Fonction qui met à jour le rendu de la carte après redimension de la fenêtre */
+/** \fn void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_image_carte, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, SDL_Rect *rectangle_perso, SDL_Texture **texture_image_perso, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, position_t positionActive, SDL_Color couleurNoire, SDL_Rect *rectangle_retour_menu, SDL_Texture **texture_image_retour_menu, itemMenu *itemsNiveaux, int tailleNiveaux, int largeur, int hauteur, niveaux *avancee_niveaux)
+ * \brief Fonction qui met à jour le rendu de la carte après redimension de la fenêtre
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture_image_carte Texture de l'image de la carte.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param rectangle_options Rectangle des options SDL.
+ * \param texture_image_options Texture de l'image des options.
+ * \param rectangle_perso Rectangle du personnage SDL.
+ * \param texture_image_perso Texture de l'image du personnage.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param positionActive Position active.
+ * \param couleurNoire Couleur noire SDL.
+ * \param rectangle_retour_menu Rectangle du bouton retour au menu SDL.
+ * \param texture_image_retour_menu Texture de l'image du bouton retour au menu.
+ * \param itemsNiveaux Tableau d'items pour les niveaux.
+ * \param tailleNiveaux Taille du tableau d'items pour les niveaux.
+ * \param largeur Largeur.
+ * \param hauteur Hauteur.
+ * \param avancee_niveaux Structure de progression des niveaux.
+ * \see erreur
+ * \see affichage_texte
+ */
 void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_image_carte,
                              SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                              SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
@@ -286,7 +344,35 @@ void mise_a_jour_rendu_carte(SDL_Renderer **renderer, SDL_Texture **texture_imag
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction qui permet de deplacer le personnage sur la carte */
+/**
+ * \fn void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Window **window, SDL_Texture **texture_image_carte, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, SDL_Rect *rectangle_perso, SDL_Texture **texture_image_perso_1, SDL_Texture **texture_image_perso_2,  SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, position_t *positionActive, SDL_Color couleurNoire, SDL_Rect *rectangle_retour_menu, SDL_Texture **texture_image_retour_menu, itemMenu *itemsNiveaux, int tailleNiveaux, int largeur, int hauteur, int valeur_maximale, direction_t direction, niveaux *avancee_niveaux)
+ * \brief Fonction qui permet de deplacer le personnage sur la carte
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param texture_image_carte Texture de l'image de la carte.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param rectangle_options Rectangle des options SDL.
+ * \param texture_image_options Texture de l'image des options.
+ * \param rectangle_perso Rectangle du personnage SDL.
+ * \param texture_image_perso_1 Texture de l'image du personnage 1.
+ * \param texture_image_perso_2 Texture de l'image du personnage 2.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param positionActive Position active sur la carte.
+ * \param couleurNoire Couleur noire SDL.
+ * \param rectangle_retour_menu Rectangle du bouton retour au menu SDL.
+ * \param texture_image_retour_menu Texture de l'image du bouton retour au menu.
+ * \param itemsNiveaux Tableau d'items pour les niveaux.
+ * \param tailleNiveaux Taille du tableau d'items pour les niveaux.
+ * \param largeur Largeur de la carte.
+ * \param hauteur Hauteur de la carte.
+ * \param valeur_maximale Valeur maximale pour la direction.
+ * \param direction Direction du déplacement.
+ * \param avancee_niveaux Structure de progression des niveaux.
+ * \see mise_a_jour_rendu_carte
+ */
 void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Window **window, SDL_Texture **texture_image_carte,
                                   SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                   SDL_Rect *rectangle_options, SDL_Texture **texture_image_options,
@@ -385,7 +471,71 @@ void deplacement_personnage_carte(SDL_Renderer **renderer, SDL_Window **window, 
     SDL_SetWindowResizable((*window), SDL_TRUE);
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent sur la carte */
+
+/**
+ * \fn void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_carte, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, SDL_Rect *rectangle_retour_menu, SDL_Texture **texture_image_retour_menu, SDL_Texture **texture_image_perso_bas_1, SDL_Texture **texture_image_perso_bas_2, SDL_Texture **texture_image_perso_haut_1, SDL_Texture **texture_image_perso_haut_2, SDL_Texture **texture_image_perso_bas_gauche_1, SDL_Texture **texture_image_perso_bas_gauche_2, SDL_Texture **texture_image_perso_haut, SDL_Texture **texture_image_perso_droite, SDL_Texture **texture_image_perso_gauche, SDL_Texture **texture_image_perso_pose, SDL_Texture **texture_image_perso, SDL_Rect *rectangle_perso, niveaux *avancee_niveaux, int niveau_fini[4], int collectibles[12], position_t *position_intermediaire, SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, direction_t *direction, int *touche_pressee, SDL_Rect *rectangle_demande_sauvegarde, itemMenu *itemsDemandeSauvegarde, int tailleDemandeSauvegarde, position_t *positionActive, barreDeSon *barre_de_son, itemMenu *pseudo, modes_t *modeActif, personnage_t *personnageActif, SDL_Color couleurNoire, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Keycode *touche_interagir, itemMenu *itemsNiveaux, int tailleNiveaux, int *largeur, int *hauteur, page_t *page_active)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent sur la carte
+
+ * \param event Pointeur vers l'événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param programme_lance Booléen indiquant si le programme est en cours d'exécution.
+ * \param texture_image_carte Texture de l'image de la carte.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param plein_ecran Booléen pour le plein écran.
+ * \param rectangle_options Rectangle des options SDL.
+ * \param texture_image_options Texture de l'image des options.
+ * \param rectangle_retour_menu Rectangle du bouton retour au menu SDL.
+ * \param texture_image_retour_menu Texture de l'image du bouton retour au menu.
+ * \param texture_image_perso_bas_1 Texture de l'image du personnage en bas 1.
+ * \param texture_image_perso_bas_2 Texture de l'image du personnage en bas 2.
+ * \param texture_image_perso_haut_1 Texture de l'image du personnage en haut 1.
+ * \param texture_image_perso_haut_2 Texture de l'image du personnage en haut 2.
+ * \param texture_image_perso_bas_gauche_1 Texture de l'image du personnage en bas gauche 1.
+ * \param texture_image_perso_bas_gauche_2 Texture de l'image du personnage en bas gauche 2.
+ * \param texture_image_perso_haut Texture de l'image du personnage en haut.
+ * \param texture_image_perso_droite Texture de l'image du personnage à droite.
+ * \param texture_image_perso_gauche Texture de l'image du personnage à gauche.
+ * \param texture_image_perso_pose Texture de l'image du personnage en pose.
+ * \param texture_image_perso Texture de l'image du personnage.
+ * \param rectangle_perso Rectangle du personnage SDL.
+ * \param avancee_niveaux Structure de progression des niveaux.
+ * \param niveau_fini Tableau indiquant si chaque niveau est terminé.
+ * \param collectibles Tableau des collectibles.
+ * \param position_intermediaire Position intermédiaire du personnage.
+ * \param surface Surface SDL.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param direction Direction du personnage.
+ * \param touche_pressee Indicateur de touche pressée.
+ * \param rectangle_demande_sauvegarde Rectangle de la demande de sauvegarde SDL.
+ * \param itemsDemandeSauvegarde Tableau d'items pour la demande de sauvegarde.
+ * \param tailleDemandeSauvegarde Taille du tableau d'items pour la demande de sauvegarde.
+ * \param positionActive Position active.
+ * \param barre_de_son Barre de son SDL.
+ * \param pseudo Pseudo du joueur SDL.
+ * \param modeActif Mode actif du jeu.
+ * \param personnageActif Personnage actif.
+ * \param couleurNoire Couleur noire SDL.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param touche_descendre Touche pour descendre.
+ * \param touche_interagir Touche pour interagir.
+ * \param itemsNiveaux Tableau d'items pour les niveaux.
+ * \param tailleNiveaux Taille du tableau d'items pour les niveaux.
+ * \param largeur Largeur de la carte.
+ * \param hauteur Hauteur de la carte.
+ * \param page_active Page active.
+ * \see mise_a_jour_rendu_carte
+ * \see redimensionnement_fenetre
+ * \see deplacement_personnage_carte
+ * \see erreur
+ * \see demande_sauvegarde
+ * \see sauvegarder_partie
+ * \see clic_case
+ */
 void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, SDL_Texture **texture_image_carte,
            SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
            SDL_Rect *rectangle_options, SDL_Texture **texture_image_options, SDL_Rect *rectangle_retour_menu, SDL_Texture **texture_image_retour_menu,
@@ -408,7 +558,7 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
 
-    Mix_Chunk *effet_sonore;
+    Mix_Chunk *effet_sonore = NULL;
 
     int i, j;
 
@@ -1014,4 +1164,5 @@ void carte(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_b
                     break;
             }
     }
+
 }

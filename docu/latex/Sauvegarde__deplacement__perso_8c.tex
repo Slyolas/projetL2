@@ -1,0 +1,68 @@
+\doxysection{Référence du fichier Save/\+Sauvegarde\+\_\+deplacement\+\_\+perso.c}
+\hypertarget{Sauvegarde__deplacement__perso_8c}{}\label{Sauvegarde__deplacement__perso_8c}\index{Save/Sauvegarde\_deplacement\_perso.c@{Save/Sauvegarde\_deplacement\_perso.c}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \"{}../fichiers\+\_\+h/\+Deplacement\+\_\+personnage.\+h\"{}}\newline
+Graphe des dépendances par inclusion de Sauvegarde\+\_\+deplacement\+\_\+perso.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Sauvegarde__deplacement__perso_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_ae56150e8452cbc02277409fdef5a56f7}{Mouvement}} (int Carte\mbox{[}$\,$\mbox{]}\mbox{[}26\mbox{]}, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}pos, int Direction, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}render)
+\item 
+void \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_a946badb33c77ba0f037fc213947e5658}{Handle\+Event}} (SDL\+\_\+\+Event event, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}render, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}position\+Joueur, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}TPerso\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}Perso\+Actuelle, SDL\+\_\+bool \texorpdfstring{$\ast$}{*}run, int Carte\mbox{[}11\mbox{]}\mbox{[}26\mbox{]})
+\item 
+int \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_afadbada6c5e8d326db1e7927a7fe649a}{gestion\+Personnage}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}render)
+\item 
+int \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Sauvegarde__deplacement__perso_8c_afadbada6c5e8d326db1e7927a7fe649a}\label{Sauvegarde__deplacement__perso_8c_afadbada6c5e8d326db1e7927a7fe649a} 
+\index{Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}!gestionPersonnage@{gestionPersonnage}}
+\index{gestionPersonnage@{gestionPersonnage}!Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}}
+\doxysubsubsection{\texorpdfstring{gestionPersonnage()}{gestionPersonnage()}}
+{\footnotesize\ttfamily int gestion\+Personnage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{render }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source_l00060}{60}} du fichier \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source}{Sauvegarde\+\_\+deplacement\+\_\+perso.\+c}}.
+
+\Hypertarget{Sauvegarde__deplacement__perso_8c_a946badb33c77ba0f037fc213947e5658}\label{Sauvegarde__deplacement__perso_8c_a946badb33c77ba0f037fc213947e5658} 
+\index{Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}!HandleEvent@{HandleEvent}}
+\index{HandleEvent@{HandleEvent}!Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}}
+\doxysubsubsection{\texorpdfstring{HandleEvent()}{HandleEvent()}}
+{\footnotesize\ttfamily void Handle\+Event (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{event,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{render,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{position\+Joueur,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{TPerso\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{Perso\+Actuelle,  }\item[{SDL\+\_\+bool \texorpdfstring{$\ast$}{*}}]{run,  }\item[{int}]{Carte\mbox{[}11\mbox{]}\mbox{[}26\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source_l00009}{9}} du fichier \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source}{Sauvegarde\+\_\+deplacement\+\_\+perso.\+c}}.
+
+\Hypertarget{Sauvegarde__deplacement__perso_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{Sauvegarde__deplacement__perso_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}!main@{main}}
+\index{main@{main}!Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source_l00173}{173}} du fichier \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source}{Sauvegarde\+\_\+deplacement\+\_\+perso.\+c}}.
+
+\Hypertarget{Sauvegarde__deplacement__perso_8c_ae56150e8452cbc02277409fdef5a56f7}\label{Sauvegarde__deplacement__perso_8c_ae56150e8452cbc02277409fdef5a56f7} 
+\index{Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}!Mouvement@{Mouvement}}
+\index{Mouvement@{Mouvement}!Sauvegarde\_deplacement\_perso.c@{Sauvegarde\_deplacement\_perso.c}}
+\doxysubsubsection{\texorpdfstring{Mouvement()}{Mouvement()}}
+{\footnotesize\ttfamily void Mouvement (\begin{DoxyParamCaption}\item[{int}]{Carte\mbox{[}$\,$\mbox{]}\mbox{[}26\mbox{]},  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{pos,  }\item[{int}]{Direction,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{render }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source_l00139}{139}} du fichier \mbox{\hyperlink{Sauvegarde__deplacement__perso_8c_source}{Sauvegarde\+\_\+deplacement\+\_\+perso.\+c}}.
+

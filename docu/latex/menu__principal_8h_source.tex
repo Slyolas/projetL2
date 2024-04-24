@@ -1,0 +1,38 @@
+\doxysection{menu\+\_\+principal.\+h}
+\hypertarget{menu__principal_8h_source}{}\label{menu__principal_8h_source}\index{Save/Programme/Prec/menu\_principal.h@{Save/Programme/Prec/menu\_principal.h}}
+\mbox{\hyperlink{menu__principal_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00007}00007\ \textcolor{comment}{/*\ Fonction\ qui\ affiche\ un\ message\ d'erreur\ quand\ une\ chose\ n'a\ pas\ pû\ être\ exécuté\ */}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00008}00008\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu__principal_8h_a4b6ab0cfff2a3843b8b79d9066445167}{erreur}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00010}00010\ \textcolor{comment}{/*\ Vérifie\ si\ une\ sauvegarde\ existe\ */}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00011}00011\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{menu__principal_8h_a5f3d9f5a1b24e53bd19ef9d7631917a4}{verification\_sauvegarde}}();}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00013}00013\ \textcolor{comment}{/*\ Fonction\ qui\ permet\ d'initialiser\ les\ différents\ objets\ */}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00014}00014\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu__principal_8h_a6b93b0bb5eaaf6b466e07fa40cd7d39e}{initialisation\_objets}}(SDL\_Renderer\ **renderer,\ SDL\_Surface\ **image\_menu,\ SDL\_Texture\ **texture\_image\_menu,}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Surface\ **image\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TTF\_Font\ **police,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu);}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00018}00018\ \textcolor{comment}{/*\ Fonction\ qui\ permet\ de\ redimensionner\ la\ fenêtre\ et\ les\ différents\ objets\ */}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00019}00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu__principal_8h_a5c46ccfb829656680145d5fe3b33418f}{redimensionnement\_fenetre}}(SDL\_Event\ event,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur);}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00021}00021\ \textcolor{comment}{/*\ Fonction\ qui\ met\ à\ jour\ le\ rendu\ après\ redimension\ de\ la\ fenêtre\ */}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00022}00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu__principal_8h_a1f5a0ec5994ca28e3fb9452347d0aab8}{mise\_a\_jour\_rendu}}(SDL\_Renderer\ **renderer,\ SDL\_Texture\ **texture\_image\_menu,}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_Texture\ **texture\_image\_plein\_ecran,}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *titre,\ SDL\_Surface\ **texte\_menu,\ SDL\_Texture\ **texture\_texte\_menu,\ TTF\_Font\ **police,}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ couleurTitre,\ SDL\_Color\ couleurNoire,}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ tailleMenu,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00028}00028\ \textcolor{comment}{/*\ Fonction\ qui\ permet\ de\ ...\ quand\ on\ clique\ sur\ une\ case\ du\ menu\ */}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00029}00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu__principal_8h_ac7aefab99aeff52f3ef5b6acee082ab4}{clic\_case}}(SDL\_Event\ event,\ \mbox{\hyperlink{structitemMenu}{itemMenu}}\ *itemsMenu,\ \textcolor{keywordtype}{int}\ numero\_case,\ \textcolor{keywordtype}{int}\ tailleMenu);}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00031}00031\ \textcolor{comment}{/*\ Fonction\ qui\ permet\ de\ mettre\ la\ fenêtre\ en\ plein\ écran\ quand\ on\ clique\ sur\ le\ bouton\ plein\ écran\ */}}
+\DoxyCodeLine{\Hypertarget{menu__principal_8h_source_l00032}00032\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{menu__principal_8h_afe51c2fcb0206df7f65785b8b0137951}{clic\_plein\_ecran}}(SDL\_Event\ event,\ SDL\_Rect\ *rectangle\_plein\_ecran,\ SDL\_bool\ *plein\_ecran,\ SDL\_Window\ **window);}
+
+\end{DoxyCode}

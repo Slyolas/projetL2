@@ -1,0 +1,77 @@
+\doxysection{Référence du fichier Save/\+Programme/fichiers\+\_\+c/tuyauterie.c}
+\hypertarget{tuyauterie_8c}{}\label{tuyauterie_8c}\index{Save/Programme/fichiers\_c/tuyauterie.c@{Save/Programme/fichiers\_c/tuyauterie.c}}
+{\ttfamily \#include \"{}../fichiers\+\_\+h/tuyauterie.\+h\"{}}\newline
+Graphe des dépendances par inclusion de tuyauterie.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tuyauterie_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tuyauterie_8c_aed9bd99b2cf11e4b060f5c57bdb8ea79}{init\+SDL}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer)
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tuyauterie_8c_a38659595195e849b629b1922cd06ec91}{load\+Texture}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}file\+Path)
+\item 
+int \mbox{\hyperlink{tuyauterie_8c_abd29e16e4761b590877504070154c38e}{check\+Path}} (int x, int y, int prevX, int prevY, \mbox{\hyperlink{tuyauterie_8h_a8d405cba0f7fb12fc7a14a0fb12d726d}{position\+\_\+pipe\+\_\+t}} tilemap\mbox{[}\mbox{\hyperlink{tuyauterie_8h_a7a6ad463cadda1a6b95306af7df4ca09}{TILE\+\_\+\+MAP\+\_\+X}}\mbox{]}\mbox{[}\mbox{\hyperlink{tuyauterie_8h_a56c745368f9b5e30aff2c2fb2f61e9a7}{TILE\+\_\+\+MAP\+\_\+Y}}\mbox{]}, int arriveX, int arriveY)
+\item 
+int \mbox{\hyperlink{tuyauterie_8c_a93e69ec7163f668665a8254e73fedc6e}{update\+Border\+Tiles}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}finish\+\_\+\+Texture, \mbox{\hyperlink{tuyauterie_8h_a8d405cba0f7fb12fc7a14a0fb12d726d}{position\+\_\+pipe\+\_\+t}} tilemap\mbox{[}\mbox{\hyperlink{tuyauterie_8h_a7a6ad463cadda1a6b95306af7df4ca09}{TILE\+\_\+\+MAP\+\_\+X}}\mbox{]}\mbox{[}\mbox{\hyperlink{tuyauterie_8h_a56c745368f9b5e30aff2c2fb2f61e9a7}{TILE\+\_\+\+MAP\+\_\+Y}}\mbox{]}, int tileX, int tileY, int finX, int finY)
+\item 
+int \mbox{\hyperlink{tuyauterie_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{tuyauterie_8c_abd29e16e4761b590877504070154c38e}\label{tuyauterie_8c_abd29e16e4761b590877504070154c38e} 
+\index{tuyauterie.c@{tuyauterie.c}!checkPath@{checkPath}}
+\index{checkPath@{checkPath}!tuyauterie.c@{tuyauterie.c}}
+\doxysubsubsection{\texorpdfstring{checkPath()}{checkPath()}}
+{\footnotesize\ttfamily int check\+Path (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{prevX,  }\item[{int}]{prevY,  }\item[{\mbox{\hyperlink{tuyauterie_8h_a8d405cba0f7fb12fc7a14a0fb12d726d}{position\+\_\+pipe\+\_\+t}}}]{tilemap\mbox{[}\+TILE\+\_\+\+MAP\+\_\+\+X\mbox{]}\mbox{[}\+TILE\+\_\+\+MAP\+\_\+\+Y\mbox{]},  }\item[{int}]{arriveX,  }\item[{int}]{arriveY }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tuyauterie_8c_source_l00044}{44}} du fichier \mbox{\hyperlink{tuyauterie_8c_source}{tuyauterie.\+c}}.
+
+\Hypertarget{tuyauterie_8c_aed9bd99b2cf11e4b060f5c57bdb8ea79}\label{tuyauterie_8c_aed9bd99b2cf11e4b060f5c57bdb8ea79} 
+\index{tuyauterie.c@{tuyauterie.c}!initSDL@{initSDL}}
+\index{initSDL@{initSDL}!tuyauterie.c@{tuyauterie.c}}
+\doxysubsubsection{\texorpdfstring{initSDL()}{initSDL()}}
+{\footnotesize\ttfamily void init\+SDL (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tuyauterie_8c_source_l00004}{4}} du fichier \mbox{\hyperlink{tuyauterie_8c_source}{tuyauterie.\+c}}.
+
+\Hypertarget{tuyauterie_8c_a38659595195e849b629b1922cd06ec91}\label{tuyauterie_8c_a38659595195e849b629b1922cd06ec91} 
+\index{tuyauterie.c@{tuyauterie.c}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!tuyauterie.c@{tuyauterie.c}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} load\+Texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tuyauterie_8c_source_l00032}{32}} du fichier \mbox{\hyperlink{tuyauterie_8c_source}{tuyauterie.\+c}}.
+
+\Hypertarget{tuyauterie_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{tuyauterie_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{tuyauterie.c@{tuyauterie.c}!main@{main}}
+\index{main@{main}!tuyauterie.c@{tuyauterie.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tuyauterie_8c_source_l00229}{229}} du fichier \mbox{\hyperlink{tuyauterie_8c_source}{tuyauterie.\+c}}.
+
+\Hypertarget{tuyauterie_8c_a93e69ec7163f668665a8254e73fedc6e}\label{tuyauterie_8c_a93e69ec7163f668665a8254e73fedc6e} 
+\index{tuyauterie.c@{tuyauterie.c}!updateBorderTiles@{updateBorderTiles}}
+\index{updateBorderTiles@{updateBorderTiles}!tuyauterie.c@{tuyauterie.c}}
+\doxysubsubsection{\texorpdfstring{updateBorderTiles()}{updateBorderTiles()}}
+{\footnotesize\ttfamily int update\+Border\+Tiles (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{finish\+\_\+\+Texture,  }\item[{\mbox{\hyperlink{tuyauterie_8h_a8d405cba0f7fb12fc7a14a0fb12d726d}{position\+\_\+pipe\+\_\+t}}}]{tilemap\mbox{[}\+TILE\+\_\+\+MAP\+\_\+\+X\mbox{]}\mbox{[}\+TILE\+\_\+\+MAP\+\_\+\+Y\mbox{]},  }\item[{int}]{tileX,  }\item[{int}]{tileY,  }\item[{int}]{finX,  }\item[{int}]{finY }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tuyauterie_8c_source_l00195}{195}} du fichier \mbox{\hyperlink{tuyauterie_8c_source}{tuyauterie.\+c}}.
+

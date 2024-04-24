@@ -1,0 +1,142 @@
+\doxysection{Référence du fichier Save/\+Programme/\+Prec/sdl.c}
+\hypertarget{sdl_8c}{}\label{sdl_8c}\index{Save/Programme/Prec/sdl.c@{Save/Programme/Prec/sdl.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include \"{}menu\+\_\+principal.\+c\"{}}\newline
+Graphe des dépendances par inclusion de sdl.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdl_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sdl_8c_a69c339b2966791489487938c49401cf3}{FPS\+\_\+\+LIMIT}}~16
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sdl_8c_add13b30b9e22e1fefef7897d49222b47}{creer\+\_\+fenetre\+\_\+rendu}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, int largeur, int hauteur)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de créer une fenêtre et le rendu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sdl_8c_adcf134943a227654cd26067e595b1dab}{SDL\+\_\+\+Limit\+FPS}} (unsigned int limit)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de gérer le nombre d\textquotesingle{}FPS à différents moments du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sdl_8c_a0a48a697ffe3b801510fc64a8ebe1f67}{detruire\+\_\+objets}} (TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}police)
+\item 
+void \mbox{\hyperlink{sdl_8c_adec7f4fe3daaf651b21ff0204b2f33f9}{detruire\+\_\+fenetre\+\_\+rendu}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de détruire le rendu et la fenêtre. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sdl_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{sdl_8c_a69c339b2966791489487938c49401cf3}\label{sdl_8c_a69c339b2966791489487938c49401cf3} 
+\index{sdl.c@{sdl.c}!FPS\_LIMIT@{FPS\_LIMIT}}
+\index{FPS\_LIMIT@{FPS\_LIMIT}!sdl.c@{sdl.c}}
+\doxysubsubsection{\texorpdfstring{FPS\_LIMIT}{FPS\_LIMIT}}
+{\footnotesize\ttfamily \#define FPS\+\_\+\+LIMIT~16}
+
+
+
+Définition à la ligne \mbox{\hyperlink{sdl_8c_source_l00009}{9}} du fichier \mbox{\hyperlink{sdl_8c_source}{sdl.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{sdl_8c_add13b30b9e22e1fefef7897d49222b47}\label{sdl_8c_add13b30b9e22e1fefef7897d49222b47} 
+\index{sdl.c@{sdl.c}!creer\_fenetre\_rendu@{creer\_fenetre\_rendu}}
+\index{creer\_fenetre\_rendu@{creer\_fenetre\_rendu}!sdl.c@{sdl.c}}
+\doxysubsubsection{\texorpdfstring{creer\_fenetre\_rendu()}{creer\_fenetre\_rendu()}}
+{\footnotesize\ttfamily void creer\+\_\+fenetre\+\_\+rendu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de créer une fenêtre et le rendu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & fenêtre à créer \\
+\hline
+{\em renderer} & Rendu de la fenêtre à créer \\
+\hline
+{\em largeur} & largeur de la fenêtre souhaité \\
+\hline
+{\em hauteur} & hauteur de la fenêtre souhaité \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{Programme_2fichiers__c_2fonctions__generales_8c_a02efc10954bca92c1219a7a3b41dbe89}{erreur} 
+\end{DoxySeeAlso}
+Création de la fenêtre
+
+Création du rendu
+
+Définition à la ligne \mbox{\hyperlink{sdl_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{sdl_8c_source}{sdl.\+c}}.
+
+\Hypertarget{sdl_8c_adec7f4fe3daaf651b21ff0204b2f33f9}\label{sdl_8c_adec7f4fe3daaf651b21ff0204b2f33f9} 
+\index{sdl.c@{sdl.c}!detruire\_fenetre\_rendu@{detruire\_fenetre\_rendu}}
+\index{detruire\_fenetre\_rendu@{detruire\_fenetre\_rendu}!sdl.c@{sdl.c}}
+\doxysubsubsection{\texorpdfstring{detruire\_fenetre\_rendu()}{detruire\_fenetre\_rendu()}}
+{\footnotesize\ttfamily void detruire\+\_\+fenetre\+\_\+rendu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de détruire le rendu et la fenêtre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Rendu à détruire \\
+\hline
+{\em widnow} & fenêtre à détruire \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{sdl_8c_source_l00050}{50}} du fichier \mbox{\hyperlink{sdl_8c_source}{sdl.\+c}}.
+
+\Hypertarget{sdl_8c_a0a48a697ffe3b801510fc64a8ebe1f67}\label{sdl_8c_a0a48a697ffe3b801510fc64a8ebe1f67} 
+\index{sdl.c@{sdl.c}!detruire\_objets@{detruire\_objets}}
+\index{detruire\_objets@{detruire\_objets}!sdl.c@{sdl.c}}
+\doxysubsubsection{\texorpdfstring{detruire\_objets()}{detruire\_objets()}}
+{\footnotesize\ttfamily void detruire\+\_\+objets (\begin{DoxyParamCaption}\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{police }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{sdl_8c_source_l00044}{44}} du fichier \mbox{\hyperlink{sdl_8c_source}{sdl.\+c}}.
+
+\Hypertarget{sdl_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{sdl_8c_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{sdl.c@{sdl.c}!main@{main}}
+\index{main@{main}!sdl.c@{sdl.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{sdl_8c_source_l00056}{56}} du fichier \mbox{\hyperlink{sdl_8c_source}{sdl.\+c}}.
+
+\Hypertarget{sdl_8c_adcf134943a227654cd26067e595b1dab}\label{sdl_8c_adcf134943a227654cd26067e595b1dab} 
+\index{sdl.c@{sdl.c}!SDL\_LimitFPS@{SDL\_LimitFPS}}
+\index{SDL\_LimitFPS@{SDL\_LimitFPS}!sdl.c@{sdl.c}}
+\doxysubsubsection{\texorpdfstring{SDL\_LimitFPS()}{SDL\_LimitFPS()}}
+{\footnotesize\ttfamily void SDL\+\_\+\+Limit\+FPS (\begin{DoxyParamCaption}\item[{unsigned int}]{limit }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de gérer le nombre d\textquotesingle{}FPS à différents moments du jeu. 
+
+Squelette de la fonction SDL\+\_\+\+Limit\+FPS
+
+
+\begin{DoxyParams}{Paramètres}
+{\em limit} & la limite désiré en FPS \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{sdl_8c_source_l00031}{31}} du fichier \mbox{\hyperlink{sdl_8c_source}{sdl.\+c}}.
+

@@ -1,7 +1,22 @@
+/**
+ * \file fonctions_niveau_4.c
+ * \brief Fichier contenant les fonctions servant à la gestion du niveau 4  
+*/
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_4.h>
 
-/* Fonction qui permet d'initialiser les différents objets du niveau 4 */
+/** 
+ * \fn void initialisation_objets_niveau_4(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_bordure, SDL_Texture **texture_image_porte, SDL_Texture **texture_image_pique, SDL_Texture **texture_image_fin_dernier_niveau)
+ * \brief Fonction qui permet d'initialiser les différents objets du niveau 4 
+* \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_fond Texture de l'image du fond.
+ * \param texture_image_bordure Texture de l'image de la bordure.
+ * \param texture_image_porte Texture de l'image de la porte.
+ * \param texture_image_pique Texture de l'image du pique.
+ * \param texture_image_fin_dernier_niveau Texture de l'image de fin du dernier niveau.
+ * \see chargement_image
+ */
 void initialisation_objets_niveau_4(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_fond, SDL_Texture **texture_image_bordure,
                                     SDL_Texture **texture_image_porte, SDL_Texture **texture_image_pique,
@@ -16,7 +31,19 @@ void initialisation_objets_niveau_4(SDL_Renderer **renderer, SDL_Surface **surfa
     chargement_image(renderer, surface, texture_image_fin_dernier_niveau, "./images/niveau_4/fin_dernier_niveau.png");
 }
 
-/* Fonction qui permet de créer l'étage 1 */
+/** 
+ * \fn void etage_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) 
+ * \brief Fonction qui permet de créer l'étage 1 
+ * \param position_x Pointeur vers la position en abscisse du joueur.
+ * \param position_y Pointeur vers la position en ordonnée du joueur.
+ * \param position_x_initiale Pointeur vers la position initiale en abscisse du joueur.
+ * \param position_y_initiale Pointeur vers la position initiale en ordonnée du joueur.
+ * \param tile_map Tableau représentant la carte du niveau.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_mur Texture de l'image des murs.
+ * \see chargement_image
+ */
 void etage_1(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],
              SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) {
 
@@ -62,7 +89,19 @@ void etage_1(int *position_x, int *position_y, int *position_x_initiale, int *po
     chargement_image(renderer, surface, texture_image_mur, "./images/niveau_4/mur_etage_1.png");
 }
 
-/* Fonction qui permet de créer l'étage 2 */
+/** 
+ * \fn void etage_2(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) 
+ * \brief Fonction qui permet de créer l'étage 2
+ * \param position_x Pointeur vers la position en abscisse du joueur.
+ * \param position_y Pointeur vers la position en ordonnée du joueur.
+ * \param position_x_initiale Pointeur vers la position initiale en abscisse du joueur.
+ * \param position_y_initiale Pointeur vers la position initiale en ordonnée du joueur.
+ * \param tile_map Tableau représentant la carte du niveau.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_mur Texture de l'image des murs.
+ * \see chargement_image
+ */
 void etage_2(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],
              SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) {
 
@@ -108,7 +147,19 @@ void etage_2(int *position_x, int *position_y, int *position_x_initiale, int *po
     chargement_image(renderer, surface, texture_image_mur, "./images/niveau_4/mur_etage_2.png");
 }
 
-/* Fonction qui permet de créer l'étage 3 */
+/** 
+ * \fn void etage_3(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) 
+ * \brief Fonction qui permet de créer l'étage 3
+ * \param position_x Pointeur vers la position en abscisse du joueur.
+ * \param position_y Pointeur vers la position en ordonnée du joueur.
+ * \param position_x_initiale Pointeur vers la position initiale en abscisse du joueur.
+ * \param position_y_initiale Pointeur vers la position initiale en ordonnée du joueur.
+ * \param tile_map Tableau représentant la carte du niveau.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_mur Texture de l'image des murs.
+ * \see chargement_image
+ */
 void etage_3(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],
              SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) {
 
@@ -154,7 +205,19 @@ void etage_3(int *position_x, int *position_y, int *position_x_initiale, int *po
     chargement_image(renderer, surface, texture_image_mur, "./images/niveau_4/mur_etage_3.png");
 }
 
-/* Fonction qui permet de créer l'étage 4 */
+/** 
+ * \fn void etage_4(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) 
+ * \brief Fonction qui permet de créer l'étage 4
+ * \param position_x Pointeur vers la position en abscisse du joueur.
+ * \param position_y Pointeur vers la position en ordonnée du joueur.
+ * \param position_x_initiale Pointeur vers la position initiale en abscisse du joueur.
+ * \param position_y_initiale Pointeur vers la position initiale en ordonnée du joueur.
+ * \param tile_map Tableau représentant la carte du niveau.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_mur Texture de l'image des murs.
+ * \see chargement_image
+ */
 void etage_4(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],
              SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) {
 
@@ -200,7 +263,19 @@ void etage_4(int *position_x, int *position_y, int *position_x_initiale, int *po
     chargement_image(renderer, surface, texture_image_mur, "./images/niveau_4/mur_etage_4.png");
 }
 
-/* Fonction qui permet de créer l'étage 5 */
+/** 
+ * \fn void etage_5(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) 
+ * \brief Fonction qui permet de créer l'étage 5
+ * \param position_x Pointeur vers la position en abscisse du joueur.
+ * \param position_y Pointeur vers la position en ordonnée du joueur.
+ * \param position_x_initiale Pointeur vers la position initiale en abscisse du joueur.
+ * \param position_y_initiale Pointeur vers la position initiale en ordonnée du joueur.
+ * \param tile_map Tableau représentant la carte du niveau.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_mur Texture de l'image des murs.
+ * \see chargement_image
+ */
 void etage_5(int *position_x, int *position_y, int *position_x_initiale, int *position_y_initiale, int tile_map[18][32],
              SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_mur) {
 
@@ -246,7 +321,33 @@ void etage_5(int *position_x, int *position_y, int *position_x_initiale, int *po
     chargement_image(renderer, surface, texture_image_mur, "./images/niveau_4/mur_etage_5.png");
 }
 
-/* Fonction qui permet de mettre à jour le rendu du niveau 4 */
+/**
+ * \fn void mise_a_jour_rendu_niveau_4(SDL_Renderer **renderer, SDL_Texture **texture_image_mur, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_bordure, SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_porte, SDL_Texture **texture_image_fin_dernier_niveau, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, int numero_etage, int position_x, int position_y, int tile_map[18][32], int largeur, int hauteur, int largeur_tile, int hauteur_tile) 
+ * \brief Fonction qui permet de mettre à jour le rendu du niveau 4 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture_image_mur Texture de l'image des murs.
+ * \param texture_image_fond Texture de l'image du fond.
+ * \param texture_image_bordure Texture de l'image de la bordure.
+ * \param texture Texture générale.
+ * \param rectangle_tile Rectangle de la tuile.
+ * \param rectangle_plein_ecran Rectangle pour l'affichage en plein écran.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param texture_image_porte Texture de l'image de la porte.
+ * \param texture_image_fin_dernier_niveau Texture de l'image de fin du dernier niveau.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle du personnage.
+ * \param texture_image_pique Texture de l'image des pics.
+ * \param avancee_niveaux Structure contenant l'avancement dans les niveaux.
+ * \param numero_etage Numéro de l'étage.
+ * \param position_x Position en abscisse du joueur.
+ * \param position_y Position en ordonnée du joueur.
+ * \param tile_map Tableau représentant la carte du niveau.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \see erreur
+ */
 void mise_a_jour_rendu_niveau_4(SDL_Renderer **renderer, SDL_Texture **texture_image_mur, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_bordure,
                                 SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                 SDL_Texture **texture_image_porte, SDL_Texture **texture_image_fin_dernier_niveau,
@@ -343,7 +444,69 @@ void mise_a_jour_rendu_niveau_4(SDL_Renderer **renderer, SDL_Texture **texture_i
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le niveau 4 */
+/**
+ *\fn void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **texture, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, SDL_Texture **texture_image_mur, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_bordure, SDL_Texture **texture_image_porte, SDL_Texture **texture_image_pique, niveaux *avancee_niveaux, SDL_Surface **surface, modes_t *modeActif, int collectibles_intermediaires[3], SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_interagir, int tile_map[18][32], SDL_Rect *rectangle_tile, SDL_Texture **texture_image_perso_gagnant, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, SDL_Color couleurNoire, SDL_Texture **texture_image_fin_dernier_niveau, int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe, int *numero_etage, int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y, int *largeur, int *hauteur, int *largeur_tile, int *hauteur_tile, page_t *page_active)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le niveau 4 
+ * \param event Pointeur vers la structure d'événements SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture Texture générale.
+ * \param rectangle_plein_ecran Rectangle pour l'affichage en plein écran.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param plein_ecran Pointeur vers un booléen indiquant si le jeu est en mode plein écran.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle du personnage.
+ * \param texture_image_mur Texture de l'image des murs.
+ * \param texture_image_fond Texture de l'image du fond.
+ * \param texture_image_bordure Texture de l'image de la bordure.
+ * \param texture_image_porte Texture de l'image de la porte.
+ * \param texture_image_pique Texture de l'image des pics.
+ * \param avancee_niveaux Structure contenant l'avancement dans les niveaux.
+ * \param surface Surface SDL pour le texte.
+ * \param modeActif Pointeur vers le mode de jeu actif.
+ * \param collectibles_intermediaires Tableau des collectibles intermédiaires.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_sauter_monter Touche pour sauter ou monter.
+ * \param touche_interagir Touche pour interagir.
+ * \param tile_map Tableau représentant la carte du niveau.
+ * \param rectangle_tile Rectangle de la tuile.
+ * \param texture_image_perso_gagnant Texture de l'image du personnage gagnant.
+ * \param itemsDemandeQuitter Tableau des items pour demander à quitter.
+ * \param tailleDemandeQuitter Taille du tableau des items pour demander à quitter.
+ * \param texture_texte Texture pour le texte.
+ * \param police Police de caractères pour le texte.
+ * \param rectangle_demande_quitter Rectangle pour la demande de quitter.
+ * \param couleurNoire Couleur noire pour le texte.
+ * \param texture_image_fin_dernier_niveau Texture de l'image de fin du dernier niveau.
+ * \param avancer Pointeur vers la commande d'avancer.
+ * \param reculer Pointeur vers la commande de reculer.
+ * \param sauter Pointeur vers la commande de sauter.
+ * \param position_avant_saut Position avant le saut.
+ * \param tombe Pointeur vers la commande de tomber.
+ * \param numero_etage Numéro de l'étage.
+ * \param position_x_initiale Position initiale en abscisse.
+ * \param position_y_initiale Position initiale en ordonnée.
+ * \param position_x Position en abscisse du joueur.
+ * \param position_y Position en ordonnée du joueur.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \param page_active Pointeur vers la page active.
+ * \see redimensionnement_fenetre
+ * \see erreur
+ * \see etage_1
+ * \see etage_2
+ * \see etage_3
+ * \see etage_4
+ * \see etage_5
+ * \see clic_plein_ecran
+ * \see clic_case
+ * \see demande_quitter_niveau
+ * \see deplacement_personnage
+ * \see mise_a_jour_rendu_niveau_4
+ */
 void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance,
               SDL_Texture **texture, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
               SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage,
@@ -367,7 +530,7 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SD
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
 
-    Mix_Chunk *effet_sonore;
+    Mix_Chunk *effet_sonore = NULL;
     
     int i;
 
@@ -747,7 +910,7 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SD
             erreur("Chargement de l'effet sonore");
         
         Mix_PlayChannel(1, effet_sonore, 0);
-
+        
         /* Mise à jour du rendu */
         mise_a_jour_rendu_niveau_4(renderer, texture_image_mur, texture_image_fond, texture_image_bordure,
                                    texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,
@@ -782,7 +945,6 @@ void niveau_4(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SD
 
         (*page_active) = CARTE;
     }
-
     /* Mise à jour du rendu */
     mise_a_jour_rendu_niveau_4(renderer, texture_image_mur, texture_image_fond, texture_image_bordure,
                                texture, rectangle_tile, rectangle_plein_ecran, texture_image_plein_ecran,

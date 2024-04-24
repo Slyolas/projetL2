@@ -1,0 +1,25 @@
+<map id="Save/fichiers_h/fonctions_nouvelle_partie.h" name="Save/fichiers_h/fonctions_nouvelle_partie.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="245,5,429,45"/>
+<area shape="rect" id="Node000002" href="$commun_8h.html" title=" " alt="" coords="283,240,373,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="327,47,315,69,305,94,301,130,305,166,321,227,316,228,299,167,296,130,300,93,310,67,322,44"/>
+<area shape="rect" id="Node000010" href="$Save_2fichiers__h_2fonctions__generales_8h.html" title=" " alt="" coords="315,93,480,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="354,44,382,81,378,84,350,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,313,72,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="283,268,86,316,85,310,282,262"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="97,313,167,339"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="297,268,178,311,176,306,296,263"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="192,313,256,339"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="313,268,254,307,251,303,310,263"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="280,313,376,339"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="331,266,331,300,325,300,325,266"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="400,313,517,339"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="350,263,427,304,424,309,348,268"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="541,313,685,339"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="374,263,555,307,553,313,373,268"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="709,313,848,339"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="374,259,696,309,695,314,373,264"/>
+<area shape="poly" id="edge10_Node000010_Node000002" title=" " alt="" coords="389,120,372,142,356,168,344,198,336,227,330,226,339,196,351,165,368,139,385,117"/>
+<area shape="rect" id="Node000011" href="$Save_2fichiers__h_2fonctions__menu__principal_8h.html" title=" " alt="" coords="366,167,567,192"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="411,117,448,155,444,159,407,121"/>
+<area shape="poly" id="edge12_Node000011_Node000002" title=" " alt="" coords="446,194,364,236,362,231,443,190"/>
+</map>

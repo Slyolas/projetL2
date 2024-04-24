@@ -1,0 +1,244 @@
+\doxysection{Référence du fichier Save/\+Programme/fichiers\+\_\+c/puzzle.c}
+\hypertarget{puzzle_8c}{}\label{puzzle_8c}\index{Save/Programme/fichiers\_c/puzzle.c@{Save/Programme/fichiers\_c/puzzle.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+Graphe des dépendances par inclusion de puzzle.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{puzzle_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}}~800
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}}~260
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_a24ed5c66d297fc087be88f357216c9d3}{NUM\+\_\+\+PIECES\+\_\+X}}~9
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_ac254dc5342b3b9b08dffa9ab67d1dee2}{NUM\+\_\+\+PIECES\+\_\+Y}}~5
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_aa48fcadcf8736236dea16d28dbda19e1}{LARGEUR\+\_\+\+PIECE}}~(\mbox{\hyperlink{puzzle_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}} / \mbox{\hyperlink{puzzle_8c_a24ed5c66d297fc087be88f357216c9d3}{NUM\+\_\+\+PIECES\+\_\+X}})
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_a44dd41a19c7fa2f2f637385c85c3c2e4}{HAUTEUR\+\_\+\+PIECE}}~(\mbox{\hyperlink{puzzle_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}} / \mbox{\hyperlink{puzzle_8c_ac254dc5342b3b9b08dffa9ab67d1dee2}{NUM\+\_\+\+PIECES\+\_\+Y}})
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_a11d418779cd7caa30c17c08ce3562f3a}{TOTAL\+\_\+\+PIECES}}~(\mbox{\hyperlink{puzzle_8c_a24ed5c66d297fc087be88f357216c9d3}{NUM\+\_\+\+PIECES\+\_\+X}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{puzzle_8c_ac254dc5342b3b9b08dffa9ab67d1dee2}{NUM\+\_\+\+PIECES\+\_\+Y}})
+\item 
+\#define \mbox{\hyperlink{puzzle_8c_a3fecc14bc5fc72b12782dce9eaf4b662}{CORRECT\+\_\+\+DISTANCE}}~10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{puzzle_8c_a70ab67ed4b5b65143ff56559fe3dd0c7}{rectangle\+\_\+piece\+\_\+aleatoire}} ()
+\item 
+int \mbox{\hyperlink{puzzle_8c_a254684c3749948cf20b164c603c2d984}{initialisation\+\_\+\+SDL}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer)
+\item 
+int \mbox{\hyperlink{puzzle_8c_a5f4da83cc7ff43b4152e4d7924375da8}{chargement\+\_\+image}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+puzzle)
+\item 
+void \mbox{\hyperlink{puzzle_8c_ae67089efdbb0ccb35bb54f6822417356}{fermeture\+\_\+\+SDL}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+puzzle)
+\item 
+void \mbox{\hyperlink{puzzle_8c_a0463852b40518d1c673f50232210bcc4}{melange\+\_\+piece}} (SDL\+\_\+\+Rect rectangle\+\_\+piece\mbox{[}\mbox{\hyperlink{puzzle_8c_a11d418779cd7caa30c17c08ce3562f3a}{TOTAL\+\_\+\+PIECES}}\mbox{]})
+\item 
+void \mbox{\hyperlink{puzzle_8c_a8e0a0e4e319860a82f6b8af55b250e32}{afficher\+\_\+rendu}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}texture\+\_\+image\+\_\+puzzle, SDL\+\_\+\+Rect rectangle\+\_\+piece\mbox{[}\mbox{\hyperlink{puzzle_8c_a11d418779cd7caa30c17c08ce3562f3a}{TOTAL\+\_\+\+PIECES}}\mbox{]})
+\item 
+int \mbox{\hyperlink{puzzle_8c_a6ab3193731a8b731706b29079e9b1077}{est\+Piece\+Proche\+Position\+Correcte}} (SDL\+\_\+\+Rect piece\+Rect, SDL\+\_\+\+Rect correct\+Rect)
+\item 
+int \mbox{\hyperlink{puzzle_8c_a8e3539618d8e6a03aa8dd19ad29a47ee}{verification\+\_\+puzzle\+\_\+fini}} (const int piece\+\_\+bloquer\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{puzzle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{puzzle_8c_a3fecc14bc5fc72b12782dce9eaf4b662}\label{puzzle_8c_a3fecc14bc5fc72b12782dce9eaf4b662} 
+\index{puzzle.c@{puzzle.c}!CORRECT\_DISTANCE@{CORRECT\_DISTANCE}}
+\index{CORRECT\_DISTANCE@{CORRECT\_DISTANCE}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{CORRECT\_DISTANCE}{CORRECT\_DISTANCE}}
+{\footnotesize\ttfamily \#define CORRECT\+\_\+\+DISTANCE~10}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00013}{13}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_ad629b1db4ee230dc5de47de843476e72}\label{puzzle_8c_ad629b1db4ee230dc5de47de843476e72} 
+\index{puzzle.c@{puzzle.c}!HAUTEUR@{HAUTEUR}}
+\index{HAUTEUR@{HAUTEUR}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{HAUTEUR}{HAUTEUR}}
+{\footnotesize\ttfamily \#define HAUTEUR~260}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00007}{7}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a44dd41a19c7fa2f2f637385c85c3c2e4}\label{puzzle_8c_a44dd41a19c7fa2f2f637385c85c3c2e4} 
+\index{puzzle.c@{puzzle.c}!HAUTEUR\_PIECE@{HAUTEUR\_PIECE}}
+\index{HAUTEUR\_PIECE@{HAUTEUR\_PIECE}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{HAUTEUR\_PIECE}{HAUTEUR\_PIECE}}
+{\footnotesize\ttfamily \#define HAUTEUR\+\_\+\+PIECE~(\mbox{\hyperlink{puzzle_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}} / \mbox{\hyperlink{puzzle_8c_ac254dc5342b3b9b08dffa9ab67d1dee2}{NUM\+\_\+\+PIECES\+\_\+Y}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00011}{11}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}\label{puzzle_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc} 
+\index{puzzle.c@{puzzle.c}!LARGEUR@{LARGEUR}}
+\index{LARGEUR@{LARGEUR}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{LARGEUR}{LARGEUR}}
+{\footnotesize\ttfamily \#define LARGEUR~800}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00006}{6}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_aa48fcadcf8736236dea16d28dbda19e1}\label{puzzle_8c_aa48fcadcf8736236dea16d28dbda19e1} 
+\index{puzzle.c@{puzzle.c}!LARGEUR\_PIECE@{LARGEUR\_PIECE}}
+\index{LARGEUR\_PIECE@{LARGEUR\_PIECE}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{LARGEUR\_PIECE}{LARGEUR\_PIECE}}
+{\footnotesize\ttfamily \#define LARGEUR\+\_\+\+PIECE~(\mbox{\hyperlink{puzzle_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}} / \mbox{\hyperlink{puzzle_8c_a24ed5c66d297fc087be88f357216c9d3}{NUM\+\_\+\+PIECES\+\_\+X}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00010}{10}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a24ed5c66d297fc087be88f357216c9d3}\label{puzzle_8c_a24ed5c66d297fc087be88f357216c9d3} 
+\index{puzzle.c@{puzzle.c}!NUM\_PIECES\_X@{NUM\_PIECES\_X}}
+\index{NUM\_PIECES\_X@{NUM\_PIECES\_X}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{NUM\_PIECES\_X}{NUM\_PIECES\_X}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+PIECES\+\_\+X~9}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00008}{8}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_ac254dc5342b3b9b08dffa9ab67d1dee2}\label{puzzle_8c_ac254dc5342b3b9b08dffa9ab67d1dee2} 
+\index{puzzle.c@{puzzle.c}!NUM\_PIECES\_Y@{NUM\_PIECES\_Y}}
+\index{NUM\_PIECES\_Y@{NUM\_PIECES\_Y}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{NUM\_PIECES\_Y}{NUM\_PIECES\_Y}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+PIECES\+\_\+Y~5}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00009}{9}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a11d418779cd7caa30c17c08ce3562f3a}\label{puzzle_8c_a11d418779cd7caa30c17c08ce3562f3a} 
+\index{puzzle.c@{puzzle.c}!TOTAL\_PIECES@{TOTAL\_PIECES}}
+\index{TOTAL\_PIECES@{TOTAL\_PIECES}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{TOTAL\_PIECES}{TOTAL\_PIECES}}
+{\footnotesize\ttfamily \#define TOTAL\+\_\+\+PIECES~(\mbox{\hyperlink{puzzle_8c_a24ed5c66d297fc087be88f357216c9d3}{NUM\+\_\+\+PIECES\+\_\+X}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{puzzle_8c_ac254dc5342b3b9b08dffa9ab67d1dee2}{NUM\+\_\+\+PIECES\+\_\+Y}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{puzzle_8c_a8e0a0e4e319860a82f6b8af55b250e32}\label{puzzle_8c_a8e0a0e4e319860a82f6b8af55b250e32} 
+\index{puzzle.c@{puzzle.c}!afficher\_rendu@{afficher\_rendu}}
+\index{afficher\_rendu@{afficher\_rendu}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_rendu()}{afficher\_rendu()}}
+{\footnotesize\ttfamily void afficher\+\_\+rendu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+puzzle,  }\item[{SDL\+\_\+\+Rect}]{rectangle\+\_\+piece\mbox{[}\+TOTAL\+\_\+\+PIECES\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00096}{96}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a5f4da83cc7ff43b4152e4d7924375da8}\label{puzzle_8c_a5f4da83cc7ff43b4152e4d7924375da8} 
+\index{puzzle.c@{puzzle.c}!chargement\_image@{chargement\_image}}
+\index{chargement\_image@{chargement\_image}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{chargement\_image()}{chargement\_image()}}
+{\footnotesize\ttfamily int chargement\+\_\+image (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+puzzle }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00056}{56}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a6ab3193731a8b731706b29079e9b1077}\label{puzzle_8c_a6ab3193731a8b731706b29079e9b1077} 
+\index{puzzle.c@{puzzle.c}!estPieceProchePositionCorrecte@{estPieceProchePositionCorrecte}}
+\index{estPieceProchePositionCorrecte@{estPieceProchePositionCorrecte}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{estPieceProchePositionCorrecte()}{estPieceProchePositionCorrecte()}}
+{\footnotesize\ttfamily int est\+Piece\+Proche\+Position\+Correcte (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect}]{piece\+Rect,  }\item[{SDL\+\_\+\+Rect}]{correct\+Rect }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00110}{110}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_ae67089efdbb0ccb35bb54f6822417356}\label{puzzle_8c_ae67089efdbb0ccb35bb54f6822417356} 
+\index{puzzle.c@{puzzle.c}!fermeture\_SDL@{fermeture\_SDL}}
+\index{fermeture\_SDL@{fermeture\_SDL}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{fermeture\_SDL()}{fermeture\_SDL()}}
+{\footnotesize\ttfamily void fermeture\+\_\+\+SDL (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{texture\+\_\+image\+\_\+puzzle }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00075}{75}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a254684c3749948cf20b164c603c2d984}\label{puzzle_8c_a254684c3749948cf20b164c603c2d984} 
+\index{puzzle.c@{puzzle.c}!initialisation\_SDL@{initialisation\_SDL}}
+\index{initialisation\_SDL@{initialisation\_SDL}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{initialisation\_SDL()}{initialisation\_SDL()}}
+{\footnotesize\ttfamily int initialisation\+\_\+\+SDL (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00026}{26}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{puzzle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{puzzle.c@{puzzle.c}!main@{main}}
+\index{main@{main}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00126}{126}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a0463852b40518d1c673f50232210bcc4}\label{puzzle_8c_a0463852b40518d1c673f50232210bcc4} 
+\index{puzzle.c@{puzzle.c}!melange\_piece@{melange\_piece}}
+\index{melange\_piece@{melange\_piece}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{melange\_piece()}{melange\_piece()}}
+{\footnotesize\ttfamily void melange\+\_\+piece (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect}]{rectangle\+\_\+piece\mbox{[}\+TOTAL\+\_\+\+PIECES\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00089}{89}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a70ab67ed4b5b65143ff56559fe3dd0c7}\label{puzzle_8c_a70ab67ed4b5b65143ff56559fe3dd0c7} 
+\index{puzzle.c@{puzzle.c}!rectangle\_piece\_aleatoire@{rectangle\_piece\_aleatoire}}
+\index{rectangle\_piece\_aleatoire@{rectangle\_piece\_aleatoire}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{rectangle\_piece\_aleatoire()}{rectangle\_piece\_aleatoire()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect rectangle\+\_\+piece\+\_\+aleatoire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00016}{16}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+
+\Hypertarget{puzzle_8c_a8e3539618d8e6a03aa8dd19ad29a47ee}\label{puzzle_8c_a8e3539618d8e6a03aa8dd19ad29a47ee} 
+\index{puzzle.c@{puzzle.c}!verification\_puzzle\_fini@{verification\_puzzle\_fini}}
+\index{verification\_puzzle\_fini@{verification\_puzzle\_fini}!puzzle.c@{puzzle.c}}
+\doxysubsubsection{\texorpdfstring{verification\_puzzle\_fini()}{verification\_puzzle\_fini()}}
+{\footnotesize\ttfamily int verification\+\_\+puzzle\+\_\+fini (\begin{DoxyParamCaption}\item[{const int}]{piece\+\_\+bloquer\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em piece\+\_\+bloquee} & tableau des pièces bloquées \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+renvoie un booléen (1 si le puzzle est valide sinon 0) 
+\end{DoxyReturn}
+Au moins une pièce n\textquotesingle{}est pas verrouillée
+
+Toutes les pièces sont verrouillées
+
+Définition à la ligne \mbox{\hyperlink{puzzle_8c_source_l00117}{117}} du fichier \mbox{\hyperlink{puzzle_8c_source}{puzzle.\+c}}.
+

@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Metatravers:  Fichier source de Save/Programme/fichiers_c/puzzle.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Metatravers
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('puzzle_8c_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">puzzle.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="puzzle_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a3d3bf5a2f88b1dba6c6bc13bf889c3cc">    6</a></span><span class="preprocessor">#define LARGEUR 800</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="puzzle_8c.html#ad629b1db4ee230dc5de47de843476e72">    7</a></span><span class="preprocessor">#define HAUTEUR 260</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a24ed5c66d297fc087be88f357216c9d3">    8</a></span><span class="preprocessor">#define NUM_PIECES_X 9</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="puzzle_8c.html#ac254dc5342b3b9b08dffa9ab67d1dee2">    9</a></span><span class="preprocessor">#define NUM_PIECES_Y 5</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">   10</a></span><span class="preprocessor">#define LARGEUR_PIECE (LARGEUR / NUM_PIECES_X)</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">   11</a></span><span class="preprocessor">#define HAUTEUR_PIECE (HAUTEUR / NUM_PIECES_Y)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">   12</a></span><span class="preprocessor">#define TOTAL_PIECES (NUM_PIECES_X * NUM_PIECES_Y)</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a3fecc14bc5fc72b12782dce9eaf4b662">   13</a></span><span class="preprocessor">#define CORRECT_DISTANCE 10</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/* Fonction pour obtenir un rectangle représentant une pièce de puzzle aléatoire */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a70ab67ed4b5b65143ff56559fe3dd0c7">   16</a></span>SDL_Rect <a class="code hl_function" href="puzzle_8c.html#a70ab67ed4b5b65143ff56559fe3dd0c7">rectangle_piece_aleatoire</a>() {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    SDL_Rect rectangle_aleatoire;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    rectangle_aleatoire.w = <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    rectangle_aleatoire.h = <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    rectangle_aleatoire.x = rand() % (<a class="code hl_define" href="puzzle_8c.html#a3d3bf5a2f88b1dba6c6bc13bf889c3cc">LARGEUR</a> - <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    rectangle_aleatoire.y = rand() % (<a class="code hl_define" href="puzzle_8c.html#ad629b1db4ee230dc5de47de843476e72">HAUTEUR</a> - <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> rectangle_aleatoire;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/* Fonction d&#39;initialisation de SDL */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a254684c3749948cf20b164c603c2d984">   26</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="puzzle_8c.html#a254684c3749948cf20b164c603c2d984">initialisation_SDL</a>(SDL_Window** window, SDL_Renderer** renderer) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        printf(<span class="stringliteral">&quot;SDL could not initialize! SDL Error: %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    (*window) = SDL_CreateWindow(<span class="stringliteral">&quot;Puzzle Game&quot;</span>, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, <a class="code hl_define" href="puzzle_8c.html#a3d3bf5a2f88b1dba6c6bc13bf889c3cc">LARGEUR</a>, <a class="code hl_define" href="puzzle_8c.html#ad629b1db4ee230dc5de47de843476e72">HAUTEUR</a>, SDL_WINDOW_SHOWN);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">if</span> ((*window) == NULL) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        printf(<span class="stringliteral">&quot;Window could not be created! SDL Error: %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    (*renderer) = SDL_CreateRenderer((*window), -1, SDL_RENDERER_ACCELERATED);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span> ((*renderer) == NULL) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        printf(<span class="stringliteral">&quot;Renderer could not be created! SDL Error: %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    SDL_SetRenderDrawColor((*renderer), 0xFF, 0xFF, 0xFF, 0xFF);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">int</span> imgFlags = IMG_INIT_PNG;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">if</span> (!(IMG_Init(imgFlags) &amp; imgFlags)) {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        printf(<span class="stringliteral">&quot;SDL_image could not initialize! SDL_image Error: %s\n&quot;</span>, IMG_GetError());</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/* Fonction de chargement de l&#39;image du puzzle */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a5f4da83cc7ff43b4152e4d7924375da8">   56</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="puzzle_8c.html#a5f4da83cc7ff43b4152e4d7924375da8">chargement_image</a>(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    SDL_Surface* surface = IMG_Load(<span class="stringliteral">&quot;../images/puzzle/puzzle_ventilo.png&quot;</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (surface == NULL) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        printf(<span class="stringliteral">&quot;Unable to load image! SDL_image Error: %s\n&quot;</span>, IMG_GetError());</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    (*texture_image_puzzle) = SDL_CreateTextureFromSurface((*renderer), surface);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">if</span> ((*texture_image_puzzle) == NULL) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        printf(<span class="stringliteral">&quot;Unable to create texture from image! SDL Error: %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    SDL_FreeSurface(surface);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> 1; </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/* Fonction de fermeture de SDL */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="puzzle_8c.html#ae67089efdbb0ccb35bb54f6822417356">   75</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="puzzle_8c.html#ae67089efdbb0ccb35bb54f6822417356">fermeture_SDL</a>(SDL_Window** window, SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    SDL_DestroyTexture((*texture_image_puzzle));</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    (*texture_image_puzzle) = NULL;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    SDL_DestroyRenderer((*renderer));</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    SDL_DestroyWindow((*window));</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    (*window) = NULL;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    (*renderer) = NULL;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    IMG_Quit();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    SDL_Quit();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">/* Fonction pour mélanger les pièces du puzzle */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a0463852b40518d1c673f50232210bcc4">   89</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="puzzle_8c.html#a0463852b40518d1c673f50232210bcc4">melange_piece</a>(SDL_Rect rectangle_piece[<a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>]) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>; ++i) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        rectangle_piece[i] = <a class="code hl_function" href="puzzle_8c.html#a70ab67ed4b5b65143ff56559fe3dd0c7">rectangle_piece_aleatoire</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">/* Fonction pour afficher le rendu du puzzle */</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a8e0a0e4e319860a82f6b8af55b250e32">   96</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="puzzle_8c.html#a8e0a0e4e319860a82f6b8af55b250e32">afficher_rendu</a>(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[<a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>]) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// Nettoyer le rendu</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    SDL_RenderClear((*renderer));</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>; ++i) {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        SDL_Rect sourceRect = {i % <a class="code hl_define" href="puzzle_8c.html#a24ed5c66d297fc087be88f357216c9d3">NUM_PIECES_X</a> * <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>, i / <a class="code hl_define" href="puzzle_8c.html#a24ed5c66d297fc087be88f357216c9d3">NUM_PIECES_X</a> * <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>, <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>, <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>};</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        SDL_RenderCopy((*renderer), (*texture_image_puzzle), &amp;sourceRect, &amp;rectangle_piece[i]);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    SDL_RenderPresent((*renderer));</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">/* Fonction pour vérifier si une pièce est proche de sa position correcte */</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a6ab3193731a8b731706b29079e9b1077">  110</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="puzzle_8c.html#a6ab3193731a8b731706b29079e9b1077">estPieceProchePositionCorrecte</a>(SDL_Rect pieceRect, SDL_Rect correctRect) {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">int</span> distanceX = abs(pieceRect.x - correctRect.x);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">int</span> distanceY = abs(pieceRect.y - correctRect.y);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">return</span> (distanceX &lt;= <a class="code hl_define" href="puzzle_8c.html#a3fecc14bc5fc72b12782dce9eaf4b662">CORRECT_DISTANCE</a> &amp;&amp; distanceY &lt;= <a class="code hl_define" href="puzzle_8c.html#a3fecc14bc5fc72b12782dce9eaf4b662">CORRECT_DISTANCE</a>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">/* Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte) */</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="puzzle_8c.html#a8e3539618d8e6a03aa8dd19ad29a47ee">  117</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="puzzle_8c.html#a8e3539618d8e6a03aa8dd19ad29a47ee">verification_puzzle_fini</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> piece_bloquer[]) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>; ++i) {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> (!piece_bloquer[i]) {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">return</span> 0; <span class="comment">// Au moins une pièce n&#39;est pas verrouillée</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">return</span> 1; <span class="comment">// Toutes les pièces sont verrouillées</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="puzzle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  126</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="puzzle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="comment">/* Initialisation */</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    SDL_Window* window = NULL;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    SDL_Renderer* renderer = NULL;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    SDL_Texture* texture_image_puzzle = NULL;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    SDL_Rect rectangle_piece[<a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>];</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    SDL_Rect emplacement_rectangle_piece[<a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>];</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    SDL_Event event;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">int</span> quit = 1;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">int</span> position_x, position_y;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">int</span> piece_selectionnee = -1;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="comment">/* Décalage en X/Y entre le coin supérieur gauche de la pièce et la position du curseur de la souris */</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">int</span> decalage_x = 0;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">int</span> decalage_y = 0;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="comment">/* Initialise toutes les pièces comme non verrouillées */</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">int</span> piece_bloquer[<a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>] = {0};</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment">/* Initialisation de SDL */</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="puzzle_8c.html#a254684c3749948cf20b164c603c2d984">initialisation_SDL</a>(&amp;window, &amp;renderer)) {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        printf(<span class="stringliteral">&quot;Erreur d&#39;initialisation!\n&quot;</span>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="comment">/* Chargement de l&#39;image du puzzle */</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="puzzle_8c.html#a5f4da83cc7ff43b4152e4d7924375da8">chargement_image</a>(&amp;renderer, &amp;texture_image_puzzle)) {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        printf(<span class="stringliteral">&quot;Erreur chargement image!\n&quot;</span>);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">/* Calcul des rectangles pour chaque pièce du puzzle et des emplacements corrects */</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; <a class="code hl_define" href="puzzle_8c.html#ac254dc5342b3b9b08dffa9ab67d1dee2">NUM_PIECES_Y</a>; ++y) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; <a class="code hl_define" href="puzzle_8c.html#a24ed5c66d297fc087be88f357216c9d3">NUM_PIECES_X</a>; ++x) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordtype">int</span> indice = y * <a class="code hl_define" href="puzzle_8c.html#a24ed5c66d297fc087be88f357216c9d3">NUM_PIECES_X</a> + x;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            rectangle_piece[indice].w = <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            rectangle_piece[indice].h = <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            rectangle_piece[indice].x = x * <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            rectangle_piece[indice].y = y * <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            emplacement_rectangle_piece[indice].x = x * <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            emplacement_rectangle_piece[indice].y = y * <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            emplacement_rectangle_piece[indice].w = <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            emplacement_rectangle_piece[indice].h = <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">/* Initialisation de srand pour la génération de pièces aléatoires*/</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    srand(time(NULL));</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="comment">/* Mélange des pièces du puzzle */</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_function" href="puzzle_8c.html#a0463852b40518d1c673f50232210bcc4">melange_piece</a>(rectangle_piece);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="comment">/* Boucle principale */</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">while</span> (quit) {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">while</span> (SDL_PollEvent(&amp;event) != 0) {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keywordflow">switch</span>(event.type){</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                <span class="keywordflow">case</span> SDL_QUIT :</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                    quit = 0;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                <span class="keywordflow">case</span> SDL_MOUSEBUTTONDOWN :</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                    SDL_GetMouseState(&amp;position_x, &amp;position_y);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a>; ++i) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                        <span class="comment">/* Vérifier si l&#39;utilisateur a cliqué sur une pièce non bloquée */</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                        <span class="keywordflow">if</span> (!piece_bloquer[i] &amp;&amp; position_x &gt;= rectangle_piece[i].x &amp;&amp; position_x &lt; rectangle_piece[i].x + <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a> &amp;&amp;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                            position_y &gt;= rectangle_piece[i].y &amp;&amp; position_y &lt; rectangle_piece[i].y + <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>) {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                            <span class="comment">/* Sélectionner la pièce et calculer le décalage de position */</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                            piece_selectionnee = i;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                            decalage_x = position_x - rectangle_piece[i].x;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                            decalage_y = position_y - rectangle_piece[i].y;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                        }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                    }</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <span class="keywordflow">case</span> SDL_MOUSEMOTION:</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                    <span class="keywordflow">if</span> (piece_selectionnee != -1) {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                        position_x = <span class="keyword">event</span>.motion.x;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                        position_y = <span class="keyword">event</span>.motion.y;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                        <span class="comment">/* Assurer que la pièce ne sort pas de l&#39;écran */</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                        rectangle_piece[piece_selectionnee].x = position_x - decalage_x;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                        rectangle_piece[piece_selectionnee].y = position_y - decalage_y;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                        <span class="comment">/* Correction pour empêcher la pièce de sortir de l&#39;écran */</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                        <span class="keywordflow">if</span> (rectangle_piece[piece_selectionnee].x &lt; 0) {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                            rectangle_piece[piece_selectionnee].x = 0;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rectangle_piece[piece_selectionnee].x &gt; <a class="code hl_define" href="puzzle_8c.html#a3d3bf5a2f88b1dba6c6bc13bf889c3cc">LARGEUR</a> - <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>) {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                            rectangle_piece[piece_selectionnee].x = <a class="code hl_define" href="puzzle_8c.html#a3d3bf5a2f88b1dba6c6bc13bf889c3cc">LARGEUR</a> - <a class="code hl_define" href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                        }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                        <span class="keywordflow">if</span> (rectangle_piece[piece_selectionnee].y &lt; 0) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                            rectangle_piece[piece_selectionnee].y = 0;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rectangle_piece[piece_selectionnee].y &gt; <a class="code hl_define" href="puzzle_8c.html#ad629b1db4ee230dc5de47de843476e72">HAUTEUR</a> - <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>) {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                            rectangle_piece[piece_selectionnee].y = <a class="code hl_define" href="puzzle_8c.html#ad629b1db4ee230dc5de47de843476e72">HAUTEUR</a> - <a class="code hl_define" href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a>;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                        }</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                    }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                <span class="keywordflow">case</span> SDL_MOUSEBUTTONUP:</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                    <span class="keywordflow">if</span> (piece_selectionnee != -1) {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                        <span class="comment">/* Vérifier si la pièce est à proximité de sa position correcte */</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                        <span class="keywordflow">if</span> (<a class="code hl_function" href="puzzle_8c.html#a6ab3193731a8b731706b29079e9b1077">estPieceProchePositionCorrecte</a>(rectangle_piece[piece_selectionnee], emplacement_rectangle_piece[piece_selectionnee])) {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                            <span class="comment">/* Déplacer la pièce à sa position correcte et bloquer son mouvement */</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                            rectangle_piece[piece_selectionnee] = emplacement_rectangle_piece[piece_selectionnee];</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                            piece_bloquer[piece_selectionnee] = 1; <span class="comment">/* Verrouiller la pièce */</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                        }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                        piece_selectionnee = -1; <span class="comment">/* Réinitialiser la pièce sélectionnée */</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                    }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            }</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="comment">/* Vérifier si toutes les pièces sont bloquées à leur position correcte */</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="puzzle_8c.html#a8e3539618d8e6a03aa8dd19ad29a47ee">verification_puzzle_fini</a>(piece_bloquer)) {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            printf(<span class="stringliteral">&quot;Niveau terminé !\n&quot;</span>);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            quit = 0;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="comment">/* Nettoyer le rendu */</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        SDL_RenderClear(renderer);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <a class="code hl_function" href="puzzle_8c.html#a8e0a0e4e319860a82f6b8af55b250e32">afficher_rendu</a>(&amp;renderer, &amp;texture_image_puzzle, rectangle_piece);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    }</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <a class="code hl_function" href="puzzle_8c.html#ae67089efdbb0ccb35bb54f6822417356">fermeture_SDL</a>(&amp;window, &amp;renderer, &amp;texture_image_puzzle);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
+<div class="ttc" id="apuzzle_8c_html_a0463852b40518d1c673f50232210bcc4"><div class="ttname"><a href="puzzle_8c.html#a0463852b40518d1c673f50232210bcc4">melange_piece</a></div><div class="ttdeci">void melange_piece(SDL_Rect rectangle_piece[TOTAL_PIECES])</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00089">puzzle.c:89</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a11d418779cd7caa30c17c08ce3562f3a"><div class="ttname"><a href="puzzle_8c.html#a11d418779cd7caa30c17c08ce3562f3a">TOTAL_PIECES</a></div><div class="ttdeci">#define TOTAL_PIECES</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00012">puzzle.c:12</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a24ed5c66d297fc087be88f357216c9d3"><div class="ttname"><a href="puzzle_8c.html#a24ed5c66d297fc087be88f357216c9d3">NUM_PIECES_X</a></div><div class="ttdeci">#define NUM_PIECES_X</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00008">puzzle.c:8</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a254684c3749948cf20b164c603c2d984"><div class="ttname"><a href="puzzle_8c.html#a254684c3749948cf20b164c603c2d984">initialisation_SDL</a></div><div class="ttdeci">int initialisation_SDL(SDL_Window **window, SDL_Renderer **renderer)</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00026">puzzle.c:26</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a3d3bf5a2f88b1dba6c6bc13bf889c3cc"><div class="ttname"><a href="puzzle_8c.html#a3d3bf5a2f88b1dba6c6bc13bf889c3cc">LARGEUR</a></div><div class="ttdeci">#define LARGEUR</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00006">puzzle.c:6</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a3fecc14bc5fc72b12782dce9eaf4b662"><div class="ttname"><a href="puzzle_8c.html#a3fecc14bc5fc72b12782dce9eaf4b662">CORRECT_DISTANCE</a></div><div class="ttdeci">#define CORRECT_DISTANCE</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00013">puzzle.c:13</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a44dd41a19c7fa2f2f637385c85c3c2e4"><div class="ttname"><a href="puzzle_8c.html#a44dd41a19c7fa2f2f637385c85c3c2e4">HAUTEUR_PIECE</a></div><div class="ttdeci">#define HAUTEUR_PIECE</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00011">puzzle.c:11</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a5f4da83cc7ff43b4152e4d7924375da8"><div class="ttname"><a href="puzzle_8c.html#a5f4da83cc7ff43b4152e4d7924375da8">chargement_image</a></div><div class="ttdeci">int chargement_image(SDL_Renderer **renderer, SDL_Texture **texture_image_puzzle)</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00056">puzzle.c:56</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a6ab3193731a8b731706b29079e9b1077"><div class="ttname"><a href="puzzle_8c.html#a6ab3193731a8b731706b29079e9b1077">estPieceProchePositionCorrecte</a></div><div class="ttdeci">int estPieceProchePositionCorrecte(SDL_Rect pieceRect, SDL_Rect correctRect)</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00110">puzzle.c:110</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a70ab67ed4b5b65143ff56559fe3dd0c7"><div class="ttname"><a href="puzzle_8c.html#a70ab67ed4b5b65143ff56559fe3dd0c7">rectangle_piece_aleatoire</a></div><div class="ttdeci">SDL_Rect rectangle_piece_aleatoire()</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00016">puzzle.c:16</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a8e0a0e4e319860a82f6b8af55b250e32"><div class="ttname"><a href="puzzle_8c.html#a8e0a0e4e319860a82f6b8af55b250e32">afficher_rendu</a></div><div class="ttdeci">void afficher_rendu(SDL_Renderer **renderer, SDL_Texture **texture_image_puzzle, SDL_Rect rectangle_piece[TOTAL_PIECES])</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00096">puzzle.c:96</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_a8e3539618d8e6a03aa8dd19ad29a47ee"><div class="ttname"><a href="puzzle_8c.html#a8e3539618d8e6a03aa8dd19ad29a47ee">verification_puzzle_fini</a></div><div class="ttdeci">int verification_puzzle_fini(const int piece_bloquer[])</div><div class="ttdoc">Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte)</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00117">puzzle.c:117</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_aa48fcadcf8736236dea16d28dbda19e1"><div class="ttname"><a href="puzzle_8c.html#aa48fcadcf8736236dea16d28dbda19e1">LARGEUR_PIECE</a></div><div class="ttdeci">#define LARGEUR_PIECE</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00010">puzzle.c:10</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_ac254dc5342b3b9b08dffa9ab67d1dee2"><div class="ttname"><a href="puzzle_8c.html#ac254dc5342b3b9b08dffa9ab67d1dee2">NUM_PIECES_Y</a></div><div class="ttdeci">#define NUM_PIECES_Y</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00009">puzzle.c:9</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_ad629b1db4ee230dc5de47de843476e72"><div class="ttname"><a href="puzzle_8c.html#ad629b1db4ee230dc5de47de843476e72">HAUTEUR</a></div><div class="ttdeci">#define HAUTEUR</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00007">puzzle.c:7</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="puzzle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00126">puzzle.c:126</a></div></div>
+<div class="ttc" id="apuzzle_8c_html_ae67089efdbb0ccb35bb54f6822417356"><div class="ttname"><a href="puzzle_8c.html#ae67089efdbb0ccb35bb54f6822417356">fermeture_SDL</a></div><div class="ttdeci">void fermeture_SDL(SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **texture_image_puzzle)</div><div class="ttdef"><b>Definition</b> <a href="puzzle_8c_source.html#l00075">puzzle.c:75</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1fb9562a33eaf61d0b2d491c400f7d15.html">Save</a></li><li class="navelem"><a class="el" href="dir_b906b13e3fbb5a32875e59eddac6c230.html">Programme</a></li><li class="navelem"><a class="el" href="dir_b31ae90e1440475dc4d6c8240a862049.html">fichiers_c</a></li><li class="navelem"><a class="el" href="puzzle_8c.html">puzzle.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

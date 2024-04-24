@@ -1,7 +1,29 @@
+/**
+ * \file fonctions_niveau_4.c
+ * \brief Fichier contenant les fonctions servant à la gestion du niveau 3  
+*/
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_3.h>
 
-/* Fonction qui permet d'initialiser les différents objets du niveau 3 */
+/** 
+ * \fn void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surface, SDL_Texture **texture_image_fond_niveau_3, SDL_Texture **texture_image_dossier_niveau_3, SDL_Texture **texture_image_sol_niveau_3, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2,  SDL_Texture **barre_windows_3, SDL_Texture **barre_windows_4, SDL_Texture **texture_image_puzzle, SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe)
+ * \brief Fonction qui permet d'initialiser les différents objets du niveau 2 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param surface Pointeur vers la surface SDL.
+ * \param texture_image_fond_niveau_3 Texture de l'image de fond du niveau 3.
+ * \param texture_image_dossier_niveau_3 Texture de l'image du dossier pour le niveau 3.
+ * \param texture_image_sol_niveau_3 Texture de l'image du sol du niveau 3.
+ * \param barre_windows_1 Texture de la barre Windows 1.
+ * \param barre_windows_2 Texture de la barre Windows 2.
+ * \param barre_windows_3 Texture de la barre Windows 3.
+ * \param barre_windows_4 Texture de la barre Windows 4.
+ * \param texture_image_puzzle Texture de l'image du puzzle.
+ * \param texture_image_sol_labyrinthe Texture de l'image du sol du labyrinthe.
+ * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure du labyrinthe.
+ * \param texture_image_fin_labyrinthe Texture de l'image de fin du labyrinthe.
+ * \see chargement_image
+ */
 void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surface,
                                     SDL_Texture **texture_image_fond_niveau_3, SDL_Texture **texture_image_dossier_niveau_3,
                                     SDL_Texture **texture_image_sol_niveau_3, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, 
@@ -24,7 +46,13 @@ void initialisation_objets_niveau_3(SDL_Renderer **renderer, SDL_Surface **surfa
     chargement_image(renderer, surface, texture_image_fin_labyrinthe, "./images/labyrinthe/fin_labyrinthe.png");
 }
 
-/* Fonction pour obtenir un rectangle représentant une pièce de puzzle aléatoire */
+/** 
+ * \fn SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur)
+ * \brief Fonction pour obtenir un rectangle représentant une pièce de puzzle aléatoire
+ * \param largeur représente la largeur du rectangle de la fenêtre ou se trouve le mini-jeu
+ * \param hauteur représente la hauteur du rectangle de la fenêtre ou se trouve le mini-jeu
+ * 
+ */
 SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur) {
 
     SDL_Rect rectangle_aleatoire;
@@ -37,7 +65,14 @@ SDL_Rect rectangle_piece_aleatoire(int largeur, int hauteur) {
     return rectangle_aleatoire;
 }
 
-/* Fonction qui permet de mettre à jour le rendu du premier mini_jeu du niveau 3 */
+/** 
+ * \fn void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[45])  
+ * \brief Fonction pour afficher le rendu du puzzle 
+ * \param renderer rendu de l'écran
+ * \param texture_image_puzzle  image final du puzzle 
+ * \param rectangle_piece les différentes pièces du puzzle 
+ * \see erreur
+ */
 void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** texture_image_puzzle, SDL_Rect rectangle_piece[45],
                                      SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix) {
 
@@ -68,13 +103,24 @@ void mise_a_jour_mini_jeu_1_niveau_3(SDL_Renderer** renderer, SDL_Texture** text
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction pour vérifier si une pièce est proche de sa position correcte */
+/** 
+ * \fn int piece_proche_position_correcte(SDL_Rect rectangle_piece, SDL_Rect rectangle_correct)
+ * \brief Fonction pour vérifier si une pièce est proche de sa position correcte 
+ * \param rectangle_piece rectangle représentant la pièce de puzzle à vérifier
+ * \param rectangle_correct rectangle représentant la bonne position de la pièce
+ * \return booléen de si c'est proche de la bonne position (1 si succès sinon 0)
+ */
 int piece_proche_position_correcte(SDL_Rect rectangle_piece, SDL_Rect rectangle_correct) {
 
     return ((abs(rectangle_piece.x - rectangle_correct.x) <= 20) && (abs(rectangle_piece.y - rectangle_correct.y) <= 20));
 }
 
-/* Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte) */
+/**
+ * \fn int verification_puzzle_fini(const int piece_bloquee[]) 
+ * \brief Fonction pour vérifier si toutes les pièces du puzzle sont bloquées (à leur position correcte)
+ * \param piece_bloquee tableau des pièces bloquées 
+ * \return renvoie un booléen (1 si le puzzle est valide sinon 0) 
+ */
 int verification_puzzle_fini(const int piece_bloquee[]) {
 
     int i;
@@ -88,7 +134,16 @@ int verification_puzzle_fini(const int piece_bloquee[]) {
     return 1; /* Toutes les pièces sont verrouillées */
 }
 
-/* Fonction qui permet d'initialiser le second mini-jeu du niveau 3 */
+/** 
+ * \fn void mini_jeu_2_niveau_3(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tile_map[24][32])
+ * \brief Fonction qui permet d'initialiser le second mini-jeu du niveau 3 
+ * \param position_x position x du personnage
+ * \param position_y position y du personnage
+ * \param bloc_x position x du bloc à déplacer 
+ * \param bloc_y position y du bloc à déplacer
+ * \param tile_map map ou se trouve le personnage
+ * 
+ */
 void mini_jeu_2_niveau_3(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tile_map[24][32]) {
 
     int x, y;
@@ -137,8 +192,17 @@ void mini_jeu_2_niveau_3(int *position_x, int *position_y, int *bloc_x, int *blo
         for (x = 0; x < 32; x++)
             tile_map[y][x] = initialisation_tile_map[y][x];
 }
-
-/* Fonction pour traiter les commandes utilisateur */
+/** 
+ * \fn vvoid traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tilemap[24][32],int direction)
+ * \brief Fonction pour traiter les commandes utilisateur 
+ * \param position_x pointeur sur la position x du joueur 
+ * \param position_x pointeur sur la position y du joueur 
+ * \param position_x pointeur sur la position x du bloc à déplacer 
+ * \param position_x pointeur sur la position y du bloc à déplacer
+ * \param tilemap map ou se trouve le personnage te le bloc
+ * \param direction booléen représentant l'action pousser / tirer
+ * 
+ */
 void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc_y, int tilemap[24][32], int direction) {
 
     /* Vérification si le joueur est à côté du bloc */
@@ -252,7 +316,19 @@ void traitement_touches(int *position_x, int *position_y, int *bloc_x, int *bloc
     }
 }
 
-/* Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la fin du labyrinthe */
+/** 
+ * \fn int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_image_mur_termine, int tilemap[24][32], int x_tile, int y_tile, SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile)
+ * \brief Fonction pour mettre à jour les tuiles de bordure lorsque le bloc atteint la fin du labyrinthe 
+ * \param renderer rendu de la fenêtre
+ * \param texture_image_mur_termine Texture du mur quand une partie ou tout le niveau est terminé
+ * \param tilemap map ou se trouve le personnage
+ * \param x_tile position x de la tuile
+ * \param y_tile position y de la tuile
+ * \param rectangle_tile rectangle à déplacer
+ * \param largeur_tile largeur du rectangle
+ * \param hauteur_tile hauteur du rectangle
+ * \return appel récursif pour mettre à jour les différents bloc (termine l'appel récursif à 0)
+ */
 int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_image_mur_termine, int tilemap[24][32], int x_tile, int y_tile,
                                 SDL_Rect *rectangle_tile, int largeur_tile, int hauteur_tile) {
 
@@ -295,7 +371,32 @@ int mise_a_jour_bordures_niveau_3(SDL_Renderer* renderer, SDL_Texture* texture_i
     return 0;
 }
 
-/* Fonction qui permet de mettre à jour le second mini-jeu du niveau 3 */
+/** 
+ * \fn void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif, SDL_Texture **texture_image_sol_labyrinthe, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_fin_labyrinthe, SDL_Texture **texture, SDL_Rect *rectangle_tile, int bloc_x, int bloc_y, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int position_x, int position_y, int tile_map_mini_jeu_niveau_3[24][32], niveaux *avancee_niveaux, int largeur_tile, int hauteur_tile)
+ * \brief Fonction qui permet de mettre à jour le second mini-jeu du niveau 2 
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param modeActif Mode actif du jeu.
+ * \param texture_image_sol_labyrinthe Texture de l'image du sol du labyrinthe.
+ * \param rectangle_plein_ecran Rectangle représentant l'écran complet.
+ * \param texture_image_plein_ecran Texture de l'image de l'écran complet.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur du mini-jeu.
+ * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure du labyrinthe.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \param texture_image_fin_labyrinthe Texture de l'image de fin du labyrinthe.
+ * \param texture Texture utilisée pour le rendu.
+ * \param rectangle_tile Rectangle représentant une tuile.
+ * \param bloc_x Position X du bloc.
+ * \param bloc_y Position Y du bloc.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle représentant le personnage.
+ * \param position_x Position X actuelle.
+ * \param position_y Position Y actuelle.
+ * \param tile_map_mini_jeu_niveau_3 Tableau de tuiles pour le mini-jeu 2 du niveau 3.
+ * \param avancee_niveaux Structure de données représentant l'avancée dans les niveaux.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * 
+ */
 void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif, SDL_Texture **texture_image_sol_labyrinthe,
                                      SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran,
                                      SDL_Texture **texture_image_mur_mini_jeu, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_mur_termine,
@@ -307,7 +408,7 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
 
     int x, y;
 
-    Mix_Chunk *effet_sonore;
+    Mix_Chunk *effet_sonore = NULL;
 
     /* Nettoyer le renderer */
     SDL_SetRenderDrawColor((*renderer), 0, 0, 0, 255);
@@ -497,11 +598,87 @@ void mise_a_jour_mini_jeu_2_niveau_3(SDL_Renderer **renderer, modes_t *modeActif
     if(SDL_RenderCopy((*renderer), (*texture_image_croix), NULL, rectangle_croix) != 0)
         erreur("Copie de la texture");
 
+
     /* Affiche le rendu */
     SDL_RenderPresent((*renderer));
+    
 } 
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les mini-jeux du niveau 3 */
+/** 
+ * \fn void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window,SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,niveaux *avancee_niveaux, int tile_map[18][32],int *mini_jeu, int *mini_jeu_1_termine, int *mini_jeu_2_termine,int *position_x, int *position_y, SDL_Texture **texture,int *largeur, int *hauteur, SDL_Rect *rectangle_demande_quitter,SDL_Surface **surface, SDL_Texture **texture_texte, TTF_Font **police, SDL_Color couleurNoire,itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, int collectibles_intermediaires[3],page_t *page_active, SDL_Rect *rectangle_tile, int *largeur_tile, int *hauteur_tile,int *avancer, int *reculer, int *sauter, int *saut, int *tombe,SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45], int *piece_selectionnee,int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle,int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y,SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe,SDL_Texture **texture_image_fin_labyrinthe, Mix_Music **musique,SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage,SDL_Texture **texture_image_mur_termine, SDL_Texture **texture_image_mur_mini_jeu, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_interagir,SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, modes_t *modeActif)
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans les mini-jeux du niveau 3 
+ * \param event Pointeur vers l'événement SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param rectangle_plein_ecran Rectangle représentant l'écran complet.
+ * \param texture_image_plein_ecran Texture de l'image de l'écran complet.
+ * \param plein_ecran Booléen indiquant si le mode plein écran est activé.
+ * \param avancee_niveaux Structure de données représentant l'avancée dans les niveaux.
+ * \param tile_map Tableau de tuiles du niveau 3.
+ * \param mini_jeu Pointeur vers le numéro du mini-jeu en cours.
+ * \param mini_jeu_1_termine Booléen indiquant si le premier mini-jeu est terminé.
+ * \param mini_jeu_2_termine Booléen indiquant si le deuxième mini-jeu est terminé.
+ * \param position_x Position X du joueur.
+ * \param position_y Position Y du joueur.
+ * \param texture Texture utilisée pour le rendu.
+ * \param largeur Largeur de l'écran.
+ * \param hauteur Hauteur de l'écran.
+ * \param rectangle_demande_quitter Rectangle pour la demande de quitter.
+ * \param surface Surface SDL pour le texte.
+ * \param texture_texte Texture pour le texte.
+ * \param police Police utilisée pour le texte.
+ * \param couleurNoire Couleur noire.
+ * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter.
+ * \param tailleDemandeQuitter Taille du tableau d'items de demande de quitter.
+ * \param collectibles_intermediaires Tableau des collectibles intermédiaires.
+ * \param page_active Page active dans le jeu.
+ * \param rectangle_tile Rectangle représentant une tuile.
+ * \param largeur_tile Largeur d'une tuile.
+ * \param hauteur_tile Hauteur d'une tuile.
+ * \param avancer Booléen indiquant si le personnage avance.
+ * \param reculer Booléen indiquant si le personnage recule.
+ * \param sauter Booléen indiquant si le personnage saute.
+ * \param saut Booléen indiquant si le personnage est en saut.
+ * \param tombe Booléen indiquant si le personnage tombe.
+ * \param rectangle_piece Rectangle représentant une pièce.
+ * \param piece_bloquee Tableau indiquant si une pièce est bloquée.
+ * \param rectangle_emplacement_piece Rectangle représentant un emplacement de pièce.
+ * \param piece_selectionnee Indice de la pièce sélectionnée.
+ * \param decalage_x Décalage en X.
+ * \param decalage_y Décalage en Y.
+ * \param texture_image_puzzle Texture de l'image du puzzle.
+ * \param tile_map_mini_jeu_niveau_3 Tableau de tuiles pour le mini-jeu 3 du niveau 3.
+ * \param descendre Booléen indiquant si le personnage descend.
+ * \param interagir Booléen indiquant si le personnage interagit.
+ * \param bloc_x Position X du bloc.
+ * \param bloc_y Position Y du bloc.
+ * \param texture_image_sol_labyrinthe Texture de l'image du sol du labyrinthe.
+ * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure du labyrinthe.
+ * \param texture_image_fin_labyrinthe Texture de l'image de fin du labyrinthe.
+ * \param musique Pointeur vers la musique.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle représentant le personnage.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur du mini-jeu.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_interagir Touche pour interagir.
+ * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param touche_descendre Touche pour descendre.
+ * \param modeActif Mode actif du jeu.
+ * \see clic_case
+ * \see clic_plein_ecran
+ * \see demande_quitter_niveau
+ * \see redimensionnement_fenetre
+ * \see erreur
+ * \see traitement_touches
+ * \see piece_proche_position_correcte
+ * \see verification_puzzle_fini
+ * \see salon_arrivee_niveaux_2_3
+ * \see mise_a_jour_bordures_niveau_3
+ * \see mise_a_jour_mini_jeu_1_niveau_3
+ * \see mise_a_jour_mini_jeu_2_niveau_3
+ */
 void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **window, SDL_bool *programme_lance,
                         SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                         niveaux *avancee_niveaux, int tile_map[18][32], SDL_Texture **texture_image_croix, SDL_Rect *rectangle_croix,
@@ -530,7 +707,7 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
 
-    Mix_Chunk *effet_sonore;
+    Mix_Chunk *effet_sonore = NULL;
 
     /* Cas où on se trouve dans le premier mini-jeu */
     if((*mini_jeu) == 1) {
@@ -1002,7 +1179,6 @@ void mini_jeux_niveau_3(SDL_Event *event, SDL_Renderer **renderer, SDL_Window **
                 tile_map[5][6] = 5;
             }
         }
-
         /* Mise à jour du rendu */
         mise_a_jour_mini_jeu_2_niveau_3(renderer, modeActif, texture_image_sol_labyrinthe,
                                         rectangle_plein_ecran, texture_image_plein_ecran,

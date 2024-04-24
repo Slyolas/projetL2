@@ -1,9 +1,23 @@
+/**
+ * \file fonctions_arrivee_niveaux_2_3.c
+ * \brief Fichier contenant les fonctions s'occupant du hub du niveau 2 et 3 
+*/
+
+
 #include <../fichiers_h/fonctions_generales.h>
 #include <../fichiers_h/fonctions_niveau_2.h>
 #include <../fichiers_h/fonctions_niveau_3.h>
 #include <../fichiers_h/fonctions_arrivee_niveaux_2_3.h>
 
-/* Fonction qui permet de créer le salon en arrivant dans le niveau 2 ou 3 */
+
+/**
+ * \fn void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active)
+ * \brief Fonction qui permet de créer le salon en arrivant dans le niveau 2 ou 3 
+ * \param position_x pointeur sur la position du personnage sur l'horizontal du tilemap
+ * \param position_y pointeur sur la position du perosnnage sur la verticale du tilemap 
+ * \param tile_map Matrice représentant la map ou se trouve le personnage 
+ * \param page_active Enumération représentant sur quel page on se trouve
+ */
 void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18][32], page_t page_active) {
 
     int x, y;
@@ -78,7 +92,36 @@ void salon_arrivee_niveaux_2_3(int *position_x, int *position_y, int tile_map[18
     }
 }
 
-/* Fonction qui permet de mettre à jour le rendu du salon en arrivant dans le niveau 2 ou 3*/
+
+/**
+ * \fn void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Texture **texture_image_dossier, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, SDL_Texture **barre_windows_3, SDL_Texture **barre_windows_4, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int position_x, int position_y, int tile_map[18][32], niveaux *avancee_niveaux, int largeur, int hauteur, int largeur_tile, int hauteur_tile, page_t page_active) 
+ * \brief Fonction qui permet de mettre à jour le rendu du salon en arrivant dans le niveau 2 ou 3
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param texture_image_fond Texture de l'image de fond.
+ * \param texture_image_sol Texture de l'image du sol.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
+ * \param texture Texture SDL.
+ * \param rectangle_tile Rectangle de la tuile SDL.
+ * \param texture_image_dossier Texture de l'image du dossier.
+ * \param barre_windows_1 Texture de la barre Windows 1.
+ * \param barre_windows_2 Texture de la barre Windows 2.
+ * \param barre_windows_3 Texture de la barre Windows 3.
+ * \param barre_windows_4 Texture de la barre Windows 4.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle du personnage SDL.
+ * \param position_x Position en x.
+ * \param position_y Position en y.
+ * \param tile_map Carte de tuiles.
+ * \param avancee_niveaux Structure de progression des niveaux.
+ * \param largeur Largeur.
+ * \param hauteur Hauteur.
+ * \param largeur_tile Largeur de la tuile.
+ * \param hauteur_tile Hauteur de la tuile.
+ * \param page_active Page active.
+ * \see erreur  
+ */
 void mise_a_jour_rendu_arrivee_niveaux_2_3(SDL_Renderer **renderer, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol,
                                            SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_Texture **texture_image_fin_premiers_niveaux,
                                            SDL_Texture **texture, SDL_Rect *rectangle_tile, SDL_Texture **texture_image_dossier,
@@ -328,7 +371,114 @@ void explications(SDL_Renderer **renderer, SDL_Rect *rectangle_explications, SDL
     SDL_RenderPresent((*renderer));
 }
 
-/* Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le salon en arrivant dans le niveau 2 ou 3 */
+
+/**
+ * \fn void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, int *mini_jeu, SDL_Texture **texture_image_fin_premiers_niveaux, SDL_Texture **texture, SDL_Surface **surface, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran, SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int *mini_jeu_termine, int *mini_jeu_1_termine, int *mini_jeu_2_termine, SDL_Texture **texture_image_fond, SDL_Texture **texture_image_sol, SDL_Texture **texture_image_monstre_terrestre, SDL_Texture **texture_image_monstre_volant, SDL_Keycode *touche_aller_a_droite, SDL_Keycode *touche_aller_a_gauche, SDL_Keycode *touche_interagir, SDL_Texture **texture_image_porte, niveaux *avancee_niveaux, SDL_Keycode *touche_sauter_monter, SDL_Keycode *touche_descendre, SDL_Texture **texture_image_dossier, SDL_Texture **barre_windows_1, SDL_Texture **barre_windows_2, SDL_Texture **barre_windows_3, SDL_Texture **barre_windows_4, int tile_map[18][32], SDL_Rect *rectangle_tile, int *mouvement_monstre, modes_t *modeActif, int *mode_difficile, itemMenu *itemsDemandeQuitter, int tailleDemandeQuitter, SDL_Color couleurNoire, int tile_map_mini_jeu_niveau_2[19][27], SDL_Texture **texture_texte, TTF_Font **police, SDL_Rect *rectangle_demande_quitter, time_t *timestamp, SDL_Texture **texture_image_perso_gagnant, int *avancer, int *reculer, int *sauter, int *position_avant_saut, int *saut, int *tombe, int *position_x_initiale, int *position_y_initiale, int *position_x, int *position_y,  int *largeur, int *hauteur, int *largeur_tile, int *hauteur_tile, page_t *page_active, SDL_Texture **texture_image_mur_mini_jeu, int collectibles_intermediaires[3], SDL_Texture **texture_image_pipe_vertical, SDL_Texture **texture_image_pipe_horizontal, SDL_Texture **texture_image_pipe_haut_droit, SDL_Texture **texture_image_pipe_bas_droit, SDL_Texture **texture_image_pipe_bas_gauche, SDL_Texture **texture_image_pipe_haut_gauche, SDL_Texture **texture_image_pipe_courant, SDL_Texture **texture_image_mur_termine, int *valide, SDL_Rect rectangle_piece[45], int piece_bloquee[45], SDL_Rect rectangle_emplacement_piece[45], int *piece_selectionnee, int *decalage_x, int *decalage_y, SDL_Texture **texture_image_puzzle, Mix_Music **musique, int tile_map_mini_jeu_niveau_3[24][32], int *descendre, int *interagir, int *bloc_x, int *bloc_y, SDL_Texture **texture_image_sol_labyrinthe, SDL_Texture **texture_image_bordure_labyrinthe, SDL_Texture **texture_image_fin_labyrinthe) 
+ * \brief Fonction qui permet de gérer toutes les possibilités qui sont possiblent dans le salon en arrivant dans le niveau 2 ou 3
+ *
+ * Cette fonction prend en charge la gestion de l'arrivée aux niveaux 2 et 3 du jeu.
+ *
+ * \param event Pointeur vers l'événement SDL.
+ * \param window Pointeur vers la fenêtre SDL.
+ * \param renderer Pointeur vers le renderer SDL.
+ * \param mini_jeu Pointeur vers le type de mini-jeu en cours.
+ * \param texture_image_fin_premiers_niveaux Texture de l'image de fin des premiers niveaux.
+ * \param texture Texture SDL.
+ * \param surface Surface SDL.
+ * \param rectangle_plein_ecran Rectangle plein écran SDL.
+ * \param texture_image_plein_ecran Texture de l'image en plein écran.
+ * \param plein_ecran Booléen pour le plein écran.
+ * \param texture_image_personnage Texture de l'image du personnage.
+ * \param rectangle_personnage Rectangle du personnage SDL.
+ * \param mini_jeu_termine Booléen pour le mini-jeu terminé.
+ * \param mini_jeu_1_termine Booléen pour le mini-jeu 1 terminé.
+ * \param mini_jeu_2_termine Booléen pour le mini-jeu 2 terminé.
+ * \param texture_image_fond Texture de l'image de fond.
+ * \param texture_image_sol Texture de l'image du sol.
+ * \param texture_image_monstre_terrestre Texture de l'image du monstre terrestre.
+ * \param texture_image_monstre_volant Texture de l'image du monstre volant.
+ * \param touche_aller_a_droite Touche pour aller à droite.
+ * \param touche_aller_a_gauche Touche pour aller à gauche.
+ * \param touche_interagir Touche pour interagir.
+ * \param texture_image_porte Texture de l'image de porte.
+ * \param avancee_niveaux Structure de progression des niveaux.
+ * \param touche_sauter_monter Touche pour sauter/monter.
+ * \param touche_descendre Touche pour descendre.
+ * \param texture_image_dossier Texture de l'image du dossier.
+ * \param barre_windows_1 Texture de la barre Windows 1.
+ * \param barre_windows_2 Texture de la barre Windows 2.
+ * \param barre_windows_3 Texture de la barre Windows 3.
+ * \param barre_windows_4 Texture de la barre Windows 4.
+ * \param tile_map Carte de tuiles.
+ * \param rectangle_tile Rectangle de la tuile SDL.
+ * \param mouvement_monstre Mouvement du monstre.
+ * \param modeActif Mode actif du jeu.
+ * \param mode_difficile Niveau de difficulté.
+ * \param itemsDemandeQuitter Tableau d'items pour la demande de quitter.
+ * \param tailleDemandeQuitter Taille du tableau d'items pour la demande de quitter.
+ * \param couleurNoire Couleur noire SDL.
+ * \param tile_map_mini_jeu_niveau_2 Carte de tuiles pour le mini-jeu niveau 2.
+ * \param texture_texte Texture du texte SDL.
+ * \param police Police de caractères TTF.
+ * \param rectangle_demande_quitter Rectangle de la demande de quitter.
+ * \param timestamp Timestamp.
+ * \param texture_image_perso_gagnant Texture de l'image du personnage gagnant.
+ * \param avancer Avancer.
+ * \param reculer Reculer.
+ * \param sauter Sauter.
+ * \param position_avant_saut Position avant le saut.
+ * \param saut Saut.
+ * \param tombe Tomber.
+ * \param position_x_initiale Position initiale en x.
+ * \param position_y_initiale Position initiale en y.
+ * \param position_x Position en x.
+ * \param position_y Position en y.
+ * \param largeur Largeur.
+ * \param hauteur Hauteur.
+ * \param largeur_tile Largeur de la tuile.
+ * \param hauteur_tile Hauteur de la tuile.
+ * \param page_active Page active.
+ * \param texture_image_mur_mini_jeu Texture de l'image du mur pour le mini-jeu.
+ * \param collectibles_intermediaires Collectibles intermédiaires.
+ * \param texture_image_pipe_vertical Texture de l'image du tuyau vertical.
+ * \param texture_image_pipe_horizontal Texture de l'image du tuyau horizontal.
+ * \param texture_image_pipe_haut_droit Texture de l'image du tuyau haut droit.
+ * \param texture_image_pipe_bas_droit Texture de l'image du tuyau bas droit.
+ * \param texture_image_pipe_bas_gauche Texture de l'image du tuyau bas gauche.
+ * \param texture_image_pipe_haut_gauche Texture de l'image du tuyau haut gauche.
+ * \param texture_image_pipe_courant Texture de l'image du tuyau courant.
+ * \param texture_image_mur_termine Texture de l'image du mur terminé.
+ * \param valide Valide.
+ * \param rectangle_piece Rectangle des pièces.
+ * \param piece_bloquee Pièce bloquée.
+ * \param rectangle_emplacement_piece Rectangle de l'emplacement de la pièce.
+ * \param piece_selectionnee Pièce sélectionnée.
+ * \param decalage_x Décalage en x.
+ * \param decalage_y Décalage en y.
+ * \param texture_image_puzzle Texture de l'image du puzzle.
+ * \param musique Musique du jeu.
+ * \param tile_map_mini_jeu_niveau_3 Carte de tuiles pour le mini-jeu niveau 3.
+ * \param descendre Descendre.
+ * \param interagir Interagir.
+ * \param bloc_x Bloc en x.
+ * \param bloc_y Bloc en y.
+ * \param texture_image_sol_labyrinthe Texture de l'image du sol pour le labyrinthe.
+ * \param texture_image_bordure_labyrinthe Texture de l'image de la bordure pour le labyrinthe.
+ * \param texture_image_fin_labyrinthe Texture de l'image de fin pour le labyrinthe.
+ * \see erreur
+ * \see redimensionnement_fenetre
+ * \see salon_arrivee_niveaux_2_3
+ * \see demande_quitter_niveau
+ * \see mini_jeux_niveau_2
+ * \see mini_jeu_1_niveau_2
+ * \see mini_jeu_2_niveau_2
+ * \see clic_plein_ecran
+ * \see clic_case
+ * \see deplacement_personnage
+ * \see rectangle_piece_aleatoire
+ * \see mini_jeux_niveau_3
+ * \see mise_a_jour_rendu_arrivee_niveaux_2_3
+ */
 void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **renderer, SDL_bool *programme_lance, int *mini_jeu, SDL_Texture **texture_image_fin_premiers_niveaux,
                          SDL_Texture **texture, SDL_Surface **surface, SDL_Rect *rectangle_plein_ecran, SDL_Texture **texture_image_plein_ecran, SDL_bool *plein_ecran,
                          SDL_Texture **texture_image_personnage, SDL_Rect *rectangle_personnage, int *mini_jeu_termine, int *mini_jeu_1_termine, int *mini_jeu_2_termine,
@@ -359,7 +509,7 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
     SDL_Event event_temporaire;
     SDL_bool clic_effectue = SDL_FALSE;
 
-    Mix_Chunk *effet_sonore;
+    Mix_Chunk *effet_sonore = NULL;
 
     int x, y, i;
 
@@ -1024,7 +1174,6 @@ void arrivee_niveaux_2_3(SDL_Event *event, SDL_Window **window, SDL_Renderer **r
 
         (*page_active) = CARTE;
     }
-
     /* Cas où le joueur n'est pas dans un mini jeu */ 
     if(!(*mini_jeu))
         /* Mise à jour du rendu du salon */

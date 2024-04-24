@@ -1,0 +1,126 @@
+\doxysection{Référence du fichier Save/fichiers\+\_\+h/commun.h}
+\hypertarget{commun_8h}{}\label{commun_8h}\index{Save/fichiers\_h/commun.h@{Save/fichiers\_h/commun.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+Graphe des dépendances par inclusion de commun.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{commun_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{commun_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structniveaux}{niveaux}}
+\item 
+struct \mbox{\hyperlink{structitemMenu}{item\+Menu}}
+\item 
+struct \mbox{\hyperlink{structbarreDeSon}{barre\+De\+Son}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}} \{ \newline
+\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ad84154820fb7cc5480aa99b8e888ef2e}{MENU\+\_\+\+PRINCIPAL}}
+, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a1b20f1b4adb6ff9778b284fb46f6f99d}{OPTIONS}}
+, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88aebc79ee34b720b22062779bedf6344de}{NOUVELLE\+\_\+\+PARTIE}}
+, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a493cde94037928d32cb2a20ff3acbdfe}{INTRODUCTION}}
+, \newline
+\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a4824da671cbd0a1f39934252198189ad}{CARTE}}
+, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ad385b296b3c981b6590afbe05856dff0}{NIVEAU\+\_\+1}}
+, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88a9d63f872b6236b7298787586585e38ec}{NIVEAU\+\_\+2}}
+, \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88ac0c170a1d26779279f731e7a169ae1dc}{NIVEAU\+\_\+3}}
+, \newline
+\mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88adeb9889be8f12532b67ca2b2e68fe0ca}{NIVEAU\+\_\+4}}
+ \}
+\item 
+enum \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{option\+\_\+t}} \{ \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa2e98a954ec1b0246c867b436c6341b3b}{ONGLET\+\_\+\+SON}}
+, \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa7b77d5982c5312b395828ad434f8df7f}{ONGLET\+\_\+\+TOUCHES}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}\label{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a} 
+\index{commun.h@{commun.h}!option\_t@{option\_t}}
+\index{option\_t@{option\_t}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{option\_t}{option\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45a}{option\+\_\+t}}}
+
+Enumération de constantes pour l\textquotesingle{}onglet actif des options \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONGLET\_SON@{ONGLET\_SON}!commun.h@{commun.h}}\index{commun.h@{commun.h}!ONGLET\_SON@{ONGLET\_SON}}}\Hypertarget{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa2e98a954ec1b0246c867b436c6341b3b}\label{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa2e98a954ec1b0246c867b436c6341b3b} 
+ONGLET\+\_\+\+SON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONGLET\_TOUCHES@{ONGLET\_TOUCHES}!commun.h@{commun.h}}\index{commun.h@{commun.h}!ONGLET\_TOUCHES@{ONGLET\_TOUCHES}}}\Hypertarget{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa7b77d5982c5312b395828ad434f8df7f}\label{commun_8h_a98a3d6a4016c9dad9cbd1a99a9c2a45aa7b77d5982c5312b395828ad434f8df7f} 
+ONGLET\+\_\+\+TOUCHES&Indice de l\textquotesingle{}onglet son de la page paramètre Indice de l\textquotesingle{}onglet touche de la page paramètre \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Définition à la ligne \mbox{\hyperlink{commun_8h_source_l00045}{45}} du fichier \mbox{\hyperlink{commun_8h_source}{commun.\+h}}.
+
+\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88}\label{commun_8h_a7153150b299cf930f17d200a89628d88} 
+\index{commun.h@{commun.h}!page\_t@{page\_t}}
+\index{page\_t@{page\_t}!commun.h@{commun.h}}
+\doxysubsubsection{\texorpdfstring{page\_t}{page\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{commun_8h_a7153150b299cf930f17d200a89628d88}{page\+\_\+t}}}
+
+Enumération de constantes pour la page \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MENU\_PRINCIPAL@{MENU\_PRINCIPAL}!commun.h@{commun.h}}\index{commun.h@{commun.h}!MENU\_PRINCIPAL@{MENU\_PRINCIPAL}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88ad84154820fb7cc5480aa99b8e888ef2e}\label{commun_8h_a7153150b299cf930f17d200a89628d88ad84154820fb7cc5480aa99b8e888ef2e} 
+MENU\+\_\+\+PRINCIPAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPTIONS@{OPTIONS}!commun.h@{commun.h}}\index{commun.h@{commun.h}!OPTIONS@{OPTIONS}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88a1b20f1b4adb6ff9778b284fb46f6f99d}\label{commun_8h_a7153150b299cf930f17d200a89628d88a1b20f1b4adb6ff9778b284fb46f6f99d} 
+OPTIONS&Indice page du menu principal \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOUVELLE\_PARTIE@{NOUVELLE\_PARTIE}!commun.h@{commun.h}}\index{commun.h@{commun.h}!NOUVELLE\_PARTIE@{NOUVELLE\_PARTIE}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88aebc79ee34b720b22062779bedf6344de}\label{commun_8h_a7153150b299cf930f17d200a89628d88aebc79ee34b720b22062779bedf6344de} 
+NOUVELLE\+\_\+\+PARTIE&Indice page d\textquotesingle{}options \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INTRODUCTION@{INTRODUCTION}!commun.h@{commun.h}}\index{commun.h@{commun.h}!INTRODUCTION@{INTRODUCTION}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88a493cde94037928d32cb2a20ff3acbdfe}\label{commun_8h_a7153150b299cf930f17d200a89628d88a493cde94037928d32cb2a20ff3acbdfe} 
+INTRODUCTION&Indice page d\textquotesingle{}une Nouvelle partie \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CARTE@{CARTE}!commun.h@{commun.h}}\index{commun.h@{commun.h}!CARTE@{CARTE}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88a4824da671cbd0a1f39934252198189ad}\label{commun_8h_a7153150b299cf930f17d200a89628d88a4824da671cbd0a1f39934252198189ad} 
+CARTE&Indice page d\textquotesingle{}introduction \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_1@{NIVEAU\_1}!commun.h@{commun.h}}\index{commun.h@{commun.h}!NIVEAU\_1@{NIVEAU\_1}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88ad385b296b3c981b6590afbe05856dff0}\label{commun_8h_a7153150b299cf930f17d200a89628d88ad385b296b3c981b6590afbe05856dff0} 
+NIVEAU\+\_\+1&Indice page de la carte \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_2@{NIVEAU\_2}!commun.h@{commun.h}}\index{commun.h@{commun.h}!NIVEAU\_2@{NIVEAU\_2}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88a9d63f872b6236b7298787586585e38ec}\label{commun_8h_a7153150b299cf930f17d200a89628d88a9d63f872b6236b7298787586585e38ec} 
+NIVEAU\+\_\+2&Indice page du niveau 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_3@{NIVEAU\_3}!commun.h@{commun.h}}\index{commun.h@{commun.h}!NIVEAU\_3@{NIVEAU\_3}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88ac0c170a1d26779279f731e7a169ae1dc}\label{commun_8h_a7153150b299cf930f17d200a89628d88ac0c170a1d26779279f731e7a169ae1dc} 
+NIVEAU\+\_\+3&Indice page du niveau 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NIVEAU\_4@{NIVEAU\_4}!commun.h@{commun.h}}\index{commun.h@{commun.h}!NIVEAU\_4@{NIVEAU\_4}}}\Hypertarget{commun_8h_a7153150b299cf930f17d200a89628d88adeb9889be8f12532b67ca2b2e68fe0ca}\label{commun_8h_a7153150b299cf930f17d200a89628d88adeb9889be8f12532b67ca2b2e68fe0ca} 
+NIVEAU\+\_\+4&Indice page du niveau 3 Indice page du niveau 4 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Définition à la ligne \mbox{\hyperlink{commun_8h_source_l00013}{13}} du fichier \mbox{\hyperlink{commun_8h_source}{commun.\+h}}.
+
